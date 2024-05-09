@@ -19,11 +19,11 @@ This content includes:
 ## **Microsoft Phi-3 Cookbook**
 
 * [Introduction]()
-    * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)
+    * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
 * [Quick Start]()
-    * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)
+    * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
     * [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)
-    * [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)
+    * [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
     * [Using Phi-3 in LM Studio](./md/02.QuickStart/Ollama_QuickStart.md)
 * [Inference Phi-3](./md/03.Inference/overview.md)  
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)
