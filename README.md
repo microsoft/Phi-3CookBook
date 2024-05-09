@@ -1,6 +1,20 @@
 # Welcome to Microsoft Phi-3 Cookbook
 
-This is a manual on how to use the Microsoft Phi-3 family. You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. This content includes:
+This is a manual on how to use the Microsoft Phi-3 family. 
+
+Phi-3, a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. 
+
+Phi-3-mini, a 3.8B language model is available on [Microsoft Azure AI Studio](https://aka.ms/phi3-azure-ai), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3). Phi-3 models significantly outperform language models of the same and larger sizes on key benchmarks (see benchmark numbers below, higher is better). Phi-3-mini does better than models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.  
+
+All reported numbers are produced with the same pipeline to ensure that the numbers are comparable. As a result, these numbers may differ from other published numbers due to slight differences in the evaluation methodology. More details on benchmarks are provided in our technical paper. 
+
+![phimodel](https://github.com/microsoft/Phi-3CookBook/assets/2511341/8bb25dfc-616d-44c2-940a-d0e2f0b8c41d)
+
+Note: Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts. 
+
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start with playing with the model on [Azure AI Playground](https://aka.ms/try-phi3). You can also find the model on the [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct). Start building with and customizing Phi-3 for your scenarios using the [Azure AI Studio](https://aka.ms/phi3-azure-ai). 
+
+This content includes:
 
 ## **Microsoft Phi-3 Cookbook**
 
