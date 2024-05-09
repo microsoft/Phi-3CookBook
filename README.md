@@ -1,14 +1,35 @@
-# Project
+# Welcome to Microsoft Phi-3 Cookbook
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This is a manual on how to use the Microsoft Phi-3 family. You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. This content includes:
 
-As the maintainer of this project, please make a few updates:
+## **Microsoft Phi-3 Cookbook**
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+* [Introduce]()
+    * [Phi-3 Family](./md/01.Introduce/Phi3Family.md)
+* [Quick Start]()
+    * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)
+    * [Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)
+    * [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)
+    * [LM Studio](./md/02.QuickStart/Ollama_QuickStart.md)
+* [Inference Phi-3]()
+    * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)
+    * [Inference Phi-3 in Android](./md/03.Inference/Android_Inference.md)
+    * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)
+    * [Inference Phi-3 in AIPC](./md/03.Inference/AIPC_Inference.md)
+    * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)
+* [Fine-tuning Phi-3]()
+    * [Import Data for Phi-3](./md/04.Fine-tuning/Import_Data.md)
+    * [Introduce Azure Machine Learning Service](./md/04.Fine-tuning/Introduce_AzureML.md)
+    * [Introduce Microsoft Olive](./md/04.Fine-tuning/Introduce_Mirosoft_Olive.md)
+    * [Fine-tuning Phi-3 Guideline](./md/04.Fine-tuning/FineTuning_Guideline.md)
+* [Evaluation Phi-3]()
+    * [Introduce Responsible AI](./md/05.Evaluation/ResponsibleAI.md)
+    * [Introduce Promptflow](./md/05.Evaluation/Promptflow.md)
+    * [Using Azure AI Studio to evluation](./md/05.Evaluation/AzureAIStudio.md)
+* [E2E Solution]()
+    * [.NET MAUI Samples](./md/06.Samples/dotNETMAUI_samples.md)
+    * [Azure AI Studio Samples](./md/06.Samples/AzureAIStudio_samples.md)
+    * [Semantic Kernel RAG Samples](./md/06.Samples/SemanticKernel_RAG_samples.md)
 
 ## Contributing
 
