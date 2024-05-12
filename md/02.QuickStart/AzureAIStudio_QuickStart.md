@@ -53,7 +53,7 @@ Go to the deployment page, select Playground, and chat with Phi-3 of Azure AI St
 hen deploying
 
 
-## **3. Using Phi-3 API in Azure AI Studio**
+## **4. Using Phi-3 API in Azure AI Studio**
 
 You can access https://{Your project name}.swedencentral.inference.ml.azure.com/swagger.json through Postman GET and combine it with Key to learn about the provided interfaces
 
