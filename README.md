@@ -29,7 +29,7 @@ This content includes:
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)
     * [Inference Phi-3 in Android](./md/03.Inference/Android_Inference.md)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)
-    * [Inference Phi-3 in AIPC](./md/03.Inference/AIPC_Inference.md)
+    * [Inference Phi-3 in AIPC](./md/03.Inference/AIPC_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)
 * [Fine-tuning Phi-3]()
     * [Import Data for Phi-3](./md/04.Fine-tuning/Import_Data.md)
