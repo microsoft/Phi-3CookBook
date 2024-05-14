@@ -85,7 +85,7 @@ When executing code, we can view the running status of the NPU through Task Mana
 
 
 
-***Samples*** : [](../../code/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
+***Samples*** : [AIPC_NPU_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
 
 
 ## **2. Use DirectML + ONNX Runtime to run Phi-3 Model**
@@ -156,7 +156,7 @@ This is running result
 
 ![DML](../../imgs/03/AIPC/aipc_DML.png)
 
-***Samples*** : [](../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
+***Samples*** : [AIPC_DirectML_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
 
 ## **3. Use Intel OpenVino to run Phi-3 Model**
 
@@ -229,9 +229,9 @@ When executing code, we can view the running status of the GPU through Task Mana
 
 ![openvino_gpu](../../imgs/03/AIPC/aipc_OpenVINO_GPU.png)
 
-***Samples*** : [](../../code/03.Inference/AIPC/AIPC_OpenVino_Demo.ipynb)
+***Samples*** : [AIPC_OpenVino_Demo.ipynb](../../code/03.Inference/AIPC/AIPC_OpenVino_Demo.ipynb)
 
-### ***Note*** : The above three methods each have their own advantages, but it is recommended to use NPU acceleration for AI PC reference.
+### ***Note*** : The above three methods each have their own advantages, but it is recommended to use NPU acceleration for AI PC inference.
 
 
 
