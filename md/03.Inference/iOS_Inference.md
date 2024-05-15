@@ -3,7 +3,7 @@
 
 Phi-3-mini is available in iOS, Android, and Edge Device deployments, allowing generative AI to be deployed in BYOD. The following example deploys Phi-3-mini based on iOS
 
- ## **1. Preparation**
+## **1. Preparation**
 
 
 a. macOS 14+
@@ -47,7 +47,7 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
   c. It is recommended to directly use the latest iOS SDK for compilation. Of course, you can also lower the version to be compatible with past SDKs.
 
 
-### **3. Compiling Generative AI with ONNX Runtime for iOS**
+## **3. Compiling Generative AI with ONNX Runtime for iOS**
 
 
  ***Note:*** Because Generative AI with ONNX Runtime is in preview, please note the changes.
@@ -81,7 +81,7 @@ python3 build.py --parallel --build_dir ./build_ios_simulator --ios --ios_sysroo
 ```
 
 
-### **4. Create an App application in Xcode**
+## **4. Create an App application in Xcode**
 
 I chose Objective-C as the App development method , because using Generative AI with ONNX Runtime C++ API, Objective-C is better compatible. Of course, you can also complete related calls through Swift bridging.
 
@@ -89,7 +89,7 @@ I chose Objective-C as the App development method , because using Generative AI 
 ![xcode](../../imgs/03/iOS/xcode.png)
 
 
-### **E. Copy the ONNX quantized INT4 model to the App application project**
+## **5. Copy the ONNX quantized INT4 model to the App application project**
 
 We need to import the INT4 quantization model in ONNX format, which needs to be downloaded first
 
@@ -101,7 +101,7 @@ After downloading, you need to add it to the Resources directory of the project 
 ![model](../../imgs/03/iOS/model.png)
 
 
- ### **5. Add the C++ API in ViewControllers**
+ ## **6. Add the C++ API in ViewControllers**
  
 ***Notice***:
 
@@ -147,7 +147,7 @@ After downloading, you need to add it to the Resources directory of the project 
 ```
 
 
-### **6. Look at the running results**
+## **7. The running results**
 
 ![result](../../imgs/03/iOS/result.jpg)
 
