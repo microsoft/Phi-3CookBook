@@ -19,7 +19,7 @@ e. Install the Python library - python-flatbuffers
 f. Install CMake
 
 
-### **2. Compiling ONNX Runtime for iOS**
+## **2. Compiling ONNX Runtime for iOS**
 
 ```bash
 
