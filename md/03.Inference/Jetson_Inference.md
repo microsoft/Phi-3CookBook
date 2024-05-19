@@ -2,6 +2,14 @@
 
 Nvidia Jetson is a series of embedded computing boards from Nvidia. The Jetson TK1, TX1 and TX2 models all carry a Tegra processor (or SoC) from Nvidia that integrates an ARM architecture central processing unit (CPU). Jetson is a low-power system and is designed for accelerating machine learning applications.Nvidia Jetson is used by professional developers to create breakthrough AI products across all industries, and by students and enthusiasts for hands-on AI learning and making amazing projects.SLM is deployed in edge devices such as Jetson, which will enable better implementation of industrial generative AI application scenarios.
 
+## Deployment on NVIDIA Jetson:
+Developers working on autonomous robotics and embedded devices can leverage Phi-3 Mini. Phi-3 relatively small size makes it ideal for edge deployment. Parameters have been meticulously tuned during training, ensuring high accuracy in responses.
+
+### TensorRT-LLM Optimization:
+NVIDIA’s [TensorRT-LLM library](https://github.com/NVIDIA/TensorRT-LLM) optimizes large language model inference. It supports Phi-3 Mini’s long context window, enhancing both throughput and latency. Optimizations include techniques like LongRoPE, FP8, and inflight batching.
+
+### Availability and Deployment:
+Developers can explore Phi-3 Mini with the 128K context window at [NVIDIA’s AI](https://www.nvidia.com/ai-data-science/generative-ai/). It’s packaged as an NVIDIA NIM, a microservice with a standard API that can be deployed anywhere. Additionally, the [TensorRT-LLM implementations on GitHub](https://github.com/NVIDIA/TensorRT-LLM).
 
 
  ## **1. Preparation**
@@ -17,9 +25,9 @@ d. Python 3.8+
 
  ## **2. Running Phi-3 in Jetson**
 
- We can choose Ollama to deploy, but personally we recommend using LlamaEdge
+ We can choose [Ollama](https://ollama.com) or [LlamaEdge](https://llamaedge.com)
 
- I have always been a supporter of cross-platform applications. If you want to use gguf in the cloud and edge devices at the same time, LlamaEdge can be your choice. LlamaEdge can be understood as WasmEdge (WasmEdge is a lightweight, high-performance, scalable WebAssembly runtime suitable for cloud native, edge and decentralized applications. It supports serverless applications, embedded functions, microservices, smart contracts and IoT devices. You can deploy gguf's quantitative model to edge devices and the cloud through LlamaEdge.
+ If you want to use gguf in the cloud and edge devices at the same time, LlamaEdge can be understood as WasmEdge (WasmEdge is a lightweight, high-performance, scalable WebAssembly runtime suitable for cloud native, edge and decentralized applications. It supports serverless applications, embedded functions, microservices, smart contracts and IoT devices. You can deploy gguf's quantitative model to edge devices and the cloud through LlamaEdge.
 
 ![llamaedge](../../imgs/03/Jetson/llamaedge.jpg)
 
@@ -56,3 +64,5 @@ Here is the running result
 ![llamaedgerun](../../imgs/03/Jetson/llamaedgerun.png)
 
 ***Sample code*** https://github.com/kinfey/Phi3MiniSamples/tree/main/wasm
+
+In summary, Phi-3 Mini represents a leap forward in language modeling, combining efficiency, context awareness, and NVIDIA’s optimization prowess. Whether you’re building robots or edge applications, Phi-3 Mini is a powerful tool to be aware of. 

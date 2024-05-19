@@ -1,7 +1,6 @@
 # **Inference Phi-3 in iOS**
 
-
-Phi-3-mini is available in iOS, Android, and Edge Device deployments, allowing generative AI to be deployed in BYOD. The following example deploys Phi-3-mini based on iOS
+Phi-3-mini is a new series of models from Microsoft that enables deployment of Large Language Models (LLMs) on edge devices and IoT devices. Phi-3-mini is available in iOS, Android, and Edge Device deployments, allowing generative AI to be deployed in BYOD. The following example deploys Phi-3-mini based on iOS
 
 ## **1. Preparation**
 
@@ -17,6 +16,26 @@ d. Install Python 3.10+ (Conda is recommended)
 e. Install the Python library - python-flatbuffers
 
 f. Install CMake
+
+### Semantic Kernel and Inference:
+Semantic Kernel is an application framework that allows you to create applications compatible with Azure OpenAI Service, OpenAI models, and even local models. Accessing local services through Semantic Kernel allows you to easily connect to your self-built Phi-3-mini model server.
+
+### Calling Quantized Models with Ollama or LlamaEdge:
+Many users prefer using quantized models to run models locally. [Ollama](https://ollama.com) and [LlamaEdge](https://llamaedge.com) allow individual users to call different quantized models:
+
+**Ollama**
+You can directly run ollama run phi3 or configure it offline. Create a Modelfile with the path to your gguf file. Sample code for running Phi-3-mini quantization model:
+
+```
+
+FROM {Add your gguf file path}
+TEMPLATE \"\"\"<|user|> {{.Prompt}}<|end|> <|assistant|>\"\"\"
+PARAMETER stop <|end|>
+PARAMETER num_ctx 4096
+
+```
+**LlamaEdge**
+If you want to use gguf in the cloud and edge devices simultaneously, LlamaEdge can be your choice.
 
 
 ## **2. Compiling ONNX Runtime for iOS**
