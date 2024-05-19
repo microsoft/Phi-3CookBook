@@ -122,7 +122,9 @@ If you’re looking for broader compatibility and ease of setup, DirectML might 
 
 ### **Generative AI with ONNX Runtime**
 
-In the era of AI , the portability of AI models is very important. ONNX Runtime can easily deploy trained models to different devices. Developers do not need to pay attention to the inference framework and use a unified API to complete model inference. In the era of generative AI, ONNX Runtime has also performed code optimization (https: //onnxruntime.ai/docs/genai/). Through the optimized ONNX Runtime, the quantized generative AI model can be inferred on different terminals. In Generative AI with ONNX Runtime, you can inferene AI model API through Python, C#, C / C++. of course,Deployment on iPhone can take advantage of C++'s Generative AI with ONNX Runtime API.
+In the era of AI , the portability of AI models is very important. ONNX Runtime can easily deploy trained models to different devices. Developers do not need to pay attention to the inference framework and use a unified API to complete model inference. In the era of generative AI, ONNX Runtime has also performed code optimization (https: //onnxruntime.ai/docs/genai/). Through the optimized ONNX Runtime, the quantized generative AI model can be inferred on different terminals. In Generative AI with ONNX Runtime, you can inferene AI model API through Python, C#, C / C++. of course,Deployment on iPhone can take advantage of C++'s Generative AI with ONNX Runtime API. 
+
+[Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/onnx)
 
 ***compile generative AI with ONNX Runtime library***
 

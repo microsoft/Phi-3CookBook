@@ -6,7 +6,7 @@
 
 **Set Up Your Environment**
 
-Azure AI Studio: If you haven’t already, sign in to Azure AI Studio.
+Azure AI Studio: If you haven’t already, sign in to [Azure AI Studio](https://ai.azure.com).
 
 **Create a New Project** 
 
@@ -42,8 +42,8 @@ Select an optimizer (e.g., Adam) for gradient updates during training.
 
 **Fine-Tuning Process**
 
-Load Pre-Trained Model: Load the Phi-3 Mini checkpoint.
-Add Custom Layers: Add task-specific layers (e.g., classification head for chat instructions).
+- Load Pre-Trained Model: Load the Phi-3 Mini checkpoint.
+- Add Custom Layers: Add task-specific layers (e.g., classification head for chat instructions).
 
 **Train the Model** 
 Fine-tune the model using your prepared dataset. Monitor training progress and adjust hyperparameters as needed.
@@ -63,8 +63,8 @@ Save the fine-tuned model checkpoint for future use.
 
 ## Deployment
 
-Deploy as a Web Service: Deploy your fine-tuned model as a web service in Azure AI Studio.
-Test the Endpoint: Send test queries to the deployed endpoint to verify its functionality.
+- Deploy as a Web Service: Deploy your fine-tuned model as a web service in Azure AI Studio.
+- Test the Endpoint: Send test queries to the deployed endpoint to verify its functionality.
 
 ## Iterate and Improve
 
