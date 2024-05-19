@@ -32,6 +32,8 @@ Maintain version control and share knowledge effectively. Streamline the entire 
 
 In Microsoft Prompt Flow, evaluation plays a crucial role in assessing how well your AI models perform. Let’s explore how you can customize evaluation flows and metrics within Prompt Flow:
 
+![PFVizualise](../../imgs/05/PromptFlow/pfvisualize.png)
+
 **Understanding Evaluation in Prompt Flow**
 
 In Prompt Flow, a flow represents a sequence of nodes that process input and generate output. Evaluation flows are special types of flows designed to assess the performance of a run based on specific criteria and goals.
