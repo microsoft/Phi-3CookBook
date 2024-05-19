@@ -24,6 +24,7 @@ Understand how well your LLM-based applications are performing.
 Prompt Flow includes a library of built-in tools, samples, and templates. These resources serve as a starting point for development, inspire creativity, and accelerate the process.
 
 **Collaboration and Enterprise Readiness**
+
 Support team collaboration by allowing multiple users to work together on prompt engineering projects.
 Maintain version control and share knowledge effectively. Streamline the entire prompt engineering process, from development and evaluation to deployment and monitoring.
 
@@ -56,6 +57,7 @@ Develop your own evaluation flow tailored to your specific tasks and objectives.
 Apply this customized evaluation flow to batch runs for large-scale testing.
 
 ## Built-in Evaluation Methods
+
 Prompt Flow also provides built-in evaluation methods.
 You can submit batch runs and use these methods to evaluate how well your flow performs with large datasets.
 View evaluation results, compare metrics, and iterate as needed.
