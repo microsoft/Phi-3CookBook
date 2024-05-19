@@ -12,14 +12,12 @@ Here are some key points about Phi-3-mini and its inference capabilities:
 
 ## **Accessing Phi-3-mini:**
 To access Phi-3-mini, you can use [Semantic Kernel](https://github.com/microsoft/SemanticKernelCookBook) in a Copilot application. Semantic Kernel is generally compatible with Azure OpenAI Service, open-source models on Hugging Face, and local models.
-You can also use Ollama or LlamaEdge to call quantized models. Ollama allows individual users to call different quantized models, while LlamaEdge provides cross-platform availability for gguf models.
+You can also use [Ollama](https://ollama.com) or [LlamaEdge](https://llamaedge.com) to call quantized models. Ollama allows individual users to call different quantized models, while LlamaEdge provides cross-platform availability for GGUF models.
 
 ## **Quantized Models:**
-Many users prefer to use quantized models for local inference.
-For example, you can directly run ollama run Phi-3 or configure it offline using a Modelfile. The Modelfile specifies the GGUF file path and the prompt format.
+Many users prefer to use quantized models for local inference. For example, you can directly run Ollama run Phi-3 or configure it offline using a Modelfile. The Modelfile specifies the GGUF file path and the prompt format.
 
 ## **Generative AI Possibilities:**
-Combining SLMs like Phi-3-mini opens up new possibilities for generative AI. 
+Combining SLMs like Phi-3-mini opens up new possibilities for generative AI. Inference is just the first step; these models can be used for various tasks in resource-constrained, latency-bound, and cost-constrained scenarios.
 
-Inference is just the first step; these models can be used for various tasks in resource-constrained, latency-bound, and cost-constrained scenarios.
 In summary, Phi-3-mini allows developers to explore different model formats and leverage generative AI in various application scenarios.

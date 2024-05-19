@@ -10,12 +10,11 @@ We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, a
 
 ## **1. Preparation**
 
-Create Azure AI Studio on Azure Portal
+Create Azure AI Studio on [Azure Portal](https://portal.azure.com)
 
 ![portal](../../imgs/02/AIStudio/ai-studio-portal.png)
 
 After completing the naming of the studio and setting the region, you can create it
-
 
 ![settings](../../imgs/02/AIStudio/ai-studio-settings.png)
 
@@ -28,7 +27,7 @@ There can be multiple projects on one AI Studio. Create a project in AI Studio t
 ![proj](../../imgs/02/AIStudio/ai-studio-proj.png)
 
 
-## **2. Deploy Phi-3 in Azure AI Studio**
+## **2. Deploy the Phi-3 model in Azure AI Studio**
 
 Click the Explore option of the project to enter the Model Catalog and select Phi-3
 
@@ -43,33 +42,41 @@ Click 'Deploy' to deploy the Phi-3-mini-4k-instruct model
 ***Note***:  You can select computing power when deploying
 
 
-## **3. Chat Phi-3 in Azure AI Studio**
+## **3. Playground Chat Phi-3 in Azure AI Studio**
 
 Go to the deployment page, select Playground, and chat with Phi-3 of Azure AI Studio
 
-
 ![chat](../../imgs/02/AIStudio/ai-studio-chat.png)
 
-hen deploying
 
+## **4. Deploying the Model from Azure AI Studio**
+To deploy a model from the Azure Model Catalog, you can follow these steps:
 
-## **4. Using Phi-3 API in Azure AI Studio**
+- Sign in to Azure AI Studio.
+- Choose the model you want to deploy from the Azure AI Studio model catalog.
+- On the model’s Details page, select Deploy and then select Serverless API with Azure AI Content Safety.
+- Select the project in which you want to deploy your models. To use the Serverless API offering, your workspace must belong to the East US 2 or Sweden Central region. You can customize the Deployment name.
+- On the deployment wizard, select the Pricing and terms to learn about the pricing and terms of use.
+- Select Deploy. Wait until the deployment is ready and you’re redirected to the Deployments page.
+- Select Open in playground to start interacting with the model.
+- You can return to the Deployments page, select the deployment, and note the endpoint’s Target URL and the Secret Key, which you can use to call the deployment and generate completions.
+- You can always find the endpoint’s details, URL, and access keys by navigating to the Build tab and selecting Deployments from the Components section.
 
-You can access https://{Your project name}.swedencentral.inference.ml.azure.com/swagger.json through Postman GET and combine it with Key to learn about the provided interfaces
+**Please note that your account must have the Azure AI Developer role permissions on the Resource Group to perform these steps**
 
+## **5. Using Phi-3 API in Azure AI Studio**
+
+You can access https://{Your project name}.region.inference.ml.azure.com/swagger.json through Postman GET and combine it with Key to learn about the provided interfaces
 
 ![swagger](../../imgs/02/AIStudio/ai-studio-swagger.png)
 
-
 such as access score api 
-
 
 ![score](../../imgs/02/AIStudio/ai-studio-score.png)
 
 You can get the request parameters very conveniently, as well as the response parameters. This is Postman result
 
 ![result](../../imgs/02/AIStudio/ai-studio-result.png)
-
 
 
 
