@@ -1,6 +1,6 @@
 # **Introduce Azure Machine Learning Service**
 
-Azure Machine Learning is a cloud service for accelerating and managing the machine learning (ML) project lifecycle.
+[Azure Machine Learning](https://ml.azure.com) is a cloud service for accelerating and managing the machine learning (ML) project lifecycle.
 
 ML professionals, data scientists, and engineers can use it in their day-to-day workflows to:
 
@@ -30,11 +30,12 @@ Set up projects to control access to protected data and specific operations.
 
 ## Productivity for Everyone on the Team
 ML projects often require a team with a varied skill set to build and maintain.
+
 Azure ML provides tools that enable you to:
-Collaborate with your team via shared notebooks, compute resources, serverless compute, data, and environments.
-Develop models with fairness, explainability, tracking, and auditability to fulfill lineage and audit compliance requirements.
-Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps.
-Run machine learning workloads anywhere with built-in governance, security, and compliance.
+- Collaborate with your team via shared notebooks, compute resources, serverless compute, data, and environments.
+- Develop models with fairness, explainability, tracking, and auditability to fulfill lineage and audit compliance requirements.
+- Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps.
+- Run machine learning workloads anywhere with built-in governance, security, and compliance.
 
 ## Cross-Compatible Platform Tools
 
@@ -45,4 +46,4 @@ Whether you’re running rapid experiments, hyperparameter tuning, building pipe
 - Azure CLI (v2)
 - Azure Resource Manager REST APIs
 
-As you refine models and collaborate throughout the development cycle, you can share and find assets, resources, and metrics within the Azure Machine Learning studio UI
+As you refine models and collaborate throughout the development cycle, you can share and find assets, resources, and metrics within the Azure Machine Learning studio UI.
