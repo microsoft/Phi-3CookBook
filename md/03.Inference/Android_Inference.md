@@ -12,10 +12,11 @@ By default, it corresponds to the model ID on Hugging face. However, you can als
 ### Calling Quantized Models with Ollama or LlamaEdge:
 
 Many users prefer using quantized models to run models locally.
-[Ollama]https://www.bing.com/) and [LlamaEdge](https://llamaedge.com) allow individual users to call different quantized models:
+[Ollama](https://ollama.com/) and [LlamaEdge](https://llamaedge.com) allow individual users to call different quantized models:
 
 **Ollama**
-You can directly run ollama run phi3 or configure it offline by creating a Modelfile with the path to your gguf file.
+
+You can directly run ollama run Phi-3 or configure it offline by creating a Modelfile with the path to your gguf file.
 
 ```
 FROM {Add your gguf file path}
@@ -26,6 +27,7 @@ PARAMETER num_ctx 4096
 ```
 
 **LlamaEdge** 
+
 If you want to use gguf in the cloud and edge devices simultaneously, LlamaEdge is a great choice.
 
 ### Install and Run on Android Phones:
