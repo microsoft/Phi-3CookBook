@@ -1,8 +1,10 @@
 # **Introduce Responsible AI**
 
-Microsoft Responsible AI is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. The initiative provides guidance and resources for developing responsible AI solutions that align with ethical principles, such as privacy, fairness, and transparency. We will also explore some of the challenges and best practices associated with building responsible AI systems.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. The initiative provides guidance and resources for developing responsible AI solutions that align with ethical principles, such as privacy, fairness, and transparency. We will also explore some of the challenges and best practices associated with building responsible AI systems.
 
 ## Overview of Microsoft Responsible AI 
+
+![RAIPrinciples](../../imgs/05/RAI/RAIPrinciples.png)
 
 **Ethical principles** 
 
@@ -12,9 +14,17 @@ Microsoft Responsible AI is guided by a set of ethical principles, such as priva
 
 Microsoft Responsible AI emphasizes the importance of transparency in AI systems. This includes providing clear explanations of how AI models work, as well as ensuring that data sources and algorithms are publicly available.
 
-**Explainable AI** 
+**Accountable AI** 
 
-[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) promotes the development of explainable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) promotes the development of accountable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
+
+**Inclusiveness** 
+
+AI systems should be designed to benefit everyone. Microsoft aims to create inclusive AI that considers diverse perspectives and avoids bias or discrimination.
+
+**Reliability and Safety**
+
+ Ensuring that AI systems are reliable and safe is crucial. Microsoft focuses on building robust models that perform consistently and avoid harmful outcomes.
 
 **Fairness in AI** 
 
