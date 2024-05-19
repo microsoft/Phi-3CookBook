@@ -14,7 +14,7 @@ Microsoft Responsible AI emphasizes the importance of transparency in AI systems
 
 **Explainable AI** 
 
-Microsoft Responsible AI promotes the development of explainable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) promotes the development of explainable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
 
 **Fairness in AI** 
 
@@ -52,4 +52,50 @@ Data encryption and access controls can help protect user privacy and security i
 
 Following ethical principles, such as fairness, transparency, and accountability, can help build trust in AI systems and ensure that they are developed in a responsible manner.
 
-In conclusion, Microsoft Responsible AI is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. By following ethical principles and best practices, we can ensure that AI systems are developed and deployed in a responsible manner that benefits society as a whole.
+## Using AI Studio for Responsible AI 
+
+[Azure AI Studio](https://ai.azure.com) is a powerful platform that allows developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications. Here are some key features and capabilities of Azure AI Studio:
+
+**Out-of-the-Box APIs and Models** 
+
+Azure AI Studio provides pre-built and customizable APIs and models. These cover a wide range of AI tasks, including generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+
+**Prompt Flow** 
+
+Prompt flow in Azure AI Studio enables you to create conversational AI experiences. It allows you to design and manage conversational flows, making it easier to build chatbots, virtual assistants, and other interactive applications.
+
+**Retrieval Augmented Generation (RAG)** 
+
+RAG is a technique that combines retrieval-based and generative-based approaches. It enhances the quality of generated responses by leveraging both pre-existing knowledge (retrieval) and creative generation (generation).
+
+**Evaluation and Monitoring Metrics for Generative AI** 
+
+Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you’ve created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
+
+To use AI Studio with responsible AI, you can follow these best practices:
+
+**Define the problem and objectives of your AI system**
+
+Before starting the development process, it's important to clearly define the problem or objective that your AI system aims to solve. This will help you identify the data, algorithms, and resources needed to build an effective model.
+
+**Gather and preprocess relevant data** 
+
+The quality and quantity of data used in training an AI system can have a significant impact on its performance. Therefore, it's important to gather relevant data, clean it, preprocess it, and ensure that it is representative of the population or problem you are trying to solve.
+
+**Choose appropriate evaluation** 
+
+There are various evaluation algorithms available. It's important to choose the most appropriate algorithm based on your data and problem.
+
+**Evaluate and interpret the model** 
+
+Once you have built an AI model, it's important to evaluate its performance using appropriate metrics and interpret the results in a transparent manner. This will help you identify any biases or limitations in the model and make improvements where necessary.
+
+**Ensure transparency and explainability** 
+
+AI systems should be transparent and explainable so that users can understand how they work and how decisions are made. This is especially important for applications that have significant impacts on human lives, such as healthcare, finance, and legal systems.
+
+**Monitor and update the model** 
+
+AI systems should be continuously monitored and updated to ensure that they remain accurate and effective over time. This requires ongoing maintenance, testing, and retraining of the model.
+
+In conclusion, Microsoft Responsible AI is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. Remember that responsible AI implementation is crucial, and Azure AI Studio aims to make it practical for organizations. By following ethical principles and best practices, we can ensure that AI systems are developed and deployed in a responsible manner that benefits society as a whole.
