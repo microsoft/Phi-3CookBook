@@ -10,18 +10,18 @@ All reported numbers are produced with the same pipeline to ensure that the numb
 
 Phi-3-small with only 7B parameters beats GPT-3.5T across a variety of language, reasoning, coding and math benchmarks. 
 
-![phimodelsmall](/../imgs/00/phi3small.png)
+![phimodelsmall](/imgs/00/phi3small.png)
 
 Phi-3-medium with 14B parameters continues the trend and outperforms Gemini 1.0 Pro. 
 
-![phimodelmedium](/../imgs/00/phi3medium.png)
+![phimodelmedium](/imgs/00/phi3medium.png)
 
  
 
 Phi-3-vision with just 4.2B parameters continues that trend and outperforms larger models such as Claude-3 Haiku and Gemini 1.0 Pro V across general visual reasoning tasks, OCR, table and chart understanding tasks. 
 
 
-![phimodelvision](/../imgs/00/phi3vision.png)
+![phimodelvision](/imgs/00/phi3vision.png)
 
 Note: Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts. 
 
