@@ -3,7 +3,7 @@
 
 The Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and the next size up across a variety of language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices for composing and building generative AI applications.
 
-The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios.
+The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios each model is instruction-tuned and developed in accordance with Microsoft’s Responsible AI, safety and security standards to ensure it’s ready to use off-the-shelf.
 
 ## **Phi-3-Mini**
 
