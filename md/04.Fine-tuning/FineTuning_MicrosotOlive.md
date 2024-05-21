@@ -1,4 +1,4 @@
-# **Introduce Microsoft Olive**
+# **Fine-tuning Phi-3 with Microsoft Olive**
 
 [Olive](https://github.com/microsoft/OLive) is an easy-to-use hardware-aware model optimization tool that brings together industry-leading techniques across model compression, optimization, and compilation.
 
@@ -20,7 +20,7 @@ By composing and tuning integrated techniques, Olive offers a unified solution f
 It takes constraints like accuracy and latency into account while optimizing models.
 
 
-## **Fine-tuning Phi-3 with Microsoft Olive**
+## **Using Microsoft Olive to fine-tuning**
 
 
 Microsoft Olive is a very easy-to-use open source model optimization tool that can cover both fine-tuning and reference in the field of generative artificial intelligence. It only requires simple configuration, combined with the use of open source small language models and related runtime environments (AzureML / local GPU, CPU, DirectML), you can complete the fine-tuning or reference of the model through automatic optimization, and find the best model to deploy to the cloud Or on edge devices. Allow enterprises to build their own industry vertical models on-premises and in the cloud.
