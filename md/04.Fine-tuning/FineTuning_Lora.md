@@ -1,4 +1,4 @@
-# **Fine-tuning Phi-3**
+# **Fine-tuning Phi-3 with Lora**
 
 Fine-tuning Microsoft’s Phi-3 Mini language model using [LoRA (Low-Rank Adaptation)](https://github.com/microsoft/LoRA) on a custom chat instruction dataset. 
 
