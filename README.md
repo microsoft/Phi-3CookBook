@@ -25,9 +25,23 @@ Phi-3-vision with just 4.2B parameters continues that trend and outperforms larg
 
 Note: Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts. 
 
-You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start with playing with the model on [Azure AI Playground](https://aka.ms/try-phi3). You can also find the model on the [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct). Start building with and customizing Phi-3 for your scenarios using the [Azure AI Studio](https://aka.ms/phi3-azure-ai). 
+## Azure AI Studio
 
-This content includes:
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start with playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
+
+**Playground**
+Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
+
+## Hugging Face
+
+You can also find the model on the [Hugging Face](https://huggingface.co/microsoft) 
+
+**Playground**
+ [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
+
+## Contents
+
+This cookbook includes:
 
 ## **Microsoft Phi-3 Cookbook**
 
