@@ -47,3 +47,54 @@ Whether you’re running rapid experiments, hyperparameter tuning, building pipe
 - Azure Resource Manager REST APIs
 
 As you refine models and collaborate throughout the development cycle, you can share and find assets, resources, and metrics within the Azure Machine Learning studio UI.
+
+## **LLM/SLM in Azure ML**
+
+Azure ML has added many LLM/SLM-related functions, combining LLMOps and SLMOps to create an enterprise-wide generative artificial intelligence technology platform.
+
+### **Model Catalog**
+
+Enterprise users can deploy different models according to different business scenarios through Model Catalog, and provide services as Model as Service for enterprise developers or users to access.
+
+![models](../../imgs/04/03/models.png)
+
+The Model Catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in Microsoft’s Product Terms, and subject to the terms provided with the model.
+
+
+### **Job pipline**
+
+The core of a machine learning pipeline is to split a complete machine learning task into a multistep workflow. Each step is a manageable component that can be developed, optimized, configured, and automated individually. Steps are connected through well-defined interfaces. The Azure Machine Learning pipeline service automatically orchestrates all the dependencies between pipeline steps.
+
+In fine-tuning SLM / LLM, we can manage our data, training, and generation processes through Pipline
+
+
+![finetuning](../../imgs/04/03/finetuning.png)
+
+
+### **Prompt flow**
+
+
+Benefits of using Azure Machine Learning prompt flow
+Azure Machine Learning prompt flow offers a range of benefits that help users transition from ideation to experimentation and, ultimately, production-ready LLM-based applications:
+
+**Prompt engineering agility**
+
+Interactive authoring experience: Azure Machine Learning prompt flow provides a visual representation of the flow's structure, allowing users to easily understand and navigate their projects. It also offers a notebook-like coding experience for efficient flow development and debugging.
+Variants for prompt tuning: Users can create and compare multiple prompt variants, facilitating an iterative refinement process.
+
+Evaluation: Built-in evaluation flows enable users to assess the quality and effectiveness of their prompts and flows.
+
+Comprehensive resources: Azure Machine Learning prompt flow includes a library of built-in tools, samples, and templates that serve as a starting point for development, inspiring creativity and accelerating the process.
+
+**Enterprise readiness for LLM-based applications**
+
+Collaboration: Azure Machine Learning prompt flow supports team collaboration, allowing multiple users to work together on prompt engineering projects, share knowledge, and maintain version control.
+
+All-in-one platform: Azure Machine Learning prompt flow streamlines the entire prompt engineering process, from development and evaluation to deployment and monitoring. Users can effortlessly deploy their flows as Azure Machine Learning endpoints and monitor their performance in real-time, ensuring optimal operation and continuous improvement.
+
+Azure Machine Learning Enterprise Readiness Solutions: Prompt flow leverages Azure Machine Learning's robust enterprise readiness solutions, providing a secure, scalable, and reliable foundation for the development, experimentation, and deployment of flows.
+
+With Azure Machine Learning prompt flow, users can unleash their prompt engineering agility, collaborate effectively, and leverage enterprise-grade solutions for successful LLM-based application development and deployment.
+
+
+Combining the computing power, data, and different components of Azure ML, enterprise developers can easily build their own artificial intelligence applications.
