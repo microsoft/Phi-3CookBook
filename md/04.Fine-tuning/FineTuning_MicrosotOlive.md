@@ -361,7 +361,7 @@ It should be pointed out here that you can set the above steps according to your
 
 On the command line, execute in the directory of olive-config.json
 
-```json
+```bash
 
 
 python -m olive run --config olive-config.json  
