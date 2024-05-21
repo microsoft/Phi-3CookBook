@@ -52,7 +52,7 @@ This content includes:
 * [Evaluation Phi-3]()
     * [Introduce Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
     * [Introduce Promptflow](./md/05.Evaluation/Promptflow.md)(✅)
-    * [Using Azure AI Studio to evluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
+    * [Using Azure AI Studio to evaluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
 
 ## Contributing
 
