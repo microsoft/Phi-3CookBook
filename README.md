@@ -40,7 +40,6 @@ This content includes:
     * [Using Phi-3 in LM Studio](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
 * [Inference Phi-3](./md/03.Inference/overview.md)  
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
-    * [Inference Phi-3 in Android](./md/03.Inference/Android_Inference.md)(⌛)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
     * [Inference Phi-3 in AIPC](./md/03.Inference/AIPC_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
@@ -54,10 +53,6 @@ This content includes:
     * [Introduce Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
     * [Introduce Promptflow](./md/05.Evaluation/Promptflow.md)(✅)
     * [Using Azure AI Studio to evluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
-* [E2E Solution]()
-    * [.NET MAUI Samples](./md/06.Samples/dotNETMAUI_samples.md)(⌛)
-    * [Azure AI Studio Samples](./md/06.Samples/AzureAIStudio_samples.md)(⌛)
-    * [Semantic Kernel RAG Samples](./md/06.Samples/SemanticKernel_RAG_samples.md)(⌛)
 
 ## Contributing
 
