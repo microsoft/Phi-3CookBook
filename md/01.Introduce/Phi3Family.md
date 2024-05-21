@@ -29,6 +29,9 @@ The [Phi-3-vision](https://aka.ms/phi3-vision-128k-azure-ai) is a 4.2B parameter
 
 Phi-3-vision is the first multimodal model in the Phi-3 family, bringing together text and images. Phi-3-vision can be used to reason over real-world images and extract and reason over text from images. It has also been optimized for chart and diagram understanding and can be used to generate insights and answer questions. Phi-3-vision builds on the language capabilities of the Phi-3-mini, continuing to pack strong language and image reasoning quality in a small size.  
 
+## **Phi-3 Silica**
+We are introducing Phi Silica which is built from the Phi series of models and is designed specifically for the NPUs in Copilot+ PCs. Windows is the first platform to have a state-of-the-art small language model (SLM) custom built for the NPU and shipping inbox.   
+Phi Silica API along with OCR, Studio Effects, Live Captions, Recall User Activity APIs will be available in Windows Copilot Library in June. More APIs like Vector Embedding, RAG API, Text Summarization will be coming later. 
 
 ## **Find all Phi-3 models** 
 
