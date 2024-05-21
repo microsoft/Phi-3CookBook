@@ -53,7 +53,7 @@ This cookbook includes:
     * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
     * [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)(✅)
     * [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
-    * [Using Phi-3 in LM Studio](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
+    * [Using Phi-3 in LM Studio](./md/02.QuickStart/LMStudio_QuickStart.md)(✅)
 * [Inference Phi-3](./md/03.Inference/overview.md)  
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
