@@ -204,7 +204,7 @@ Because it is run through a container on Azure AI Studio/Azure Machine Learning 
 
 
 
-```json
+```yaml
 
 name: project_environment
 channels:
