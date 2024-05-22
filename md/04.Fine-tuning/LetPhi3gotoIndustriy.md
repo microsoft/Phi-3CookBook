@@ -61,9 +61,6 @@ QLoRA is an extended version of LoRA that incorporates quantization techniques t
 
 QLoRA uses LoRA as an accessory to fix the errors introduced during quantization errors. QLoRA enables the fine-tuning of massive models with billions of parameters on relatively small, highly available GPUs. For example, QLoRA can fine-tune a 70B parameter model that requires 36 GPUs with only 2
 
-### **I 💖 QLora**
-
-I prefer to use QLora for fine-tuning, from cost to impact on the model, so I will focus on QLora in this book.
 
 
 

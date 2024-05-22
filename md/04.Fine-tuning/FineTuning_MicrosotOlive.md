@@ -226,6 +226,10 @@ dependencies:
       - torch>=2.2.0
       - transformers
       - git+https://github.com/microsoft/Olive@jiapli/mlflow_loading_fix#egg=olive-ai[gpu]
+      - --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ 
+      - ort-nightly-gpu==1.18.0.dev20240307004
+      - --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/
+      - onnxruntime-genai-cuda
 
     
 
@@ -302,12 +306,13 @@ Microsoft Olive encapsulates Lora and QLora fine-tuning algorithms very well. Al
 
 
 ```json
-
-        "qlora": {
-            "type": "QLoRA",
+        "lora": {
+            "type": "LoRA",
             "config": {
-                "compute_dtype": "bfloat16",
-                "quant_type": "nf4",
+                "target_modules": [
+                    "o_proj",
+                    "qkv_proj"
+                ],
                 "double_quant": true,
                 "lora_r": 64,
                 "lora_alpha": 64,
@@ -322,8 +327,8 @@ Microsoft Olive encapsulates Lora and QLora fine-tuning algorithms very well. Al
                     "gradient_accumulation_steps": 4,
                     "gradient_checkpointing": false,
                     "learning_rate": 0.0001,
-                    "num_train_epochs":3,
-                    "max_steps": 1200,
+                    "num_train_epochs": 3,
+                    "max_steps": 10,
                     "logging_steps": 10,
                     "evaluation_strategy": "steps",
                     "eval_steps": 187,
@@ -338,7 +343,28 @@ Microsoft Olive encapsulates Lora and QLora fine-tuning algorithms very well. Al
 ```
 
 
-It should be pointed out here that you can set the above steps according to your own needs. It is not necessary to completely configure the above five steps. Depending on your needs, you can directly use the steps of the algorithm without fine-tuning. Finally you need to configure the relevant engines
+If you want quantization conversion, Microsoft Olive 0.6.0 already supports the onnxruntime-genai method. You can set it according to your needs, such as converting to quantized INT4
+
+
+```json
+
+
+        "builder": {
+            "type": "ModelBuilder",
+            "config": {
+                "precision": "int4"
+            }
+        }
+
+
+```
+
+***Notice*** 
+
+- If you use QLoRA, the quantization conversion of ONNXRuntime-genai is not supported for the time being.
+
+
+- It should be pointed out here that you can set the above steps according to your own needs. It is not necessary to completely configure the above these steps. Depending on your needs, you can directly use the steps of the algorithm without fine-tuning. Finally you need to configure the relevant engines
 
 
 ```json
@@ -364,7 +390,7 @@ On the command line, execute in the directory of olive-config.json
 ```bash
 
 
-python -m olive run --config olive-config.json  
+olive run --config olive-config.json  
 
 
 ```
