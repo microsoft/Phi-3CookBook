@@ -269,7 +269,6 @@ If you want to use a model from Azure AI Studio / Azure Machine Learning Service
     "input_model":{
         "type": "PyTorchModel",
         "config": {
-            "model_script": "qlora_user_script.py",
             "model_path": {
                 "type": "azureml_registry_model",
                 "config": {
