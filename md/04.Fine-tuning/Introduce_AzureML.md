@@ -61,11 +61,11 @@ Enterprise users can deploy different models according to different business sce
 The Model Catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in Microsoft’s Product Terms, and subject to the terms provided with the model.
 
 
-### **Job pipline**
+### **Job Pipeline**
 
 The core of a machine learning pipeline is to split a complete machine learning task into a multistep workflow. Each step is a manageable component that can be developed, optimized, configured, and automated individually. Steps are connected through well-defined interfaces. The Azure Machine Learning pipeline service automatically orchestrates all the dependencies between pipeline steps.
 
-In fine-tuning SLM / LLM, we can manage our data, training, and generation processes through Pipline
+In fine-tuning SLM / LLM, we can manage our data, training, and generation processes through Pipeline
 
 
 ![finetuning](../../imgs/04/03/finetuning.png)
