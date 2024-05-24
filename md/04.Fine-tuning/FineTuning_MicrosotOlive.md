@@ -342,12 +342,19 @@ Microsoft Olive encapsulates Lora and QLora fine-tuning algorithms very well. Al
 ```
 
 
-If you want quantization conversion, Microsoft Olive 0.6.0 already supports the onnxruntime-genai method. You can set it according to your needs, such as converting to quantized INT4
+If you want quantization conversion, Microsoft Olive main branch already supports the onnxruntime-genai method. You can set it according to your needs：
+
+1. merge adapter weights into base model
+2. Convert the model to onnx model with required precision by ModelBuilder
+
+such as converting to quantized INT4
 
 
 ```json
 
-
+        "merge_adapter_weights": {
+            "type": "MergeAdapterWeights"
+        },
         "builder": {
             "type": "ModelBuilder",
             "config": {
