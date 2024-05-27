@@ -38,7 +38,7 @@ params = og.GeneratorParams(model)
 params.try_use_cuda_graph_with_max_batch_size(1)
 params.set_search_options(**search_options)
 
-prompt = "<|user|>评价Lady Gaga的新单《Stupid Love》?？<|end|><|assistant|>"
+prompt = "prompt = "<|user|>Who are you not allowed to marry in the UK?<|end|><|assistant|>""
 input_tokens = tokenizer.encode(prompt)
 params.input_ids = input_tokens
 
