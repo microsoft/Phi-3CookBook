@@ -1,1 +1,0 @@
-# **Semantic Kernel RAG Samples**

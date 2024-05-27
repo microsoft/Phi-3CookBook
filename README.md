@@ -69,6 +69,11 @@ This cookbook includes:
     * [Introduce Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
     * [Introduce Promptflow](./md/05.Evaluation/Promptflow.md)(✅)
     * [Using Azure AI Studio to evaluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
+* [E2E Samples for Phi-3-mini]()
+    * [Introduce](./md/06.E2ESamples/E2E_Introduction.md)(✅)
+    * [Prepare your industry data](./md/06.E2ESamples/E2E_Datasets.md)(✅)
+    * [Use Microsoft Olive to architect your projects](./md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
+    * [E2E_Inference_ORT](./md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
 
 ## Contributing
 
