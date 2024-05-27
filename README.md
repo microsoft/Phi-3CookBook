@@ -73,7 +73,7 @@ This cookbook includes:
     * [Introduce](./md/06.E2ESamples/E2E_Introduction.md)(✅)
     * [Prepare your industry data](./md/06.E2ESamples/E2E_Datasets.md)(✅)
     * [Use Microsoft Olive to architect your projects](./md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
-    * [E2E_Inference_ORT](./md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
+    * [Inference Your Fine-tuning ONNX Runtime Model](./md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
 
 ## Contributing
 
