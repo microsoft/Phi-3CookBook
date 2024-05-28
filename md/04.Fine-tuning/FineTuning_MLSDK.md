@@ -837,7 +837,7 @@ It creates a dictionary parameters with keys and values that represent parameter
 
 It creates another dictionary test_json with two keys: "input_data" and "params". The value of "input_data" is another dictionary with keys "input_string" and "parameters". The value of "input_string" is a list containing the first message from the test_df DataFrame. The value of "parameters" is the parameters dictionary created earlier. The value of "params" is an empty dictionary.
 
-It opens a file named sample_score.js
+It opens a file named sample_score.json
 
 ```
 # Import the json module, which provides functions to work with JSON data
