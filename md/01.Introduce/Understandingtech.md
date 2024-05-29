@@ -3,7 +3,7 @@
 1. [DirectML](https://learn.microsoft.com/windows/ai/directml/dml?WT.mc_id=aiml-138114-kinfeylo) - a low-level API for hardware-accelerated machine learning built on top of DirectX 12.
 2. [CUDA](https://blogs.nvidia.com/blog/what-is-cuda-2/) - a parallel computing platform and application programming interface (API) model developed by Nvidia, enabling general-purpose processing on graphics processing units (GPUs).
 3. [ONNX](https://onnx.ai/) (Open Neural Network Exchange) - an open format designed to represent machine learning models that provides interoperability between different ML frameworks.
-4. [GGUF](https://huggingface.co/docs/hub/gguf) (Generic Graph Update Format) - a format used for representing and updating machine learning models, particularly useful for smaller language models that can run effectively on CPUs with 4-8bit quantization.
+4. [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) (Generic Graph Update Format) - a format used for representing and updating machine learning models, particularly useful for smaller language models that can run effectively on CPUs with 4-8bit quantization.
 
  
 ### DirectML 
