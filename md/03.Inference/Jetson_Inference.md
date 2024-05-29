@@ -63,6 +63,6 @@ Here is the running result
 
 ![llamaedgerun](../../imgs/03/Jetson/llamaedgerun.png)
 
-***Sample code*** https://github.com/kinfey/Phi3MiniSamples/tree/main/wasm
+***Sample code*** [Phi-3 mini WASM Notebook Sample](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm)
 
 In summary, Phi-3 Mini represents a leap forward in language modeling, combining efficiency, context awareness, and NVIDIA’s optimization prowess. Whether you’re building robots or edge applications, Phi-3 Mini is a powerful tool to be aware of. 
