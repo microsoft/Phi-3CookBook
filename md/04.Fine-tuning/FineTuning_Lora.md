@@ -1,6 +1,6 @@
 # **Fine-tuning Phi-3 with Lora**
 
-Fine-tuning Microsoft’s Phi-3 Mini language model using [LoRA (Low-Rank Adaptation)](https://github.com/microsoft/LoRA) on a custom chat instruction dataset. 
+Fine-tuning Microsoft’s Phi-3 Mini language model using [LoRA (Low-Rank Adaptation)](https://github.com/microsoft/LoRA?WT.mc_id=aiml-138114-kinfeylo) on a custom chat instruction dataset. 
 
 LORA will help improve conversational understanding and response generation. 
 

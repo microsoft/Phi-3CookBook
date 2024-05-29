@@ -6,7 +6,7 @@ Nvidia Jetson is a series of embedded computing boards from Nvidia. The Jetson T
 Developers working on autonomous robotics and embedded devices can leverage Phi-3 Mini. Phi-3 relatively small size makes it ideal for edge deployment. Parameters have been meticulously tuned during training, ensuring high accuracy in responses.
 
 ### TensorRT-LLM Optimization:
-NVIDIA’s [TensorRT-LLM library](https://github.com/NVIDIA/TensorRT-LLM) optimizes large language model inference. It supports Phi-3 Mini’s long context window, enhancing both throughput and latency. Optimizations include techniques like LongRoPE, FP8, and inflight batching.
+NVIDIA’s [TensorRT-LLM library](https://github.com/NVIDIA/TensorRT-LLM?WT.mc_id=aiml-138114-kinfeylo) optimizes large language model inference. It supports Phi-3 Mini’s long context window, enhancing both throughput and latency. Optimizations include techniques like LongRoPE, FP8, and inflight batching.
 
 ### Availability and Deployment:
 Developers can explore Phi-3 Mini with the 128K context window at [NVIDIA’s AI](https://www.nvidia.com/ai-data-science/generative-ai/). It’s packaged as an NVIDIA NIM, a microservice with a standard API that can be deployed anywhere. Additionally, the [TensorRT-LLM implementations on GitHub](https://github.com/NVIDIA/TensorRT-LLM).

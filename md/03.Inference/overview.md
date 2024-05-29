@@ -11,7 +11,7 @@ Here are some key points about Phi-3-mini and its inference capabilities:
 - It covers various model formats, including the traditional PyTorch format, the quantized version of the gguf format, and the ONNX-based quantized version.
 
 ## **Accessing Phi-3-mini:**
-To access Phi-3-mini, you can use [Semantic Kernel](https://github.com/microsoft/SemanticKernelCookBook) in a Copilot application. Semantic Kernel is generally compatible with Azure OpenAI Service, open-source models on Hugging Face, and local models.
+To access Phi-3-mini, you can use [Semantic Kernel](https://github.com/microsoft/SemanticKernelCookBook?WT.mc_id=aiml-138114-kinfeylo) in a Copilot application. Semantic Kernel is generally compatible with Azure OpenAI Service, open-source models on Hugging Face, and local models.
 You can also use [Ollama](https://ollama.com) or [LlamaEdge](https://llamaedge.com) to call quantized models. Ollama allows individual users to call different quantized models, while LlamaEdge provides cross-platform availability for GGUF models.
 
 ## **Quantized Models:**

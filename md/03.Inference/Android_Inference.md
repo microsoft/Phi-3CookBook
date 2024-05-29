@@ -3,10 +3,10 @@
 Let’s explore how you can perform inference with Phi-3-mini on Android devices. Phi-3-mini is a new series of models from Microsoft that enables deployment of Large Language Models (LLMs) on edge devices and IoT devices. 
 
 ## Semantic Kernel and Inference:
-[Semantic Kernel](https://github.com/microsoft/semantic-kernel) is an application framework that allows you to create applications compatible with Azure OpenAI Service, OpenAI models, and even local models. If your new to Semantic Kernel we suggest you look at the [Semantic Kernel Cookbook](https://github.com/microsoft/SemanticKernelCookBook)
+[Semantic Kernel](https://github.com/microsoft/semantic-kernel) is an application framework that allows you to create applications compatible with Azure OpenAI Service, OpenAI models, and even local models. If your new to Semantic Kernel we suggest you look at the [Semantic Kernel Cookbook](https://github.com/microsoft/SemanticKernelCookBook?WT.mc_id=aiml-138114-kinfeylo)
 
 ### To access Phi-3-mini using Semantic Kernel:
-You can combine it with the Hugging face Connector in Semantic Kernel. [Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/semantickernel)
+You can combine it with the Hugging face Connector in Semantic Kernel. [Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/semantickernel?WT.mc_id=aiml-138114-kinfeylo)
 
 By default, it corresponds to the model ID on Hugging face. However, you can also connect to a locally built Phi-3-mini model server.
 
@@ -26,12 +26,12 @@ PARAMETER stop <|end|>
 PARAMETER num_ctx 4096
 
 ```
-[Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ollama)
+[Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ollama?WT.mc_id=aiml-138114-kinfeylo)
 
 **LlamaEdge** 
 
 If you want to use gguf in the cloud and edge devices simultaneously, LlamaEdge is a great choice.
-[Sample code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm)
+[Sample code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm?WT.mc_id=aiml-138114-kinfeylo)
 
 ### Install and Run on Android Phones:
 Download the MLC Chat app (Free) for Android phones.
