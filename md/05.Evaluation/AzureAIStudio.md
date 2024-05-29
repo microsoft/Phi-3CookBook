@@ -2,7 +2,7 @@
 
 ![aistudo](../../imgs/05/AIStudio/AIStudio.png)
 
-How to evaluate your generative AI application using [Azure AI Studio](https://ai.azure.com). Whether you’re assessing single-turn or multi-turn conversations, Azure AI Studio provides tools for evaluating model performance and safety. 
+How to evaluate your generative AI application using [Azure AI Studio](https://ai.azure.com). Whether you're assessing single-turn or multi-turn conversations, Azure AI Studio provides tools for evaluating model performance and safety. 
 
 ![aistudo](../../imgs/05/AIStudio/AIPortfolio.png)
 
@@ -26,8 +26,8 @@ Additionally, you can evaluate general single-turn question answering scenarios 
 
 From the Azure AI Studio UI, navigate to either the Evaluate page or the Prompt Flow page.
 Follow the evaluation creation wizard to set up an evaluation run. Provide an optional name for your evaluation.
-Select the scenario that aligns with your application’s objectives.
-Choose one or more evaluation metrics to assess the model’s output.
+Select the scenario that aligns with your application's objectives.
+Choose one or more evaluation metrics to assess the model's output.
 
 ## Custom Evaluation Flow (Optional)
 
@@ -35,7 +35,7 @@ For greater flexibility, you can establish a custom evaluation flow. Customize t
 
 ## Viewing Results
 
-After running the evaluation, log, view, and analyze detailed evaluation metrics in Azure AI Studio. Gain insights into your application’s capabilities and limitations.
+After running the evaluation, log, view, and analyze detailed evaluation metrics in Azure AI Studio. Gain insights into your application's capabilities and limitations.
 
 
 

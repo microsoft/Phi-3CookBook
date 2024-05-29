@@ -80,7 +80,7 @@ RAG is a technique that combines retrieval-based and generative-based approaches
 
 **Evaluation and Monitoring Metrics for Generative AI** 
 
-Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you’ve created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
+Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you've created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
 
 To use AI Studio with responsible AI, you can follow these best practices:
 

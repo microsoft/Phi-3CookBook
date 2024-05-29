@@ -1,18 +1,18 @@
 # **Inference Phi-3 in AI PC**
 
-With the advancement of generative AI and the improvement in edge device hardware capabilities, an increasing number of generative AI models can now be integrated into users’ Bring Your Own Device (BYOD) devices. AI PCs are among these models. Beginning in 2024, Intel, AMD, and Qualcomm have collaborated with PC manufacturers to introduce AI PCs that facilitate the deployment of localized generative AI models through hardware modifications. In this discussion, we will focus on Intel AI PCs and explore how to deploy Phi-3 on an Intel AI PC.
+With the advancement of generative AI and the improvement in edge device hardware capabilities, an increasing number of generative AI models can now be integrated into users' Bring Your Own Device (BYOD) devices. AI PCs are among these models. Beginning in 2024, Intel, AMD, and Qualcomm have collaborated with PC manufacturers to introduce AI PCs that facilitate the deployment of localized generative AI models through hardware modifications. In this discussion, we will focus on Intel AI PCs and explore how to deploy Phi-3 on an Intel AI PC.
 
 ### **What's NPU**
 
 An NPU (Neural Processing Unit) is a dedicated processor or processing unit on a larger SoC designed specifically for accelerating neural network operations and AI tasks. Unlike general-purpose CPUs and GPUs, NPUs are optimized for a data-driven parallel computing, making them highly efficient at processing massive multimedia data like videos and images and processing data for neural networks. They are particularly adept at handling AI-related tasks, such as speech recognition, background blurring in video calls, and photo or video editing processes like object detection.
 
 ## **NPU vs GPU** 
-While many AI and machine learning workloads run on GPUs, there’s a crucial distinction between GPUs and NPUs.
+While many AI and machine learning workloads run on GPUs, there's a crucial distinction between GPUs and NPUs.
 GPUs are known for their parallel computing capabilities, but not all GPUs are equally efficient beyond processing graphics. NPUs, on the other hand, are purpose-built for complex computations involved in neural network operations, making them highly effective for AI tasks.
 
 In summary, NPUs are the math whizzes that turbocharge AI computations, and they play a key role in the emerging era of AI PCs!
 
-***This example is based on Intel’s latest Intel Core Ultra Processor***
+***This example is based on Intel's latest Intel Core Ultra Processor***
 
 ## **1. Use NPU to run Phi-3 model**
 
@@ -105,20 +105,20 @@ When used standalone, the DirectML API is a low-level DirectX 12 library and is 
 - DX12-Based: DirectML is built on top of DirectX 12 (DX12), which provides a wide range of hardware support across GPUs, including both NVIDIA and AMD.
 - Wider Support: Since it leverages DX12, DirectML can work with any GPU that supports DX12, even integrated GPUs.
 - Image Processing: DirectML processes images and other data using neural networks, making it suitable for tasks like image recognition, object detection, and more.
-- Ease of Setup: Setting up DirectML is straightforward, and it doesn’t require specific SDKs or libraries from GPU manufacturers.
+- Ease of Setup: Setting up DirectML is straightforward, and it doesn't require specific SDKs or libraries from GPU manufacturers.
 - Performance: In some cases, DirectML performs well and can be faster than CUDA, especially for certain workloads.
 - Limitations: However, there are instances where DirectML may be slower, particularly for float16 large batch sizes.
 
-**CUDA** is NVIDIA’s parallel computing platform and programming model. It allows developers to harness the power of NVIDIA GPUs for general-purpose computing, including machine learning and scientific simulations.
+**CUDA** is NVIDIA's parallel computing platform and programming model. It allows developers to harness the power of NVIDIA GPUs for general-purpose computing, including machine learning and scientific simulations.
 - NVIDIA-Specific: CUDA is tightly integrated with NVIDIA GPUs and is specifically designed for them.
 - Highly Optimized: It provides excellent performance for GPU-accelerated tasks, especially when using NVIDIA GPUs.
 - Widely Used: Many machine learning frameworks and libraries (such as TensorFlow and PyTorch) have CUDA support.
 - Customization: Developers can fine-tune CUDA settings for specific tasks, which can lead to optimal performance.
-- Limitations: However, CUDA’s dependency on NVIDIA hardware can be limiting if you want broader compatibility across different GPUs.
+- Limitations: However, CUDA's dependency on NVIDIA hardware can be limiting if you want broader compatibility across different GPUs.
 
 ### Choosing Between DirectML and CUDA:
 The choice between DirectML and CUDA depends on your specific use case, hardware availability, and preferences.
-If you’re looking for broader compatibility and ease of setup, DirectML might be a good choice. However, if you have NVIDIA GPUs and need highly optimized performance, CUDA remains a strong contender. In summary, both DirectML and CUDA have their strengths and weaknesses, so consider your requirements and available hardware when making a decision 
+If you're looking for broader compatibility and ease of setup, DirectML might be a good choice. However, if you have NVIDIA GPUs and need highly optimized performance, CUDA remains a strong contender. In summary, both DirectML and CUDA have their strengths and weaknesses, so consider your requirements and available hardware when making a decision 
 
 ### **Generative AI with ONNX Runtime**
 

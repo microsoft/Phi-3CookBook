@@ -2,13 +2,13 @@
 
  [Microsoft Prompt Flow](https://microsoft.github.io/promptflow/index.html) is a visual workflow automation tool that allows users to create automated workflows using pre-built templates and custom connectors. It is designed to enable developers and business analysts to quickly build automated processes for tasks such as data management, collaboration, and process optimization. With Prompt Flow, users can easily connect different services, applications, and systems, and automate complex business processes.
 
- Microsoft Prompt Flow is designed to streamline the end-to-end development cycle of AI applications powered by Large Language Models (LLMs). Whether you’re ideating, prototyping, testing, evaluating, or deploying LLM-based applications, Prompt Flow simplifies the process and enables you to build LLM apps with production quality.
+ Microsoft Prompt Flow is designed to streamline the end-to-end development cycle of AI applications powered by Large Language Models (LLMs). Whether you're ideating, prototyping, testing, evaluating, or deploying LLM-based applications, Prompt Flow simplifies the process and enables you to build LLM apps with production quality.
 
 ## Here are the key features and benefits of using Microsoft Prompt Flow:
 
 **Interactive Authoring Experience**
 
-Prompt Flow provides a visual representation of your flow’s structure, making it easy to understand and navigate your projects.
+Prompt Flow provides a visual representation of your flow's structure, making it easy to understand and navigate your projects.
 It offers a notebook-like coding experience for efficient flow development and debugging.
 
 **Prompt Variants and Tuning**
@@ -30,7 +30,7 @@ Maintain version control and share knowledge effectively. Streamline the entire 
 
 ## Evaluation in Prompt Flow 
 
-In Microsoft Prompt Flow, evaluation plays a crucial role in assessing how well your AI models perform. Let’s explore how you can customize evaluation flows and metrics within Prompt Flow:
+In Microsoft Prompt Flow, evaluation plays a crucial role in assessing how well your AI models perform. Let's explore how you can customize evaluation flows and metrics within Prompt Flow:
 
 ![PFVizualise](../../imgs/05/PromptFlow/pfvisualize.png)
 
@@ -47,11 +47,11 @@ They typically run after the flow being tested, using its outputs. They calculat
 **Defining Inputs**
 
 Evaluation flows need to take in the outputs of the run being tested. Define inputs similarly to standard flows.
-For example, if you’re evaluating a QnA flow, name an input as “answer.” If evaluating a classification flow, name an input as “category.” Ground truth inputs (e.g., actual labels) may also be needed.
+For example, if you're evaluating a QnA flow, name an input as "answer." If evaluating a classification flow, name an input as "category." Ground truth inputs (e.g., actual labels) may also be needed.
 
 **Outputs and Metrics**
 
-Evaluation flows produce results that measure the tested flow’s performance. Metrics can be calculated using Python or LLM (Large Language Models). Use the log_metric() function to log relevant metrics.
+Evaluation flows produce results that measure the tested flow's performance. Metrics can be calculated using Python or LLM (Large Language Models). Use the log_metric() function to log relevant metrics.
 
 **Using Customized Evaluation Flows**
 
@@ -65,5 +65,5 @@ You can submit batch runs and use these methods to evaluate how well your flow p
 View evaluation results, compare metrics, and iterate as needed.
 Remember, evaluation is essential for ensuring your AI models meet desired criteria and goals. Explore the official documentation for detailed instructions on developing and using evaluation flows in Microsoft Prompt Flow.
 
-In summary, Microsoft Prompt Flow empowers developers to create high-quality LLM applications by simplifying prompt engineering and providing a robust development environment. If you’re working with LLMs, Prompt Flow is a valuable tool to explore. Explore the [Prompt Flow Evaluation Documents](https://learn.microsoft.com/azure/machine-learning/prompt-flow/how-to-develop-an-evaluation-flow?view=azureml-api-2) for detailed instructions on developing and using evaluation flows in Microsoft Prompt Flow.
+In summary, Microsoft Prompt Flow empowers developers to create high-quality LLM applications by simplifying prompt engineering and providing a robust development environment. If you're working with LLMs, Prompt Flow is a valuable tool to explore. Explore the [Prompt Flow Evaluation Documents](https://learn.microsoft.com/azure/machine-learning/prompt-flow/how-to-develop-an-evaluation-flow?view=azureml-api-2) for detailed instructions on developing and using evaluation flows in Microsoft Prompt Flow.
 

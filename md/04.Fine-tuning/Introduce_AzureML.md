@@ -40,7 +40,7 @@ Azure ML provides tools that enable you to:
 ## Cross-Compatible Platform Tools
 
 Anyone on an ML team can use their preferred tools to get the job done.
-Whether you’re running rapid experiments, hyperparameter tuning, building pipelines, or managing inferences, you can use familiar interfaces including:
+Whether you're running rapid experiments, hyperparameter tuning, building pipelines, or managing inferences, you can use familiar interfaces including:
 - Azure Machine Learning Studio
 - Python SDK (v2)
 - Azure CLI (v2)
@@ -58,7 +58,7 @@ Enterprise users can deploy different models according to different business sce
 
 ![models](../../imgs/04/03/models.png)
 
-The Model Catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in Microsoft’s Product Terms, and subject to the terms provided with the model.
+The Model Catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in Microsoft's Product Terms, and subject to the terms provided with the model.
 
 
 ### **Job Pipeline**

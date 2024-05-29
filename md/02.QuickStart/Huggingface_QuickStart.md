@@ -50,9 +50,9 @@ Help me generate a bubble algorithm<|end|>
 
 ## **3. Inferences Phi-3 with Python**
 
-Inferences with Phi-3 refer to the process of using the Phi-3 models to generate predictions or outputs based on input data. The Phi-3 models are a family of small language models (SLMs) that include variants like Phi-3-Mini, Phi-3-Small, and Phi-3-Medium, each designed for different application scenarios and with varying parameter sizes. These models have been trained on high-quality data and are fine-tuned for chat capabilities, alignment, robustness, and safety. They can be deployed on both edge and cloud platforms using ONNX and TensorFlow Lite, and are developed in accordance with Microsoft’s Responsible AI principles.
+Inferences with Phi-3 refer to the process of using the Phi-3 models to generate predictions or outputs based on input data. The Phi-3 models are a family of small language models (SLMs) that include variants like Phi-3-Mini, Phi-3-Small, and Phi-3-Medium, each designed for different application scenarios and with varying parameter sizes. These models have been trained on high-quality data and are fine-tuned for chat capabilities, alignment, robustness, and safety. They can be deployed on both edge and cloud platforms using ONNX and TensorFlow Lite, and are developed in accordance with Microsoft's Responsible AI principles.
 
-For example, the Phi-3-Mini is a lightweight, state-of-the-art open model with 3.8 billion parameters, suitable for prompts using chat format and supporting a context length of up to 128K tokens. It’s the first model in its weight class to support such a long context.
+For example, the Phi-3-Mini is a lightweight, state-of-the-art open model with 3.8 billion parameters, suitable for prompts using chat format and supporting a context length of up to 128K tokens. It's the first model in its weight class to support such a long context.
 
 The Phi-3 models are available on platforms like Azure AI MaaS, HuggingFace, NVIDIA, Ollama, ONNX, and can be used for a variety of applications, including real-time interactions, autonomous systems, and apps requiring low latency.
 

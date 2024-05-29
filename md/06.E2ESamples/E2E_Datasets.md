@@ -1,6 +1,6 @@
 # **Prepare your industry data**
 
-We hope to inject Phi-3-mini into [TruthfulQA’s data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) . The first step is to import TruthfulQA’s data. 
+We hope to inject Phi-3-mini into [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) . The first step is to import TruthfulQA's data. 
 
 
 ### **1. Load  data into csv and save it to json**
