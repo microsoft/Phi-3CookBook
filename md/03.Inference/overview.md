@@ -20,4 +20,16 @@ Many users prefer to use quantized models for local inference. For example, you 
 ## **Generative AI Possibilities:**
 Combining SLMs like Phi-3-mini opens up new possibilities for generative AI. Inference is just the first step; these models can be used for various tasks in resource-constrained, latency-bound, and cost-constrained scenarios.
 
+## **Unlocking Generative AI with Phi-3-mini: A Guide to Inference and Deployment** 
+Learn how to use Semantic Kernel, Ollama/LlamaEdge, and ONNX Runtime to access and infer Phi-3-mini models, and explore the possibilities of generative AI in various application scenarios.
+
+**Features**
+Inference phi3-mini model in:
+
+[Semantic Kernel](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/semantickernel?WT.mc_id=aiml-138114-kinfeylo)
+[Ollama](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ollama?WT.mc_id=aiml-138114-kinfeylo)
+[LlamaEdge WASM](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm?WT.mc_id=aiml-138114-kinfeylo)
+[ONNX Runtime](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/onnx?WT.mc_id=aiml-138114-kinfeylo)
+[iOS](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios?WT.mc_id=aiml-138114-kinfeylo)
+
 In summary, Phi-3-mini allows developers to explore different model formats and leverage generative AI in various application scenarios.
