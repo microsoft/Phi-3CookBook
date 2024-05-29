@@ -1,6 +1,6 @@
 # **Introduce Responsible AI**
 
-[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. The initiative provides guidance and resources for developing responsible AI solutions that align with ethical principles, such as privacy, fairness, and transparency. We will also explore some of the challenges and best practices associated with building responsible AI systems.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai?WT.mc_id=aiml-138114-kinfeylo) is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. The initiative provides guidance and resources for developing responsible AI solutions that align with ethical principles, such as privacy, fairness, and transparency. We will also explore some of the challenges and best practices associated with building responsible AI systems.
 
 ## Overview of Microsoft Responsible AI 
 
@@ -16,7 +16,7 @@ Microsoft Responsible AI emphasizes the importance of transparency in AI systems
 
 **Accountable AI** 
 
-[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai) promotes the development of accountable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai?WT.mc_id=aiml-138114-kinfeylo) promotes the development of accountable AI systems, which can provide insights into how AI models make decisions. This can help users understand and trust the outputs of AI systems.
 
 **Inclusiveness** 
 
@@ -64,7 +64,7 @@ Following ethical principles, such as fairness, transparency, and accountability
 
 ## Using AI Studio for Responsible AI 
 
-[Azure AI Studio](https://ai.azure.com) is a powerful platform that allows developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications. Here are some key features and capabilities of Azure AI Studio:
+[Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) is a powerful platform that allows developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications. Here are some key features and capabilities of Azure AI Studio:
 
 **Out-of-the-Box APIs and Models** 
 
@@ -80,7 +80,7 @@ RAG is a technique that combines retrieval-based and generative-based approaches
 
 **Evaluation and Monitoring Metrics for Generative AI** 
 
-Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you’ve created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
+Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you’ve created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/?WT.mc_id=aiml-138114-kinfeylo) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
 
 To use AI Studio with responsible AI, you can follow these best practices:
 

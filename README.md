@@ -49,6 +49,8 @@ This cookbook includes:
 
 * [Introduction]()
     * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
+    * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
+    
 * [Quick Start]()
     * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
     * [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)(✅)

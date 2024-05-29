@@ -6,7 +6,7 @@
 
 **Set Up Your Environment**
 
-Azure AI Studio: If you haven’t already, sign in to [Azure AI Studio](https://ai.azure.com).
+Azure AI Studio: If you haven’t already, sign in to [Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo).
 
 **Create a New Project** 
 

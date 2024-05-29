@@ -10,7 +10,7 @@ We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, a
 
 ## **1. Preparation**
 
-Create Azure AI Studio on [Azure Portal](https://portal.azure.com)
+Create Azure AI Studio on [Azure Portal](https://portal.azure.com?WT.mc_id=aiml-138114-kinfeylo)
 
 ![portal](../../imgs/02/AIStudio/ai-studio-portal.png)
 

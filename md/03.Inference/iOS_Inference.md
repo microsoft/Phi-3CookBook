@@ -9,7 +9,7 @@ a. macOS 14+
 
 b. Xcode 15+
    
-c. iOS SDK 17.x 
+c. iOS SDK 17.x (iPhone 14 A16 or greater)
    
 d. Install Python 3.10+ (Conda is recommended)
    
