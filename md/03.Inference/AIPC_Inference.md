@@ -18,6 +18,9 @@ In summary, NPUs are the math whizzes that turbocharge AI computations, and they
 
 Intel® NPU device is an AI inference accelerator integrated with Intel client CPUs, starting from Intel® Core™ Ultra generation of CPUs (formerly known as Meteor Lake). It enables energy-efficient execution of artificial neural network tasks.
 
+![Latency](../../imgs/03/AIPC/aipcphitokenlatency.png)
+
+![Latency770](../../imgs/03/AIPC/aipcphitokenlatency770.png)
 
 **Intel NPU Acceleration Library**
 
@@ -25,7 +28,7 @@ The Intel NPU Acceleration Library [https://github.com/intel/intel-npu-accelerat
 
 Example of Phi-3-mini on AI PC powered by Intel® Core™ Ultra processors.
 
-![DemoPhiIntelAIPC](../../imgs/03/AIPC/aipcphi3.png)
+![DemoPhiIntelAIPC](../../imgs/03/AIPC/aipcphi3-mini.gif)
 
 Install the Python Library with pip
 
