@@ -88,5 +88,5 @@ Evaluation and Saving: Evaluate the fine-tuned model.
 Save checkpoints during training for later use.
 
 **Samples**
-[Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
-[Example of Python FineTuning Sample](../../code/04.Finetuning/FineTrainingScript.py)
+- [Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
+- [Example of Python FineTuning Sample](../../code/04.Finetuning/FineTrainingScript.py)
