@@ -21,7 +21,11 @@ Intel® NPU device is an AI inference accelerator integrated with Intel client C
 
 **Intel NPU Acceleration Library**
 
-The Intel NPU Acceleration Library [https://github.com/intel/intel-npu-acceleration-library](https://github.com/intel/intel-npu-acceleration-library)is a Python library designed to boost the efficiency of your applications by leveraging the power of the Intel Neural Processing Unit (NPU) to perform high-speed computations on compatible hardware.
+The Intel NPU Acceleration Library [https://github.com/intel/intel-npu-acceleration-library](https://github.com/intel/intel-npu-acceleration-library) is a Python library designed to boost the efficiency of your applications by leveraging the power of the Intel Neural Processing Unit (NPU) to perform high-speed computations on compatible hardware.
+
+Example of Phi-3-mini on AI PC powered by Intel® Core™ Ultra processors.
+
+![DemoPhiIntelAIPC](../../imgs/03/AIPC/aipcphi3.png)
 
 Install the Python Library with pip
 
