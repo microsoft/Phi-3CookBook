@@ -42,7 +42,7 @@ A vector database is a collection of data stored in mathematical form. Vector da
 
 Vector database is the key to realizing RAG. We can convert data into vector storage through vector models such as text-embedding-3, jina-ai-embedding, etc.
 
-Learn more about create RAG application [https://github.com/microsoft/Phi-3CookBook](https://github.com/microsoft/Phi-3CookBook) 
+Learn more about create RAG application [https://github.com/microsoft/Phi-3CookBook](https://github.com/microsoft/Phi-3CookBook?WT.mc_id=aiml-138114-kinfeylo) 
 
 
 ## **How to use Fine-tuning**

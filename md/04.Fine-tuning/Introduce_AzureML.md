@@ -1,6 +1,6 @@
 # **Introduce Azure Machine Learning Service**
 
-[Azure Machine Learning](https://ml.azure.com) is a cloud service for accelerating and managing the machine learning (ML) project lifecycle.
+[Azure Machine Learning](https://ml.azure.com?WT.mc_id=aiml-138114-kinfeylo) is a cloud service for accelerating and managing the machine learning (ML) project lifecycle.
 
 ML professionals, data scientists, and engineers can use it in their day-to-day workflows to:
 
