@@ -2,25 +2,25 @@
 # Note thi requires 7.4 GB of GPU RAM for the process.
 # Model available at https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3
 # Model Names 
-# Phi-3-mini-4k-instruct
-# Phi-3-mini-128k-instruct
-# Phi-3-small-8k-instruct
-# Phi-3-small-128k-instruct
-# Phi-3-medium-4k-instruct
-# Phi-3-medium-128k-instruct
-# Phi-3-vision-128k-instruct
-# Phi-3-mini-4k-instruct-onnx
-# Phi-3-mini-4k-instruct-onnx-web
-# Phi-3-mini-128k-instruct-onnx
-# Phi-3-small-8k-instruct-onnx-cuda
-# Phi-3-small-128k-instruct-onnx-cuda
-# Phi-3-medium-4k-instruct-onnx-cpu
-# Phi-3-medium-4k-instruct-onnx-cuda
-# Phi-3-medium-4k-instruct-onnx-directml
-# Phi-3-medium-128k-instruct-onnx-cpu
-# Phi-3-medium-128k-instruct-onnx-cuda
-# Phi-3-medium-128k-instruct-onnx-directml
-# Phi-3-mini-4k-instruct-gguf
+# microsoft/Phi-3-mini-4k-instruct
+# microsoft/Phi-3-mini-128k-instruct
+# microsoft/Phi-3-small-8k-instruct
+# microsoft/Phi-3-small-128k-instruct
+# microsoft/Phi-3-medium-4k-instruct
+# microsoft/Phi-3-medium-128k-instruct
+# microsoft/Phi-3-vision-128k-instruct
+# microsoft/Phi-3-mini-4k-instruct-onnx
+# microsoft/Phi-3-mini-4k-instruct-onnx-web
+# microsoft/Phi-3-mini-128k-instruct-onnx
+# microsoft/Phi-3-small-8k-instruct-onnx-cuda
+# microsoft/Phi-3-small-128k-instruct-onnx-cuda
+# microsoft/Phi-3-medium-4k-instruct-onnx-cpu
+# microsoft/Phi-3-medium-4k-instruct-onnx-cuda
+# microsoft/Phi-3-medium-4k-instruct-onnx-directml
+# microsoft/Phi-3-medium-128k-instruct-onnx-cpu
+# microsoft/Phi-3-medium-128k-instruct-onnx-cuda
+# microsoft/Phi-3-medium-128k-instruct-onnx-directml
+# microsoft/Phi-3-mini-4k-instruct-gguf
 
 # Load the pre-trained model and tokenizer
 model = AutoModelForCausalLM.from_pretrained('Model_Name', torch_dtype=torch.float16)
