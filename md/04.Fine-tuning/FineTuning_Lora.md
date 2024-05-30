@@ -90,3 +90,4 @@ Save checkpoints during training for later use.
 **Samples**
 - [Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
 - [Example of Python FineTuning Sample](../../code/04.Finetuning/FineTrainingScript.py)
+- [Example of Hugging Face Hub Fine Tuning with LORA](../../code/04.Finetuning/Phi-3-finetune-lora-python.ipynb)
