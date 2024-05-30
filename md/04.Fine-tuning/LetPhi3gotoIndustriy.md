@@ -48,6 +48,7 @@ Learn more about create RAG application [https://github.com/microsoft/Phi-3CookB
 ## **How to use Fine-tuning**
 
 The commonly used algorithms in Fine-tuning are Lora and QLora. How to choose?
+[Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
 
 ### **Lora and QLora**
 
