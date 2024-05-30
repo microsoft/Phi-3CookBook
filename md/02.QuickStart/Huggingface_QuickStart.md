@@ -170,7 +170,7 @@ while (true)
 
 The running demo is similar to this one:
 
-![Chat running demo](./20SampleConsole.gif)
+![Chat running demo](../../imgs/02/csharp/20SampleConsole.gif)
 
 ***Note:** there is a typo in the 1st question, Phi-3 is cool enough to share the correct answer!*```
 
