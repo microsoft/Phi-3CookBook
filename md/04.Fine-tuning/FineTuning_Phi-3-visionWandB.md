@@ -4,11 +4,7 @@
 
 The Phi-3-Vision-128K-Instruct, a lightweight, state-of-the-art multimodal model, is at the core of this project. It is part of the Phi-3 model family and supports a context length of up to 128,000 tokens. The model was trained on a diverse dataset that includes synthetic data and carefully filtered publicly available websites, emphasizing high-quality, reasoning-intensive content. The training process included supervised fine-tuning and direct preference optimization to ensure precise adherence to instructions, as well as robust safety measures.
 
-## Dataset
-
-The dataset used is the DBQ/Burberry.Product.prices.United.States dataset (available on Huggingface). It includes images of Burberry products along with metadata on the products category, price, and title with a total of 3,040 rows, each representing a unique product. This dataset lets us test the model's ability to understand and interpret visual data, generating descriptive text that capture intricate visual details and brand-specific characteristics.
-
-Creating sample data is crucial for several reasons:
+## Creating sample data is crucial for several reasons:
 
 1. **Testing**: Sample data allows you to test your application under various scenarios without affecting real data. This is especially important in the development and staging phases.
 
@@ -26,6 +22,13 @@ Remember, the quality of your sample data can significantly impact these activit
 
 ### Sample Data Creation
 [Generate DataSet Script](./CreatingSampleData.md)
+
+## Dataset
+
+A good example of sample dataset is [DBQ/Burberry.Product.prices.United.States dataset](https://huggingface.co/datasets/DBQ/Burberry.Product.prices.United.States) (available on Huggingface). 
+The Sample data set  of Burberry products along with metadata on the products category, price, and title with a total of 3,040 rows, each representing a unique product. This dataset lets us test the model's ability to understand and interpret visual data, generating descriptive text that capture intricate visual details and brand-specific characteristics.
+
+**Note:** You can use any dataset which includes images.
 
 ## Complex Reasoning
 
