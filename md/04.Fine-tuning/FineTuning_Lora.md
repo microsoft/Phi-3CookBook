@@ -86,3 +86,9 @@ Specify the path to the pre-trained Phi-3 model (e.g., "microsoft/Phi-3-mini-4k-
 Fine-tune the Phi-3 model using the custom chat instruction dataset. Utilize the LoRA settings from peft_config for efficient adaptation. Monitor training progress using the specified logging strategy.
 Evaluation and Saving: Evaluate the fine-tuned model.
 Save checkpoints during training for later use.
+
+**Samples**
+- [Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
+- [Example of Python FineTuning Sample](../../code/04.Finetuning/FineTrainingScript.py)
+- [Example of Hugging Face Hub Fine Tuning with LORA](../../code/04.Finetuning/Phi-3-finetune-lora-python.ipynb)
+- [Example of Hugging Face Hub Fine Tuning with QLORA](../../code/04.Finetuning/Phi-3-finetune-qlora-python.ipynb)

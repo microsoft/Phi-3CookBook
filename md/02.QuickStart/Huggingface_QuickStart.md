@@ -170,11 +170,11 @@ while (true)
 
 The running demo is similar to this one:
 
-![Chat running demo](./20SampleConsole.gif)
+![Chat running demo](../../imgs/02/csharp/20SampleConsole.gif)
 
-***Note:** there is a typo in the 1st question, Phi-3 is cool enough to share the correct answer!*```
+***Note:** there is a typo in the 1st question, Phi-3 is cool enough to share the correct answer!*
 
-*You can see if this result is consistent with the result in your mind*
+
 
 ## **5. Using Phi-3 in Hugging Face Chat**
 
