@@ -26,14 +26,17 @@ def download_image(image_url, save_path):
         return False
 
 # Download the dataset from Hugging Face
-dataset = load_dataset('DBQ/Burberry.Product.prices.United.States')
-# Examples. dataset = load_dataset('DBQ/Burberry.Product.prices.United.States')
+# Simply replace DataSet with the Hugging Face DataSet name
+# Example. dataset = load_dataset('DBQ/Burberry.Product.prices.United.States')
+dataset = load_dataset('DataSet')
 
 # Convert the Hugging Face dataset to a Pandas DataFrame
 df = dataset['train'].to_pandas()
 
-# Create directories to save the dataset and images
-dataset_dir = './data/burberry_dataset'
+# Create directories to save the dataset and images to a folder
+# Example. dataset_dir = './data/burberry_dataset'
+dataset_dir = './data/Dataset'
+
 images_dir = os.path.join(dataset_dir, 'images')
 os.makedirs(images_dir, exist_ok=True)
 
@@ -50,8 +53,11 @@ for idx, row in df.iterrows():
 # Create a new DataFrame with the filtered rows
 filtered_df = pd.DataFrame(filtered_rows)
 
-# Save the updated dataset to disk
-dataset_path = os.path.join(dataset_dir, 'burberry_dataset.csv')
+# Save the updated dataset to disk in a CSV format
+# Example. dataset_path = os.path.join(dataset_dir, 'burberry_dataset.csv')
+# dataset_path = os.path.join(dataset_dir, 'burberry_dataset.csv')
+dataset_path = os.path.join(dataset_dir, 'Dataset.csv')
+
 filtered_df.to_csv(dataset_path, index=False)
 
 print(f"Dataset and images saved to {dataset_dir}")
