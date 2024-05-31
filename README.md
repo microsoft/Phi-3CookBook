@@ -65,6 +65,7 @@ This cookbook includes:
     * [Let Phi-3 become an industry expert](./md/04.Fine-tuning/LetPhi3gotoIndustriy.md)(✅)
     * [Introduce Azure Machine Learning Service](./md/04.Fine-tuning/Introduce_AzureML.md)(✅)
     * [Fine-tuning Phi-3 with Lora](./md/04.Fine-tuning/FineTuning_Lora.md)(✅)
+    * [Fine-tuning Phi-3 with QLora](./md/04.Fine-tuning/FineTuning_QLora.md)(✅)
     * [Fine-tuning Phi-3 with Azure AI Studio](./md/04.Fine-tuning/FineTuning_AIStudio.md)(✅)
      * [Fine-tuning Phi-3 with Azure ML CLI/SDK](./md/04.Fine-tuning/FineTuning_MLSDK.md)(✅)
     * [Fine-tuning with Microsoft Olive](./md/04.Fine-tuning/FineTuning_MicrosotOlive.md)(✅)
