@@ -62,6 +62,7 @@ This cookbook includes:
     * [Inference Phi-3 in AIPC](./md/03.Inference/AIPC_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
 * [Fine-tuning Phi-3]()
+    * [Downloading & Creating Sample Data Set](./md/04.Fine-tuning/CreatingSampleData.md)(✅)
     * [Let Phi-3 become an industry expert](./md/04.Fine-tuning/LetPhi3gotoIndustriy.md)(✅)
     * [Introduce Azure Machine Learning Service](./md/04.Fine-tuning/Introduce_AzureML.md)(✅)
     * [Fine-tuning Phi-3 with Lora](./md/04.Fine-tuning/FineTuning_Lora.md)(✅)
