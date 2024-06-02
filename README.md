@@ -80,6 +80,8 @@ This cookbook includes:
     * [Prepare your industry data](./md/06.E2ESamples/E2E_Datasets.md)(✅)
     * [Use Microsoft Olive to architect your projects](./md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
     * [Inference Your Fine-tuning ONNX Runtime Model](./md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
+* [E2E Samples for Phi-3-vision]()
+    * [Image text to textl](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
 
 ## Contributing
 
