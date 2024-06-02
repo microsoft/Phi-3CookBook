@@ -96,19 +96,26 @@ This is the result in Postman
 
 # Additional Resources
 
-Pulling the latest version of the model
+Check the list of available models in Ollama in [this link.](https://ollama.com/library)
 
-Pull your model from the Ollama server, see the list of models](https://ollama.com/library). 
+Pull your model from the Ollama server using this command
 
-```
+```bash
 ollama pull phi3
-
 ```
 
+Run the model using this command
 
-Calling Ollama from a JavaScript 
-
+```bash
+ollama run phi3
 ```
+
+***Note:*** Visit this link [https://github.com/ollama/ollama/blob/main/docs/api.md](https://github.com/ollama/ollama/blob/main/docs/api.md) to learn more
+
+
+## Calling Ollama from JavaScript 
+
+```javascript
 #Example of Summarize a file with Phi-3
 script({
     model: "ollama:phi3",
@@ -121,7 +128,39 @@ const file = def("FILE", env.files)
 $`Summarize ${file} in a single paragraph.`
 ```
 
-***Note:*** Visit this link [https://github.com/ollama/ollama/blob/main/docs/api.md](https://github.com/ollama/ollama/blob/main/docs/api.md) to learn more
+## Calling Ollama from C#
+
+Create a new C# Console application and add the following NuGet package:
+
+```bash
+dotnet add package Microsoft.SemanticKernel --version 1.13.0
+```
+
+Then replace this code in the `Program.cs` file
+
+```csharp
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.ChatCompletion;
+
+// add chat completion service using the local ollama server endpoint
+#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
+builder.AddOpenAIChatCompletion(
+    modelId: "phi3",
+    endpoint: new Uri("http://localhost:11434/"),
+    apiKey: "non required");
+
+// invoke a simple prompt to the chat service
+string prompt = "Write a joke about kittens";
+var response = await kernel.InvokePromptAsync(prompt);
+Console.WriteLine(response.GetValue<string>());
+```
+
+Run the app with the command:
+
+```bash
+dotnet run
+```
+
 
 
 
