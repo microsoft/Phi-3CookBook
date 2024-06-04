@@ -2,7 +2,7 @@
 
 This is a manual on how to use the Microsoft Phi-3 family. 
 
-![Phi3Family](/imgs/00/Phi3available.png)
+![Phi3Family](/imgs/00/Phi3getstarted.png)
 
 Phi-3, a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. 
 
