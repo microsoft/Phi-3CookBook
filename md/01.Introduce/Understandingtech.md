@@ -20,6 +20,16 @@ The hardware support for CUDA is specific to Nvidia’s GPUs, as it is a proprie
  
 ### ONNX 
 ONNX (Open Neural Network Exchange) is an open format designed to represent machine learning models. It provides a definition of an extensible computation graph model, as well as definitions of built-in operators and standard data types. ONNX allows developers to move models between different ML frameworks, enabling interoperability and making it easier to create and deploy AI applications.
- 
+
+Phi3 mini can run with ONNX Runtime on CPU and GPU across devices, including server platforms, Windows, Linux and Mac desktops, and mobile CPUs. 
+The optimized configurations we have added are
+- ONNX models for int4 DML: Quantized to int4 via AWQ
+- ONNX model for fp16 CUDA
+- ONNX model for int4 CUDA: Quantized to int4 via RTN
+- ONNX model for int4 CPU and Mobile: Quantized to int4 via RTN
+
+### Llama.cpp
+Llama.cpp is an open-source software library written in C++. It performs inference on various Large Language Models (LLMs), including Llama. Developed alongside the ggml library (a general-purpose tensor library), llama.cpp aims to provide faster inference and lower memory usage compared to the original Python implementation. It supports hardware optimization, quantization, and offers a simple API and examples3. If you’re interested in efficient LLM inference, llama.cpp is worth exploring as Phi3 can run Llama.cpp. 
+
 ### GGUF 
 GGUF (Generic Graph Update Format) is a format used for representing and updating machine learning models. It is particularly useful for smaller language models (SLMs) that can run effectively on CPUs with 4-8bit quantization. GGUF is beneficial for rapid prototyping and running models on edge devices or in batch jobs like CI/CD pipelines.
