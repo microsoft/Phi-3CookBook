@@ -2,6 +2,8 @@
 
 This is a manual on how to use the Microsoft Phi-3 family. 
 
+![Phi3Family](/imgs/00/Phi3available.png)
+
 Phi-3, a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. 
 
 Phi-3-mini, a 3.8B language model is available on [Microsoft Azure AI Studio](https://aka.ms/phi3-azure-ai), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3). Phi-3 models significantly outperform language models of the same and larger sizes on key benchmarks (see benchmark numbers below, higher is better). Phi-3-mini does better than models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.  
@@ -16,10 +18,7 @@ Phi-3-medium with 14B parameters continues the trend and outperforms Gemini 1.0 
 
 ![phimodelmedium](/imgs/00/phi3medium.png)
 
- 
-
 Phi-3-vision with just 4.2B parameters continues that trend and outperforms larger models such as Claude-3 Haiku and Gemini 1.0 Pro V across general visual reasoning tasks, OCR, table and chart understanding tasks. 
-
 
 ![phimodelvision](/imgs/00/phi3vision.png)
 
@@ -50,19 +49,26 @@ This cookbook includes:
 * [Introduction]()
     * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
     * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
-    
+    * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md))(✅)
+    * [Phi-3 Hardware Support ](./md/01.Introduce/Hardwaresupport.md))(✅)
+    * [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md))(✅)
+     
 * [Quick Start]()
     * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
     * [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)(✅)
     * [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
     * [Using Phi-3 in LM Studio](./md/02.QuickStart/LMStudio_QuickStart.md)(✅)
+
 * [Inference Phi-3](./md/03.Inference/overview.md)  
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
     * [Inference Phi-3 in AI PC](./md/03.Inference/AIPC_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
     * [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
+
 * [Fine-tuning Phi-3]()
+    * [Finetuning Scenarios](./md/04.Fine-tuning/FineTuning%20Scenarios.md)(✅)
+    * [Finetuning vs RAG](./md/04.Fine-tuning/FineTuning%20vs%20RAG.md)(✅)
     * [Downloading & Creating Sample Data Set](./md/04.Fine-tuning/CreatingSampleData.md)(✅)
     * [Let Phi-3 become an industry expert](./md/04.Fine-tuning/LetPhi3gotoIndustriy.md)(✅)
     * [Introduce Azure Machine Learning Service](./md/04.Fine-tuning/Introduce_AzureML.md)(✅)
@@ -72,22 +78,26 @@ This cookbook includes:
     * [Fine-tuning Phi-3 with Azure ML CLI/SDK](./md/04.Fine-tuning/FineTuning_MLSDK.md)(✅)
     * [Fine-tuning with Microsoft Olive](./md/04.Fine-tuning/FineTuning_MicrosotOlive.md)(✅)
     * [Fine-tuning Phi-3-vision with Weights and Bias](./md/04.Fine-tuning/FineTuning_Phi-3-visionWandB.md)(✅)
+
 * [Evaluation Phi-3]()
     * [Introduce Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
     * [Introduce Promptflow](./md/05.Evaluation/Promptflow.md)(✅)
     * [Using Azure AI Studio to evaluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
+
 * [E2E Samples for Phi-3-mini]()
     * [Introduce](./md/06.E2ESamples/E2E_Introduction.md)(✅)
     * [Prepare your industry data](./md/06.E2ESamples/E2E_Datasets.md)(✅)
     * [Use Microsoft Olive to architect your projects](./md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
     * [Inference Your Fine-tuning ONNX Runtime Model](./md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
+
 * [E2E Samples for Phi-3-vision]()
     * [Phi3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
     * [Phi-3-Vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
+
+* [ONNX runtime samples for Phi-3-vision]()
     * [Phi-3-ONNX-Samples](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
 
 ## Contributing
-
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us

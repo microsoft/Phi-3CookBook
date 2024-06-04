@@ -38,4 +38,15 @@ Phi Silica API along with OCR, Studio Effects, Live Captions, Recall User Activi
 - [Azure AI](https://aka.ms/phi3-azure-ai) 
 - [Hugging Face.](https://aka.ms/phi3-hf) 
 
- 
+## Example of Model Selection 
+
+| | | | |
+|-|-|-|-|
+|Customer Need|Task|Start with|More Details|
+|Need a model that simply summarizes a thread of messages|Conversation Summarization|Phi-3 text model|Deciding factor here is that the customer has a well defined and straight forward language task|
+|A free math tutor app for kids|Math and Reasoning|Phi-3 text models|Because the app is free customers want a solution that does not cost them on a recurring basis |
+|Self Patrol Car Camera|Vision analysis|Phi-Vision|Need a solution that can work on edge without internet|
+|Wants to build an AI based travel booking agent|Needs complex planning, function calling and orchestration|GPT models|Need ability to plan, call APIs to gather information and execute |
+|Wants to build a copilot for their employees|RAG, multiple domain, complex and open ended|GPT models|Open ended scenario, needs broader world knowledge, hence a larger model is more suited|
+|Need to adapt foundational model to a certain industry and/or domain or department|Multiple tasks that will need model customization|Phi-3 models|Phi-3 models provide an a better affordable option to model customization. |
+
