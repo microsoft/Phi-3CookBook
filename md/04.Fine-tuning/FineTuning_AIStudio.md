@@ -1,8 +1,22 @@
 # **Fine-tuning Phi-3 with Azure AI Studio**
 
- Let’s explore how to fine-tune Microsoft’s Phi-3 Mini language model using Azure AI Studio. Fine-tuning allows you to adapt Phi-3 Mini to specific tasks, making it even more powerful and context-aware. Here are the steps to get started:
+ Let’s explore how to fine-tune Microsoft’s Phi-3 Mini language model using Azure AI Studio. Fine-tuning allows you to adapt Phi-3 Mini to specific tasks, making it even more powerful and context-aware. 
+ 
+## Considerations:
+
+- **Capabilities:** Which models are fine tunable? What can the base model be fine tuned to do? 
+- **Cost:** What’s the pricing model for fine tuning 
+**Customizability:** How much can I modify the base model – and in what ways?
+- **Convenience:** How does fine tuning actually happen – do I need to write custom code? Do I need to bring my own compute?
+- **Safety:** Fine tuned models are known to have safety risks – are there any guardrails in place to protect against unintended harm?
+
+![AIStudio Models](../../imgs/05/AIStudio/AistudioModels.png) 
+
+Here are the steps to get started:
 
 ## Fine-Tuning Phi-3 with Azure AI Studio
+
+![Finetune AI Studio](../../imgs/05/AIStudio/AIStudiofinetune.png)
 
 **Set Up Your Environment**
 

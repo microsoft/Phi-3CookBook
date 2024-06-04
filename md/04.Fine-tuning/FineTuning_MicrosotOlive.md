@@ -27,6 +27,9 @@ Microsoft Olive is a very easy-to-use open source model optimization tool that c
 
 ![intro](../../imgs/04/02/intro.png)
 
+## Phi-3 Fine Tuning with Microsoft Olive 
+
+![FinetuningwithOlive](../../imgs/04/03/olivefinetune.png)
 ### **Setup Microsoft Olive**
 
 Microsoft Olive installation is very simple, and can also be installed for CPU, GPU ,DirectML, and Azure ML
