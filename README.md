@@ -95,8 +95,12 @@ This cookbook includes:
     * [Phi3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
     * [Phi-3-Vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
 
+* [Labs and workshops samples Phi-3]()
+    * [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
+    
 * [ONNX runtime samples for Phi-3-vision]()
     * [Phi-3-ONNX-Samples](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
+
 
 ## Contributing
 
