@@ -20,7 +20,7 @@ By composing and tuning integrated techniques, Olive offers a unified solution f
 It takes constraints like accuracy and latency into account while optimizing models.
 
 
-## **Using Microsoft Olive to fine-tuning**
+## Using Microsoft Olive to fine-tuning
 
 
 Microsoft Olive is a very easy-to-use open source model optimization tool that can cover both fine-tuning and reference in the field of generative artificial intelligence. It only requires simple configuration, combined with the use of open source small language models and related runtime environments (AzureML / local GPU, CPU, DirectML), you can complete the fine-tuning or reference of the model through automatic optimization, and find the best model to deploy to the cloud Or on edge devices. Allow enterprises to build their own industry vertical models on-premises and in the cloud.
@@ -30,49 +30,48 @@ Microsoft Olive is a very easy-to-use open source model optimization tool that c
 ## Phi-3 Fine Tuning with Microsoft Olive 
 
 ![FinetuningwithOlive](../../imgs/04/03/olivefinetune.png)
-### **Setup Microsoft Olive**
+
+## Olive Sample 
+
+### Fine-tune Phi3 using Olive
+
+In this example you'll use Olive to:
+
+- Fine-tune a LoRA adapter to classify phrases into Sad, Joy, Fear, Surprise.
+- Merge the adapter weights into the base model.
+- Optimize and Quantize the model into int4.
+
+[Sample Code](../../code/04.Finetuning/olive-ort-example/README.md)
+
+
+### Setup Microsoft Olive
 
 Microsoft Olive installation is very simple, and can also be installed for CPU, GPU ,DirectML, and Azure ML
-
-Setup Microsoft Olive
-Microsoft Olive installation is very simple, and can also be installed for CPU, GPU ,DirectML, and Azure ML
-
 
 ```bash
-
 pip install olive-ai
-
-
 ```
 
 If you wish to run an ONNX model with a CPU, you can use
 
-
-
 ```bash
-
 pip install olive-ai[cpu]
-
-
 ```
 
 If you want to run an ONNX model with a GPU, you can use
 
 
-```bash
-
+```python
 pip install olive-ai[gpu]
-
-
 ```
 
 If you want to use Azure ML, use
 
-
+```python
 pip install git+https://github.com/microsoft/Olive#egg=olive-ai[azureml]
+```
 
-***Notice***
-
+**Notice**
 OS requirement : Ubuntu 20.04 / 22.04 
 
 
@@ -120,7 +119,7 @@ You can simply set up the data set that needs to be trained for fine-tuning, usu
 
 ```
 
-*Cloud data source settings*
+**Cloud data source settings**
 
 By linking the datastore of Azure AI Studio/Azure Machine Learning Service to link the data in the cloud, you can choose to introduce different data sources to Azure AI Studio/Azure Machine Learning Service through Microsoft Fabric and Azure Data as a support for fine-tuning the data.
 
@@ -294,8 +293,7 @@ If you want to use a model from Azure AI Studio / Azure Machine Learning Service
 
 ```
 
-*Notice:*
-
+**Notice:**
 We need to integrate with Azure AI Studio / Azure Machine Learning Service, so when setting up the model, please refer to the version number and related naming.
 
 All models on Azure need to be set to PyTorch.MLflow
@@ -368,7 +366,7 @@ such as converting to quantized INT4
 
 ```
 
-***Notice*** 
+**Notice** 
 
 - If you use QLoRA, the quantization conversion of ONNXRuntime-genai is not supported for the time being.
 
