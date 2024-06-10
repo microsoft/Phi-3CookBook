@@ -1,0 +1,96 @@
+{
+    "$schema": "https://microsoft.github.io/Olive/schema.json",
+    "input_model":{
+        "type": "PyTorchModel",
+        "config": {
+            "hf_config": {
+                "model_name": "microsoft/Phi-3-mini-4k-instruct",
+                "task": "text-generation",
+                "from_pretrained_args": {
+                    "trust_remote_code": true
+                }
+            }
+        }
+    },
+    "systems": {
+        "local_system": {
+            "type": "LocalSystem",
+            "config": {
+                "accelerators": [
+                    {
+                        "device": "gpu",
+                        "execution_providers": [
+                            "CUDAExecutionProvider"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "data_configs": [
+        {
+            "name": "dataset_default_train",
+            "type": "HuggingfaceContainer",
+            "params_config": {
+                "data_name": "json", 
+                "data_files":"dataset/dataset-classification.json",
+                "split": "train",
+                "component_kwargs": {
+                    "pre_process_data": {
+                        "dataset_type": "corpus",
+                        "text_cols": ["phrase","tone"],
+                        "text_template": "<|user|>\n{phrase}<|end|>\n<|assistant|>\n{tone}<|end|>",
+                        "corpus_strategy": "join",
+                        "source_max_len": 1024,
+                        "pad_to_max_len": false,
+                        "use_attention_mask": false
+                    }
+                }
+            }
+        }
+    ],
+    "passes": {
+        "lora": {
+            "type": "LoRA",
+            "config": {
+                "target_modules": [
+                    "o_proj",
+                    "qkv_proj"
+                ],
+                "lora_r": 64,
+                "lora_alpha": 64,
+                "lora_dropout": 0.1,
+                "train_data_config": "dataset_default_train",
+                "eval_dataset_size": 0.3,
+                "training_args": {
+                    "seed": 0,
+                    "data_seed": 42,
+                    "per_device_train_batch_size": 1,
+                    "per_device_eval_batch_size": 1,
+                    "gradient_accumulation_steps": 4,
+                    "gradient_checkpointing": false,
+                    "learning_rate": 0.0001,
+                    "max_steps": 150,
+                    "evaluation_strategy": "steps",
+                    "adam_beta2": 0.999,
+                    "max_grad_norm": 0.3
+                }
+            }
+        },
+        "merge": {
+            "type": "MergeAdapterWeights"
+        },
+        "mb": {
+            "type": "ModelBuilder",
+            "config": {
+                "precision": "int4"
+            }
+        }
+    },
+    "engine": {
+        "cache_dir": "cache",
+        "output_dir": "models",
+        "host": "local_system",
+        "target": "local_system"
+    }
+}
