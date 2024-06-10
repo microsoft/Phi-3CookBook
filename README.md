@@ -65,6 +65,7 @@ This cookbook includes:
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
     * [Inference Phi-3 in AI PC](./md/03.Inference/AIPC_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
+    * [Inference Phi-3 in Remote Server using AI Toolkit](./md/03.Inference/Remote_Inference.md)(✅)
     * [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
 
 * [Fine-tuning Phi-3]()
