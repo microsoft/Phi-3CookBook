@@ -10,7 +10,7 @@
 - **Convenience:** How does fine tuning actually happen – do I need to write custom code? Do I need to bring my own compute?
 - **Safety:** Fine tuned models are known to have safety risks – are there any guardrails in place to protect against unintended harm?
 
-![AIStudio Models](../../imgs/05/AIStudio/AistudioModels.png) 
+![AIStudio Models](../../imgs/05/AIStudio/AIStudioModels.png) 
 
 Here are the steps to get started:
 
@@ -26,11 +26,28 @@ Azure AI Studio: If you haven’t already, sign in to [Azure AI Studio](https://
 
 Click on “New” and create a new project. Choose the appropriate settings based on your use case.
 
+![FineTuneSelect](../../imgs/05/AIStudio/AIStudiofinetuneselect.png)
 ### Data Preparation
 
 **Dataset Selection** 
 
 Gather or create a dataset that aligns with your task. This could be chat instructions, question-answer pairs, or any relevant text data.
+
+Select DataSet
+
+![FineTuneSelect](../../imgs/05/AIStudio/AIStudiofintunetask.png)
+
+Choose your DataSet
+
+![FinetuneDataSelect](../../imgs/05/AIStudio/AIStudiodatafintuneselect.png)
+
+Preview DataSet
+
+![Finetuneselect](../../imgs/05/AIStudio/AIStudiofinetunepreview.png)
+
+**Advanced Usage** 
+
+![FineTuneAdvanced](../../imgs/05/AIStudio/AIStudiofinetuneadvanced.png)
 
 **Data Preprocessing** 
 
