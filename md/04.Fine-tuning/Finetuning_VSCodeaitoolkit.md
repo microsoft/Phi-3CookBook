@@ -3,6 +3,7 @@
 [AI Toolkit for VS Code](https://github.com/microsoft/vscode-ai-toolkit/tree/main) brings together various models from Azure AI Studio Catalog and other catalogs like Hugging Face. The toolkit streamlines the common development tasks for building AI apps with generative AI tools and models through:
 - Get started with model discovery and playground.
 - Model fine-tuning and inference using local computing resources.
+- Remote fine-tuning and inference using Azure resources
 
 [Install AI Toolkit for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 
@@ -79,6 +80,34 @@ python gradio_chat.py
 
 To use `prompt flow` in VS Code, please refer to this [Quick Start](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html).
 
+### Model Fine-tuning
+
+Next, download the following model depending on the availability of a GPU on your device.
+
+To initiate the local fine-tuning session using QLoRA, select a model you want to fine-tune from our catalog.
+| Platform(s) | GPU available | Model name | Size (GB) |
+|---------|---------|--------|--------|
+| Windows | Yes | Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx | 2.13GB |
+| Linux | Yes | Phi-3-mini-4k-**cuda**-int4-onnx | 2.30GB |
+| Windows<br>Linux | No | Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx | 2.72GB |
+
+**_Note_** You do not need an Azure Account to download the models
+
+The Phi3-mini (int4) model is approximately 2GB-3GB in size. Depending on your network speed, it could take a few minutes to download.
+
+Start by selecting a project name and location.
+Next, select a model from the model catalog. You will be prompted to download the project template. You can then click "Configure Project" to adjust various settings.
+
+### Microsoft Olive 
+
+We use [Olive](https://microsoft.github.io/Olive/overview/olive.html) to run QLoRA fine-tuning on a PyTorch model from our catalog. All of the settings are preset with the default values to optimize to run the fine-tuning process locally with optimized use of memory, but it can be adjusted for your scenario.
+
+### Fine Tuning Samples and Resoures
+
+- [Fine tuning Getting Started Guide](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
+- [Fine tuning with a HuggingFace Dataset](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
+- [Fine tuning with Simple DataSet](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+
 
 ## **[Private Preview]** Remote Development
 ### Prerequisites
@@ -90,6 +119,7 @@ To use `prompt flow` in VS Code, please refer to this [Quick Start](https://micr
    3. Select the *"Enable Remote Fine-tuning And Inference"* option.
    4. Reload VS Code to take effect.
 
+- [Remote Fine tuning](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
 
 ### Setting Up a Remote Development Project
 1. Execute the command palette `AI Toolkit: Focus on Resource View`.
