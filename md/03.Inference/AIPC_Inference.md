@@ -43,7 +43,7 @@ Install the Python Library with pip
 
 ### **Running Phi-3 with Intel NPU Acceleration Library**
 
-Using Intel NPU acceleration, this library does not affect the traditional encoding process. You only need to use this library to quantize the original Phi-3 model, such as FP16, INT4，such as 
+Using Intel NPU acceleration, this library does not affect the traditional encoding process. You only need to use this library to quantize the original Phi-3 model, such as FP16，INT8，INT4，such as 
 
 
 ```python
