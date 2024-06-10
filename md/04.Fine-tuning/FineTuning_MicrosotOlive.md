@@ -115,8 +115,6 @@ You can simply set up the data set that needs to be trained for fine-tuning, usu
             }
         }
     },
-
-
 ```
 
 **Cloud data source settings**
@@ -160,8 +158,6 @@ By linking the datastore of Azure AI Studio/Azure Machine Learning Service to li
             }
         }
     ],
-
-
 ```
 
 
@@ -197,7 +193,6 @@ If you need to be local, you can directly use local data resources. You need to 
             }
         }
     },
-
 ```
 
 ***Notice***
@@ -238,9 +233,9 @@ dependencies:
 ```
 
 
-**3. Chooese your SLM**
+**3. Choose your SLM**
 
-You can use the model directly from Hugging face, or you can directly combine it with the Model Catalog of Azure AI Studio / Azure Machine Learning to select the model to use. Here I take Microsoft Phi-3-mini as an example.
+You can use the model directly from Hugging face, or you can directly combine it with the Model Catalog of Azure AI Studio / Azure Machine Learning to select the model to use. In the code example below we will use Microsoft Phi-3-mini as an example.
 
 If you have the model locally, you can use this method
 
@@ -259,8 +254,6 @@ If you have the model locally, you can use this method
             }
         }
     },
-
-
 ```
 
 If you want to use a model from Azure AI Studio / Azure Machine Learning Service, you can use this method
@@ -289,8 +282,6 @@ If you want to use a model from Azure AI Studio / Azure Machine Learning Service
             }
         }
     },
-
-
 ```
 
 **Notice:**
@@ -338,8 +329,6 @@ Microsoft Olive encapsulates Lora and QLora fine-tuning algorithms very well. Al
                 }
             }
         },
-
-
 ```
 
 
@@ -362,12 +351,9 @@ such as converting to quantized INT4
                 "precision": "int4"
             }
         }
-
-
 ```
 
 **Notice** 
-
 - If you use QLoRA, the quantization conversion of ONNXRuntime-genai is not supported for the time being.
 
 
@@ -385,8 +371,6 @@ such as converting to quantized INT4
         "cache_dir": "../model-cache/models/phi3-finetuned/cache",
         "output_dir" : "../model-cache/models/phi3-finetuned"
     }
-
-
 ```
 
 
@@ -395,9 +379,5 @@ such as converting to quantized INT4
 On the command line, execute in the directory of olive-config.json
 
 ```bash
-
-
 olive run --config olive-config.json  
-
-
 ```
