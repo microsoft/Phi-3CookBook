@@ -31,10 +31,7 @@ Microsoft Olive is a very easy-to-use open source model optimization tool that c
 
 ![FinetuningwithOlive](../../imgs/04/03/olivefinetune.png)
 
-## Olive Sample 
-
-### Fine-tune Phi3 using Olive
-
+## Phi-3 Olive Sample Code and Example
 In this example you'll use Olive to:
 
 - Fine-tune a LoRA adapter to classify phrases into Sad, Joy, Fear, Surprise.
