@@ -123,4 +123,7 @@ print(f"Dataset and images saved to {dataset_dir}")
 ```
 
 ### Sample Code Download 
-[Generate Data Set](../../code/04.Finetuning/generate_dataset.py)
+[Generate a new Data Set script](../../code/04.Finetuning/generate_dataset.py)
+
+### Sample Data Set
+[Sample Data Set example from finetuning with LORA example](../../code/04.Finetuning/olive-ort-example/dataset/dataset-classification.json)
