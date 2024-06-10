@@ -48,17 +48,22 @@ Using Intel NPU acceleration, this library does not affect the traditional encod
 
 ```python
 
-from transformers import AutoTokenizer, TextStreamer, AutoModelForCausalLM,pipeline
-import intel_npu_acceleration_library
-import torch
+from transformers import AutoTokenizer, pipeline,TextStreamer
+import intel_npu_acceleration_library as npu_lib
+import warnings
 
 model_id = "microsoft/Phi-3-mini-4k-instruct"
 
-model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype="auto", use_cache=True,trust_remote_code=True).eval()
+model = npu_lib.NPUModelForCausalLM.from_pretrained(
+                                    model_id,
+                                    torch_dtype="auto",
+                                    dtype=npu_lib.int4,
+                                    trust_remote_code=True
+                                )
+
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-print("Compile model for the NPU")
-model = intel_npu_acceleration_library.compile(model, dtype=torch.float16)
+text_streamer = TextStreamer(tokenizer, skip_prompt=True)
 
 ```
 After the quantification is successful, continue execution to call the NPU to run the Phi-3 model.
@@ -66,24 +71,25 @@ After the quantification is successful, continue execution to call the NPU to ru
 
 ```python
 
-pipe = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-)
-
 generation_args = {
-    "max_new_tokens": 500,
-    "return_full_text": False,
-    "temperature": 0.0,
-    "do_sample": False,
-}
+            "max_new_tokens": 1024,
+            "return_full_text": False,
+            "temperature": 0.3,
+            "do_sample": False,
+            "streamer": text_streamer,
+        }
+
+pipe = pipeline(
+            "text-generation",
+            model=model,
+            tokenizer=tokenizer,
+)
 
 query = "<|system|>You are a helpful AI assistant.<|end|><|user|>Can you introduce yourself?<|end|><|assistant|>"
 
-output = pipe(query, **generation_args)
-
-output[0]['generated_text']
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    pipe(query, **generation_args)
 
 
 ```
