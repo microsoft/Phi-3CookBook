@@ -20,11 +20,11 @@ Here are the steps to get started:
 
 **Set Up Your Environment**
 
-Azure AI Studio: If you haven’t already, sign in to [Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo).
+Azure AI Studio: If you haven't already, sign in to [Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo).
 
 **Create a New Project** 
 
-Click on “New” and create a new project. Choose the appropriate settings based on your use case.
+Click on "New" and create a new project. Choose the appropriate settings based on your use case.
 
 ![FineTuneSelect](../../imgs/05/AIStudio/AIStudiofinetuneselect.png)
 ### Data Preparation
@@ -57,7 +57,7 @@ Clean and preprocess your data. Remove noise, handle missing values, and tokeniz
 
 **Phi-3 Mini** 
 
-You’ll be fine-tuning the pre-trained Phi-3 Mini model. Make sure you have access to the model checkpoint (e.g., "microsoft/Phi-3-mini-4k-instruct").
+You'll be fine-tuning the pre-trained Phi-3 Mini model. Make sure you have access to the model checkpoint (e.g., "microsoft/Phi-3-mini-4k-instruct").
 
 **Fine-Tuning Configuration**
 
@@ -99,11 +99,11 @@ Save the fine-tuned model checkpoint for future use.
 
 ## Iterate and Improve
 
-Iterate: If the performance isn’t satisfactory, iterate by adjusting hyperparameters, adding more data, or fine-tuning for additional epochs.
+Iterate: If the performance isn't satisfactory, iterate by adjusting hyperparameters, adding more data, or fine-tuning for additional epochs.
 
 ## Monitor and Refine
 
-Continuously monitor the model’s behavior and refine as needed.
+Continuously monitor the model's behavior and refine as needed.
 
 ## Customize and Extend
 

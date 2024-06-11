@@ -1,6 +1,6 @@
 In the context of Phi-3-mini, inference refers to the process of using the model to make predictions or generate outputs based on input data. Let me provide you with more details about Phi-3-mini and its inference capabilities.
 
-Phi-3-mini is part of the Phi-3 series of models released by Microsoft. These models are designed to redefine what’s possible with Small Language Models (SLMs). 
+Phi-3-mini is part of the Phi-3 series of models released by Microsoft. These models are designed to redefine what's possible with Small Language Models (SLMs). 
 
 Here are some key points about Phi-3-mini and its inference capabilities:
 

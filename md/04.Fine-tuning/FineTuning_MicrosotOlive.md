@@ -2,9 +2,9 @@
 
 [Olive](https://github.com/microsoft/OLive?WT.mc_id=aiml-138114-kinfeylo) is an easy-to-use hardware-aware model optimization tool that brings together industry-leading techniques across model compression, optimization, and compilation.
 
-It’s designed to streamline the process of optimizing machine learning models, ensuring they make the most efficient use of specific hardware architectures.
+It's designed to streamline the process of optimizing machine learning models, ensuring they make the most efficient use of specific hardware architectures.
 
-Whether you’re working on cloud-based applications or edge devices, Olive enables you to optimize your models effortlessly and effectively.
+Whether you're working on cloud-based applications or edge devices, Olive enables you to optimize your models effortlessly and effectively.
 
 ## Key Features:
 - Olive aggregates and automates optimization techniques for desired hardware targets.

@@ -54,13 +54,13 @@ To deploy a model from the Azure Model Catalog, you can follow these steps:
 
 - Sign in to Azure AI Studio.
 - Choose the model you want to deploy from the Azure AI Studio model catalog.
-- On the model’s Details page, select Deploy and then select Serverless API with Azure AI Content Safety.
+- On the model's Details page, select Deploy and then select Serverless API with Azure AI Content Safety.
 - Select the project in which you want to deploy your models. To use the Serverless API offering, your workspace must belong to the East US 2 or Sweden Central region. You can customize the Deployment name.
 - On the deployment wizard, select the Pricing and terms to learn about the pricing and terms of use.
-- Select Deploy. Wait until the deployment is ready and you’re redirected to the Deployments page.
+- Select Deploy. Wait until the deployment is ready and you're redirected to the Deployments page.
 - Select Open in playground to start interacting with the model.
-- You can return to the Deployments page, select the deployment, and note the endpoint’s Target URL and the Secret Key, which you can use to call the deployment and generate completions.
-- You can always find the endpoint’s details, URL, and access keys by navigating to the Build tab and selecting Deployments from the Components section.
+- You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key, which you can use to call the deployment and generate completions.
+- You can always find the endpoint's details, URL, and access keys by navigating to the Build tab and selecting Deployments from the Components section.
 
 **Please note that your account must have the Azure AI Developer role permissions on the Resource Group to perform these steps**
 

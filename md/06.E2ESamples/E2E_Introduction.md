@@ -1,12 +1,12 @@
 # **Introduce E2E Sample**
 
-This sample is import [TruthfulQA’s data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) to fine-tuning Phi-3-mini model. This is Architecture
+This sample is import [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) to fine-tuning Phi-3-mini model. This is Architecture
 
 ![arch](../../imgs/06/e2e/arch.png)
 
 ## **Introduce**
 
-We hope to use [TruthfulQA’s data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) set to make Phi-3-mini answer our questions more professionally. This is your first E2E project using Phi-3-mini
+We hope to use [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv) set to make Phi-3-mini answer our questions more professionally. This is your first E2E project using Phi-3-mini
 
 
 ### **Requirements**
