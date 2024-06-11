@@ -64,7 +64,9 @@ Recommended to read this link [[https://code.visualstudio.com/docs/copilot/copil
 
 GitHub Copilot has greatly improved the programming efficiency of enterprises, and every enterprise hopes to customize the relevant functions of GitHub Copilot. Many enterprises have customized Extensions similar to GitHub Copilot based on their own business scenarios and open source models. For enterprises, customized Extensions are easier to control, but this also affects the user experience. After all, GitHub Copilot has stronger functions in dealing with general scenarios and professionalism. If the experience can be kept consistent, it would be better to customize the enterprise's own Extension. GitHub Copilot Chat provides relevant APIs for enterprises to expand in the Chat experience. Maintaining a consistent experience and having customized functions is a better user experience.
 
-This lab mainly uses the Phi-3 model combined with the local NPU and Azure hybrid to build a custom Agent in GitHub Copilot Chat ***@phi3*** to assist enterprise developers in completing code generation***(@phi3 /gen)*** and generating code based on images ***(@phi3 /img)***.
+This lab mainly uses the Phi-3 model combined with the local NPU and Azure hybrid to build a custom Agent in GitHub Copilot Chat ***@PHI3*** to assist enterprise developers in completing code generation***(@PHI3 /gen)*** and generating code based on images ***(@PHI3 /img)***.
+
+![PHI3](../../../imgs/07/01/cover.png)
 
 ### ***Note:*** 
 
