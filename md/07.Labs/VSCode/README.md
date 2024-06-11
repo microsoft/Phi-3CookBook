@@ -79,7 +79,7 @@ This lab is currently implemented in the AIPC of Intel CPU. We will continue to 
 | Lab0 - Installations(✅) | Configure and install related environments and installation tools | [Go](./HOL/01.Installations.md) |
 | Lab1 - Run Prompt flow with Phi-3-mini in AIPC(✅) | Combined with AIPC, using local NPU to create code generation through Phi-3-mini | [Go](./HOL/02.PromptflowWithNPU.md) |
 | Lab2 - Deploy Phi-3-vision on Azure Machine Learning Service(✅) | Generate code by deploying Azure Machine Learning Service's Model Catalog - Phi-3-vision image | [Go](./HOL/03.DeployPhi3VisionOnAzure.md) |
-| Lab3 - Create a @phi-3 agent in GitHub Copilot Chat(⏳)  | Create a custom Phi-3 agent in GitHub Copilot Chat to complete code generation, graph generation code, RAG, etc. | [Go](#) |
+| Lab3 - Create a @phi-3 agent in GitHub Copilot Chat(✅)  | Create a custom Phi-3 agent in GitHub Copilot Chat to complete code generation, graph generation code, RAG, etc. | [Go](./HOL/04.CreatePhi3AgentInVSCode.md) |
 
 
 ## **Resources**
