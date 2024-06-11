@@ -1,9 +1,19 @@
 # **Phi-3 Family**
 
-
 The Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and the next size up across a variety of language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices for composing and building generative AI applications.
 
 The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios each model is instruction-tuned and developed in accordance with Microsoft's Responsible AI, safety and security standards to ensure it's ready to use off-the-shelf.
+
+## Example of Phi-3 Tasks
+| | |
+|-|-|
+|Tasks|Phi-3|
+|Language Tasks|Yes|
+|Math & Reasoning|Yes|
+|Coding|Yes|
+|Function Calling|No|
+|Self Orchestration (Assistant)|No|
+|Dedicated Embedding Models|No|
 
 ## **Phi-3-Mini**
 
@@ -38,4 +48,16 @@ Phi Silica API along with OCR, Studio Effects, Live Captions, Recall User Activi
 - [Azure AI](https://aka.ms/phi3-azure-ai) 
 - [Hugging Face.](https://aka.ms/phi3-hf) 
 
- 
+## Example of Model Selection 
+
+| | | | |
+|-|-|-|-|
+|Customer Need|Task|Start with|More Details|
+|Need a model that simply summarizes a thread of messages|Conversation Summarization|Phi-3 text model|Deciding factor here is that the customer has a well defined and straight forward language task|
+|A free math tutor app for kids|Math and Reasoning|Phi-3 text models|Because the app is free customers want a solution that does not cost them on a recurring basis |
+|Self Patrol Car Camera|Vision analysis|Phi-Vision|Need a solution that can work on edge without internet|
+|Wants to build an AI based travel booking agent|Needs complex planning, function calling and orchestration|GPT models|Need ability to plan, call APIs to gather information and execute |
+|Wants to build a copilot for their employees|RAG, multiple domain, complex and open ended|GPT models|Open ended scenario, needs broader world knowledge, hence a larger model is more suited|
+
+
+

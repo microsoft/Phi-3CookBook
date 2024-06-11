@@ -102,8 +102,81 @@ print(output[0]['generated_text'])
 
 *You can see if this result is consistent with the result in your mind*
 
+## **4. Inferences Phi-3 with C#**
 
-## **4. Using Phi-3 in Hugging Face Chat**
+Here is an example in a .NET Console application.
+
+The C# project must add the following packages:
+
+```
+dotnet add package Microsoft.ML.OnnxRuntime --version 1.18.0
+dotnet add package Microsoft.ML.OnnxRuntimeGenAI --version 0.3.0-rc2
+dotnet add package Microsoft.ML.OnnxRuntimeGenAI.Cuda --version 0.3.0-rc2
+```
+
+Here is the C# code.
+
+```csharp
+using System;
+using Microsoft.ML.OnnxRuntimeGenAI;
+
+
+// folder location of the ONNX model file
+var modelPath = @"..\models\Phi-3-mini-4k-instruct-onnx";
+var model = new Model(modelPath);
+var tokenizer = new Tokenizer(model);
+
+var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
+
+// chat start
+Console.WriteLine(@"Ask your question. Type an empty string to Exit.");
+
+
+// chat loop
+while (true)
+{
+    // Get user question
+    Console.WriteLine();
+    Console.Write(@"Q: ");
+    var userQ = Console.ReadLine();    
+    if (string.IsNullOrEmpty(userQ))
+    {
+        break;
+    }
+
+    // show phi3 response
+    Console.Write("Phi3: ");
+    var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{userQ}<|end|><|assistant|>";
+    var tokens = tokenizer.Encode(fullPrompt);
+
+    var generatorParams = new GeneratorParams(model);
+    generatorParams.SetSearchOption("max_length", 2048);
+    generatorParams.SetSearchOption("past_present_share_buffer", false);
+    generatorParams.SetInputSequences(tokens);
+
+    var generator = new Generator(model, generatorParams);
+    while (!generator.IsDone())
+    {
+        generator.ComputeLogits();
+        generator.GenerateNextToken();
+        var outputTokens = generator.GetSequence(0);
+        var newToken = outputTokens.Slice(outputTokens.Length - 1, 1);
+        var output = tokenizer.Decode(newToken);
+        Console.Write(output);
+    }
+    Console.WriteLine();
+}
+```
+
+The running demo is similar to this one:
+
+![Chat running demo](../../imgs/02/csharp/20SampleConsole.gif)
+
+***Note:** there is a typo in the 1st question, Phi-3 is cool enough to share the correct answer!*
+
+
+
+## **5. Using Phi-3 in Hugging Face Chat**
 
 Hugging Face chat provides related experience. Enter https://aka.ms/try-phi3-hf-chat in your browser to experience it.
 
