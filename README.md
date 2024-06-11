@@ -49,8 +49,8 @@ This cookbook includes:
 * [Introduction]()
     * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
     * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
-    * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md))(✅)
-    * [Phi-3 Hardware Support ](./md/01.Introduce/Hardwaresupport.md))(✅)
+    * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md)(✅)
+    * [Phi-3 Hardware Support ](./md/01.Introduce/Hardwaresupport.md)(✅)
     * [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md))(✅)
      
 * [Quick Start]()
@@ -100,6 +100,7 @@ This cookbook includes:
 
 * [Labs and workshops samples Phi-3]()
     * [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
+    * [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 in AIPC](./md/07.Labs/VSCode/README.md)(✅)
     
 * [ONNX runtime samples for Phi-3-vision]()
     * [Phi-3-ONNX-Samples](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
