@@ -61,7 +61,6 @@ export function activate(extcontext: vscode.ExtensionContext) {
 			{
 				var result = "```txt"+"\n\n"+"Please ask question like this Your question (IMG_URL:https://example.com/image.jpg)"+ "\n\n" +"```";
 				stream.progress(result);
-
 			}
 
 
