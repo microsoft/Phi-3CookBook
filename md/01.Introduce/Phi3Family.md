@@ -19,7 +19,7 @@ The Phi-3 Family includes mini, small, medium and vision versions, trained based
 
 Phi-3-mini is a 3.8B parameter language model, available in two context lengths [128K](https://aka.ms/phi3-mini-128k-azure-ai) and [4K.](https://aka.ms/phi3-mini-4k-azure-ai)  
 
-Phi-3-Mini is a Transformer-based language model with 3.8 billion parameters. It was trained using high-quality data containing educationally useful information, augmented with new data sources consisting of various NLP synthetic texts, and both internal and external chat datasets, which significantly improve chat capabilities. Additionally, Phi-3-Mini has been chat fine-tuned after pre-training through supervised fine-tuning (SFT) and Direct Preference Optimization (DPO). Following this post-training, Phi-3-Mini has demonstrated significant improvements in several capabilities, particularly in alignment, robustness, and safety. The model is part of the Phi-3 family and comes in the Mini version with two variants, 4K and 128K, which represent the context length (in tokens) that it can support.
+Phi-3-Mini is a Transformer-based language model with 3.8 billion parameters. It was trained using high-quality data containing educationally useful information, augmented with new data sources consisting of various NLP synthetic texts, and both internal and external chat datasets, which significantly improve chat capabilities. Additionally, Phi-3-Mini has been chat fine-tuned after pre-training through supervised fine-tuning (SFT) and Direct Preference Optimization (DPO). Following this post-training, Phi-3-Mini has demonstrated significant improvements in several capabilities, particularly in alignment, robustness, and safety. The model is part of the Phi-3 family and comes in the Mini version with two variants, 4K and 128K, which represent the context length (in tokens) that it can support. 
 
 ## **Phi-3-Small**
 
@@ -47,6 +47,10 @@ Phi Silica API along with OCR, Studio Effects, Live Captions, Recall User Activi
 
 - [Azure AI](https://aka.ms/phi3-azure-ai) 
 - [Hugging Face.](https://aka.ms/phi3-hf) 
+
+## ONNX Models 
+
+The primary difference between the two ONNX models, “cpu-int4-rtn-block-32” and “cpu-int4-rtn-block-32-acc-level-4”, is the accuracy level. The model with “acc-level-4” is designed to balance latency versus accuracy, with a minor trade-off in accuracy for better performance, which might be particularly suitable for mobile devices
 
 ## Example of Model Selection 
 
