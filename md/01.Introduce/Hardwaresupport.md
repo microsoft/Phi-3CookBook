@@ -25,7 +25,7 @@ CUDA: NVIDIA GPU with Compute Capability >= 7.02
 ### Running onnxruntime on multiple GPUs 
 Currently available Phi-3 ONNX models are only for 1 GPU. It's possible to support multi-gpu for Phi-3 model, but ORT with 2 gpu doesn't guarantee that it will give more throughput compared to 2 instance of ort. 
 
-At [Build 2024 the GenAI ONNOX Team](https://youtu.be/WLW4SE8M9i8?si=EtG04UwDvcjunyfC) announced that they had enabled multi-instance instead of multi-gpu for Phi models. 
+At [Build 2024 the GenAI ONNX Team](https://youtu.be/WLW4SE8M9i8?si=EtG04UwDvcjunyfC) announced that they had enabled multi-instance instead of multi-gpu for Phi models. 
 
 At present this allows you to run one onnnxruntime or onnxruntime-genai instance with CUDA_VISIBLE_DEVICES environment variable like this.
 
