@@ -33,7 +33,7 @@ Now let's jump into your AI app development:
 ## Local Development
 ### Preparations
 
-1. Make sure NVIDIA driver are installed in the host. 
+1. Make sure NVIDIA driver is installed in the host. 
 2. Run `huggingface-cli login`, if you are using HF for dataset ustilization
 3. `Olive` key settings explanations for anything that modifies memory usage. 
 
