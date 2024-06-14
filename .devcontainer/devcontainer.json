@@ -1,0 +1,11 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/python-3
+{
+    "name": "Phi-3 Cookbook",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+    "features": {
+        "ghcr.io/prulloac/devcontainer-features/ollama:1": {}
+    },
+    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
+}
