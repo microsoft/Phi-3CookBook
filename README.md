@@ -1,5 +1,9 @@
 # Welcome to Microsoft Phi-3 Cookbook
 
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/phi-3cookbook)
+[![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/phi-3cookbook)
+
 This is a manual on how to use the Microsoft Phi-3 family. 
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
@@ -47,6 +51,7 @@ This cookbook includes:
 ## **Microsoft Phi-3 Cookbook**
 
 * [Introduction]()
+    * [Setting up your environment](./md/01.Introduce/EnvironmentSetup.md)(✅)
     * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
     * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
     * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md)(✅)
