@@ -56,7 +56,7 @@ This cookbook includes:
     * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
     * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md)(✅)
     * [Phi-3 Hardware Support ](./md/01.Introduce/Hardwaresupport.md)(✅)
-    * [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md))(✅)
+    * [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md)(✅)
      
 * [Quick Start]()
     * [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
@@ -69,6 +69,7 @@ This cookbook includes:
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
     * [Inference Phi-3 in AI PC](./md/03.Inference/AIPC_Inference.md)(✅)
+    * [Inference Phi-3 with Apple MLX Framrwork](./md/03.Inference/MLX_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
     * [Inference Phi-3 in Remote Server using AI Toolkit](./md/03.Inference/Remote_Interence.md)(✅)
     * [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
