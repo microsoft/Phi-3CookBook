@@ -108,7 +108,7 @@ This cookbook includes:
 
 * [Labs and workshops samples Phi-3]()
     * [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
-    * [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 in AIPC](./md/07.Labs/VSCode/README.md)(✅)
+    * [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family](./md/07.Labs/VSCode/README.md)(✅)
     * [Phi-3 ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
     * [Phi-3-vision ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
      * [Run the Phi-3 models with the ONNX Runtime generate() API](https://github.com/microsoft/onnxruntime-genai/blob/main/examples/python/phi-3-tutorial.md)(✅)

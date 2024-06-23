@@ -1,3 +1,4 @@
+
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
@@ -22,14 +23,12 @@ export function activate(extcontext: vscode.ExtensionContext) {
 
 			const content = "Welcome to Phi-3 to gen code";
 
-			
-
 			const result = await gen(request.prompt);
 
 			const code = result;
 			
 			
-			stream.progress("```txt"+"\n"+code+ +"\n"+"```")
+			stream.markdown(code)
 
 
             return { metadata: { command: 'gen' } };
@@ -52,15 +51,15 @@ export function activate(extcontext: vscode.ExtensionContext) {
 				const code = result;
 				
 				
-				stream.progress(code)
+				stream.markdown(code)
 	
 	
 				return { metadata: { command: 'img' } };
 			}
 			else
 			{
-				var result = "```txt"+"\n\n"+"Please ask question like this Your question (IMG_URL:https://example.com/image.jpg)"+ "\n\n" +"```";
-				stream.progress(result);
+				var result = "Please ask question like this Your question (IMG_URL:https://example.com/image.jpg)";
+				stream.markdown(result);
 			}
 
 
@@ -77,12 +76,12 @@ export function activate(extcontext: vscode.ExtensionContext) {
 	}
 
 
-	const xp = vscode.chat.createChatParticipant("chat.PHI3", phi3handler);
+	const phi3 = vscode.chat.createChatParticipant("chat.PHI3", phi3handler);
 
-	xp.iconPath = new vscode.ThemeIcon('sparkle');
+	phi3.iconPath = new vscode.ThemeIcon('sparkle');
 
 
-    xp.followupProvider = {
+    phi3.followupProvider = {
         provideFollowups(result: IPHI3ChatResult, context: vscode.ChatContext, token: vscode.CancellationToken) {
             return [{
                 prompt: 'let us code with Phi-3 Family',
@@ -92,13 +91,13 @@ export function activate(extcontext: vscode.ExtensionContext) {
         }
     };
 
-	extcontext.subscriptions.push(xp);
+	extcontext.subscriptions.push(phi3);
 }
 
 
 
 interface GenCode {
-	question: string;
+	prompt: string;
 }
 
 interface ImgGenCodeResponse {
@@ -107,13 +106,13 @@ interface ImgGenCodeResponse {
 
 
 interface GenCodeResponse {
-	answer: string;
+	result: string;
 }
 
 async function gen(prompt: string) {
 
 	const postData: GenCode = {
-		question: prompt
+		prompt: prompt
 	};
 	const response = await fetch('http://localhost:8080/score', {
 		method: 'POST',
@@ -122,7 +121,7 @@ async function gen(prompt: string) {
 	});
 	const post = await response.json();
 	const resultResponse = post as GenCodeResponse;
-	return resultResponse.answer;
+	return resultResponse.result;
 }
 
 async function genImage(prompt: string, img_url: string) {
@@ -130,7 +129,7 @@ async function genImage(prompt: string, img_url: string) {
 	// const postData: GenCode = {
 	// 	question: prompt
 	// };
-	const response = await fetch('Your Phi-3-Vision Endpoint', {
+	const response = await fetch('Your Phi-3 Endpoint', {
 		method: 'POST',
 		body: JSON.stringify({
 			"input_data":{
@@ -159,7 +158,7 @@ async function genImage(prompt: string, img_url: string) {
 			  }
 			}
 		}),
-		headers: { 'Content-Type': 'application/json', 'Authorization' : 'Bearer Your Phi-3-Vision Endpoint Key', 'azureml-model-deployment': 'Your Phi-3-Vision Deployment name' }
+		headers: { 'Content-Type': 'application/json', 'Authorization' : 'Bearer Your Phi-3-Vision Endpoint Key', 'azureml-model-deployment': 'Your Phi-3-Vision Deployment Name' }
 	});
 	const post = await response.json();
 	const resultResponse = post as ImgGenCodeResponse;
@@ -168,3 +167,4 @@ async function genImage(prompt: string, img_url: string) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
+

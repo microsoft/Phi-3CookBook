@@ -1,4 +1,4 @@
-# **Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 in AIPC**
+# **Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family**
 
 Have you used the workspace agent in GitHub Copilot Chat? Do you want to build your own team's code agent? This hands-on lab hopes to combine the open source model to build an enterprise-level code business agent.
 
@@ -70,18 +70,19 @@ This lab mainly uses the Phi-3 model combined with the local NPU and Azure hybri
 
 ### ***Note:*** 
 
-This lab is currently implemented in the AIPC of Intel CPU. We will continue to update the Qualcomm version of NPU and the mlx version based on Apple Silicon.
+This lab is currently implemented in the AIPC of Intel CPU and Apple Silicon. We will continue to update the Qualcomm version of NPU.
 
 
 ## **Lab**
 
 
-| Name | Description | Learn |
-| ------------ | ----------- | -------- |
-| Lab0 - Installations(✅) | Configure and install related environments and installation tools | [Go](./HOL/01.Installations.md) |
-| Lab1 - Run Prompt flow with Phi-3-mini in AIPC(✅) | Combined with AIPC, using local NPU to create code generation through Phi-3-mini | [Go](./HOL/02.PromptflowWithNPU.md) |
-| Lab2 - Deploy Phi-3-vision on Azure Machine Learning Service(✅) | Generate code by deploying Azure Machine Learning Service's Model Catalog - Phi-3-vision image | [Go](./HOL/03.DeployPhi3VisionOnAzure.md) |
-| Lab3 - Create a @phi-3 agent in GitHub Copilot Chat(✅)  | Create a custom Phi-3 agent in GitHub Copilot Chat to complete code generation, graph generation code, RAG, etc. | [Go](./HOL/04.CreatePhi3AgentInVSCode.md) |
+| Name | Description | AIPC | Apple |
+| ------------ | ----------- | -------- |-------- |
+| Lab0 - Installations(✅) | Configure and install related environments and installation tools | [Go](./HOL/AIPC/01.Installations.md) |[Go](./HOL/Apple/01.Installations.md) |
+| Lab1 - Run Prompt flow with Phi-3-mini (✅) | Combined with AIPC / Apple Silicon, using local NPU to create code generation through Phi-3-mini | [Go](./HOL/AIPC/02.PromptflowWithNPU.md) |  [Go](./HOL/Apple/02.PromptflowWithMLX.md) |
+| Lab2 - Deploy Phi-3-vision on Azure Machine Learning Service(✅) | Generate code by deploying Azure Machine Learning Service's Model Catalog - Phi-3-vision image | [Go](./HOL/AIPC/03.DeployPhi3VisionOnAzure.md) |[Go](./HOL/Apple/03.DeployPhi3VisionOnAzure.md) |
+| Lab3 - Create a @phi-3 agent in GitHub Copilot Chat(✅)  | Create a custom Phi-3 agent in GitHub Copilot Chat to complete code generation, graph generation code, RAG, etc. | [Go](./HOL/AIPC/04.CreatePhi3AgentInVSCode.md) | [Go](./HOL/Apple/04.CreatePhi3AgentInVSCode.md) |
+| Sample Code (✅)  | Download sample code | [Go](../../../code/07.Lab/01/AIPC/) | [Go](../../../code/07.Lab/01/Apple/) |
 
 
 ## **Resources**

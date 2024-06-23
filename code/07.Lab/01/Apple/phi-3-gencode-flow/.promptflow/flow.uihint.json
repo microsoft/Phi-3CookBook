@@ -1,0 +1,12 @@
+{
+  "nodes": {
+    "gen_code_by_phi3": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "prompt": []
+        }
+      }
+    }
+  }
+}
