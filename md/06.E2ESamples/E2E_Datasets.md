@@ -14,7 +14,7 @@ import json
 csvfile = open('./datasets/TruthfulQA.csv', 'r')
 jsonfile = open('./output/TruthfulQA.json', 'w')
 
-fieldnames = ("Question","Best Answer")
+fieldnames = ("Type","Category","Question","Best Answer","Correct Answers","Incorrect Answers","Source")
 
 reader = csv.DictReader(csvfile, fieldnames)
 
