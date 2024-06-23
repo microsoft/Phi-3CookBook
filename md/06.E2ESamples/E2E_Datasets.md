@@ -14,7 +14,7 @@ import json
 csvfile = open('./datasets/TruthfulQA.csv', 'r')
 jsonfile = open('./output/TruthfulQA.json', 'w')
 
-fieldnames = ("INSTRUCTION","RESPONSE","SOURCE","METADATA")
+fieldnames = ("Question","Best Answer")
 
 reader = csv.DictReader(csvfile, fieldnames)
 
@@ -43,6 +43,6 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 ### **Congratulations!**  
 
-Your data has been successfully loaded.  Next, you need to configure your data and related algorithms through Microsoft Olive [E2E_LoRA_Config_With_Olive.md](./E2E_LoRA_Config_With_Olive.md)
+Your data has been successfully loaded.  Next, you need to configure your data and related algorithms through Microsoft Olive [E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
 
    

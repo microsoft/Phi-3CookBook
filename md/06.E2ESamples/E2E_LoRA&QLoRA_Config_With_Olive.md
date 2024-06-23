@@ -148,35 +148,36 @@ This sample is use cloud compute，cloud datasets , add olive.config in fine-tun
         {
             "name": "dataset_default_train",
             "type": "HuggingfaceContainer",
-            "params_config": {
-                "data_name": "json", 
-                "data_files": {
-                    "type": "azureml_datastore",
-                    "config": {
-                        "azureml_client": {
-                            "subscription_id": "Your Azure Subscrition ID",
-                            "resource_group": "Your Azure Resource Group",
-                            "workspace_name": "Your Azure ML Workspaces name"
-                        },
-                        "datastore_name": "workspaceblobstore",
-                        "relative_path": "Your zhihu_train_data.json Azure ML Location"
-                    }
-                },
-                "split": "train",
-                "component_kwargs": {
-                    "pre_process_data": {
-                        "dataset_type": "corpus",
-                        "text_cols": [
-                            "INSTRUCTION",
-                            "RESPONSE",
-                            "SOURCE"
-                        ],
-                        "text_template": "<|user|>\n{INSTRUCTION}<|end|>\n<|assistant|>\n{RESPONSE}\n( source : {SOURCE})<|end|>",
-                        "corpus_strategy": "join",
-                        "source_max_len": 2048,
-                        "pad_to_max_len": false,
-                        "use_attention_mask": false
-                    }
+            "load_dataset_config": {
+                "params": {
+                    "data_name": "json", 
+                    "data_files": {
+                        "type": "azureml_datastore",
+                        "config": {
+                            "azureml_client": {
+                                "subscription_id": "Your Azure Subscrition ID",
+                                "resource_group": "Your Azure Resource Group",
+                                "workspace_name": "Your Azure ML Workspaces name"
+                            },
+                            "datastore_name": "workspaceblobstore",
+                            "relative_path": "Your train_data.json Azure ML Location"
+                        }
+                    },
+                    "split": "train"
+                }
+            },
+            "pre_process_data_config": {
+                "params": {
+                    "dataset_type": "corpus",
+                    "text_cols": [
+                            "Question",
+                            "Best Answer"
+                    ],
+                    "text_template": "<|user|>\n{Question}<|end|>\n<|assistant|>\n{Best Answer}\n<|end|>",
+                    "corpus_strategy": "join",
+                    "source_max_len": 2048,
+                    "pad_to_max_len": false,
+                    "use_attention_mask": false
                 }
             }
         }
@@ -308,35 +309,36 @@ This sample is use cloud compute，cloud datasets , add olive.config in fine-tun
         {
             "name": "dataset_default_train",
             "type": "HuggingfaceContainer",
-            "params_config": {
-                "data_name": "json", 
-                "data_files": {
-                    "type": "azureml_datastore",
-                    "config": {
-                        "azureml_client": {
-                            "subscription_id": "Your Azure Subscrition ID",
-                            "resource_group": "Your Azure Resource Group",
-                            "workspace_name": "Your Azure ML Workspaces name"
-                        },
-                        "datastore_name": "workspaceblobstore",
-                        "relative_path": "Your zhihu_train_data.json Azure ML Location"
-                    }
-                },
-                "split": "train",
-                "component_kwargs": {
-                    "pre_process_data": {
-                        "dataset_type": "corpus",
-                        "text_cols": [
-                            "INSTRUCTION",
-                            "RESPONSE",
-                            "SOURCE"
-                        ],
-                        "text_template": "<|user|>\n{INSTRUCTION}<|end|>\n<|assistant|>\n{RESPONSE}\n( source : {SOURCE})<|end|>",
-                        "corpus_strategy": "join",
-                        "source_max_len": 2048,
-                        "pad_to_max_len": false,
-                        "use_attention_mask": false
-                    }
+            "load_dataset_config": {
+                "params": {
+                    "data_name": "json", 
+                    "data_files": {
+                        "type": "azureml_datastore",
+                        "config": {
+                            "azureml_client": {
+                                "subscription_id": "Your Azure Subscrition ID",
+                                "resource_group": "Your Azure Resource Group",
+                                "workspace_name": "Your Azure ML Workspaces name"
+                            },
+                            "datastore_name": "workspaceblobstore",
+                            "relative_path": "Your train_data.json Azure ML Location"
+                        }
+                    },
+                    "split": "train"
+                }
+            },
+            "pre_process_data_config": {
+                "params": {
+                    "dataset_type": "corpus",
+                    "text_cols": [
+                            "Question",
+                            "Best Answer"
+                    ],
+                    "text_template": "<|user|>\n{Question}<|end|>\n<|assistant|>\n{Best Answer}\n<|end|>",
+                    "corpus_strategy": "join",
+                    "source_max_len": 2048,
+                    "pad_to_max_len": false,
+                    "use_attention_mask": false
                 }
             }
         }

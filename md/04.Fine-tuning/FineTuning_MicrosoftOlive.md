@@ -87,31 +87,33 @@ You can simply set up the data set that needs to be trained for fine-tuning, usu
 
 ```json
 
-    "data_configs": {
-        "dataset-default_train": {
-            "name": "dataset-default",
+    "data_configs": [
+        {
+            "name": "dataset_default_train",
             "type": "HuggingfaceContainer",
-            "params_config": {
-                "data_name": "json", 
-                "data_files":"dataset/dataset-classification.json",
-                "split": "train",
-                "component_kwargs": {
-                    "pre_process_data": {
-                        "dataset_type": "corpus",
-                        "text_cols": [
+            "load_dataset_config": {
+                "params": {
+                    "data_name": "json", 
+                    "data_files":"dataset/dataset-classification.json",
+                    "split": "train"
+                }
+            },
+            "pre_process_data_config": {
+                "params": {
+                    "dataset_type": "corpus",
+                    "text_cols": [
                             "phrase",
                             "tone"
-                        ],
-                        "text_template": "### Text: {phrase}\n### The tone is:\n{tone}",
-                        "corpus_strategy": "join",
-                        "source_max_len": 1024,
-                        "pad_to_max_len": false,
-                        "use_attention_mask": false
-                    }
+                    ],
+                    "text_template": "### Text: {phrase}\n### The tone is:\n{tone}",
+                    "corpus_strategy": "join",
+                    "source_max_len": 2048,
+                    "pad_to_max_len": false,
+                    "use_attention_mask": false
                 }
             }
         }
-    },
+    ],
 ```
 
 **Cloud data source settings**
@@ -120,41 +122,45 @@ By linking the datastore of Azure AI Studio/Azure Machine Learning Service to li
 
 ```json
 
-
     "data_configs": [
         {
             "name": "dataset_default_train",
             "type": "HuggingfaceContainer",
-            "params_config": {
-                "data_name": "json", 
-                "data_files": {
-                    "type": "azureml_datastore",
-                    "config": {
-                        "azureml_client": {
-                            "subscription_id": "396656ae-1e4b-4f9d-9a8a-a5fcb0296643",
-                            "resource_group": "AIGroup",
-                            "workspace_name": "kinfey-phi3-mini-demo-ws"
-                        },
-                        "datastore_name": "workspaceblobstore",
-                        "relative_path": "UI/2024-05-20_030716_UTC/dataset-classification.json"
-                    }
-                },
-                "split": "train",
-                "component_kwargs": {
-                    "pre_process_data": {
-                        "dataset_type": "corpus",
-                        "text_cols": [
-                            "phrase",
-                            "tone"
-                        ],
-                        "text_template": "### Text: {phrase}\n### The tone is:\n{tone}",
-                        "corpus_strategy": "join",
-                        "source_max_len": 1024
-                    }
+            "load_dataset_config": {
+                "params": {
+                    "data_name": "json", 
+                    "data_files": {
+                        "type": "azureml_datastore",
+                        "config": {
+                            "azureml_client": {
+                                "subscription_id": "Your Azure Subscrition ID",
+                                "resource_group": "Your Azure Resource Group",
+                                "workspace_name": "Your Azure ML Workspaces name"
+                            },
+                            "datastore_name": "workspaceblobstore",
+                            "relative_path": "Your train_data.json Azure ML Location"
+                        }
+                    },
+                    "split": "train"
+                }
+            },
+            "pre_process_data_config": {
+                "params": {
+                    "dataset_type": "corpus",
+                    "text_cols": [
+                            "Question",
+                            "Best Answer"
+                    ],
+                    "text_template": "<|user|>\n{Question}<|end|>\n<|assistant|>\n{Best Answer}\n<|end|>",
+                    "corpus_strategy": "join",
+                    "source_max_len": 2048,
+                    "pad_to_max_len": false,
+                    "use_attention_mask": false
                 }
             }
         }
     ],
+    
 ```
 
 
