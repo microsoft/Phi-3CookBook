@@ -46,7 +46,9 @@ git clone https://github.com/microsoft/onnxruntime.git
 
 cd onnxruntime
 
-./build.sh --build_shared_lib --ios --skip_tests --parallel --build_dir ./build_ios --ios --apple_sysroot iphoneos --osx_arch arm64 --apple_deploy_target 17.4 --cmake_generator Xcode --config Release
+./build.sh --build_shared_lib --ios --skip_tests --parallel --build_dir ./build_ios --ios --apple_sysroot iphoneos --osx_arch arm64 --apple_deploy_target 17.5 --cmake_generator Xcode --config Release
+
+cd ../
 
 ```
  
@@ -75,27 +77,26 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 ```bash
 
 git clone https://github.com/microsoft/onnxruntime-genai
-
+ 
 cd onnxruntime-genai
-
-git checkout yguo/ios-build-genai
-
-
+ 
 mkdir ort
-
+ 
 cd ort
-
+ 
 mkdir include
-
+ 
 mkdir lib
-
+ 
 cd ../
-
-
+ 
 cp ../onnxruntime/include/onnxruntime/core/session/onnxruntime_c_api.h ort/include
+ 
 cp ../onnxruntime/build_ios/Release/Release-iphoneos/libonnxruntime*.dylib* ort/lib
-
-python3 build.py --parallel --build_dir ./build_ios_simulator --ios --ios_sysroot iphoneos --osx_arch arm64 --apple_deployment_target 17.4 --cmake_generator Xcode
+ 
+export OPENCV_SKIP_XCODEBUILD_FORCE_TRYCOMPILE_DEBUG=1
+ 
+python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos --ios_arch arm64 --ios_deployment_target 17.5 --cmake_generator Xcode --cmake_extra_defines CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED=NO
 
 ```
 
