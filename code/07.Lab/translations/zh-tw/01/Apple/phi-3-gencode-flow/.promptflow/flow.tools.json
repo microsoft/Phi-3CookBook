@@ -1,0 +1,17 @@
+{
+  "package": {},
+  "code": {
+    "gen_code_by_phi3.py": {
+      "type": "python",
+      "inputs": {
+        "prompt": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "gen_code_by_phi3.py",
+      "function": "my_python_tool"
+    }
+  }
+}
