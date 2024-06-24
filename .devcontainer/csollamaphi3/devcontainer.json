@@ -1,0 +1,47 @@
+{
+    "name": "Ollama with Phi-3 for C#",
+    "image": "mcr.microsoft.com/dotnet/sdk:8.0",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {
+            "version": "none",
+            "dotnetRuntimeVersions": "8.0",
+            "aspNetCoreRuntimeVersions": "8.0"
+        },
+      "ghcr.io/prulloac/devcontainer-features/ollama:1": {},
+      "sshd": "latest"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-node-azure-pack",
+                "github.vscode-github-actions",
+                "ms-dotnettools.csdevkit",
+				"ms-dotnettools.vscode-dotnet-runtime",
+                "github.copilot",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "forwardPorts": [
+        32000,
+        32001
+    ],
+    "postCreateCommand": "",
+    "postStartCommand": "ollama pull phi3",
+    "remoteUser": "vscode",
+    "hostRequirements": {
+        "memory": "8gb",
+        "cpus": 4
+    },
+    "portsAttributes": {
+        "32001": {
+            "label": "Back End"
+        },
+        "32000": {
+            "label": "Front End"
+        }
+    }
+}
