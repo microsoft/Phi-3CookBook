@@ -44,8 +44,8 @@ RAG 是資料檢索 + 文字生成。企業的結構化資料和非結構化資�
 
 常用的微調算法是 Lora 和 QLora。如何選擇？
 
-- [了解更多範例筆記本](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
-- [Python 微調範例](../../code/04.Finetuning/FineTrainingScript.py)
+- [了解更多範例筆記本](../../../../code/04.Finetuning/translations/zh-tw/Phi_3_Inference_Finetuning.ipynb)
+- [Python 微調範例](../../../../code/04.Finetuning/translations/zh-tw/FineTrainingScript.py)
 
 ### **Lora 和 QLora**
 

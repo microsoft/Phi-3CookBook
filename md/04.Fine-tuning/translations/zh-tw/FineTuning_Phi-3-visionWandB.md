@@ -49,6 +49,6 @@ text = f"<|user|>\n<|image_1|>這張圖片顯示了什麼?<|end|><|assistant|>\n
 
 ## 範例程式碼
 
-- [Phi-3-Vision 訓練腳本](../../code/04.Finetuning/Phi-3-vision-Trainingscript.py)
+- [Phi-3-Vision 訓練腳本](../../../../code/04.Finetuning/translations/zh-tw/Phi-3-vision-Trainingscript.py)
 - [Weights and Bias 範例 walkthrough](https://wandb.ai/byyoung3/mlnews3/reports/How-to-fine-tune-Phi-3-vision-on-a-custom-dataset--Vmlldzo4MTEzMTg3)
 

@@ -97,7 +97,7 @@ with warnings.catch_warnings():
 
 ![NPU](../../../../imgs/03/AIPC/aipc_NPU.png)
 
-***範例*** : [AIPC_NPU_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
+***範例*** : [AIPC_NPU_DEMO.ipynb](../../../../code/03.Inference/translations/zh-tw/AIPC/AIPC_NPU_DEMO.ipynb)
 
 ## **2. 使用 DirectML + ONNX Runtime 執行 Phi-3 模型**
 
@@ -252,7 +252,7 @@ ov_model = OVModelForCausalLM.from_pretrained(
 
 ![openvino_gpu](../../../../imgs/03/AIPC/aipc_OpenVINO_GPU.png)
 
-***範例*** : [AIPC_OpenVino_Demo.ipynb](../../code/03.Inference/AIPC/AIPC_OpenVino_Demo.ipynb)
+***範例*** : [AIPC_OpenVino_Demo.ipynb](../../../../code/03.Inference/translations/zh-tw/AIPC/AIPC_OpenVino_Demo.ipynb)
 
 ### ***注意*** : 上述三種方法各有優勢，但建議使用 NPU 加速進行 AI PC 推論。
 
