@@ -89,9 +89,9 @@ peft_config 指定了與 LoRA 相關的參數，如 rank、dropout 和 task type
 
 **範例**
 
-- [了解更多，請參考此範例筆記本](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
-- [Python 微調範例](../../code/04.Finetuning/FineTrainingScript.py)
-- [使用 LORA 進行 Hugging Face Hub 微調範例](../../code/04.Finetuning/Phi-3-finetune-lora-python.ipynb)
+- [了解更多，請參考此範例筆記本](../../../../code/04.Finetuning/translations/zh-tw/Phi_3_Inference_Finetuning.ipynb)
+- [Python 微調範例](../../../../code/04.Finetuning/translations/zh-tw/FineTrainingScript.py)
+- [使用 LORA 進行 Hugging Face Hub 微調範例](../../../../code/04.Finetuning/translations/zh-tw/Phi-3-finetune-lora-python.ipynb)
 - [Hugging Face 模型卡範例 - LORA 微調範例](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/sample_finetune.py)
-- [使用 QLORA 進行 Hugging Face Hub 微調範例](../../code/04.Finetuning/Phi-3-finetune-qlora-python.ipynb)
+- [使用 QLORA 進行 Hugging Face Hub 微調範例](../../../../code/04.Finetuning/translations/zh-tw/Phi-3-finetune-qlora-python.ipynb)
 

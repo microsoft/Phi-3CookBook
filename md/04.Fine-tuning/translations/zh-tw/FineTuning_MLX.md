@@ -1,6 +1,6 @@
 ﻿# **微調 Phi-3 與 Apple MLX 框架**
 
-我們可以通過 Apple MLX 框架命令行完成與 Lora 結合的微調。(如果你想了解更多關於 MLX 框架的操作，請閱讀 [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)）。
+我們可以通過 Apple MLX 框架命令行完成與 Lora 結合的微調。(如果你想了解更多關於 MLX 框架的操作，請閱讀 [Inference Phi-3 with Apple MLX Framework](../../../03.Inference/translations/zh-tw/MLX_Inference.md)）。
 
 ## **1. 資料準備**
 
@@ -23,7 +23,7 @@
 
 3. 資料格式結合 Phi-3 模板
 
-請從此 [link](../../code/04.Finetuning/mlx/) 下載資料, 請包含 ***data*** 資料夾中的所有 .jsonl。
+請從此 [link](../../../../code/04.Finetuning/translations/zh-tw/mlx/) 下載資料, 請包含 ***data*** 資料夾中的所有 .jsonl。
 
 ## **2. 在你的終端機中微調**
 
@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. 合併的模型缺少 tokenizer.model，請從 [此連結](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct) 下載。
 
-設定 Ollma 模型檔案（如果未安裝 ollama，請閱讀 [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)）。
+設定 Ollma 模型檔案（如果未安裝 ollama，請閱讀 [Ollama QuickStart](../../../02.QuickStart/translations/zh-tw/Ollama_QuickStart.md)）。
 
 ```txt
 

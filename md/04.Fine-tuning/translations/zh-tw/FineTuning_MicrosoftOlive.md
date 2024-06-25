@@ -39,7 +39,7 @@ Microsoft Olive 是一個非常易於使用的開源模型優化工具，可以�
 - 將適配器權重合併到基礎模型中。
 - 優化並量化模型為 int4。
 
-[範例程式碼](../../code/04.Finetuning/olive-ort-example/README.md)
+[範例程式碼](../../../../code/04.Finetuning/translations/zh-tw/olive-ort-example/README.md)
 
 ### 設定 Microsoft Olive
 

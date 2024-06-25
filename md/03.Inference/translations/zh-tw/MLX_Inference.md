@@ -61,7 +61,7 @@ python -m mlx_lm.convert --hf-path microsoft/Phi-3-mini-4k-instruct
 
 ![Notebook](../../../../imgs/03/MLX/03.png)
 
-***注意:*** 請閱讀此範例 [點擊此連結](../../code/03.Inference/MLX/MLX_DEMO.ipynb)。
+***注意:*** 請閱讀此範例 [點擊此連結](../../../../code/03.Inference/translations/zh-tw/MLX/MLX_DEMO.ipynb)。
 
 ## **資源**
 
