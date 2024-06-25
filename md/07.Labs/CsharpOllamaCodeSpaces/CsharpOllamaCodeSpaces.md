@@ -2,14 +2,14 @@
 
 This labs is designed to test Phi-3 with C# samples directly in GitHub Codespaces as an easy way for anyone to try out SLMs (small language models) entirely in the browser. 
 
-## how to test
+## How to create the C# + Ollama + Phi-3 Codespace
 
 1. Create a new  Codespace using the `Code` button at the top of the repository. Select the [+ New with options ...]
 ![Create Codespace with options](./10NewCodespacesWithOptions.png)
 
 1. From the options page, select the configuration named `Ollama with Phi-3 for C#`
 
-**IMAGE GOES HERE**
+![Select the option Ollama with Phi-3 for C#, to create the CodeSpace](./12NewCSOllamaCodespace.png)
 
 1. Once the Codespace is loaded, it should have [ollama](https://ollama.com/) pre-installed, the latest Phi-3 model downloaded, and [.NET 8](https://dotnet.microsoft.com/en-us/download) installed.
 
