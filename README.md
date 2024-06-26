@@ -54,8 +54,8 @@ This cookbook includes:
     * [Setting up your environment](./md/01.Introduce/EnvironmentSetup.md)(✅)
     * [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
     * [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
-    * [AI Safety for Phi-3 Models ](./md/01.Introduce/AISafety.md)(✅)
-    * [Phi-3 Hardware Support ](./md/01.Introduce/Hardwaresupport.md)(✅)
+    * [AI Safety for Phi-3 Models](./md/01.Introduce/AISafety.md)(✅)
+    * [Phi-3 Hardware Support](./md/01.Introduce/Hardwaresupport.md)(✅)
     * [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md)(✅)
      
 * [Quick Start]()
@@ -69,7 +69,7 @@ This cookbook includes:
     * [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
     * [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
     * [Inference Phi-3 in AI PC](./md/03.Inference/AIPC_Inference.md)(✅)
-    * [Inference Phi-3 with Apple MLX Framrwork](./md/03.Inference/MLX_Inference.md)(✅)
+    * [Inference Phi-3 with Apple MLX Framework](./md/03.Inference/MLX_Inference.md)(✅)
     * [Inference Phi-3 in Local Server](./md/03.Inference/Local_Server_Inference.md)(✅)
     * [Inference Phi-3 in Remote Server using AI Toolkit](./md/03.Inference/Remote_Interence.md)(✅)
     * [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
@@ -103,8 +103,8 @@ This cookbook includes:
     * [MLFlow - Building a wrapper and using Phi-3 with MLFlow](./md/06.E2ESamples/E2E_Phi-3-MLflow.md)(✅)
 
 * [E2E Samples for Phi-3-vision]()
-    * [Phi3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
-    * [Phi-3-Vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
+    * [Phi-3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
+    * [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
     * [Phi-3-vision CLIP Embedding](./md/06.E2ESamples/E2E_Phi-3-%20Embedding%20Images%20with%20CLIPVision.md)(✅)
 
 * [Labs and workshops samples Phi-3]()
