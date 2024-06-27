@@ -1,0 +1,182 @@
+# Phi-3-V finetuning recipe
+
+This is the official support of Phi-3-V finetuning using huggingface libraries.
+Please `cd` to the code directory [vision_finetuning](code/04.Finetuning/vision_finetuning) before running the following commands.
+
+## Installation
+
+```bash
+# create a new conda environment
+conda create -n phi3v python=3.10
+conda activate phi3v
+
+# install pytorch
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia
+
+# other libraries needed to run the example code
+pip install -r requirements.txt
+
+# (optional) flash attention -- Ampere+ GPUs (e.g., A100, H100)
+pip install ninja
+MAX_JOBS=32 pip install flash-attn==2.4.2 --no-build-isolation
+
+# (optional) QLoRA -- Turing+ GPUs (e.g., RTX 8000)
+pip install bitsandbytes==0.43.1
+```
+
+## Quick start
+
+We provide two example finetuning scripts, one for DocVQA and one for hateful meme classification.
+
+Minimal hardware tested on 4x RTX8000 (48GB RAM per GPU)
+```bash
+# minimal script on a mini-train split of DocVQA
+torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
+```
+
+## Usage guide
+Depending on the hardware, users may choose different finetuning strategies. We support
+full-finetuning (with Deepspeed Zero-2) with optionally frozen vision parameters, and LoRA (including 4bit QLoRA).
+In general, we recommend using full finetuning with flash attention and bf16 whenever possible.
+
+Here are some examples:
+
+### If you have A100 or H100 GPUs
+Full finetuning usually gives the best performance. You can use the following command to finetune Phi-3-V on hateful memes classification.
+
+```bash
+torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
+  --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT --node_rank=$NODE_RANK \
+  finetune_hf_trainer_hateful_memes.py \
+  --output_dir <output_dir> \
+  --batch_size 64 \
+  --use_flash_attention \
+  --bf16
+```
+
+### If you have 8x V100-32GB GPUs
+It is still possible to fully finetune Phi-3-V on hateful memes classification. However, expect
+much lower throughput compared to A100 or H100 GPUs due to the lack of flash attention support.
+Accuracy could also be affected due to the lack of bf16 support (fp16 mixed-precision training is
+used instead).
+
+```bash
+torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
+  --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT --node_rank=$NODE_RANK \
+  finetune_hf_trainer_hateful_memes.py \
+  --output_dir <output_dir> \
+  --batch_size 64
+```
+
+
+### If you don't have access to data center GPUs
+Lora might be your only choice. You can use the following command to finetune Phi-3-V on hateful memes classification.
+
+```bash
+torchrun --nproc_per_node=2 \
+  finetune_hf_trainer_hateful_memes.py \
+  --output_dir <output_dir> \
+  --batch_size 64 \
+  --use_lora
+```
+
+For Turing+ GPU, QLoRA is supported
+
+```bash
+torchrun --nproc_per_node=2 \
+  finetune_hf_trainer_hateful_memes.py \
+  --output_dir <output_dir> \
+  --batch_size 64 \
+  --use_lora \
+  --use_qlora
+```
+
+
+## Suggested hyperparameters and expected accuracy
+
+### DocVQA
+```bash
+torchrun --nproc_per_node=4 \
+  finetune_hf_trainer_docvqa.py \
+  --full_train \
+  --bf16 --use_flash_attention \
+  --batch_size 64 \
+  --output_dir <output_dir> \
+  --learning_rate <lr> \
+  --num_train_epochs <epochs>
+
+```
+
+
+Training method | data type | LoRA rank | LoRA alpha | batch size | learning rate | epochs | ANLS
+--- | --- | --- | --- | --- | --- | --- | --- |
+full-finetuning | bf16 | - | - | 64 | 5e-6 | 2 | 83.65 |
+full-finetuning | fp16 | - | - | 64 | 5e-6 | 2 | 82.60 |
+frozen image model| bf16 | - | - | 64 | 1e-4 | 2 | 79.19 |
+frozen image model| fp16 | - | - | 64 | 1e-4 | 2 | 78.74 |
+LoRA | bf16 | 32 | 16 | 64 | 2e-4 | 2 | 82.46 |
+LoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 82.34 |
+QLoRA | bf16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
+QLoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
+
+
+### Hateful memes
+```bash
+torchrun --nproc_per_node=4 \
+  finetune_hf_trainer_hateful_memes.py \
+  --bf16 --use_flash_attention \
+  --batch_size 64 \
+  --output_dir <output_dir> \
+  --learning_rate <lr> \
+  --num_train_epochs <epochs>
+
+```
+
+Training method | data type | LoRA rank | LoRA alpha | batch size | learning rate | epochs | Accuracy
+--- | --- | --- | --- | --- | --- | --- | --- |
+full-finetuning | bf16 | - | - | 64 | 5e-5 | 2 | 86.4 |
+full-finetuning | fp16 | - | - | 64 | 5e-5 | 2 | 85.4 |
+frozen image model| bf16 | - | - | 64 | 1e-4 | 3 | 79.4 |
+frozen image model| fp16 | - | - | 64 | 1e-4 | 3 | 78.6 |
+LoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 86.6 |
+LoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 85.2 |
+QLoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 84.0 |
+QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 |
+
+
+
+## Speed benchmarking
+
+Speed benchmarking is performed on the DocVQA dataset. The average sequence length of this dataset
+is 2443.23 tokens (using `num_crops=16` for the image model).
+
+### 8x A100-80GB (Ampere)
+Training method | \# nodes | GPUs | flash attention | Effective batch size | Throughput (img/s) | Speedup | Peak GPU mem (GB)
+--- | --- | --- | --- | --- | --- | --- | --- |
+full-finetuning | 1 | 8 |  | 64 | 5.041 |  1x | ~42
+full-finetuning | 1 | 8 | &#x2714; | 64 | 8.657 | 1.72x | ~36
+full-finetuning | 2 | 16 | &#x2714; | 64 | 16.903 | 3.35x | ~29
+full-finetuning | 4 | 32 | &#x2714; | 64 | 33.433 | 6.63x | ~26
+frozen image model | 1 | 8 |  | 64 | 17.578 | 3.49x | ~29
+frozen image model | 1 | 8 | &#x2714; | 64 | 31.736 | 6.30x | ~27
+LoRA | 1 | 8 |  | 64 | 5.591 | 1.11x | ~50
+LoRA | 1 | 8 | &#x2714; | 64 | 12.127 | 2.41x | ~16
+QLoRA | 1 | 8 |  | 64 | 4.831 | 0.96x | ~32
+QLoRA | 1 | 8 | &#x2714; | 64 | 10.545 | 2.09x | ~10
+
+
+
+### 8x V100-32GB (Volta)
+Training method | \# nodes | GPUs | flash attention | Effective batch size | Throughput (img/s) | Speedup | Peak GPU mem (GB)
+--- | --- | --- | --- | --- | --- | --- | --- |
+full-finetuning | 1 | 8 | | 64 | 2.462 |  1x | ~32
+full-finetuning | 2 | 16 |  | 64 | 4.182 | 1.70x | ~32
+full-finetuning | 4 | 32 |  | 64 | 5.465 | 2.22x | ~32
+frozen image model | 1 | 8 |  | 64 | 8.942 | 3.63x | ~27
+LoRA | 1 | 8 |  | 64 | 2.807 | 1.14x | ~30
+
+
+## Known issues
+
+- Cannot run flash attention with fp16 (bf16 is always recommended when available, and all GPUs supporting flash attention also support bf16).
+- Do not support saving intermediate checkpoints and resuming training yet.
