@@ -39,6 +39,43 @@ Depending on the hardware, users may choose different finetuning strategies. We 
 full-finetuning (with Deepspeed Zero-2) with optionally frozen vision parameters, and LoRA (including 4bit QLoRA).
 In general, we recommend using full finetuning with flash attention and bf16 whenever possible.
 
+## Requesting Azure GPU Quota 
+
+### Prerequisites
+An Azure account with the Contributor role (or another role that includes Contributor access).
+
+If you don't have an Azure account, create a [free account before you begin](https://azure.microsoft.com).
+
+### Request a quota increase
+You can submit a request for a quota increase directly from My quotas. Follow the steps below to request an increase for a quota. For this example, you can select any adjustable quota in your subscription.
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
+Enter "quotas" into the search box, and then select Quotas.
+![Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
+
+On the Overview page, select a provider, such as Compute or AML.
+
+**Note** For all providers other than Compute, you'll see a Request increase column instead of the Adjustable column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
+
+On the My quotas page, under Quota name, select the quota you want to increase. Make sure that the Adjustable column shows Yes for this quota.
+
+Near the top of the page, select New Quota Request, then select Enter a new limit.
+
+![Increase Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
+
+In the New Quota Request pane, enter a numerical value for your new quota limit, then select Submit.
+
+Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes.
+
+If your request isn't fulfilled, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
+
+## Azure Compute GPU machine SKU suggestions
+
+[ND A100 v4-series](https://learn.microsoft.com/azure/virtual-machines/nda100-v4-series)
+[ND H100 v5-series](https://learn.microsoft.com/azure/virtual-machines/nd-h100-v5-series)
+[Standard_ND40rs_v2](https://learn.microsoft.com/en-us/azure/virtual-machines/ndv2-series)
+
 Here are some examples:
 
 ### If you have A100 or H100 GPUs
@@ -54,7 +91,7 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
   --bf16
 ```
 
-### If you have 8x V100-32GB GPUs
+### If you have Standard_ND40rs_v2 8x V100-32GB GPUs
 It is still possible to fully finetune Phi-3-V on hateful memes classification. However, expect
 much lower throughput compared to A100 or H100 GPUs due to the lack of flash attention support.
 Accuracy could also be affected due to the lack of bf16 support (fp16 mixed-precision training is
