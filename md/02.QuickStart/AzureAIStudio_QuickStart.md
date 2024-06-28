@@ -1,6 +1,6 @@
 # **Using Phi-3 in Azure AI Studio**
 
-With the development of Generative AI, we hope to use a unified platform to manage different LLM and SLM, enterprise data integration, fine-tuning/RAG operations, and the evaluation of different enterprise businesses after integrating LLM and SLM, etc., so that generative AI can Smart applications are better implemented. Azure AI Studio is an enterprise-level generative AI application platform.
+With the development of Generative AI, we hope to use a unified platform to manage different LLM and SLM, enterprise data integration, fine-tuning/RAG operations, and the evaluation of different enterprise businesses after integrating LLM and SLM, etc., so that generative AI can Smart applications are better implemented. [Azure AI Studio](https://ai.azure.com) is an enterprise-level generative AI application platform.
 
 ![aistudo](../../imgs/02/AIStudio/ai-studio-home.png)
 
@@ -9,7 +9,26 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses and 
 We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, and then use Azure AI Studio to complete Phi-3 related Playground/Chat, Fine-tuning, evaluation and other related work.
 
 ## **1. Preparation**
+## [AZD AI Studio Starter Template](https://azure.github.io/awesome-azd/?name=AI+Studio)
+ 
+### Azure AI Studio Starter
+This is Bicep template that deploys everything you need to get started with Azure AI Studio. Includes AI Hub with dependent resources, AI project, AI Services and an online endpoint
 
+### Quick Use
+If you already have the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview?WT.mc_id=aiml-138114-kinfeylo) installed on your machine, using this template is as simple as running this command in a new directory.
+
+### Terminal Command
+```bash
+azd init -t azd-aistudio-starter
+```
+Or
+If using the azd VS Code extension you can paste this URL in the VS Code command terminal.
+
+### Terminal URL
+```
+azd-aistudio-starter
+```
+## Manual Creation
 Create Azure AI Studio on [Azure Portal](https://portal.azure.com?WT.mc_id=aiml-138114-kinfeylo)
 
 ![portal](../../imgs/02/AIStudio/ai-studio-portal.png)
