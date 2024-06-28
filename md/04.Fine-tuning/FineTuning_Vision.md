@@ -73,7 +73,9 @@ If your request isn't fulfilled, you'll see a link to create a support request. 
 ## Azure Compute GPU machine SKU suggestions
 
 [ND A100 v4-series](https://learn.microsoft.com/azure/virtual-machines/nda100-v4-series)
+
 [ND H100 v5-series](https://learn.microsoft.com/azure/virtual-machines/nd-h100-v5-series)
+
 [Standard_ND40rs_v2](https://learn.microsoft.com/en-us/azure/virtual-machines/ndv2-series)
 
 Here are some examples:
