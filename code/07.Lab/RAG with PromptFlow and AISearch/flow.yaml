@@ -1,0 +1,87 @@
+id: bring_your_own_data_qna
+name: Bring Your Own Data QnA
+inputs:
+  question:
+    type: string
+    default: How to use SDK V2?
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${answer_the_question_with_context.output}
+nodes:
+- name: lookup
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.common_index_lookup.search
+  inputs:
+    mlindex_content: >
+      embeddings:
+        api_base: "your api base"
+        api_type: azure
+        api_version: 2023-07-01-preview
+        batch_size: '1'
+        connection:
+          id: /subscriptions/your-sub-id/resourceGroups/AI/providers/Microsoft.MachineLearningServices/workspaces/vaalt-sweden/connections/aoao-sweden
+        connection_type: workspace_connection
+        deployment: text-embedding-ada-002
+        dimension: 1536
+        kind: open_ai
+        model: text-embedding-ada-002
+        schema_version: '2'
+      index:
+        api_version: 2023-07-01-preview
+        connection:
+          id: /subscriptions/your-sub-id/resourceGroups/AI/providers/Microsoft.MachineLearningServices/workspaces/vaalt-sweden/connections/aisearchvaalt
+        connection_type: workspace_connection
+        endpoint: "your ai search endpoint"
+        engine: azure-sdk
+        field_mapping:
+          content: content
+          embedding: contentVector
+          metadata: meta_json_string
+        index: attentionisallyouneed
+        kind: acs
+        semantic_configuration_name: azureml-default
+    queries: ${inputs.question}
+    query_type: Hybrid + semantic
+    top_k: 2
+  use_variants: false
+- name: generate_prompt_context
+  type: python
+  source:
+    type: code
+    path: generate_prompt_context.py
+  inputs:
+    search_result: ${lookup.output}
+  use_variants: false
+- name: Prompt_variants
+  type: prompt
+  source:
+    type: code
+    path: Prompt_variants.jinja2
+  inputs:
+    contexts: ${generate_prompt_context.output}
+    question: ${inputs.question}
+  use_variants: false
+- name: answer_the_question_with_context
+  type: llm
+  source:
+    type: code
+    path: answer_the_question_with_context.jinja2
+  inputs:
+    temperature: 0
+    top_p: 1
+    max_tokens: 1000
+    presence_penalty: 0
+    frequency_penalty: 0
+    prompt_text: ${Prompt_variants.output}
+  provider: Serverless
+  connection: Phi-3-medium-128k-instruct-ztdxp-serverless
+  api: chat
+  module: promptflow.tools.openai
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt
