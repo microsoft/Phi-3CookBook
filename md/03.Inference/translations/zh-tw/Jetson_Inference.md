@@ -12,7 +12,7 @@ NVIDIA 的 [TensorRT-LLM 函式庫](https://github.com/NVIDIA/TensorRT-LLM?WT.mc
 
 ### 可用性和部署:
 
-開發者可以在 [NVIDIA's AI](https://www.nvidia.com/ai-data-science/generative-ai/) 探索 Phi-3 Mini 及其 128K context window。它被打包為 NVIDIA NIM，一種具有標準 API 的微服務，可以部署在任何地方。此外，還有 [TensorRT-LLM implementations on GitHub](https://github.com/NVIDIA/TensorRT-LLM)。
+開發者可以在 [NVIDIA's AI](https://www.nvidia.com/zh-tw/ai-data-science/generative-ai/) 探索 Phi-3 Mini 及其 128K context window。它被打包為 NVIDIA NIM，一種具有標準 API 的微服務，可以部署在任何地方。此外，還有 [TensorRT-LLM implementations on GitHub](https://github.com/NVIDIA/TensorRT-LLM)。
 
 ## **1. 準備**
 
