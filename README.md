@@ -3,7 +3,7 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/phi-3cookbook)
 [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/phi-3cookbook)
 
-Phi-3, a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. Here is a manual on how to use the Microsoft Phi-3 family.
+Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. Here is a manual on how to use the Microsoft Phi-3 family.
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
 
@@ -19,7 +19,7 @@ Phi-3-mini, a 3.8B language model is available on [Microsoft Azure AI Studio](ht
 
 ### Phi-3-small
 
-Phi-3-small with only 7B parameters beats GPT-3.5T across a variety of language, reasoning, coding and math benchmarks.
+Phi-3-small with only 7B parameters beats GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
 
 ![phimodelsmall](/imgs/00/phi3small.png)
 
@@ -41,11 +41,11 @@ Phi-3-vision with just 4.2B parameters continues that trend and outperforms larg
 
 ### Phi-Silica
 
-We are introducing Phi Silica which is built from the Phi series of models and is designed specifically for the NPUs in Copilot+ PCs. Windows is the first platform to have a state-of-the-art small language model (SLM) custom built for the NPU and shipping inbox. Phi Silica API along with OCR, Studio Effects, Live Captions, Recall User Activity APIs will be available in Windows Copilot Library in June. More APIs like Vector Embedding, RAG API, Text Summarization will be coming later.
+We are introducing Phi Silica which is built from the Phi series of models and is designed specifically for the NPUs in Copilot+ PCs. Windows is the first platform to have a state-of-the-art small language model (SLM) custom built for the NPU and shipping inbox. Phi Silica API along with OCR, Studio Effects, Live Captions, and Recall User Activity APIs will be available in Windows Copilot Library in June. More APIs like Vector Embedding, RAG API, and Text Summarization will be coming later.
 
 ## Phi-3 on Azure AI Studio
 
-You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start with playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
 
 **Playground**
 Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
