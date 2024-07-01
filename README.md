@@ -120,6 +120,7 @@ This cookbook includes:
      * [C# Hello Phi-3 ONNX example Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
      * [C# API Phi-3 ONNX example to support Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
     * [Run C# Phi-3 samples in a CodeSpace](./md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
+    * [Using Phi-3 with Promptflow and Azure AI Search ](./code/07.Lab/RAG%20with%20PromptFlow%20and%20AISearch/)(✅)
 
    
    
