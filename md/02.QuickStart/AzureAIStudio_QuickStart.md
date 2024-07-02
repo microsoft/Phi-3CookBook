@@ -1,4 +1,4 @@
-# Using Phi-3 in Azure AI Studio
+# **Using Phi-3 in Azure AI Studio**
 
 With the development of Generative AI, we hope to use a unified platform to manage different LLM and SLM, enterprise data integration, fine-tuning/RAG operations, and the evaluation of different enterprise businesses after integrating LLM and SLM, etc., so that generative AI can Smart applications are better implemented. [Azure AI Studio](https://ai.azure.com) is an enterprise-level generative AI application platform.
 
@@ -8,35 +8,27 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses and 
 
 We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, and then use Azure AI Studio to complete Phi-3 related Playground/Chat, Fine-tuning, evaluation and other related work.
 
-## **1. Preparation**
-
+## **1. Preparation**z
 ## [AZD AI Studio Starter Template](https://azure.github.io/awesome-azd/?name=AI+Studio)
-
+ 
 ### Azure AI Studio Starter
-
 This is Bicep template that deploys everything you need to get started with Azure AI Studio. Includes AI Hub with dependent resources, AI project, AI Services and an online endpoint
 
 ### Quick Use
-
 If you already have the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview?WT.mc_id=aiml-138114-kinfeylo) installed on your machine, using this template is as simple as running this command in a new directory.
 
 ### Terminal Command
-
 ```bash
 azd init -t azd-aistudio-starter
 ```
-
 Or
 If using the azd VS Code extension you can paste this URL in the VS Code command terminal.
 
 ### Terminal URL
-
-```terminal
+```
 azd-aistudio-starter
 ```
-
 ## Manual Creation
-
 Create Azure AI Studio on [Azure Portal](https://portal.azure.com?WT.mc_id=aiml-138114-kinfeylo)
 
 ![portal](../../imgs/02/AIStudio/ai-studio-portal.png)
@@ -52,6 +44,7 @@ After successful creation, you can access the studio you created through [ai.azu
 There can be multiple projects on one AI Studio. Create a project in AI Studio to prepare.
 
 ![proj](../../imgs/02/AIStudio/ai-studio-proj.png)
+
 
 ## **2. Deploy the Phi-3 model in Azure AI Studio**
 
@@ -103,3 +96,25 @@ such as access score api
 You can get the request parameters very conveniently, as well as the response parameters. This is Postman result
 
 ![result](../../imgs/02/AIStudio/ai-studio-result.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
