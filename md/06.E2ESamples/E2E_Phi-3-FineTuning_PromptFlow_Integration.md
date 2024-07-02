@@ -25,11 +25,11 @@ Here is an overview of this E2E sample.
     - [Set up project](#set-up-project)
     - [Prepare dataset for fine-tuning](#prepare-dataset-for-fine-tuning)
 
-2. **[Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
+1. **[Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
     - [Set up Azure CLI](#set-up-azure-cli)
     - [Deploy the fine-tuned model](#deploy-the-fine-tuned-model)
 
-3. **[Scenario 3: Integrate with Prompt flow and Chat with your custom model](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model)**
+1. **[Scenario 3: Integrate with Prompt flow and Chat with your custom model](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model)**
     - [Integrate the custom Phi-3 model with Prompt flow](#integrate-the-custom-phi-3-model-with-prompt-flow)
     - [Chat with your custom model](#chat-with-your-custom-model)
 
@@ -64,13 +64,13 @@ In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, whi
 
     ![Type azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
 
-2. Select **+ Create** from the navigation menu.
+1. Select **+ Create** from the navigation menu.
 
-3. Select **New workspace** from the navigation menu.
+1. Select **New workspace** from the navigation menu.
 
     ![Select new workspace](../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
 
-4. Perform the following tasks:
+1. Perform the following tasks:
 
     - Select your Azure **Subscription**.
     - Select the **Resource group** to use (create a new one if needed).
@@ -81,9 +81,9 @@ In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, whi
     - Select the **Application insights** to use (create a new one if needed).
     - Select the **Container registry** to **None**.
 
-5. Select **Review + Create**.
+1. Select **Review + Create**.
 
-6. Select **Create**.
+1. Select **Create**.
 
 ### Add role assignment
 
@@ -198,7 +198,7 @@ Now, you will create a folder to work in and set up a virtual environment to dev
     mkdir finetune-phi
     ```
 
-2. Type the following command inside your terminal to navigate to the *finetune-phi* folder you created.
+1. Type the following command inside your terminal to navigate to the *finetune-phi* folder you created.
 
     ```console
     cd finetune-phi
@@ -212,7 +212,7 @@ Now, you will create a folder to work in and set up a virtual environment to dev
     python -m venv .venv
     ```
 
-2. Type the following command inside your terminal to activate the virtual environment.
+1. Type the following command inside your terminal to activate the virtual environment.
 
     ```console
     .venv\Scripts\activate.bat
@@ -324,7 +324,7 @@ In this exercise, you will:
 
 1. In the left pane of Visual Studio Code, right-click and select **New File** to create a new file named *config.py*.
 
-2. Add the following code to the *config.py* file to include your Azure information.
+1. Add the following code to the *config.py* file to include your Azure information.
 
     ```python
     # Azure settings
@@ -491,9 +491,9 @@ You need to set up Azure CLI to authenticate your environment. Azure CLI allows 
     az login
     ```
 
-2. Select your Azure account to use.
+1. Select your Azure account to use.
 
-3. Select your Azure subscription to use.
+1. Select your Azure subscription to use.
 
     ![Find resource group name.](../../imgs/03/FineTuning-PromptFlow/02-01-login-using-azure-cli.png)
 
