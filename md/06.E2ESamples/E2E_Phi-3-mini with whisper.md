@@ -24,7 +24,7 @@ In general, the Whisper model is designed to run on GPUs. The recommended minimu
 
 It's important to note that running a large amount of data or a high volume of requests on the model may require more GPU memory and/or may cause performance issues. It's recommended to test your use case with different configurations and monitor the memory usage to determine the optimal settings for your specific needs.
 
-## E2E Sample Phi-3 and Whisper
+## E2E Sample for Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper
 
 The jupyter notebook titled "[Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)" demonstrates how to use the Microsoft Phi 3 Mini 4K instruct Demo to generate text from audio or written text input The notebook defines several functions:
 
