@@ -73,7 +73,7 @@ The console application demonstrates the use of a local model hosted in Ollama a
 
 1. Here is the demo console application running in a Codespace:
 
-    ![Demo console application running in a Codespace](./img/10RAGPhi3.gif)
+    ![Demo console application running in a Codespace](../Sample03/img/10RAGPhi3.gif)
 
 ## References
 
