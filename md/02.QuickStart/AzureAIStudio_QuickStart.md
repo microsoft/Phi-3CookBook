@@ -8,7 +8,7 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses and 
 
 We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, and then use Azure AI Studio to complete Phi-3 related Playground/Chat, Fine-tuning, evaluation and other related work.
 
-## **1. Preparation**z
+## **1. Preparation**
 ## [AZD AI Studio Starter Template](https://azure.github.io/awesome-azd/?name=AI+Studio)
  
 ### Azure AI Studio Starter
