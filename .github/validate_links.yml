@@ -1,0 +1,38 @@
+name: Validate Documentation Links
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    paths:
+      - '**.md'
+      - '**.ipynb'
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        job: [check-broken-paths, check-paths-tracking, check-urls-tracking, check-urls-locale, check-broken-urls]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Run ${{ matrix.job }}
+        id: ${{ matrix.job }}
+        uses: john0isaac/action-check-markdown@v1.0.6
+        with:
+          command: ${{ matrix.job }}
+          directory: ./
+          guide-url: 'https://github.com/Phi-3-CookBook/Phi-3-CookBook/blob/main/CONTRIBUTING.md'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
