@@ -107,18 +107,18 @@ In this E2E sample we will demonstrate two different approaches to building a wr
 
 1. You can use now _mlflow.pyfunc.log_model()_ function to generate a custom Python wrapper (in pickle format) for the Phi-3 model, along with the original ONNX model and required dependencies:
 
-``` Python
-model_info = mlflow.pyfunc.log_model(
-    artifact_path = artifact_path,
-    python_model = Phi3Model(),
-    artifacts = {
-        "phi3-mini-onnx": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
-    },
-    input_example = input_example,
-    signature = infer_signature(input_example, ["Run"]),
-    extra_pip_requirements = ["torch", "onnxruntime_genai", "numpy"],
-)
-```
+    ``` Python
+    model_info = mlflow.pyfunc.log_model(
+        artifact_path = artifact_path,
+        python_model = Phi3Model(),
+        artifacts = {
+            "phi3-mini-onnx": "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+        },
+        input_example = input_example,
+        signature = infer_signature(input_example, ["Run"]),
+        extra_pip_requirements = ["torch", "onnxruntime_genai", "numpy"],
+    )
+    ```
 
 ## Signatures of generated MLFlow models
 
