@@ -46,7 +46,7 @@ get_img_features 方法從輸入的圖像嵌入中提取圖像特徵。它接受
 
 總的來說，這段程式碼定義了一個表示圖像嵌入模型的類別，並提供了設定圖像特徵和執行前向傳播的方法。
 
-[程式碼範例](../../code/06.E2E/phi3imageembedding.py)
+[程式碼範例](../../../../code/06.E2E/phi3imageembedding.py)
 
 ```
 import math
