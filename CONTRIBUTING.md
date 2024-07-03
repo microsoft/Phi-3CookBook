@@ -41,7 +41,7 @@ If you are proficient in a non-English language, you can help translate the cont
   - Continue this pattern for other sections (03.Inference, 04.Finetuning, etc.)
 
 - **Update relative paths**: When translating, adjust the folder structure by adding `../../` to the beginning of relative paths within the markdown files to ensure links work correctly. For example, change as following:
-  - Change `![Phi3AISafety](../../imgs/01/phi3aisafety.png)` to `![Phi3AISafety](../../../../imgs/01/phi3aisafety.png)`
+  - Change `(../../imgs/01/phi3aisafety.png)` to `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organize your translations**: Each translated file should be placed in the corresponding section's translation folder. For example, if you are translating the introduction section into Spanish, you would create as following:
   - `Phi-3CookBook/md/01.Introduce/translations/es/`
