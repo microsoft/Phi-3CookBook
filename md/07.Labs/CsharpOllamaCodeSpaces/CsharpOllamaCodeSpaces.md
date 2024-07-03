@@ -11,7 +11,7 @@ This labs is designed to test Phi-3 with C# samples directly in GitHub Codespace
 
 ![Select the option Ollama with Phi-3 for C#, to create the CodeSpace](./12NewCSOllamaCodespace.png)
 
-1. Once the Codespace is loaded, it should have [ollama](https://ollama.com/) pre-installed, the latest Phi-3 model downloaded, and [.NET 8](https://dotnet.microsoft.com/en-us/download) installed.
+1. Once the Codespace is loaded, it should have [ollama](https://ollama.com/) pre-installed, the latest Phi-3 model downloaded, and [.NET 8](https://dotnet.microsoft.com/download) installed.
 
 1. (Optional) Using the Codespace termina, ask Ollama to run [phi3](https://ollama.com/library/phi3) model:
 

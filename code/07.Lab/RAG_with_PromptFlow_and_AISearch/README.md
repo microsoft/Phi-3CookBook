@@ -22,9 +22,9 @@ Before you begin, ensure you have met the following requirements:
 ## Installation
 
 1. Create a new flow on your Azure AI Studio Project using the flow.yaml file.
-2. Deploy a Phi3 Model from your Azure AI model catalog and create the connection to your project. [Deploy Phi-3 as a Model as a Service](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-models-phi-3?view=azureml-api-2&tabs=phi-3-mini)
-3. Create the vector index on Azure AI Search using any document of your choice [Create a vector index on Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-how-to-create-search-index?tabs=portal)
-4. Deploy the flow on a managed enpoint and use it in the prompt-flow-frontend.py file. [Deploy a flow on an online endpoint](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy)
+2. Deploy a Phi3 Model from your Azure AI model catalog and create the connection to your project. [Deploy Phi-3 as a Model as a Service](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-models-phi-3?view=azureml-api-2&tabs=phi-3-mini)
+3. Create the vector index on Azure AI Search using any document of your choice [Create a vector index on Azure AI Search](https://learn.microsoft.com/azure/search/search-how-to-create-search-index?tabs=portal)
+4. Deploy the flow on a managed enpoint and use it in the prompt-flow-frontend.py file. [Deploy a flow on an online endpoint](https://learn.microsoft.com/azure/ai-studio/how-to/flow-deploy)
 5. Clone the repository:
 
     ```sh
