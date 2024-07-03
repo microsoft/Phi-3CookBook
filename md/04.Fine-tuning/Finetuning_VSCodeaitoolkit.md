@@ -111,7 +111,7 @@ We use [Olive](https://microsoft.github.io/Olive/overview/olive.html) to run QLo
 
 ## **[Private Preview]** Remote Development
 ### Prerequisites
-1. To run the model fine-tuning in your remote Azure Container App Environment, make sure your subscription has enough GPU capacity. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the required capacity for your application. [Get More Info about GPU capacity](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview)
+1. To run the model fine-tuning in your remote Azure Container App Environment, make sure your subscription has enough GPU capacity. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the required capacity for your application. [Get More Info about GPU capacity](https://learn.microsoft.com/azure/container-apps/workload-profiles-overview)
 2. If you are using private dataset on HuggingFace, make sure you have a [HuggingFace account](https://huggingface.co/) and [generate an access token](https://huggingface.co/docs/hub/security-tokens)
 3. Enable Remote Fine-tuning and Inference feature flag in the AI Toolkit for VS Code
    1. Open the VS Code Settings by selecting *File -> Preferences -> Settings*.
