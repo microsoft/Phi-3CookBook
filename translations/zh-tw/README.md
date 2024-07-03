@@ -116,16 +116,6 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
      * [C# Hello Phi-3 ONNX 範例 Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
      * [C# API Phi-3 ONNX 範例支援 Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
 
-## 貢獻
-
-這個專案歡迎貢獻和建議。大多數貢獻需要您同意一份貢獻者許可協議 (CLA)，聲明您有權利並實際授予我們使用您貢獻的權利。詳情請訪問 https://cla.opensource.microsoft.com。
-
-當你提交一個 pull request 時，CLA 機器人會自動判斷你是否需要提供 CLA 並適當地裝飾 PR（例如，狀態檢查、評論）。只需按照機器人提供的指示操作。你只需要在所有使用我們 CLA 的 repos 中執行一次這個操作。
-
-這個專案已採用[Microsoft 開源行為準則](https://opensource.microsoft.com/codeofconduct/)。
-欲了解更多資訊，請參閱[行為準則常見問題](https://opensource.microsoft.com/codeofconduct/faq/)或
-聯繫[opencode@microsoft.com](mailto:opencode@microsoft.com)以提出任何其他問題或意見。
-
 ## 商標
 
 此專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft 商標或標誌必須遵守並遵循 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。在此專案的修改版本中使用 Microsoft 商標或標誌不得引起混淆或暗示 Microsoft 的贊助。任何使用第三方商標或標誌均需遵守該第三方的政策。
