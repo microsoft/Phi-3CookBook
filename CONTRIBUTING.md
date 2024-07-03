@@ -69,10 +69,6 @@ When you submit a pull request, the following workflows will be triggered to val
 - [Check Broken Relative Paths](#check-broken-relative-paths)
 - [Check URLs Don't Have Locale](#check-urls-dont-have-locale)
 
-> **Note**
->
-> The current workflow is configured to use `pull_request_target`, which means it runs in the context of the `main` branch (the original repository you forked from) rather than your fork's branch. As a result, even if you correct the relative paths in your pull request, the workflow might still fail if there are incorrect paths in the `main` branch of the original repository.
-
 ### Check Broken Relative Paths
 
 This workflow ensures that all relative paths in your files are correct.
