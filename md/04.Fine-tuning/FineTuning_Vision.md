@@ -52,7 +52,7 @@ You can submit a request for a quota increase directly from My quotas. Follow th
 Sign in to the [Azure portal](https://portal.azure.com).
 
 Enter "quotas" into the search box, and then select Quotas.
-![Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
+![Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
 
 On the Overview page, select a provider, such as Compute or AML.
 
@@ -62,7 +62,7 @@ On the My quotas page, under Quota name, select the quota you want to increase. 
 
 Near the top of the page, select New Quota Request, then select Enter a new limit.
 
-![Increase Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
+![Increase Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
 
 In the New Quota Request pane, enter a numerical value for your new quota limit, then select Submit.
 
@@ -76,7 +76,7 @@ If your request isn't fulfilled, you'll see a link to create a support request. 
 
 [ND H100 v5-series](https://learn.microsoft.com/azure/virtual-machines/nd-h100-v5-series)
 
-[Standard_ND40rs_v2](https://learn.microsoft.com/en-us/azure/virtual-machines/ndv2-series)
+[Standard_ND40rs_v2](https://learn.microsoft.com/azure/virtual-machines/ndv2-series)
 
 Here are some examples:
 

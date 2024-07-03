@@ -11,7 +11,7 @@
 
 **IMAGE GOES HERE**
 
-1. 一旦 Codespace 載入完成，它應該已經預先安裝了 [ollama](https://ollama.com/)、下載了最新的 Phi-3 模型，並安裝了 [.NET 8](https://dotnet.microsoft.com/en-us/download)。
+1. 一旦 Codespace 載入完成，它應該已經預先安裝了 [ollama](https://ollama.com/)、下載了最新的 Phi-3 模型，並安裝了 [.NET 8](https://dotnet.microsoft.com/download)。
 
 1. (可選) 使用 Codespace 終端機，請求 Ollama 執行 [phi3](https://ollama.com/library/phi3) 模型:
 

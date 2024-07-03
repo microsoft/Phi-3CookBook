@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 ## **Microsoft Olive Config**
 
-If you want to know about the configuration of Microsoft Olive, please visit [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosotOlive.md)
+If you want to know about the configuration of Microsoft Olive, please visit [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
 
 ***Note*** To stay up to date, install Microsoft Olive using
 

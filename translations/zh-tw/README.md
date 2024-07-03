@@ -75,8 +75,8 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
 
 * [Phi-3 微調]()
     * [下載及建立範例數據集](../../md/04.Fine-tuning/translations/zh-tw/CreatingSampleData.md)(✅)
-    * [微調場景](../../md/04.Fine-tuning/translations/zh-tw/FineTuning%20Scenarios.md)(✅)
-    * [微調 vs RAG](../../md/04.Fine-tuning/translations/zh-tw/FineTuning%20vs%20RAG.md)(✅)
+    * [微調場景](../../md/04.Fine-tuning/translations/zh-tw/FineTuning_Scenarios.md)(✅)
+    * [微調 vs RAG](../../md/04.Fine-tuning/translations/zh-tw/FineTuning_vs_RAG.md)(✅)
     * [微調讓 Phi-3 成為行業專家](../../md/04.Fine-tuning/translations/zh-tw/LetPhi3gotoIndustriy.md)(✅)
     * [使用 AI Toolkit for VS Code 微調 Phi-3](../../md/04.Fine-tuning/translations/zh-tw/Finetuning_VSCodeaitoolkit.md)(✅)
     * [使用 Azure Machine Learning Service 微調 Phi-3](../../md/04.Fine-tuning/translations/zh-tw/Introduce_AzureML.md)(✅)
@@ -98,13 +98,13 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
     * [準備你的行業數據](../../md/06.E2ESamples/translations/zh-tw/E2E_Datasets.md)(✅)
     * [使用 Microsoft Olive 架構你的項目](../../md/06.E2ESamples/translations/zh-tw/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
     * [推論你的微調 ONNX Runtime 模型](../../md/06.E2ESamples/translations/zh-tw/E2E_Inference_ORT.md)(✅)
-    * [多模型 - 互動 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-mini%20with%20whisper.md)(✅)
+    * [多模型 - 互動 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-mini_with_whisper.md)(✅)
     * [MLFlow - 建立包裝器並使用 Phi-3 與 MLFlow](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-MLflow.md)(✅)
 
 * [Phi-3-vision 的端到端範例]()
     * [Phi3-vision-圖像文字轉文字](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
     * [Phi-3-Vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
-    * [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-%20Embedding%20Images%20with%20CLIPVision.md)(✅)
+    * [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
 * [Phi-3 的實驗室和工作坊範例]()
     * [C# .NET 實驗室](../../md/07.Labs/translations/zh-tw/Csharp/csharplabs.md)(✅)
@@ -128,5 +128,4 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
 
 ## 商標
 
-此專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft 商標或標誌必須遵守並遵循 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general)。在此專案的修改版本中使用 Microsoft 商標或標誌不得引起混淆或暗示 Microsoft 的贊助。任何使用第三方商標或標誌均需遵守該第三方的政策。
-
+此專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft 商標或標誌必須遵守並遵循 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。在此專案的修改版本中使用 Microsoft 商標或標誌不得引起混淆或暗示 Microsoft 的贊助。任何使用第三方商標或標誌均需遵守該第三方的政策。

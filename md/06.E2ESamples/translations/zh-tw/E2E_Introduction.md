@@ -18,7 +18,7 @@
 
 ### **知識**
 
-1. [了解 Phi-3](../01.Introduce/Phi3Family.md)
-2. [了解如何使用 Microsoft Olive 進行微調](../04.Fine-tuning/FineTuning_MicrosotOlive.md)
+1. [了解 Phi-3](../../../01.Introduce/Phi3Family.md)
+2. [了解如何使用 Microsoft Olive 進行微調](../../../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
 3. [了解 ONNX Runtime 用於生成式 AI](https://github.com/microsoft/onnxruntime-genai)
 
