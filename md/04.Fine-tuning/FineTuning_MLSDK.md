@@ -716,7 +716,7 @@ endpoint = ManagedOnlineEndpoint(
 # Then wait for the creation operation to complete by calling the wait method
 workspace_ml_client.begin_create_or_update(endpoint).wait()
 ```
-You can find here the list of SKU's supported for deployment - [Managed online endpoints SKU list](https://learn.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
+You can find here the list of SKU's supported for deployment - [Managed online endpoints SKU list](https://learn.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
 
 ### Deploying ML Model
 

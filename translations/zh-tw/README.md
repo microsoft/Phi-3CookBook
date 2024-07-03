@@ -75,8 +75,8 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
 
 * [Phi-3 微調]()
     * [下載及建立範例數據集](../../md/04.Fine-tuning/translations/zh-tw/CreatingSampleData.md)(✅)
-    * [微調場景](../../md/04.Fine-tuning/translations/zh-tw/FineTuning%20Scenarios.md)(✅)
-    * [微調 vs RAG](../../md/04.Fine-tuning/translations/zh-tw/FineTuning%20vs%20RAG.md)(✅)
+    * [微調場景](../../md/04.Fine-tuning/translations/zh-tw/FineTuning_Scenarios.md)(✅)
+    * [微調 vs RAG](../../md/04.Fine-tuning/translations/zh-tw/FineTuning_vs_RAG.md)(✅)
     * [微調讓 Phi-3 成為行業專家](../../md/04.Fine-tuning/translations/zh-tw/LetPhi3gotoIndustriy.md)(✅)
     * [使用 AI Toolkit for VS Code 微調 Phi-3](../../md/04.Fine-tuning/translations/zh-tw/Finetuning_VSCodeaitoolkit.md)(✅)
     * [使用 Azure Machine Learning Service 微調 Phi-3](../../md/04.Fine-tuning/translations/zh-tw/Introduce_AzureML.md)(✅)
@@ -98,13 +98,13 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
     * [準備你的行業數據](../../md/06.E2ESamples/translations/zh-tw/E2E_Datasets.md)(✅)
     * [使用 Microsoft Olive 架構你的項目](../../md/06.E2ESamples/translations/zh-tw/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
     * [推論你的微調 ONNX Runtime 模型](../../md/06.E2ESamples/translations/zh-tw/E2E_Inference_ORT.md)(✅)
-    * [多模型 - 互動 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-mini%20with%20whisper.md)(✅)
+    * [多模型 - 互動 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-mini_with_whisper.md)(✅)
     * [MLFlow - 建立包裝器並使用 Phi-3 與 MLFlow](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-MLflow.md)(✅)
 
 * [Phi-3-vision 的端到端範例]()
     * [Phi3-vision-圖像文字轉文字](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
     * [Phi-3-Vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
-    * [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-%20Embedding%20Images%20with%20CLIPVision.md)(✅)
+    * [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-tw/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
 * [Phi-3 的實驗室和工作坊範例]()
     * [C# .NET 實驗室](../../md/07.Labs/translations/zh-tw/Csharp/csharplabs.md)(✅)
@@ -116,17 +116,6 @@ Phi-3-vision 僅用 4.2B 參數延續了這一趨勢，並在一般視覺推論�
      * [C# Hello Phi-3 ONNX 範例 Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
      * [C# API Phi-3 ONNX 範例支援 Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
 
-## 貢獻
-
-這個專案歡迎貢獻和建議。大多數貢獻需要您同意一份貢獻者許可協議 (CLA)，聲明您有權利並實際授予我們使用您貢獻的權利。詳情請訪問 https://cla.opensource.microsoft.com。
-
-當你提交一個 pull request 時，CLA 機器人會自動判斷你是否需要提供 CLA 並適當地裝飾 PR（例如，狀態檢查、評論）。只需按照機器人提供的指示操作。你只需要在所有使用我們 CLA 的 repos 中執行一次這個操作。
-
-這個專案已採用[Microsoft 開源行為準則](https://opensource.microsoft.com/codeofconduct/)。
-欲了解更多資訊，請參閱[行為準則常見問題](https://opensource.microsoft.com/codeofconduct/faq/)或
-聯繫[opencode@microsoft.com](mailto:opencode@microsoft.com)以提出任何其他問題或意見。
-
 ## 商標
 
-此專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft 商標或標誌必須遵守並遵循 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general)。在此專案的修改版本中使用 Microsoft 商標或標誌不得引起混淆或暗示 Microsoft 的贊助。任何使用第三方商標或標誌均需遵守該第三方的政策。
-
+此專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft 商標或標誌必須遵守並遵循 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。在此專案的修改版本中使用 Microsoft 商標或標誌不得引起混淆或暗示 Microsoft 的贊助。任何使用第三方商標或標誌均需遵守該第三方的政策。

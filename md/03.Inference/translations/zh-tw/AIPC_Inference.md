@@ -188,7 +188,7 @@ pip install .\onnxruntime_genai_directml-0.3.0.dev0-cp310-cp310-win_amd64.whl
 
 ![DML](../../../../imgs/03/AIPC/aipc_DML.png)
 
-***範例*** : [AIPC_DirectML_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
+***範例*** : [AIPC_DirectML_DEMO.ipynb](../../../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
 
 ## **3. 使用 Intel OpenVino 執行 Phi-3 模型**
 

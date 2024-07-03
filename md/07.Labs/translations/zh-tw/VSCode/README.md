@@ -84,13 +84,13 @@ GitHub Copilot 大大提高了企業的程式設計效率，每個企業都希�
 
 1. Phi-3 Cookbook [https://github.com/microsoft/Phi-3CookBook](https://github.com/microsoft/Phi-3CookBook)
 
-2. 了解更多關於 GitHub Copilot 的資訊 [https://learn.microsoft.com/en-us/training/paths/copilot/](https://learn.microsoft.com/en-us/training/paths/copilot/)
+2. 了解更多關於 GitHub Copilot 的資訊 [https://learn.microsoft.com/training/paths/copilot/](https://learn.microsoft.com/training/paths/copilot/)
 
-3. 了解更多關於 GitHub Copilot Chat 的資訊 [https://learn.microsoft.com/en-us/training/paths/accelerate-app-development-using-github-copilot/](https://learn.microsoft.com/en-us/training/paths/accelerate-app-development-using-github-copilot/)
+3. 了解更多關於 GitHub Copilot Chat 的資訊 [https://learn.microsoft.com/training/paths/accelerate-app-development-using-github-copilot/](https://learn.microsoft.com/training/paths/accelerate-app-development-using-github-copilot/)
 
 4. 了解更多關於 GitHub Copilot Chat API 的資訊 [https://code.visualstudio.com/api/extension-guides/chat](https://code.visualstudio.com/api/extension-guides/chat)
 
-5. 了解更多關於 Azure AI Studio 的資訊 [https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/](https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/)
+5. 了解更多關於 Azure AI Studio 的資訊 [https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/)
 
-6. 了解更多關於 Azure AI Studio 的 Model Catalog 的資訊 [https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog-overview](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog-overview)
+6. 了解更多關於 Azure AI Studio 的 Model Catalog 的資訊 [https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview)
 

@@ -20,7 +20,7 @@ We hope to use [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/ma
 ### **Knowledge**
 
 1. [Learn About Phi-3](../01.Introduce/Phi3Family.md)
-2. [Learn about How to use Microsoft Olive to fine tuning](../04.Fine-tuning/FineTuning_MicrosotOlive.md)
+2. [Learn about How to use Microsoft Olive to fine tuning](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
 3. [Learn abount ONNX Runtime for generative AI](https://github.com/microsoft/onnxruntime-genai)
    
 

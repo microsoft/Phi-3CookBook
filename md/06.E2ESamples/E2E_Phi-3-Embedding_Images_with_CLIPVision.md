@@ -1,60 +1,55 @@
-﻿# 使用 CLIPVisionModel 處理圖像並生成圖像嵌入與 Phi-3-vision
+# Using the CLIPVisionModel to process images and generate image embeddings with Phi-3-vision
 
-以下的 python 範例提供了必要的功能來處理圖像並使用 CLIPVisionModel 生成圖像嵌入。
+The following python sample provides the necessary functionality to process images and generate image embeddings using the CLIPVisionModel.
 
-## 什麼是 CLIP
+## What is CLIP
+CLIP, which stands for Contrastive Language-Image Pre-training, is a model developed by OpenAI that efficiently learns visual concepts from natural language supervision. It’s a multimodal model that combines image and text understanding in a single framework. CLIP is trained on a variety of internet-sourced images and the text found with them, learning to predict which images were paired with which texts, effectively linking the two modalities.
 
-CLIP，全名為對比語言-圖像預訓練，是由 OpenAI 開發的一個模型，能夠有效地從自然語言監督中學習視覺概念。這是一個多模態模型，將圖像和文本理解結合在一個框架中。CLIP 在各種來源於互聯網的圖像和與之相關的文本上進行訓練，學習預測哪些圖像與哪些文本配對，有效地將這兩種模態聯繫起來。
+The model works by taking an image and a text snippet as input and then predicting the likelihood that the text is an accurate description of the image. This approach allows CLIP to handle a wide range of visual tasks, such as object recognition, classification, and even generating descriptions for images it has never seen before.
 
-模型的工作原理是將圖像和文字片段作為輸入，然後預測文字是否是圖像的準確描述。這種方法使 CLIP 能夠處理各種視覺任務，例如物件識別、分類，甚至為從未見過的圖像生成描述。
-
-CLIP 的一個主要優勢是其執行「零樣本」學習的能力，模型可以僅通過閱讀任務描述來正確處理未明確訓練過的任務。這是因為它已經在大量多樣化的數據上進行了訓練，這有助於它很好地泛化到新任務。
+One of the key advantages of CLIP is its ability to perform “zero-shot” learning, where the model can correctly handle tasks it wasn’t explicitly trained for, simply by reading the description of the task. This is possible because of the vast amount of diverse data it has been trained on, which helps it generalize well to new tasks.
 
 ## Phi-3-vision
+Phi-3-vision is a 4.2B parameter multimodal model with language and vision capabilities, capable of reasoning over real-world images and digital documents, extracting and reasoning over text from images, and generating insights and answers related to charts or diagrams
 
-Phi-3-vision 是一個擁有 42 億參數的多模態模型，具有語言和視覺能力，能夠對現實世界的圖像和數位文件進行推論，從圖像中提取和推論文字，並生成與圖表或圖解相關的見解和答案。
+## Sample Code
+This code defines a class called Phi3ImageEmbedding that represents an image embedding model. The purpose of this class is to process images and generate embeddings that can be used for downstream tasks such as image classification or retrieval.
 
-## 範例程式碼
+The __init__ method initializes the model by setting up various components such as embedding dropout, image processor, HD transform parameters, and image projection. It takes a config object as input, which contains configuration parameters for the model. The wte parameter is an optional input that represents word token embeddings.
 
-這段程式碼定義了一個名為 Phi3ImageEmbedding 的類別，代表了一個圖像嵌入模型。這個類別的目的是處理圖像並生成可用於下游任務（例如圖像分類或檢索）的嵌入。
+The get_img_features method takes an input tensor img_embeds representing image embeddings and returns a tensor representing the extracted image features. It uses the img_processor to process the image embeddings and extract the desired features based on the layer_idx and type_feature parameters.
 
-__init__ 方法透過設定各種元件（如嵌入 dropout、影像處理器、HD 轉換參數和影像投影）來初始化模型。它接受一個 config 物件作為輸入，其中包含模型的配置參數。wte 參數是一個可選輸入，表示詞彙標記嵌入。
+## Explain the Code
+Let's go through the code step by step:
 
-get_img_features 方法接受一個輸入張量 img_embeds，表示圖像嵌入，並返回一個表示提取圖像特徵的張量。它使用 img_processor 來處理圖像嵌入，並根據 layer_idx 和 type_feature 參數提取所需的特徵。
+The code imports necessary libraries and modules, including math, torch, torch.nn, and various components from the transformers library.
 
-## 解釋程式碼
+The code defines a configuration object called CLIP_VIT_LARGE_PATCH14_336_CONFIG that contains various hyperparameters for the image embedding model.
 
-讓我們一步一步地檢視程式碼:
+The Phi3ImageEmbedding class is defined, which is a subclass of torch.nn.Module. This class represents the image embedding model and contains methods for forward propagation and setting image features.
 
-程式碼匯入必要的函式庫和模組，包括 math、torch、torch.nn 和來自 transformers 函式庫的各種元件。
+The __init__ method initializes the Phi3ImageEmbedding object. It takes a config object as input, which is an instance of PretrainedConfig class. It also takes an optional wte argument.
 
-程式碼定義了一個名為 CLIP_VIT_LARGE_PATCH14_336_CONFIG 的配置物件，該物件包含影像嵌入模型的各種超參數。
+The __init__ method initializes various attributes of the Phi3ImageEmbedding object based on the provided config object. It sets the hidden size, dropout rate, image processor, image projection, and other parameters.
 
-Phi3ImageEmbedding 類別被定義，它是 torch.nn.Module 的子類別。此類別代表圖像嵌入模型，並包含前向傳播和設定圖像特徵的方法。
+The set_img_features method sets the image features for the model. It takes a tensor of image features as input and assigns it to the img_features attribute of the object.
 
-__init__ 方法初始化 Phi3ImageEmbedding 物件。它接受一個 config 物件作為輸入，這是一個 PretrainedConfig 類別的實例。它還接受一個可選的 wte 參數。
+The set_img_sizes method sets the image sizes for the model. It takes a tensor of image sizes as input and assigns it to the img_sizes attribute of the object.
 
-__init__ 方法根據提供的 config 物件初始化 Phi3ImageEmbedding 物件的各種屬性。它設置了隱藏層大小、dropout 率、圖像處理器、圖像投影和其他參數。
+The get_img_features method extracts image features from the input image embeddings. It takes a tensor of image embeddings as input and returns the extracted image features.
 
-設置圖像特徵的方法為模型設置圖像特徵。它將圖像特徵的張量作為輸入並將其分配給物件的 img_features 屬性。
+The forward method performs forward propagation through the model. It takes input IDs, pixel values, and image sizes as input and returns the hidden states of the model. It first checks if image features and sizes are already set, and if not, it uses the provided input to set them. Then, it processes the input IDs and extracts image features based on the configured image processor. Finally, it applies the image projection to the extracted features and returns the hidden states.
 
-設定 set_img_sizes 方法設定模型的圖像大小。它將一個圖像大小的張量作為輸入，並將其分配給物件的 img_sizes 屬性。
+Overall, this code defines a class that represents an image embedding model and provides methods for setting image features and performing forward propagation.
 
-get_img_features 方法從輸入的圖像嵌入中提取圖像特徵。它接受一個圖像嵌入的張量作為輸入並返回提取的圖像特徵。
-
-前向方法通過模型執行前向傳播。它將輸入 ID、像素值和圖像大小作為輸入，並返回模型的隱藏狀態。它首先檢查圖像特徵和大小是否已經設置，如果沒有，則使用提供的輸入來設置它們。然後，它處理輸入 ID 並根據配置的圖像處理器提取圖像特徵。最後，它將圖像投影應用到提取的特徵並返回隱藏狀態。
-
-總的來說，這段程式碼定義了一個表示圖像嵌入模型的類別，並提供了設定圖像特徵和執行前向傳播的方法。
-
-[程式碼範例](../../code/06.E2E/phi3imageembedding.py)
-
+[Code Sample](../../code/06.E2E/phi3imageembedding.py)
 ```
 import math
 import torch
 from transformers import CLIPVisionModel, PretrainedConfig
-from transformers import CLIPVisionConfig
+from transformers import CLIPVisionConfig 
 from transformers.utils import logging
-from datetime import datetime
+from datetime import datetime 
 
 # Import necessary libraries
 import torch.nn as nn
@@ -77,7 +72,7 @@ CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     num_channels=3,
     num_hidden_layers=24,
     patch_size=14,
-    projection_dim=768
+    projection_dim=768 
 )
 
 # Define the Phi3ImageEmbedding class
@@ -199,15 +194,15 @@ class Phi3ImageEmbedding(nn.Module):
 
                 with torch.no_grad():
                         positions = torch.nonzero((input_ids < 0) & (input_ids > -MAX_INPUT_ID), as_tuple=False)
-
+                
                 select = False
 
-                if isinstance(self.img_projection, nn.Sequential):
-                        target_device = self.img_projection[0].bias.device
-                        target_dtype = self.img_projection[0].bias.dtype
-                else:  # It's a single nn.Linear layer
-                        target_device = self.img_projection.bias.device
-                        target_dtype = self.img_projection.bias.dtype
+                if isinstance(self.img_projection, nn.Sequential):  
+                        target_device = self.img_projection[0].bias.device  
+                        target_dtype = self.img_projection[0].bias.dtype  
+                else:  # It's a single nn.Linear layer  
+                        target_device = self.img_projection.bias.device  
+                        target_dtype = self.img_projection.bias.dtype  
 
                 if len(positions.tolist()) > 0:
                         with torch.no_grad():
@@ -229,7 +224,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         img_sizes = img_sizes.view(-1, 2)
                                 for _bs in range(bs):
                                         h, w = img_sizes[_bs]
-                                        h = h // 336
+                                        h = h // 336 
                                         w = w // 336
                                         B_ = h * w
 
@@ -252,7 +247,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         temp_len = int((h*w+1)*144 + 1 + (h+1)*12)
                                         assert temp_len == output_imgs[-1].shape[1], f'temp_len: {temp_len}, output_imgs[-1].shape[1]: {output_imgs[-1].shape[1]}'
                                         output_len.append(temp_len)
-
+                                
                                 num_img_tokens = output_len
                                 img_set_tensor = []
                                 for _output_img in output_imgs:
@@ -284,10 +279,10 @@ class Phi3ImageEmbedding(nn.Module):
                         else:
                                 raise NotImplementedError
                         select = True
-
+                
                 with torch.no_grad():
                         input_ids.clamp_min_(0).clamp_max_(self.vocab_size)
-
+                
                 hidden_states = self.wte(input_ids)
 
                 if select:
@@ -317,4 +312,3 @@ class Phi3ImageEmbedding(nn.Module):
 
                 return hidden_states
 ```
-
