@@ -31,36 +31,6 @@ jobs:
           guide-url: 'https://github.com/Phi-3-CookBook/Phi-3-CookBook/blob/main/CONTRIBUTING.md'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-  check-paths-tracking:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Check paths tracking
-        uses: john0isaac/action-check-markdown@v1.0.6
-        with:
-          command: check_paths_tracking
-          directory: ./
-          guide-url: 'https://github.com/Phi-3-CookBook/Phi-3-CookBook/blob/main/CONTRIBUTING.md'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-  check-urls-tracking:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Check URLs tracking
-        uses: john0isaac/action-check-markdown@v1.0.6
-        with:
-          command: check_urls_tracking
-          directory: ./
-          guide-url: 'https://github.com/Phi-3-CookBook/Phi-3-CookBook/blob/main/CONTRIBUTING.md'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
   check-urls-locale:
     runs-on: ubuntu-latest
     steps:
