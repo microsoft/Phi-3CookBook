@@ -31,7 +31,7 @@
 
 ## 執行測試
 
-* 安裝 [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
+* 安裝 [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.exteznsion-test-runner)
 * 通過 **Tasks: Run Task** 命令執行 "watch" 任務。確保這個任務正在執行，否則可能無法發現測試。
 * 從活動欄中打開測試視圖並點擊 "Run Test" 按鈕，或者使用快捷鍵 `Ctrl/Cmd + ; A`
 * 在測試結果視圖中查看測試結果的輸出。
@@ -44,4 +44,3 @@
 * 通過[捆綁你的擴展](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)來減少擴展大小並改善啟動時間。
 * 在 VS Code 擴展市場上[發布你的擴展](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)。
 * 通過設定[持續整合](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)來自動化建構。
-
