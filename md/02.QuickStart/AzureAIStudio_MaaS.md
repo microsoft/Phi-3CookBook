@@ -4,19 +4,19 @@ Phi-3 models (Mini, Small and Medium) in the [Azure model catalog](https://learn
 
 ### Prerequisites
 1. An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a paid Azure account to begin.
-2. An Azure AI Studio hub. The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
+2. An [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) hub. The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
     - **East US 2**
     - **Sweden Central**
 
 **Note** For a list of regions that are available for each of the models supporting serverless API endpoint deployments, see Region availability for models in serverless API endpoints.
 
-3. An Azure AI Studio project.
+3. An [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) project.
 4. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the Azure AI Developer role on the resource group. 
 
 ### Create a new deployment
 To create a deployment:
 
-1. Sign in to Azure AI Studio.
+1. Sign in to [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 2. Select Model catalog from the left sidebar.
 3. Search for and select the model you want to deploy, for example Phi-3-mini-4k-Instruct, to open its Details page.
 4. Select Deploy.
