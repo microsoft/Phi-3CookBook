@@ -309,4 +309,4 @@ rustflags = [
 ]
 ```
 
-> You can visit the official [Candle examples](https://github.com/huggingface/candle/tree/main/candle-examples/examples/quantized-phi3) repository for more examples on how to use the Phi-3 model with Rust and Candle, including alternative approaches to inference.
+> You can visit the official [Candle examples](https://github.com/huggingface/candle/blob/main/candle-examples/examples/quantized-phi/main.rs) repository for more examples on how to use the Phi-3 model with Rust and Candle, including alternative approaches to inference.
