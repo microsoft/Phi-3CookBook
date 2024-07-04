@@ -31,7 +31,7 @@
 
 ## 執行測試
 
-* 安裝 [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.exteznsion-test-runner)
+* 安裝 [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
 * 通過 **Tasks: Run Task** 命令執行 "watch" 任務。確保這個任務正在執行，否則可能無法發現測試。
 * 從活動欄中打開測試視圖並點擊 "Run Test" 按鈕，或者使用快捷鍵 `Ctrl/Cmd + ; A`
 * 在測試結果視圖中查看測試結果的輸出。
