@@ -28,23 +28,32 @@ All reported numbers are produced with the same pipeline to ensure that the numb
 
 Phi-3-mini, a 3.8B language model is available on [Microsoft Azure AI Studio](https://aka.ms/phi3-azure-ai), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3).
 
+![phi3modelminibenchmark](/imgs/00/phi3minibenchmark.png)
+
+![phi3modelminibenchmark128k](/imgs/00/phi3minibenchmark128.png)
+
 ### Phi-3-small
 
 Phi-3-small with only 7B parameters beats GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
 
-![phimodelsmall](/imgs/00/phi3small.png)
+![phi3modelsmall](/imgs/00/phi3smallbenchmark.png)
 
-### Phi-3-midium
+![phi3modelsmall128k](/imgs/00/phi3smallbenchmark128.png)
+
+
+### Phi-3-medium
 
 Phi-3-medium with 14B parameters continues the trend and outperforms Gemini 1.0 Pro.
 
-![phimodelmedium](/imgs/00/phi3medium.png)
+![phi3modelmedium](/imgs/00/phi3mediumbenchmark.png)
+
+![phi3modelmedium128k](/imgs/00/phi3mediumbenchmark128.png)
 
 ### Phi-3-vision
 
 Phi-3-vision with just 4.2B parameters continues that trend and outperforms larger models such as Claude-3 Haiku and Gemini 1.0 Pro V across general visual reasoning tasks, OCR, table and chart understanding tasks.
 
-![phimodelvision](/imgs/00/phi3vision.png)
+![phi3modelvision](/imgs/00/phi3visionbenchmark.png)
 
 > **Note**
 >
