@@ -44,4 +44,3 @@
 * 通過[捆綁你的擴展](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)來減少擴展大小並改善啟動時間。
 * 在 VS Code 擴展市場上[發布你的擴展](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)。
 * 通過設定[持續整合](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)來自動化建構。
-

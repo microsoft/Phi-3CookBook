@@ -5,7 +5,7 @@
 ![EdgeCloud](../../imgs/00/phiedgecloud.png)
 
 
-## Model Availability and Resources 
+## Model Availability and Resources
 
 | | | | | | | | | |
 |-|-|-|-|-|-|-|-|-|
