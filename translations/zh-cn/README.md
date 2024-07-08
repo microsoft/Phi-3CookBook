@@ -115,9 +115,9 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [对 Phi-3-vision 进行微调(官方支持)](../../md/04.Fine-tuning/translations/zh-cn/FineTuning_Vision.md)(✅)
 
 - [Evaluation Phi-3]()
-  - [Introduction to Responsible AI](../../md/05.Evaluation/ResponsibleAI.md)(✅)
-  - [Introduction to Promptflow](../../md/05.Evaluation/Promptflow.md)(✅)
-  - [Introduction to Azure AI Studio for evaluation](../../md/05.Evaluation/AzureAIStudio.md)(✅)
+  - [负责任的人工智能简介](../../md/05.Evaluation/translations/zh-cn/ResponsibleAI.md)(✅)
+  - [Promptflow 简介](../../md/05.Evaluation/translations/zh-cn/Promptflow.md)(✅)
+  - [Azure AI Studio 评估简介](../../md/05.Evaluation/translations/zh-cn/AzureAIStudio.md)(✅)
 
 - [Phi-3-mini 的端到端示例]()
   - [端到端示例简介](../../md/06.E2ESamples/translations/zh-cn/E2E_Introduction.md)(✅)
@@ -130,8 +130,8 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [WinUI3 多模型 AI 支持的笔记应用示例](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
   - [微调和集成自定义 Phi-3 模型与 Prompt flow](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-FineTuning_PromptFlow_Integration.md)(✅)
 
-- [E2E Samples for Phi-3-vision]()
-  - [Phi-3-vision-Image text to text](../../md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
+- [Phi-3-vision 的端到端示例]()
+  - [Phi-3-vision-图像文本转文本](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
   - [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
