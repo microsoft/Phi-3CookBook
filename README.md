@@ -18,20 +18,6 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
 
-## Phi-3 on Azure AI Studio
-
-You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
-
-**Playground**
-Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
-
-## Phi-3 on Hugging Face
-
-You can also find the model on the [Hugging Face](https://huggingface.co/microsoft)
-
-**Playground**
- [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
-
 ## Table of Contents
 
 - [Introduction]()
@@ -109,10 +95,32 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [Run C# Phi-3 samples in a CodeSpace](./md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
   - [Using Phi-3 with Promptflow and Azure AI Search](./code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
 
-## Multi-language support
+## Using Phi-3 Models
 
-- [閱讀正體中文](./translations/zh-tw/README.md) (Translator - **Microsoft MVP & Microsoft Regional Director** [@doggy8088](https://github.com/doggy8088))
-- [阅读简体中文](./translations/zh-cn/README.md) (Translator - **Microsoft MVP** [@shijiong](https://github.com/shijiong), **Microsoft Student Ambassador** [@JamboChen](https://github.com/JamboChen)）
+### Phi-3 on Azure AI Studio
+
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
+
+**Playground**
+Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
+
+### Phi-3 on Hugging Face
+
+You can also find the model on the [Hugging Face](https://huggingface.co/microsoft)
+
+**Playground**
+ [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
+
+## Multi-language Support
+
+| Language            | Language Code | Translation                                   |
+|---------------------|---------------|-----------------------------------------------|
+| Traditional Chinese | zh-tw         | [閱讀正體中文](./translations/zh-tw/README.md) |
+| Simplified Chinese  | zh-cn         | [阅读简体中文](./translations/zh-cn/README.md)  |
+
+### Translators
+- Traditional Chinese: **Microsoft MVP & Microsoft Regional Director** [@doggy8088](https://github.com/doggy8088)
+- Simplified Chinese: **Microsoft MVP** [@shijiong](https://github.com/shijiong), **Microsoft Student Ambassador** [@JamboChen](https://github.com/JamboChen)
 
 ## Trademarks
 
