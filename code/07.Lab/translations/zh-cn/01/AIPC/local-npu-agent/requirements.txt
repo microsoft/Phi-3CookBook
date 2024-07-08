@@ -1,0 +1,1 @@
+intel-npu-acceleration-library
