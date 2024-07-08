@@ -73,7 +73,7 @@ Phi-3 在小型语言模型方面代表了一个显著的飞跃，提供了性�
 
 2. 这是在终端中运行的演示程序：
 
-    ![Demo console application running in a Codespace](./img/10RAGPhi3.gif)
+    ![Demo console application running in a Codespace](../Sample03/img/10RAGPhi3.gif)
 
 ## 参考资料
 

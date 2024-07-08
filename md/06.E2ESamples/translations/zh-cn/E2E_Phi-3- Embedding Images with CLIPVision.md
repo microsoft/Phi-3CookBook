@@ -42,4 +42,4 @@ forward 方法通过模型执行前向传播。它接受输入 ID、像素值和
 
 总体而言，这段代码定义了一个代表图像嵌入模型的类，并提供了设置图像特征和执行前向传播的方法。
 
-[代码示例](../../code/06.E2E/phi3imageembedding.py)
+[代码示例](../../../../code/06.E2E/phi3imageembedding.py)

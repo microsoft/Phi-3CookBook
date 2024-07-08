@@ -64,7 +64,7 @@ GitHub Copilot 大大提高了企业的编程效率，每个企业都希望定�
 
 此实验主要使用 Phi-3 模型结合本地 NPU 和 Azure 混合构建 GitHub Copilot Chat 中的自定义代理 ***@PHI3***，以帮助企业开发人员完成代码生成 ***(@PHI3 /gen)*** 和基于图像生成代码 ***(@PHI3 /img)***。
 
-![PHI3](../../../imgs/07/01/cover.png)
+![PHI3](../../../../../imgs/07/01/cover.png)
 
 ***注意:***
 
