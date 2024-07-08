@@ -2,7 +2,7 @@
 
 这个示例将导入[TruthfulQA 数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)来微调 Phi-3-mini 模型。这是其架构图
 
-![架构图](../../imgs/06/e2e/arch.png)
+![架构图](../../../../imgs/06/e2e/arch.png)
 
 ## 简介
 

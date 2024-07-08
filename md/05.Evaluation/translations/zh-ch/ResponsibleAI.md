@@ -4,7 +4,7 @@
 
 ## 微软负责任人工智能概述
 
-![RAIPrinciples](../../imgs/05/RAI/RAIPrinciples.png)
+![RAIPrinciples](../../../../imgs/05/RAI/RAIPrinciples.png)
 
 **伦理原则**
 

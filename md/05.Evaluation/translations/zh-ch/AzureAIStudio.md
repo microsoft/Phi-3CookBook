@@ -1,10 +1,10 @@
 # 使用 Azure AI Studio 进行评估
 
-![aistudo](../../imgs/05/AIStudio/AIStudio.png)
+![aistudo](../../../../imgs/05/AIStudio/AIStudio.png)
 
 如何使用 [Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) 评估您的生成式 AI 应用程序。无论您是在评估单轮对话还是多轮对话，Azure AI Studio 都提供了用于评估模型性能和安全性的工具。
 
-![aistudo](../../imgs/05/AIStudio/AIPortfolio.png)
+![aistudo](../../../../imgs/05/AIStudio/AIPortfolio.png)
 
 以下是开始的步骤：
 
