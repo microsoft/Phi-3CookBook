@@ -1,6 +1,6 @@
 # 准备你的行业数据
 
-我们希望将[TruthfulQA的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)注入到Phi-3-mini中。第一步是导入TruthfulQA的数据。
+我们希望将[TruthfulQA的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)注入到 Phi-3-mini 中。第一步是导入 TruthfulQA 的数据。
 
 ## 1. 将数据加载到CSV并保存为JSON
 
@@ -35,4 +35,4 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 ## 恭喜！
 
-你的数据已成功加载。接下来，你需要通过Microsoft Olive配置你的数据和相关算法：[E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
+你的数据已成功加载。接下来，你需要通过 Microsoft Olive 配置你的数据和相关算法：[E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
