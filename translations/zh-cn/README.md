@@ -100,8 +100,8 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 
 - [Phi-3 微调]()
   - [下载和创建样本数据集](../../md/04.Fine-tuning/translations/zh-cn/CreatingSampleData.md)(✅)
-  - [微调场景](../../md/04.Fine-tuning/translations/zh-cn/FineTuning%20Scenarios.md)(✅)
-  - [微调 vs RAG](../../md/04.Fine-tuning/translations/zh-cn/FineTuning%20vs%20RAG.md)(✅)
+  - [微调场景](../../md/04.Fine-tuning/translations/zh-cn/FineTuning_Scenarios.md)(✅)
+  - [微调 vs RAG](../../md/04.Fine-tuning/translations/zh-cn/FineTuning_vs_RAG.md)(✅)
   - [让Phi-3成为行业专家](../../md/04.Fine-tuning/translations/zh-cn/LetPhi3gotoIndustriy.md)(✅)
   - [使用 VS Code 的 AI 工具包对 Phi-3 进行微调](../../md/04.Fine-tuning/translations/zh-cn/Finetuning_VSCodeaitoolkit.md)(✅)
   - [使用 Azure Machine Learning 服务对 Phi-3 进行微调](../../md/04.Fine-tuning/translations/zh-cn/Introduce_AzureML.md)(✅)
