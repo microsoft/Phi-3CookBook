@@ -124,7 +124,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [准备您的行业数据](../../md/06.E2ESamples/translations/zh-cn/E2E_Datasets.md)(✅)
   - [使用 Microsoft Olive 构建您的项目架构](../../md/06.E2ESamples/translations/zh-cn/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
   - [推理您的微调 ONNX Runtime 模型](../../md/06.E2ESamples/translations/zh-cn/E2E_Inference_ORT.md)(✅)
-  - [多模型 - 交互式 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-mini%20with%20whisper.md)(✅)
+  - [多模型 - 交互式 Phi-3-mini 和 OpenAI Whisper](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-mini_with_whisper.md)(✅)
   - [MLFlow - 构建一个包装器并使用 Phi-3 和 MLFlow](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-MLflow.md)(✅)
   - [基于 Phi-3 mini-4k-instruct-onnx 的 WinUI3 应用](https://github.com/microsoft/Phi3-Chat-WinUI3-Sample/)(✅)
   - [WinUI3 多模型 AI 支持的笔记应用示例](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
@@ -133,7 +133,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 - [Phi-3-vision 的端到端示例]()
   - [Phi-3-vision-图像文本转文本](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
-  - [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-%20Embedding%20Images%20with%20CLIPVision.md)(✅)
+  - [Phi-3-vision CLIP 嵌入](../../md/06.E2ESamples/translations/zh-cn/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
 - [Phi-3 的实验和工作坊示例]()
   - [C# .NET 实验](../../md/07.Labs/translations/zh-cn/Csharp/csharplabs.md)(✅)
