@@ -14,6 +14,7 @@
 
 [![](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
 
+
 Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. Here is a manual on how to use the Microsoft Phi-3 family.
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
@@ -157,6 +158,11 @@ This cookbook includes:
   - [C# API Phi-3 ONNX example to support Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
   - [Run C# Phi-3 samples in a CodeSpace](./md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
   - [Using Phi-3 with Promptflow and Azure AI Search](./code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
+
+## Multi-language support
+
+- [閱讀正體中文](./translations/zh-tw/README.md) (Translator - **Microsoft MVP & Microsoft Regional Director** [@doggy8088](https://github.com/doggy8088))
+- [阅读简体中文](./translations/zh-cn/README.md) (Translator - **Microsoft MVP** [@shijiong](https://github.com/shijiong), **Microsoft Student Ambassador** [@JamboChen](https://github.com/JamboChen)）
 
 ## Trademarks
 
