@@ -42,7 +42,7 @@ Phi-3-vision 是一个具有 42 亿参数的多模态模型，具备语言和视
 
 总体而言，这段代码定义了一个表示图像嵌入模型的类，并提供了设置图像特征和执行前向传播的方法。
 
-[代码示例](../../code/06.E2E/phi3imageembedding.py)
+[代码示例](../../../../code/06.E2E/phi3imageembedding.py)
 ```
 import math
 import torch
