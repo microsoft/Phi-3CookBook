@@ -18,6 +18,6 @@
 
 ### 参考
 
-1. [了解 Phi-3](../../../01.Introduce/Phi3Family.md)
-2. [了解如何使用 Microsoft Olive 进行微调](../../../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
+1. [了解 Phi-3](../../../01.Introduce/translations/zh-cn/Phi3Family.md)
+2. [了解如何使用 Microsoft Olive 进行微调](../../../04.Fine-tuning/translations/zh-cn/FineTuning_MicrosoftOlive.md)
 3. [了解用于生成型AI的 ONNX Runtime](https://github.com/microsoft/onnxruntime-genai)

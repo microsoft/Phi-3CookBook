@@ -145,7 +145,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [C# Hello Phi-3 ONNX 示例 Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
   - [C# API Phi-3 ONNX 示例以支持 Phi-3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
   - [在 CodeSpace 中运行 C# Phi-3 示例](../../md/07.Labs/translations/zh-cn/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
-  - [使用 Phi-3 与 Promptflow 和 Azure AI Search](./code/07.Lab/RAG%20with%20PromptFlow%20and%20AISearch/README.md)(✅)
+  - [使用 Phi-3 与 Promptflow 和 Azure AI Search](../../code/07.Lab/translations/zh-cn/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
 
 ## 贡献
 
