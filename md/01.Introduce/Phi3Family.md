@@ -64,7 +64,7 @@ We are introducing Phi Silica which is built from the Phi series of models and i
 ## **Find all Phi-3 models** 
 
 - [Azure AI](https://ai.azure.com/explore/models?selectedCollection=phi)
-- [Hugging Face.](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) 
+- [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) 
 
 ## ONNX Models 
 
