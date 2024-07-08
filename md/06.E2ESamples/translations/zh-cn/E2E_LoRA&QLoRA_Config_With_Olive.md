@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 ## Microsoft Olive 配置
 
-如果您想了解 Microsoft Olive 的配置，请访问 [Microsoft Olive 微调](../../../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
+如果您想了解 Microsoft Olive 的配置，请访问 [Microsoft Olive 微调](../../../04.Fine-tuning/translations/zh-cn/FineTuning_MicrosoftOlive.md)
 
 ***注意*** 为了保持最新，请使用以下命令安装 Microsoft Olive
 

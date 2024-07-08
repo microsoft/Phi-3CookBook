@@ -135,17 +135,17 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
   - [Phi-3-vision CLIP Embedding](../../md/06.E2ESamples/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
-- [Labs and workshops samples Phi-3]()
-  - [C# .NET Labs](../../md/07.Labs/Csharp/csharplabs.md)(✅)
-  - [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family](../../md/07.Labs/VSCode/README.md)(✅)
-  - [Phi-3 ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
-  - [Phi-3-vision ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
-  - [Run the Phi-3 models with the ONNX Runtime generate() API](https://github.com/microsoft/onnxruntime-genai/blob/main/examples/python/phi-3-tutorial.md)(✅)
-  - [Phi-3 ONNX Multi Model LLM Chat UI, This is a chat demo](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/chat_app)(✅)
-  - [C# Hello Phi-3 ONNX example Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
-  - [C# API Phi-3 ONNX example to support Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
-  - [Run C# Phi-3 samples in a CodeSpace](../../md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
-  - [Using Phi-3 with Promptflow and Azure AI Search](../../code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
+- [Phi-3 的实验和工作坊示例]()
+  - [C# .NET 实验](../../md/07.Labs/translations/zh-cn/Csharp/csharplabs.md)(✅)
+  - [使用 Microsoft Phi-3 系列构建您自己的 Visual Studio Code GitHub Copilot Chat](../../md/07.Labs/translations/zh-cn/VSCode/README.md)(✅)
+  - [Phi-3 ONNX 教程](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
+  - [Phi-3-vision ONNX 教程](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
+  - [使用 ONNX Runtime generate() API 运行 Phi-3 模型](https://github.com/microsoft/onnxruntime-genai/blob/main/examples/python/phi-3-tutorial.md)(✅)
+  - [Phi-3 ONNX 多模型 LLM 聊天 UI，这是一个聊天演示](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/chat_app)(✅)
+  - [C# Hello Phi-3 ONNX 示例 Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
+  - [C# API Phi-3 ONNX 示例以支持 Phi-3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
+  - [在 CodeSpace 中运行 C# Phi-3 示例](../../md/07.Labs/translations/zh-cn/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
+  - [使用 Phi-3 与 Promptflow 和 Azure AI Search](../../code/07.Lab/translations/zh-cn/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
 
 ## 贡献
 
