@@ -1,85 +1,85 @@
-# Full Local RAG Scenario Using Phi-3, SemanticKernel, and TextMemory
+# 使用 Phi-3、SemanticKernel 和 TextMemory 的完整本地 RAG 场景
 
-## Introduction
+## 简介
 
-Welcome to the repository for the full local RAG scenario using Phi-3, SemanticKernel, and TextMemory. This project demonstrates the power of Phi-3, a groundbreaking Small Language Model (SLM) that is redefining AI capabilities for developers and businesses.
+欢迎来到使用 Phi-3、SemanticKernel 和 TextMemory 的完整本地 RAG 场景的代码库。本项目展示了 Phi-3 的强大功能，这是一款突破性的小型语言模型（SLM），正在为开发者和企业重新定义 AI 能力。
 
-## Scenario Overview
+## 场景概述
 
-The demo scenario is designed to answer the question, "What is Bruno's favourite super hero?" using two different approaches:
+该演示场景旨在通过两种不同的方法回答这个问题：“Bruno 最喜欢的超级英雄是谁？”：
 
-1. Directly asking the Phi-3 model.
-2. Adding a semantic memory object with fan facts loaded and then asking the question.
+1. 直接询问 Phi-3 模型。
+2. 添加一个加载了粉丝信息的 semantic memory 对象，然后再进行询问。
 
-## Importance of Full Scenario
+## 完整场景的重要性
 
-Phi-3 represents a significant leap in Small Language Models, offering a unique blend of performance and efficiency. It is capable of handling full scenarios independently, which simplifies the development process and reduces integration complexities.
+Phi-3 在小型语言模型方面代表了一个显著的飞跃，提供了性能和效率的独特结合。它能够独立处理完整的场景，这简化了开发过程并减少了集成复杂性。
 
-## Code Explanation
+## 代码解释
 
-The console application demonstrates the use of a local model hosted in Ollama and semantic memory for search. The program uses several external libraries for dependency injection, configuration, and semantic kernel and memory functionalities.
+这个命令行应用程序展示了如何使用托管在 Ollama 本地模型和语义记忆进行搜索。该程序使用了多个外部库来实现依赖注入、配置以及 semantic kernel 和记忆功能。
 
-## How to Test
+## 测试方法
 
-1. Open a terminal and navigate to the current project.
+1. 打开终端并导航到当前项目。
 
     ```bash
     cd .\src\Sample03\
     ```
 
-1. Run the project with the command
+1. 使用以下命令运行项目
 
     ```bash
     dotnet run
     ```
 
-1. The project `Sample03`, answer the following question:
+1. 项目 `Sample03` 将回答以下问题：
 
     ```csharp
-    var question = "What is Bruno's favourite super hero?"
+    var question = "Bruno 最喜欢的超级英雄是谁？"
     ```
 
-1. First the question is asked directly to the Phi-3 Model. Then, the program load the following information in a Text Memory, and ask the question again.
+1. 首先将问题直接询问 Phi-3 模型。然后，程序加载以下信息到文本记忆中，并再次询问问题。
 
     ```csharp
 
-    // get the embeddings generator service
+    // 获取嵌入生成服务
     var embeddingGenerator = kernel.Services.GetRequiredService<ITextEmbeddingGenerationService>();
     var memory = new SemanticTextMemory(new VolatileMemoryStore(), embeddingGenerator);    
 
-    // add facts to the collection
+    // 将事实添加到集合中
     const string MemoryCollectionName = "fanFacts";
     
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", 
-            text: "Gisela's favourite super hero is Batman");
+            text: "Gisela 最喜欢的超级英雄是蝙蝠侠");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info2", 
-            text: "The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3");
+            text: "Gisela 最近看过的超级英雄电影是《银河护卫队3》");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info3", 
-            text: "Bruno's favourite super hero is Invincible");
+            text: "Bruno 最喜欢的超级英雄是无敌少侠");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info4", 
-            text: "The last super hero movie watched by Bruno was Aquaman II");
+            text: "Bruno 最近看过的超级英雄电影是《海王2》");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info5", 
-            text: "Bruno don't like the super hero movie: Eternals");    
+            text: "Bruno 不喜欢的超级英雄电影是《永恒族》");    
     ```
 
-1. Once the text memory is ready, it's loaded into the kernel as a plugin.
+1. 一旦记忆文本准备好，将其作为插件加载到内核中。
 
     ```csharp
     TextMemoryPlugin memoryPlugin = new(memory);
     
-    // Import the text memory plugin into the Kernel.
+    // 将记忆文本插件导入到内核中
     kernel.ImportPluginFromObject(memoryPlugin);    
     ```
 
-1. Here is the demo console application running in a Codespace:
+2. 这是在终端中运行的演示程序：
 
     ![Demo console application running in a Codespace](./img/10RAGPhi3.gif)
 
-## References
+## 参考资料
 
-- [Phi-3 Microsoft Blog](https://aka.ms/phi3blog-april)
-- [Phi-3 Technical Report](https://aka.ms/phi3-tech-report)
-- [Phi-3 Cookbook](https://aka.ms/Phi-3CookBook)
-- [Generative AI for beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Semantic Kernel main repository](https://github.com/microsoft/semantic-kernel)
-- [Smart Components - Local Embeddings](https://github.com/dotnet-smartcomponents/smartcomponents/blob/main/docs/local-embeddings.md)
+- [Phi-3 Microsoft 博客](https://aka.ms/phi3blog-april)
+- [Phi-3 技术报告](https://aka.ms/phi3-tech-report)
+- [Phi-3 食谱](https://aka.ms/Phi-3CookBook)
+- [面向初学者的生成式 AI](https://github.com/microsoft/generative-ai-for-beginners)
+- [Semantic Kernel 主代码库](https://github.com/microsoft/semantic-kernel)
+- [Smart Components - 本地嵌入](https://github.com/dotnet-smartcomponents/smartcomponents/blob/main/docs/local-embeddings.md)
