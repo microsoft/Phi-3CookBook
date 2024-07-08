@@ -33,7 +33,7 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 ```
 **重要:** 目前的演示是为使用 ONNX 版本的模型而设计的。前面的步骤克隆了以下模型。
 
-![OnnxDownload](../../../imgs/07/00/DownloadOnnx.png)
+![OnnxDownload](../../../../../imgs/07/00/DownloadOnnx.png)
 
 ## 关于实验室
 
@@ -68,7 +68,7 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 
     运行中的演示类似于这个：
 
-    ![Chat running demo](../../../imgs/07/00/SampleConsole.gif)
+    ![Chat running demo](../../../../../imgs/07/00/SampleConsole.gif)
 
     ***注意:** 第一个问题有一个拼写错误，Phi-3足够聪明，可以回答正确的答案！*
 
@@ -76,4 +76,4 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 
     运行中的演示类似于这个：
 
-    ![Image Analysis running demo](../../../imgs/07/00/SampleVisionConsole.gif)
+    ![Image Analysis running demo](../../../../../imgs/07/00/SampleVisionConsole.gif)
