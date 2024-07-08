@@ -1,0 +1,20 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 290,
+      "y": 42,
+      "index": -1
+    },
+    "outputs": {
+      "x": 220,
+      "y": 310,
+      "index": -1
+    },
+    "gen_code_by_phi3": {
+      "x": 140,
+      "y": 176,
+      "index": 0
+    }
+  },
+  "orientation": "Vertical"
+}

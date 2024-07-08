@@ -1,71 +1,71 @@
 # phi3ext README
 
-This is the README for your extension "phi3ext". After writing up a brief description, we recommend including the following sections.
+这是你的扩展 "phi3ext" 的 README。在写完简要描述后，我们建议包含以下章节。
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+描述你的扩展的具体功能，包括扩展运行中的截图。图片路径相对于此 README 文件。
 
-For example if there is an image subfolder under your extension project workspace:
+例如，如果在你的扩展项目工作区下有一个图像子文件夹：
 
 \!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+> 提示：许多流行的扩展使用动画。这是展示你的扩展的一个极好方式！我们推荐简短、集中的动画，便于跟随。
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+如果你有任何要求或依赖，请添加一个章节描述这些要求和如何安装和配置它们。
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+如果你的扩展通过 `contributes.configuration` 扩展点添加了任何 VS Code 设置，请包含在内。
 
-For example:
+例如：
 
-This extension contributes the following settings:
+此扩展贡献了以下设置：
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `myExtension.enable`: 启用/禁用此扩展。
+* `myExtension.thing`: 设置为 `blah` 来做某事。
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+指出已知问题可以帮助减少用户对你的扩展打开重复的问题。
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+用户会感激更新你的扩展时提供的发布说明。
 
 ### 1.0.0
 
-Initial release of ...
+初始发布 ...
 
 ### 1.0.1
 
-Fixed issue #.
+修复了问题 #。
 
 ### 1.1.0
 
-Added features X, Y, and Z.
+添加了功能 X、Y 和 Z。
 
 ---
 
 ## Following extension guidelines
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+确保你已经阅读了扩展指南并遵循创建扩展的最佳实践。
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+* [扩展指南](https://code.visualstudio.com/api/references/extension-guidelines)
 
 ## Working with Markdown
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+你可以使用 Visual Studio Code 撰写你的 README。这里有一些有用的编辑器快捷键：
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+* 拆分编辑器 (`Cmd+\` 在 macOS 上或 `Ctrl+\` 在 Windows 和 Linux 上)。
+* 切换预览 (`Shift+Cmd+V` 在 macOS 上或 `Shift+Ctrl+V` 在 Windows 和 Linux 上)。
+* 按 `Ctrl+Space` (Windows、Linux、macOS) 查看 Markdown 代码片段列表。
 
 ## For more information
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+* [Visual Studio Code 的 Markdown 支持](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown 语法参考](https://help.github.com/articles/markdown-basics/)
 
-**Enjoy!**
+**享受吧！**
