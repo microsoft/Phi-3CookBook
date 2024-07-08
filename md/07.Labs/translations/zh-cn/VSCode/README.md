@@ -78,7 +78,7 @@ GitHub Copilot 大大提高了企业的编程效率，每个企业都希望定�
 | Lab1 - 使用 Phi-3-mini 运行 Prompt flow (✅) | 结合 AIPC / Apple Silicon，使用本地 NPU 通过 Phi-3-mini 创建代码生成 | [开始](./HOL/AIPC/02.PromptflowWithNPU.md) |  [开始](./HOL/Apple/02.PromptflowWithMLX.md) |
 | Lab2 - 在 Azure 机器学习服务上部署 Phi-3-vision (✅) | 通过部署 Azure 机器学习服务的模型目录 - Phi-3-vision 图像生成代码 | [开始](./HOL/AIPC/03.DeployPhi3VisionOnAzure.md) |[开始](./HOL/Apple/03.DeployPhi3VisionOnAzure.md) |
 | Lab3 - 在 GitHub Copilot Chat 中创建 @phi-3 代理 (✅) | 在 GitHub Copilot Chat 中创建自定义 Phi-3 代理以完成代码生成、图形生成代码、RAG 等 | [开始](./HOL/AIPC/04.CreatePhi3AgentInVSCode.md) | [开始](./HOL/Apple/04.CreatePhi3AgentInVSCode.md) |
-| 示例代码 (✅) | 下载示例代码 | [开始](../../../code/07.Lab/01/AIPC/) | [开始](../../../code/07.Lab/01/Apple/) |
+| 示例代码 (✅) | 下载示例代码 | [开始](../../../../../code/07.Lab/translations/zh-cn/01/AIPC/) | [开始](../../../../../code/07.Lab/translations/zh-cn/01/Apple/) |
 
 ## 资源
 
