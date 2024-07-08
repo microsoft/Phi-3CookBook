@@ -17,7 +17,7 @@ The Phi-3 Family includes mini, small, medium and vision versions, trained based
 
 ## Phi-3-mini
 
-Phi-3-mini, a 3.8B parameter language model, is available on [Microsoft Azure AI Studio](https://aka.ms/phi3-azure-ai), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3). It offers two context lengths: [128K](https://aka.ms/phi3-mini-128k-azure-ai) and [4K](https://aka.ms/phi3-mini-4k-azure-ai).
+Phi-3-mini, a 3.8B parameter language model, is available on [Microsoft Azure AI Studio](https://ai.azure.com/explore/models?selectedCollection=phi), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3). It offers two context lengths: [128K](https://ai.azure.com/explore/models/Phi-3-mini-128k-instruct/version/9/registry/azureml) and [4K](https://ai.azure.com/explore/models/Phi-3-mini-4k-instruct/version/9/registry/azureml).
 
 Phi-3-mini is a Transformer-based language model with 3.8 billion parameters. It was trained using high-quality data containing educationally useful information, augmented with new data sources consisting of various NLP synthetic texts, and both internal and external chat datasets, which significantly improve chat capabilities. Additionally, Phi-3-mini has been chat fine-tuned after pre-training through supervised fine-tuning (SFT) and Direct Preference Optimization (DPO). Following this post-training, Phi-3-mini has demonstrated significant improvements in several capabilities, particularly in alignment, robustness, and safety. The model is part of the Phi-3 family and comes in the mini version with two variants, 4K and 128K, which represent the context length (in tokens) that it can support. 
 
@@ -27,7 +27,7 @@ Phi-3-mini is a Transformer-based language model with 3.8 billion parameters. It
 
 ## Phi-3-small
 
-Phi-3-small, a 7B parameter language model, available in two context lengths [128K](https://aka.ms/phi3-small-128k-azure-ai) and [8K.](https://aka.ms/phi3-small-8k-azure-ai) outperforms GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
+Phi-3-small, a 7B parameter language model, available in two context lengths [128K](https://ai.azure.com/explore/models/Phi-3-small-128k-instruct/version/2/registry/azureml) and [8K.](https://ai.azure.com/explore/models/Phi-3-small-8k-instruct/version/2/registry/azureml) outperforms GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
 
 Phi-3-small is a Transformer-based language model with 7 billion parameters. It was trained using high-quality data containing educationally useful information, augmented with new data sources that consist of various NLP synthetic texts, and both internal and external chat datasets, which significantly improve chat capabilities. In addition, Phi-3-small has been chat fine-tuned after pre-training via supervised fine-tuning (SFT) and Direct Preference Optimization (DPO). Following this post-training, Phi-3-small has shown significant improvements in several capabilities, particularly in alignment, robustness, and safety. Phi-3-small is also more intensively trained on multilingual datasets compared to Phi-3-Mini. The model family offers two variants, 8K and 128K, which represent the context length (in tokens) that it can support.
 
@@ -37,7 +37,7 @@ Phi-3-small is a Transformer-based language model with 7 billion parameters. It 
 
 ## Phi-3-medium
 
-Phi-3-medium, a 14B parameter language model, available in two context lengths [128K](https://aka.ms/phi3-medium-128k-azure-ai) and [4K.](https://aka.ms/phi3-medium-4k-azure-ai), continues the trend by outperforming Gemini 1.0 Pro.
+Phi-3-medium, a 14B parameter language model, available in two context lengths [128K](https://ai.azure.com/explore/models/Phi-3-medium-128k-instruct/version/2/registry/azureml) and [4K.](https://ai.azure.com/explore/models/Phi-3-medium-4k-instruct/version/2/registry/azureml), continues the trend by outperforming Gemini 1.0 Pro.
 
 Phi-3-medium is a Transformer-based language model with 14 billion parameters. It was trained using high-quality data containing educationally useful information, augmented with new data sources that consist of various NLP synthetic texts, and both internal and external chat datasets, which significantly improve chat capabilities. Additionally, Phi-3-medium has been chat fine-tuned after pre-training through supervised fine-tuning (SFT) and Direct Preference Optimization (DPO). Following this post-training, Phi-3-medium has exhibited significant improvements in several capabilities, particularly in alignment, robustness, and safety. The model family offers two variants, 4K and 128K, which represent the context length (in tokens) that it can support.
 
@@ -47,7 +47,7 @@ Phi-3-medium is a Transformer-based language model with 14 billion parameters. I
 
 ## Phi-3-vision
 
-The [Phi-3-vision](https://aka.ms/phi3-vision-128k-azure-ai), a 4.2B parameter multimodal model with language and vision capabilities, outperforms larger models like Claude-3 Haiku and Gemini 1.0 Pro V in general visual reasoning, OCR, and table and chart understanding tasks.
+The [Phi-3-vision](https://ai.azure.com/explore/models/Phi-3-vision-128k-instruct/version/2/registry/azureml), a 4.2B parameter multimodal model with language and vision capabilities, outperforms larger models like Claude-3 Haiku and Gemini 1.0 Pro V in general visual reasoning, OCR, and table and chart understanding tasks.
 
 Phi-3-vision is the first multimodal model in the Phi-3 family, bringing together text and images. Phi-3-vision can be used to reason over real-world images and extract and reason over text from images. It has also been optimized for chart and diagram understanding and can be used to generate insights and answer questions. Phi-3-vision builds on the language capabilities of the Phi-3-mini, continuing to pack strong language and image reasoning quality in a small size.
 
@@ -63,8 +63,8 @@ We are introducing Phi Silica which is built from the Phi series of models and i
 
 ## **Find all Phi-3 models** 
 
-- [Azure AI](https://aka.ms/phi3-azure-ai) 
-- [Hugging Face.](https://aka.ms/phi3-hf) 
+- [Azure AI](https://ai.azure.com/explore/models?selectedCollection=phi)
+- [Hugging Face.](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) 
 
 ## ONNX Models 
 
