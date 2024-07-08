@@ -11,7 +11,7 @@
 
 ![Select the option Ollama with Phi-3 for C#, to create the CodeSpace](./12NewCSOllamaCodespace.png)
 
-1. 一旦 Codespace 加载完成，它应该已经预装了 [ollama](https://ollama.com/)、下载了最新的 Phi-3 模型，并且安装了 [.NET 8](https://dotnet.microsoft.com/en-us/download)。
+1. 一旦 Codespace 加载完成，它应该已经预装了 [ollama](https://ollama.com/)、下载了最新的 Phi-3 模型，并且安装了 [.NET 8](https://dotnet.microsoft.com/download)。
 
 1. （可选）使用 Codespace 终端，让 Ollama 运行 [phi3](https://ollama.com/library/phi3) 模型：
 
