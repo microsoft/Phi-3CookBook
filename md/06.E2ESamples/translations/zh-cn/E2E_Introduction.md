@@ -1,12 +1,12 @@
 # E2E 示例
 
-这个示例将导入[TruthfulQA的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)来微调Phi-3-mini模型。这是其架构图
+这个示例将导入[TruthfulQA 数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)来微调 Phi-3-mini 模型。这是其架构图
 
 ![架构图](../../imgs/06/e2e/arch.png)
 
 ## 简介
 
-我们希望使用[TruthfulQA的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)集，使Phi-3-mini更专业地回答我们的问题。这是你第一次使用Phi-3-mini进行的E2E项目。
+我们希望使用[TruthfulQA 数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)集，使 Phi-3-mini 更专业地回答我们的问题。这是你第一次使用 Phi-3-mini 进行的 E2E 项目。
 
 ### 要求
 
