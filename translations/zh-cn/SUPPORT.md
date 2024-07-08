@@ -3,7 +3,7 @@
 **REPO OWNER**: 您是否需要此产品/项目的客户服务和支持(CSS)?
 
 - **无 CSS 支持:** 在这个模板中填写有关如何记录问题和获得帮助的信息。
-- **有 CSS 支持:** 请在 [aka.ms/onboardsupport](https://aka.ms/onboardsupport) 中填写表格。 CSS将帮助您确定下一步。
+- **有 CSS 支持:** 请在 [aka.ms/onboardsupport] 中填写表格。 CSS将帮助您确定下一步。
 - **不确定?** 填写一份表格，就好像答案为“是”一样。CSS将帮助您做出决定。
 
 *然后从这个SUPPORT.md文件中删除第一个标题。在发布您的代码仓库之前。*

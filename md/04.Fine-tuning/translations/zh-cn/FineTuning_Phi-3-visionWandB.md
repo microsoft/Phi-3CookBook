@@ -47,5 +47,5 @@ text = f"<|user|>\n<|image_1|>What is shown in this image?<|end|><|assistant|>\n
 ```
 
 ## 示例代码
-- [Phi-3-Vision Training Script](../../code/04.Finetuning/Phi-3-vision-Trainingscript.py)
+- [Phi-3-Vision Training Script](../../../../code/04.Finetuning/Phi-3-vision-Trainingscript.py)
 - [Weights and Bias Example walkthrough](https://wandb.ai/byyoung3/mlnews3/reports/How-to-fine-tune-Phi-3-vision-on-a-custom-dataset--Vmlldzo4MTEzMTg3)

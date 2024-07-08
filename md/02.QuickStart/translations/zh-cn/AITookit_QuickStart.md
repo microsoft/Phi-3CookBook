@@ -232,7 +232,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 - 使用本地计算资源进行模型微调和推理。
 - 使用Azure资源进行远程微调和推理。
 
-[使用AI Toolkit 进行微调](../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
+[使用AI Toolkit 进行微调](../../../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
 
 ## AI Toolkit Q&A 资源
 

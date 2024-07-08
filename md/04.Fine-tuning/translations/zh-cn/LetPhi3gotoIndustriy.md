@@ -48,8 +48,8 @@ RAG 是数据检索 + 文本生成。企业的结构化数据和非结构化数�
 ## **如何使用微调**
 
 微调常用的算法是LoRA 和 QLoRA。如何选择呢？
-- [Learn More with this sample notebook](../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
-- [Example of Python FineTuning Sample](../../code/04.Finetuning/FineTrainingScript.py)
+- [Learn More with this sample notebook](../../../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
+- [Example of Python FineTuning Sample](../../../../code/04.Finetuning/FineTrainingScript.py)
 
 ### **Lora 和 QLora**
 
