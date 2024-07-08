@@ -31,7 +31,7 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 ## 2. 将数据上传到Azure ML数据存储
 
-![amldata](../../imgs/06/e2e/azureml_data.png)
+![amldata](../../../../imgs/06/e2e/azureml_data.png)
 
 ## 恭喜！
 

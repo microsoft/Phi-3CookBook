@@ -45,4 +45,4 @@ while not generator.is_done():
 
 ### **测试你的结果**
 
-![结果](../../imgs/06/e2e/result.png)
+![结果](../../../../imgs/06/e2e/result.png)

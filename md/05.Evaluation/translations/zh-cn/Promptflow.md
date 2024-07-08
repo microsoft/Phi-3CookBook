@@ -30,7 +30,7 @@ Prompt Flow 包含一个内置工具、示例和模板库。这些资源为开�
 
 在 Microsoft Prompt Flow 中，评估是了解 AI 模型表现的重要方法。接下来让我们探讨如何在 Prompt Flow 中自定义评估流程和指标：
 
-![PFVizualise](../../imgs/05/PromptFlow/pfvisualize.png)
+![PFVizualise](../../../../imgs/05/PromptFlow/pfvisualize.png)
 
 **理解 Prompt Flow 中的评估**
 

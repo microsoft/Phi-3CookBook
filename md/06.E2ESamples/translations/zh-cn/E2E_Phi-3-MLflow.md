@@ -2,7 +2,7 @@
 
 [MLflow](https://mlflow.org/) 是一个开源平台，旨在管理端到端的机器学习生命周期。
 
-![MLFlow](../../imgs/03/MLflow/MlFlowmlops.png)
+![MLFlow](../../../../imgs/03/MLflow/MlFlowmlops.png)
 
 MLFlow 用于管理机器学习生命周期，包括实验、可重复性、部署和中央模型注册。MLFlow 目前提供四个组件：
 
@@ -13,7 +13,7 @@ MLFlow 用于管理机器学习生命周期，包括实验、可重复性、部�
 
 它包括用于跟踪实验、将代码打包成可重现运行以及共享和部署模型的功能。MLFlow 集成到 Databricks 中，并支持多种机器学习库，使其在库使用上没有限制。它可以与任何机器学习库和任何编程语言一起使用，因为它提供了方便的 REST API 和 CLI 。
 
-![MLFlow](../../imgs/03/MLflow/MLflow2.png)
+![MLFlow](../../../../imgs/03/MLflow/MLflow2.png)
 
 MLFlow 的主要特点包括：
 
@@ -28,7 +28,7 @@ MLFlow 还支持 MLOps 环路，包括准备数据、注册和管理模型、打
 
 在这个端到端示例中，我们将展示两种不同的方法来围绕 Phi-3 小型语言模型 (SLM) 构建包装器，然后将其作为 MLFlow 模型在本地或云中运行，例如在 Azure 机器学习工作区中。
 
-![MLFlow](../../imgs/03/MLflow/MlFlow1.png)
+![MLFlow](../../../../imgs/03/MLflow/MlFlow1.png)
 
 | 项目 | 描述 | 位置 |
 | ------------ | ----------- | -------- |

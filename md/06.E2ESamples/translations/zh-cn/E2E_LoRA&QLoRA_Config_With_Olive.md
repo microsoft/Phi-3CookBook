@@ -387,7 +387,7 @@ olive run --config olive-config.json
 
 1. 当 Microsoft Olive 执行时，每一步都可以放在缓存中。我们可以在微调目录查看相关步骤的结果。
 
-![cache](../../imgs/06/e2e/cache.png)
+![cache](../../../../imgs/06/e2e/cache.png)
 
 2. 我们在这里提供了 LoRA 和 QLoRA，您可以根据需要进行设置。
 
@@ -395,4 +395,4 @@ olive run --config olive-config.json
 
 4. 为什么选择 ORT？因为 ORT 可以部署在边缘设备上，推理是在 ORT 环境中实现的。
 
-![ort](../../imgs/06/e2e/ort.png)
+![ort](../../../../imgs/06/e2e/ort.png)

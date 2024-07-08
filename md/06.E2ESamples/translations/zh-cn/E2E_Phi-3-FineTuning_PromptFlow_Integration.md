@@ -14,7 +14,7 @@
 
 以下是这个 E2E 示例的概述图。
 
-![Phi-3-FineTuning_PromptFlow_Integration 概述](../../imgs/03/FineTuning-PromptFlow/00-01-architecture.png)
+![Phi-3-FineTuning_PromptFlow_Integration 概述](../../../../imgs/03/FineTuning-PromptFlow/00-01-architecture.png)
 
 ### 目录
 
@@ -41,7 +41,7 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *subscriptions*，然后从出现的选项中选择 **Subscriptions**。
 
-    ![输入 subscription。](../../imgs/03/FineTuning-PromptFlow/01-01-type-subscriptions.png)
+    ![输入 subscription。](../../../../imgs/03/FineTuning-PromptFlow/01-01-type-subscriptions.png)
 
 1. 选择您要使用的订阅。
 
@@ -52,7 +52,7 @@
     - 选择要使用的 **Quota name**。例如，选择 Standard NCSv3 Family vCPUs，它包括 *Standard_NC6s_v3* GPU。
     - 选择 **New Quota Request**。
 
-    ![输入配额限制](../../imgs/03/FineTuning-PromptFlow/01-02-enter-new-quota-limits.png)
+    ![输入配额限制](../../../../imgs/03/FineTuning-PromptFlow/01-02-enter-new-quota-limits.png)
 
     - 选择 **Enter a new limit**。
     - 在 New Quota Request 页面，输入您要使用的 **New limit**。
@@ -62,13 +62,13 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *azure machine learning*，然后从出现的选项中选择 **Azure Machine Learning**。
 
-    ![输入 azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
+    ![输入 azure machine learning](../../../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
 
 1. 从导航菜单选择 **+ Create**。
 
 1. 从导航菜单选择 **New workspace**。
 
-    ![选择 new workspace](../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
+    ![选择 new workspace](../../../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
 
 1. 执行以下任务：
 
@@ -93,11 +93,11 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *managed identities*，然后从出现的选项中选择 **Managed Identities**。
 
-    ![输入 managed identities。](../../imgs/03/FineTuning-PromptFlow/01-05-type-managed-identities.png)
+    ![输入 managed identities。](../../../../imgs/03/FineTuning-PromptFlow/01-05-type-managed-identities.png)
 
 1. 选择 **+ Create**。
 
-    ![选择 create。](../../imgs/03/FineTuning-PromptFlow/01-06-select-create.png)
+    ![选择 create。](../../../../imgs/03/FineTuning-PromptFlow/01-06-select-create.png)
 
 1. 执行以下任务：
 
@@ -124,7 +124,7 @@
     - 选择要使用的 **Resource group**。
     - 将 **Role** 设为 **Contributor**。
 
-    ![填写贡献者角色。](../../imgs/03/FineTuning-PromptFlow/01-07-fill-contributor-role.png)
+    ![填写贡献者角色。](../../../../imgs/03/FineTuning-PromptFlow/01-07-fill-contributor-role.png)
 
 1. 选择 **Save**。
 
@@ -132,7 +132,7 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *storage accounts*，然后从出现的选项中选择 **Storage accounts**。
 
-    ![输入 storage accounts。](../../imgs/03/FineTuning-PromptFlow/01-08-type-storage-accounts.png)
+    ![输入 storage accounts。](../../../../imgs/03/FineTuning-PromptFlow/01-08-type-storage-accounts.png)
 
 1. 选择与您创建的 Azure Machine Learning 工作区关联的存储帐户。例如，*finetunephistorage*。
 
@@ -143,7 +143,7 @@
     - 从导航菜单选择 **+ Add**。
     - 从导航菜单选择 **Add role assignment**。
 
-    ![添加角色。](../../imgs/03/FineTuning-PromptFlow/01-09-add-role.png)
+    ![添加角色。](../../../../imgs/03/FineTuning-PromptFlow/01-09-add-role.png)
 
 1. 在 Add role assignment 页面，执行以下任务：
 
@@ -156,7 +156,7 @@
     - 在 Select managed identities 页面，选择您创建的托管身份。例如，*finetunephi-managedidentity*。
     - 在 Select managed identities 页面，选择 **Select**。
 
-        ![选择托管身份。](../../imgs/03/FineTuning-PromptFlow/01-10-select-managed-identity.png)
+        ![选择托管身份。](../../../../imgs/03/FineTuning-PromptFlow/01-10-select-managed-identity.png)
 
     - 选择 **Review + assign**。
 
@@ -164,7 +164,7 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *container registries*，然后从出现的选项中选择 **Container registries**。
 
-    ![输入 container registries。](../../imgs/03/FineTuning-PromptFlow/01-11-type-container-registries.png)
+    ![输入 container registries。](../../../../imgs/03/FineTuning-PromptFlow/01-11-type-container-registries.png)
 
 1. 选择与 Azure Machine Learning 工作区关联的容器注册表。例如，*finetunephicontainerregistries*。
 
@@ -276,7 +276,7 @@
 
 1. 选择您创建的 *finetune-phi* 文件夹，位置为 *C:\Users\yourUserName\finetune-phi*。
 
-    ![打开项目文件夹。](../../imgs/03/FineTuning-PromptFlow/01-12-open-project-folder.png)
+    ![打开项目文件夹。](../../../../imgs/03/FineTuning-PromptFlow/01-12-open-project-folder.png)
 
 1. 在 Visual Studio Code 的左侧窗格中右键单击并选择 **New File**，创建一个名为 *download_dataset.py* 的新文件。
 
@@ -284,7 +284,7 @@
 
 1. 在 Visual Studio Code 的左侧窗格中右键单击并选择 **New File**，创建一个名为 *deploy_model.py* 的新文件。
 
-    ![创建新文件。](../../imgs/03/FineTuning-PromptFlow/01-13-create-new-file.png)
+    ![创建新文件。](../../../../imgs/03/FineTuning-PromptFlow/01-13-create-new-file.png)
 
 1. 在 Visual Studio Code 的左侧窗格中右键单击并选择 **New Folder**，创建一个名为 *finetuning_dir* 的新文件夹。
 
@@ -360,28 +360,28 @@
     - 选择你当前使用的 Azure 订阅。
     - 复制你的订阅 ID 并粘贴到 *config.py* 文件中。
 
-    ![查找订阅 ID。](../../imgs/03/FineTuning-PromptFlow/01-14-find-subscriptionid.png)
+    ![查找订阅 ID。](../../../../imgs/03/FineTuning-PromptFlow/01-14-find-subscriptionid.png)
 
 1. 执行以下任务以添加 Azure 工作区名称：
 
     - 导航到你创建的 Azure Machine Learning 资源。
     - 复制你的账户名称并粘贴到 *config.py* 文件中。
 
-    ![查找 Azure Machine Learning 名称。](../../imgs/03/FineTuning-PromptFlow/01-15-find-AZML-name.png)
+    ![查找 Azure Machine Learning 名称。](../../../../imgs/03/FineTuning-PromptFlow/01-15-find-AZML-name.png)
 
 1. 执行以下任务以添加 Azure 资源组名称：
 
     - 导航到你创建的 Azure Machine Learning 资源。
     - 复制你的 Azure 资源组名称并粘贴到 *config.py* 文件中。
 
-    ![查找资源组名称。](../../imgs/03/FineTuning-PromptFlow/01-16-find-AZML-resourcegroup.png)
+    ![查找资源组名称。](../../../../imgs/03/FineTuning-PromptFlow/01-16-find-AZML-resourcegroup.png)
 
 1. 执行以下任务以添加 Azure 托管身份名称：
 
     - 导航到你创建的托管身份资源。
     - 复制你的 Azure 托管身份名称并粘贴到 *config.py* 文件中。
 
-    ![查找 UAI。](../../imgs/03/FineTuning-PromptFlow/01-17-find-uai.png)
+    ![查找 UAI。](../../../../imgs/03/FineTuning-PromptFlow/01-17-find-uai.png)
 
 ### 准备用于微调的数据集
 
@@ -495,7 +495,7 @@
 
 3. 选择你要使用的 Azure 订阅。
 
-    ![查找资源组名称。](../../imgs/03/FineTuning-PromptFlow/02-01-login-using-azure-cli.png)
+    ![查找资源组名称。](../../../../imgs/03/FineTuning-PromptFlow/02-01-login-using-azure-cli.png)
 
 > **提示**
 >
@@ -827,7 +827,7 @@
 
 1. 在本练习中，你成功地使用 Azure Machine Learning 微调了 Phi-3 模型。通过运行 *setup_ml.py* 脚本，你已经设置了 Azure Machine Learning 环境并启动了 *fine_tune.py* 文件中定义的微调过程。请注意，微调过程可能需要相当长的时间。运行 `python setup_ml.py` 命令后，你需要等待过程完成。你可以按照终端中提供的链接监控微调作业的状态，链接将引导你到 Azure Machine Learning 门户。
 
-    ![查看微调作业](../../imgs/03/FineTuning-PromptFlow/02-02-see-finetuning-job.png)
+    ![查看微调作业](../../../../imgs/03/FineTuning-PromptFlow/02-02-see-finetuning-job.png)
 
 ### 部署微调后的模型
 
@@ -1044,11 +1044,11 @@
 
 1. 从左侧标签中选择 **Endpoints** 。
 
-    ![选择 endpoints。](../../imgs/03/FineTuning-PromptFlow/02-03-select-endpoints.png)
+    ![选择 endpoints。](../../../../imgs/03/FineTuning-PromptFlow/02-03-select-endpoints.png)
 
 1. 选择您创建的 endpoint。
 
-    ![选择您创建的 endpoints。](../../imgs/03/FineTuning-PromptFlow/02-04-select-endpoint-created.png)
+    ![选择您创建的 endpoints。](../../../../imgs/03/FineTuning-PromptFlow/02-04-select-endpoint-created.png)
 
 1. 在此页面上，您可以管理部署过程中创建的 endpoints。
 
@@ -1067,7 +1067,7 @@
 1. 将您的 **REST endpoint** 复制并粘贴到 *config.py* 文件中，用您的 **REST endpoint** 替换 `AZURE_ML_ENDPOINT = "your_fine_tuned_model_endpoint_uri"`。
 1. 将您的 **Primary key** 复制并粘贴到 *config.py* 文件中，用您的 **Primary key** 替换 `AZURE_ML_API_KEY = "your_fine_tuned_model_api_key"`。
 
-    ![复制 api key 和 endpoint uri。](../../imgs/03/FineTuning-PromptFlow/02-05-copy-apikey-endpoint.png)
+    ![复制 api key 和 endpoint uri。](../../../../imgs/03/FineTuning-PromptFlow/02-05-copy-apikey-endpoint.png)
 
 #### 向 *flow.dag.yml* 文件添加代码
 
@@ -1176,4 +1176,4 @@
 
 1. 以下是结果示例：现在您可以与您的自定义 Phi-3 模型进行聊天。建议根据用于微调的数据提出问题。
 
-    ![Prompt flow 示例。](../../imgs/03/FineTuning-PromptFlow/02-06-promptflow-example.png)
+    ![Prompt flow 示例。](../../../../imgs/03/FineTuning-PromptFlow/02-06-promptflow-example.png)
