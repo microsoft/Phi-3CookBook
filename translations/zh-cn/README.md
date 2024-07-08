@@ -124,7 +124,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [Prepare your industry data](../../md/06.E2ESamples/E2E_Datasets.md)(✅)
   - [Use Microsoft Olive to architect your projects](../../md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
   - [Inference Your Fine-tuning ONNX Runtime Model](../../md/06.E2ESamples/E2E_Inference_ORT.md)(✅)
-  - [Multi Model - Interactive Phi-3-mini and OpenAI Whisper](../../md/06.E2ESamples/E2E_Phi-3-mini%20with%20whisper.md)(✅)
+  - [Multi Model - Interactive Phi-3-mini and OpenAI Whisper](../../md/06.E2ESamples/E2E_Phi-3-mini_with_whisper.md)(✅)
   - [MLFlow - Building a wrapper and using Phi-3 with MLFlow](../../md/06.E2ESamples/E2E_Phi-3-MLflow.md)(✅)
   - [WinUI3 App with Phi-3 mini-4k-instruct-onnx](https://github.com/microsoft/Phi3-Chat-WinUI3-Sample/)(✅)
   - [WinUI3 Multi Model AI Powered Notes App Sample](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
@@ -133,7 +133,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 - [E2E Samples for Phi-3-vision]()
   - [Phi-3-vision-Image text to text](../../md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
-  - [Phi-3-vision CLIP Embedding](../../md/06.E2ESamples/E2E_Phi-3-%20Embedding%20Images%20with%20CLIPVision.md)(✅)
+  - [Phi-3-vision CLIP Embedding](../../md/06.E2ESamples/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
 - [Labs and workshops samples Phi-3]()
   - [C# .NET Labs](../../md/07.Labs/Csharp/csharplabs.md)(✅)
@@ -145,7 +145,7 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
   - [C# Hello Phi-3 ONNX example Phi-3](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi)(✅)
   - [C# API Phi-3 ONNX example to support Phi3-Vision](https://github.com/microsoft/onnxruntime-genai/tree/main/examples/csharp/HelloPhi3V)(✅)
   - [Run C# Phi-3 samples in a CodeSpace](../../md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
-  - [Using Phi-3 with Promptflow and Azure AI Search](../../code/07.Lab/RAG%20with%20PromptFlow%20and%20AISearch/README.md)(✅)
+  - [Using Phi-3 with Promptflow and Azure AI Search](../../code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
 
 ## 贡献
 
