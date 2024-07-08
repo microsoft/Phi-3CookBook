@@ -159,5 +159,5 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 
 ## 商标
 
-本项目可能包含项目、产品或服务的商标或徽标。使用Microsoft商标或徽标须经授权，并遵循 [Microsoft 商标与品牌指南](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general)。
+本项目可能包含项目、产品或服务的商标或徽标。使用Microsoft商标或徽标须经授权，并遵循 [Microsoft 商标与品牌指南](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general)。
 在此项目的修改版本中使用Microsoft商标或徽标不得引起混淆或暗示Microsoft赞助。使用任何第三方商标或徽标须遵循第三方的政策。
