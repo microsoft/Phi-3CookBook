@@ -50,7 +50,7 @@ torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 登录 Azure 门户：[Azure portal](https://portal.azure.com).
 
 在搜索框中输入“quotas”，然后选择“quotas”。
-![Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
+![Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
 
 在概览页面上，选择一个provider，例如 Compute 或 AML。
 
@@ -60,7 +60,7 @@ torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 
 在页面顶部附近，选择“New Quota Request”，然后选择“输入新限额”。
 
-![Increase Quota](https://learn.microsoft.com/en-us/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
+![Increase Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
 
 在“New Quota Request”窗格中，为新的配额限制输入一个数值，然后选择“Submit”。
 
@@ -74,7 +74,7 @@ torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 
 [ND H100 v5-series](https://learn.microsoft.com/azure/virtual-machines/nd-h100-v5-series)
 
-[Standard_ND40rs_v2](https://learn.microsoft.com/en-us/azure/virtual-machines/ndv2-series)
+[Standard_ND40rs_v2](https://learn.microsoft.com/azure/virtual-machines/ndv2-series)
 
 以下是一些示例：
 

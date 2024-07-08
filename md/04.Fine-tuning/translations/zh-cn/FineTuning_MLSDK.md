@@ -719,7 +719,7 @@ endpoint = ManagedOnlineEndpoint(
 workspace_ml_client.begin_create_or_update(endpoint).wait()
 ```
 您可以在这里找到SKU支持的部署列表
-- [Managed online endpoints SKU list](https://learn.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
+- [Managed online endpoints SKU list](https://learn.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
 
 ### 部署ML模型
 

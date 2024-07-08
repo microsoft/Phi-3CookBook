@@ -114,7 +114,7 @@ Phi3-mini（int4）模型的大小约为 2GB-3GB。根据您的网络速度，�
 
 ## **[ 私有预览 ]** 远程开发
 ### 先决条件
-1. 要在远程 Azure 容器应用环境中运行模型微调，请确保您的订阅具有足够的 GPU 容量。提交 [支持工单](https://azure.microsoft.com/support/create-ticket/) 以请求应用程序所需的容量。了解有关 GPU 容量的更多信息，请参考 [Get More Info about GPU capacity](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview)。
+1. 要在远程 Azure 容器应用环境中运行模型微调，请确保您的订阅具有足够的 GPU 容量。提交 [支持工单](https://azure.microsoft.com/support/create-ticket/) 以请求应用程序所需的容量。了解有关 GPU 容量的更多信息，请参考 [Get More Info about GPU capacity](https://learn.microsoft.com/azure/container-apps/workload-profiles-overview)。
 2. 如果您在 HuggingFace 上使用私有数据集，请确保您拥有HuggingFace账户 [HuggingFace account](https://huggingface.co/) 并 [生成访问令牌](https://huggingface.co/docs/hub/security-tokens)。
 3. 在 VS Code 的 AI 工具包中启用远程微调和推理功能标志。
    1. 通过选择 *File -> Preferences -> Settings* 来打开 VS Code 设置。
