@@ -1,4 +1,4 @@
-# Welcome to Microsoft Phi-3 Cookbook
+# Phi-3 Cookbook: Hands-On Examples with Microsoft's Phi-3 Models
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/phi-3cookbook)
 [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/phi-3cookbook)
@@ -14,75 +14,11 @@
 
 [![](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
 
-
-Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. Here is a manual on how to use the Microsoft Phi-3 family.
+Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. For more detailed information about Microsoft's Phi-3 family, please visit the [Welcome to the Phi-3 Family](/md/01.Introduce/Phi3Family.md) page.
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
 
-## Microsoft's Phi-3 family
-
-Phi-3 models significantly outperform language models of the same and larger sizes on key benchmarks (see benchmark numbers below, higher is better). Phi-3-mini does better than models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.
-
-All reported numbers are produced with the same pipeline to ensure that the numbers are comparable. As a result, these numbers may differ from other published numbers due to slight differences in the evaluation methodology. More details on benchmarks are provided in our technical paper.
-
-### Phi-3-mini
-
-Phi-3-mini, a 3.8B language model is available on [Microsoft Azure AI Studio](https://aka.ms/phi3-azure-ai), [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3), and [Ollama](https://ollama.com/library/phi3).
-
-![phi3modelminibenchmark](/imgs/00/phi3minibenchmark.png)
-
-![phi3modelminibenchmark128k](/imgs/00/phi3minibenchmark128.png)
-
-### Phi-3-small
-
-Phi-3-small with only 7B parameters beats GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
-
-![phi3modelsmall](/imgs/00/phi3smallbenchmark.png)
-
-![phi3modelsmall128k](/imgs/00/phi3smallbenchmark128.png)
-
-
-### Phi-3-medium
-
-Phi-3-medium with 14B parameters continues the trend and outperforms Gemini 1.0 Pro.
-
-![phi3modelmedium](/imgs/00/phi3mediumbenchmark.png)
-
-![phi3modelmedium128k](/imgs/00/phi3mediumbenchmark128.png)
-
-### Phi-3-vision
-
-Phi-3-vision with just 4.2B parameters continues that trend and outperforms larger models such as Claude-3 Haiku and Gemini 1.0 Pro V across general visual reasoning tasks, OCR, table and chart understanding tasks.
-
-![phi3modelvision](/imgs/00/phi3visionbenchmark.png)
-
-> **Note**
->
-> Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts.
-
-### Phi-Silica
-
-We are introducing Phi Silica which is built from the Phi series of models and is designed specifically for the NPUs in Copilot+ PCs. Windows is the first platform to have a state-of-the-art small language model (SLM) custom built for the NPU and shipping inbox. Phi Silica API along with OCR, Studio Effects, Live Captions, and Recall User Activity APIs will be available in Windows Copilot Library in June. More APIs like Vector Embedding, RAG API, and Text Summarization will be coming later.
-
-## Phi-3 on Azure AI Studio
-
-You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
-
-**Playground**
-Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
-
-## Phi-3 on Hugging Face
-
-You can also find the model on the [Hugging Face](https://huggingface.co/microsoft)
-
-**Playground**
- [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
-
-## Contents
-
-This cookbook includes:
-
-## **Microsoft Phi-3 Cookbook**
+## Table of Contents
 
 - [Introduction]()
   - [Setting up your environment](./md/01.Introduce/EnvironmentSetup.md)(✅)
@@ -159,13 +95,30 @@ This cookbook includes:
   - [Run C# Phi-3 samples in a CodeSpace](./md/07.Labs/CsharpOllamaCodeSpaces/CsharpOllamaCodeSpaces.md)(✅)
   - [Using Phi-3 with Promptflow and Azure AI Search](./code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
 
-## Multi-language support
+## Using Phi-3 Models
 
-- [閱讀正體中文](./translations/zh-tw/README.md) (Translator - **Microsoft MVP & Microsoft Regional Director** [@doggy8088](https://github.com/doggy8088))
-- [阅读简体中文](./translations/zh-cn/README.md) (Translator - **Microsoft MVP** [@shijiong](https://github.com/shijiong), **Microsoft Student Ambassador** [@JamboChen](https://github.com/JamboChen)）
+### Phi-3 on Azure AI Studio
+
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
+
+**Playground**
+Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
+
+### Phi-3 on Hugging Face
+
+You can also find the model on the [Hugging Face](https://huggingface.co/microsoft)
+
+**Playground**
+ [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
+
+## Multi-Language Support
+
+| Language            | Code | Translation                                   | Translators                                                        |
+|---------------------|------|-----------------------------------------------|--------------------------------------------------------------------|
+| Traditional Chinese | zh-tw| [閱讀正體中文](./translations/zh-tw/README.md) | [@doggy8088](https://github.com/doggy8088) (MVP & RD)              |
+| Simplified Chinese  | zh-cn| [阅读简体中文](./translations/zh-cn/README.md) | [@shijiong](https://github.com/shijiong) (MVP), [@JamboChen](https://github.com/JamboChen) (Student Ambassador) |
 
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
