@@ -53,7 +53,7 @@ Phi-3-vision is the first multimodal model in the Phi-3 family, bringing togethe
 
 ![phi3modelvision](../../imgs/01/phi3visionbenchmark.png)
 
-> **Note**
+> [!NOTE]
 >
 > Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts.
 
