@@ -111,16 +111,12 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 **Playground**
  [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
 
-## Multi-language Support
+## Multi-Language Support
 
-| Language            | Language Code | Translation                                   |
-|---------------------|---------------|-----------------------------------------------|
-| Traditional Chinese | zh-tw         | [閱讀正體中文](./translations/zh-tw/README.md) |
-| Simplified Chinese  | zh-cn         | [阅读简体中文](./translations/zh-cn/README.md)  |
-
-### Translators
-- Traditional Chinese: **Microsoft MVP & Microsoft Regional Director** [@doggy8088](https://github.com/doggy8088)
-- Simplified Chinese: **Microsoft MVP** [@shijiong](https://github.com/shijiong), **Microsoft Student Ambassador** [@JamboChen](https://github.com/JamboChen)
+| Language            | Code | Translation                                   | Translators                                                        |
+|---------------------|------|-----------------------------------------------|--------------------------------------------------------------------|
+| Traditional Chinese | zh-tw| [閱讀正體中文](./translations/zh-tw/README.md) | [@doggy8088](https://github.com/doggy8088) (MVP & RD)              |
+| Simplified Chinese  | zh-cn| [阅读简体中文](./translations/zh-cn/README.md) | [@shijiong](https://github.com/shijiong) (MVP), [@JamboChen](https://github.com/JamboChen) (Student Ambassador) |
 
 ## Trademarks
 
