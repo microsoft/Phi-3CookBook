@@ -4,7 +4,13 @@
     "name": "Phi-3 Cookbook",
     "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
     "features": {
-        "ghcr.io/prulloac/devcontainer-features/ollama:1": {}
+        "ghcr.io/prulloac/devcontainer-features/ollama:1": {
+            "pull": "phi3"
+        }
+    },
+    // Set minimal host requirements for the container.
+    "hostRequirements": {
+        "memory": "16gb"
     },
     // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
