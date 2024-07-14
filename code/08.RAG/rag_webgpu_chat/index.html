@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phi-3 WebGPU RAG Chatbot</title>
+    <style>
+        .header {
+            background-color: #1877f2;
+            color: #ffffff;
+            height: 60px; 
+            width: 100%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .add-markdown {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #ffffff;
+            color: #1877f2;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+           
+
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 200px); /* 全屏高度減去 header 和 input-container 的高度 */
+            width: 90%; 
+            margin: 100px auto 0 auto; /* 調整 margin 以適應 header */
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            margin-top: 100px; /* 與 header 的距離為 0 */
+
+        }
+
+        .message {
+            padding: 20px;
+            margin: 5px 0;
+            border-radius: 20px;
+            max-width: 60%;
+            word-wrap: break-word;
+        }
+        .question {
+            align-self: flex-end;
+            background-color: #0084ff;
+            color: white;
+        }
+        .answer {
+            align-self: flex-start;
+            background-color: #f1f0f0;
+            color: black;
+        }
+
+        .input-box {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .send-button {
+            background-color: #1877f2;
+            color: #ffffff; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; 
+            padding: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+        }
+
+
+        #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        }
+
+        #upload-area {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 200px;
+        text-align: center;
+        }
+
+        #upload-area h1 {
+        font-size: 16px;
+        color: #0078d4;
+        margin-bottom: 20px;
+        }
+
+        #upload-area input[type="file"] {
+        display: none;
+        }
+
+        #upload-area label {
+        display: inline-block;
+        background-color: #0078d4;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        }
+
+        #upload-area button {
+        background-color: #0078d4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 12px;
+        }    
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110px; /* 調整高度 */
+            width: 110px; /* 調整寬度 */
+            background-color: #1877f2; /* 背景顏色藍色 */
+            color: white; /* 字體顏色白色 */
+            font-size: 12px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 居中對齊 */
+            z-index: 1000;
+            border-radius: 10px; /* 添加圓角 */
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <span>Phi-3-mini WebGPU RAG Chatbot Demo</span>
+        </div>
+        <div id="addMarkdown" class="add-markdown">+</div>
+    </div>
+    <div id="chat-message" style="display: block;">
+        <div class="chat-container">
+        </div>
+        <div class="input-container">
+            <input type="text" class="input-box" placeholder="Input your question about markdown">
+            <button class="send-button" id="send-button"  >Send</button>
+        </div>
+    </div>
+
+    <div id="overlay" style="display: none;">
+        <div id="upload-area">
+            <h1>Upload Markdown Files</h1>
+            <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="markdown" id="file-input" accept=".md" multiple>
+                <label for="file-input">Choose Files</label>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <div id="progress-container" class="progress-container" style="display: none;">
+        <div class="loader"></div>
+    </div>
+</body>
+<script type="module" src="dist/main.js"></script>
+</html>

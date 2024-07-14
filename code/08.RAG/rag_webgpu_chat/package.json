@@ -1,0 +1,28 @@
+{
+  "name": "rag-chat-webgpu-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "webpack serve --no-client-overlay",
+    "build": "webpack",
+    "lint": "eslint . --ext js  --report-unused-disable-directives"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "install": "^0.13.0",
+    "marked": "^12.0.2",
+    "node-loader": "^2.0.0",
+    "onnxruntime-web": "1.19.0-dev.20240509-69cfcba38a",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "webpack": "^5.93.0"
+  },
+  "devDependencies": {
+    "vectordb": "^0.5.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}
