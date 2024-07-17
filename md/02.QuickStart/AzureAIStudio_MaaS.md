@@ -2,6 +2,8 @@
 
 Phi-3 models (Mini, Small and Medium) in the [Azure model catalog](https://learn.microsoft.com/azure/machine-learning/concept-model-catalog?WT.mc_id=aiml-137032-kinfeylo) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
+REST API you point to in https://learn.microsoft.com/en-us/azure/ai-studio/reference/reference-model-inference-chat-completions?WT.mc_id=aiml-137032-kinfeylo. MaaS models now support a common REST API for chat completions using the /chat/completions route.
+
 ### Prerequisites
 1. An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a paid Azure account to begin.
 2. An [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) hub. The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
@@ -44,7 +46,7 @@ Models deployed as serverless APIs can be consumed using the chat API, depending
 1. From your Project overview page, go to the left sidebar and select Components > Deployments.
 2. Find and select the deployment you created.
 3. Copy the Target URL and the Key value.
-4. Make an API request using the /v1/chat/completions API using <target_url>/v1/chat/completions. For more information on using the APIs, see the [Reference: Chat Completions](https://learn.microsoft.com/azure/ai-studio/reference/reference-model-inference-chat-completions?WT.mc_id=aiml-137032-kinfeylo)
+4. Make an API request using the chat/completions API using <target_url>chat/completions. For more information on using the APIs, see the [Reference: Chat Completions](https://learn.microsoft.com/azure/ai-studio/reference/reference-model-inference-chat-completions?WT.mc_id=aiml-137032-kinfeylo)
 
 ### Cost and quotas
 Cost and quota considerations for Phi-3 models deployed as serverless APIs
