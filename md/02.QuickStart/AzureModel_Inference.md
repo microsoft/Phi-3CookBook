@@ -3,20 +3,15 @@ The [Azure AI Model Inference is an API](https://learn.microsoft.com/azure/ai-st
 Microsoft now has its own SDK for AI Model inference, for different models hosted on [MaaS/MaaP](https://azure.microsoft.com/products/ai-model-catalog?WT.mc_id=aiml-138114-kinfeylo). 
 
 Python and JS versions are out. C# will be released next. 
-For [Python](https://learn.microsoft.com/python/api/overview/azure/ai-inference-readme?view=azure-python-preview?WT.mc_id=aiml-138114-kinfeylo). 
+For [Python](https://learn.microsoft.com/python/api/overview/azure/ai-inference-readme?view=azure-python-preview?WT.mc_id=aiml-138114-kinfeylo).  
+
+[Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples?WT.mc_id=aiml-138114-kinfeylo)
+
+For [JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/ai-inference-rest-readme?view=azure-node-preview?WT.mc_id=aiml-138114-kinfeylo) 
+
+[Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples?WT.mc_id=aiml-138114-kinfeylo)
+
 The SDK uses the [REST API documented here](https://learn.microsoft.com/azure/ai-studio/reference/reference-model-inference-api?tabs=python?WT.mc_id=aiml-138114-kinfeylo).
-
-
-## Benefits
-Foundational models, such as language models, have indeed made remarkable strides in recent years. These advancements have revolutionized various fields, including natural language processing and computer vision, and they have enabled applications like chatbots, virtual assistants, and language translation services.
-
-While foundational models excel in specific domains, they lack a uniform set of capabilities. Some models are better at specific task and even across the same task, some models may approach the problem in one way while others in another. Developers can benefit from this diversity by using the right model for the right job allowing them to:
-
-- Improve the performance in a specific downstream task.
-- Use more efficient models for simpler tasks.
-- Use smaller models that can run faster on specific tasks.
-- Compose multiple models to develop intelligent experiences.
-- Having a uniform way to consume foundational models allow developers to realize all those benefits without sacrificing portability or changing the underlying code.
 
 ## Availability
 The Azure AI Model Inference API is available in the following Phi-3 models:
