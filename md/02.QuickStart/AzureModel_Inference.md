@@ -2,7 +2,7 @@ The [Azure AI Model Inference is an API](https://learn.microsoft.com/en-us/azure
 
 Microsoft now has its own SDK for AI Model inference, for different models hosted on MaaS/MaaP. Python and JS versions are out. C# will be released next. 
 For [Python](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-inference-readme?view=azure-python-preview?WT.mc_id=aiml-138114-kinfeylo). 
-The SDK uses the [REST API documented here]:(https://learn.microsoft.com/en-us/azure/ai-studio/reference/reference-model-inference-api?tabs=python?WT.mc_id=aiml-138114-kinfeylo).
+The SDK uses the [REST API documented here](https://learn.microsoft.com/en-us/azure/ai-studio/reference/reference-model-inference-api?tabs=python?WT.mc_id=aiml-138114-kinfeylo).
 
 ## Benefits
 Foundational models, such as language models, have indeed made remarkable strides in recent years. These advancements have revolutionized various fields, including natural language processing and computer vision, and they have enabled applications like chatbots, virtual assistants, and language translation services.
