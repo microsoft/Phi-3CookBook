@@ -80,7 +80,7 @@ def create_dataset(use_full_train=False):
     return train_dataset, eval_dataset
 
 
-def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0):
+def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0, freeze_vision_model=False):
     linear_modules = [
         # Phi language modules
         'qkv_proj',  # attention
@@ -485,6 +485,7 @@ def main():
             rank=args.lora_rank,
             alpha_to_rank_ratio=args.lora_alpha_ratio,
             dropout=args.lora_dropout,
+            freeze_vision_model=args.freeze_vision_model,
         )
         model.add_adapter(lora_config)
         model.enable_adapters()
