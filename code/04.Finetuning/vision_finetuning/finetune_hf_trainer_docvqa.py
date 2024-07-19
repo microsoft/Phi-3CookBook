@@ -80,18 +80,8 @@ def create_dataset(use_full_train=False):
     return train_dataset, eval_dataset
 
 
-def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0):
+def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0, freeze_vision_model=False):
     linear_modules = [
-        # CLIP modules
-        # 'q_proj',  # attention
-        # 'k_proj',
-        # 'v_proj',
-        # 'out_proj',
-        # 'fc1',  # MLP
-        # 'fc2',
-        # 'img_projection.0',
-        # 'img_projection.2',
-        # FIXME: can't lora CLIP is a known issue of Phi-3-V
         # Phi language modules
         'qkv_proj',  # attention
         'o_proj',
@@ -99,6 +89,20 @@ def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0):
         'gate_up_proj',
         'lm_head',
     ]
+    if not freeze_vision_model:
+        vision_linear_modules = [
+            # CLIP modules
+            'q_proj',  # attention
+            'k_proj',
+            'v_proj',
+            'out_proj',
+            'fc1',  # MLP
+            'fc2',
+            # image projection
+            'img_projection.0',
+            'img_projection.2',
+        ]
+        linear_modules.extend(vision_linear_modules)
     lora_config = LoraConfig(
         r=rank,
         lora_alpha=round(rank * alpha_to_rank_ratio),
@@ -339,6 +343,28 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
     return None
 
 
+def patch_clip_for_lora(model):
+    # remove unused parameters and then monkey patch
+    def get_img_features(self, img_embeds):
+        img_embeds.requires_grad_(True)  # NOTE still need to check the peft package. why is this necessary?
+        clip_vision_model = self.img_processor.vision_model
+        hidden_states = clip_vision_model.embeddings(img_embeds)
+        hidden_states = clip_vision_model.pre_layrnorm(hidden_states)
+        patch_feature = clip_vision_model.encoder(
+            inputs_embeds=hidden_states, output_hidden_states=True
+        ).hidden_states[-1][:, 1:]
+        return patch_feature
+
+    image_embedder = model.model.vision_embed_tokens
+    layer_index = image_embedder.layer_idx
+    clip_layers = image_embedder.img_processor.vision_model.encoder.layers
+    if layer_index < 0:
+        layer_index = len(clip_layers) + layer_index
+    del clip_layers[layer_index + 1 :]
+    del image_embedder.img_processor.vision_model.post_layernorm
+    image_embedder.get_img_features = get_img_features.__get__(image_embedder)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -454,16 +480,15 @@ def main():
         print(f'Average normalized Levenshtein similarity before finetuning: {anls}')
 
     if args.use_lora:
+        patch_clip_for_lora(model)
         lora_config = create_lora_config(
             rank=args.lora_rank,
             alpha_to_rank_ratio=args.lora_alpha_ratio,
             dropout=args.lora_dropout,
+            freeze_vision_model=args.freeze_vision_model,
         )
         model.add_adapter(lora_config)
         model.enable_adapters()
-
-        # NOTE: cannot train vision model with LoRA is a known issue of Phi-3-V
-        args.freeze_vision_model = True
 
     if args.freeze_vision_model:
         freeze_vision_model(model)
