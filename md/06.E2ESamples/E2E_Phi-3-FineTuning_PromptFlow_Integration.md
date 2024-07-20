@@ -20,7 +20,7 @@ Here is an overview of this E2E sample.
 
 1. **[Scenario 1: Set up Azure resources and Prepare for fine-tuning](#scenario-1-set-up-azure-resources-and-prepare-the-environment)**
     - [Create an Azure Machine Learning Workspace](#create-an-azure-machine-learning-workspace)
-    - [Request GPU Quotas in Azure Subscription](#request-gpu-quotas-in-azure-subscription)
+    - [Request GPU quotas in Azure Subscription](#request-gpu-quotas-in-azure-subscription)
     - [Add role assignment](#add-role-assignment)
     - [Set up project](#set-up-project)
     - [Prepare dataset for fine-tuning](#prepare-dataset-for-fine-tuning)
@@ -62,7 +62,7 @@ Here is an overview of this E2E sample.
 
 1. Select **Create**.
 
-### Request GPU Quotas in Azure Subscription
+### Request GPU quotas in Azure Subscription
 
 In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, which requires a quota request, and the *Standard_E4s_v3* CPU for deployment, which does not require a quota request.
 
