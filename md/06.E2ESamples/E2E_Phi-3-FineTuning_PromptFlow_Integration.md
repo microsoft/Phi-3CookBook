@@ -39,13 +39,13 @@ Here is an overview of this E2E sample.
 
 1. Type *azure machine learning* in the **search bar** at the top of the portal page and select **Azure Machine Learning** from the options that appear.
 
-    ![Type azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
+    ![Type azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-01-type-azml.png)
 
 1. Select **+ Create** from the navigation menu.
 
 1. Select **New workspace** from the navigation menu.
 
-    ![Select new workspace](../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
+    ![Select new workspace](../../imgs/03/FineTuning-PromptFlow/01-02-select-new-workspace.png)
 
 1. Perform the following tasks:
 
@@ -78,7 +78,7 @@ In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, whi
     - Select the **Virtual machine family** to use. For example, select Standard **NCSv3 Family Cluster Dedicated vCPUs**, which includes the *Standard_NC6s_v3* GPU.
     - Select the **Request quota** from the navigation menu.
 
-        ![Request quota.](../../imgs/03/FineTuning-PromptFlow/request-quota.png)
+        ![Request quota.](../../imgs/03/FineTuning-PromptFlow/01-04-request-quota.png)
 
     - Inside the Request quota page, enter the **New cores limit** you'd like to use. For example, 24.
     - Inside the Request quota page, select **Submit** to request the GPU quota.
