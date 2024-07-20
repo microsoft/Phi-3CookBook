@@ -41,7 +41,7 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *subscriptions*，然后从出现的选项中选择 **Subscriptions**。
 
-    ![输入 subscription。](../../../../imgs/03/FineTuning-PromptFlow/01-01-type-subscriptions.png)
+    ![输入 subscription。](../../../../imgs/03/FineTuning-PromptFlow/01-03-type-subscriptions.png)
 
 1. 选择您要使用的订阅。
 
@@ -51,9 +51,6 @@
     - 选择您要使用的 **Region**。
     - 选择要使用的 **Quota name**。例如，选择 Standard NCSv3 Family vCPUs，它包括 *Standard_NC6s_v3* GPU。
     - 选择 **New Quota Request**。
-
-    ![输入配额限制](../../../../imgs/03/FineTuning-PromptFlow/01-02-enter-new-quota-limits.png)
-
     - 选择 **Enter a new limit**。
     - 在 New Quota Request 页面，输入您要使用的 **New limit**。
     - 在 New Quota Request 页面，选择 **Submit** 以申请 GPU 配额。
@@ -62,13 +59,13 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *azure machine learning*，然后从出现的选项中选择 **Azure Machine Learning**。
 
-    ![输入 azure machine learning](../../../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
+    ![输入 azure machine learning](../../../../imgs/03/FineTuning-PromptFlow/01-01-type-azml.png)
 
 1. 从导航菜单选择 **+ Create**。
 
 1. 从导航菜单选择 **New workspace**。
 
-    ![选择 new workspace](../../../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
+    ![选择 new workspace](../../../../imgs/03/FineTuning-PromptFlow/01-02-select-new-workspace.png)
 
 1. 执行以下任务：
 
