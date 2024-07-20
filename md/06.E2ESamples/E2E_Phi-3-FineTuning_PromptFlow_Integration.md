@@ -1,4 +1,4 @@
-# Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide
+# Fine-tune and Integrate custom Phi-3 models with Prompt flow
 
 This end-to-end (E2E) sample is based on the guide "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?wt.mc_id=studentamb_279723)" from the Microsoft Tech Community. It introduces the processes of fine-tuning, deploying, and integrating custom Phi-3 models with Prompt flow.
 
