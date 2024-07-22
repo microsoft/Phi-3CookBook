@@ -1,6 +1,6 @@
 # 微调和集成自定义 Phi-3 模型与 Prompt flow
 
-本端到端（E2E）的示例基于 Microsoft Tech Community 上的指南“[微调和集成自定义 Phi-3 模型与 Prompt Flow：逐步指南](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?wt.mc_id=studentamb_279723)”。它介绍了使用 Prompt flow 微调、部署和集成自定义 Phi-3 模型的全过程。
+本端到端（E2E）的示例基于 Microsoft Tech Community 上的指南“[微调和集成自定义 Phi-3 模型与 Prompt Flow：逐步指南](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?WT.mc_id=aiml-137032-kinfeylo)”。它介绍了使用 Prompt flow 微调、部署和集成自定义 Phi-3 模型的全过程。
 
 ## 概述
 
