@@ -1,12 +1,12 @@
 # Fine-tune and Integrate custom Phi-3 models with Prompt flow
 
-This end-to-end (E2E) sample is based on the guide "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: A Step-by-Step Guide](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?wt.mc_id=studentamb_279723)" from the Microsoft Tech Community. It introduces the processes of fine-tuning, deploying, and integrating custom Phi-3 models with Prompt flow.
+This end-to-end (E2E) sample is based on the guide "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?WT.mc_id=aiml-137032-kinfeylo)" from the Microsoft Tech Community. It introduces the processes of fine-tuning, deploying, and integrating custom Phi-3 models with Prompt flow.
 
 ## Overview
 
 In this E2E sample, you will learn how to fine-tune the Phi-3 model and integrate it with Prompt flow. By leveraging Azure Machine Learning, and Prompt flow you will establish a workflow for deploying and utilizing custom AI models. This E2E sample is divided into three scenarios:
 
-**Scenario 1: Set Up Azure resources and Prepare the environment**
+**Scenario 1: Set Up Azure resources and Prepare for fine-tuning**
 
 **Scenario 2: Fine-tune the Phi-3 model and Deploy in Azure Machine Learning Studio**
 
@@ -18,9 +18,9 @@ Here is an overview of this E2E sample.
 
 ### Table of Contents
 
-1. **[Scenario 1: Set up Azure resources and Prepare the environment](#scenario-1-set-up-azure-resources-and-prepare-the-environment)**
-    - [Request GPU Quotas in Azure Subscription](#request-gpu-quotas-in-azure-subscription)
+1. **[Scenario 1: Set up Azure resources and Prepare for fine-tuning](#scenario-1-set-up-azure-resources-and-prepare-the-environment)**
     - [Create an Azure Machine Learning Workspace](#create-an-azure-machine-learning-workspace)
+    - [Request GPU quotas in Azure Subscription](#request-gpu-quotas-in-azure-subscription)
     - [Add role assignment](#add-role-assignment)
     - [Set up project](#set-up-project)
     - [Prepare dataset for fine-tuning](#prepare-dataset-for-fine-tuning)
@@ -33,42 +33,19 @@ Here is an overview of this E2E sample.
     - [Integrate the custom Phi-3 model with Prompt flow](#integrate-the-custom-phi-3-model-with-prompt-flow)
     - [Chat with your custom model](#chat-with-your-custom-model)
 
-## Scenario 1: Set up Azure resources and Prepare the environment
-
-### Request GPU Quotas in Azure Subscription
-
-In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, which requires a quota request, and the *Standard_E4s_v3* CPU for deployment, which does not require a quota request.
-
-1. Type *subscriptions* in the **search bar** at the top of the portal page and select **Subscriptions** from the options that appear.
-
-    ![Type subscription.](../../imgs/03/FineTuning-PromptFlow/01-01-type-subscriptions.png)
-
-1. Select the subscription you'd like to use.
-
-1. Perform the following tasks to request the GPU quota:
-
-    - Select **Usage + quotas** from the left side tab.
-    - Select the **Region** you'd like to use.
-    - Select the **Quota name** to use. For example, select Standard NCSv3 Family vCPUs, which includes the *Standard_NC6s_v3* GPU.
-    - Select the **New Quota Request**.
-
-    ![Enter quota limits](../../imgs/03/FineTuning-PromptFlow/01-02-enter-new-quota-limits.png)
-
-    - Select the **Enter a new limit**.
-    - Inside the New Quota Request page, enter the **New limit** you'd like to use.
-    - Inside the New Quota Request page, select **Submit** to request the GPU quota.
+## Scenario 1: Set up Azure resources and Prepare for fine-tuning
 
 ### Create an Azure Machine Learning Workspace
 
 1. Type *azure machine learning* in the **search bar** at the top of the portal page and select **Azure Machine Learning** from the options that appear.
 
-    ![Type azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-03-type-azml.png)
+    ![Type azure machine learning](../../imgs/03/FineTuning-PromptFlow/01-01-type-azml.png)
 
 1. Select **+ Create** from the navigation menu.
 
 1. Select **New workspace** from the navigation menu.
 
-    ![Select new workspace](../../imgs/03/FineTuning-PromptFlow/01-04-select-new-workspace.png)
+    ![Select new workspace](../../imgs/03/FineTuning-PromptFlow/01-02-select-new-workspace.png)
 
 1. Perform the following tasks:
 
@@ -84,6 +61,27 @@ In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, whi
 1. Select **Review + Create**.
 
 1. Select **Create**.
+
+### Request GPU quotas in Azure Subscription
+
+In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, which requires a quota request, and the *Standard_E4s_v3* CPU for deployment, which does not require a quota request.
+
+> [!NOTE]
+>
+> Only Pay-As-You-Go subscriptions (the standard subscription type) are eligible for GPU allocation; benefit subscriptions are not currently supported.
+>
+> For those using benefit subscriptions (such as Visual Studio Enterprise Subscription) or those looking to quickly test the fine-tuning and deployment process, this tutorial also provides guidance for fine-tuning with a minimal dataset using a CPU. However, it is important to note that fine-tuning results are significantly better when using a GPU with larger datasets.
+
+1. Perform the following tasks to request *Standard NCSv3 Family* quota:
+
+    - Select **Quota** from the left side tab.
+    - Select the **Virtual machine family** to use. For example, select Standard **NCSv3 Family Cluster Dedicated vCPUs**, which includes the *Standard_NC6s_v3* GPU.
+    - Select the **Request quota** from the navigation menu.
+
+        ![Request quota.](../../imgs/03/FineTuning-PromptFlow/01-04-request-quota.png)
+
+    - Inside the Request quota page, enter the **New cores limit** you'd like to use. For example, 24.
+    - Inside the Request quota page, select **Submit** to request the GPU quota.
 
 ### Add role assignment
 
@@ -156,9 +154,9 @@ To fine-tune and deploy your models, you must first create a User Assigned Manag
     - Inside Select managed identities page, select the Manage Identity that you created. For example, *finetunephi-managedidentity*.
     - Inside Select managed identities page, select **Select**.
 
-        ![Select managed identity.](../../imgs/03/FineTuning-PromptFlow/01-10-select-managed-identity.png)
+    ![Select managed identity.](../../imgs/03/FineTuning-PromptFlow/01-10-select-managed-identity.png)
 
-    - Select **Review + assign**.
+1. Select **Review + assign**.
 
 #### Add AcrPull role assignment to Managed Identity
 
@@ -218,7 +216,7 @@ Now, you will create a folder to work in and set up a virtual environment to dev
     .venv\Scripts\activate.bat
     ```
 
-> **Note**
+> [!NOTE]
 >
 > If it worked, you should see *(.venv)* before the command prompt.
 
@@ -235,7 +233,7 @@ Now, you will create a folder to work in and set up a virtual environment to dev
     pip install promptflow==1.12.0
     ```
 
-#### Create project Files
+#### Create project files
 
 In this exercise, you will create the essential files for our project. These files include scripts for downloading the dataset, setting up the Azure Machine Learning environment, fine-tuning the Phi-3 model, and deploying the fine-tuned model. You will also create a *conda.yml* file to set up the fine-tuning environment.
 
@@ -246,11 +244,11 @@ In this exercise, you will:
 - Create a *fine_tune.py* file in the *finetuning_dir* folder to fine-tune the Phi-3 model using the dataset.
 - Create a *conda.yml* file to setup fine-tuning environment.
 - Create a *deploy_model.py* file to deploy the fine-tuned model.
-- Create a *integrate_with_promptflow.py* file, to integrate the fine-tuned model and execute the model using Prompt Flow.
-- Create a flow.dag.yml file, to set up the workflow structure for Promptflow.
+- Create a *integrate_with_promptflow.py* file, to integrate the fine-tuned model and execute the model using Prompt flow.
+- Create a flow.dag.yml file, to set up the workflow structure for Prompt flow.
 - Create a *config.py* file to enter Azure information.
 
-> **Note**
+> [!NOTE]
 >
 > Complete folder structure:
 >
@@ -387,7 +385,7 @@ In this exercise, you will:
 
 In this exercise, you will run the *download_data.py* file to download the *wikitext* datasets to your local environment. You will then use this datasets to fine-tune the Phi-3 model in Azure Machine Learning.
 
-#### Download your dataset using *download_data.py*
+#### Download your dataset using *download_dataset.py*
 
 1. Open the *download_data.py* file in Visual Studio Code.
 
@@ -439,7 +437,7 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
         Main function to load, split, and save the dataset.
         """
         # Load and split the dataset with a specific configuration and split ratio
-        dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:1%]')
+        dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:3%]')
         
         # Extract the train and test datasets from the split
         train_dataset = dataset['train']
@@ -456,13 +454,13 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
 
     ```
 
-> **Tip**
+> [!TIP]
 >
 > **Guidance for fine-tuning with a minimal dataset using a CPU**
 >
 > If you want to use a CPU for fine-tuning, this approach is ideal for those with benefit subscriptions (such as Visual Studio Enterprise Subscription) or to quickly test the fine-tuning and deployment process.
 >
-> Replace `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:1%]')` with `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:10]')`
+> Replace `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:3%]')` with `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:10]')`
 >
 
 1. Type the following command inside your terminal to run the script and download the dataset to your local environment.
@@ -473,11 +471,11 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
 
 1. Verify that the datasets were saved successfully to your local *finetune-phi/data* directory.
 
-> **Note**
+> [!NOTE]
 >
 > **Dataset size and fine-tuning time**
 >
-> In this E2E sample, you use only 1% of the dataset (`split='train[:1%]'`). This significantly reduces the amount of data, speeding up both the upload and fine-tuning processes. You can adjust the percentage to find the right balance between training time and model performance. Using a smaller subset of the dataset reduces the time required for fine-tuning, making the process more manageable for a E2E sample.
+> In this E2E sample, you use only 1% of the dataset (`split='train[:3%]'`). This significantly reduces the amount of data, speeding up both the upload and fine-tuning processes. You can adjust the percentage to find the right balance between training time and model performance. Using a smaller subset of the dataset reduces the time required for fine-tuning, making the process more manageable for a E2E sample.
 
 ## Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio
 
@@ -497,7 +495,7 @@ You need to set up Azure CLI to authenticate your environment. Azure CLI allows 
 
     ![Find resource group name.](../../imgs/03/FineTuning-PromptFlow/02-01-login-using-azure-cli.png)
 
-> **Tip**
+> [!TIP]
 >
 > If you're having trouble signing in to Azure, try using a device code. Open a terminal window and type the following command to sign in to your Azure account:
 >
@@ -797,7 +795,7 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     LOCATION = "eastus2" # Replace with the location of your compute cluster
     ```
 
-> **Tip**
+> [!TIP]
 >
 > **Guidance for fine-tuning with a minimal dataset using a CPU**
 >
@@ -1032,13 +1030,15 @@ Running the *deploy_model.py* file automates the entire deployment process. It r
     python deploy_model.py
     ```
 
-> **Warning**
+> [!WARNING]
 > To avoid additional charges to your account, make sure to delete the created endpoint in the Azure Machine Learning workspace.
 >
 
 #### Check deployment status in Azure Machine Learning Workspace
 
-1. Navigate to Azure Machine Learning resource that you created.
+1. Visit [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
+
+1. Navigate to Azure Machine Learning workspace that you created.
 
 1. Select **Studio web URL** to open the Azure Machine Learning workspace.
 
