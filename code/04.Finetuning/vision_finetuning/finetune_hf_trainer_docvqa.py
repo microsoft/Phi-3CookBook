@@ -113,27 +113,6 @@ def create_lora_config(rank, alpha_to_rank_ratio=2.0, dropout=0.0, freeze_vision
     return lora_config
 
 
-class NoGradHook:
-    def __init__(self):
-        self.prev_enabled = True
-
-    def maybe_enable_grad_hook(self, *_):
-        torch.set_grad_enabled(self.prev_enabled)
-
-    def disable_grad_hook(self, *_):
-        self.prev_enabled = torch.is_grad_enabled()
-        torch.set_grad_enabled(False)
-
-
-def freeze_vision_model(model):
-    vision_no_grad_hook = NoGradHook()
-    vision_module = model.model.vision_embed_tokens
-    vision_module.register_forward_pre_hook(vision_no_grad_hook.disable_grad_hook)
-    vision_module.register_forward_hook(vision_no_grad_hook.maybe_enable_grad_hook)
-    for p in vision_module.parameters():
-        p.requires_grad_(False)
-
-
 def create_model(model_name_or_path, use_flash_attention=False, use_qlora=False):
     bnb_config = (
         BitsAndBytesConfig(
@@ -346,7 +325,6 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
 def patch_clip_for_lora(model):
     # remove unused parameters and then monkey patch
     def get_img_features(self, img_embeds):
-        img_embeds.requires_grad_(True)  # NOTE still need to check the peft package. why is this necessary?
         clip_vision_model = self.img_processor.vision_model
         hidden_states = clip_vision_model.embeddings(img_embeds)
         hidden_states = clip_vision_model.pre_layrnorm(hidden_states)
@@ -432,6 +410,7 @@ def main():
         per_device_train_batch_size=1,  # NOTE currently only supports batch_size == 1
         per_device_eval_batch_size=1,
         gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={'use_reentrant': False},  # NOTE important for LoRA
         gradient_accumulation_steps=gradient_accumulation_steps,
         optim='adamw_torch',
         adam_beta1=0.9,
@@ -455,6 +434,7 @@ def main():
         disable_tqdm=not args.tqdm,
         dataloader_num_workers=4,
         dataloader_prefetch_factor=2,
+        ddp_find_unused_parameters=False,
     )
 
     if args.full_train:
@@ -491,7 +471,7 @@ def main():
         model.enable_adapters()
 
     if args.freeze_vision_model:
-        freeze_vision_model(model)
+        model.model.vision_embed_tokens.requires_grad_(False)
 
     trainer = Trainer(
         model=model,
@@ -523,6 +503,7 @@ def main():
             trust_remote_code=True,
             _attn_implementation='flash_attention_2' if args.use_flash_attention else 'eager',
         )
+        patch_clip_for_lora(model)
         model.load_adapter(training_args.output_dir)
     else:
         # for full finetuning, GPU memory can't be cleared (likely caused by deepspeed
