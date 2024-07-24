@@ -4,23 +4,23 @@
 
 AI Toolkit Preview will run locally. Depends on the model you selected, some tasks have Windows and Linux support only, 
 
-Local inference or fine-tune, depends on the model you selected, you may need to have GPU such as NVIDIA CUDA GPU. 
+Local inference or fine-tune, depends on the model you selected, you may need to have GPU such as NVIDIA CUDA GPU.
 
 If you run remotely the cloud resource needs to have GPU, please make sure to check your environment. For local run on Windows + WSL, WSL Ubuntu distro 18.4 or greater should be installed and is set to default prior to using AI Toolkit.
 
 ## Getting Started
-[Learn more how to install Windows subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) 
+
+[Learn more how to install Windows subsystem for Linux](https://learn.microsoft.com/windows/wsl/install)
 
 and [changing default distribution](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed).
 
 [AI Tooklit GitHub Repo](https://github.com/microsoft/vscode-ai-toolkit/)
 
-- Windows or Linux. 
+- Windows or Linux.
 - **MacOS support is coming soon**
-
 - For finetuning on both Windows and Linux, you'll need an Nvidia GPU. In addition, **Windows** requires subsystem for Linux with Ubuntu distro 18.4 or greater. [Learn more how to install Windows subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) and [changing default distribution](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed).
 
-### Install AI Toolkit 
+### Install AI Toolkit
 
 AI Toolkit is shipped as a [Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions), so you need to install [VS Code](https://code.visualstudio.com/docs/setup/windows) first, and download AI Toolkit from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio).
 The [AI Toolkit is available in the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) and can be installed like any other VS Code extension. 
@@ -28,6 +28,7 @@ The [AI Toolkit is available in the Visual Studio Marketplace](https://marketpla
 If you're unfamiliar with installing VS Code extensions, follow these steps:
 
 ### Sign In
+
 1. In the Activity Bar in VS Code select **Extensions**
 1. In the Extensions Search bar type "AI Toolkit"
 1. Select the "AI Toolkit for Visual Studio code"
@@ -42,19 +43,19 @@ Please sign in and follow the process steps. After successful completion, you wi
 Once the extension has been installed you'll see the AI Toolkit icon appear in your Activity Bar.
 
 Let's explore the available actions!
-### Download a model from the catalog
 
 ### Available Actions
+
 The primary sidebar of the AI Toolkit is organized into  
 
-- **Models** 
+- **Models**
 - **Resources**
 - **Playground**  
-- **Fine-tuning** 
+- **Fine-tuning**
 
-Are available in the Resources section. To get started select 
+Are available in the Resources section. To get started select **Model Catalog**.
 
-**Model Catalog**:
+### Download a model from the catalog
 
 Upon launching AI Toolkit from VS Code side bar, you can select from the following options:
 
@@ -65,15 +66,18 @@ Upon launching AI Toolkit from VS Code side bar, you can select from the followi
 - Fine-tune model locally or remotely in **Model Fine-tuning**
 - Deploy fine-tuned models to cloud via command palette for AI Toolkit
 
- **GPU Vs CPU**
-
-You'll notice that the model cards show the model size, the platform and accelerator type (CPU, GPU). For optimized performance on **Windows devices that have at least one GPU**, select model versions that only target Windows. 
-
-This ensures you have a model optimized for the DirectML accelerator. 
-
-The model names are in the format of
--  `{model_name}-{accelerator}-{quantization}-{format}`.
-
+> [!NOTE]
+>
+> **GPU Vs CPU**
+>
+> You'll notice that the model cards show the model size, the platform and accelerator type (CPU, GPU). For optimized performance on **Windows devices that have at least one GPU**, select model versions that only target Windows.
+>
+> This ensures you have a model optimized for the DirectML accelerator. 
+>
+> The model names are in the format of
+>
+> - `{model_name}-{accelerator}-{quantization}-{format}`.
+>
 >To check whether you have a GPU on your Windows device, open **Task Manager** and then select the **Performance** tab. If you have GPU(s), they will be listed under names like "GPU 0" or "GPU 1".
 
 ### Run the model in the playground
@@ -92,8 +96,8 @@ When the model is downloaded, you can launch the project from AI Toolkit.
 
 > ***Note*** If you want to try preview feature to do inference or fine-tuning remotely, please follow [this guide](https://aka.ms/previewFinetune)
 
-
 ### Windows Optimized Models
+
 You should see the model response streamed back to you:
 
 AI Toolkit offers the collection of publicly available AI models already optimized for Windows. The models are stored in the different locations including Hugging Face, GitHub and others, but you can browse the models and find all of them in one place ready for downloading and using in your Windows application.
@@ -101,12 +105,15 @@ AI Toolkit offers the collection of publicly available AI models already optimiz
 ![Generation stream](../../imgs/04/04/AItoolkitgeneration-gif.gif)
 
 ### Model Selections
-> If you do **not** have a **GPU** available on your *Windows* device but you selected the 
+
+If you do **not** have a **GPU** available on your *Windows* device but you selected the
+
 - Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx model
 
-the model response will be *very slow*. 
+the model response will be *very slow*.
 
-You should instead download the CPU optimized version: 
+You should instead download the CPU optimized version:
+
 - Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx.
 
 It is also possible to change:
@@ -114,11 +121,12 @@ It is also possible to change:
 **Context Instructions:** Help the model understand the bigger picture of your request. This could be background information, examples/demonstrations of what you want or explaining the purpose of your task.
 
 **Inference parameters:**
-  - *Maximum response length*: The maximum number of tokens the model will return.
-  - *Temperature*: Model temperature is a parameter that controls how random a language model's output is. A higher temperature means the model takes more risks, giving you a diverse mix of words. On the other hand, a lower temperature makes the model play it safe, sticking to more focused and predictable responses.
-  - *Top P*: Also known as nucleus sampling, is a setting that controls how many possible words or phrases the language model considers when predicting the next word
-  - *Frequency penalty*: This parameter influences how often the model repeats words or phrases in its output. The higher the value (closer to 1.0) encourages the model to *avoid* repeating words or phrases.
-  - *Presence penalty*: This parameter is used in generative AI models to encourage diversity and specificity in the generated text. A higher value (closer to 1.0) encourages the model to include more novel and diverse tokens. A lower value is more likely for the model to generate common or cliche phrases.
+
+- *Maximum response length*: The maximum number of tokens the model will return.
+- *Temperature*: Model temperature is a parameter that controls how random a language model's output is. A higher temperature means the model takes more risks, giving you a diverse mix of words. On the other hand, a lower temperature makes the model play it safe, sticking to more focused and predictable responses.
+- *Top P*: Also known as nucleus sampling, is a setting that controls how many possible words or phrases the language model considers when predicting the next word
+- *Frequency penalty*: This parameter influences how often the model repeats words or phrases in its output. The higher the value (closer to 1.0) encourages the model to *avoid* repeating words or phrases.
+- *Presence penalty*: This parameter is used in generative AI models to encourage diversity and specificity in the generated text. A higher value (closer to 1.0) encourages the model to include more novel and diverse tokens. A lower value is more likely for the model to generate common or cliche phrases.
 
 ### Use the REST API in your application 
 
@@ -231,6 +239,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
     Console.Write(chatChunk.ContentUpdate);
 }
 ```
+
 ## Fine Tuning with AI Toolkit
 
 - Get started with model discovery and playground.
