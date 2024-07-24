@@ -6,7 +6,7 @@ This end-to-end (E2E) sample is based on the guide "[Fine-Tune and Integrate Cus
 
 In this E2E sample, you will learn how to fine-tune the Phi-3 model and integrate it with Prompt flow. By leveraging Azure Machine Learning, and Prompt flow you will establish a workflow for deploying and utilizing custom AI models. This E2E sample is divided into three scenarios:
 
-**Scenario 1: Set Up Azure resources and Prepare for fine-tuning**
+**Scenario 1: Set up Azure resources and Prepare for fine-tuning**
 
 **Scenario 2: Fine-tune the Phi-3 model and Deploy in Azure Machine Learning Studio**
 
@@ -27,6 +27,7 @@ Here is an overview of this E2E sample.
 
 1. **[Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
     - [Set up Azure CLI](#set-up-azure-cli)
+    - [Fine-tune the Phi-3 model](#fine-tune-the-phi-3-model)
     - [Deploy the fine-tuned model](#deploy-the-fine-tuned-model)
 
 1. **[Scenario 3: Integrate with Prompt flow and Chat with your custom model](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model)**
