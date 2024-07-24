@@ -286,7 +286,7 @@ In this exercise, you will:
 
 1. Open the *download_dataset.py* file in Visual Studio Code.
 
-1. Add the following code into *download_dataset.py*.
+1. Add the following code into *download_dataset.py* file.
 
     ```python
     import json
