@@ -126,5 +126,3 @@ Once you have fixed the URLs, save and push your changes.
 > - **Network restrictions:** GitHub actions servers may have network restrictions that prevent access to certain URLs.
 > - **Timeout issues:** URLs that take too long to respond may trigger a timeout error in the workflow.
 > - **Temporary server issues:** Occasional server downtime or maintenance can make a URL temporarily unavailable during validation.
-
-If you encounter such issues, manually verify the URL and consider adding exceptions or handling special cases in your workflow.
