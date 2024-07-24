@@ -41,8 +41,6 @@
 
 1. 在门户页面顶部的 **搜索栏** 中输入 *subscriptions*，然后从出现的选项中选择 **Subscriptions**。
 
-    ![输入 subscription。](../../../../imgs/03/FineTuning-PromptFlow/01-03-type-subscriptions.png)
-
 1. 选择您要使用的订阅。
 
 1. 执行以下任务以申请 GPU 配额：
