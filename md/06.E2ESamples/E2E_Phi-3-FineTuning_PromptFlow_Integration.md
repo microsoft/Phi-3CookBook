@@ -6,7 +6,7 @@ This end-to-end (E2E) sample is based on the guide "[Fine-Tune and Integrate Cus
 
 In this E2E sample, you will learn how to fine-tune the Phi-3 model and integrate it with Prompt flow. By leveraging Azure Machine Learning, and Prompt flow you will establish a workflow for deploying and utilizing custom AI models. This E2E sample is divided into three scenarios:
 
-**Scenario 1: Set Up Azure resources and Prepare for fine-tuning**
+**Scenario 1: Set up Azure resources and Prepare for fine-tuning**
 
 **Scenario 2: Fine-tune the Phi-3 model and Deploy in Azure Machine Learning Studio**
 
@@ -18,7 +18,7 @@ Here is an overview of this E2E sample.
 
 ### Table of Contents
 
-1. **[Scenario 1: Set up Azure resources and Prepare for fine-tuning](#scenario-1-set-up-azure-resources-and-prepare-the-environment)**
+1. **[Scenario 1: Set up Azure resources and Prepare for fine-tuning](#scenario-1-set-up-azure-resources-and-prepare-for-fine-tuning)**
     - [Create an Azure Machine Learning Workspace](#create-an-azure-machine-learning-workspace)
     - [Request GPU quotas in Azure Subscription](#request-gpu-quotas-in-azure-subscription)
     - [Add role assignment](#add-role-assignment)
@@ -27,6 +27,7 @@ Here is an overview of this E2E sample.
 
 1. **[Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio](#scenario-2-fine-tune-phi-3-model-and-deploy-in-azure-machine-learning-studio)**
     - [Set up Azure CLI](#set-up-azure-cli)
+    - [Fine-tune the Phi-3 model](#fine-tune-the-phi-3-model)
     - [Deploy the fine-tuned model](#deploy-the-fine-tuned-model)
 
 1. **[Scenario 3: Integrate with Prompt flow and Chat with your custom model](#scenario-3-integrate-with-prompt-flow-and-chat-with-your-custom-model)**
@@ -56,7 +57,9 @@ Here is an overview of this E2E sample.
     - Select the **Storage account** to use (create a new one if needed).
     - Select the **Key vault** to use (create a new one if needed).
     - Select the **Application insights** to use (create a new one if needed).
-    - Select the **Container registry** to **None**.
+    - Select the **Container registry** to use (create a new one if needed).
+
+    ![Fill AZML.](../../imgs/03/FineTuning-PromptFlow/01-03-fill-AZML.png)
 
 1. Select **Review + Create**.
 
@@ -64,7 +67,7 @@ Here is an overview of this E2E sample.
 
 ### Request GPU quotas in Azure Subscription
 
-In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, which requires a quota request, and the *Standard_E4s_v3* CPU for deployment, which does not require a quota request.
+In this E2E sample, you will use the *Standard_NC24ads_A100_v4 GPU* for fine-tuning, which requires a quota request, and the *Standard_E4s_v3* CPU for deployment, which does not require a quota request.
 
 > [!NOTE]
 >
@@ -72,10 +75,12 @@ In this E2E sample, you will use the *Standard_NC6s_v3 GPU* for fine-tuning, whi
 >
 > For those using benefit subscriptions (such as Visual Studio Enterprise Subscription) or those looking to quickly test the fine-tuning and deployment process, this tutorial also provides guidance for fine-tuning with a minimal dataset using a CPU. However, it is important to note that fine-tuning results are significantly better when using a GPU with larger datasets.
 
-1. Perform the following tasks to request *Standard NCSv3 Family* quota:
+1. Visit [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
+
+1. Perform the following tasks to request *Standard NCADSA100v4 Family* quota:
 
     - Select **Quota** from the left side tab.
-    - Select the **Virtual machine family** to use. For example, select Standard **NCSv3 Family Cluster Dedicated vCPUs**, which includes the *Standard_NC6s_v3* GPU.
+    - Select the **Virtual machine family** to use. For example, select **Standard NCADSA100v4 Family Cluster Dedicated vCPUs**, which includes the *Standard_NC24ads_A100_v4* GPU.
     - Select the **Request quota** from the navigation menu.
 
         ![Request quota.](../../imgs/03/FineTuning-PromptFlow/01-04-request-quota.png)
@@ -295,27 +300,27 @@ In this exercise, you will:
 1. Add the following code to the *conda.yml* file to set up the fine-tuning environment for the Phi-3 model.
 
     ```yml
-      name: phi-3-training-env
-      channels:
-        - defaults
-        - conda-forge
-      dependencies:
-        - python=3.10
-        - pip
-        - numpy<2.0
-        - pip:
-            - torch~=2.0
-            - torchvision~=0.18
-            - trl==0.8.6
-            - transformers~=4.41
-            - datasets~=2.19
-            - azureml-core~=1.30
-            - azure-storage-blob==12.19
-            - azure-ai-ml~=1.16
-            - azure-identity~=1.16
-            - accelerate~=0.30
-            - mlflow==2.13.0
-            - azureml-mlflow==1.56.0
+    name: phi-3-training-env
+    channels:
+      - defaults
+      - conda-forge
+    dependencies:
+      - python=3.10
+      - pip
+      - numpy<2.0
+      - pip:
+          - torch~=2.0
+          - torchvision~=0.18
+          - trl==0.8.6
+          - transformers~=4.41
+          - datasets~=2.19
+          - azureml-core~=1.30
+          - azure-storage-blob==12.19
+          - azure-ai-ml~=1.16
+          - azure-identity~=1.16
+          - accelerate~=0.30
+          - mlflow==2.14.3
+          - azureml-mlflow==1.56.0
     ```
 
 #### Create and Configure *config.py* file
@@ -383,13 +388,13 @@ In this exercise, you will:
 
 ### Prepare dataset for fine-tuning
 
-In this exercise, you will run the *download_data.py* file to download the *wikitext* datasets to your local environment. You will then use this datasets to fine-tune the Phi-3 model in Azure Machine Learning.
+In this exercise, you will run the *download_dataset.py* file to download the *ULTRACHAT_200k* datasets to your local environment. You will then use this datasets to fine-tune the Phi-3 model in Azure Machine Learning.
 
 #### Download your dataset using *download_dataset.py*
 
-1. Open the *download_data.py* file in Visual Studio Code.
+1. Open the *download_dataset.py* file in Visual Studio Code.
 
-1. Add the following code into *download_data.py*.
+1. Add the following code into *download_dataset.py*.
 
     ```python
     import json
@@ -403,7 +408,7 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
         """
         Load and split a dataset.
         """
-        # Load the dataset with the specified name and configuration
+        # Load the dataset with the specified name, configuration, and split ratio
         dataset = load_dataset(dataset_name, config_name, split=split_ratio)
         print(f"Original dataset size: {len(dataset)}")
         
@@ -436,8 +441,8 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
         """
         Main function to load, split, and save the dataset.
         """
-        # Load and split the dataset with a specific configuration and split ratio
-        dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:3%]')
+        # Load and split the ULTRACHAT_200k dataset with a specific configuration and split ratio
+        dataset = load_and_split_dataset("HuggingFaceH4/ultrachat_200k", 'default', 'train_sft[:1%]')
         
         # Extract the train and test datasets from the split
         train_dataset = dataset['train']
@@ -460,7 +465,7 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
 >
 > If you want to use a CPU for fine-tuning, this approach is ideal for those with benefit subscriptions (such as Visual Studio Enterprise Subscription) or to quickly test the fine-tuning and deployment process.
 >
-> Replace `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:3%]')` with `dataset = load_and_split_dataset("wikitext", 'wikitext-2-v1', 'train[:10]')`
+> Replace `dataset = load_and_split_dataset("HuggingFaceH4/ultrachat_200k", 'default', 'train_sft[:1%]')` with `dataset = load_and_split_dataset("HuggingFaceH4/ultrachat_200k", 'default', 'train_sft[:10]')`
 >
 
 1. Type the following command inside your terminal to run the script and download the dataset to your local environment.
@@ -475,7 +480,7 @@ In this exercise, you will run the *download_data.py* file to download the *wiki
 >
 > **Dataset size and fine-tuning time**
 >
-> In this E2E sample, you use only 1% of the dataset (`split='train[:3%]'`). This significantly reduces the amount of data, speeding up both the upload and fine-tuning processes. You can adjust the percentage to find the right balance between training time and model performance. Using a smaller subset of the dataset reduces the time required for fine-tuning, making the process more manageable for a E2E sample.
+> In this E2E sample, you use only 1% of the dataset (`train_sft[:1%]`). This significantly reduces the amount of data, speeding up both the upload and fine-tuning processes. You can adjust the percentage to find the right balance between training time and model performance. Using a smaller subset of the dataset reduces the time required for fine-tuning, making the process more manageable for a E2E sample.
 
 ## Scenario 2: Fine-tune Phi-3 model and Deploy in Azure Machine Learning Studio
 
@@ -521,7 +526,7 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     import sys
     import logging
     import os
-    from datasets import Dataset
+    from datasets import load_dataset
     import torch
     import mlflow
     from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
@@ -530,8 +535,6 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     # To avoid the INVALID_PARAMETER_VALUE error in MLflow, disable MLflow integration
     os.environ["DISABLE_MLFLOW_INTEGRATION"] = "True"
 
-    logger = logging.getLogger(__name__)
-
     # Logging setup
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -539,107 +542,123 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
         handlers=[logging.StreamHandler(sys.stdout)],
         level=logging.WARNING
     )
+    logger = logging.getLogger(__name__)
 
-    # Model and tokenizer setup
-    pretrained_model_name = "microsoft/Phi-3-mini-4k-instruct"
-    model_kwargs = dict(
-        use_cache=False,
-        trust_remote_code=True,
-        torch_dtype=torch.bfloat16,
-        device_map=None,
-        attn_implementation="eager"
-    )
-
-    def initialize_model_and_tokenizer(pretrained_model_name, model_kwargs):
+    def initialize_model_and_tokenizer(model_name, model_kwargs):
         """
         Initialize the model and tokenizer with the given pretrained model name and arguments.
         """
-        model = AutoModelForCausalLM.from_pretrained(pretrained_model_name, **model_kwargs)
-        tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name)
+        model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
         tokenizer.model_max_length = 2048
         tokenizer.pad_token = tokenizer.unk_token
         tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
         tokenizer.padding_side = 'right'
         return model, tokenizer
 
-    def preprocess_function(examples, tokenizer):
+    def apply_chat_template(example, tokenizer):
         """
-        Preprocess function for tokenizing the dataset.
+        Apply a chat template to tokenize messages in the example.
         """
-        tokens = tokenizer(examples['text'], padding="max_length", truncation=True, max_length=512)
-        tokens['labels'] = tokens['input_ids'].copy()
-        return tokens
+        messages = example["messages"]
+        if messages[0]["role"] != "system":
+            messages.insert(0, {"role": "system", "content": ""})
+        example["text"] = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=False
+        )
+        return example
 
     def load_and_preprocess_data(train_filepath, test_filepath, tokenizer):
         """
         Load and preprocess the dataset.
         """
-        train_dataset = Dataset.from_json(train_filepath)
-        test_dataset = Dataset.from_json(test_filepath)
-        train_dataset = train_dataset.map(lambda examples: preprocess_function(examples, tokenizer), batched=True)
-        test_dataset = test_dataset.map(lambda examples: preprocess_function(examples, tokenizer), batched=True)
+        train_dataset = load_dataset('json', data_files=train_filepath, split='train')
+        test_dataset = load_dataset('json', data_files=test_filepath, split='train')
+        column_names = list(train_dataset.features)
+
+        train_dataset = train_dataset.map(
+            apply_chat_template,
+            fn_kwargs={"tokenizer": tokenizer},
+            num_proc=10,
+            remove_columns=column_names,
+            desc="Applying chat template to train dataset",
+        )
+
+        test_dataset = test_dataset.map(
+            apply_chat_template,
+            fn_kwargs={"tokenizer": tokenizer},
+            num_proc=10,
+            remove_columns=column_names,
+            desc="Applying chat template to test dataset",
+        )
+
         return train_dataset, test_dataset
+
+    def train_and_evaluate_model(train_dataset, test_dataset, model, tokenizer, output_dir):
+        """
+        Train and evaluate the model.
+        """
+        training_args = TrainingArguments(
+            bf16=True,
+            do_eval=True,
+            output_dir=output_dir,
+            eval_strategy="epoch",
+            learning_rate=5.0e-06,
+            logging_steps=20,
+            lr_scheduler_type="cosine",
+            num_train_epochs=3,
+            overwrite_output_dir=True,
+            per_device_eval_batch_size=4,
+            per_device_train_batch_size=4,
+            remove_unused_columns=True,
+            save_steps=500,
+            seed=0,
+            gradient_checkpointing=True,
+            gradient_accumulation_steps=1,
+            warmup_ratio=0.2,
+        )
+
+        trainer = SFTTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=test_dataset,
+            max_seq_length=2048,
+            dataset_text_field="text",
+            tokenizer=tokenizer,
+            packing=True
+        )
+
+        train_result = trainer.train()
+        trainer.log_metrics("train", train_result.metrics)
+
+        mlflow.transformers.log_model(
+            transformers_model={"model": trainer.model, "tokenizer": tokenizer},
+            artifact_path=output_dir,
+        )
+
+        tokenizer.padding_side = 'left'
+        eval_metrics = trainer.evaluate()
+        eval_metrics["eval_samples"] = len(test_dataset)
+        trainer.log_metrics("eval", eval_metrics)
 
     def main(train_file, eval_file, model_output_dir):
         """
         Main function to fine-tune the model.
         """
+        model_kwargs = {
+            "use_cache": False,
+            "trust_remote_code": True,
+            "torch_dtype": torch.bfloat16,
+            "device_map": None,
+            "attn_implementation": "eager"
+        }
+        pretrained_model_name = "microsoft/Phi-3-mini-4k-instruct"
+
         with mlflow.start_run():
             model, tokenizer = initialize_model_and_tokenizer(pretrained_model_name, model_kwargs)
             train_dataset, test_dataset = load_and_preprocess_data(train_file, eval_file, tokenizer)
-
-            # Fine-tuning settings
-            finetuning_settings = {
-                "bf16": True,
-                "do_eval": True,
-                "output_dir": model_output_dir,
-                "eval_strategy": "epoch",
-                "learning_rate": 1e-4,
-                "logging_steps": 20,
-                "lr_scheduler_type": "linear",
-                "num_train_epochs": 3,
-                "overwrite_output_dir": True,
-                "per_device_eval_batch_size": 4,
-                "per_device_train_batch_size": 4,
-                "remove_unused_columns": True,
-                "save_steps": 500,
-                "seed": 0,
-                "gradient_checkpointing": True,
-                "gradient_accumulation_steps": 1,
-                "warmup_ratio": 0.2,
-            }
-
-            training_args = TrainingArguments(
-                **finetuning_settings
-            )
-            trainer = SFTTrainer(
-                model=model,
-                args=training_args,
-                train_dataset=train_dataset,
-                eval_dataset=test_dataset,
-                max_seq_length=2048,
-                dataset_text_field="text",
-                tokenizer=tokenizer,
-                packing=True
-            )
-
-            train_result = trainer.train()
-
-            metrics = train_result.metrics
-
-            trainer.log_metrics("train", metrics)
-
-            mlflow.transformers.log_model(
-                transformers_model={"model": trainer.model, "tokenizer": tokenizer},
-                artifact_path=model_output_dir,  # This is a relative path to save model files within MLflow run
-            )
-
-            # Evaluation
-            tokenizer.padding_side = 'left'
-            metrics = trainer.evaluate()
-            metrics["eval_samples"] = len(test_dataset)
-            trainer.log_metrics("eval", metrics)
-
+            train_and_evaluate_model(train_dataset, test_dataset, model, tokenizer, model_output_dir)
 
     if __name__ == "__main__":
         parser = argparse.ArgumentParser()
@@ -681,8 +700,8 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     # CONDA_FILE = "conda.yml"
 
     # Uncomment the following lines to use a GPU instance for training
-    COMPUTE_INSTANCE_TYPE = "Standard_NC6s_v3"
-    COMPUTE_NAME = "gpu-nc6s-v3"
+    COMPUTE_INSTANCE_TYPE = "Standard_NC24ads_A100_v4"
+    COMPUTE_NAME = "gpu-nc24s-a100-v4"
     DOCKER_IMAGE_NAME = "mcr.microsoft.com/azureml/curated/acft-hf-nlp-gpu:59"
     CONDA_FILE = "conda.yml"
 
@@ -783,6 +802,7 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     if __name__ == "__main__":
         main()
 
+
     ```
 
 1. Replace `COMPUTE_INSTANCE_TYPE`, `COMPUTE_NAME`, and `LOCATION` with your specific details.
@@ -860,7 +880,7 @@ Running the *deploy_model.py* file automates the entire deployment process. It r
     from config import (
         AZURE_SUBSCRIPTION_ID,
         AZURE_RESOURCE_GROUP_NAME,
-        AZURE_WORKSPACE_NAME,
+        AZURE_ML_WORKSPACE_NAME,
         AZURE_MANAGED_IDENTITY_RESOURCE_ID,
         AZURE_MANAGED_IDENTITY_CLIENT_ID,
         AZURE_MODEL_NAME,
@@ -889,7 +909,7 @@ Running the *deploy_model.py* file automates the entire deployment process. It r
     def get_ml_client():
         """Initialize and return the ML Client."""
         credential = AzureCliCredential()
-        return MLClient(credential, AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP_NAME, AZURE_WORKSPACE_NAME)
+        return MLClient(credential, AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP_NAME, AZURE_ML_WORKSPACE_NAME)
 
     def register_model(ml_client, model_name, job_name):
         """Register a new model."""
