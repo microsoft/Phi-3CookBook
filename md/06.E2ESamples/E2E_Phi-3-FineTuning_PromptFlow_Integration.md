@@ -809,8 +809,8 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
 
     ```python
    # Uncomment the following lines to use a GPU instance for training
-    COMPUTE_INSTANCE_TYPE = "Standard_NC6s_v3"
-    COMPUTE_NAME = "gpu-nc6s-v3"
+    COMPUTE_INSTANCE_TYPE = "Standard_NC24ads_A100_v4"
+    COMPUTE_NAME = "gpu-nc24s-a100-v4"
     ...
     LOCATION = "eastus2" # Replace with the location of your compute cluster
     ```
