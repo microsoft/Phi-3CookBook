@@ -320,7 +320,7 @@ In this exercise, you will:
           - azure-identity~=1.16
           - accelerate~=0.30
           - mlflow==2.14.3
-          - azureml-mlflow==1.56.0 
+          - azureml-mlflow==1.56.0
     ```
 
 #### Create and Configure *config.py* file
@@ -400,6 +400,9 @@ In this exercise, you will run the *download_dataset.py* file to download the *U
     import json
     import os
     from datasets import load_dataset
+    from config import (
+        TRAIN_DATA_PATH,
+        TEST_DATA_PATH)
 
     def load_and_split_dataset(dataset_name, config_name, split_ratio):
         """
@@ -446,10 +449,10 @@ In this exercise, you will run the *download_dataset.py* file to download the *U
         test_dataset = dataset['test']
 
         # Save the train dataset to a JSONL file
-        save_dataset_to_jsonl(train_dataset, "data/train_data.jsonl")
+        save_dataset_to_jsonl(train_dataset, TRAIN_DATA_PATH)
         
         # Save the test dataset to a separate JSONL file
-        save_dataset_to_jsonl(test_dataset, "data/test_data.jsonl")
+        save_dataset_to_jsonl(test_dataset, TEST_DATA_PATH)
 
     if __name__ == "__main__":
         main()
@@ -529,7 +532,7 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
     from trl import SFTTrainer
 
-    # Avoid INVALID_PARAMETER_VALUE error in MLflow by disabling MLflow integration
+    # To avoid the INVALID_PARAMETER_VALUE error in MLflow, disable MLflow integration
     os.environ["DISABLE_MLFLOW_INTEGRATION"] = "True"
 
     # Logging setup
