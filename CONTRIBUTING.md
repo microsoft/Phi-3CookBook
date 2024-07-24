@@ -121,7 +121,7 @@ Once you have fixed the URLs, save and push your changes.
 
 > [!NOTE]
 >
->There may be cases where the URL check fails even though the link is accessible. This can happen for several reasons, including:
+> There may be cases where the URL check fails even though the link is accessible. This can happen for several reasons, including:
 >
 > - **Network restrictions:** GitHub actions servers may have network restrictions that prevent access to certain URLs.
 > - **Timeout issues:** URLs that take too long to respond may trigger a timeout error in the workflow.
