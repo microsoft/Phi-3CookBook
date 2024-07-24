@@ -32,6 +32,7 @@ Please check the installation guidance [here](https://github.com/Azure/kaito/blo
 ## Quick start Inference Phi-3
 [Sample Code Inference Phi-3](https://github.com/Azure/kaito/blob/main/examples/inference/kaito_workspace_phi_3.yaml)
 
+```
 apiVersion: kaito.sh/v1alpha1
 kind: Workspace
 metadata:
@@ -45,6 +46,7 @@ inference:
   preset:
     name: phi-3-mini-4k-instruct
     # Note: This configuration also works with the phi-3-mini-128k-instruct preset
+```
 
 ```sh
 $ cat examples/inference/kaito_workspace_phi_3.yaml
@@ -98,6 +100,7 @@ After installing Kaito, one can try following commands to start a inference serv
 
 [Sample Code Inference Phi-3 with Adapters](https://github.com/Azure/kaito/blob/main/examples/inference/kaito_workspace_phi_3_with_adapters.yaml)
 
+```
 apiVersion: kaito.sh/v1alpha1
 kind: Workspace
 metadata:
@@ -115,6 +118,7 @@ inference:
         name: "phi-3-adapter"
         image: "ACR_REPO_HERE.azurecr.io/ADAPTER_HERE:0.0.1"
       strength: "1.0"
+```
 
 ```sh
 $ cat examples/inference/kaito_workspace_phi_3_with_adapters.yaml

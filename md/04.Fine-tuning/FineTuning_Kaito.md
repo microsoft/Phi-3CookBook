@@ -33,6 +33,7 @@ Please check the installation guidance [here](https://github.com/Azure/kaito/blo
 
 After installing Kaito, one can try following commands to start a fine-tuning service.
 
+```
 apiVersion: kaito.sh/v1alpha1
 kind: Workspace
 metadata:
@@ -52,6 +53,7 @@ tuning:
   output:
     image: "ACR_REPO_HERE.azurecr.io/IMAGE_NAME_HERE:0.0.1" # Tuning Output ACR Path
     imagePushSecret: ACR_REGISTRY_SECRET_HERE
+```
 
 ```sh
 $ cat examples/fine-tuning/kaito_workspace_tuning_phi_3.yaml
