@@ -5,6 +5,7 @@ The Phi-3 models are the most capable and cost-effective Small Language Models(S
 The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. Each model is instruction-tuned and developed in accordance with Microsoft's Responsible AI, safety and security standards to ensure it's ready to use off-the-shelf. Phi-3-mini outperforms models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.
 
 ## Example of Phi-3 Tasks
+
 | | |
 |-|-|
 |Tasks|Phi-3|
@@ -66,11 +67,11 @@ We are introducing Phi Silica which is built from the Phi series of models and i
 - [Azure AI](https://ai.azure.com/explore/models?selectedCollection=phi)
 - [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) 
 
-## ONNX Models 
+## ONNX Models
 
 The primary difference between the two ONNX models, “cpu-int4-rtn-block-32” and “cpu-int4-rtn-block-32-acc-level-4”, is the accuracy level. The model with “acc-level-4” is designed to balance latency versus accuracy, with a minor trade-off in accuracy for better performance, which might be particularly suitable for mobile devices
 
-## Example of Model Selection 
+## Example of Model Selection
 
 | | | | |
 |-|-|-|-|
@@ -80,6 +81,3 @@ The primary difference between the two ONNX models, “cpu-int4-rtn-block-32” 
 |Self Patrol Car Camera|Vision analysis|Phi-Vision|Need a solution that can work on edge without internet|
 |Wants to build an AI based travel booking agent|Needs complex planning, function calling and orchestration|GPT models|Need ability to plan, call APIs to gather information and execute |
 |Wants to build a copilot for their employees|RAG, multiple domain, complex and open ended|GPT models|Open ended scenario, needs broader world knowledge, hence a larger model is more suited|
-
-
-

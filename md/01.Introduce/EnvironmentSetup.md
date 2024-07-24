@@ -1,4 +1,4 @@
-## Opening the project
+# Opening the project
 
 We have provided a Ollama Python Playground
 
@@ -26,7 +26,7 @@ This project is designed to be opened in GitHub Codespaces as an easy way for an
 You have a few options for getting started with this template.
 The quickest way to get started is GitHub Codespaces, since it will setup all the tools for you, but you can also [set it up locally](#local-environment).
 
-### GitHub Codespaces
+## GitHub Codespaces
 
 You can run this template virtually by using GitHub Codespaces. The button will open a web-based VS Code instance in your browser:
 
@@ -37,7 +37,7 @@ You can run this template virtually by using GitHub Codespaces. The button will 
 2. Open a terminal window
 3. Continue with the [deployment steps](#deployment)
 
-### VS Code Dev Containers
+## VS Code Dev Containers
 
 A related option is VS Code Dev Containers, which will open the project in your local VS Code using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 
@@ -49,7 +49,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 3. In the VS Code window that opens, once the project files show up (this may take several minutes), open a terminal window.
 4. Continue with the [deployment steps](#deployment)
 
-### Local Environment
+## Local Environment
 
 1. Make sure the following tools are installed:
 
