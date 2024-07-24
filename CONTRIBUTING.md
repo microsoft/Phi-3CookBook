@@ -35,7 +35,7 @@ When submitting a pull request (PR) to the Phi-3 CookBook repository, please use
 
 ### Translation Guidelines
 
-> **Important**
+> [!IMPORTANT]
 >
 > When translating text in this repository, do not use machine translation. Only volunteer for translations in languages where you are proficient.
 
@@ -105,3 +105,26 @@ This workflow ensures that any web URL doesn't include a country-specific locale
     - Remove the country locale from the URLs.
 
 Once you remove the country locale, save and push your changes.
+
+### Check Broken Urls
+
+This workflow ensures that any web URL in your files is working and returning 200 status code.
+
+1. To verify that your URLs are working correctly, perform the following tasks:
+    - Check the status of the URLs in your files.
+
+2. To fix any broken URLs, perform the following tasks:
+    - Open the file that contains the broken URL.
+    - Update the URL to the correct one.
+
+Once you have fixed the URLs, save and push your changes.
+
+> [!NOTE]
+>
+>There may be cases where the URL check fails even though the link is accessible. This can happen for several reasons, including:
+>
+> - **Network restrictions:** GitHub actions servers may have network restrictions that prevent access to certain URLs.
+> - **Timeout issues:** URLs that take too long to respond may trigger a timeout error in the workflow.
+> - **Temporary server issues:** Occasional server downtime or maintenance can make a URL temporarily unavailable during validation.
+
+If you encounter such issues, manually verify the URL and consider adding exceptions or handling special cases in your workflow.
