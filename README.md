@@ -46,6 +46,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Inference Phi-3 in Remote Server using AI Toolkit](./md/03.Inference/Remote_Interence.md)(✅)
   - [Inference Phi-3 with Rust](./md/03.Inference/Rust_Inference.md)(✅)
   - [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
+  - [Interence Phi-3 with Kaito AKS, Azure Containers(official support)](./md/03.Inference/Kaito_Inference.md)(✅)
 
 - [Fine-tuning Phi-3]()
   - [Downloading & Creating Sample Data Set](./md/04.Fine-tuning/CreatingSampleData.md)(✅)
@@ -62,6 +63,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Fine-tuning Phi-3-vision with Weights and Bias](./md/04.Fine-tuning/FineTuning_Phi-3-visionWandB.md)(✅)
   - [Fine-tuning Phi-3 with Apple MLX Framework](./md/04.Fine-tuning/FineTuning_MLX.md)(✅)
   - [Fine-tuning Phi-3-vision (official support)](./md/04.Fine-tuning/FineTuning_Vision.md)(✅)
+  - [Fine-Tuning Phi-3 with Kaito AKS , Azure Containers(official Support)](./md/04.Fine-tuning/FineTuning_Kaito.md)(✅)
 
 - [Evaluation Phi-3]()
   - [Introduction to Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
