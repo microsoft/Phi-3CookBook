@@ -1,5 +1,30 @@
 ## Fine Tuning Scenarios
 
+![FineTuning with MS Services](../../imgs/04/00/FinetuningwithMS.png)
+
+**Platform** This includes various technologies such as Azure AI Studio, Azure Machine Learning, AI Tools, Kaito, and ONNX Runtime. 
+
+**Infrastructure** This includes the CPU and FPGA, which are essential for the fine-tuning process. Let me show you the icons for each of these technologies.
+
+**Tools & Framework** This includes ONNX Runtime and ONNX Runtime. Let me show you the icons for each of these technologies.
+[Insert icons for ONNX Runtime and ONNX Runtime]
+
+The fine-tuning process with Microsoft technologies involves various components and tools. By understanding and utilizing these technologies, we can effectively fine-tune our applications and create better solutions. 
+
+## Model as Service
+
+Fine-tune the model using hosted fine-tuning, without the need to create and manage compute.
+
+![MaaS Fine Tuning](../../imgs/04/00/MaaSfinetune.png)
+
+## Model as a Platform 
+
+Users manage their own compute in order to Fine-tune their models.
+
+![Maap Fine Tuning](../../imgs/04/00/MaaPFinetune.png)
+
+## Fine Tuning Scenarios 
+
 | | | | | | | |
 |-|-|-|-|-|-|-|
 |Scenario|LoRA|QLoRA|PEFT|DeepSpeed|ZeRO|DORA|
