@@ -189,14 +189,14 @@ To fine-tune a Phi-3 model:
 
 1. Review your selections and proceed to train your model.
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md).
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md).
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
 To fine-tune a Phi-3 model:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Choose the model you want to fine-tune from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
+1. Choose the model you want to fine-tune from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models).
 
 1. On the model's **Details** page, select **fine-tune**.
 
@@ -224,7 +224,7 @@ To fine-tune a Phi-3 model:
 
 1. Review your selections and proceed to train your model.
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md).
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](./deploy-models-phi3.md).
 
 ## Cleaning up your fine-tuned models 
 
@@ -237,17 +237,17 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Phi-3 models fine-tuned as a service
 
-Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](./deploy-models-phi3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
+Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/concepts/content-filtering.md).
 
 **Fine-Tuning Configuration**
 
 Hyperparameters: Define hyperparameters such as learning rate, batch size, and number of training epochs.
 
-**Loss Function** 
+**Loss Function**
 
 Choose an appropriate loss function for your task (e.g., cross-entropy).
 
@@ -260,20 +260,20 @@ Select an optimizer (e.g., Adam) for gradient updates during training.
 - Load Pre-Trained Model: Load the Phi-3 Mini checkpoint.
 - Add Custom Layers: Add task-specific layers (e.g., classification head for chat instructions).
 
-**Train the Model** 
+**Train the Model**
 Fine-tune the model using your prepared dataset. Monitor training progress and adjust hyperparameters as needed.
 
 **Evaluation and Validation**
 
 Validation Set: Split your data into training and validation sets.
 
-**Evaluate Performance** 
+**Evaluate Performance**
 
 Use metrics like accuracy, F1-score, or perplexity to assess model performance.
 
 ## Save Fine-Tuned Model
 
-**Checkpoint** 
+**Checkpoint**
 Save the fine-tuned model checkpoint for future use.
 
 ## Deployment
@@ -295,4 +295,3 @@ Custom Tasks: Phi-3 Mini can be fine-tuned for various tasks beyond chat instruc
 Experiment: Try different architectures, layer combinations, and techniques to enhance performance.
 
 ***Note***: Fine-tuning is an iterative process. Experiment, learn, and adapt your model to achieve the best results for your specific task! 
-
