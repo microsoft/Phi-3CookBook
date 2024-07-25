@@ -59,3 +59,13 @@ Cost and quota considerations for Phi-3 models deployed as serverless APIs
 You can find the pricing information on the Pricing and terms tab of the deployment wizard when deploying the model.
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+
+## Additional Resources 
+
+### Deploy models as serverless APIs
+
+MaaS Models as a Service For details on [MaaS Deployment](https://learn.microsoft.com//azure/ai-studio/how-to/deploy-models-serverless?tabs=azure-ai-studio?WT.mc_id=aiml-137032-kinfeylo)
+
+### How to deploy Phi-3 family of small language models with Azure Machine Learning studio or Azure AI Studio
+
+Maap Models as a Platform for details on [MaaP Deployment](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-models-phi-3?view=azureml-api-2&tabs=phi-3-mini)
