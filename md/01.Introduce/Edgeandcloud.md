@@ -1,9 +1,8 @@
-## Phi-3 Models & Availability across platforms 
+# Phi-3 Models & Availability across platforms 
 
-### Edge & Cloud Scenarios
+## Edge & Cloud Scenarios
 
 ![EdgeCloud](../../imgs/00/phiedgecloud.png)
-
 
 ## Model Availability and Resources
 

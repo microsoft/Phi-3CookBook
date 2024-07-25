@@ -88,6 +88,9 @@ In this E2E sample, you will use the *Standard_NC24ads_A100_v4 GPU* for fine-tun
     - Inside the Request quota page, enter the **New cores limit** you'd like to use. For example, 24.
     - Inside the Request quota page, select **Submit** to request the GPU quota.
 
+> [!NOTE]
+> You can select the appropriate GPU or CPU for your needs by referring to [Sizes for Virtual Machines in Azure](https://learn.microsoft.com/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) document.
+
 ### Add role assignment
 
 To fine-tune and deploy your models, you must first create a User Assigned Managed Identity (UAI) and assign it the appropriate permissions. This UAI will be used for authentication during deployment
@@ -809,8 +812,8 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
 
     ```python
    # Uncomment the following lines to use a GPU instance for training
-    COMPUTE_INSTANCE_TYPE = "Standard_NC6s_v3"
-    COMPUTE_NAME = "gpu-nc6s-v3"
+    COMPUTE_INSTANCE_TYPE = "Standard_NC24ads_A100_v4"
+    COMPUTE_NAME = "gpu-nc24s-a100-v4"
     ...
     LOCATION = "eastus2" # Replace with the location of your compute cluster
     ```

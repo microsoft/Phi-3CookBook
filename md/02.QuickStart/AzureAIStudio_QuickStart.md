@@ -9,26 +9,34 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses and 
 We can quickly deploy the Phi-3 model on Azure AI Studio through simple steps, and then use Azure AI Studio to complete Phi-3 related Playground/Chat, Fine-tuning, evaluation and other related work.
 
 ## **1. Preparation**
+
 ## [AZD AI Studio Starter Template](https://azure.github.io/awesome-azd/?name=AI+Studio)
- 
+
 ### Azure AI Studio Starter
+
 This is Bicep template that deploys everything you need to get started with Azure AI Studio. Includes AI Hub with dependent resources, AI project, AI Services and an online endpoint
 
 ### Quick Use
+
 If you already have the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview?WT.mc_id=aiml-138114-kinfeylo) installed on your machine, using this template is as simple as running this command in a new directory.
 
 ### Terminal Command
+
 ```bash
 azd init -t azd-aistudio-starter
 ```
+
 Or
 If using the azd VS Code extension you can paste this URL in the VS Code command terminal.
 
 ### Terminal URL
-```
+
+```bash
 azd-aistudio-starter
 ```
+
 ## Manual Creation
+
 Create Azure AI Studio on [Azure Portal](https://portal.azure.com?WT.mc_id=aiml-138114-kinfeylo)
 
 ![portal](../../imgs/02/AIStudio/ai-studio-portal.png)
@@ -45,7 +53,6 @@ There can be multiple projects on one AI Studio. Create a project in AI Studio t
 
 ![proj](../../imgs/02/AIStudio/ai-studio-proj.png)
 
-
 ## **2. Deploy the Phi-3 model in Azure AI Studio**
 
 Click the Explore option of the project to enter the Model Catalog and select Phi-3
@@ -58,8 +65,9 @@ Select Phi-3-mini-4k-instruct
 
 Click 'Deploy' to deploy the Phi-3-mini-4k-instruct model
 
-***Note***:  You can select computing power when deploying
-
+> [!NOTE]
+>
+> You can select computing power when deploying
 
 ## **3. Playground Chat Phi-3 in Azure AI Studio**
 
@@ -67,8 +75,8 @@ Go to the deployment page, select Playground, and chat with Phi-3 of Azure AI St
 
 ![chat](../../imgs/02/AIStudio/ai-studio-chat.png)
 
-
 ## **4. Deploying the Model from Azure AI Studio**
+
 To deploy a model from the Azure Model Catalog, you can follow these steps:
 
 - Sign in to Azure AI Studio.
@@ -81,7 +89,8 @@ To deploy a model from the Azure Model Catalog, you can follow these steps:
 - You can return to the Deployments page, select the deployment, and note the endpoint's Target URL and the Secret Key, which you can use to call the deployment and generate completions.
 - You can always find the endpoint's details, URL, and access keys by navigating to the Build tab and selecting Deployments from the Components section.
 
-**Please note that your account must have the Azure AI Developer role permissions on the Resource Group to perform these steps**
+> [!NOTE]
+> Please note that your account must have the Azure AI Developer role permissions on the Resource Group to perform these steps.
 
 ## **5. Using Phi-3 API in Azure AI Studio**
 
@@ -96,25 +105,3 @@ such as access score api
 You can get the request parameters very conveniently, as well as the response parameters. This is Postman result
 
 ![result](../../imgs/02/AIStudio/ai-studio-result.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

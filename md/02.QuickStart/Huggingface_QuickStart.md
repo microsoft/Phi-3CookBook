@@ -23,7 +23,6 @@ There is a specific data template when training Phi-3, so when using Phi-3, send
 
 The template has three roles, including system, user, and assistant.
 
-
 ```txt
 
 <|system|>
@@ -36,7 +35,6 @@ Your Question?<|end|>
 
 such as
 
-
 ```txt
 
 <|system|>
@@ -46,7 +44,6 @@ Help me generate a bubble algorithm<|end|>
 <|assistant|>
 
 ```
-
 
 ## **3. Inferences Phi-3 with Python**
 
@@ -59,7 +56,6 @@ The Phi-3 models are available on platforms like Azure AI MaaS, HuggingFace, NVI
 There are many ways to reference Phi-3. You can use different programming languages to reference the model.
 
 Here is an example in Python.
-
 
 ```python
 
@@ -100,7 +96,8 @@ print(output[0]['generated_text'])
 
 ```
 
-*You can see if this result is consistent with the result in your mind*
+> [!NOTE]
+> You can see if this result is consistent with the result in your mind
 
 ## **4. Inferences Phi-3 with C#**
 
@@ -108,7 +105,7 @@ Here is an example in a .NET Console application.
 
 The C# project must add the following packages:
 
-```
+```bash
 dotnet add package Microsoft.ML.OnnxRuntime --version 1.18.0
 dotnet add package Microsoft.ML.OnnxRuntimeGenAI --version 0.3.0-rc2
 dotnet add package Microsoft.ML.OnnxRuntimeGenAI.Cuda --version 0.3.0-rc2
@@ -174,15 +171,8 @@ The running demo is similar to this one:
 
 ***Note:** there is a typo in the 1st question, Phi-3 is cool enough to share the correct answer!*
 
-
-
 ## **5. Using Phi-3 in Hugging Face Chat**
 
-Hugging Face chat provides related experience. Enter https://aka.ms/try-phi3-hf-chat in your browser to experience it.
+Hugging Face chat provides related experience. Enter [here to try Phi-3 chat](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct) in your browser to experience it.
 
 ![Hg_Chat](../../imgs/02/Huggingface/Hg_Chat.png)
-
-
-
-
-

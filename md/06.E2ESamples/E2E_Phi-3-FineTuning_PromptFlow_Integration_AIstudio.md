@@ -286,7 +286,7 @@ In this exercise, you will:
 
 1. Open the *download_dataset.py* file in Visual Studio Code.
 
-1. Add the following code into *download_dataset.py*.
+1. Add the following code into *download_dataset.py* file.
 
     ```python
     import json
@@ -684,7 +684,7 @@ You need to integrate the fine-tuned Phi-3 model into a Prompt flow. However, th
 
     - Select **Raw file mode**.
     - Delete all existing code in the *flow.dag.yml* file.
-    - Add the folling code to *flow.dag.yml*.
+    - Add the following code to *flow.dag.yml* file.
 
         ```yml
         inputs:
@@ -711,7 +711,7 @@ You need to integrate the fine-tuned Phi-3 model into a Prompt flow. However, th
 
     ![Select raw file mode.](../../imgs/03/FineTuning-PromptFlow-AIStudio/08-15-select-raw-file-mode.png)
 
-1. Add the following code to *integrate_with_promptflow.py* to use the custom Phi-3 model in Prompt flow.
+1. Add the following code to *integrate_with_promptflow.py* file to use the custom Phi-3 model in Prompt flow.
 
     ```python
     import logging
