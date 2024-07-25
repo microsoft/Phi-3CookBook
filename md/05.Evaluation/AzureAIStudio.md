@@ -6,6 +6,9 @@ How to evaluate your generative AI application using [Azure AI Studio](https://a
 
 ![aistudo](../../imgs/05/AIStudio/AIPortfolio.png)
 
+## How to evaluate generative AI apps with Azure AI Studio
+For more details instruction see the [Azure AI Studio Documentation](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app?WT.mc_id=aiml-138114-kinfeylo)
+
 Here are the steps to get started:
 
 ## Evaluating Generative AI Models in Azure AI Studio
@@ -40,3 +43,4 @@ After running the evaluation, log, view, and analyze detailed evaluation metrics
 
 
 **Note** Azure AI Studio is currently in public preview, so use it for experimentation and development purposes. For production workloads, consider other options. Explore the official [AI Studio documentation](https://learn.microsoft.com/azure/ai-studio/?WT.mc_id=aiml-138114-kinfeylo) for more details and step-by-step instructions. 
+
