@@ -12,7 +12,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/microsoft/phi-3cookbook.svg?style=social&label=Fork)](https://GitHub.com/microsoft/phi-3cookbook/network/?WT.mc_id=aiml-137032-kinfeylo)
 [![GitHub stars](https://img.shields.io/github/stars/microsoft/phi-3cookbook?style=social&label=Star)](https://GitHub.com/microsoft/phi-3cookbook/stargazers/?WT.mc_id=aiml-137032-kinfeylo)
 
-[![](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
+[![Azure AI Community Discord](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
 
 Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. For more detailed information about Microsoft's Phi-3 family, please visit the [Welcome to the Phi-3 Family](/md/01.Introduce/Phi3Family.md) page.
 
@@ -20,7 +20,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 
 ## Table of Contents
 
-- [Introduction]()
+- Introduction
   - [Setting up your environment](./md/01.Introduce/EnvironmentSetup.md)(✅)
   - [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
   - [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
@@ -28,7 +28,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Phi-3 Hardware Support](./md/01.Introduce/Hardwaresupport.md)(✅)
   - [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md)(✅)
 
-- [Quick Start]()
+- Quick Start
   - [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
   - [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)(✅)
   - [Using Phi-3 Model Inference with Azure MaaS or MaaP](./md/02.QuickStart/AzureModel_Inference.md)(✅)
@@ -48,7 +48,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Inference Phi-3-Vision in Local](./md/03.Inference/Vision_Inference.md)(✅)
   - [Interence Phi-3 with Kaito AKS, Azure Containers(official support)](./md/03.Inference/Kaito_Inference.md)(✅)
 
-- [Fine-tuning Phi-3]()
+- Fine-tuning Phi-3
   - [Downloading & Creating Sample Data Set](./md/04.Fine-tuning/CreatingSampleData.md)(✅)
   - [Fine-tuning Scenarios](./md/04.Fine-tuning/FineTuning_Scenarios.md)(✅)
   - [Fine-tuning vs RAG](./md/04.Fine-tuning/FineTuning_vs_RAG.md)(✅)
@@ -65,12 +65,12 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Fine-tuning Phi-3-vision (official support)](./md/04.Fine-tuning/FineTuning_Vision.md)(✅)
   - [Fine-Tuning Phi-3 with Kaito AKS , Azure Containers(official Support)](./md/04.Fine-tuning/FineTuning_Kaito.md)(✅)
 
-- [Evaluation Phi-3]()
+- Evaluation Phi-3
   - [Introduction to Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
   - [Introduction to Promptflow](./md/05.Evaluation/Promptflow.md)(✅)
   - [Introduction to Azure AI Studio for evaluation](./md/05.Evaluation/AzureAIStudio.md)(✅)
 
-- [E2E Samples for Phi-3-mini]()
+- E2E Samples for Phi-3-mini
   - [Introduction to End to End Samples](./md/06.E2ESamples/E2E_Introduction.md)(✅)
   - [Prepare your industry data](./md/06.E2ESamples/E2E_Datasets.md)(✅)
   - [Use Microsoft Olive to architect your projects](./md/06.E2ESamples/E2E_LoRA&QLoRA_Config_With_Olive.md)(✅)
@@ -82,12 +82,12 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration.md)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow in Azure AI Studio](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration_AIstudio.md)(✅)
 
-- [E2E Samples for Phi-3-vision]()
+- E2E Samples for Phi-3-vision
   - [Phi-3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
   - [Phi-3-vision CLIP Embedding](./md/06.E2ESamples/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
 
-- [Labs and workshops samples Phi-3]()
+- Labs and workshops samples Phi-3
   - [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
   - [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family](./md/07.Labs/VSCode/README.md)(✅)
   - [Phi-3 ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
