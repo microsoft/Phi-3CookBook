@@ -224,7 +224,7 @@ To fine-tune a Phi-3 model:
 
 1. Review your selections and proceed to train your model.
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](./deploy-models-phi3.md).
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md).
 
 ## Cleaning up your fine-tuned models 
 
