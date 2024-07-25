@@ -89,7 +89,7 @@ In this E2E sample, you will use the *Standard_NC24ads_A100_v4 GPU* for fine-tun
     - Inside the Request quota page, select **Submit** to request the GPU quota.
 
 > [!NOTE]
-> You can refer to the [Sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) document to select the appropriate GPU or CPU for your needs.
+> You can select the appropriate GPU or CPU for your needs by referring to [Sizes for Virtual Machines in Azure](https://learn.microsoft.com/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) document.
 
 ### Add role assignment
 
