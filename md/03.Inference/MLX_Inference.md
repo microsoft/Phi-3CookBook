@@ -53,7 +53,7 @@ We can test the model quantized with MLX from terminal
 
 ```bash
 
-python -m mlx_lm.convert --hf-path microsoft/Phi-3-mini-4k-instruct
+python -m mlx_lm.generate --model ./mlx_model/ --max-token 2048 --prompt  "<|user|>\nCan you introduce yourself<|end|>\n<|assistant|>"
 
 ```
 
