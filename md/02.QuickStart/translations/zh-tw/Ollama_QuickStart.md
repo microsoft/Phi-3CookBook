@@ -119,7 +119,7 @@ client = openai.OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="phi3"
+    model="phi3",
     temperature=0.7,
     n=1,
     messages=[
