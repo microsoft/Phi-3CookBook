@@ -105,10 +105,16 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 
 ### Phi-3 on Azure AI Studio
 
-You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai)
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Studio, Azure AI Model Catalog](https://aka.ms/phi3-azure-ai) you can learn more at Getting Started with [Azure AI Studio](/md/02.QuickStart/AzureAIStudio_QuickStart.md)
 
 **Playground**
 Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
+
+### Phi-3 on GitHub Models
+You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [GitHub Model Catalog](https://github.com/marketplace/models?WT.mc_id=aiml-137032-kinfeylo) you can learn more at Getting Started with [GitHub Model Catalog](/md/02.QuickStart/GitHubModel_QuickStart.md)
+
+**Playground**
+Each model has a dedicated [playground to test the model](/md/02.QuickStart/GitHubModel_QuickStart.md).
 
 ### Phi-3 on Hugging Face
 
