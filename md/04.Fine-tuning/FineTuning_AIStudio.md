@@ -114,21 +114,21 @@ Fine-tuning of Phi-3 models is currently supported in projects located in East U
 
 - An Azure subscription. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 
-    > **Note**
-    > For Phi-3 family models, the pay-as-you-go model fine-tune offering is only available with hubs created in **East US 2** regions.
-
 - An [AI Studio project](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
+
+> [!NOTE]
+> For Phi-3 family models, the pay-as-you-go model fine-tune offering is only available with hubs created in **East US 2** regions.
 
 ### Subscription provider registration
 
 Verify the subscription is registered to the `Microsoft.Network` resource provider.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions** from the left menu.
 1. Select the subscription you want to use.
 1. Select **AI project settings** > **Resource providers** from the left menu.
 1. Confirm that **Microsoft.Network** is in the list of resource providers. Otherwise add it.
-
 
 ### Data preparation
 
