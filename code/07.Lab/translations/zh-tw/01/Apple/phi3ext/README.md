@@ -8,7 +8,7 @@
 
 例如，如果在擴展專案工作區下有一個圖像子資料夾:
 
-![feature X](images/feature-x.png)
+\!\[feature X\]\(images/feature-x.png\)
 
 > 提示: 許多流行的擴充功能利用動畫。這是一個展示你擴充功能的絕佳方式! 我們建議使用簡短、專注且易於跟隨的動畫。
 
