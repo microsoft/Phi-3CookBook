@@ -1,7 +1,7 @@
 ﻿## 提到的關鍵技術包括:
 
 1. [DirectML](https://learn.microsoft.com/windows/ai/directml/dml?WT.mc_id=aiml-138114-kinfeylo) - 一個基於 DirectX 12 建構的硬體加速機器學習低階 API。
-2. [CUDA](https://blogs.nvidia.com/blog/what-is-cuda-2/) - 一個由 Nvidia 開發的平行運算平台和應用程式介面（API）模型，允許在圖形處理單元（GPU）上進行通用處理。
+2. [CUDA](https://blogs.nvidia.com/blog/what-is-cuda-2) - 一個由 Nvidia 開發的平行運算平台和應用程式介面（API）模型，允許在圖形處理單元（GPU）上進行通用處理。
 3. [ONNX](https://onnx.ai/) (Open Neural Network Exchange) - 一個設計用來表示機器學習模型的開放格式，提供不同 ML 框架之間的互操作性。
 4. [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) (Generic Graph Update Format) - 一種用於表示和更新機器學習模型的格式，特別適用於能在 CPU 上有效執行的小型語言模型，支援 4-8bit 量化。
 
