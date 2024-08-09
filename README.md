@@ -81,6 +81,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Multi Model - Interactive Phi-3-mini and OpenAI Whisper](./md/06.E2ESamples/E2E_Phi-3-mini_with_whisper.md)(✅)
   - [WebGPU and Phi-3-mini - Phi-3-mini provides the user with a private (and powerful) chatbot experience. You can try it out](https://huggingface.co/spaces/Xenova/experimental-phi3-webgpu)(✅)
   - [MLFlow - Building a wrapper and using Phi-3 with MLFlow](./md/06.E2ESamples/E2E_Phi-3-MLflow.md)(✅)
+  - [Model Optimization - How to optimize Phi-3-min model for ONNX Runtime Web with Olive] (https://github.com/microsoft/Olive/tree/main/examples/phi3)(✅)
   - [WinUI3 App with Phi-3 mini-4k-instruct-onnx](https://github.com/microsoft/Phi3-Chat-WinUI3-Sample/)(✅)
   - [WinUI3 Multi Model AI Powered Notes App Sample](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration.md)(✅)
