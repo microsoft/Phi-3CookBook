@@ -315,7 +315,7 @@ In this exercise, you will:
           - torch~=2.0
           - torchvision~=0.18
           - trl==0.8.6
-          - transformers~=4.41
+          - transformers==4.41
           - datasets~=2.19
           - azureml-core~=1.30
           - azure-storage-blob==12.19
