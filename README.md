@@ -31,13 +31,17 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 - Quick Start
   - [Using Phi-3 in GitHub Model Catalog](./md/02.QuickStart/GitHubModel_QuickStart.md)(✅)
   - [Using Phi-3 in Hugging face](./md/02.QuickStart/Huggingface_QuickStart.md)(✅)
+  - [Using Phi-3 with OpenAI SDK](./md/02.QuickStart/OpenAISDK_Quickstart.md)(✅)
+  - [Using Phi-3 with Http Requests](./md/02.QuickStart/HttpAPI_QuickStart.md)(✅)
   - [Using Phi-3 in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_QuickStart.md)(✅)
   - [Using Phi-3 Model Inference with Azure MaaS or MaaP](./md/02.QuickStart/AzureModel_Inference.md)(✅)
   - [Deploying Phi-3 models as serverless APIs in Azure AI Studio](./md/02.QuickStart/AzureAIStudio_MaaS.md)(✅)
   - [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
   - [Using Phi-3 in LM Studio](./md/02.QuickStart/LMStudio_QuickStart.md)(✅)
   - [Using Phi-3 in AI Toolkit VSCode](./md/02.QuickStart/AITookit_QuickStart.md)(✅)
-  - [Using Phi-3 and LiteLLM]()
+  - [Using Phi-3 and LiteLLM](./md/02.QuickStart/LiteLLM_QuickStart.md(✅)
+  
+
 
 - [Inference Phi-3](./md/03.Inference/overview.md)  
   - [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
