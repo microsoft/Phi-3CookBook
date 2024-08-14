@@ -39,7 +39,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Using Phi-3 in Ollama](./md/02.QuickStart/Ollama_QuickStart.md)(✅)
   - [Using Phi-3 in LM Studio](./md/02.QuickStart/LMStudio_QuickStart.md)(✅)
   - [Using Phi-3 in AI Toolkit VSCode](./md/02.QuickStart/AITookit_QuickStart.md)(✅)
-  - [Using Phi-3 and LiteLLM](./md/02.QuickStart/LiteLLM_QuickStart.md(✅)
+  - [Using Phi-3 and LiteLLM](./md/02.QuickStart/LiteLLM_QuickStart.md)(✅)
   
 
 
