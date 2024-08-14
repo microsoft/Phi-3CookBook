@@ -53,7 +53,7 @@
 
 确保你已经阅读了扩展指南并遵循创建扩展的最佳实践。
 
-* [扩展指南](https://code.visualstudio.com/api/references/extension-guidelines)
+* [扩展指南](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
 
 ## Working with Markdown
 
@@ -65,7 +65,7 @@
 
 ## For more information
 
-* [Visual Studio Code 的 Markdown 支持](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code 的 Markdown 支持](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Markdown 语法参考](https://help.github.com/articles/markdown-basics/)
 
 **享受吧！**

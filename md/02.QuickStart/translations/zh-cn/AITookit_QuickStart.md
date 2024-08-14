@@ -21,7 +21,7 @@ AI Toolkit Preview可以在本地运行。根据您选择的模型，某些任�
 
 ### 安装 AI Toolkit 
 
-AI Toolkit 作为 [Visual Studio Code 扩展](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions) 进行分发, 因此您需要首先安装 [VS Code](https://code.visualstudio.com/docs/setup/windows) , 然后从 [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) 下载 AI Toolkit。
+AI Toolkit 作为 [Visual Studio Code 扩展](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions) 进行分发, 因此您需要首先安装 [VS Code](https://code.visualstudio.com/docs/setup/windows?WT.mc_id=aiml-137032-kinfeylo) , 然后从 [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) 下载 AI Toolkit。
 AI Toolkit 可在 Visual Studio Marketplace 中找到，并可像安装其他 VS Code 扩展一样进行安装[AI Toolkit is available in the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) 。
 
 如果您不熟悉如何安装 VS Code 扩展，请按照以下步骤操作:

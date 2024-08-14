@@ -5,9 +5,9 @@ There is a selection of labs that showcases how to integrate the powerful differ
 ## Prerequisites
 Before running the sample, ensure you have the following installed:
 
-**.NET 8:** Make sure you have the [latest version of .NET](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine.
+**.NET 8:** Make sure you have the [latest version of .NET](https://dotnet.microsoft.com/download/dotnet/8.0?WT.mc_id=aiml-137032-kinfeylo) installed on your machine.
 
-**(Optional) Visual Studio or Visual Studio Code:** You will need an IDE or code editor capable of running .NET projects. [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) are recommended.
+**(Optional) Visual Studio or Visual Studio Code:** You will need an IDE or code editor capable of running .NET projects. [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo) are recommended.
 
 **Using git** clone locally one of the available Phi-3 versions from [Hugging Face](https://huggingface.co).
 

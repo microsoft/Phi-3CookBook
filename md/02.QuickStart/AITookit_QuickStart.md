@@ -10,7 +10,7 @@ If you run remotely the cloud resource needs to have GPU, please make sure to ch
 
 ## Getting Started
 
-[Learn more how to install Windows subsystem for Linux](https://learn.microsoft.com/windows/wsl/install)
+[Learn more how to install Windows subsystem for Linux](https://learn.microsoft.com/windows/wsl/install?WT.mc_id=aiml-137032-kinfeylo)
 
 and [changing default distribution](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed).
 
@@ -22,7 +22,7 @@ and [changing default distribution](https://learn.microsoft.com/windows/wsl/inst
 
 ### Install AI Toolkit
 
-AI Toolkit is shipped as a [Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions), so you need to install [VS Code](https://code.visualstudio.com/docs/setup/windows) first, and download AI Toolkit from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio).
+AI Toolkit is shipped as a [Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions), so you need to install [VS Code](https://code.visualstudio.com/docs/setup/windows?WT.mc_id=aiml-137032-kinfeylo) first, and download AI Toolkit from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio).
 The [AI Toolkit is available in the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) and can be installed like any other VS Code extension. 
 
 If you're unfamiliar with installing VS Code extensions, follow these steps:

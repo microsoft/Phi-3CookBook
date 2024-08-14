@@ -41,6 +41,6 @@
 
 ## 更进一步
 
-* 通过[打包你的扩展](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)来减少扩展大小并提高启动时间。
-* 在 VS Code 扩展市场上[发布你的扩展](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)。
-* 通过设置[持续集成](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)来自动化构建。
+* 通过[打包你的扩展](https://code.visualstudio.com/api/working-with-extensions/bundling-extension?WT.mc_id=aiml-137032-kinfeylo)来减少扩展大小并提高启动时间。
+* 在 VS Code 扩展市场上[发布你的扩展](https://code.visualstudio.com/api/working-with-extensions/publishing-extension?WT.mc_id=aiml-137032-kinfeylo)。
+* 通过设置[持续集成](https://code.visualstudio.com/api/working-with-extensions/continuous-integration?WT.mc_id=aiml-137032-kinfeylo)来自动化构建。

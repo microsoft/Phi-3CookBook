@@ -6,9 +6,9 @@
 
 在运行示例之前，请确保你已安装以下内容：
 
-**.NET 8:** 确保你已经在你的机器上安装了[最新版本的.NET](https://dotnet.microsoft.com/download/dotnet/8.0)。
+**.NET 8:** 确保你已经在你的机器上安装了[最新版本的.NET](https://dotnet.microsoft.com/download/dotnet/8.0?WT.mc_id=aiml-137032-kinfeylo)。
 
-**（可选）Visual Studio或Visual Studio Code:** 你将需要一个能够运行.NET项目的IDE或代码编辑器。推荐使用[Visual Studio](https://visualstudio.microsoft.com/)或[Visual Studio Code](https://code.visualstudio.com/)。
+**（可选）Visual Studio或Visual Studio Code:** 你将需要一个能够运行.NET项目的IDE或代码编辑器。推荐使用[Visual Studio](https://visualstudio.microsoft.com/)或[Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo)。
 
 **使用git** 从[Hugging Face](https://huggingface.co)本地克隆一个可用的Phi-3版本。
 
