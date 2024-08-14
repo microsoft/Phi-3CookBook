@@ -95,6 +95,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [DEMO: Phi-3 Recycling](https://github.com/jennifermarsman/PhiRecycling/)(✅)
   - [Phi-3-vision - Visual language assistant with Phi3-Vision and OpenVINO](https://docs.openvino.ai/nightly/notebooks/phi-3-vision-with-output.html)(✅)
   - [Phi-3 Vision Nvidia NIM](/md/06.E2ESamples/E2E_Nvidia_NIM_Vision.md)(✅)
+  - [Phi-3 Vision OpenVino](/md/06.E2ESamples/E2E_OpenVino_Phi3Vision.md)(✅)
 
 
 - Labs and workshops samples Phi-3
