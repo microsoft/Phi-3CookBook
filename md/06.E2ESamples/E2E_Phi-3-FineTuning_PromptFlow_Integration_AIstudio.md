@@ -565,7 +565,7 @@ In this exercise, you will:
 
 You need to create a Hub before creating the Project. A Hub acts like a Resource Group, allowing you to organize and manage multiple Projects within Azure AI Studio.
 
-1. Visit [Azure AI Studio](https://ai.azure.com/?wt.mc_id=studentamb_279723).
+1. Visit [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 
 1. Select **All hubs** from the left side tab.
 
@@ -606,7 +606,7 @@ To integrate your custom Phi-3 model with Prompt flow, you need to save the mode
 
 #### Set api key and endpoint uri of the fine-tuned Phi-3 model
 
-1. Visit [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
+1. Visit [Azure ML Studio](https://ml.azure.com/home?WT.mc_id=aiml-137032-kinfeylo).
 
 1. Navigate to the Azure Machine learning workspace that you created.
 
@@ -626,7 +626,7 @@ To integrate your custom Phi-3 model with Prompt flow, you need to save the mode
 
 #### Add the Custom Connection
 
-1. Visit [Azure AI Studio](https://ai.azure.com/?wt.mc_id=studentamb_279723).
+1. Visit [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 
 1. Navigate to the Azure AI Studio project that you created.
 
