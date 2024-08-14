@@ -98,7 +98,7 @@ Phi-3 已經過多次測試，確保其延展性和品質。
 
 確保您已閱讀擴充功能指南，並遵循最佳實踐來建立您的擴充功能。
 
-* [擴充指導方針](https://code.visualstudio.com/api/references/extension-guidelines)
+* [擴充指導方針](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
 
 ## 使用 Markdown
 
@@ -110,7 +110,7 @@ Phi-3 已經過多次測試，確保其延展性和品質。
 
 ## 更多資訊
 
-* [Visual Studio Code 的 Markdown 支援](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code 的 Markdown 支援](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Markdown 語法參考](https://help.github.com/articles/markdown-basics/)
 
 **享受吧!**

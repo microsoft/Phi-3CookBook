@@ -159,7 +159,7 @@ print(cat.speak())  # 輸出: Meow!
 
 確保您已閱讀擴充功能指南並遵循建立擴充功能的最佳實踐。
 
-* [擴充指導方針](https://code.visualstudio.com/api/references/extension-guidelines)
+* [擴充指導方針](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
 
 ## 使用 Markdown
 
@@ -171,7 +171,7 @@ print(cat.speak())  # 輸出: Meow!
 
 ## 更多資訊
 
-* [Visual Studio Code 的 Markdown 支援](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code 的 Markdown 支援](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Markdown 語法參考](https://help.github.com/articles/markdown-basics/)
 
 **享受吧!**
