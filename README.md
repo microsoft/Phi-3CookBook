@@ -89,7 +89,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow in Azure AI Studio](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration_AIstudio.md)(✅)
 
 - E2E Samples for Phi-3-vision
-  - [Phi-3-vision-Image text to text](./md/06.E2ESamples/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
+  - [Phi-3-vision-Image text to text](./code/06.E2E/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
   - [Phi-3-vision-ONNX](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
   - [Phi-3-vision CLIP Embedding](./md/06.E2ESamples/E2E_Phi-3-Embedding_Images_with_CLIPVision.md)(✅)
   - [DEMO: Phi-3 Recycling](https://github.com/jennifermarsman/PhiRecycling/)(✅)
