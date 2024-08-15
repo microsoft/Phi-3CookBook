@@ -49,4 +49,4 @@ curl -X POST https://api.example.com/v1/chat/completions \
 
 See Sample [Http Connections and Streaming](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/phi-3/webrequests.ipynb)
 
-Review the [documentation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-Phi-3) for the Phi-3 family of models at for AI Studio and for ML Studio for details on how to provision inference endpoints, regional availability, pricing and inference schema reference.
+Review the [documentation](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?WT.mc_id=aiml-137032-kinfeylo&tabs=phi-3-mini&pivots=programming-language-rest) for the Phi-3 family of models at for AI Studio and for ML Studio for details on how to provision inference endpoints, regional availability, pricing and inference schema reference.
