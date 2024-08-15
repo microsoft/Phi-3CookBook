@@ -58,4 +58,4 @@ This will generate a short story based on the prompt provided. You can adjust th
 
 [See A complete Notebook Sample for Phi-3 Models](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/phi-3/openaisdk.ipynb)
 
-Review the [documentation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-phi3) for the Phi-3 family of models at for AI Studio and for ML Studio for details on how to provision inference endpoints, regional availability, pricing and inference schema reference.
+Review the [documentation](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?WT.mc_id=aiml-137032-kinfeylo) for the Phi-3 family of models at for AI Studio and for ML Studio for details on how to provision inference endpoints, regional availability, pricing and inference schema reference.
