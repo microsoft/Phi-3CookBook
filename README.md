@@ -92,7 +92,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [WinUI3 Multi Model AI Powered Notes App Sample](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration.md)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow in Azure AI Studio](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration_AIstudio.md)(✅)
-  - [Phi-3-mini-instruct language prediction sample (Chinese/English)](./code/09.UpdateSamples/Aug/phi3-instruct-demo.ipynb)(✅)
+  - [Phi-3.5-mini-instruct language prediction sample (Chinese/English)](./code/09.UpdateSamples/Aug/phi3-instruct-demo.ipynb)(✅)
 
 - E2E Samples for Phi-3-vision
   - [Phi-3-vision-Image text to text](./code/06.E2E/E2E_Phi-3-vision-image-text-to-text-online-endpoint.ipynb)(✅)
@@ -102,10 +102,10 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
   - [Phi-3-vision - Visual language assistant with Phi3-Vision and OpenVINO](https://docs.openvino.ai/nightly/notebooks/phi-3-vision-with-output.html)(✅)
   - [Phi-3 Vision Nvidia NIM](/md/06.E2ESamples/E2E_Nvidia_NIM_Vision.md)(✅)
   - [Phi-3 Vision OpenVino](/md/06.E2ESamples/E2E_OpenVino_Phi3Vision.md)(✅)
-  - [Phi-3 Vision multi-frame or multi-image sample](./code/09.UpdateSamples/Aug/phi3-vision-demo.ipynb)(✅)
+  - [Phi-3.5 Vision multi-frame or multi-image sample](./code/09.UpdateSamples/Aug/phi3-vision-demo.ipynb)(✅)
 
-- E2E Samples for Phi-3-MoE
-  - [Phi-3 Mixture of Experts Models (MoEs) Social Media Sample](./code/09.UpdateSamples/Aug/phi3_moe_demo.ipynb)(✅)
+- E2E Samples for Phi-3.5-MoE
+  - [Phi-3.5 Mixture of Experts Models (MoEs) Social Media Sample](./code/09.UpdateSamples/Aug/phi3_moe_demo.ipynb)(✅)
 
 - Labs and workshops samples Phi-3
   - [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
