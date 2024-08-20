@@ -1,5 +1,5 @@
 """
-example for finetuning Phi-3-V on the Hateful Memes dataset using the Hugging Face Trainer API
+example for finetuning Phi-3-V on the NLVR2 dataset using the Hugging Face Trainer API
 Modified from Idefics-2 finetuning notebook:
 https://colab.research.google.com/drive/1rm3AGquGEYXfeeizE40bbDtcWh5S4Nlq?usp=sharing
 
@@ -11,7 +11,7 @@ Install dependencies:
         Levenshtein \
         deepspeed==0.13.1
 minimal run:
-    torchrun --nproc_per_node=4 finetune_hf_trainer_hateful_memes.py
+    torchrun --nproc_per_node=4 finetune_hf_trainer_nlvr2.py
 """
 import argparse
 import json
@@ -60,15 +60,18 @@ DS_CONFIG_DICT = {
 }
 
 
+IGNORE_INDEX = -100
+
+
 def create_dataset(eval_size=500):
     """
-    Hateful Memes dataset from the Hugging Face Hub
+    NLVR2 dataset from the Hugging Face Hub
     """
     train_dataset = load_dataset(
-        'HuggingFaceM4/the_cauldron', 'hateful_memes', split=f'train[{eval_size}:]'
+        'HuggingFaceM4/the_cauldron', 'nlvr2', split=f'train[{eval_size}:]'
     )
     eval_dataset = load_dataset(
-        'HuggingFaceM4/the_cauldron', 'hateful_memes', split=f'train[:{eval_size}]'
+        'HuggingFaceM4/the_cauldron', 'nlvr2', split=f'train[:{eval_size}]'
     )
 
     return train_dataset, eval_dataset
@@ -136,45 +139,75 @@ class DataCollator:
         self.processor = processor
 
     def __call__(self, examples):
-        assert len(examples) == 1, 'Phi-3-V only supports batch_size == 1'
-        example = examples[0]
-        image = example['images'][0]
-        text_dict = example['texts'][0]
+        all_input_ids = []
+        all_label_ids = []
+        all_pixel_values = []
+        all_image_sizes = []
+        for example in examples:
+            assert len(example['images']) == 2, 'NLVR2 dataset should have 2 images'
+            image_1 = example['images'][0]
+            image_2 = example['images'][1]
+            ex_input_ids = []
+            ex_label_ids = []
+            for i, text_dict in enumerate(example['texts']):
+                question = text_dict['user']
+                answer = text_dict['assistant']
+                prompt_message = {
+                    'role': 'user',
+                    'content': f'<|image_1|><|image_2|>\n{question}' if i == 0 else question,
+                }
 
-        question = text_dict['user']
-        answer = text_dict['assistant']
-        prompt_message = {
-            'role': 'user',
-            'content': f'<|image_1|>\n{question}',
+                prompt = self.processor.tokenizer.apply_chat_template(
+                    [prompt_message], tokenize=False, add_generation_prompt=True
+                )
+                answer = f'{answer}<|end|>\n<|endoftext|>'
+
+                # mask questions for labels
+                images = [image_1, image_2] if i == 0 else None
+                inputs = self.processor(prompt, images, return_tensors='pt')
+                prompt_input_ids = inputs['input_ids']
+                # Do not add bos token to answer
+                answer_input_ids = self.processor.tokenizer(
+                    answer, add_special_tokens=False, return_tensors='pt'
+                )['input_ids']
+
+                ex_input_ids.extend([prompt_input_ids, answer_input_ids])
+                ex_label_ids.extend(
+                    [
+                        torch.tensor([IGNORE_INDEX] * len(prompt_input_ids[0])),
+                        answer_input_ids.squeeze(0),
+                    ]
+                )
+
+                if i == 0:
+                    all_pixel_values.append(inputs['pixel_values'])
+                    all_image_sizes.append(inputs['image_sizes'])
+
+            input_ids = torch.cat(ex_input_ids, dim=1)
+            labels = torch.cat(ex_label_ids, dim=0)
+
+            # prepare expected shape for pad_sequence
+            all_input_ids.append(input_ids.squeeze(0).unsqueeze(1))
+            all_label_ids.append(labels.unsqueeze(1))
+
+        input_ids = torch._C._nn.pad_sequence(
+            all_input_ids, batch_first=True, padding_value=self.processor.tokenizer.pad_token_id
+        ).squeeze(2)
+        labels = torch._C._nn.pad_sequence(
+            all_label_ids, batch_first=True, padding_value=IGNORE_INDEX
+        ).squeeze(2)
+        attention_mask = input_ids.ne(self.processor.tokenizer.pad_token_id)
+        pixel_values = torch.cat(all_pixel_values, dim=0)
+        image_sizes = torch.cat(all_image_sizes, dim=0)
+
+        inputs = {
+            'input_ids': input_ids,
+            'attention_mask': attention_mask,
+            'labels': labels,
+            'pixel_values': pixel_values,
+            'image_sizes': image_sizes,
         }
-
-        prompt = self.processor.tokenizer.apply_chat_template(
-            [prompt_message], tokenize=False, add_generation_prompt=True
-        )
-        answer = f'{answer}<|end|>\n<|endoftext|>'
-
-        # mask questions for labels
-        batch = self.processor(prompt, [image], return_tensors='pt')
-        prompt_input_ids = batch['input_ids']
-        # Do not add bos token to answer
-        answer_input_ids = self.processor.tokenizer(
-            answer, add_special_tokens=False, return_tensors='pt'
-        )['input_ids']
-        input_ids = torch.cat([prompt_input_ids, answer_input_ids], dim=1)
-        ignore_index = -100
-        labels = torch.cat(
-            [
-                torch.tensor([ignore_index] * len(prompt_input_ids[0])).unsqueeze(0),
-                answer_input_ids,
-            ],
-            dim=1,
-        )
-
-        batch['input_ids'] = input_ids
-        del batch['attention_mask']
-        batch['labels'] = labels
-
-        return batch
+        return inputs
 
 
 @torch.no_grad()
@@ -191,8 +224,10 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
     for i in tqdm(range(len(eval_dataset_shard)), disable=(rank != 0) or disable_tqdm):
         # Phi-3-V currently only supports batch_size == 1
         example = eval_dataset_shard[i]
-        image = example['images'][0]
-        text_dict = example['texts'][0]
+        assert len(example['images']) == 2, 'NLVR2 dataset should have 2 images'
+        image_1 = example['images'][0]
+        image_2 = example['images'][1]
+        text_dict = example['texts'][0]  # only consider first question for evaluation
 
         answer = text_dict['assistant']
         answers_unique.append(answer)
@@ -200,14 +235,16 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
         question = text_dict['user']
         prompt_message = {
             'role': 'user',
-            'content': f'<|image_1|>\n{question}',
+            'content': f'<|image_1|><|image_2|>\n{question}',
         }
 
         prompt = processor.tokenizer.apply_chat_template(
             [prompt_message], tokenize=False, add_generation_prompt=True
         )
 
-        inputs = processor(prompt, [image], return_tensors='pt').to(f'cuda:{local_rank}')
+        inputs = processor(prompt, [image_1, image_2], return_tensors='pt').to(
+            f'cuda:{local_rank}'
+        )
 
         generated_ids = model.generate(
             **inputs, eos_token_id=processor.tokenizer.eos_token_id, max_new_tokens=64
@@ -281,6 +318,12 @@ def main():
     parser.add_argument('--use_qlora', action='store_true', help='Use QLora')
     parser.add_argument('--output_dir', type=str, default='./output/', help='Output directory')
     parser.add_argument('--batch_size', type=int, default=16, help='Batch size')
+    parser.add_argument(
+        '--batch_size_per_gpu',
+        type=int,
+        default=1,
+        help='Batch size per GPU (adjust this to fit in GPU memory)',
+    )
     parser.add_argument('--num_crops', type=int, default=16, help='Number of maximum image crops')
     parser.add_argument(
         '--num_train_epochs', type=int, default=1, help='Number of training epochs'
@@ -299,6 +342,8 @@ def main():
     assert args.num_crops <= 16, 'num_crops must be less than or equal to 16'
     if args.use_qlora:
         args.use_lora = True
+    if args.use_flash_attention:
+        args.bf16 = True
 
     accelerator = Accelerator()
 
@@ -316,8 +361,10 @@ def main():
 
     num_gpus = accelerator.num_processes
     print(f'training on {num_gpus} GPUs')
-    assert args.batch_size % num_gpus == 0, 'Batch size must be divisible by the number of GPUs'
-    gradient_accumulation_steps = args.batch_size // num_gpus
+    assert (
+        args.batch_size % (num_gpus * args.batch_size_per_gpu) == 0
+    ), 'Batch size must be divisible by the number of GPUs'
+    gradient_accumulation_steps = args.batch_size // (num_gpus * args.batch_size_per_gpu)
     if args.bf16:
         fp16 = False
         bf16 = True
@@ -328,10 +375,9 @@ def main():
     # hard coded training args
     training_args = TrainingArguments(
         num_train_epochs=args.num_train_epochs,
-        per_device_train_batch_size=1,  # NOTE currently only supports batch_size == 1
-        per_device_eval_batch_size=1,
+        per_device_train_batch_size=args.batch_size_per_gpu,
         gradient_checkpointing=True,
-        gradient_checkpointing_kwargs={'use_reentrant': False},  # NOTE important for LoRA
+        gradient_checkpointing_kwargs={'use_reentrant': False},
         gradient_accumulation_steps=gradient_accumulation_steps,
         optim='adamw_torch',
         adam_beta1=0.9,

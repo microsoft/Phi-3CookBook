@@ -1,6 +1,6 @@
-# Phi-3-V finetuning recipe
+# Phi-3.5-vision finetuning recipe
 
-This is the official support of Phi-3-V finetuning using huggingface libraries.
+This is the official support of Phi-3.5-vision finetuning using huggingface libraries.
 Please `cd` to the code directory [vision_finetuning](/code/04.Finetuning/vision_finetuning) before running the following commands.
 
 ## Installation
@@ -34,10 +34,83 @@ Minimal hardware tested on 4x RTX8000 (48GB RAM per GPU)
 torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 ```
 
+Phi-3.5-vision now officially support multi-image inputs. Here's an example for finetuning NLVR2
+```bash
+torchrun --nproc_per_node=8 finetune_hf_trainer_nlvr2.py
+```
+
 ## Usage guide
 Depending on the hardware, users may choose different finetuning strategies. We support
 full-finetuning (with Deepspeed Zero-2) with optionally frozen vision parameters, and LoRA (including 4bit QLoRA).
 In general, we recommend using full finetuning with flash attention and bf16 whenever possible.
+
+### guide for converting your custom dataset to the required format
+
+We use a minimum video classification dataset (a subset of UCF-101) as an end-to-end example to demonstrate how to convert your custom dataset to the required format and fine-tune Phi-3.5-vision on it.
+
+```bash
+# convert data
+python convert_ucf101.py --out_dir /path/to/converted_ucf101
+
+# training
+torchrun --nproc_per_node=4 finetune_hf_trainer_ucf101.py --data_dir /path/to/converted_ucf101
+```
+
+The converted data will look like this:
+```
+> tree --filelimit=10 /path/to/converted_ucf101
+/path/to/converted_ucf101
+├── images
+│   ├── test
+│   │   ├── ApplyEyeMakeup [48 entries exceeds filelimit, not opening dir]
+│   │   ├── ApplyLipstick [32 entries exceeds filelimit, not opening dir]
+│   │   ├── Archery [56 entries exceeds filelimit, not opening dir]
+│   │   ├── BabyCrawling [72 entries exceeds filelimit, not opening dir]
+│   │   ├── BalanceBeam [32 entries exceeds filelimit, not opening dir]
+│   │   ├── BandMarching [72 entries exceeds filelimit, not opening dir]
+│   │   ├── BaseballPitch [80 entries exceeds filelimit, not opening dir]
+│   │   ├── Basketball [88 entries exceeds filelimit, not opening dir]
+│   │   ├── BasketballDunk [48 entries exceeds filelimit, not opening dir]
+│   │   └── BenchPress [72 entries exceeds filelimit, not opening dir]
+│   ├── train
+│   │   ├── ApplyEyeMakeup [240 entries exceeds filelimit, not opening dir]
+│   │   ├── ApplyLipstick [240 entries exceeds filelimit, not opening dir]
+│   │   ├── Archery [240 entries exceeds filelimit, not opening dir]
+│   │   ├── BabyCrawling [240 entries exceeds filelimit, not opening dir]
+│   │   ├── BalanceBeam [240 entries exceeds filelimit, not opening dir]
+│   │   ├── BandMarching [240 entries exceeds filelimit, not opening dir]
+│   │   ├── BaseballPitch [240 entries exceeds filelimit, not opening dir]
+│   │   ├── Basketball [240 entries exceeds filelimit, not opening dir]
+│   │   ├── BasketballDunk [240 entries exceeds filelimit, not opening dir]
+│   │   └── BenchPress [240 entries exceeds filelimit, not opening dir]
+│   └── val
+│       ├── ApplyEyeMakeup [24 entries exceeds filelimit, not opening dir]
+│       ├── ApplyLipstick [24 entries exceeds filelimit, not opening dir]
+│       ├── Archery [24 entries exceeds filelimit, not opening dir]
+│       ├── BabyCrawling [24 entries exceeds filelimit, not opening dir]
+│       ├── BalanceBeam [24 entries exceeds filelimit, not opening dir]
+│       ├── BandMarching [24 entries exceeds filelimit, not opening dir]
+│       ├── BaseballPitch [24 entries exceeds filelimit, not opening dir]
+│       ├── Basketball [24 entries exceeds filelimit, not opening dir]
+│       ├── BasketballDunk [24 entries exceeds filelimit, not opening dir]
+│       └── BenchPress [24 entries exceeds filelimit, not opening dir]
+├── ucf101_test.jsonl
+├── ucf101_train.jsonl
+└── ucf101_val.jsonl
+
+34 directories, 3 files
+```
+
+
+For the `jsonl` annotation, each line should be a dictionary like:
+```json
+{"id": "val-0000000300", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g21_c04.0.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.1.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.2.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.3.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.4.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.5.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.6.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
+{"id": "val-0000000301", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g09_c06.0.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.1.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.2.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.3.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.4.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.5.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.6.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
+```
+
+Note that `conversations` is a list, thus multi-turn conversation can be supported if such data is
+available.
+
 
 ## Requesting Azure GPU Quota 
 
@@ -132,8 +205,31 @@ torchrun --nproc_per_node=2 \
 
 
 ## Suggested hyperparameters and expected accuracy
+### NLVR2
+```bash
+torchrun --nproc_per_node=4 \
+  finetune_hf_trainer_nlvr2.py \
+  --bf16 --use_flash_attention \
+  --batch_size 64 \
+  --output_dir <output_dir> \
+  --learning_rate <lr> \
+  --num_train_epochs <epochs>
 
-### DocVQA
+```
+
+
+Training method | Frozen vision model | data type | LoRA rank | LoRA alpha | batch size | learning rate | epochs | Accuracy
+--- | --- | --- | --- | --- | --- | --- | --- | --- |
+full-finetuning |  |bf16 | - | - | 64 | 1e-5 | 3 | 89.40 |
+full-finetuning | &#x2714; |bf16 | - | - | 64 | 2e-5 | 2 | 89.20 |
+LoRA results comming soon |  |  |  |  |  |  |  |  |
+
+
+### NOTE
+The Below DocVQA and Hateful memes results are based on the previous version (Phi-3-vision).
+The new results with Phi-3.5-vision will be updated soon.
+
+### DocVQA (NOTE: Phi-3-vision)
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_docvqa.py \
@@ -159,7 +255,7 @@ QLoRA | bf16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 QLoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 
 
-### Hateful memes
+### Hateful memes (NOTE: Phi-3-vision)
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_hateful_memes.py \
@@ -184,7 +280,9 @@ QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 |
 
 
 
-## Speed benchmarking
+## Speed benchmarking (NOTE: Phi-3-vision)
+
+New benchmarking results with Phi-3.5-vision will be updated soon.
 
 Speed benchmarking is performed on the DocVQA dataset. The average sequence length of this dataset
 is 2443.23 tokens (using `num_crops=16` for the image model).
