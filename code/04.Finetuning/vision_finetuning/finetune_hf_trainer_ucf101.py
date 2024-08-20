@@ -1,5 +1,5 @@
 """
-example for finetuning Phi-3-V on the Hateful Memes dataset using the Hugging Face Trainer API
+example for finetuning Phi-3-V on UCF-101 video classification using the Hugging Face Trainer API
 Modified from Idefics-2 finetuning notebook:
 https://colab.research.google.com/drive/1rm3AGquGEYXfeeizE40bbDtcWh5S4Nlq?usp=sharing
 
@@ -11,7 +11,7 @@ Install dependencies:
         Levenshtein \
         deepspeed==0.13.1
 minimal run:
-    torchrun --nproc_per_node=4 finetune_hf_trainer_hateful_memes.py
+    torchrun --nproc_per_node=4 finetune_hf_trainer_ucf101.py
 """
 import argparse
 import json
@@ -21,7 +21,6 @@ from pathlib import Path
 import torch
 from accelerate import Accelerator
 from accelerate.utils import gather_object
-from datasets import load_dataset
 from peft import LoraConfig
 from tqdm import tqdm
 from transformers import (
@@ -31,6 +30,8 @@ from transformers import (
     Trainer,
     TrainingArguments,
 )
+
+from phi3v_dataset import Phi3VDataCollator, Phi3VDataset, Phi3VEvalDataCollator, Phi3VEvalDataset
 
 # suggested deepspeed config
 DS_CONFIG_DICT = {
@@ -60,15 +61,20 @@ DS_CONFIG_DICT = {
 }
 
 
-def create_dataset(eval_size=500):
+def create_dataset(data_dir, processor):
     """
-    Hateful Memes dataset from the Hugging Face Hub
+    UCF-101 dataset from preprocessed folder
     """
-    train_dataset = load_dataset(
-        'HuggingFaceM4/the_cauldron', 'hateful_memes', split=f'train[{eval_size}:]'
+    data_path = Path(data_dir)
+    train_dataset = Phi3VDataset(
+        jsonl_file=str(data_path / 'ucf101_train.jsonl'),
+        image_dir=str(data_path / 'images'),
+        processor=processor,
     )
-    eval_dataset = load_dataset(
-        'HuggingFaceM4/the_cauldron', 'hateful_memes', split=f'train[:{eval_size}]'
+    eval_dataset = Phi3VEvalDataset(
+        jsonl_file=str(data_path / 'ucf101_val.jsonl'),
+        image_dir=str(data_path / 'images'),
+        processor=processor,
     )
 
     return train_dataset, eval_dataset
@@ -131,54 +137,10 @@ def create_model(model_name_or_path, use_flash_attention=False, use_qlora=False)
     return model
 
 
-class DataCollator:
-    def __init__(self, processor):
-        self.processor = processor
-
-    def __call__(self, examples):
-        assert len(examples) == 1, 'Phi-3-V only supports batch_size == 1'
-        example = examples[0]
-        image = example['images'][0]
-        text_dict = example['texts'][0]
-
-        question = text_dict['user']
-        answer = text_dict['assistant']
-        prompt_message = {
-            'role': 'user',
-            'content': f'<|image_1|>\n{question}',
-        }
-
-        prompt = self.processor.tokenizer.apply_chat_template(
-            [prompt_message], tokenize=False, add_generation_prompt=True
-        )
-        answer = f'{answer}<|end|>\n<|endoftext|>'
-
-        # mask questions for labels
-        batch = self.processor(prompt, [image], return_tensors='pt')
-        prompt_input_ids = batch['input_ids']
-        # Do not add bos token to answer
-        answer_input_ids = self.processor.tokenizer(
-            answer, add_special_tokens=False, return_tensors='pt'
-        )['input_ids']
-        input_ids = torch.cat([prompt_input_ids, answer_input_ids], dim=1)
-        ignore_index = -100
-        labels = torch.cat(
-            [
-                torch.tensor([ignore_index] * len(prompt_input_ids[0])).unsqueeze(0),
-                answer_input_ids,
-            ],
-            dim=1,
-        )
-
-        batch['input_ids'] = input_ids
-        del batch['attention_mask']
-        batch['labels'] = labels
-
-        return batch
-
-
 @torch.no_grad()
-def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False):
+def evaluate(
+    model, processor, eval_dataset, save_path=None, disable_tqdm=False, eval_batch_size=1
+):
     rank = int(os.environ.get('RANK', 0))
     local_rank = int(os.environ.get('LOCAL_RANK', 0))
     world_size = int(os.environ.get('WORLD_SIZE', 1))
@@ -187,42 +149,39 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
     answers_unique = []
     generated_texts_unique = []
 
-    eval_dataset_shard = eval_dataset.shard(num_shards=world_size, index=rank)
-    for i in tqdm(range(len(eval_dataset_shard)), disable=(rank != 0) or disable_tqdm):
-        # Phi-3-V currently only supports batch_size == 1
-        example = eval_dataset_shard[i]
-        image = example['images'][0]
-        text_dict = example['texts'][0]
-
-        answer = text_dict['assistant']
-        answers_unique.append(answer)
-
-        question = text_dict['user']
-        prompt_message = {
-            'role': 'user',
-            'content': f'<|image_1|>\n{question}',
-        }
-
-        prompt = processor.tokenizer.apply_chat_template(
-            [prompt_message], tokenize=False, add_generation_prompt=True
+    eval_dataset_shard = eval_dataset.shard(world_size, rank)
+    eval_dataloader = torch.utils.data.DataLoader(
+        eval_dataset_shard,
+        batch_size=eval_batch_size,
+        collate_fn=Phi3VEvalDataCollator(processor.tokenizer.pad_token_id),
+        shuffle=False,
+        drop_last=False,
+        num_workers=4,
+        prefetch_factor=2,
+        pin_memory=True,
+    )
+    for batch in tqdm(eval_dataloader, disable=(rank != 0) or disable_tqdm):
+        unique_ids = batch.pop('unique_ids')
+        answers = batch.pop('answers')
+        answers_unique.extend(
+            {'id': i, 'answer': a.strip().strip('.').lower()} for i, a in zip(unique_ids, answers)
         )
 
-        inputs = processor(prompt, [image], return_tensors='pt').to(f'cuda:{local_rank}')
-
+        inputs = {k: v.to(f'cuda:{local_rank}') for k, v in batch.items()}
         generated_ids = model.generate(
             **inputs, eos_token_id=processor.tokenizer.eos_token_id, max_new_tokens=64
         )
 
+        input_len = inputs['input_ids'].size(1)
         generated_texts = processor.batch_decode(
-            generated_ids[:, inputs['input_ids'].size(1) :],
+            generated_ids[:, input_len:],
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False,
         )
-        generated_texts_unique.extend(generated_texts)
-
-    # strip whitespace, period and then lowercase
-    generated_texts_unique = [g.strip().strip('.').lower() for g in generated_texts_unique]
-    answers_unique = [a.strip().strip('.').lower() for a in answers_unique]
+        generated_texts_unique.extend(
+            {'id': i, 'generated_text': g.strip().strip('.').lower()}
+            for i, g in zip(unique_ids, generated_texts)
+        )
 
     # gather outputs from all ranks
     answers_unique = gather_object(answers_unique)
@@ -230,9 +189,10 @@ def evaluate(model, processor, eval_dataset, save_path=None, disable_tqdm=False)
 
     if rank == 0:
         assert len(answers_unique) == len(generated_texts_unique)
-        acc = sum(a == g for a, g in zip(answers_unique, generated_texts_unique)) / len(
-            answers_unique
-        )
+        acc = sum(
+            a['answer'] == g['generated_text']
+            for a, g in zip(answers_unique, generated_texts_unique)
+        ) / len(answers_unique)
         if save_path:
             with open(save_path, 'w') as f:
                 save_dict = {
@@ -275,13 +235,25 @@ def main():
         default='microsoft/Phi-3.5-vision-instruct',
         help='Model name or path to load from',
     )
+    parser.add_argument('--data_dir', type=str, required=True, help='Path to UCF-101 dataset')
     parser.add_argument('--use_flash_attention', action='store_true', help='Use Flash Attention')
     parser.add_argument('--bf16', action='store_true', help='Use BF16')
     parser.add_argument('--use_lora', action='store_true', help='Use LoRA')
     parser.add_argument('--use_qlora', action='store_true', help='Use QLora')
     parser.add_argument('--output_dir', type=str, default='./output/', help='Output directory')
     parser.add_argument('--batch_size', type=int, default=16, help='Batch size')
-    parser.add_argument('--num_crops', type=int, default=16, help='Number of maximum image crops')
+    parser.add_argument(
+        '--batch_size_per_gpu',
+        type=int,
+        default=1,
+        help='Batch size per GPU (adjust this to fit in GPU memory)',
+    )
+    parser.add_argument(
+        '--num_crops',
+        type=int,
+        default=4,
+        help='Number of maximum image crops (For videos the default is 4 to reduce memory usage)',
+    )
     parser.add_argument(
         '--num_train_epochs', type=int, default=1, help='Number of training epochs'
     )
@@ -299,6 +271,8 @@ def main():
     assert args.num_crops <= 16, 'num_crops must be less than or equal to 16'
     if args.use_qlora:
         args.use_lora = True
+    if args.use_flash_attention:
+        args.bf16 = True
 
     accelerator = Accelerator()
 
@@ -312,12 +286,14 @@ def main():
             use_qlora=args.use_qlora,
         )
 
-    train_dataset, eval_dataset = create_dataset()
+    train_dataset, eval_dataset = create_dataset(args.data_dir, processor)
 
     num_gpus = accelerator.num_processes
     print(f'training on {num_gpus} GPUs')
-    assert args.batch_size % num_gpus == 0, 'Batch size must be divisible by the number of GPUs'
-    gradient_accumulation_steps = args.batch_size // num_gpus
+    assert (
+        args.batch_size % (num_gpus * args.batch_size_per_gpu) == 0
+    ), 'Batch size must be divisible by the number of GPUs'
+    gradient_accumulation_steps = args.batch_size // (num_gpus * args.batch_size_per_gpu)
     if args.bf16:
         fp16 = False
         bf16 = True
@@ -328,10 +304,9 @@ def main():
     # hard coded training args
     training_args = TrainingArguments(
         num_train_epochs=args.num_train_epochs,
-        per_device_train_batch_size=1,  # NOTE currently only supports batch_size == 1
-        per_device_eval_batch_size=1,
+        per_device_train_batch_size=args.batch_size_per_gpu,
         gradient_checkpointing=True,
-        gradient_checkpointing_kwargs={'use_reentrant': False},  # NOTE important for LoRA
+        gradient_checkpointing_kwargs={'use_reentrant': False},
         gradient_accumulation_steps=gradient_accumulation_steps,
         optim='adamw_torch',
         adam_beta1=0.9,
@@ -357,8 +332,7 @@ def main():
         dataloader_prefetch_factor=2,
         ddp_find_unused_parameters=False,
     )
-
-    data_collator = DataCollator(processor)
+    data_collator = Phi3VDataCollator(pad_token_id=processor.tokenizer.pad_token_id)
 
     # eval before fine-tuning
     out_path = Path(training_args.output_dir)
@@ -373,6 +347,7 @@ def main():
         eval_dataset,
         save_path=out_path / 'eval_before.json',
         disable_tqdm=not args.tqdm,
+        eval_batch_size=args.batch_size_per_gpu,
     )
     if accelerator.is_main_process:
         print(f'Accuracy before finetuning: {acc}')
@@ -448,6 +423,7 @@ def main():
         eval_dataset,
         save_path=out_path / 'eval_after.json',
         disable_tqdm=not args.tqdm,
+        eval_batch_size=args.batch_size_per_gpu,
     )
     if rank == 0:
         print(f'Accuracy after finetuning: {acc}')

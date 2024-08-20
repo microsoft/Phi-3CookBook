@@ -348,7 +348,7 @@ def main():
     parser.add_argument(
         '--model_name_or_path',
         type=str,
-        default='microsoft/Phi-3-vision-128k-instruct',
+        default='microsoft/Phi-3.5-vision-instruct',
         help='Model name or path to load from',
     )
     parser.add_argument(
