@@ -26,6 +26,23 @@ Phi-3-mini is a Transformer-based language model with 3.8 billion parameters. It
 
 ![phi3modelminibenchmark128k](../../imgs/01/phi3minibenchmark128.png)
 
+## Phi-3.5-mini-instruct 
+
+Phi-3.5 mini is a lightweight, state-of-the-art open model built upon datasets used for Phi-3 - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data. The model belongs to the Phi-3 model family and supports 128K token context length. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+Phi-3.5 Mini has 3.8B parameters and is a dense decoder-only Transformer model using the same tokenizer as Phi-3 Mini.
+
+![phi3miniinstruct](../../imgs/01/phi3miniinstructbenchmark.png)
+
+Overall, the model with only 3.8B-param achieves a similar level of multilingual language understanding and reasoning ability as much larger models. However, it is still fundamentally limited by its size for certain tasks. The model simply does not have the capacity to store too much factual knowledge, therefore, users may experience factual incorrectness. However, we believe such weakness can be resolved by augmenting Phi-3.5 with a search engine, particularly when using the model under RAG settings.
+
+### Language Support 
+
+The table below highlights multilingual capability of the Phi-3 on multilingual MMLU, MEGA, and multilingual MMLU-pro datasets. Overall, we observed that even with just 3.8B active parameters, the model is very competitive on multilingual tasks in comparison to other models with a much bigger active parameters.
+
+![phi3minilanguagesupport](../../imgs/01/phi3miniinstructlanguagesupport.png)
+
+
 ## Phi-3-small
 
 Phi-3-small, a 7B parameter language model, available in two context lengths [128K](https://ai.azure.com/explore/models/Phi-3-small-128k-instruct/version/2/registry/azureml) and [8K.](https://ai.azure.com/explore/models/Phi-3-small-8k-instruct/version/2/registry/azureml) outperforms GPT-3.5T across a variety of language, reasoning, coding, and math benchmarks.
@@ -53,6 +70,41 @@ The [Phi-3-vision](https://ai.azure.com/explore/models/Phi-3-vision-128k-instruc
 Phi-3-vision is the first multimodal model in the Phi-3 family, bringing together text and images. Phi-3-vision can be used to reason over real-world images and extract and reason over text from images. It has also been optimized for chart and diagram understanding and can be used to generate insights and answer questions. Phi-3-vision builds on the language capabilities of the Phi-3-mini, continuing to pack strong language and image reasoning quality in a small size.
 
 ![phi3modelvision](../../imgs/01/phi3visionbenchmark.png)
+
+## Phi-3.5-vision
+Phi-3.5 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+Phi-3.5 Vision has 4.2B parameters and contains image encoder, connector, projector, and Phi-3 Mini language model.
+
+The model is intended for broad commercial and research use in English. The model provides uses for general purpose AI systems and applications with visual and text input capabilities which require
+1) memory/compute constrained environments.
+2) latency bound scenarios.
+3) general image understanding.
+4) OCR
+5) chart and table understanding.
+6) multiple image comparison.
+7)multi-image or video clip summarization.
+
+ Phi-3.5-vision model is designed to accelerate research on efficient language and multimodal models, for use as a building block for generative AI powered features
+
+![phi35_vision](../../imgs/01/phi35visionbenchmark.png)
+
+## Phi-3.5-MoE
+
+Phi-3.5 MoE is a lightweight, state-of-the-art open model built upon datasets used for Phi-3 - synthetic data and filtered publicly available documents - with a focus on very high-quality, reasoning dense data. The model supports multilingual and comes with 128K context length (in tokens). The model underwent a rigorous enhancement process, incorporating supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+Phi-3 MoE has 16x3.8B parameters with 6.6B active parameters when using 2 experts. The model is a mixture-of-expert decoder-only Transformer model using the tokenizer with vocabulary size of 32,064.
+
+The model is intended for broad commercial and research use in English. The model provides uses for general purpose AI systems and applications which require.
+
+1) memory/compute constrained environments. 
+2) latency bound scenarios. 
+3) strong reasoning (especially math and logic).
+
+The MoE model is designed to accelerate research on language and multimodal models, for use as a building block for generative AI powered features and requires additional compute resources.
+
+
+![phi35moe_model](../../imgs/01/phi35moebenchmark.png)
 
 > [!NOTE]
 >
