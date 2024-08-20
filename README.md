@@ -110,7 +110,7 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 - Labs and workshops samples Phi-3
   - [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
   - [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family](./md/07.Labs/VSCode/README.md)(✅)
-  - - [Local WebGPU Phi-3 Mini RAG Chatbot Samples with Local RAG File](./code/08.RAG/rag_webgpu_chat/README.md)(✅)
+  - [Local WebGPU Phi-3 Mini RAG Chatbot Samples with Local RAG File](./code/08.RAG/rag_webgpu_chat/README.md)(✅)
   - [Phi-3 ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-python.html)(✅)
   - [Phi-3-vision ONNX Tutorial](https://onnxruntime.ai/docs/genai/tutorials/phi3-v.html)(✅)
   - [Run the Phi-3 models with the ONNX Runtime generate() API](https://github.com/microsoft/onnxruntime-genai/blob/main/examples/python/phi-3-tutorial.md)(✅)
