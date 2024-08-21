@@ -14,7 +14,7 @@
 
 [![Azure AI Community Discord](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
 
-Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. For more detailed information about Microsoft's Phi-3 family, please visit the [Welcome to the Phi-3 Family](/md/01.Introduce/Phi3Family.md) page.
+Phi, is a family of open AI models developed by Microsoft. Phi models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. For more detailed information about Microsoft's Phi family, please visit the [Welcome to the Phi Family](/md/01.Introduce/Phi3Family.md) page.
 
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
 
@@ -22,9 +22,9 @@ Phi-3, is a family of open AI models developed by Microsoft. Phi-3 models are th
 
 - Introduction
   - [Setting up your environment](./md/01.Introduce/EnvironmentSetup.md)(✅)
-  - [Welcome to the Phi-3 Family](./md/01.Introduce/Phi3Family.md)(✅)
+  - [Welcome to the Phi Family](./md/01.Introduce/Phi3Family.md)(✅)
   - [Understanding Key Technologies](./md/01.Introduce/Understandingtech.md)(✅)
-  - [AI Safety for Phi-3 Models](./md/01.Introduce/AISafety.md)(✅)
+  - [AI Safety for Phi Models](./md/01.Introduce/AISafety.md)(✅)
   - [Phi-3 Hardware Support](./md/01.Introduce/Hardwaresupport.md)(✅)
   - [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md)(✅)
 
