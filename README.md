@@ -27,6 +27,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
   - [AI Safety for Phi Models](./md/01.Introduce/AISafety.md)(✅)
   - [Phi-3 Hardware Support](./md/01.Introduce/Hardwaresupport.md)(✅)
   - [Phi-3 Models & Availability across platforms](./md/01.Introduce/Edgeandcloud.md)(✅)
+  - [Using Guidance-ai and Phi](./md/01.Introduce/Guidance.md)(✅)
 
 - Quick Start
   - [Using Phi-3 in GitHub Model Catalog](./md/02.QuickStart/GitHubModel_QuickStart.md)(✅)
