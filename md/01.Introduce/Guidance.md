@@ -4,7 +4,7 @@
 
 When combined with **Phi Models as a Service (MaaS)**, it offers a powerful solution for deploying small language models (SLMs) that are both cost-effective and high-performing.
 
-**Guidance-AI** is a programming framework designed to help developers control and steer large language models (LLMs) more effectively. It allows for precise structuring of outputs, reducing latency and cost compared to traditional prompting or fine-tuning methods¹.
+**Guidance-AI** is a programming framework designed to help developers control and steer large language models (LLMs) more effectively. It allows for precise structuring of outputs, reducing latency and cost compared to traditional prompting or fine-tuning methods.
 
 ### Key Features of Guidance-AI:
 - **Efficient Control**: Enables developers to control how the language model generates text, ensuring high-quality and relevant outputs.
