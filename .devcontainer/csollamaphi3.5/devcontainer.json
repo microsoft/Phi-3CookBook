@@ -1,5 +1,5 @@
 {
-    "name": "Ollama with Phi-3.5 for C# - 2",
+    "name": "Ollama with Phi-3.5 for C#",
     "image": "mcr.microsoft.com/dotnet/sdk:8.0",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
