@@ -44,7 +44,7 @@ var phi3EndPoint = "http://cpc-bruno-83lkq-docker-desktop:11434/"; // "http://lo
 // Create kernel with a custom http address
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: "phi3.5",
     endpoint: new Uri(phi3EndPoint),
     apiKey: "apikey");
 ConfigureOpenTelemetry(builder, otlpEndPoint);

@@ -49,7 +49,7 @@ Console.WriteLine("");
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: "phi3.5",
     endpoint: new Uri("http://localhost:11434"),
     apiKey: "apikey");
 builder.AddLocalTextEmbeddingGeneration();

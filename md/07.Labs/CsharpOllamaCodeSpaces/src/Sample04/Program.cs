@@ -38,13 +38,13 @@ using OpenTelemetry.Trace;
 using System.Text;
 
 // Define endpoints for telemetry and Phi-3
-var otlpEndPoint = "http://cpc-bruno-83lkq-docker-desktop:4317/"; // "http://localhost:4317";
-var phi3EndPoint = "http://cpc-bruno-83lkq-docker-desktop:11434/"; // "http://localhost:11434";
+var otlpEndPoint = "http://localhost:4317";
+var phi3EndPoint = "http://localhost:11434";
 
 // Create kernel with a custom http address
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: "phi3.5",
     endpoint: new Uri(phi3EndPoint),
     apiKey: "apikey");
 ConfigureOpenTelemetry(builder, otlpEndPoint);
