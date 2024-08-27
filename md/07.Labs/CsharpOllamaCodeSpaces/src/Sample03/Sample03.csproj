@@ -3,19 +3,15 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>sk_tutorial_16</RootNamespace>
+    <RootNamespace>sample03</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>7a6ff44c-6967-4a98-af29-b08cb9f913ec</UserSecretsId>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.5.24306.7" />
-		<PackageReference Include="Microsoft.KernelMemory.SemanticKernelPlugin" Version="0.65.240620.1" />
-		<PackageReference Include="Microsoft.SemanticKernel" Version="1.15.0" />
-		<PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.15.0-alpha" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.18.0-rc" />
+		<PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.18.0-alpha" />
 		<PackageReference Include="SmartComponents.LocalEmbeddings.SemanticKernel" Version="0.1.0-preview10148" />
-		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
 	</ItemGroup>
 
 </Project>
