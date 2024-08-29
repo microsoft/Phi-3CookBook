@@ -312,18 +312,18 @@ In this exercise, you will:
       - pip
       - numpy<2.0
       - pip:
-          - torch~=2.0
-          - torchvision~=0.18
+          - torch==2.4.0
+          - torchvision==0.19.0
           - trl==0.8.6
           - transformers==4.41
-          - datasets~=2.19
-          - azureml-core~=1.30
-          - azure-storage-blob==12.19
-          - azure-ai-ml~=1.16
-          - azure-identity~=1.16
-          - accelerate~=0.30
-          - mlflow==2.14.3
-          - azureml-mlflow==1.56.0
+          - datasets==2.21.0
+          - azureml-core==1.57.0
+          - azure-storage-blob==12.19.0
+          - azure-ai-ml==1.16
+          - azure-identity==1.17.1
+          - accelerate==0.33.0
+          - mlflow==2.15.1
+          - azureml-mlflow==1.57.0
     ```
 
 #### Create and Configure *config.py* file
@@ -656,7 +656,9 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
             "device_map": None,
             "attn_implementation": "eager"
         }
-        pretrained_model_name = "microsoft/Phi-3-mini-4k-instruct"
+
+        # pretrained_model_name = "microsoft/Phi-3-mini-4k-instruct"
+        pretrained_model_name = "microsoft/Phi-3.5-mini-instruct"
 
         with mlflow.start_run():
             model, tokenizer = initialize_model_and_tokenizer(pretrained_model_name, model_kwargs)
@@ -674,6 +676,14 @@ By running *setup_ml.py*, you will run the fine-tuning process in the Azure Mach
     ```
 
 1. Save and close the *fine_tune.py* file.
+
+> [!TIP]
+> **You can fine-tune Phi-3.5 model**
+>
+> In *fine_tune.py* file, you can change the `pretrained_model_name` from `"microsoft/Phi-3-mini-4k-instruct"` to any model you want to fine-tune. For example, if you change it to `"microsoft/Phi-3.5-mini-instruct"`, you'll be using the Phi-3.5-mini-instruct model for fine-tuning. To find and use the model name you prefer, visit [Hugging Face](https://huggingface.co/), search for the model you're interested in, and then copy and paste its name into the `pretrained_model_name` field in your script.
+>
+> :::image type="content" source="../../imgs/03/FineTuning-PromptFlow/finetunephi3.5.png" alt-text="Fine tune Phi-3.5.":::
+>
 
 #### Add code to the *setup_ml.py* file
 
