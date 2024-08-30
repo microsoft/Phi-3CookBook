@@ -151,7 +151,7 @@ Before fine-tuning, gather or create a dataset relevant to your task, such as ch
     ![FineTuneSelect](../../imgs/05/AIStudio/completed.png)
 
 > [!NOTE]
-> For more detailed information on fine-tuning Phi-3, please visit [Fine-tune Phi-3 models in Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini).
+> For more detailed information on fine-tuning Phi-3, please visit [Fine-tune Phi-3 models in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini).
 
 ## Cleaning up your fine-tuned models
 
