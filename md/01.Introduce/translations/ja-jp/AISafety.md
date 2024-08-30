@@ -28,7 +28,7 @@ LLMおよびSLMを使用する際に考慮すべき重要な領域には次の�
 
 モデルを微調整した後、[Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)の対策を活用して、モデルが生成するコンテンツを監視し、潜在的なリスク、脅威、および品質の問題を特定してブロックすることを強くお勧めします。
 
-![Phi3AISafety](../../imgs/01/phi3aisafety.png)
+![Phi3AISafety](../../../../imgs/01/phi3aisafety.png)
 
 [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)は、テキストおよび画像コンテンツをサポートしています。クラウド、オフラインコンテナ、およびエッジ/組み込みデバイスに展開できます。
 
@@ -36,7 +36,7 @@ LLMおよびSLMを使用する際に考慮すべき重要な領域には次の�
 
 Azure AI Content Safetyは、すべてのビジネスに適した万能のソリューションではありません。ビジネスの特定のポリシーに合わせてカスタマイズできます。さらに、その多言語モデルにより、複数の言語を同時に理解することができます。
 
-![AIContentSafety](../../imgs/01/AIcontentsafety.png)
+![AIContentSafety](../../../../imgs/01/AIcontentsafety.png)
 
 - **Azure AI Content Safety**
 - **Microsoft Developer**

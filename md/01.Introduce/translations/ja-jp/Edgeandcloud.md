@@ -2,7 +2,7 @@
 
 ## エッジとクラウドのシナリオ
 
-![EdgeCloud](../../imgs/00/phiedgecloud.png)
+![EdgeCloud](../../../../imgs/00/phiedgecloud.png)
 
 ## モデルの可用性とリソース
 

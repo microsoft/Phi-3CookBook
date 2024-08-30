@@ -21,7 +21,7 @@ Microsoft Phi-3はONNX Runtime用に最適化されており、Windows DirectML�
 
 CUDA: NVIDIA GPU with Compute Capability >= 7.02
 
-![HardwareSupport](../../imgs/00/phi3hardware.png)
+![HardwareSupport](../../../../imgs/00/phi3hardware.png)
 
 ## 複数のGPUでのonnxruntimeの実行
 
