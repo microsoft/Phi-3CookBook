@@ -145,12 +145,12 @@ Before fine-tuning, gather or create a dataset relevant to your task, such as ch
 
     ![FineTuneSelect](../../imgs/05/AIStudio/select-submit.png)
 
-1. Once your model is fine-tuned, the status will be displayed as **Completed**, as shown in the image below. Now you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md).
+1. Once your model is fine-tuned, the status will be displayed as **Completed**, as shown in the image below. Now you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy models with Azure AI Studio](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md).
 
     ![FineTuneSelect](../../imgs/05/AIStudio/completed.png)
 
 > [!NOTE]
-> For more detailed information on fine-tuning Phi-3, please visit [Fine-tune Phi-3 models in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini).
+> For more detailed information on fine-tuning Phi-3, please visit [Fine-tune Phi-3 models in Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini).
 
 ## Cleaning up your fine-tuned models
 
@@ -163,11 +163,11 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Phi-3 models fine-tuned as a service
 
-Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/how-to/deploy-models-phi-3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
+Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/ai-studio/concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety/).
 
 **Fine-Tuning Configuration**
 
