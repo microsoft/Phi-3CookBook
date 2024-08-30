@@ -1,5 +1,5 @@
 {
-    "name": "Ollama with Phi-3 for C#",
+    "name": "Ollama with Phi-3.5 for C#",
     "image": "mcr.microsoft.com/dotnet/sdk:8.0",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
@@ -10,7 +10,6 @@
             "dotnetRuntimeVersions": "8.0",
             "aspNetCoreRuntimeVersions": "8.0"
         },
-      "ghcr.io/prulloac/devcontainer-features/ollama:1": {},
       "sshd": "latest"
     },
     "customizations": {
@@ -29,8 +28,8 @@
         32000,
         32001
     ],
-    "postCreateCommand": "",
-    "postStartCommand": "ollama pull phi3",
+    "postCreateCommand": "sudo dotnet workload update & docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama",
+    "postStartCommand": "docker exec -it ollama ollama pull phi3.5",
     "remoteUser": "vscode",
     "hostRequirements": {
         "memory": "8gb",

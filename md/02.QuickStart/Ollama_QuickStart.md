@@ -168,7 +168,7 @@ using Microsoft.SemanticKernel.ChatCompletion;
 // add chat completion service using the local ollama server endpoint
 #pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: "phi3.5",
     endpoint: new Uri("http://localhost:11434/"),
     apiKey: "non required");
 

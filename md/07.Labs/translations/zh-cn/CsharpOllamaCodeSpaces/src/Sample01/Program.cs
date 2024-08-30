@@ -29,7 +29,7 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 // Create kernel with a custom http address
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: "phi3.5",
     endpoint: new Uri("http://localhost:11434"),
     apiKey: "apikey");
 var kernel = builder.Build();
