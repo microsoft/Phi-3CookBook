@@ -1,7 +1,7 @@
 ### Guidance-AI and Phi Models as a Service (MaaS)
-We are bringing Guidance to the Phi-3.5-mini serverless endpoint offering in Azure AI Studio to make outputs more predictable through defining the structure tailored to an application. With Guidance, you can eliminate expensive retries, and can, for example, constrain the model to select from pre-defined lists (e.g., medical codes), restrict outputs to direct quotes from provided context, or follow in any regex. Guidance steers the model token by token in the inference stack, reducing cost and latency by 30-50%, which makes it a unique and valuable add-on to the Phi-3-mini serverless endpoint.
+We are bringing [Guidance](https://github.com/guidance-ai/guidance) to the Phi-3.5-mini serverless endpoint offering in Azure AI Studio to make outputs more predictable through defining the structure tailored to an application. With Guidance, you can eliminate expensive retries, and can, for example, constrain the model to select from pre-defined lists (e.g., medical codes), restrict outputs to direct quotes from provided context, or follow in any regex. Guidance steers the model token by token in the inference stack, reducing cost and latency by 30-50%, which makes it a unique and valuable add-on to the [Phi-3-mini serverless endpoint](https://aka.ms/try-phi3.5mini).
 
-[**Guidance-AI**](https://github.com/guidance-ai/guidance) is a framework designed to help developers create and deploy AI models efficiently. It focuses on providing tools and best practices for building robust AI applications. 
+## [**Guidance-AI**](https://github.com/guidance-ai/guidance) is a framework designed to help developers create and deploy AI models efficiently. It focuses on providing tools and best practices for building robust AI applications. 
 
 When combined with **Phi Models as a Service (MaaS)**, it offers a powerful solution for deploying small language models (SLMs) that are both cost-effective and high-performing.
 
