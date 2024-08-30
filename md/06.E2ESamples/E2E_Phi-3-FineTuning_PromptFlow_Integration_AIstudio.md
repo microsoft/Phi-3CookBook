@@ -652,8 +652,6 @@ To integrate your custom Phi-3 model with Prompt flow, you need to save the mode
 
 1. Select **Add connection**.
 
-1. Perform the following tasks to add the custom Phi-3 model's key:
-
 #### Create Prompt flow
 
 You have added a custom connection in Azure AI Studio. Now, let's create a Prompt flow using the following steps. Then, you will connect this Prompt flow to the custom connection so that you can use the fine-tuned model within the Prompt flow.
