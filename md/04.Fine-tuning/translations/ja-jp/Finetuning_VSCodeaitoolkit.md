@@ -7,7 +7,7 @@
 
 [VSCode用AIツールキットをインストール](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 
-![AIToolkit FineTuning](../../imgs/04/00/Aitoolkit.png)
+![AIToolkit FineTuning](../../../../imgs/04/00/Aitoolkit.png)
 
 
 **[プライベートプレビュー]** モデルのファインチューニングと推論をクラウドで実行するためのAzure Container Appsのワンクリックプロビジョニング。
@@ -40,7 +40,7 @@
 WSL環境を使用しており、共有されているため、conda環境を手動でアクティベートする必要があります。このステップを完了した後、ファインチューニングや推論を実行できます。
 
 ```bash
-conda activate [conda-env-name] 
+conda activate [conda-env-name]
 ```
 
 ### ベースモデルのファインチューニングのみ
@@ -97,7 +97,7 @@ Phi3-mini（int4）モデルのサイズは約2GB〜3GBです。ネットワー�
 まず、プロジェクト名と場所を選択します。
 次に、モデルカタログからモデルを選択します。プロジェクトテンプレートをダウンロードするように求められます。その後、「プロジェクトの設定」をクリックしてさまざまな設定を調整できます。
 
-### Microsoft Olive 
+### Microsoft Olive
 
 [Olive](https://microsoft.github.io/Olive/overview/olive.html)を使用して、カタログからのPyTorchモデルでQLoRAファインチューニングを実行します。すべての設定は、メモリ使用量を最適化してローカルでファインチューニングプロセスを実行するためにデフォルト値に設定されていますが、シナリオに応じて調整できます。
 

@@ -19,7 +19,7 @@ cd c:\phi3\models
 ```
 ### lfsのサポートを追加
 ```bash
-git lfs install 
+git lfs install
 ```
 ### mini 4K instructモデルをクローンしてダウンロード
 ```bash
@@ -32,7 +32,7 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 ```
 **重要:** 現在のデモはモデルのONNXバージョンを使用するように設計されています。前の手順では以下のモデルをクローンします。
 
-![OnnxDownload](../../../imgs/07/00/DownloadOnnx.png)
+![OnnxDownload](../../../../../imgs/07/00/DownloadOnnx.png)
 
 ## ラボについて
 
@@ -67,7 +67,7 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 
     実行中のデモは次のようになります：
 
-    ![Chat running demo](../../../imgs/07/00/SampleConsole.gif)
+    ![Chat running demo](../../../../../imgs/07/00/SampleConsole.gif)
 
     ***注意:** 最初の質問にはタイプミスがありますが、Phi-3は正しい答えを共有します！*
 
@@ -75,4 +75,4 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 
     実行中のデモは次のようになります：
 
-    ![Image Analysis running demo](../../../imgs/07/00/SampleVisionConsole.gif)
+    ![Image Analysis running demo](../../../../../imgs/07/00/SampleVisionConsole.gif)

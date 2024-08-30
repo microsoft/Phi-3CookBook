@@ -73,7 +73,7 @@ Phi-3はSmall Language Modelsにおいて大きな飛躍を遂げ、パフォー
 
 1. これはCodespaceで実行されているデモコンソールアプリケーションです：
 
-    ![Codespaceで実行されているデモコンソールアプリケーション](./img/10RAGPhi3.gif)
+    ![Codespaceで実行されているデモコンソールアプリケーション](../Sample03/img/10RAGPhi3.gif)
 
 ## 参考文献
 

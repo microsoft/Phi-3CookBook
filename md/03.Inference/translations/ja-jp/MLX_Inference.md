@@ -31,7 +31,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 結果（私の環境はApple M1 Max,64GB）は次のとおりです
 
-![Terminal](../../imgs/03/MLX/01.png)
+![Terminal](../../../../imgs/03/MLX/01.png)
 
 ### **3. ターミナルでMLXを使用してPhi-3-miniを量子化する**
 
@@ -55,13 +55,13 @@ python -m mlx_lm.generate --model ./mlx_model/ --max-token 2048 --prompt  "<|use
 
 結果は次のとおりです
 
-![INT4](../../imgs/03/MLX/02.png)
+![INT4](../../../../imgs/03/MLX/02.png)
 
 ### **4. Jupyter NotebookでMLXを使用してPhi-3-miniを実行する**
 
-![Notebook](../../imgs/03/MLX/03.png)
+![Notebook](../../../../imgs/03/MLX/03.png)
 
-***注意:*** このサンプルを参照してください [このリンクをクリック](../../code/03.Inference/MLX/MLX_DEMO.ipynb)
+***注意:*** このサンプルを参照してください [このリンクをクリック](../../../../code/03.Inference/MLX/MLX_DEMO.ipynb)
 
 ## **リソース**
 

@@ -27,7 +27,7 @@ d. Python 3.8+
 
 クラウドとエッジデバイスで同時にggufを使用したい場合、LlamaEdgeはWasmEdgeとして理解できます（WasmEdgeは、クラウドネイティブ、エッジ、および分散アプリケーションに適した軽量、高性能、スケーラブルなWebAssemblyランタイムです。サーバーレスアプリケーション、埋め込み関数、マイクロサービス、スマートコントラクト、およびIoTデバイスをサポートします。LlamaEdgeを通じて、ggufの量子化モデルをエッジデバイスとクラウドにデプロイできます。
 
-![llamaedge](../../imgs/03/Jetson/llamaedge.jpg)
+![llamaedge](../../../../imgs/03/Jetson/llamaedge.jpg)
 
 使用手順は次のとおりです。
 
@@ -57,7 +57,7 @@ wasmedge --dir .:. --nn-preload default:GGML:AUTO:{Your gguf path} llama-api-ser
 
 実行結果は次のとおりです。
 
-![llamaedgerun](../../imgs/03/Jetson/llamaedgerun.png)
+![llamaedgerun](../../../../imgs/03/Jetson/llamaedgerun.png)
 
 ***サンプルコード*** [Phi-3 mini WASM Notebook Sample](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm)
 

@@ -1,6 +1,6 @@
 # **Apple MLXフレームワークを使用してPhi-3をファインチューニングする**
 
-Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせたファインチューニングを完了できます。（MLXフレームワークの操作について詳しく知りたい場合は、[Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)を参照してください）
+Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせたファインチューニングを完了できます。（MLXフレームワークの操作について詳しく知りたい場合は、[Inference Phi-3 with Apple MLX Framework](../../../03.Inference/MLX_Inference.md)を参照してください）
 
 ## **1. データ準備**
 
@@ -23,7 +23,7 @@ Apple MLXフレームワークのコマンドラインを使用して、Loraと�
 
 3. データ形式はPhi-3テンプレートと組み合わせます
 
-この[リンク](../../code/04.Finetuning/mlx/)からデータをダウンロードしてください。***data***フォルダ内のすべての.jsonlファイルを含めてください。
+この[リンク](../../../../code/04.Finetuning/mlx/)からデータをダウンロードしてください。***data***フォルダ内のすべての.jsonlファイルを含めてください。
 
 ## **2. ターミナルでファインチューニングを実行する**
 
@@ -123,7 +123,7 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ```bash
 
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"
 
 ```
 
@@ -131,7 +131,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```bash
 
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"
 
 ```
 
@@ -157,7 +157,7 @@ cd llama.cpp
 
 pip install -r requirements.txt
 
-python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtype f16 
+python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtype f16
 
 ```
 
@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. マージされたモデルにはtokenizer.modelが欠けています。https://huggingface.co/microsoft/Phi-3-mini-4k-instructからダウンロードしてください。
 
-Ollmaモデルファイルを設定します（ollamaをインストールしていない場合は、[Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)を参照してください）
+Ollmaモデルファイルを設定します（ollamaをインストールしていない場合は、[Ollama QuickStart](../../../02.QuickStart/Ollama_QuickStart.md)を参照してください）
 
 ```txt
 
@@ -180,9 +180,9 @@ PARAMETER stop "<|end|>"
 
 ```bash
 
- ollama create phi3ft -f Modelfile 
+ ollama create phi3ft -f Modelfile
 
- ollama run phi3ft "Why do chameleons change colors?" 
+ ollama run phi3ft "Why do chameleons change colors?"md/03.Inference/translations/ja-jp/iOS_Inference.md
 
 ```
 

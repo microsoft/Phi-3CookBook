@@ -18,6 +18,6 @@
 
 ### **知識**
 
-1. [Phi-3について学ぶ](../01.Introduce/Phi3Family.md)
-2. [Microsoft Oliveを使用してファインチューニングする方法を学ぶ](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
+1. [Phi-3について学ぶ](../../../01.Introduce/translations/ja-jp/Phi3Family.md)
+2. [Microsoft Oliveを使用してファインチューニングする方法を学ぶ](../../../04.Fine-tuning/translations/ja-jp/FineTuning_MicrosoftOlive.md)
 3. [生成AIのためのONNX Runtimeについて学ぶ](https://github.com/microsoft/onnxruntime-genai)

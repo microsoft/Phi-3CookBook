@@ -32,7 +32,7 @@ Prompt Flow には、組み込みツール、サンプル、テンプレート�
 
 Microsoft Prompt Flow では、評価は AI モデルのパフォーマンスを評価する上で重要な役割を果たします。Prompt Flow 内で評価フローとメトリクスをカスタマイズする方法を見てみましょう。
 
-![PFVizualise](../../imgs/05/PromptFlow/pfvisualize.png)
+![PFVizualise](../../../../imgs/05/PromptFlow/pfvisualize.png)
 
 **Prompt Flow の評価の理解**
 

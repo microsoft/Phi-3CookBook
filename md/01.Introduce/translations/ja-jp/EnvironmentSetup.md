@@ -54,6 +54,6 @@ GitHub Codespacesを使用して、このテンプレートを仮想的に実行
 
 3. 数秒後、モデルからの応答がストリームで表示されるはずです。
 
-4. 言語モデルで使用されるさまざまな技術について学ぶには、Pythonノートブックファイル[ollama.ipynb](../../code/01.Introduce/ollama.ipynb)を開き、各セルを実行します。'phi3:mini'以外のモデルを使用した場合は、最初のセルの`MODEL_NAME`を変更してください。
+4. 言語モデルで使用されるさまざまな技術について学ぶには、Pythonノートブックファイル[ollama.ipynb](../../../../code/01.Introduce/ollama.ipynb)を開き、各セルを実行します。'phi3:mini'以外のモデルを使用した場合は、最初のセルの`MODEL_NAME`を変更してください。
 
-5. Pythonからphi3:miniモデルと対話するには、Pythonファイル[chat.py](../../code/01.Introduce/chat.py)を開いて実行します。必要に応じて、ファイルの上部にある`MODEL_NAME`を変更できます。また、システムメッセージを変更したり、少数のショット例を追加したりすることもできます。
+5. Pythonからphi3:miniモデルと対話するには、Pythonファイル[chat.py](../../../../code/01.Introduce/chat.py)を開いて実行します。必要に応じて、ファイルの上部にある`MODEL_NAME`を変更できます。また、システムメッセージを変更したり、少数のショット例を追加したりすることもできます。

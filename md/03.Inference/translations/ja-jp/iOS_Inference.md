@@ -50,20 +50,20 @@ cd onnxruntime
 cd ../
 
 ```
- 
-***注意*** 
+
+***注意***
 
   a. コンパイル前に、Xcodeが正しく構成されていることを確認し、ターミナルで設定します
 
 
 ```bash
 
-sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer 
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
 ```
- 
+
   b. ONNX Runtimeは異なるプラットフォームに基づいてコンパイルする必要があります。iOSの場合、arm64 / x86_64に基づいてコンパイルできます
-   
+
   c. 最新のiOS SDKを使用してコンパイルすることをお勧めします。もちろん、過去のSDKと互換性を持たせるためにバージョンを下げることもできます。
 
 
@@ -105,34 +105,34 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 アプリケーション開発方法としてObjective-Cを選択しました。これは、生成AIとONNX Runtime C++ APIを使用する場合、Objective-Cがより互換性があるためです。もちろん、Swiftブリッジングを通じて関連する呼び出しを完了することもできます。
 
 
-![xcode](../../imgs/03/iOS/xcode.png)
+![xcode](../../../../imgs/03/iOS/xcode.png)
 
 
 ## **5. ONNX量子化INT4モデルをアプリケーションプロジェクトにコピーする**
 
 ONNX形式のINT4量子化モデルをインポートする必要があります。まずモデルをダウンロードする必要があります
 
-![hf](../../imgs/03/iOS/hf.png)
+![hf](../../../../imgs/03/iOS/hf.png)
 
 ダウンロード後、XcodeのプロジェクトのResourcesディレクトリに追加する必要があります。
 
-![model](../../imgs/03/iOS/model.png)
+![model](../../../../imgs/03/iOS/model.png)
 
 
  ## **6. ViewControllersにC++ APIを追加する**
- 
+
 ***注意***:
 
   a. プロジェクトに対応するC++ヘッダーファイルを追加します
 
 
-  ![head](../../imgs/03/iOS/head.png)
+  ![head](../../../../imgs/03/iOS/head.png)
 
   b. Xcodeにonnxruntime-gen ai dylibを追加します
 
-  
-  ![lib](../../imgs/03/iOS/lib.png)
- 
+
+  ![lib](../../../../imgs/03/iOS/lib.png)
+
   c. このサンプルでは、Cサンプルのコードを直接使用してテストします。もちろん、moreto run（例：ChatUI）を追加して実行することもできます
 
   d. C++を呼び出す必要があるため、ViewController.mをViewController.mmに変更してください
@@ -167,6 +167,6 @@ ONNX形式のINT4量子化モデルをインポートする必要があります
 
 ## **7. 実行結果**
 
-![result](../../imgs/03/iOS/result.jpg)
+![result](../../../../imgs/03/iOS/result.jpg)
 
 ***サンプルコード：*** https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios

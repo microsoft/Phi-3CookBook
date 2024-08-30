@@ -32,8 +32,8 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
 
 | プロジェクト | 説明 | 場所 |
 | ------------ | ----------- | -------- |
-| Transformer Pipeline | HuggingFaceモデルをMLFlowの実験的なtransformersフレーバーで使用したい場合、Transformer Pipelineはラッパーを構築する最も簡単なオプションです。 | [**TransformerPipeline.ipynb**](../../code/06.E2E/E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
-| カスタムPythonラッパー | 記述時点では、transformer pipelineはHuggingFaceモデルのONNX形式のMLFlowラッパー生成をサポートしていません。実験的なoptimum Pythonパッケージを使用しても同様です。このような場合、MLFlowモードのカスタムPythonラッパーを構築できます。 | [**CustomPythonWrapper.ipynb**](../../code/06.E2E/E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
+| Transformer Pipeline | HuggingFaceモデルをMLFlowの実験的なtransformersフレーバーで使用したい場合、Transformer Pipelineはラッパーを構築する最も簡単なオプションです。 | [**TransformerPipeline.ipynb**](E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
+| カスタムPythonラッパー | 記述時点では、transformer pipelineはHuggingFaceモデルのONNX形式のMLFlowラッパー生成をサポートしていません。実験的なoptimum Pythonパッケージを使用しても同様です。このような場合、MLFlowモードのカスタムPythonラッパーを構築できます。 | [**CustomPythonWrapper.ipynb**](E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
 
 ## プロジェクト: Transformer Pipeline
 
