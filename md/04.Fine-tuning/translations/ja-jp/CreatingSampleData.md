@@ -121,4 +121,4 @@ print(f"Dataset and images saved to {dataset_dir}")
 [新しいデータセットスクリプトを生成](../../../../code/04.Finetuning/generate_dataset.py)
 
 ### サンプルデータセット
-[LORAの例で微調整されたサンプルデータセットの例](../../../../code/04.Finetuning/olive-ort-example/dataset/dataset-classification.json)
+[LORAの例でファインチューニングされたサンプルデータセットの例](../../../../code/04.Finetuning/olive-ort-example/dataset/dataset-classification.json)

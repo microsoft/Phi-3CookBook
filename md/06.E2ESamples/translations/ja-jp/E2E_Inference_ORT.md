@@ -1,6 +1,6 @@
 # 微調モデルの推論
 
-微調整後、ONNX Runtime GenAI を使用して新しいモデルを呼び出すことができます。
+ファインチューニング後、ONNX Runtime GenAI を使用して新しいモデルを呼び出すことができます。
 
 ## ORT GenAI SDK のインストール
 

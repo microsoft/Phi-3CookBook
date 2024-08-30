@@ -398,7 +398,7 @@ olive run --config olive-config.json
 
 1. Microsoft Olive が実行されると、各ステップはキャッシュに保存できます。ファインチューニングディレクトリを確認することで、関連するステップの結果を確認できます。
 
-![cache](../../imgs/06/e2e/cache.png)
+![cache](../../../../imgs/06/e2e/cache.png)
 
 2. ここでは LoRA と QLoRA の両方を提供しており、ニーズに応じて設定できます。
 
@@ -406,5 +406,5 @@ olive run --config olive-config.json
 
 4. なぜ ORT を選ぶのか？ORT はエッジデバイスにデプロイできるため、推論は ORT 環境で実行されます。
 
-![ort](../../imgs/06/e2e/ort.png)
+![ort](../../../../imgs/06/e2e/ort.png)
 

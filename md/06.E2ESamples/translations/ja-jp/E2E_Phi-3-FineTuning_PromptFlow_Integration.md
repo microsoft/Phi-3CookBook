@@ -1199,4 +1199,4 @@ deploy_model.py*ファイルを実行すると、デプロイプロセス全体�
 
 1. これが結果の例です: これで、カスタムしたファイ3モデルとチャットができるようになりました。ファインチューニングに使用したデータに基づいて質問することをお勧めします。
 
-    ![Prompt flow の例。](../../imgs/03/FineTuning-PromptFlow/02-06-promptflow-example.png)
+    ![Prompt flow の例。](../../../../imgs/03/FineTuning-PromptFlow/02-06-promptflow-example.png)

@@ -1,10 +1,10 @@
-# **Apple MLXフレームワークを使用してPhi-3を微調整する**
+# **Apple MLXフレームワークを使用してPhi-3をファインチューニングする**
 
-Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせた微調整を完了できます。（MLXフレームワークの操作について詳しく知りたい場合は、[Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)を参照してください）
+Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせたファインチューニングを完了できます。（MLXフレームワークの操作について詳しく知りたい場合は、[Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)を参照してください）
 
 ## **1. データ準備**
 
-デフォルトでは、MLXフレームワークはtrain、test、およびevalのjsonl形式を要求し、Loraと組み合わせて微調整ジョブを完了します。
+デフォルトでは、MLXフレームワークはtrain、test、およびevalのjsonl形式を要求し、Loraと組み合わせてファインチューニングジョブを完了します。
 
 ### ***注意:***
 
@@ -19,13 +19,13 @@ Apple MLXフレームワークのコマンドラインを使用して、Loraと�
 
 ```
 
-2. 私たちの例では[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)を使用していますが、データ量が比較的不足しているため、微調整の結果が必ずしも最良であるとは限りません。学習者は自分のシナリオに基づいてより良いデータを使用して完了することをお勧めします。
+2. 私たちの例では[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)を使用していますが、データ量が比較的不足しているため、ファインチューニングの結果が必ずしも最良であるとは限りません。学習者は自分のシナリオに基づいてより良いデータを使用して完了することをお勧めします。
 
 3. データ形式はPhi-3テンプレートと組み合わせます
 
 この[リンク](../../code/04.Finetuning/mlx/)からデータをダウンロードしてください。***data***フォルダ内のすべての.jsonlファイルを含めてください。
 
-## **2. ターミナルで微調整を実行する**
+## **2. ターミナルでファインチューニングを実行する**
 
 ターミナルで次のコマンドを実行してください
 
@@ -37,7 +37,7 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ## ***注意:***
 
-1. これはLoRA微調整であり、MLXフレームワークはQLoRAを公開していません
+1. これはLoRAファインチューニングであり、MLXフレームワークはQLoRAを公開していません
 
 2. config.yamlを設定していくつかの引数を変更できます。例えば：
 
@@ -117,9 +117,9 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ```
 
-## **3. 微調整アダプタを実行してテストする**
+## **3. ファインチューニングアダプタを実行してテストする**
 
-ターミナルで微調整アダプタを実行できます。次のように：
+ターミナルでファインチューニングアダプタを実行できます。次のように：
 
 ```bash
 
@@ -135,7 +135,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 ```
 
-微調整の結果と元のモデルの結果を比較してみてください
+ファインチューニングの結果と元のモデルの結果を比較してみてください
 
 ## **4. アダプタをマージして新しいモデルを生成する**
 
@@ -145,7 +145,7 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. ollamaを使用して量子化された微調整モデルを実行する**
+## **5. ollamaを使用して量子化されたファインチューニングモデルを実行する**
 
 使用する前に、llama.cpp環境を設定してください
 
@@ -186,4 +186,4 @@ PARAMETER stop "<|end|>"
 
 ```
 
-おめでとうございます！MLXフレームワークを使用して微調整をマスターしました
+おめでとうございます！MLXフレームワークを使用してファインチューニングをマスターしました

@@ -1,10 +1,10 @@
 # AI Toolkit for VScode (Windows)
 
-[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) は、Azure AI Studio CatalogやHugging Faceなどのカタログから最新のAI開発ツールとモデルを集約し、生成AIアプリケーションの開発を簡素化します。Azure MLやHugging Faceが提供するAIモデルカタログを閲覧し、ローカルにダウンロードして微調整、テスト、アプリケーションで使用することができます。
+[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) は、Azure AI Studio CatalogやHugging Faceなどのカタログから最新のAI開発ツールとモデルを集約し、生成AIアプリケーションの開発を簡素化します。Azure MLやHugging Faceが提供するAIモデルカタログを閲覧し、ローカルにダウンロードしてファインチューニング、テスト、アプリケーションで使用することができます。
 
 AI Toolkit Previewはローカルで実行されます。選択したモデルによっては、WindowsおよびLinuxのみサポートされるタスクがあります。
 
-ローカルでの推論や微調整には、選択したモデルによってはNVIDIA CUDA GPUなどのGPUが必要です。
+ローカルでの推論やファインチューニングには、選択したモデルによってはNVIDIA CUDA GPUなどのGPUが必要です。
 
 リモートで実行する場合、クラウドリソースにGPUが必要です。環境を確認してください。Windows + WSLでローカル実行する場合、WSL Ubuntuディストリビューション18.4以上がインストールされ、デフォルトに設定されている必要があります。
 
@@ -17,10 +17,10 @@ AI Toolkit Previewはローカルで実行されます。選択したモデル�
 [AI Tooklit GitHubリポジトリ](https://github.com/microsoft/vscode-ai-toolkit/)
 
 - WindowsまたはLinux。
-- **MacOSのサポートは近日公開予定**
-- WindowsおよびLinuxでの微調整にはNvidia GPUが必要です。さらに、**Windows**ではUbuntuディストリビューション18.4以上のLinuxサブシステムが必要です。[Windows Subsystem for Linuxのインストール方法についてはこちら](https://learn.microsoft.com/windows/wsl/install)および[デフォルトのディストリビューションの変更方法](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)。
+- **MacOS のサポートは近日公開予定**
+- WindowsおよびLinuxでのファインチューニングにはNvidia GPUが必要です。さらに、**Windows** では Ubuntu ディストリビューション18.4以上のLinuxサブシステムが必要です。[Windows Subsystem for Linuxのインストール方法についてはこちら](https://learn.microsoft.com/windows/wsl/install)および[デフォルトのディストリビューションの変更方法](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)。
 
-### AI Toolkitのインストール
+### AI Toolkit のインストール
 
 AI Toolkitは[Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions)として提供されているため、まず[VS Code](https://code.visualstudio.com/docs/setup/windows?WT.mc_id=aiml-137032-kinfeylo)をインストールし、[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)からAI Toolkitをダウンロードする必要があります。
 [AI ToolkitはVisual Studio Marketplaceで利用可能です](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)他のVS Code拡張機能と同様にインストールできます。
@@ -29,7 +29,7 @@ VS Code拡張機能のインストールに不慣れな場合は、以下の手�
 
 ### サインイン
 
-1. VS Codeのアクティビティバーで**拡張機能**を選択します。
+1. VS Codeのアクティビティバーで **拡張機能** を選択します。
 1. 拡張機能の検索バーに「AI Toolkit」と入力します。
 1. 「AI Toolkit for Visual Studio code」を選択します。
 1. **インストール**を選択します。
@@ -51,7 +51,7 @@ AI Toolkitの主要なサイドバーは次のように整理されています
 - **モデル**
 - **リソース**
 - **プレイグラウンド**
-- **微調整**
+- **ファインチューニング**
 
 リソースセクションで利用可能です。開始するには**モデルカタログ**を選択します。
 
@@ -63,8 +63,8 @@ VS CodeのサイドバーからAI Toolkitを起動すると、次のオプショ
 
 - **モデルカタログ**からサポートされているモデルを見つけてローカルにダウンロードします。
 - **モデルプレイグラウンド**でモデル推論をテストします。
-- **モデル微調整**でローカルまたはリモートでモデルを微調整します。
-- AI Toolkitのコマンドパレットを介して微調整されたモデルをクラウドにデプロイします。
+- **モデルファインチューニング**でローカルまたはリモートでモデルをファインチューニングします。
+- AI Toolkitのコマンドパレットを介してファインチューニングされたモデルをクラウドにデプロイします。
 
 > [!NOTE]
 >
@@ -94,7 +94,7 @@ VS CodeのサイドバーからAI Toolkitを起動すると、次のオプショ
 
 モデルがダウンロードされたら、AI Toolkitからプロジェクトを起動できます。
 
-> ***注意*** プレビュー機能を試してリモートで推論や微調整を行いたい場合は、[このガイド](https://aka.ms/previewFinetune)に従ってください。
+> ***注意*** プレビュー機能を試してリモートで推論やファインチューニングを行いたい場合は、[このガイド](https://aka.ms/previewFinetune)に従ってください。
 
 ### Windows最適化モデル
 
@@ -240,13 +240,13 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 }
 ```
 
-## AI Toolkitでの微調整
+## AI Toolkitでのファインチューニング
 
 - モデルの発見とプレイグラウンドから始めます。
-- ローカルの計算リソースを使用してモデルの微調整と推論を行います。
-- Azureリソースを使用してリモートで微調整と推論を行います。
+- ローカルの計算リソースを使用してモデルのファインチューニングと推論を行います。
+- Azureリソースを使用してリモートでファインチューニングと推論を行います。
 
-[AI Toolkitでの微調整](../../../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
+[AI Toolkitでのファインチューニング](../../../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
 
 ## AI Toolkit Q&Aリソース
 

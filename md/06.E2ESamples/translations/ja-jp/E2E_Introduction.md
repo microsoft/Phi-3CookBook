@@ -2,7 +2,7 @@
 
 このサンプルは、[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)をPhi-3-miniモデルにファインチューニングするものです。これはアーキテクチャです。
 
-![arch](../../imgs/06/e2e/arch.png)
+![arch](../../../../imgs/06/e2e/arch.png)
 
 ## **紹介**
 

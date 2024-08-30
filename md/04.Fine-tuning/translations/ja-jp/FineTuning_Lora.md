@@ -1,10 +1,10 @@
-# **LoRAを使用してPhi-3を微調整する**
+# **LoRAを使用してPhi-3をファインチューニングする**
 
-LoRA（低ランク適応）を使用して、MicrosoftのPhi-3 Mini言語モデルをカスタムチャット指示データセットで微調整します。[LoRA (Low-Rank Adaptation)](https://github.com/microsoft/LoRA?WT.mc_id=aiml-138114-kinfeylo)。
+LoRA（低ランク適応）を使用して、MicrosoftのPhi-3 Mini言語モデルをカスタムチャット指示データセットでファインチューニングします。[LoRA (Low-Rank Adaptation)](https://github.com/microsoft/LoRA?WT.mc_id=aiml-138114-kinfeylo)。
 
 LoRAは、会話の理解と応答生成を向上させるのに役立ちます。
 
-## Phi-3 Miniを微調整するためのステップバイステップガイド：
+## Phi-3 Miniをファインチューニングするためのステップバイステップガイド：
 
 **インポートとセットアップ**
 
@@ -82,13 +82,13 @@ peft_configには、ランク、ドロップアウト、タスクタイプなど
 
 **トレーニング**
 
-カスタムチャット指示データセットを使用してPhi-3モデルを微調整します。効率的な適応のためにpeft_configのLoRA設定を使用します。指定されたログ戦略を使用してトレーニングの進行状況を監視します。
-評価と保存：微調整されたモデルを評価します。
+カスタムチャット指示データセットを使用してPhi-3モデルをファインチューニングします。効率的な適応のためにpeft_configのLoRA設定を使用します。指定されたログ戦略を使用してトレーニングの進行状況を監視します。
+評価と保存：ファインチューニングされたモデルを評価します。
 後で使用するためにトレーニング中にチェックポイントを保存します。
 
 **サンプル**
 - [このサンプルノートブックで詳細を学ぶ](../../../../code/04.Finetuning/Phi_3_Inference_Finetuning.ipynb)
-- [Python微調整サンプルの例](../../../../code/04.Finetuning/FineTrainingScript.py)
-- [Hugging Face HubでのLoRAを使用した微調整の例](../../../../code/04.Finetuning/Phi-3-finetune-lora-python.ipynb)
-- [Hugging Faceモデルカードの例 - LoRA微調整サンプル](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/sample_finetune.py)
-- [Hugging Face HubでのQLoRAを使用した微調整の例](../../../../code/04.Finetuning/Phi-3-finetune-qlora-python.ipynb)
+- [Pythonファインチューニングサンプルの例](../../../../code/04.Finetuning/FineTrainingScript.py)
+- [Hugging Face HubでのLoRAを使用したファインチューニングの例](../../../../code/04.Finetuning/Phi-3-finetune-lora-python.ipynb)
+- [Hugging Faceモデルカードの例 - LoRAファインチューニングサンプル](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/sample_finetune.py)
+- [Hugging Face HubでのQLoRAを使用したファインチューニングの例](../../../../code/04.Finetuning/Phi-3-finetune-qlora-python.ipynb)

@@ -8,7 +8,7 @@
 リモート推論のためにAzureリソースを設定するには、コマンドパレットから`AI Toolkit: Provision Azure Container Apps for inference`を実行する必要があります。この設定中に、Azureサブスクリプションとリソースグループを選択するように求められます。
 ![Provision Inference Resource](../../../../imgs/03/RemoteServer/command-provision-inference.png)
 
-デフォルトでは、推論のためのサブスクリプションとリソースグループは、微調整に使用されたものと一致する必要があります。推論は、同じAzure Container App Environmentを使用し、微調整ステップ中に生成されたAzure Filesに保存されたモデルとモデルアダプターにアクセスします。
+デフォルトでは、推論のためのサブスクリプションとリソースグループは、ファインチューニングに使用されたものと一致する必要があります。推論は、同じAzure Container App Environmentを使用し、ファインチューニングステップ中に生成されたAzure Filesに保存されたモデルとモデルアダプターにアクセスします。
 
 ## AI Toolkitの使用
 
@@ -47,13 +47,13 @@ VSCodeの通知に表示される"*Go to Inference Endpoint*"ボタンをクリ�
 | `defaultCommands` | これはWeb APIを起動するためのコマンドです。 |
 | `maximumInstanceCount` | このパラメーターはGPUインスタンスの最大容量を設定します。 |
 | `location` | これはAzureリソースがプロビジョニングされる場所です。デフォルト値は選択したリソースグループの場所と同じです。 |
-| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaAppName`,  `acaLogAnalyticsName` | これらのパラメーターは、プロビジョニングするAzureリソースの名前を指定します。デフォルトでは、微調整リソース名と同じになります。新しい未使用のリソース名を入力して独自のカスタム名のリソースを作成するか、既存のAzureリソースの名前を入力してそれを使用することができます。詳細については、[既存のAzureリソースの使用](#using-existing-azure-resources)セクションを参照してください。 |
+| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaAppName`,  `acaLogAnalyticsName` | これらのパラメーターは、プロビジョニングするAzureリソースの名前を指定します。デフォルトでは、ファインチューニングリソース名と同じになります。新しい未使用のリソース名を入力して独自のカスタム名のリソースを作成するか、既存のAzureリソースの名前を入力してそれを使用することができます。詳細については、[既存のAzureリソースの使用](#using-existing-azure-resources)セクションを参照してください。 |
 
 ### 既存のAzureリソースの使用
 
-デフォルトでは、推論プロビジョニングは、微調整に使用されたのと同じAzure Container App Environment、Storage Account、Azure File Share、およびAzure Log Analyticsを使用します。推論API専用のAzure Container Appが作成されます。
+デフォルトでは、推論プロビジョニングは、ファインチューニングに使用されたのと同じAzure Container App Environment、Storage Account、Azure File Share、およびAzure Log Analyticsを使用します。推論API専用のAzure Container Appが作成されます。
 
-微調整ステップ中にAzureリソースをカスタマイズした場合、または推論のために既存のAzureリソースを使用したい場合は、`./infra/inference.parameters.json`ファイルにそれらの名前を指定してください。その後、コマンドパレットから`AI Toolkit: Provision Azure Container Apps for inference`コマンドを実行します。これにより、指定されたリソースが更新され、欠落しているリソースが作成されます。
+ファインチューニングステップ中にAzureリソースをカスタマイズした場合、または推論のために既存のAzureリソースを使用したい場合は、`./infra/inference.parameters.json`ファイルにそれらの名前を指定してください。その後、コマンドパレットから`AI Toolkit: Provision Azure Container Apps for inference`コマンドを実行します。これにより、指定されたリソースが更新され、欠落しているリソースが作成されます。
 
 例えば、既存のAzureコンテナ環境がある場合、`./infra/finetuning.parameters.json`は次のようになります：
 
