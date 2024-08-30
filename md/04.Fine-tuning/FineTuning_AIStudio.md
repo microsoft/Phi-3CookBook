@@ -145,6 +145,7 @@ Before fine-tuning, gather or create a dataset relevant to your task, such as ch
 
     ![FineTuneSelect](../../imgs/05/AIStudio/select-submit.png)
 
+
 1. Once your model is fine-tuned, the status will be displayed as **Completed**, as shown in the image below. Now you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of small language models with Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python).
 
     ![FineTuneSelect](../../imgs/05/AIStudio/completed.png)
