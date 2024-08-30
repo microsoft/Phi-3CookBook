@@ -107,6 +107,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
 
 - E2E Samples for Phi-3.5-MoE
   - [Phi-3.5 Mixture of Experts Models (MoEs) Social Media Sample](./code/09.UpdateSamples/Aug/phi3_moe_demo.ipynb)(✅)
+  - [Building a Retrieval-Augmented Generation (RAG) Pipeline with NVIDIA NIM Phi-3 MOE, Azure AI Search, and LlamaIndex](https://github.com/farzad528/azure-ai-search-python-playground/blob/main/azure-ai-search-nvidia-rag.ipynb)(✅)
 
 - Labs and workshops samples Phi-3
   - [C# .NET Labs](./md/07.Labs/Csharp/csharplabs.md)(✅)
