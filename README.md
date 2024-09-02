@@ -123,6 +123,17 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
   - [Using Phi-3 with Promptflow and Azure AI Search](./code/07.Lab/RAG_with_PromptFlow_and_AISearch/README.md)(✅)
   - [Windows AI-PC APIs with Windows Copilot Library](https://developer.microsoft.com/windows/ai/?WT.mc_id=aiml-137032-kinfeylo)
 
+- Learning Phi-3.5
+  - [What's new Phi-3.5 Family](./md/08.Update/Phi35/010.WhatsNewInPhi35.md)(✅)
+  - [Quantifying Phi-3.5 Family](./md/08.Update/Phi35/020.QuantifyingPhi35.md)(✅)
+    - [Quantizing Phi-3.5 using llama.cpp](./md/08.Update/Phi35/021.UsingLlamacppQuantifyingPhi35.md)(✅)
+    - [Quantizing Phi-3.5 using Generative AI extensions for onnxruntime](./md/08.Update/Phi35/022.UsingORTGenAIQuantifyingPhi35.md)(✅)
+    - [Quantizing Phi-3.5 using Intel OpenVINO](./md/08.Update/Phi35/023.UsingIntelOpenVINOQuantifyingPhi35.md)(✅)
+    - [Quantizing Phi-3.5 using Apple MLX Framework](./md/08.Update/Phi35/024.UsingAppleMLXQuantifyingPhi35.md)(✅)
+  - Phi-3.5 Application Samples
+    - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/08.Update/Phi35/031.WebGPUWithPhi35Readme.md)(✅)
+
+
 ## Using Phi-3 Models
 
 ### Phi-3 on Azure AI Studio
