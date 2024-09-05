@@ -63,6 +63,9 @@ Phi-3-medium is a Transformer-based language model with 14 billion parameters. I
 
 ![phi3modelmedium128k](../../imgs/01/phi3mediumbenchmark128.png)
 
+[!NOTE]
+We recommend switching to Phi-3.5-MoE as an upgrade of Phi-3-medium as the MoE model is a much better and cost effective model.
+
 ## Phi-3-vision
 
 The [Phi-3-vision](https://ai.azure.com/explore/models/Phi-3-vision-128k-instruct/version/2/registry/azureml), a 4.2B parameter multimodal model with language and vision capabilities, outperforms larger models like Claude-3 Haiku and Gemini 1.0 Pro V in general visual reasoning, OCR, and table and chart understanding tasks.
