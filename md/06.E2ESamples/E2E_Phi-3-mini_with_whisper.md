@@ -8,7 +8,7 @@ The Interactive Phi 3 Mini 4K Instruct Chatbot is a tool that allows users to in
 
 To use this chatbot, simply follow these instructions:
 
-1. Open a new [Jupyter notebook and run the code provided](../../code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)
+1. Open a new [E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb))
 2. In the main window of the notebook, you'll see a chatbox interface with a text input box and a "Send" button.
 3. To use the text-based chatbot, simply type your message into the text input box and click the "Send" button. The chatbot will respond with an audio file that can be played directly from within the notebook.
 
@@ -26,7 +26,7 @@ It's important to note that running a large amount of data or a high volume of r
 
 ## E2E Sample for Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper
 
-The jupyter notebook titled "[Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)" demonstrates how to use the Microsoft Phi 3 Mini 4K instruct Demo to generate text from audio or written text input The notebook defines several functions:
+The jupyter notebook titled [Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) demonstrates how to use the Microsoft Phi 3 Mini 4K instruct Demo to generate text from audio or written text input The notebook defines several functions:
 
 1. `tts_file_name(text)`: This function generates a file name based on the input text for saving the generated audio file.
 1. `edge_free_tts(chunks_list,speed,voice_name,save_path)`: This function uses the Edge TTS API to generate an audio file from a list of chunks of input text. The input parameters are the list of chunks, the speech rate, the voice name, and the output path for saving the generated audio file.

@@ -30,7 +30,7 @@ The above figure presents the Kaito architecture overview. Its major components 
 Please check the installation guidance [here](https://github.com/Azure/kaito/blob/main/docs/installation.md).
 
 ## Quick start Inference Phi-3
-[Sample Code Inference Phi-3](https://github.com/Azure/kaito/blob/main/examples/inference/kaito_workspace_phi_3.yaml)
+[Sample Code Inference Phi-3](https://github.com/Azure/kaito/tree/main/examples/inference)
 
 ```
 apiVersion: kaito.sh/v1alpha1
