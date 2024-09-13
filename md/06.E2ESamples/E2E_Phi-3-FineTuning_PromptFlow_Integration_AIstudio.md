@@ -703,6 +703,8 @@ You need to integrate the fine-tuned Phi-3 model into a Prompt flow. However, th
             path: integrate_with_promptflow.py
           inputs:
             input_data: ${inputs.input_data}
+          use_variants: false
+        node_variants: {}
         ```
 
     - Select **Save**.
