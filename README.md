@@ -132,6 +132,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
     - [Quantizing Phi-3.5 using Apple MLX Framework](./md/08.Update/Phi35/024.UsingAppleMLXQuantifyingPhi35.md)(✅)
   - Phi-3.5 Application Samples
     - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/08.Update/Phi35/031.WebGPUWithPhi35Readme.md)(✅)
+    - [Create your own Visual Studio Code Chat Copilot Agent with Phi-3.5 by GitHub Models](./md/08.Update/Phi35/032.CreateVSCodeChatAgentWithGitHubModels.md)(✅)
 
 
 ## Using Phi-3 Models
