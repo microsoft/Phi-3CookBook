@@ -293,3 +293,5 @@ Dans cet exercice, vous allez :
 
 Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
 Veuillez examiner le résultat et apporter les corrections nécessaires.
+
+"Remarque : Cette traduction a été générée à l'aide d'outils automatisés et peut présenter des limitations. Des mises à jour futures amélioreront progressivement la précision de ce document. Les contributions de la communauté sont les bienvenues pour améliorer la qualité de la traduction."

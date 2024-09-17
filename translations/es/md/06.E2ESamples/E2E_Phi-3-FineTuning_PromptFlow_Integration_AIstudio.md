@@ -759,3 +759,5 @@ Ahora que has ajustado e integrado tu modelo personalizado Phi-3 con Prompt flow
 
 Aviso legal: La traducción fue realizada por un modelo de IA y puede no ser perfecta. 
 Por favor, revise el resultado y haga las correcciones necesarias.
+
+"Nota: Esta traducción fue generada utilizando herramientas automáticas y puede tener limitaciones. Las futuras actualizaciones mejorarán gradualmente la precisión de este documento. Las contribuciones de la comunidad son bienvenidas para mejorar la calidad de la traducción."

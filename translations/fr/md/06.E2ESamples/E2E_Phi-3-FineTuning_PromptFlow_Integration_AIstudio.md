@@ -744,3 +744,5 @@ Maintenant que vous avez ajusté et intégré votre modèle Phi-3 personnalisé 
     ![Discuter avec flux de prompts.](../../../../translated_images/09-05-chat-with-promptflow.46c9fdf0e6de0e15e9618f654830e52bd8ead4aec0de57bb960206321d2bd0bd.fr.png)
 
 Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+
+"Remarque : Cette traduction a été générée à l'aide d'outils automatisés et peut présenter des limitations. Des mises à jour futures amélioreront progressivement la précision de ce document. Les contributions de la communauté sont les bienvenues pour améliorer la qualité de la traduction."
