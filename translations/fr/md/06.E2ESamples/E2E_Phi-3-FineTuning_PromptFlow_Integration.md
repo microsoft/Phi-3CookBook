@@ -1,40 +1,40 @@
 # Affiner et Intégrer des modèles Phi-3 personnalisés avec Prompt flow
 
-Cet exemple de bout en bout (E2E) est basé sur le guide "[Affiner et Intégrer des Modèles Phi-3 Personnalisés avec Prompt Flow : Guide Étape par Étape](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?WT.mc_id=aiml-137032-kinfeylo)" de la Microsoft Tech Community. Il présente les processus d'affinement, de déploiement et d'intégration des modèles Phi-3 personnalisés avec Prompt flow.
+Cet exemple de bout en bout (E2E) est basé sur le guide "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow/ba-p/4178612?WT.mc_id=aiml-137032-kinfeylo)" de la communauté technique de Microsoft. Il introduit les processus de réglage fin, de déploiement et d'intégration de modèles Phi-3 personnalisés avec Prompt flow.
 
 ## Vue d'ensemble
 
 Dans cet exemple E2E, vous apprendrez à affiner le modèle Phi-3 et à l'intégrer avec Prompt flow. En utilisant Azure Machine Learning et Prompt flow, vous établirez un flux de travail pour déployer et utiliser des modèles d'IA personnalisés. Cet exemple E2E est divisé en trois scénarios :
 
-**Scénario 1 : Configurer les ressources Azure et Préparer l'affinement**
+**Scénario 1 : Configurer les ressources Azure et se préparer à l'affinement**
 
-**Scénario 2 : Affiner le modèle Phi-3 et Déployer dans Azure Machine Learning Studio**
+**Scénario 2 : Affiner le modèle Phi-3 et le déployer dans Azure Machine Learning Studio**
 
-**Scénario 3 : Intégrer avec Prompt flow et Discuter avec votre modèle personnalisé**
+**Scénario 3 : Intégrer avec Prompt flow et discuter avec votre modèle personnalisé**
 
 Voici un aperçu de cet exemple E2E.
 
-![Aperçu de l'intégration FineTuning_PromptFlow de Phi-3](../../../../translated_images/00-01-architecture.8105090d271b94fffec713da4c928ae31366b3521c18eec086cd4d2a3bddb3c4.fr.png)
+![Phi-3-FineTuning_PromptFlow_Integration Overview](../../../../translated_images/00-01-architecture.8105090d271b94fffec713da4c928ae31366b3521c18eec086cd4d2a3bddb3c4.fr.png)
 
 ### Table des matières
 
-1. **[Scénario 1 : Configurer les ressources Azure et Préparer l'affinement](../../../../md/06.E2ESamples)**
+1. **[Scénario 1 : Configurer les ressources Azure et se préparer à l'affinement](../../../../md/06.E2ESamples)**
     - [Créer un espace de travail Azure Machine Learning](../../../../md/06.E2ESamples)
     - [Demander des quotas GPU dans l'abonnement Azure](../../../../md/06.E2ESamples)
     - [Ajouter une attribution de rôle](../../../../md/06.E2ESamples)
     - [Configurer le projet](../../../../md/06.E2ESamples)
     - [Préparer le jeu de données pour l'affinement](../../../../md/06.E2ESamples)
 
-1. **[Scénario 2 : Affiner le modèle Phi-3 et Déployer dans Azure Machine Learning Studio](../../../../md/06.E2ESamples)**
+1. **[Scénario 2 : Affiner le modèle Phi-3 et le déployer dans Azure Machine Learning Studio](../../../../md/06.E2ESamples)**
     - [Configurer Azure CLI](../../../../md/06.E2ESamples)
     - [Affiner le modèle Phi-3](../../../../md/06.E2ESamples)
     - [Déployer le modèle affiné](../../../../md/06.E2ESamples)
 
-1. **[Scénario 3 : Intégrer avec Prompt flow et Discuter avec votre modèle personnalisé](../../../../md/06.E2ESamples)**
+1. **[Scénario 3 : Intégrer avec Prompt flow et discuter avec votre modèle personnalisé](../../../../md/06.E2ESamples)**
     - [Intégrer le modèle Phi-3 personnalisé avec Prompt flow](../../../../md/06.E2ESamples)
     - [Discuter avec votre modèle personnalisé](../../../../md/06.E2ESamples)
 
-## Scénario 1 : Configurer les ressources Azure et Préparer l'affinement
+## Scénario 1 : Configurer les ressources Azure et se préparer à l'affinement
 
 ### Créer un espace de travail Azure Machine Learning
 
@@ -55,7 +55,7 @@ Voici un aperçu de cet exemple E2E.
     - Entrez le **Nom de l'espace de travail**. Il doit être une valeur unique.
     - Sélectionnez la **Région** que vous souhaitez utiliser.
     - Sélectionnez le **Compte de stockage** à utiliser (créez-en un nouveau si nécessaire).
-    - Sélectionnez le **Coffre de clés** à utiliser (créez-en un nouveau si nécessaire).
+    - Sélectionnez le **Key vault** à utiliser (créez-en un nouveau si nécessaire).
     - Sélectionnez les **Insights d'application** à utiliser (créez-en un nouveau si nécessaire).
     - Sélectionnez le **Registre de conteneurs** à utiliser (créez-en un nouveau si nécessaire).
 
@@ -71,13 +71,13 @@ Dans cet exemple E2E, vous utiliserez le *Standard_NC24ads_A100_v4 GPU* pour l'a
 
 > [!NOTE]
 >
-> Seuls les abonnements Pay-As-You-Go (le type d'abonnement standard) sont éligibles pour l'allocation GPU ; les abonnements avec avantages ne sont actuellement pas pris en charge.
+> Seuls les abonnements Pay-As-You-Go (le type d'abonnement standard) sont éligibles pour l'allocation de GPU ; les abonnements à bénéfices ne sont actuellement pas pris en charge.
 >
-> Pour ceux utilisant des abonnements avec avantages (comme l'abonnement Visual Studio Enterprise) ou ceux souhaitant tester rapidement le processus d'affinement et de déploiement, ce tutoriel fournit également des instructions pour affiner avec un jeu de données minimal en utilisant un CPU. Cependant, il est important de noter que les résultats d'affinement sont significativement meilleurs lorsqu'on utilise un GPU avec des jeux de données plus volumineux.
+> Pour ceux utilisant des abonnements à bénéfices (comme l'abonnement Visual Studio Enterprise) ou ceux cherchant à tester rapidement le processus d'affinement et de déploiement, ce tutoriel fournit également des conseils pour affiner avec un jeu de données minimal en utilisant un CPU. Cependant, il est important de noter que les résultats de l'affinement sont nettement meilleurs lorsqu'un GPU est utilisé avec des jeux de données plus grands.
 
 1. Visitez [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
 
-1. Effectuez les tâches suivantes pour demander le quota *Standard NCADSA100v4 Family* :
+1. Effectuez les tâches suivantes pour demander un quota *Standard NCADSA100v4 Family* :
 
     - Sélectionnez **Quota** dans l'onglet de gauche.
     - Sélectionnez la **Famille de machines virtuelles** à utiliser. Par exemple, sélectionnez **Standard NCADSA100v4 Family Cluster Dedicated vCPUs**, qui inclut le GPU *Standard_NC24ads_A100_v4*.
@@ -85,19 +85,19 @@ Dans cet exemple E2E, vous utiliserez le *Standard_NC24ads_A100_v4 GPU* pour l'a
 
         ![Demander un quota.](../../../../translated_images/01-04-request-quota.7995c4c08ea51cd4952d34415bd7b7ea3c2d7dc219c7493afe436c75d5b891b1.fr.png)
 
-    - Dans la page Demande de quota, entrez la **Nouvelle limite de cœurs** que vous souhaitez utiliser. Par exemple, 24.
-    - Dans la page Demande de quota, sélectionnez **Soumettre** pour demander le quota GPU.
+    - À l'intérieur de la page Demander un quota, entrez la **Nouvelle limite de cœurs** que vous souhaitez utiliser. Par exemple, 24.
+    - À l'intérieur de la page Demander un quota, sélectionnez **Soumettre** pour demander le quota GPU.
 
 > [!NOTE]
-> Vous pouvez sélectionner le GPU ou CPU approprié pour vos besoins en vous référant au document [Tailles des machines virtuelles dans Azure](https://learn.microsoft.com/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist).
+> Vous pouvez sélectionner le GPU ou le CPU approprié à vos besoins en vous référant au document [Tailles des machines virtuelles dans Azure](https://learn.microsoft.com/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist).
 
 ### Ajouter une attribution de rôle
 
-Pour affiner et déployer vos modèles, vous devez d'abord créer une Identité Gérée Assignée par l'Utilisateur (UAI) et lui attribuer les autorisations appropriées. Cette UAI sera utilisée pour l'authentification lors du déploiement.
+Pour affiner et déployer vos modèles, vous devez d'abord créer une Identité Gérée Assignée par l'Utilisateur (UAI) et lui attribuer les permissions appropriées. Cette UAI sera utilisée pour l'authentification pendant le déploiement.
 
 #### Créer une Identité Gérée Assignée par l'Utilisateur (UAI)
 
-1. Tapez *identités gérées* dans la **barre de recherche** en haut de la page du portail et sélectionnez **Identités gérées** parmi les options qui apparaissent.
+1. Tapez *identités gérées* dans la **barre de recherche** en haut de la page du portail et sélectionnez **Identités Gérées** parmi les options qui apparaissent.
 
     ![Tapez identités gérées.](../../../../translated_images/01-05-type-managed-identities.02acd91a0a275a38cdc0c7be56a8db9a96b8f453764accb878e3e8707d6d8cfb.fr.png)
 
@@ -118,19 +118,19 @@ Pour affiner et déployer vos modèles, vous devez d'abord créer une Identité 
 
 #### Ajouter une attribution de rôle de Contributeur à l'Identité Gérée
 
-1. Naviguez jusqu'à la ressource d'Identité Gérée que vous avez créée.
+1. Accédez à la ressource Identité Gérée que vous avez créée.
 
 1. Sélectionnez **Attributions de rôles Azure** dans l'onglet de gauche.
 
-1. Sélectionnez **+Ajouter une attribution de rôle** dans le menu de navigation.
+1. Sélectionnez **+ Ajouter une attribution de rôle** dans le menu de navigation.
 
-1. Dans la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
-    - Sélectionnez la **Portée** sur **Groupe de ressources**.
+1. À l'intérieur de la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
+    - Sélectionnez la **Portée** à **Groupe de ressources**.
     - Sélectionnez votre **Abonnement** Azure.
     - Sélectionnez le **Groupe de ressources** à utiliser.
-    - Sélectionnez le **Rôle** sur **Contributeur**.
+    - Sélectionnez le **Rôle** à **Contributeur**.
 
-    ![Remplir rôle de contributeur.](../../../../translated_images/01-07-fill-contributor-role.20a2b4f31e7495a9f8bc97a8e338ff2e7c2dcd6589d355ce4898f22f871f3d25.fr.png)
+    ![Remplir le rôle de contributeur.](../../../../translated_images/01-07-fill-contributor-role.20a2b4f31e7495a9f8bc97a8e338ff2e7c2dcd6589d355ce4898f22f871f3d25.fr.png)
 
 1. Sélectionnez **Enregistrer**.
 
@@ -142,25 +142,25 @@ Pour affiner et déployer vos modèles, vous devez d'abord créer une Identité 
 
 1. Sélectionnez le compte de stockage associé à l'espace de travail Azure Machine Learning que vous avez créé. Par exemple, *finetunephistorage*.
 
-1. Effectuez les tâches suivantes pour naviguer vers la page Ajouter une attribution de rôle :
+1. Effectuez les tâches suivantes pour accéder à la page Ajouter une attribution de rôle :
 
-    - Naviguez jusqu'au compte de stockage Azure que vous avez créé.
+    - Accédez au compte de stockage Azure que vous avez créé.
     - Sélectionnez **Contrôle d'accès (IAM)** dans l'onglet de gauche.
     - Sélectionnez **+ Ajouter** dans le menu de navigation.
     - Sélectionnez **Ajouter une attribution de rôle** dans le menu de navigation.
 
     ![Ajouter un rôle.](../../../../translated_images/01-09-add-role.0fcf57f69c109448b6ae259356c5ec5d1a3fd5d751a1d6a994f1c16db923dae0.fr.png)
 
-1. Dans la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
+1. À l'intérieur de la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
 
-    - Dans la page Rôle, tapez *Lecteur de Données Blob de Stockage* dans la **barre de recherche** et sélectionnez **Lecteur de Données Blob de Stockage** parmi les options qui apparaissent.
-    - Dans la page Rôle, sélectionnez **Suivant**.
-    - Dans la page Membres, sélectionnez **Attribuer l'accès à** **Identité gérée**.
-    - Dans la page Membres, sélectionnez **+ Sélectionner des membres**.
-    - Dans la page Sélectionner des identités gérées, sélectionnez votre **Abonnement** Azure.
-    - Dans la page Sélectionner des identités gérées, sélectionnez l'**Identité gérée** sur **Identité Gérée**.
-    - Dans la page Sélectionner des identités gérées, sélectionnez l'Identité Gérée que vous avez créée. Par exemple, *finetunephi-managedidentity*.
-    - Dans la page Sélectionner des identités gérées, sélectionnez **Sélectionner**.
+    - À l'intérieur de la page Rôle, tapez *Lecteur de Données Blob de Stockage* dans la **barre de recherche** et sélectionnez **Lecteur de Données Blob de Stockage** parmi les options qui apparaissent.
+    - À l'intérieur de la page Rôle, sélectionnez **Suivant**.
+    - À l'intérieur de la page Membres, sélectionnez **Attribuer l'accès à** **Identité gérée**.
+    - À l'intérieur de la page Membres, sélectionnez **+ Sélectionner des membres**.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez votre **Abonnement** Azure.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez l'**Identité gérée** à **Gérer l'Identité**.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez l'Identité Gérée que vous avez créée. Par exemple, *finetunephi-managedidentity*.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez **Sélectionner**.
 
     ![Sélectionner l'identité gérée.](../../../../translated_images/01-10-select-managed-identity.980c5177907f18065d2e28097b3629e3d66530902a39899aa4dd1214493a65d0.fr.png)
 
@@ -174,29 +174,29 @@ Pour affiner et déployer vos modèles, vous devez d'abord créer une Identité 
 
 1. Sélectionnez le registre de conteneurs associé à l'espace de travail Azure Machine Learning. Par exemple, *finetunephicontainerregistries*
 
-1. Effectuez les tâches suivantes pour naviguer vers la page Ajouter une attribution de rôle :
+1. Effectuez les tâches suivantes pour accéder à la page Ajouter une attribution de rôle :
 
     - Sélectionnez **Contrôle d'accès (IAM)** dans l'onglet de gauche.
     - Sélectionnez **+ Ajouter** dans le menu de navigation.
     - Sélectionnez **Ajouter une attribution de rôle** dans le menu de navigation.
 
-1. Dans la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
+1. À l'intérieur de la page Ajouter une attribution de rôle, effectuez les tâches suivantes :
 
-    - Dans la page Rôle, tapez *AcrPull* dans la **barre de recherche** et sélectionnez **AcrPull** parmi les options qui apparaissent.
-    - Dans la page Rôle, sélectionnez **Suivant**.
-    - Dans la page Membres, sélectionnez **Attribuer l'accès à** **Identité gérée**.
-    - Dans la page Membres, sélectionnez **+ Sélectionner des membres**.
-    - Dans la page Sélectionner des identités gérées, sélectionnez votre **Abonnement** Azure.
-    - Dans la page Sélectionner des identités gérées, sélectionnez l'**Identité gérée** sur **Identité Gérée**.
-    - Dans la page Sélectionner des identités gérées, sélectionnez l'Identité Gérée que vous avez créée. Par exemple, *finetunephi-managedidentity*.
-    - Dans la page Sélectionner des identités gérées, sélectionnez **Sélectionner**.
+    - À l'intérieur de la page Rôle, tapez *AcrPull* dans la **barre de recherche** et sélectionnez **AcrPull** parmi les options qui apparaissent.
+    - À l'intérieur de la page Rôle, sélectionnez **Suivant**.
+    - À l'intérieur de la page Membres, sélectionnez **Attribuer l'accès à** **Identité gérée**.
+    - À l'intérieur de la page Membres, sélectionnez **+ Sélectionner des membres**.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez votre **Abonnement** Azure.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez l'**Identité gérée** à **Gérer l'Identité**.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez l'Identité Gérée que vous avez créée. Par exemple, *finetunephi-managedidentity*.
+    - À l'intérieur de la page Sélectionner des identités gérées, sélectionnez **Sélectionner**.
     - Sélectionnez **Vérifier + attribuer**.
 
 ### Configurer le projet
 
-Maintenant, vous allez créer un dossier de travail et configurer un environnement virtuel pour développer un programme qui interagit avec les utilisateurs et utilise l'historique des discussions stocké dans Azure Cosmos DB pour informer ses réponses.
+Maintenant, vous allez créer un dossier pour travailler et configurer un environnement virtuel pour développer un programme qui interagit avec les utilisateurs et utilise l'historique de chat stocké dans Azure Cosmos DB pour informer ses réponses.
 
-#### Créer un dossier de travail
+#### Créer un dossier pour travailler dedans
 
 1. Ouvrez une fenêtre de terminal et tapez la commande suivante pour créer un dossier nommé *finetune-phi* dans le chemin par défaut.
 
@@ -243,7 +243,7 @@ Maintenant, vous allez créer un dossier de travail et configurer un environneme
 
 #### Créer les fichiers du projet
 
-Dans cet exercice, vous allez créer les fichiers essentiels pour notre projet. Ces fichiers incluent des scripts pour télécharger le jeu de données, configurer l'environnement Azure Machine Learning, affiner le modèle Phi-3 et déployer le modèle affiné. Vous allez également créer un fichier *conda.yml* pour configurer l'environnement d'affinement.
+Dans cet exercice, vous allez créer les fichiers essentiels pour notre projet. Ces fichiers incluent des scripts pour télécharger le jeu de données, configurer l'environnement Azure Machine Learning, affiner le modèle Phi-3, et déployer le modèle affiné. Vous allez également créer un fichier *conda.yml* pour configurer l'environnement d'affinement.
 
 Dans cet exercice, vous allez :
 
@@ -253,7 +253,7 @@ Dans cet exercice, vous allez :
 - Créer un fichier *conda.yml* pour configurer l'environnement d'affinement.
 - Créer un fichier *deploy_model.py* pour déployer le modèle affiné.
 - Créer un fichier *integrate_with_promptflow.py* pour intégrer le modèle affiné et exécuter le modèle en utilisant Prompt flow.
-- Créer un fichier flow.dag.yml pour configurer la structure du flux de travail pour Prompt flow.
+- Créer un fichier flow.dag.yml pour configurer la structure de flux de travail pour Prompt flow.
 - Créer un fichier *config.py* pour entrer les informations Azure.
 
 > [!NOTE]
@@ -278,9 +278,9 @@ Dans cet exercice, vous allez :
 
 1. Sélectionnez **Fichier** dans la barre de menu.
 
-1. Sélectionnez **Ouvrir un dossier**.
+1. Sélectionnez **Ouvrir le dossier**.
 
-1. Sélectionnez le dossier *finetune-phi* que vous avez créé, qui se trouve à *C:\Users\yourUserName\finetune-phi*.
+1. Sélectionnez le dossier *finetune-phi* que vous avez créé, situé à *C:\Users\yourUserName\finetune-phi*.
 
     ![Ouvrir le dossier du projet.](../../../../translated_images/01-12-open-project-folder.f41fede45e248ad8a028f4db6f18a04eb4a2ebc4643e7f66e00f7239d539fdf9.fr.png)
 
@@ -288,12 +288,8 @@ Dans cet exercice, vous allez :
 
 1. Dans le volet gauche de Visual Studio Code, cliquez avec le bouton droit et sélectionnez **Nouveau fichier** pour créer un nouveau fichier nommé *setup_ml.py*.
 
-1. Dans le volet gauche de Visual Studio Code, cliquez avec le bouton droit et sélectionnez **Nouveau fichier** pour créer un nouveau fichier nommé *deploy_model.py*.
-
-    ![Créer un nouveau fichier.](../../../../translated_images/01-13-create-new-file.d684d1125b452778b5f8df8e1f3202e0a6d1c9ced6f6e8e4ce65da40df49c32c.fr.png)
-
-1. Dans
+1. Dans le volet gauche de Visual Studio Code,
 
 
-Avertissement : La traduction a été réalisée à partir de son texte original par un modèle d'IA et peut ne pas être parfaite. 
+Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
 Veuillez examiner le résultat et apporter les corrections nécessaires.

@@ -100,14 +100,11 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ```
 
-
 ## **4. Create an App application in Xcode**
 
 I chose Objective-C as the App development method , because using Generative AI with ONNX Runtime C++ API, Objective-C is better compatible. Of course, you can also complete related calls through Swift bridging.
 
-
 ![xcode](../../imgs/03/iOS/xcode.png)
-
 
 ## **5. Copy the ONNX quantized INT4 model to the App application project**
 
@@ -117,22 +114,18 @@ We need to import the INT4 quantization model in ONNX format, which needs to be 
 
 After downloading, you need to add it to the Resources directory of the project in Xcode.
 
-
 ![model](../../imgs/03/iOS/model.png)
 
-
  ## **6. Add the C++ API in ViewControllers**
- 
+
 ***Notice***:
 
   a. Add the corresponding C++ header file to the project
-
 
   ![head](../../imgs/03/iOS/head.png)
 
   b. add onnxruntime-gen ai dylib in Xcode
 
-  
   ![lib](../../imgs/03/iOS/lib.png)
  
   c. Directly use the code on C Samples for testing in this samples. You can also directly add moreto run(such as ChatUI）
@@ -165,7 +158,6 @@ After downloading, you need to add it to the Resources directory of the project 
     auto tmp = out_string;
 
 ```
-
 
 ## **7. The running results**
 

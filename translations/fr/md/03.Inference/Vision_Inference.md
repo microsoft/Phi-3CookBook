@@ -1,12 +1,12 @@
 # **Inférence Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permet à Phi-3 de non seulement comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre différents problèmes visuels, tels que l'OCR, l'analyse de tableaux, la reconnaissance d'objets, la description d'images, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup d'entraînement de données. Voici quelques techniques et scénarios d'application cités par Phi-3-vision-128k-instruct.
+Phi-3-vision-128k-instruct permet à Phi-3 non seulement de comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre différents problèmes visuels, tels que l'OCR, l'analyse de tableaux, la reconnaissance d'objets, la description d'images, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup de formation de données. Les techniques et scénarios d'application suivants sont cités par Phi-3-vision-128k-instruct.
 
 
 
 ## **0. Préparation**
 
-Assurez-vous que les bibliothèques Python suivantes ont été installées avant utilisation (Python 3.10+ est recommandé)
+Veuillez vous assurer que les bibliothèques Python suivantes ont été installées avant utilisation (Python 3.10+ est recommandé)
 
 
 ```bash
@@ -54,7 +54,7 @@ prompt_suffix = "<|end|>\n"
 
 ## **1. Analyser l'image avec Phi-3-Vision**
 
-Nous voulons que l'IA puisse analyser le contenu de nos images et fournir des descriptions pertinentes
+Nous voulons que l'IA soit capable d'analyser le contenu de nos images et de donner des descriptions pertinentes
 
 
 ```python
@@ -85,7 +85,7 @@ Nous pouvons obtenir les réponses pertinentes en exécutant le script suivant d
 
 ```txt
 
-Certainement ! Nvidia Corporation est un leader mondial dans le calcul avancé et l'intelligence artificielle (IA). L'entreprise conçoit et développe des unités de traitement graphique (GPU), qui sont des accélérateurs matériels spécialisés utilisés pour traiter et rendre des images et des vidéos. Les GPU de Nvidia sont largement utilisés dans la visualisation professionnelle, les centres de données et les jeux. L'entreprise propose également des logiciels et des services pour améliorer les capacités de ses GPU. Les technologies innovantes de Nvidia ont des applications dans diverses industries, notamment l'automobile, la santé et le divertissement. Les actions de l'entreprise sont cotées en bourse et peuvent être trouvées sur les principales places boursières.
+Bien sûr ! Nvidia Corporation est un leader mondial dans le domaine de l'informatique avancée et de l'intelligence artificielle (IA). L'entreprise conçoit et développe des unités de traitement graphique (GPU), qui sont des accélérateurs matériels spécialisés utilisés pour traiter et rendre des images et des vidéos. Les GPU de Nvidia sont largement utilisés dans la visualisation professionnelle, les centres de données et les jeux. L'entreprise fournit également des logiciels et des services pour améliorer les capacités de ses GPU. Les technologies innovantes de Nvidia ont des applications dans divers secteurs, y compris l'automobile, la santé et le divertissement. L'action de l'entreprise est cotée en bourse et peut être trouvée sur les principales places boursières.
 
 ```
 
@@ -93,12 +93,12 @@ Certainement ! Nvidia Corporation est un leader mondial dans le calcul avancé e
 ## **2. OCR avec Phi-3-Vision**
 
 
-En plus d'analyser l'image, nous pouvons également extraire des informations de l'image. C'est le processus OCR que nous devions autrefois coder de manière complexe pour compléter.
+En plus d'analyser l'image, nous pouvons également extraire des informations de l'image. C'est le processus OCR que nous devions auparavant écrire un code complexe pour compléter.
 
 
 ```python
 
-prompt = f"{user_prompt}<|image_1|>\nAidez-moi à obtenir le titre et les informations de l'auteur de ce livre ?{prompt_suffix}{assistant_prompt}"
+prompt = f"{user_prompt}<|image_1|>\nAidez-moi à obtenir le titre et les informations sur l'auteur de ce livre ?{prompt_suffix}{assistant_prompt}"
 
 url = "https://marketplace.canva.com/EAFPHUaBrFc/1/0/1003w/canva-black-and-white-modern-alone-story-book-cover-QHBKwQnsgzs.jpg"
 
@@ -131,7 +131,7 @@ Le titre du livre est "ALONE" et l'auteur est Morgan Maxwell.
 
 ## **3. Comparaison de plusieurs images**
 
-Phi-3 Vision supporte la comparaison de plusieurs images. Nous pouvons utiliser ce modèle pour trouver les différences entre les images.
+Phi-3 Vision prend en charge la comparaison de plusieurs images. Nous pouvons utiliser ce modèle pour trouver les différences entre les images.
 
 
 ```python
@@ -171,9 +171,8 @@ Le résultat est
 
 ```txt
 
-La première image montre un groupe de joueurs de football du club Arsenal posant pour une photo d'équipe avec leurs trophées, tandis que la deuxième image montre un groupe de joueurs de football du club Arsenal célébrant une victoire avec une grande foule de fans en arrière-plan. La différence entre les deux images est le contexte dans lequel les photos ont été prises, avec la première image se concentrant sur l'équipe et leurs trophées, et la deuxième image capturant un moment de célébration et de victoire.
+La première image montre un groupe de joueurs de football du club Arsenal posant pour une photo d'équipe avec leurs trophées, tandis que la deuxième image montre un groupe de joueurs de football du club Arsenal célébrant une victoire avec une grande foule de fans en arrière-plan. La différence entre les deux images réside dans le contexte dans lequel les photos ont été prises, la première image se concentrant sur l'équipe et leurs trophées, et la deuxième image capturant un moment de célébration et de victoire.
 
 ```
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez vérifier le résultat et apporter les corrections nécessaires.
+Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.

@@ -1,10 +1,10 @@
 # **Inferencia Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permite que Phi-3 no solo entienda el lenguaje, sino que también vea el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, descripción de imágenes, etc. Podemos completar fácilmente tareas que antes requerían mucho entrenamiento de datos. A continuación se presentan técnicas y escenarios de aplicación relacionados citados por Phi-3-vision-128k-instruct.
+Phi-3-vision-128k-instruct permite a Phi-3 no solo entender el lenguaje, sino también ver el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, descripción de imágenes, etc. Podemos completar fácilmente tareas que antes requerían mucho entrenamiento de datos. A continuación se presentan técnicas relacionadas y escenarios de aplicación citados por Phi-3-vision-128k-instruct.
 
 ## **0. Preparación**
 
-Asegúrate de tener instaladas las siguientes bibliotecas de Python antes de usar (se recomienda Python 3.10+)
+Asegúrate de que las siguientes bibliotecas de Python estén instaladas antes de usar (se recomienda Python 3.10+):
 
 ```bash
 pip install transformers -U
@@ -12,13 +12,13 @@ pip install datasets -U
 pip install torch -U
 ```
 
-Se recomienda usar ***CUDA 11.6+*** e instalar flatten
+Se recomienda usar ***CUDA 11.6+*** e instalar flatten:
 
 ```bash
 pip install flash-attn --no-build-isolation
 ```
 
-Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que primero crees el siguiente contenido.
+Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que crees el siguiente contenido primero.
 
 ```python
 from PIL import Image
@@ -64,10 +64,10 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-Podemos obtener las respuestas relevantes ejecutando el siguiente script en el Notebook
+Podemos obtener las respuestas relevantes ejecutando el siguiente script en el Notebook:
 
 ```txt
-Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
+¡Por supuesto! Nvidia Corporation es un líder global en computación avanzada e inteligencia artificial (IA). La compañía diseña y desarrolla unidades de procesamiento gráfico (GPUs), que son aceleradores de hardware especializados utilizados para procesar y renderizar imágenes y videos. Las GPUs de Nvidia se utilizan ampliamente en visualización profesional, centros de datos y juegos. La compañía también proporciona software y servicios para mejorar las capacidades de sus GPUs. Las tecnologías innovadoras de Nvidia tienen aplicaciones en varias industrias, incluyendo automotriz, salud y entretenimiento. Las acciones de la compañía se cotizan públicamente y se pueden encontrar en las principales bolsas de valores.
 ```
 
 ## **2. OCR con Phi-3-Vision**
@@ -95,10 +95,10 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-El resultado es
+El resultado es:
 
 ```txt
-The title of the book is "ALONE" and the author is Morgan Maxwell.
+El título del libro es "ALONE" y el autor es Morgan Maxwell.
 ```
 
 ## **3. Comparación de múltiples imágenes**
@@ -132,10 +132,10 @@ generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 ```
 
-El resultado es
+El resultado es:
 
 ```txt
-The first image shows a group of soccer players from the Arsenal Football Club posing for a team photo with their trophies, while the second image shows a group of soccer players from the Arsenal Football Club celebrating a victory with a large crowd of fans in the background. The difference between the two images is the context in which the photos were taken, with the first image focusing on the team and their trophies, and the second image capturing a moment of celebration and victory.
+La primera imagen muestra a un grupo de jugadores de fútbol del Arsenal Football Club posando para una foto de equipo con sus trofeos, mientras que la segunda imagen muestra a un grupo de jugadores de fútbol del Arsenal Football Club celebrando una victoria con una gran multitud de fanáticos en el fondo. La diferencia entre las dos imágenes es el contexto en el que se tomaron las fotos, con la primera imagen enfocándose en el equipo y sus trofeos, y la segunda imagen capturando un momento de celebración y victoria.
 ```
 
 Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. 
