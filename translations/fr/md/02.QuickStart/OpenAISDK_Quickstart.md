@@ -1,10 +1,10 @@
 # Utiliser le SDK OpenAI avec Phi-3 dans Azure AI et Azure ML
 
-Utilisez le SDK `openai` pour consommer les déploiements Phi-3 dans Azure AI et Azure ML. La famille de modèles Phi-3 dans Azure AI et Azure ML offre une API compatible avec l'API OpenAI Chat Completion. Elle permet aux clients et aux utilisateurs de passer sans problème des modèles OpenAI aux LLMs Phi-3.
+Utilisez le SDK `openai` pour consommer les déploiements Phi-3 dans Azure AI et Azure ML. La famille de modèles Phi-3 dans Azure AI et Azure ML offre une API compatible avec l'API OpenAI Chat Completion. Elle permet aux clients et utilisateurs de passer sans heurt des modèles OpenAI aux LLMs Phi-3.
 
 L'API peut être utilisée directement avec les bibliothèques clientes d'OpenAI ou des outils tiers, comme LangChain ou LlamaIndex.
 
-L'exemple ci-dessous montre comment effectuer cette transition en utilisant la bibliothèque Python OpenAI. Notez que Phi-3 ne supporte que l'API de complétions de chat.
+L'exemple ci-dessous montre comment effectuer cette transition en utilisant la bibliothèque Python OpenAI. Notez que Phi-3 ne supporte que l'API de complétion de chat.
 
 Pour utiliser le modèle Phi-3 avec le SDK OpenAI, vous devrez suivre quelques étapes pour configurer votre environnement et effectuer des appels API. Voici un guide pour vous aider à démarrer :
 
@@ -24,7 +24,7 @@ Pour utiliser le modèle Phi-3 avec le SDK OpenAI, vous devrez suivre quelques �
    ```python
    response = openai.Completion.create(
        model="phi-3",
-       prompt="Hello, how are you?",
+       prompt="Bonjour, comment ça va?",
        max_tokens=50
    )
 
@@ -40,8 +40,8 @@ import openai
 # Configurez votre clé API
 openai.api_key = "your-api-key"
 
-# Définissez l'invite
-prompt = "Write a short story about a brave knight."
+# Définissez le prompt
+prompt = "Écrivez une courte histoire sur un chevalier courageux."
 
 # Effectuez l'appel API
 response = openai.Completion.create(
@@ -54,10 +54,10 @@ response = openai.Completion.create(
 print(response.choices[0].text.strip())
 ```
 
-Cela générera une courte histoire basée sur l'invite fournie. Vous pouvez ajuster le paramètre `max_tokens` pour contrôler la longueur de la sortie.
+Cela générera une courte histoire basée sur le prompt fourni. Vous pouvez ajuster le paramètre `max_tokens` pour contrôler la longueur de la sortie.
 
 [Voir un exemple complet de Notebook pour les modèles Phi-3](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/phi-3/openaisdk.ipynb)
 
-Consultez la [documentation](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?WT.mc_id=aiml-137032-kinfeylo) pour la famille de modèles Phi-3 dans AI Studio et ML Studio pour des détails sur la provision des points de terminaison d'inférence, la disponibilité régionale, les prix et la référence de schéma d'inférence.
+Consultez la [documentation](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?WT.mc_id=aiml-137032-kinfeylo) pour la famille de modèles Phi-3 pour AI Studio et ML Studio pour des détails sur la provision des points de terminaison d'inférence, la disponibilité régionale, les tarifs et la référence du schéma d'inférence.
 
-Avertissement : La traduction a été réalisée à partir de son original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.

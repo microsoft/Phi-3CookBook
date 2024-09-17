@@ -1,12 +1,12 @@
-# **Inférence de vos modèles fine-tunés**
+# **Inférer vos modèles de fine-tuning**
 
-Après le fine-tuning, vous pouvez accéder au nouveau modèle via référence, ce qui est implémenté ici en utilisant ONNX Runtime GenAI.
+Après le fine-tuning, vous pouvez accéder au nouveau modèle via une référence, implémentée ici avec ONNX Runtime GenAI.
 
-## **Installer ORT GenAI SDK**
+## **Installer le SDK ORT GenAI**
 
-**Notes** - Veuillez d'abord installer CUDA 12.1, si vous ne savez pas comment faire, veuillez lire ce guide [https://developer.nvidia.com/cuda-12-1-0-download-archive](https://developer.nvidia.com/cuda-12-1-0-download-archive)
+**Remarques** - Veuillez d'abord installer CUDA 12.1, si vous ne savez pas comment faire, veuillez lire ce guide [https://developer.nvidia.com/cuda-12-1-0-download-archive](https://developer.nvidia.com/cuda-12-1-0-download-archive)
 
-Après avoir installé CUDA, veuillez installer onnxruntime genai sdk avec cuda
+Après avoir terminé l'installation de CUDA, veuillez installer le SDK onnxruntime genai avec cuda
 
 ```bash
 
@@ -16,7 +16,7 @@ pip install onnxruntime-genai-cuda --pre --index-url=https://aiinfra.pkgs.visual
 
 ```
 
-## **Inférence du Modèle**
+## **Inférer le modèle**
 
 ```python
 
@@ -51,3 +51,4 @@ while not generator.is_done():
 
 ![result](../../../../translated_images/result.b9b025fc2577ad5e3fd97341dd6c1e858a83c3291a4ed5ad4dc4fbd80a575b67.fr.png)
 
+Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.

@@ -1,6 +1,6 @@
 # **Utilisez Microsoft Olive pour architecturer vos projets**
 
-Si une entreprise souhaite avoir son propre modèle vertical industriel, elle doit commencer par les données, l'ajustement fin et le déploiement. Dans le contenu précédent, nous avons présenté le contenu de Microsoft Olive, et nous complétons maintenant une introduction plus détaillée basée sur le travail de E2E.
+Si une entreprise souhaite avoir son propre modèle vertical industriel, elle doit commencer par les données, l'ajustement fin et le déploiement. Dans le contenu précédent, nous avons introduit le contenu de Microsoft Olive, et nous complétons maintenant une introduction plus détaillée basée sur le travail de E2E.
 
 ## **Architecture**
 
@@ -8,7 +8,7 @@ Nous pouvons nous référer aux projets générés par AI Toolkit pour VS Code p
 
 ```txt
 
-｜-- Your Phi-3-mini E2E Proj
+｜-- Votre projet E2E Phi-3-mini
     ｜-- datasets
     ｜-- fine-tuning
     ｜-- inferences
@@ -21,36 +21,36 @@ Nous pouvons nous référer aux projets générés par AI Toolkit pour VS Code p
 
 - **datasets**
 
-    Les données peuvent être stockées en csv, json et autres formats. Dans cet exemple, ce sont les données json exportées. [dataset](./E2E_Datasets.md) 
+    Les données peuvent être stockées en csv, json et autres formats. Dans cet exemple, il s'agit des données json exportées. [dataset](./E2E_Datasets.md) 
 
-    ***Note*** Nous pouvons ignorer les paramètres pertinents ici car les données ont déjà été téléchargées sur Azure ML (si elles sont locales, nous pouvons télécharger les données ici)
+    ***Note*** Nous pouvons ignorer les paramètres pertinents ici car les données ont déjà été téléchargées sur Azure ML (si elles sont locales, nous pouvons les télécharger ici)
 
 - **fine-tuning**
     
-    Spécifiez les algorithmes QLoRA et LoRA pour l'ajustement fin, ainsi que les paramètres associés
+    Spécifiez les algorithmes de fine-tuning QLoRA et LoRA, et les paramètres associés
 
 - **inferences**
 
-    L'inférence est le modèle après ajustement fin. Cela peut être une référence à la couche Adaptateur ajustée finement, une référence au modèle intégré avec l'Adaptateur après ajustement fin, ou cela peut être un modèle quantifié ONNX Runtime.
+    L'inférence est le modèle après ajustement fin. Cela peut être une référence à la couche d'adaptateur ajustée, une référence au modèle intégré avec l'adaptateur après ajustement fin, ou cela peut être un modèle quantifié ONNX Runtime.
 
 - **model-cache**
 
-    Modèles téléchargés via Hugging face CLI, ici le modèle Phi-3-Mini (En utilisant Azure ML, nous pouvons ignorer ce contenu, si vous souhaitez opérer localement, veuillez exécuter le script suivant pour obtenir le modèle phi-3)
+    Modèles téléchargés via Hugging face CLI, ici le modèle Phi-3-Mini (en utilisant Azure ML, nous pouvons ignorer ce contenu, si vous souhaitez opérer localement, veuillez exécuter le script suivant pour obtenir le modèle phi-3)
 
 
 ```bash
 
 huggingface-cli login
 
-# input your key from Hugging Face Portal
+# entrez votre clé depuis le portail Hugging Face
 
-huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3-mini location
+huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Emplacement de votre Phi-3-mini
 
 ```
 
 - **gen-model**
 
-Le modèle sauvegardé après l'opération inclut le modèle d'Adaptateur ajusté finement, le modèle d'Adaptateur intégré ajusté finement, et le modèle quantitatif exécuté par ONNX Runtime.
+Le modèle enregistré après l'opération inclut le modèle d'adaptateur ajusté fin, le modèle d'adaptateur ajusté fin intégré et le modèle quantitatif exécuté par ONNX Runtime.
 
 - **setup**
 
@@ -80,7 +80,7 @@ pip install git+https://github.com/microsoft/Olive
 
 **LoRA**
 
-Cet exemple utilise le calcul cloud, les ensembles de données cloud, ajoutez olive.config dans le dossier d'ajustement fin
+Cet exemple utilise des calculs cloud, des ensembles de données cloud, ajoutez olive.config dans le dossier de fine-tuning
 
 
 ```json
@@ -392,10 +392,10 @@ Cet exemple utilise le calcul cloud, les ensembles de données cloud, ajoutez ol
 
 ***Notice*** 
 
-- Si vous utilisez QLoRA, la conversion quantification de ONNXRuntime-genai n'est pas encore supportée.
+- Si vous utilisez QLoRA, la conversion de quantification d'ONNXRuntime-genai n'est pas encore supportée.
 
 
-- Il convient de noter ici que vous pouvez définir les étapes ci-dessus en fonction de vos propres besoins. Il n'est pas nécessaire de configurer complètement les étapes ci-dessus. En fonction de vos besoins, vous pouvez directement utiliser les étapes de l'algorithme sans ajustement fin. Enfin, vous devez configurer les moteurs pertinents
+- Il est important de noter que vous pouvez configurer les étapes ci-dessus en fonction de vos propres besoins. Il n'est pas nécessaire de configurer complètement toutes les étapes ci-dessus. Selon vos besoins, vous pouvez utiliser directement les étapes de l'algorithme sans ajustement fin. Enfin, vous devez configurer les moteurs pertinents.
 
 ### **Exécution de Microsoft Olive**
 
@@ -411,7 +411,7 @@ olive run --config olive-config.json
 
 ***Notice*** 
 
-1. Lors de l'exécution de Microsoft Olive, chaque étape peut être placée dans le cache. Nous pouvons voir les résultats des étapes pertinentes en consultant le répertoire d'ajustement fin.
+1. Lorsque Microsoft Olive est exécuté, chaque étape peut être placée dans le cache. Nous pouvons visualiser les résultats des étapes pertinentes en consultant le répertoire de fine-tuning.
 
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.fr.png)
 
@@ -420,9 +420,8 @@ olive run --config olive-config.json
 
 3. L'environnement d'exécution recommandé est WSL / Ubuntu 22.04+.
 
-4. Pourquoi choisir ORT ? Parce que ORT peut être déployé sur des appareils périphériques, l'inférence est implémentée dans l'environnement ORT.
+4. Pourquoi choisir ORT ? Parce que ORT peut être déployé sur des appareils périphériques, l'inférence est mise en œuvre dans l'environnement ORT.
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.fr.png)
 
-Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez vérifier le résultat et apporter les corrections nécessaires.
