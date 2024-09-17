@@ -1,10 +1,10 @@
-# **Inferencia Phi-3-Vision en Local**
+# **Inferencia de Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permite que Phi-3 no solo entienda el lenguaje, sino que también vea el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, descripción de imágenes, etc. Podemos completar tareas que antes requerían mucho entrenamiento de datos. A continuación se presentan técnicas relacionadas y escenarios de aplicación citados por Phi-3-vision-128k-instruct
+Phi-3-vision-128k-instruct permite a Phi-3 no solo entender el lenguaje, sino también ver el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, descripción de imágenes, etc. Podemos completar fácilmente tareas que anteriormente requerían mucho entrenamiento de datos. A continuación, se presentan técnicas y escenarios de aplicación relacionados citados por Phi-3-vision-128k-instruct.
 
 ## **0. Preparación**
 
-Por favor, asegúrate de que las siguientes bibliotecas de Python estén instaladas antes de usar (se recomienda Python 3.10+)
+Por favor, asegúrate de que las siguientes bibliotecas de Python estén instaladas antes de usar (se recomienda Python 3.10+).
 
 ```bash
 
@@ -22,7 +22,7 @@ pip install flash-attn --no-build-isolation
 
 ```
 
-Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que crees el siguiente contenido primero.
+Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que primero crees el siguiente contenido.
 
 ```python
 
@@ -48,7 +48,7 @@ prompt_suffix = "<|end|>\n"
 
 ## **1. Analizar la imagen con Phi-3-Vision**
 
-Queremos que la IA pueda analizar el contenido de nuestras imágenes y dar descripciones relevantes
+Queremos que la IA pueda analizar el contenido de nuestras imágenes y dar descripciones relevantes.
 
 ```python
 
@@ -82,7 +82,7 @@ Certainly! Nvidia Corporation is a global leader in advanced computing and artif
 
 ## **2. OCR con Phi-3-Vision**
 
-Además de analizar la imagen, también podemos extraer información de la imagen. Este es el proceso de OCR que solíamos necesitar escribir código complejo para completar.
+Además de analizar la imagen, también podemos extraer información de la imagen. Este es el proceso de OCR que antes necesitábamos escribir código complejo para completar.
 
 ```python
 

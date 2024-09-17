@@ -157,12 +157,16 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 **Playground**
  [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
 
-## Multi-Language Support
+## 🌐 Multi-Language Support
 
-| Language            | Code | Translation                                   | Translators                                                        |
-|---------------------|------|-----------------------------------------------|--------------------------------------------------------------------|
-| Traditional Chinese | zh-tw| [閱讀正體中文](./translations/zh-tw/README.md) | [@doggy8088](https://github.com/doggy8088) (MVP & RD)              |
-| Simplified Chinese  | zh-cn| [阅读简体中文](./translations/zh-cn/README.md) | [@shijiong](https://github.com/shijiong) (MVP), [@JamboChen](https://github.com/JamboChen) (Student Ambassador) |
+> **Note:**
+> These translations were automatically generated using the open-source [co_op_translator](https://github.com/Imperial-EE-Microsoft/co_op_translator).
+> If you'd like to add a new translation, please refer to the [co_op_translator](https://github.com/Imperial-EE-Microsoft/co_op_translator). With simple commands, you can update existing translations or create new translations in other languages.
+
+| Language      | Link to Translated README                               | Last Updated |
+|---------------|---------------------------------------------------------|--------------|
+| Spanish (es)  | [Spanish Translation](./translations/es/README.md)      | 2024-09-17   |
+| French (fr)   | [French Translation](./translations/fr/README.md)       | 2024-09-17   |
 
 ## Trademarks
 
