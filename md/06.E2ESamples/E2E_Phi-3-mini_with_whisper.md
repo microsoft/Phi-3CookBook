@@ -8,7 +8,7 @@ The Interactive Phi 3 Mini 4K Instruct Chatbot is a tool that allows users to in
 
 To use this chatbot, simply follow these instructions:
 
-1. Open a new [E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb))
+1. Open a new [E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)
 2. In the main window of the notebook, you'll see a chatbox interface with a text input box and a "Send" button.
 3. To use the text-based chatbot, simply type your message into the text input box and click the "Send" button. The chatbot will respond with an audio file that can be played directly from within the notebook.
 

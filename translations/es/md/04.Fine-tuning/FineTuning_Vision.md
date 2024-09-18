@@ -1,7 +1,7 @@
 # Receta de ajuste fino de Phi-3.5-vision
 
 Este es el soporte oficial para el ajuste fino de Phi-3.5-vision utilizando las bibliotecas de huggingface.
-Por favor, `cd` al directorio del código [vision_finetuning](../../../../../../../../code/04.Finetuning/vision_finetuning) antes de ejecutar los siguientes comandos.
+Por favor, `cd` al directorio del código [vision_finetuning](../../../../code/04.Finetuning/vision_finetuning) antes de ejecutar los siguientes comandos.
 
 ## Instalación
 
