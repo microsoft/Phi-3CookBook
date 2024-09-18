@@ -26,7 +26,7 @@ Il est important de noter que l'exécution d'une grande quantité de données ou
 
 ## Exemple E2E pour le Chatbot interactif Phi 3 Mini 4K Instruct avec Whisper
 
-Le notebook jupyter intitulé [Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](../../../../md/06.E2ESamples/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb)](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) montre comment utiliser la démo Microsoft Phi 3 Mini 4K instruct pour générer du texte à partir d'une entrée audio ou texte. Le notebook définit plusieurs fonctions :
+Le notebook jupyter intitulé [Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](../../../../md/06.E2ESamples/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) montre comment utiliser la démo Microsoft Phi 3 Mini 4K instruct pour générer du texte à partir d'une entrée audio ou texte. Le notebook définit plusieurs fonctions :
 
 1. `tts_file_name(text)`: Cette fonction génère un nom de fichier basé sur le texte d'entrée pour enregistrer le fichier audio généré.
 1. `edge_free_tts(chunks_list,speed,voice_name,save_path)`: Cette fonction utilise l'API Edge TTS pour générer un fichier audio à partir d'une liste de morceaux de texte d'entrée. Les paramètres d'entrée sont la liste des morceaux, la vitesse de parole, le nom de la voix et le chemin de sortie pour enregistrer le fichier audio généré.
