@@ -161,13 +161,13 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 ## 🌐 Multi-Language Support
 
 > **Note:**
-> These translations were automatically generated using the open-source [co_op_translator](https://github.com/Imperial-EE-Microsoft/co_op_translator).
-> If you'd like to add a new translation, please refer to the [co_op_translator](https://github.com/Imperial-EE-Microsoft/co_op_translator). With simple commands, you can update existing translations or create new translations in other languages.
+> These translations were automatically generated using the open-source [co-op-translator](https://github.com/Azure/co-op-translator) and may contain errors or inaccuracies. For critical information, it is recommended to refer to the original or consult a professional human translation. If you'd like to add or update a translation, please refer to the [co-op-translator](https://github.com/Azure/co-op-translator) repository, where you can easily contribute using simple commands.
 
-| Language      | Link to Translated README                               | Last Updated |
-|---------------|---------------------------------------------------------|--------------|
-| Spanish (es)  | [Spanish Translation](./translations/es/README.md)      | 2024-09-17   |
-| French (fr)   | [French Translation](./translations/fr/README.md)       | 2024-09-17   |
+| Language             | Code | Link to Translated README                               | Last Updated |
+|----------------------|------|---------------------------------------------------------|--------------|
+| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-09-17   |
+| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-09-17   |
+| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-09-20   |
 
 ## Trademarks
 
