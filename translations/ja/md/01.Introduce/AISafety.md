@@ -1,5 +1,5 @@
 # Phi-3モデルのAI安全性
-Phi-3ファミリーのモデルは、次の6つの原則に基づく会社全体の要件セットである[Microsoft Responsible AI Standard](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl?culture=en-us&country=us)に従って開発されました。これらの原則は、説明責任、透明性、公平性、信頼性と安全性、プライバシーとセキュリティ、および包括性であり、[MicrosoftのResponsible AI原則](https://www.microsoft.com/ai/responsible-ai)を形成しています。
+Phi-3ファミリーのモデルは、次の6つの原則に基づく会社全体の要件セットである[Microsoft Responsible AI Standard](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl)に従って開発されました。これらの原則は、説明責任、透明性、公平性、信頼性と安全性、プライバシーとセキュリティ、および包括性であり、[MicrosoftのResponsible AI原則](https://www.microsoft.com/ai/responsible-ai)を形成しています。
 
 以前のPhi-3モデルと同様に、多面的な安全性評価と安全性の後トレーニングアプローチが採用されており、今回のリリースでは多言語対応を考慮した追加の対策が講じられています。我々の安全性トレーニングと評価のアプローチには、複数の言語とリスクカテゴリにわたるテストが含まれており、その詳細は[Phi-3 Safety Post-Training Paper](https://arxiv.org/abs/2407.13833)に記載されています。Phi-3モデルはこのアプローチの恩恵を受けていますが、開発者は特定の使用ケースおよび文化的・言語的コンテキストに関連するリスクをマッピング、測定、および軽減するためのResponsible AIのベストプラクティスを適用する必要があります。
 

@@ -1,5 +1,5 @@
 # Phi-3 模型的 AI 安全性
-Phi-3 系列模型是依照 [Microsoft 負責任 AI 標準](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl?culture=en-us&country=us) 開發的，這是一套公司內部的要求，基於以下六個原則：問責性、透明度、公平性、可靠性和安全性、隱私和安全性，以及包容性，這些原則構成了 [Microsoft 的負責任 AI 原則](https://www.microsoft.com/ai/responsible-ai)。
+Phi-3 系列模型是依照 [Microsoft 負責任 AI 標準](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cmFl) 開發的，這是一套公司內部的要求，基於以下六個原則：問責性、透明度、公平性、可靠性和安全性、隱私和安全性，以及包容性，這些原則構成了 [Microsoft 的負責任 AI 原則](https://www.microsoft.com/ai/responsible-ai)。
 
 像之前的 Phi-3 模型一樣，我們採用了多方面的安全評估和安全後訓練方法，並針對此版本的多語言能力採取了額外的措施。我們的安全訓練和評估方法，包括跨多種語言和風險類別的測試，詳述在 [Phi-3 安全後訓練論文](https://arxiv.org/abs/2407.13833) 中。雖然 Phi-3 模型受益於這種方法，開發者應該應用負責任的 AI 最佳實踐，包括對其特定用例和文化語言背景相關風險的映射、測量和緩解。
 
