@@ -26,7 +26,7 @@
 
 ## インタラクティブ Phi 3 Mini 4K Instruct Chatbot with Whisper のE2Eサンプル
 
-[インタラクティブ Phi 3 Mini 4K Instruct Chatbot with Whisper](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2/E2_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) というタイトルのjupyterノートブックは、Microsoft Phi 3 Mini 4K instruct デモを使用して音声またはテキスト入力からテキストを生成する方法を示しています。このノートブックには、いくつかの関数が定義されています:
+[インタラクティブ Phi 3 Mini 4K Instruct Chatbot with Whisper](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) というタイトルのjupyterノートブックは、Microsoft Phi 3 Mini 4K instruct デモを使用して音声またはテキスト入力からテキストを生成する方法を示しています。このノートブックには、いくつかの関数が定義されています:
 
 1. `tts_file_name(text)`: この関数は、生成された音声ファイルを保存するためのファイル名を入力テキストに基づいて生成します。
 1. `edge_free_tts(chunks_list,speed,voice_name,save_path)`: この関数は、Edge TTS APIを使用して、入力テキストのチャンクリストから音声ファイルを生成します。入力パラメータは、チャンクのリスト、音声速度、声の名前、および生成された音声ファイルを保存する出力パスです。

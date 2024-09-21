@@ -26,7 +26,7 @@
 
 ## 互动 Phi 3 Mini 4K Instruct Chatbot 配合 Whisper 的端到端示例
 
-名为 [Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) 的 jupyter 笔记本演示了如何使用微软的 Phi 3 Mini 4K instruct 演示从音频或书面文本输入生成文本。笔记本定义了几个函数：
+名为 [Interactive Phi 3 Mini 4K Instruct Chatbot with Whisper](https://github.com/microsoft/Phi-3CookBook/blob/main/code/06.E2E/E2E_Phi-3-mini-4k-instruct-Whispser_Demo.ipynb) 的 jupyter 笔记本演示了如何使用微软的 Phi 3 Mini 4K instruct 演示从音频或书面文本输入生成文本。笔记本定义了几个函数：
 
 1. `tts_file_name(text)`: 这个函数根据输入文本生成一个文件名，用于保存生成的音频文件。
 1. `edge_free_tts(chunks_list,speed,voice_name,save_path)`: 这个函数使用 Edge TTS API 从一组输入文本块生成音频文件。输入参数包括块列表、语速、语音名称和保存生成音频文件的输出路径。
