@@ -1,7 +1,7 @@
 # Receta de ajuste fino de Phi-3.5-vision
 
-Este es el soporte oficial para el ajuste fino de Phi-3.5-vision usando las librerías de huggingface.
-Por favor, `cd` al directorio de código [vision_finetuning](../../../../../../../../code/04.Finetuning/vision_finetuning) antes de ejecutar los siguientes comandos.
+Este es el soporte oficial para el ajuste fino de Phi-3.5-vision usando las bibliotecas de huggingface.
+Por favor, `cd` al directorio de código [vision_finetuning](../../../../code/04.Finetuning/vision_finetuning) antes de ejecutar los siguientes comandos.
 
 ## Instalación
 
@@ -13,7 +13,7 @@ conda activate phi3v
 # instalar pytorch
 conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia
 
-# otras librerías necesarias para ejecutar el código de ejemplo
+# otras bibliotecas necesarias para ejecutar el código de ejemplo
 pip install -r requirements.txt
 
 # (opcional) flash attention -- GPUs Ampere+ (e.g., A100, H100)
@@ -26,7 +26,7 @@ pip install bitsandbytes==0.43.1
 
 ## Inicio rápido
 
-Proveemos dos scripts de ejemplo para ajuste fino, uno para DocVQA y otro para la clasificación de memes odiosos.
+Proveemos dos scripts de ejemplo para el ajuste fino, uno para DocVQA y otro para la clasificación de memes de odio.
 
 Hardware mínimo probado en 4x RTX8000 (48GB RAM por GPU)
 ```bash
@@ -40,11 +40,12 @@ torchrun --nproc_per_node=8 finetune_hf_trainer_nlvr2.py
 ```
 
 ## Guía de uso
-Dependiendo del hardware, los usuarios pueden elegir diferentes estrategias de ajuste fino. Soportamos ajuste fino completo (con Deepspeed Zero-2) con parámetros de visión opcionalmente congelados, y LoRA (incluyendo QLoRA de 4 bits). En general, recomendamos usar ajuste fino completo con flash attention y bf16 siempre que sea posible.
+Dependiendo del hardware, los usuarios pueden elegir diferentes estrategias de ajuste fino. Soportamos ajuste fino completo (con Deepspeed Zero-2) con parámetros de visión opcionalmente congelados, y LoRA (incluyendo QLoRA de 4 bits).
+En general, recomendamos usar el ajuste fino completo con flash attention y bf16 siempre que sea posible.
 
-### Guía para convertir tu conjunto de datos personalizado al formato requerido
+### Guía para convertir tu dataset personalizado al formato requerido
 
-Usamos un conjunto de datos mínimo de clasificación de video (un subconjunto de UCF-101) como un ejemplo de extremo a extremo para demostrar cómo convertir tu conjunto de datos personalizado al formato requerido y ajustar fino Phi-3.5-vision en él.
+Usamos un dataset mínimo de clasificación de video (un subconjunto de UCF-101) como un ejemplo de extremo a extremo para demostrar cómo convertir tu dataset personalizado al formato requerido y ajustar fino Phi-3.5-vision en él.
 
 ```bash
 # convertir datos
@@ -100,19 +101,19 @@ Los datos convertidos se verán así:
 ```
 
 
-Para la anotación `jsonl`, cada línea debe ser un diccionario como:
+Para la anotación `jsonl`, cada línea debería ser un diccionario como:
 ```json
 {"id": "val-0000000300", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g21_c04.0.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.1.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.2.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.3.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.4.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.5.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.6.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
 {"id": "val-0000000301", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g09_c06.0.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.1.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.2.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.3.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.4.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.5.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.6.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
 ```
 
-Nota que `conversations` es una lista, por lo tanto, se puede soportar conversación de múltiples turnos si dichos datos están disponibles.
+Ten en cuenta que `conversations` es una lista, por lo tanto, se puede soportar una conversación de múltiples turnos si se dispone de tales datos.
 
 
-## Solicitud de Cuota de GPU en Azure 
+## Solicitud de cuota de GPU en Azure 
 
 ### Requisitos previos
-Una cuenta de Azure con el rol de Contribuidor (u otro rol que incluya acceso de Contribuidor).
+Una cuenta de Azure con el rol de Colaborador (u otro rol que incluya acceso de Colaborador).
 
 Si no tienes una cuenta de Azure, crea una [cuenta gratuita antes de comenzar](https://azure.microsoft.com).
 
@@ -121,26 +122,26 @@ Puedes enviar una solicitud de aumento de cuota directamente desde Mis cuotas. S
 
 Inicia sesión en el [portal de Azure](https://portal.azure.com).
 
-Ingresa "quotas" en el cuadro de búsqueda, y luego selecciona Quotas.
-![Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
+Ingresa "cuotas" en el cuadro de búsqueda y luego selecciona Cuotas.
+![Cuota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
 
-En la página de resumen, selecciona un proveedor, como Compute o AML.
+En la página de Descripción general, selecciona un proveedor, como Compute o AML.
 
-**Note** Para todos los proveedores que no sean Compute, verás una columna de Solicitud de aumento en lugar de la columna Ajustable descrita a continuación. Allí, puedes solicitar un aumento para una cuota específica o crear una solicitud de soporte para el aumento.
+**Nota** Para todos los proveedores que no sean Compute, verás una columna Solicitar aumento en lugar de la columna Ajustable descrita a continuación. Allí, puedes solicitar un aumento para una cuota específica o crear una solicitud de soporte para el aumento.
 
-En la página de Mis cuotas, bajo Nombre de cuota, selecciona la cuota que deseas aumentar. Asegúrate de que la columna Ajustable muestre Sí para esta cuota.
+En la página Mis cuotas, bajo el nombre de la cuota, selecciona la cuota que deseas aumentar. Asegúrate de que la columna Ajustable muestre Sí para esta cuota.
 
 Cerca de la parte superior de la página, selecciona Nueva solicitud de cuota, luego selecciona Ingresar un nuevo límite.
 
-![Increase Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
+![Aumentar Cuota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/enter-new-quota-limit.png)
 
-En el panel de Nueva solicitud de cuota, ingresa un valor numérico para tu nuevo límite de cuota, luego selecciona Enviar.
+En el panel Nueva solicitud de cuota, ingresa un valor numérico para tu nuevo límite de cuota, luego selecciona Enviar.
 
-Tu solicitud será revisada, y serás notificado si la solicitud puede ser cumplida. Esto usualmente ocurre dentro de unos minutos.
+Tu solicitud será revisada y serás notificado si la solicitud puede ser cumplida. Esto usualmente ocurre en unos pocos minutos.
 
-Si tu solicitud no es cumplida, verás un enlace para crear una solicitud de soporte. Cuando uses este enlace, un ingeniero de soporte te asistirá con tu solicitud de aumento.
+Si tu solicitud no se cumple, verás un enlace para crear una solicitud de soporte. Cuando uses este enlace, un ingeniero de soporte te asistirá con tu solicitud de aumento.
 
-## Sugerencias de SKU de máquinas con GPU en Azure Compute
+## Sugerencias de SKU de máquinas GPU de Azure Compute
 
 [ND A100 v4-series](https://learn.microsoft.com/azure/virtual-machines/nda100-v4-series)
 
@@ -151,7 +152,7 @@ Si tu solicitud no es cumplida, verás un enlace para crear una solicitud de sop
 Aquí hay algunos ejemplos:
 
 ### Si tienes GPUs A100 o H100
-El ajuste fino completo usualmente da el mejor rendimiento. Puedes usar el siguiente comando para ajustar fino Phi-3-V en la clasificación de memes odiosos.
+El ajuste fino completo generalmente ofrece el mejor rendimiento. Puedes usar el siguiente comando para ajustar fino Phi-3-V en la clasificación de memes de odio.
 
 ```bash
 torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
@@ -164,7 +165,9 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
 ```
 
 ### Si tienes GPUs Standard_ND40rs_v2 8x V100-32GB
-Todavía es posible ajustar fino completamente Phi-3-V en la clasificación de memes odiosos. Sin embargo, espera un rendimiento mucho menor en comparación con GPUs A100 o H100 debido a la falta de soporte para flash attention. La precisión también podría verse afectada debido a la falta de soporte para bf16 (se usa entrenamiento de precisión mixta fp16 en su lugar).
+Todavía es posible ajustar fino completamente Phi-3-V en la clasificación de memes de odio. Sin embargo, espera
+un rendimiento mucho menor en comparación con las GPUs A100 o H100 debido a la falta de soporte para flash attention.
+La precisión también podría verse afectada debido a la falta de soporte para bf16 (se usa entrenamiento de precisión mixta fp16 en su lugar).
 
 ```bash
 torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
@@ -176,7 +179,7 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
 
 
 ### Si no tienes acceso a GPUs de centro de datos
-Lora podría ser tu única opción. Puedes usar el siguiente comando para ajustar fino Phi-3-V en la clasificación de memes odiosos.
+Lora podría ser tu única opción. Puedes usar el siguiente comando para ajustar fino Phi-3-V en la clasificación de memes de odio.
 
 ```bash
 torchrun --nproc_per_node=2 \
@@ -198,7 +201,7 @@ torchrun --nproc_per_node=2 \
 ```
 
 
-## Sugerencias de hiperparámetros y precisión esperada
+## Hiperparámetros sugeridos y precisión esperada
 ### NLVR2
 ```bash
 torchrun --nproc_per_node=4 \
@@ -212,15 +215,15 @@ torchrun --nproc_per_node=4 \
 ```
 
 
-Método de entrenamiento | Modelo de visión congelado | tipo de datos | Rango LoRA | Alpha LoRA | tamaño de lote | tasa de aprendizaje | épocas | Precisión
+Método de entrenamiento | Modelo de visión congelado | Tipo de datos | Rango de LoRA | Alpha de LoRA | Tamaño de batch | Tasa de aprendizaje | Épocas | Precisión
 --- | --- | --- | --- | --- | --- | --- | --- | --- |
-ajuste fino completo |  | bf16 | - | - | 64 | 1e-5 | 3 | 89.40 |
-ajuste fino completo | ✔ | bf16 | - | - | 64 | 2e-5 | 2 | 89.20 |
+ajuste fino completo |  |bf16 | - | - | 64 | 1e-5 | 3 | 89.40 |
+ajuste fino completo | ✔ |bf16 | - | - | 64 | 2e-5 | 2 | 89.20 |
 Resultados de LoRA próximamente |  |  |  |  |  |  |  |  |
 
 
 ### NOTA
-Los resultados a continuación de DocVQA y memes odiosos se basan en la versión anterior (Phi-3-vision).
+Los resultados a continuación de DocVQA y memes de odio se basan en la versión anterior (Phi-3-vision).
 Los nuevos resultados con Phi-3.5-vision se actualizarán pronto.
 
 ### DocVQA (NOTA: Phi-3-vision)
@@ -237,7 +240,7 @@ torchrun --nproc_per_node=4 \
 ```
 
 
-Método de entrenamiento | tipo de datos | Rango LoRA | Alpha LoRA | tamaño de lote | tasa de aprendizaje | épocas | ANLS
+Método de entrenamiento | Tipo de datos | Rango de LoRA | Alpha de LoRA | Tamaño de batch | Tasa de aprendizaje | Épocas | ANLS
 --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo | bf16 | - | - | 64 | 5e-6 | 2 | 83.65 |
 ajuste fino completo | fp16 | - | - | 64 | 5e-6 | 2 | 82.60 |
@@ -249,7 +252,7 @@ QLoRA | bf16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 QLoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 
 
-### Memes odiosos (NOTA: Phi-3-vision)
+### Memes de odio (NOTA: Phi-3-vision)
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_hateful_memes.py \
@@ -259,8 +262,7 @@ torchrun --nproc_per_node=4 \
   --learning_rate <lr> \
   --num_train_epochs <epochs>
 
-```Método de entrenamiento | tipo de datos | Rango LoRA | Alpha LoRA | tamaño de lote | tasa de aprendizaje | épocas | Precisión --- | --- | --- | --- | --- | --- | --- | --- | ajuste fino completo | bf16 | - | - | 64 | 5e-5 | 2 | 86.4 | ajuste fino completo | fp16 | - | - | 64 | 5e-5 | 2 | 85.4 | modelo de imagen congelado| bf16 | - | - | 64 | 1e-4 | 3 | 79.4 | modelo de imagen congelado| fp16 | - | - | 64 | 1e-4 | 3 | 78.6 | LoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 86.6 | LoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 85.2 | QLoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 84.0 | QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 | ## Benchmarking de velocidad (NOTA: Phi-3-vision) Los nuevos resultados de benchmarking con Phi-3.5-vision se actualizarán pronto. El benchmarking de velocidad se realiza en el conjunto de datos DocVQA. La longitud promedio de la secuencia de este conjunto de datos es de 2443.23 tokens (usando `num_crops=16` para el modelo de imagen). ### 8x A100-80GB (Ampere) Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de lote efectivo | Rendimiento (img/s) | Aceleración | Memoria máxima de GPU (GB) --- | --- | --- | --- | --- | --- | --- | --- | ajuste fino completo | 1 | 8 | | 64 | 5.041
-| 1x | ~42 ajuste fino completo | 1 | 8 | ✔ | 64 | 8.657 | 1.72x | ~36 ajuste fino completo | 2 | 16 | ✔ | 64 | 16.903 | 3.35x | ~29 ajuste fino completo | 4 | 32 | ✔ | 64 | 33.433 | 6.63x | ~26 modelo de imagen congelado | 1 | 8 | | 64 | 17.578 | 3.49x | ~29 modelo de imagen congelado | 1 | 8 | ✔ | 64 | 31.736 | 6.30x | ~27 LoRA | 1 | 8 | | 64 | 5.591 | 1.11x | ~50 LoRA | 1 | 8 | ✔ | 64 | 12.127 | 2.41x | ~16 QLoRA | 1 | 8 | | 64 | 4.831 | 0.96x | ~32 QLoRA | 1 | 8 | ✔ | 64 | 10.545 | 2.09x | ~10 ### 8x V100-32GB (Volta) Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño efectivo del lote | Rendimiento (img/s) | Aceleración | Memoria máxima de GPU (GB) --- | --- | --- | --- | --- | --- | --- | --- | ajuste fino completo | 1 | 8 | | 64 | 2.462 | 1x | ~32 ajuste fino completo | 2 | 16 | | 64 | 4.182 | 1.70x | ~32 ajuste fino completo | 4 | 32 | | 64 | 5.465 | 2.22x | ~32 modelo de imagen congelado | 1 | 8 | | 64 | 8.942 | 3.63x | ~27 LoRA | 1 | 8 | | 64 | 2.807 | 1.14x | ~30 ## Problemas conocidos - No se puede ejecutar flash attention con fp16 (siempre se recomienda bf16 cuando esté disponible, y todas las GPUs que soportan flash attention también soportan bf16). - Aún no se admite guardar puntos de control intermedios y reanudar el entrenamiento.
+```Método de entrenamiento | Tipo de datos | Rango de LoRA | Alpha de LoRA | Tamaño de batch | Tasa de aprendizaje | Épocas | Precisión --- | --- | --- | --- | --- | --- | --- | --- | ajuste fino completo | bf16 | - | - | 64 | 5e-5 | 2 | 86.4 | ajuste fino completo | fp16 | - | - | 64 | 5e-5 | 2 | 85.4 | modelo de imagen congelado| bf16 | - | - | 64 | 1e-4 | 3 | 79.4 | modelo de imagen congelado| fp16 | - | - | 64 | 1e-4 | 3 | 78.6 | LoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 86.6 | LoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 85.2 | QLoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 84.0 | QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 | ## Benchmarking de velocidad (NOTA: Phi-3-vision) Los nuevos resultados de benchmarking con Phi-3.5-vision se actualizarán pronto. El benchmarking de velocidad se realiza en el dataset DocVQA. La longitud promedio de secuencia de este dataset es de 2443.23 tokens (usando `num_crops=16` para el modelo de imagen). ### 8x A100-80GB (Ampere) Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de batch efectivo | Throughput (img/s) | Aceleración | Memoria pico de GPU (GB) --- | --- | --- | --- | --- | --- | --- | --- | ajuste fino completo | 1 | 8 | | 64 | 5.041
+| 1x | ~42 full-finetuning | 1 | 8 | ✔ | 64 | 8.657 | 1.72x | ~36 full-finetuning | 2 | 16 | ✔ | 64 | 16.903 | 3.35x | ~29 full-finetuning | 4 | 32 | ✔ | 64 | 33.433 | 6.63x | ~26 frozen image model | 1 | 8 | | 64 | 17.578 | 3.49x | ~29 frozen image model | 1 | 8 | ✔ | 64 | 31.736 | 6.30x | ~27 LoRA | 1 | 8 | | 64 | 5.591 | 1.11x | ~50 LoRA | 1 | 8 | ✔ | 64 | 12.127 | 2.41x | ~16 QLoRA | 1 | 8 | | 64 | 4.831 | 0.96x | ~32 QLoRA | 1 | 8 | ✔ | 64 | 10.545 | 2.09x | ~10 ### 8x V100-32GB (Volta) Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño efectivo del lote | Rendimiento (img/s) | Aceleración | Memoria GPU pico (GB) --- | --- | --- | --- | --- | --- | --- | --- | full-finetuning | 1 | 8 | | 64 | 2.462 | 1x | ~32 full-finetuning | 2 | 16 | | 64 | 4.182 | 1.70x | ~32 full-finetuning | 4 | 32 | | 64 | 5.465 | 2.22x | ~32 frozen image model | 1 | 8 | | 64 | 8.942 | 3.63x | ~27 LoRA | 1 | 8 | | 64 | 2.807 | 1.14x | ~30 ## Problemas conocidos - No se puede ejecutar flash attention con fp16 (se recomienda siempre bf16 cuando esté disponible, y todas las GPUs que soportan flash attention también soportan bf16). - Aún no se soporta guardar puntos de control intermedios y reanudar el entrenamiento.
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
