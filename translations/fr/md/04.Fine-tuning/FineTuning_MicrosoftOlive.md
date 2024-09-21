@@ -1,46 +1,44 @@
-# **Affiner Phi-3 avec Microsoft Olive**
+# **Affinage de Phi-3 avec Microsoft Olive**
 
-[Olive](https://github.com/microsoft/OLive?WT.mc_id=aiml-138114-kinfeylo) est un outil d'optimisation de modèle matériel facile à utiliser qui réunit des techniques de pointe dans la compression, l'optimisation et la compilation de modèles.
+[Olive](https://github.com/microsoft/OLive?WT.mc_id=aiml-138114-kinfeylo) est un outil d'optimisation de modèles conscient du matériel, facile à utiliser, qui regroupe des techniques de pointe en matière de compression, d'optimisation et de compilation de modèles.
 
-Il est conçu pour simplifier le processus d'optimisation des modèles d'apprentissage automatique, en garantissant qu'ils utilisent au mieux les architectures matérielles spécifiques.
+Il est conçu pour simplifier le processus d'optimisation des modèles d'apprentissage automatique, garantissant qu'ils utilisent au mieux les architectures matérielles spécifiques.
 
-Que vous travailliez sur des applications basées sur le cloud ou des appareils en périphérie, Olive vous permet d'optimiser vos modèles de manière simple et efficace.
+Que vous travailliez sur des applications basées sur le cloud ou des appareils en périphérie, Olive vous permet d'optimiser vos modèles facilement et efficacement.
 
-## Fonctionnalités clés :
-- Olive agrège et automatise les techniques d'optimisation pour les cibles matérielles souhaitées.
-- Aucune technique d'optimisation unique ne convient à tous les scénarios, Olive permet donc l'extensibilité en permettant aux experts de l'industrie d'intégrer leurs innovations en matière d'optimisation.
+## Caractéristiques principales :
+- Olive regroupe et automatise les techniques d'optimisation pour les cibles matérielles souhaitées.
+- Aucune technique d'optimisation unique ne convient à tous les scénarios, donc Olive permet l'extensibilité en permettant aux experts de l'industrie d'intégrer leurs innovations en matière d'optimisation.
 
 ## Réduire l'effort d'ingénierie :
 - Les développeurs doivent souvent apprendre et utiliser plusieurs chaînes d'outils spécifiques aux fournisseurs de matériel pour préparer et optimiser les modèles entraînés pour le déploiement.
 - Olive simplifie cette expérience en automatisant les techniques d'optimisation pour le matériel souhaité.
 
-## Solution d'optimisation prête à l'emploi de bout en bout :
+## Solution d'optimisation E2E prête à l'emploi :
 
 En composant et en ajustant des techniques intégrées, Olive offre une solution unifiée pour l'optimisation de bout en bout.
-Il prend en compte des contraintes comme la précision et la latence tout en optimisant les modèles.
+Elle prend en compte des contraintes comme la précision et la latence lors de l'optimisation des modèles.
 
+## Utilisation de Microsoft Olive pour l'affinage
 
-## Utiliser Microsoft Olive pour l'affinage
-
-Microsoft Olive est un outil d'optimisation de modèle open source très facile à utiliser qui peut couvrir à la fois l'affinage et la référence dans le domaine de l'intelligence artificielle générative. Il ne nécessite qu'une simple configuration, combinée à l'utilisation de petits modèles de langage open source et d'environnements d'exécution associés (AzureML / GPU local, CPU, DirectML), vous pouvez compléter l'affinage ou la référence du modèle grâce à une optimisation automatique, et trouver le meilleur modèle à déployer sur le cloud ou sur des appareils en périphérie. Permettre aux entreprises de construire leurs propres modèles verticaux industriels sur site et dans le cloud.
+Microsoft Olive est un outil open source d'optimisation de modèles très facile à utiliser qui peut couvrir à la fois l'affinage et la référence dans le domaine de l'intelligence artificielle générative. Il ne nécessite qu'une configuration simple, combinée à l'utilisation de petits modèles de langage open source et d'environnements d'exécution associés (AzureML / GPU local, CPU, DirectML), vous pouvez compléter l'affinage ou la référence du modèle via l'optimisation automatique, et trouver le meilleur modèle à déployer dans le cloud ou sur des appareils en périphérie. Permettre aux entreprises de créer leurs propres modèles verticaux industriels sur site et dans le cloud.
 
 ![intro](../../../../translated_images/intro.52630084136228c5e032f600b1424176e2f34be9fd02c5ee815bcc390020e561.fr.png)
 
-## Affiner Phi-3 avec Microsoft Olive
+## Affinage de Phi-3 avec Microsoft Olive 
 
 ![FinetuningwithOlive](../../../../translated_images/olivefinetune.5503d5e0b4466405d62d879a7487a9794f7ac934d674db18131b2339b65220c0.fr.png)
 
-## Exemple de code et exemple Olive pour Phi-3
+## Exemple de code et exemple d'Olive pour Phi-3
 Dans cet exemple, vous utiliserez Olive pour :
 
-- Affiner un adaptateur LoRA pour classer des phrases en Tristesse, Joie, Peur, Surprise.
+- Affiner un adaptateur LoRA pour classer des phrases en Triste, Joie, Peur, Surprise.
 - Fusionner les poids de l'adaptateur dans le modèle de base.
 - Optimiser et quantifier le modèle en int4.
 
 [Exemple de code](../../code/04.Finetuning/olive-ort-example/README.md)
 
-
-### Installer Microsoft Olive
+### Installation de Microsoft Olive
 
 L'installation de Microsoft Olive est très simple, et peut également être installée pour CPU, GPU, DirectML, et Azure ML
 
@@ -69,10 +67,9 @@ pip install git+https://github.com/microsoft/Olive#egg=olive-ai[azureml]
 **Remarque**
 Exigence du système d'exploitation : Ubuntu 20.04 / 22.04 
 
-
 ### **Config.json de Microsoft Olive**
 
-Après l'installation, vous pouvez configurer différents paramètres spécifiques au modèle via le fichier Config, y compris les données, le calcul, l'entraînement, le déploiement et la génération de modèles.
+Après l'installation, vous pouvez configurer différents paramètres spécifiques au modèle via le fichier de configuration, y compris les données, le calcul, l'entraînement, le déploiement et la génération de modèles.
 
 **1. Données**
 
@@ -80,11 +77,9 @@ Sur Microsoft Olive, l'entraînement sur des données locales et des données cl
 
 *Paramètres des données locales*
 
-Vous pouvez simplement configurer le jeu de données qui doit être entraîné pour l'affinage, généralement au format json, et l'adapter avec le modèle de données. Cela doit être ajusté en fonction des exigences du modèle (par exemple, l'adapter au format requis par Microsoft Phi-3-mini. Si vous avez d'autres modèles, veuillez vous référer aux formats d'affinage requis par d'autres modèles pour le traitement)
-
+Vous pouvez simplement configurer l'ensemble de données qui doit être entraîné pour l'affinage, généralement au format json, et l'adapter avec le modèle de données. Cela doit être ajusté en fonction des exigences du modèle (par exemple, l'adapter au format requis par Microsoft Phi-3-mini. Si vous avez d'autres modèles, veuillez vous référer aux formats d'affinage requis par d'autres modèles pour le traitement)
 
 ```json
-
     "data_configs": [
         {
             "name": "dataset_default_train",
@@ -116,10 +111,9 @@ Vous pouvez simplement configurer le jeu de données qui doit être entraîné p
 
 **Paramètres de la source de données cloud**
 
-En reliant le magasin de données d'Azure AI Studio/Azure Machine Learning Service pour lier les données dans le cloud, vous pouvez choisir d'introduire différentes sources de données à Azure AI Studio/Azure Machine Learning Service via Microsoft Fabric et Azure Data comme support pour l'affinage des données.
+En reliant le datastore d'Azure AI Studio / Azure Machine Learning Service pour lier les données dans le cloud, vous pouvez choisir d'introduire différentes sources de données dans Azure AI Studio / Azure Machine Learning Service via Microsoft Fabric et Azure Data comme support pour l'affinage des données.
 
 ```json
-
     "data_configs": [
         {
             "name": "dataset_default_train",
@@ -161,14 +155,11 @@ En reliant le magasin de données d'Azure AI Studio/Azure Machine Learning Servi
     
 ```
 
-
 **2. Configuration de calcul**
 
-Si vous avez besoin d'être local, vous pouvez directement utiliser les ressources de données locales. Vous devez utiliser les ressources d'Azure AI Studio / Azure Machine Learning Service. Vous devez configurer les paramètres Azure pertinents, le nom de la puissance de calcul, etc.
-
+Si vous avez besoin d'être local, vous pouvez utiliser directement les ressources de données locales. Vous devez utiliser les ressources d'Azure AI Studio / Azure Machine Learning Service. Vous devez configurer les paramètres Azure pertinents, le nom de la puissance de calcul, etc.
 
 ```json
-
     "systems": {
         "aml": {
             "type": "AzureML",
@@ -198,12 +189,9 @@ Si vous avez besoin d'être local, vous pouvez directement utiliser les ressourc
 
 ***Remarque***
 
-Parce qu'il est exécuté via un conteneur sur Azure AI Studio/Azure Machine Learning Service, l'environnement requis doit être configuré. Cela est configuré dans l'environnement conda.yaml.
-
-
+Parce que cela est exécuté via un conteneur sur Azure AI Studio / Azure Machine Learning Service, l'environnement requis doit être configuré. Cela est configuré dans l'environnement conda.yaml.
 
 ```yaml
-
 name: project_environment
 channels:
   - defaults
@@ -228,11 +216,7 @@ dependencies:
       - ort-nightly-gpu==1.18.0.dev20240307004
       - --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/
       - onnxruntime-genai-cuda
-
-    
-
 ```
-
 
 **3. Choisissez votre SLM**
 
@@ -240,9 +224,7 @@ Vous pouvez utiliser le modèle directement depuis Hugging face, ou vous pouvez 
 
 Si vous avez le modèle localement, vous pouvez utiliser cette méthode
 
-
 ```json
-
     "input_model":{
         "type": "PyTorchModel",
         "config": {
@@ -259,9 +241,7 @@ Si vous avez le modèle localement, vous pouvez utiliser cette méthode
 
 Si vous souhaitez utiliser un modèle d'Azure AI Studio / Azure Machine Learning Service, vous pouvez utiliser cette méthode
 
-
 ```json
-
     "input_model":{
         "type": "PyTorchModel",
         "config": {
@@ -285,8 +265,8 @@ Si vous souhaitez utiliser un modèle d'Azure AI Studio / Azure Machine Learning
     },
 ```
 
-**Remarque :**
-Nous devons nous intégrer à Azure AI Studio / Azure Machine Learning Service, donc lors de la configuration du modèle, veuillez vous référer au numéro de version et à la nomenclature associée.
+**Remarque:**
+Nous devons nous intégrer à Azure AI Studio / Azure Machine Learning Service, donc lors de la configuration du modèle, veuillez vous référer au numéro de version et au nom associé.
 
 Tous les modèles sur Azure doivent être configurés sur PyTorch.MLflow
 
@@ -294,8 +274,7 @@ Vous devez avoir un compte Hugging face et lier la clé à la valeur clé d'Azur
 
 **4. Algorithme**
 
-Microsoft Olive encapsule très bien les algorithmes d'affinage Lora et QLora. Tout ce que vous devez configurer sont quelques paramètres pertinents. Ici, je prends QLora comme exemple.
-
+Microsoft Olive encapsule très bien les algorithmes d'affinage Lora et QLora. Tout ce que vous avez à configurer, ce sont quelques paramètres pertinents. Ici, je prends QLora comme exemple.
 
 ```json
         "lora": {
@@ -332,17 +311,14 @@ Microsoft Olive encapsule très bien les algorithmes d'affinage Lora et QLora. T
         },
 ```
 
-
 Si vous souhaitez une conversion de quantification, la branche principale de Microsoft Olive prend déjà en charge la méthode onnxruntime-genai. Vous pouvez la configurer selon vos besoins :
 
-1. Fusionner les poids de l'adaptateur dans le modèle de base
+1. fusionner les poids de l'adaptateur dans le modèle de base
 2. Convertir le modèle en modèle onnx avec la précision requise par ModelBuilder
 
-comme convertir en quantifié INT4
-
+comme la conversion en INT4 quantifié
 
 ```json
-
         "merge_adapter_weights": {
             "type": "MergeAdapterWeights"
         },
@@ -357,12 +333,9 @@ comme convertir en quantifié INT4
 **Remarque** 
 - Si vous utilisez QLoRA, la conversion de quantification d'ONNXRuntime-genai n'est pas encore prise en charge.
 
-
-- Il convient de noter ici que vous pouvez configurer les étapes ci-dessus selon vos propres besoins. Il n'est pas nécessaire de configurer complètement ces étapes ci-dessus. En fonction de vos besoins, vous pouvez directement utiliser les étapes de l'algorithme sans affinage. Enfin, vous devez configurer les moteurs pertinents
-
+- Il convient de souligner ici que vous pouvez configurer les étapes ci-dessus selon vos propres besoins. Il n'est pas nécessaire de configurer complètement toutes ces étapes. Selon vos besoins, vous pouvez directement utiliser les étapes de l'algorithme sans affinage. Enfin, vous devez configurer les moteurs pertinents
 
 ```json
-
     "engine": {
         "log_severity_level": 0,
         "host": "aml",
@@ -374,7 +347,6 @@ comme convertir en quantifié INT4
     }
 ```
 
-
 **5. Affinage terminé**
 
 Sur la ligne de commande, exécutez dans le répertoire de olive-config.json
@@ -383,5 +355,5 @@ Sur la ligne de commande, exécutez dans le répertoire de olive-config.json
 olive run --config olive-config.json  
 ```
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
+Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
 Veuillez examiner le résultat et apporter les corrections nécessaires.

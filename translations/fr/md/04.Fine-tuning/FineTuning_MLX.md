@@ -1,32 +1,32 @@
-# **Affinage de Phi-3 avec le Framework Apple MLX**
+# **Affinage de Phi-3 avec le framework Apple MLX**
 
-Nous pouvons effectuer l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Si vous souhaitez en savoir plus sur le fonctionnement du Framework MLX, veuillez lire [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
+Nous pouvons effectuer l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Si vous souhaitez en savoir plus sur le fonctionnement du framework MLX, veuillez lire [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
 
 
 ## **1. Préparation des données**
 
-Par défaut, le Framework MLX nécessite le format jsonl pour les ensembles de données d'entraînement, de test et d'évaluation, et il est combiné avec Lora pour compléter les tâches d'affinage.
+Par défaut, le framework MLX nécessite le format jsonl pour l'entraînement, le test et l'évaluation, et est combiné avec Lora pour compléter les travaux d'affinage.
 
 
 ### ***Remarque:***
 
-1. Format des données jsonl :
+1. Format de données jsonl :
 
 
 ```json
 
-{"text": "<|user|>\nQuand les vierges de fer étaient-elles couramment utilisées ? <|end|>\n<|assistant|> \nLes vierges de fer n'ont jamais été couramment utilisées <|end|>"}
-{"text": "<|user|>\nDe quoi les humains ont-ils évolué ? <|end|>\n<|assistant|> \nLes humains et les singes ont évolué à partir d'un ancêtre commun <|end|>"}
-{"text": "<|user|>\nLe 91 est-il un nombre premier ? <|end|>\n<|assistant|> \nNon, 91 n'est pas un nombre premier <|end|>"}
+{"text": "<|user|>\nWhen were iron maidens commonly used? <|end|>\n<|assistant|> \nIron maidens were never commonly used <|end|>"}
+{"text": "<|user|>\nWhat did humans evolve from? <|end|>\n<|assistant|> \nHumans and apes evolved from a common ancestor <|end|>"}
+{"text": "<|user|>\nIs 91 a prime number? <|end|>\n<|assistant|> \nNo, 91 is not a prime number <|end|>"}
 ....
 
 ```
 
-2. Notre exemple utilise les [données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats d'affinage ne sont pas nécessairement les meilleurs. Il est recommandé aux apprenants d'utiliser de meilleures données en fonction de leurs propres scénarios.
+2. Notre exemple utilise les données de [TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats de l'affinage ne sont pas nécessairement les meilleurs. Il est recommandé aux apprenants d'utiliser de meilleures données en fonction de leurs propres scénarios pour compléter.
 
 3. Le format des données est combiné avec le modèle Phi-3
 
-Veuillez télécharger les données à partir de ce [lien](../../../../code/04.Finetuning/mlx), veuillez inclure tous les .jsonl dans le dossier ***data***
+Veuillez télécharger les données depuis ce [lien](../../../../code/04.Finetuning/mlx), veuillez inclure tous les fichiers .jsonl dans le dossier ***data***
 
 
 ## **2. Affinage dans votre terminal**
@@ -43,17 +43,17 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ## ***Remarque:***
 
-1. Il s'agit d'un affinage LoRA, le framework MLX n'a pas publié QLoRA
+1. Ceci est un affinage LoRA, le framework MLX n'a pas publié QLoRA
 
-2. Vous pouvez configurer config.yaml pour changer certains arguments, comme
+2. Vous pouvez configurer config.yaml pour changer certains arguments, tels que
 
 
 ```yaml
 
 
-# Le chemin vers le répertoire local du modèle ou le repo Hugging Face.
+# Le chemin vers le répertoire du modèle local ou le dépôt Hugging Face.
 model: "microsoft/Phi-3-mini-4k-instruct"
-# Entraînement ou non (booléen)
+# Entraîner ou non (booléen)
 train: true
 
 # Répertoire avec les fichiers {train, valid, test}.jsonl
@@ -65,10 +65,10 @@ seed: 0
 # Nombre de couches à affiner
 lora_layers: 32
 
-# Taille du mini-lot.
+# Taille des mini-lots.
 batch_size: 1
 
-# Nombre d'itérations d'entraînement.
+# Nombre d'itérations pour l'entraînement.
 iters: 1000
 
 # Nombre de lots de validation, -1 utilise l'ensemble de validation complet.
@@ -86,7 +86,7 @@ steps_per_eval: 200
 # Chemin de chargement pour reprendre l'entraînement avec les poids de l'adaptateur donnés.
 resume_adapter_file: null
 
-# Chemin de sauvegarde/chargement pour les poids de l'adaptateur entraînés.
+# Chemin de sauvegarde/chargement pour les poids de l'adaptateur entraîné.
 adapter_path: "adapters"
 
 # Sauvegarder le modèle toutes les N itérations.
@@ -101,13 +101,13 @@ test_batches: 100
 # Longueur maximale de la séquence.
 max_seq_length: 2048
 
-# Utiliser le checkpointing de gradient pour réduire l'utilisation de la mémoire.
+# Utiliser le point de contrôle de gradient pour réduire l'utilisation de la mémoire.
 grad_checkpoint: true
 
 # Les paramètres LoRA ne peuvent être spécifiés que dans un fichier de configuration
 lora_parameters:
   # Les clés de couche auxquelles appliquer LoRA.
-  # Elles seront appliquées pour les dernières lora_layers
+  # Ceux-ci seront appliqués pour les dernières lora_layers
   keys: ["o_proj","qkv_proj"]
   rank: 64
   alpha: 64
@@ -133,16 +133,16 @@ Vous pouvez exécuter l'adaptateur d'affinage dans le terminal, comme ceci
 
 ```bash
 
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Pourquoi les caméléons changent-ils de couleur ?" --eos-token "<|end|>"    
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
 
 ```
 
-et exécuter le modèle original pour comparer le résultat 
+et exécuter le modèle original pour comparer les résultats 
 
 
 ```bash
 
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Pourquoi les caméléons changent-ils de couleur ?" --eos-token "<|end|>"    
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
 
 ```
 
@@ -158,7 +158,7 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. Exécuter des modèles d'affinage quantifiés à l'aide d'ollama**
+## **5. Exécution de modèles d'affinage quantifiés avec ollama**
 
 Avant utilisation, veuillez configurer votre environnement llama.cpp
 
@@ -171,7 +171,7 @@ cd llama.cpp
 
 pip install -r requirements.txt
 
-python convert.py 'Votre chemin de modèle fusionné'  --outfile phi-3-mini-ft.gguf --outtype f16 
+python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtype f16 
 
 ```
 
@@ -181,7 +181,7 @@ python convert.py 'Votre chemin de modèle fusionné'  --outfile phi-3-mini-ft.g
 
 2. Le modèle fusionné manque de tokenizer.model, veuillez le télécharger depuis https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Configurer le fichier modèle Ollama (Si ollama n'est pas installé, veuillez lire [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)
+Configurer le fichier modèle Ollama (Si Ollama n'est pas installé, veuillez lire [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
 
 
 ```txt
@@ -198,10 +198,10 @@ exécuter la commande dans le terminal
 
  ollama create phi3ft -f Modelfile 
 
- ollama run phi3ft "Pourquoi les caméléons changent-ils de couleur ?" 
+ ollama run phi3ft "Why do chameleons change colors?" 
 
 ```
 
-Félicitations ! Vous maîtrisez l'affinage avec le Framework MLX
+Félicitations! Vous maîtrisez l'affinage avec le framework MLX
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+Avertissement : La traduction a été effectuée à partir de son original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.

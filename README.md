@@ -165,10 +165,12 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 
 | Language             | Code | Link to Translated README                               | Last Updated |
 |----------------------|------|---------------------------------------------------------|--------------|
-| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-09-17   |
-| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-09-17   |
-| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-09-20   |
-
+| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-09-21   |
+| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-09-21   |
+| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-09-21   |
+| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-09-21   |
+| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-09-21   |
+ 
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).

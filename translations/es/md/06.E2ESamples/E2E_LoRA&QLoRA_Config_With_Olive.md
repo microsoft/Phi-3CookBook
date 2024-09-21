@@ -1,10 +1,10 @@
 # **Usa Microsoft Olive para diseñar tus proyectos**
 
-Si una empresa quiere tener su propio modelo vertical de industria, necesita comenzar con datos, ajuste fino y despliegue. En el contenido anterior, introdujimos el contenido de Microsoft Olive, y ahora completamos una introducción más detallada basada en el trabajo de E2E.
+Si una empresa quiere tener su propio modelo vertical de industria, necesita comenzar con datos, ajuste fino y despliegue. En el contenido anterior, presentamos Microsoft Olive, y ahora completamos una introducción más detallada basada en el trabajo de E2E.
 
 ## **Arquitectura**
 
-Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para estructurar nuestros proyectos, incluyendo datos, modelos, formatos afinados y inferencias, como
+Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para estructurar nuestros proyectos, incluyendo datos, modelos, formatos ajustados y inferencias. Por ejemplo:
 
 
 ```txt
@@ -22,28 +22,28 @@ Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para es
 
 - **datasets**
 
-    Los datos pueden almacenarse en csv, json y otros formatos. En este ejemplo, es el dato json exportado. [dataset](./E2E_Datasets.md) 
+    Los datos pueden almacenarse en csv, json y otros formatos. En este ejemplo, son datos json exportados. [dataset](./E2E_Datasets.md) 
 
-    ***Nota*** Podemos ignorar las configuraciones relevantes aquí porque los datos ya se han subido a Azure ML (si es local podemos subir los datos aquí)
+    ***Nota*** Podemos ignorar las configuraciones relevantes aquí porque los datos ya han sido subidos a Azure ML (si es local, podemos subir los datos aquí)
 
 - **fine-tuning**
     
-    Especifica los algoritmos QLoRA y LoRA para ajuste fino, y los parámetros relacionados
+    Especifica algoritmos de ajuste fino QLoRA y LoRA, y parámetros relacionados
 
 - **inferences**
 
-    La inferencia es el modelo después del ajuste fino. Puede ser una referencia a la capa Adapter afinada, una referencia al modelo integrado con el Adapter después del ajuste fino, o puede ser un modelo cuantificado de ONNX Runtime.
+    La inferencia es el modelo después del ajuste fino. Puede ser una referencia a la capa de Adaptador ajustada, una referencia al modelo integrado con el Adaptador después del ajuste fino, o puede ser un modelo cuantificado de ONNX Runtime.
 
 - **model-cache**
 
-    Modelos descargados vía Hugging Face CLI, aquí está el modelo Phi-3-Mini (usando Azure ML podemos ignorar este contenido, si quieres operar localmente ejecuta el siguiente script para obtener el modelo phi-3)
+    Modelos descargados vía Hugging face CLI, aquí está el modelo Phi-3-Mini (Usando Azure ML podemos ignorar este contenido, si quieres operar localmente, por favor ejecuta el siguiente script para obtener el modelo phi-3)
 
 
 ```bash
 
 huggingface-cli login
 
-# ingresa tu clave desde el portal de Hugging Face
+# ingresa tu clave desde el Portal de Hugging Face
 
 huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Tu ubicación de Phi-3-mini
 
@@ -51,11 +51,11 @@ huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Tu ubicaci
 
 - **gen-model**
 
-El modelo guardado después de la operación incluye el modelo Adapter afinado, el modelo Adapter afinado integrado y el modelo cuantitativo ejecutado por ONNX Runtime.
+El modelo guardado después de la operación incluye el modelo de Adaptador ajustado, el modelo de Adaptador ajustado integrado y el modelo cuantitativo ejecutado por ONNX Runtime.
 
 - **setup**
 
-Entorno de instalación requerido, por favor ejecuta esto para configurar tu Olive Env
+Entorno de instalación requerido, por favor ejecuta esto para configurar tu entorno Olive
 
 
 ```bash
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 ## **Configuración de Microsoft Olive**
 
-Si quieres saber más sobre la configuración de Microsoft Olive, por favor visita [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
+Si quieres saber sobre la configuración de Microsoft Olive, por favor visita [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
 
 ***Nota*** Para mantenerte actualizado, instala Microsoft Olive usando
 
@@ -77,11 +77,11 @@ pip install git+https://github.com/microsoft/Olive
 
 ```
 
-## **Ejecutando Microsoft Olive en Azure ML**
+## **Ejecutar Microsoft Olive en Azure ML**
 
 **LoRA**
 
-Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.config en la carpeta de ajuste fino
+Este ejemplo usa computación en la nube, datasets en la nube, añade olive.config en la carpeta de ajuste fino
 
 
 ```json
@@ -91,7 +91,7 @@ Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.
         "subscription_id": "Tu ID de Suscripción de Azure",
         "resource_group": "Tu Grupo de Recursos de Azure",
         "workspace_name": "Tu Espacio de Trabajo de Azure ML",
-        "keyvault_name":  "Tu Bóveda de Claves de Azure"
+        "keyvault_name":  "Tus Valijas de Claves de Azure"
     },
     "input_model":{
         "type": "PyTorchModel",
@@ -157,10 +157,10 @@ Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.
                             "azureml_client": {
                                 "subscription_id": "Tu ID de Suscripción de Azure",
                                 "resource_group": "Tu Grupo de Recursos de Azure",
-                                "workspace_name": "El nombre de tu Espacio de Trabajo de Azure ML"
+                                "workspace_name": "Nombre de tu Espacio de Trabajo de Azure ML"
                             },
                             "datastore_name": "workspaceblobstore",
-                            "relative_path": "La Ubicación de tu train_data.json en Azure ML"
+                            "relative_path": "Ubicación de tu train_data.json en Azure ML"
                         }
                     },
                     "split": "train"
@@ -252,7 +252,7 @@ Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.
         "subscription_id": "Tu ID de Suscripción de Azure",
         "resource_group": "Tu Grupo de Recursos de Azure",
         "workspace_name": "Tu Espacio de Trabajo de Azure ML",
-        "keyvault_name":  "Tu Bóveda de Claves de Azure"
+        "keyvault_name":  "Tus Valijas de Claves de Azure"
     },
     "input_model":{
         "type": "PyTorchModel",
@@ -318,10 +318,10 @@ Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.
                             "azureml_client": {
                                 "subscription_id": "Tu ID de Suscripción de Azure",
                                 "resource_group": "Tu Grupo de Recursos de Azure",
-                                "workspace_name": "El nombre de tu Espacio de Trabajo de Azure ML"
+                                "workspace_name": "Nombre de tu Espacio de Trabajo de Azure ML"
                             },
                             "datastore_name": "workspaceblobstore",
-                            "relative_path": "La Ubicación de tu train_data.json en Azure ML"
+                            "relative_path": "Ubicación de tu train_data.json en Azure ML"
                         }
                     },
                     "split": "train"
@@ -393,12 +393,12 @@ Este ejemplo utiliza computación en la nube, datasets en la nube, agrega olive.
 
 ***Aviso*** 
 
-- Si utilizas QLoRA, la conversión de cuantificación de ONNXRuntime-genai no es compatible por el momento.
+- Si usas QLoRA, la conversión de cuantificación de ONNXRuntime-genai no está soportada por el momento.
 
 
-- Aquí se debe señalar que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente los pasos anteriores. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente, necesitas configurar los motores relevantes.
+- Es importante señalar que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente los pasos anteriores. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente, necesitas configurar los motores relevantes.
 
-### **Ejecutando Microsoft Olive**
+### **Ejecutar Microsoft Olive**
 
 
 Después de terminar con Microsoft Olive, necesitas ejecutar este comando en la terminal 
@@ -417,13 +417,12 @@ olive run --config olive-config.json
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.es.png)
 
 
-2. Proporcionamos tanto LoRA como QLoRA aquí, y puedes configurarlos según tus necesidades.
+2. Proveemos tanto LoRA como QLoRA aquí, y puedes configurarlos según tus necesidades.
 
 3. El entorno de ejecución recomendado es WSL / Ubuntu 22.04+.
 
-4. ¿Por qué elegir ORT? Porque ORT puede desplegarse en dispositivos de borde. La inferencia se implementa en el entorno ORT.
+4. ¿Por qué elegir ORT? Porque ORT puede desplegarse en dispositivos edge, la inferencia se implementa en el entorno ORT.
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.es.png)
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.

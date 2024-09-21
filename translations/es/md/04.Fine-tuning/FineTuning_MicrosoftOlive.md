@@ -4,45 +4,43 @@
 
 Está diseñada para simplificar el proceso de optimización de modelos de aprendizaje automático, asegurando que aprovechen al máximo las arquitecturas de hardware específicas.
 
-Ya sea que estés trabajando en aplicaciones basadas en la nube o en dispositivos de borde, Olive te permite optimizar tus modelos de manera fácil y efectiva.
+Ya sea que trabajes en aplicaciones basadas en la nube o en dispositivos de borde, Olive te permite optimizar tus modelos de manera sencilla y efectiva.
 
 ## Características clave:
 - Olive agrega y automatiza técnicas de optimización para los objetivos de hardware deseados.
-- No existe una técnica de optimización única para todos los escenarios, por lo que Olive permite la extensibilidad al permitir que los expertos de la industria integren sus innovaciones de optimización.
+- No existe una técnica de optimización única que se ajuste a todos los escenarios, por lo que Olive permite la extensibilidad al permitir que los expertos de la industria integren sus innovaciones de optimización.
 
 ## Reducir el esfuerzo de ingeniería:
-- Los desarrolladores a menudo necesitan aprender y utilizar múltiples cadenas de herramientas específicas de proveedores de hardware para preparar y optimizar modelos entrenados para su despliegue.
-- Olive simplifica esta experiencia al automatizar técnicas de optimización para el hardware deseado.
+- Los desarrolladores a menudo necesitan aprender y utilizar múltiples cadenas de herramientas específicas de proveedores de hardware para preparar y optimizar modelos entrenados para su implementación.
+- Olive simplifica esta experiencia al automatizar las técnicas de optimización para el hardware deseado.
 
-## Solución de optimización E2E lista para usar:
+## Solución E2E lista para usar:
 
 Al componer y ajustar técnicas integradas, Olive ofrece una solución unificada para la optimización de extremo a extremo.
-Tiene en cuenta restricciones como la precisión y la latencia mientras optimiza los modelos.
+Tiene en cuenta restricciones como precisión y latencia al optimizar modelos.
 
+## Uso de Microsoft Olive para ajuste fino
 
-## Usar Microsoft Olive para ajuste fino
-
-Microsoft Olive es una herramienta de optimización de modelos de código abierto muy fácil de usar que puede cubrir tanto el ajuste fino como la referencia en el campo de la inteligencia artificial generativa. Solo requiere una configuración simple, combinada con el uso de pequeños modelos de lenguaje de código abierto y entornos de ejecución relacionados (AzureML / GPU local, CPU, DirectML), puedes completar el ajuste fino o la referencia del modelo a través de la optimización automática, y encontrar el mejor modelo para desplegar en la nube o en dispositivos de borde. Permite a las empresas construir sus propios modelos verticales de la industria en sus instalaciones y en la nube.
+Microsoft Olive es una herramienta de optimización de modelos de código abierto muy fácil de usar que puede cubrir tanto el ajuste fino como la referencia en el campo de la inteligencia artificial generativa. Solo requiere una configuración simple, combinada con el uso de pequeños modelos de lenguaje de código abierto y entornos de ejecución relacionados (AzureML / GPU local, CPU, DirectML), puedes completar el ajuste fino o la referencia del modelo a través de la optimización automática y encontrar el mejor modelo para desplegar en la nube o en dispositivos de borde. Permite a las empresas construir sus propios modelos verticales de la industria en las instalaciones y en la nube.
 
 ![intro](../../../../translated_images/intro.52630084136228c5e032f600b1424176e2f34be9fd02c5ee815bcc390020e561.es.png)
 
-## Ajuste fino de Phi-3 con Microsoft Olive 
+## Ajuste fino de Phi-3 con Microsoft Olive
 
 ![FinetuningwithOlive](../../../../translated_images/olivefinetune.5503d5e0b4466405d62d879a7487a9794f7ac934d674db18131b2339b65220c0.es.png)
 
-## Código de ejemplo de Phi-3 Olive
+## Código de muestra y ejemplo de Phi-3 Olive
 En este ejemplo usarás Olive para:
 
-- Ajustar fino un adaptador LoRA para clasificar frases en Tristeza, Alegría, Miedo, Sorpresa.
+- Ajustar finamente un adaptador LoRA para clasificar frases en Tristeza, Alegría, Miedo, Sorpresa.
 - Fusionar los pesos del adaptador en el modelo base.
-- Optimizar y cuantizar el modelo a int4.
+- Optimizar y cuantificar el modelo en int4.
 
-[Código de ejemplo](../../code/04.Finetuning/olive-ort-example/README.md)
-
+[Código de muestra](../../code/04.Finetuning/olive-ort-example/README.md)
 
 ### Configuración de Microsoft Olive
 
-La instalación de Microsoft Olive es muy simple, y también se puede instalar para CPU, GPU, DirectML y Azure ML
+La instalación de Microsoft Olive es muy simple y también se puede instalar para CPU, GPU, DirectML y Azure ML
 
 ```bash
 pip install olive-ai
@@ -67,21 +65,19 @@ pip install git+https://github.com/microsoft/Olive#egg=olive-ai[azureml]
 ```
 
 **Aviso**
-Requisito del SO: Ubuntu 20.04 / 22.04 
-
+Requisito del SO: Ubuntu 20.04 / 22.04
 
 ### **Config.json de Microsoft Olive**
 
-Después de la instalación, puedes configurar diferentes ajustes específicos del modelo a través del archivo Config, incluyendo datos, computación, entrenamiento, despliegue y generación de modelos.
+Después de la instalación, puedes configurar diferentes configuraciones específicas del modelo a través del archivo Config, incluyendo datos, computación, entrenamiento, despliegue y generación de modelos.
 
 **1. Datos**
 
-En Microsoft Olive, se puede entrenar tanto con datos locales como con datos en la nube, y se puede configurar en los ajustes.
+En Microsoft Olive, se puede entrenar con datos locales y datos en la nube, y se puede configurar en los ajustes.
 
 *Configuración de datos locales*
 
-Puedes configurar simplemente el conjunto de datos que necesita ser entrenado para el ajuste fino, generalmente en formato json, y adaptarlo con la plantilla de datos. Esto debe ajustarse según los requisitos del modelo (por ejemplo, adaptarlo al formato requerido por Microsoft Phi-3-mini. Si tienes otros modelos, consulta los formatos de ajuste fino requeridos por otros modelos para procesarlos)
-
+Puedes configurar fácilmente el conjunto de datos que necesita ser entrenado para el ajuste fino, generalmente en formato json, y adaptarlo con la plantilla de datos. Esto necesita ser ajustado según los requisitos del modelo (por ejemplo, adaptarlo al formato requerido por Microsoft Phi-3-mini. Si tienes otros modelos, por favor consulta los formatos de ajuste fino requeridos por otros modelos para procesarlos)
 
 ```json
 
@@ -103,7 +99,7 @@ Puedes configurar simplemente el conjunto de datos que necesita ser entrenado pa
                             "phrase",
                             "tone"
                     ],
-                    "text_template": "### Text: {phrase}\n### The tone is:\n{tone}",
+                    "text_template": "### Texto: {phrase}\n### El tono es:\n{tone}",
                     "corpus_strategy": "join",
                     "source_max_len": 2048,
                     "pad_to_max_len": false,
@@ -133,10 +129,10 @@ Al vincular el almacén de datos de Azure AI Studio/Azure Machine Learning Servi
                             "azureml_client": {
                                 "subscription_id": "Tu ID de suscripción de Azure",
                                 "resource_group": "Tu grupo de recursos de Azure",
-                                "workspace_name": "El nombre de tu espacio de trabajo de Azure ML"
+                                "workspace_name": "Tu nombre de espacios de trabajo de Azure ML"
                             },
                             "datastore_name": "workspaceblobstore",
-                            "relative_path": "La ubicación de tu archivo train_data.json en Azure ML"
+                            "relative_path": "Tu ubicación de Azure ML train_data.json"
                         }
                     },
                     "split": "train"
@@ -161,11 +157,9 @@ Al vincular el almacén de datos de Azure AI Studio/Azure Machine Learning Servi
     
 ```
 
-
 **2. Configuración de computación**
 
-Si necesitas estar local, puedes usar directamente recursos de datos locales. Si necesitas usar los recursos de Azure AI Studio / Azure Machine Learning Service, debes configurar los parámetros relevantes de Azure, nombre de la potencia de cómputo, etc.
-
+Si necesitas ser local, puedes usar directamente recursos de datos locales. Si necesitas usar los recursos de Azure AI Studio / Azure Machine Learning Service, debes configurar los parámetros relevantes de Azure, el nombre de la potencia de cómputo, etc.
 
 ```json
 
@@ -175,7 +169,7 @@ Si necesitas estar local, puedes usar directamente recursos de datos locales. Si
             "config": {
                 "accelerators": ["gpu"],
                 "hf_token": true,
-                "aml_compute": "El nombre de tu potencia de cómputo de Azure AI Studio / Azure Machine Learning Service",
+                "aml_compute": "Tu nombre de computación de Azure AI Studio / Azure Machine Learning Service",
                 "aml_docker_config": {
                     "base_image": "Tu docker de Azure AI Studio / Azure Machine Learning Service",
                     "conda_file_path": "conda.yaml"
@@ -186,7 +180,7 @@ Si necesitas estar local, puedes usar directamente recursos de datos locales. Si
             "type": "AzureML",
             "config": {
                 "accelerators": ["gpu"],
-                "aml_compute": "El nombre de tu potencia de cómputo de Azure AI Studio / Azure Machine Learning Service",
+                "aml_compute": "Tu nombre de computación de Azure AI Studio / Azure Machine Learning Service",
                 "aml_docker_config": {
                     "base_image": "Tu docker de Azure AI Studio / Azure Machine Learning Service",
                     "conda_file_path": "conda.yaml"
@@ -198,9 +192,7 @@ Si necesitas estar local, puedes usar directamente recursos de datos locales. Si
 
 ***Aviso***
 
-Debido a que se ejecuta a través de un contenedor en Azure AI Studio/Azure Machine Learning Service, es necesario configurar el entorno requerido. Esto se configura en el entorno conda.yaml.
-
-
+Debido a que se ejecuta a través de un contenedor en Azure AI Studio/Azure Machine Learning Service, se necesita configurar el entorno requerido. Esto se configura en el entorno conda.yaml.
 
 ```yaml
 
@@ -233,13 +225,11 @@ dependencies:
 
 ```
 
-
 **3. Elige tu SLM**
 
 Puedes usar el modelo directamente desde Hugging Face, o puedes combinarlo directamente con el Catálogo de Modelos de Azure AI Studio / Azure Machine Learning para seleccionar el modelo a usar. En el ejemplo de código a continuación, usaremos Microsoft Phi-3-mini como ejemplo.
 
 Si tienes el modelo localmente, puedes usar este método
-
 
 ```json
 
@@ -258,7 +248,6 @@ Si tienes el modelo localmente, puedes usar este método
 ```
 
 Si deseas usar un modelo de Azure AI Studio / Azure Machine Learning Service, puedes usar este método
-
 
 ```json
 
@@ -286,16 +275,15 @@ Si deseas usar un modelo de Azure AI Studio / Azure Machine Learning Service, pu
 ```
 
 **Aviso:**
-Necesitamos integrarnos con Azure AI Studio / Azure Machine Learning Service, así que al configurar el modelo, consulta el número de versión y la nomenclatura relacionada.
+Necesitamos integrarnos con Azure AI Studio / Azure Machine Learning Service, por lo que al configurar el modelo, por favor consulta el número de versión y la nomenclatura relacionada.
 
-Todos los modelos en Azure deben configurarse en PyTorch.MLflow
+Todos los modelos en Azure deben configurarse a PyTorch.MLflow
 
-Necesitas tener una cuenta de Hugging Face y vincular la clave al valor de clave de Azure AI Studio / Azure Machine Learning
+Necesitas tener una cuenta de Hugging Face y vincular la clave al valor clave de Azure AI Studio / Azure Machine Learning
 
 **4. Algoritmo**
 
-Microsoft Olive encapsula muy bien los algoritmos de ajuste fino Lora y QLora. Todo lo que necesitas configurar son algunos parámetros relevantes. Aquí tomo QLora como ejemplo.
-
+Microsoft Olive encapsula muy bien los algoritmos de ajuste fino de Lora y QLora. Solo necesitas configurar algunos parámetros relevantes. Aquí tomo QLora como ejemplo.
 
 ```json
         "lora": {
@@ -332,14 +320,12 @@ Microsoft Olive encapsula muy bien los algoritmos de ajuste fino Lora y QLora. T
         },
 ```
 
+Si deseas la conversión de cuantificación, la rama principal de Microsoft Olive ya soporta el método onnxruntime-genai. Puedes configurarlo según tus necesidades:
 
-Si deseas una conversión de cuantización, la rama principal de Microsoft Olive ya admite el método onnxruntime-genai. Puedes configurarlo según tus necesidades:
+1. fusionar pesos de adaptadores en el modelo base
+2. Convertir el modelo a un modelo onnx con la precisión requerida por ModelBuilder
 
-1. Fusionar los pesos del adaptador en el modelo base
-2. Convertir el modelo a modelo onnx con la precisión requerida mediante ModelBuilder
-
-como convertir a INT4 cuantizado
-
+como convertir a INT4 cuantificado
 
 ```json
 
@@ -354,12 +340,10 @@ como convertir a INT4 cuantizado
         }
 ```
 
-**Aviso** 
-- Si usas QLoRA, la conversión de cuantización de ONNXRuntime-genai no es compatible por el momento.
+**Aviso**
+- Si usas QLoRA, la conversión de cuantificación de ONNXRuntime-genai no es soportada por el momento.
 
-
-- Aquí se debe señalar que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente los pasos anteriores. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente, necesitas configurar los motores relevantes
-
+- Aquí se debe señalar que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente todos estos pasos. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente, necesitas configurar los motores relevantes
 
 ```json
 
@@ -374,8 +358,7 @@ como convertir a INT4 cuantizado
     }
 ```
 
-
-**5. Finalizar el ajuste fino**
+**5. Ajuste fino terminado**
 
 En la línea de comandos, ejecuta en el directorio de olive-config.json
 

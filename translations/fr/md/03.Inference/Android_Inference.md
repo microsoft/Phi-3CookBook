@@ -29,6 +29,8 @@ PARAMETER num_ctx 4096
 
 [Código de Ejemplo](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ollama?WT.mc_id=aiml-138114-kinfeylo)
 
+
+
 **LlamaEdge** 
 
 Si deseas usar gguf tanto en la nube como en dispositivos edge simultáneamente, LlamaEdge es una excelente opción. [Código de Ejemplo](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ollama?WT.mc_id=aiml-138114-kinfeylo)

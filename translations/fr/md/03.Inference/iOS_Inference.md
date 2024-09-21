@@ -155,6 +155,9 @@ Après le téléchargement, vous devez l'ajouter au répertoire Resources du pro
 
 ```
 
+
+
+
 ## **7. Les résultats de l'exécution**
 
 ![result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.fr.jpg)
