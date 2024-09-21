@@ -22,7 +22,7 @@ You can directly run `ollama run Phi-3` or configure it offline by creating a `M
 
 ```gguf
 FROM {Add your gguf file path}
-TEMPLATE \"\"\"<|user|> {{.Prompt}}<|end|> <|assistant|>\"\"\"
+TEMPLATE \"\"\"<|user|> {{Prompt}}<|end|> <|assistant|>\"\"\"
 PARAMETER stop <|end|>
 PARAMETER num_ctx 4096
 ```

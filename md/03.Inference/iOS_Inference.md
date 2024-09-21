@@ -24,7 +24,6 @@ Many users prefer using quantized models to run models locally. [Ollama](https:/
 You can run `ollama run phi3` directly or configure it offline. Create a Modelfile with the path to your `gguf` file. Sample code for running the Phi-3-mini quantized model:
 
 ```gguf
-
 FROM {Add your gguf file path}
 TEMPLATE \"\"\"<|user|> {{Prompt}}<|end|> <|assistant|>\"\"\"
 PARAMETER stop <|end|>
