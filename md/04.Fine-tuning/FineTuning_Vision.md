@@ -1,7 +1,7 @@
 # Phi-3.5-vision finetuning recipe
 
 This is the official support of Phi-3.5-vision finetuning using huggingface libraries.
-Please `cd` to the code directory [vision_finetuning](/code/04.Finetuning/vision_finetuning) before running the following commands.
+Please `cd` to the code directory [vision_finetuning](../../code/04.Finetuning/vision_finetuning) before running the following commands.
 
 ## Installation
 
