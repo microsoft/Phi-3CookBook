@@ -26,7 +26,7 @@ You can run `ollama run phi3` directly or configure it offline. Create a Modelfi
 ```gguf
 
 FROM {Add your gguf file path}
-TEMPLATE \"\"\"<|user|> {{.Prompt}}<|end|> <|assistant|>\"\"\"
+TEMPLATE \"\"\"<|user|> {{Prompt}}<|end|> <|assistant|>\"\"\"
 PARAMETER stop <|end|>
 PARAMETER num_ctx 4096
 ```
