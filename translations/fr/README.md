@@ -163,7 +163,8 @@ Vous pouvez également trouver le modèle sur [Hugging Face](https://huggingface
 | Langue               | Code | Lien vers le README traduit                            | Dernière mise à jour |
 |----------------------|------|--------------------------------------------------------|----------------------|
 | Chinois (Simplifié)  | zh   | [Traduction chinoise](../zh/README.md)     | 2024-09-21           |
-| Français             | fr   | [Traduction française](./README.md)    | 2024-09-21           |
+| Chinois (Traditionnel)| tw  | [Traduction en chinois](../tw/README.md)   | 2024-09-21           |
+| Français             | fr   | [Traduction française](./README.md)    | 2024-09-21               |
 | Japonais             | ja   | [Traduction japonaise](../ja/README.md)    | 2024-09-21           |
 | Coréen               | ko   | [Traduction coréenne](../ko/README.md)     | 2024-09-21           |
 | Espagnol             | es   | [Traduction espagnole](../es/README.md)    | 2024-09-21           |

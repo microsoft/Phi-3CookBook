@@ -127,10 +127,11 @@ También puedes encontrar el modelo en [Hugging Face](https://huggingface.co/mic
 | Idioma               | Código | Enlace al README Traducido                             | Última Actualización |
 |----------------------|--------|-------------------------------------------------------|----------------------|
 | Chino (Simplificado) | zh     | [Traducción al Chino](../zh/README.md)    | 2024-09-21           |
+| Chino (Tradicional)  | tw     | [Traducción al chino](../tw/README.md)    | 2024-09-21           |
 | Francés              | fr     | [Traducción al Francés](../fr/README.md)  | 2024-09-21           |
 | Japonés              | ja     | [Traducción al Japonés](../ja/README.md)  | 2024-09-21           |
 | Coreano              | ko     | [Traducción al Coreano](../ko/README.md)  | 2024-09-21           |
-| Español              | es     | [Traducción al Español](./README.md)  | 2024-09-21           |
+| Español              | es     | [Traducción al Español](./README.md)      | 2024-09-21           |
 
 ## Marcas Registradas
 

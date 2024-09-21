@@ -17,6 +17,7 @@ exit_status = os.system(
 if exit_status != 0:
     raise Exception("Error downloading dataset")
 ```
+
 ### 데이터프레임으로 데이터 로드하기
 이 Python 스크립트는 JSON Lines 파일을 pandas 데이터프레임으로 로드하고 첫 5개의 행을 표시합니다. 다음은 이 스크립트의 기능에 대한 설명입니다:
 
