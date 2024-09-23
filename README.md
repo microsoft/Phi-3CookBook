@@ -158,13 +158,20 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 **Playground**
  [Hugging Chat playground](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct)
 
-## Multi-Language Support
+## 🌐 Multi-Language Support
 
-| Language            | Code | Translation                                   | Translators                                                        |
-|---------------------|------|-----------------------------------------------|--------------------------------------------------------------------|
-| Traditional Chinese | zh-tw| [閱讀正體中文](./translations/zh-tw/README.md) | [@doggy8088](https://github.com/doggy8088) (MVP & RD)              |
-| Simplified Chinese  | zh-cn| [阅读简体中文](./translations/zh-cn/README.md) | [@shijiong](https://github.com/shijiong) (MVP), [@JamboChen](https://github.com/JamboChen) (Student Ambassador) |
+> **Note:**
+> These translations were automatically generated using the open-source [co-op-translator](https://github.com/Azure/co-op-translator) and may contain errors or inaccuracies. For critical information, it is recommended to refer to the original or consult a professional human translation. If you'd like to add or update a translation, please refer to the [co-op-translator](https://github.com/Azure/co-op-translator) repository, where you can easily contribute using simple commands.
 
+| Language             | Code | Link to Translated README                               | Last Updated |
+|----------------------|------|---------------------------------------------------------|--------------|
+| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-09-21   |
+| Chinese (Traditional)| tw   | [Chinese Translation](./translations/tw/README.md)      | 2024-09-21   |
+| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-09-21   |
+| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-09-21   |
+| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-09-21   |
+| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-09-21   |
+ 
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).

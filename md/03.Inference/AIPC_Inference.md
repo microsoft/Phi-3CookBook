@@ -261,18 +261,3 @@ When executing code, we can view the running status of the GPU through Task Mana
 ***Samples*** : [AIPC_OpenVino_Demo.ipynb](../../code/03.Inference/AIPC/AIPC_OpenVino_Demo.ipynb)
 
 ### ***Note*** : The above three methods each have their own advantages, but it is recommended to use NPU acceleration for AI PC inference.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
