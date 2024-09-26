@@ -72,6 +72,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
   - [Fine-tuning Phi-3 with Apple MLX Framework](./md/04.Fine-tuning/FineTuning_MLX.md)(✅)
   - [Fine-tuning Phi-3-vision (official support)](./md/04.Fine-tuning/FineTuning_Vision.md)(✅)
   - [Fine-Tuning Phi-3 with Kaito AKS , Azure Containers(official Support)](./md/04.Fine-tuning/FineTuning_Kaito.md)(✅)
+  - [Fine-Tuning Phi-3 and 3.5 Vision](https://github.com/2U1/Phi3-Vision-Finetune)(✅)
 
 - Evaluation Phi-3
   - [Introduction to Responsible AI](./md/05.Evaluation/ResponsibleAI.md)(✅)
