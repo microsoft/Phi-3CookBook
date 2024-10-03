@@ -84,7 +84,7 @@ kernel.ImportPluginFromObject(memoryPlugin);
 
 OpenAIPromptExecutionSettings settings = new()
 {
-    ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
+    ToolCallBehavior = null,
 };
 
 
