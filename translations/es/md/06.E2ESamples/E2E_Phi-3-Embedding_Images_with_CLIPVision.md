@@ -1,36 +1,36 @@
 # Usando el CLIPVisionModel para procesar imágenes y generar embeddings de imágenes con Phi-3-vision
 
-El siguiente ejemplo en Python proporciona la funcionalidad necesaria para procesar imágenes y generar embeddings de imágenes usando el CLIPVisionModel.
+El siguiente ejemplo en Python proporciona la funcionalidad necesaria para procesar imágenes y generar embeddings de imágenes utilizando el CLIPVisionModel.
 
 ## ¿Qué es CLIP?
-CLIP, que significa Preentrenamiento Contrastivo de Lenguaje e Imágenes, es un modelo desarrollado por OpenAI que aprende eficientemente conceptos visuales a partir de supervisión de lenguaje natural. Es un modelo multimodal que combina la comprensión de imágenes y texto en un solo marco. CLIP se entrena con una variedad de imágenes obtenidas de internet y el texto que las acompaña, aprendiendo a predecir qué imágenes se emparejaron con qué textos, vinculando efectivamente las dos modalidades.
+CLIP, que significa Pre-entrenamiento de Imagen-Lenguaje Contrastivo, es un modelo desarrollado por OpenAI que aprende eficientemente conceptos visuales a partir de supervisión en lenguaje natural. Es un modelo multimodal que combina la comprensión de imágenes y texto en un solo marco. CLIP se entrena con una variedad de imágenes obtenidas de internet y el texto asociado a ellas, aprendiendo a predecir qué imágenes estaban emparejadas con qué textos, vinculando efectivamente las dos modalidades.
 
 El modelo funciona tomando una imagen y un fragmento de texto como entrada y luego prediciendo la probabilidad de que el texto sea una descripción precisa de la imagen. Este enfoque permite a CLIP manejar una amplia gama de tareas visuales, como reconocimiento de objetos, clasificación e incluso generar descripciones para imágenes que nunca ha visto antes.
 
-Una de las ventajas clave de CLIP es su capacidad para realizar aprendizaje "zero-shot", donde el modelo puede manejar correctamente tareas para las que no fue entrenado explícitamente, simplemente leyendo la descripción de la tarea. Esto es posible gracias a la gran cantidad de datos diversos con los que ha sido entrenado, lo que le ayuda a generalizar bien a nuevas tareas.
+Una de las principales ventajas de CLIP es su capacidad para realizar aprendizaje de “zero-shot”, donde el modelo puede manejar correctamente tareas para las que no fue entrenado explícitamente, simplemente leyendo la descripción de la tarea. Esto es posible gracias a la gran cantidad de datos diversos con los que ha sido entrenado, lo que le ayuda a generalizar bien a nuevas tareas.
 
 ## Phi-3-vision
-Phi-3-vision es un modelo multimodal de 4.2B parámetros con capacidades de lenguaje y visión, capaz de razonar sobre imágenes del mundo real y documentos digitales, extrayendo y razonando sobre texto de imágenes, y generando ideas y respuestas relacionadas con gráficos o diagramas.
+Phi-3-vision es un modelo multimodal de 4.2 mil millones de parámetros con capacidades de lenguaje y visión, capaz de razonar sobre imágenes del mundo real y documentos digitales, extraer y razonar sobre texto de imágenes, y generar insights y respuestas relacionadas con gráficos o diagramas.
 
 ## Código de Ejemplo
-Este código define una clase llamada Phi3ImageEmbedding que representa un modelo de embedding de imágenes. El propósito de esta clase es procesar imágenes y generar embeddings que pueden ser utilizados para tareas posteriores como clasificación o recuperación de imágenes.
+Este código define una clase llamada Phi3ImageEmbedding que representa un modelo de embeddings de imágenes. El propósito de esta clase es procesar imágenes y generar embeddings que se puedan usar para tareas posteriores como clasificación o recuperación de imágenes.
 
-El método __init__ inicializa el modelo configurando varios componentes como dropout de embedding, procesador de imágenes, parámetros de transformación HD y proyección de imágenes. Toma un objeto config como entrada, que contiene parámetros de configuración para el modelo. El parámetro wte es una entrada opcional que representa embeddings de tokens de palabras.
+El método __init__ inicializa el modelo configurando varios componentes como el dropout de embeddings, el procesador de imágenes, los parámetros de transformación HD y la proyección de imágenes. Toma un objeto config como entrada, que contiene parámetros de configuración para el modelo. El parámetro wte es una entrada opcional que representa embeddings de tokens de palabras.
 
-El método get_img_features toma un tensor de entrada img_embeds que representa embeddings de imágenes y devuelve un tensor que representa las características de imagen extraídas. Utiliza el img_processor para procesar los embeddings de imagen y extraer las características deseadas basadas en los parámetros layer_idx y type_feature.
+El método get_img_features toma un tensor de entrada img_embeds que representa embeddings de imágenes y devuelve un tensor que representa las características de imagen extraídas. Utiliza el img_processor para procesar los embeddings de imagen y extraer las características deseadas basándose en los parámetros layer_idx y type_feature.
 
 ## Explicación del Código
 Vamos a revisar el código paso a paso:
 
 El código importa las bibliotecas y módulos necesarios, incluyendo math, torch, torch.nn y varios componentes de la biblioteca transformers.
 
-El código define un objeto de configuración llamado CLIP_VIT_LARGE_PATCH14_336_CONFIG que contiene varios hiperparámetros para el modelo de embedding de imágenes.
+El código define un objeto de configuración llamado CLIP_VIT_LARGE_PATCH14_336_CONFIG que contiene varios hiperparámetros para el modelo de embeddings de imágenes.
 
-Se define la clase Phi3ImageEmbedding, que es una subclase de torch.nn.Module. Esta clase representa el modelo de embedding de imágenes y contiene métodos para la propagación hacia adelante y la configuración de características de imagen.
+Se define la clase Phi3ImageEmbedding, que es una subclase de torch.nn.Module. Esta clase representa el modelo de embeddings de imágenes y contiene métodos para la propagación hacia adelante y la configuración de características de imagen.
 
 El método __init__ inicializa el objeto Phi3ImageEmbedding. Toma un objeto config como entrada, que es una instancia de la clase PretrainedConfig. También toma un argumento opcional wte.
 
-El método __init__ inicializa varios atributos del objeto Phi3ImageEmbedding basado en el objeto config proporcionado. Configura el tamaño oculto, la tasa de dropout, el procesador de imágenes, la proyección de imágenes y otros parámetros.
+El método __init__ inicializa varios atributos del objeto Phi3ImageEmbedding basándose en el objeto config proporcionado. Configura el tamaño oculto, la tasa de dropout, el procesador de imágenes, la proyección de imágenes y otros parámetros.
 
 El método set_img_features configura las características de imagen para el modelo. Toma un tensor de características de imagen como entrada y lo asigna al atributo img_features del objeto.
 
@@ -38,9 +38,9 @@ El método set_img_sizes configura los tamaños de imagen para el modelo. Toma u
 
 El método get_img_features extrae características de imagen de los embeddings de imagen de entrada. Toma un tensor de embeddings de imagen como entrada y devuelve las características de imagen extraídas.
 
-El método forward realiza la propagación hacia adelante a través del modelo. Toma IDs de entrada, valores de píxeles y tamaños de imagen como entrada y devuelve los estados ocultos del modelo. Primero verifica si las características y tamaños de imagen ya están configurados, y si no, utiliza la entrada proporcionada para configurarlos. Luego, procesa los IDs de entrada y extrae características de imagen basadas en el procesador de imágenes configurado. Finalmente, aplica la proyección de imagen a las características extraídas y devuelve los estados ocultos.
+El método forward realiza la propagación hacia adelante a través del modelo. Toma IDs de entrada, valores de píxeles y tamaños de imagen como entrada y devuelve los estados ocultos del modelo. Primero verifica si las características y tamaños de imagen ya están configurados, y si no, usa la entrada proporcionada para configurarlos. Luego, procesa los IDs de entrada y extrae características de imagen basándose en el procesador de imágenes configurado. Finalmente, aplica la proyección de imágenes a las características extraídas y devuelve los estados ocultos.
 
-En general, este código define una clase que representa un modelo de embedding de imágenes y proporciona métodos para configurar características de imagen y realizar propagación hacia adelante.
+En general, este código define una clase que representa un modelo de embeddings de imágenes y proporciona métodos para configurar características de imagen y realizar la propagación hacia adelante.
 
 [Muestra de Código](../../../../code/06.E2E/phi3imageembedding.py)
 ```
@@ -51,13 +51,13 @@ from transformers import CLIPVisionConfig
 from transformers.utils import logging
 from datetime import datetime 
 
-# Importar las bibliotecas necesarias
+# Import necessary libraries
 import torch.nn as nn
 
-# Configurar el logging
+# Set up logging
 logger = logging.get_logger(__name__)
 
-# Definir la configuración para el CLIPVisionModel
+# Define the configuration for the CLIPVisionModel
 CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     attention_dropout=0.0,
     dropout=0.0,
@@ -75,14 +75,14 @@ CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     projection_dim=768 
 )
 
-# Definir la clase Phi3ImageEmbedding
+# Define the Phi3ImageEmbedding class
 class Phi3ImageEmbedding(nn.Module):
-        """Embedding de imagen Phi3."""
+        """Phi3 Image embedding."""
 
         def __init__(self, config: PretrainedConfig, wte=None, **kwargs) -> None:
                 super().__init__()
 
-                # Configurar el dropout de embedding
+                # Set up the embedding dropout
                 hidden_size = config.n_embd if hasattr(config, 'n_embd') else config.hidden_size
                 if hasattr(config, 'embd_pdrop') or hasattr(config, 'embed_pdrop'):
                         embd_drop = config.embd_pdrop if hasattr(config, 'embd_pdrop') else config.embed_pdrop
@@ -92,38 +92,38 @@ class Phi3ImageEmbedding(nn.Module):
 
                 self.wte = wte
 
-                # Configurar el procesador de imágenes basado en la configuración
+                # Set up the image processor based on the configuration
                 if isinstance(config.img_processor, dict) and config.img_processor.get('name', None) == 'clip_vision_model':
-                        assert 'model_name' in config.img_processor, 'model_name debe ser proporcionado para CLIPVisionModel'
-                        assert 'image_dim_out' in config.img_processor, 'image_dim_out debe ser proporcionado para CLIPVisionModel'
-                        assert 'num_img_tokens' in config.img_processor, 'num_img_tokens debe ser proporcionado para CLIPVisionModel'
+                        assert 'model_name' in config.img_processor, 'model_name must be provided for CLIPVisionModel'
+                        assert 'image_dim_out' in config.img_processor, 'image_dim_out must be provided for CLIPVisionModel'
+                        assert 'num_img_tokens' in config.img_processor, 'num_img_tokens must be provided for CLIPVisionModel'
                         assert config.img_processor['model_name'] == 'openai/clip-vit-large-patch14-336'
                         clip_config = CLIP_VIT_LARGE_PATCH14_336_CONFIG
                         self.img_processor = CLIPVisionModel(clip_config)
                         image_dim_out = config.img_processor['image_dim_out']
                         self.num_img_tokens = config.img_processor['num_img_tokens']
                 else:
-                        raise NotImplementedError(f'img_processor = {config.img_processor}, no implementado')
+                        raise NotImplementedError(f'img_processor = {config.img_processor}, not implemented')
 
                 self.image_dim_out = image_dim_out
                 self.img_sizes = None
 
-                # Configurar los parámetros de transformación HD
+                # Set up the HD transform parameters
                 self.use_hd_transform = kwargs.get('use_hd_transform', False)
                 self.with_learnable_separator = kwargs.get('with_learnable_separator', False)
                 self.hd_transform_order = kwargs.get('hd_transform_order', 'glb_sub')
-                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform y with_learnable_separator deben tener el mismo valor'
+                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform and with_learnable_separator should have same value'
                 if self.with_learnable_separator:
-                        assert self.use_hd_transform, 'el separador aprendible es solo para transformación HD'
+                        assert self.use_hd_transform, 'learnable separator is only for hd transform'
                         self.glb_GN = nn.Parameter(torch.zeros([1, 1, self.image_dim_out * 4]))
                         self.sub_GN = nn.Parameter(torch.zeros([1, 1, 1, self.image_dim_out * 4]))
-                        logger.info(f'separador aprendible habilitado para transformación HD, hd_transform_order = {self.hd_transform_order}')
+                        logger.info(f'learnable separator enabled for hd transform, hd_transform_order = {self.hd_transform_order}')
 
-                # Configurar la proyección de imagen basada en projection_cls
+                # Set up the image projection based on the projection_cls
                 projection_cls = kwargs.get('projection_cls', 'linear')
                 if projection_cls == 'linear':
                         self.img_projection = nn.Linear(image_dim_out, hidden_size)
-                elif projection_cls == 'mlp' y self.use_hd_transform:
+                elif projection_cls == 'mlp' and self.use_hd_transform:
                         dim_projection = hidden_size
                         depth = 2
                         layers = [nn.Linear(image_dim_out * 4, dim_projection)]
@@ -140,12 +140,12 @@ class Phi3ImageEmbedding(nn.Module):
                                                                 nn.Linear(dim_projection, dim_projection)])
                         self.img_projection = nn.Sequential(*layers)
                 else:
-                        raise NotImplementedError(f'projection_cls = {projection_cls}, no implementado')
+                        raise NotImplementedError(f'projection_cls = {projection_cls}, not implemented')
 
                 self.vocab_size = config.vocab_size
                 self.img_features = None
 
-                # Configurar el índice de capa y el tipo de característica para el procesador de imágenes
+                # Set up the layer index and type of feature for the image processor
                 if isinstance(config.img_processor, dict):
                         self.layer_idx = config.img_processor.get('layer_idx', -2)
                         self.type_feature = config.img_processor.get('type_feature', 'patch')
@@ -200,7 +200,7 @@ class Phi3ImageEmbedding(nn.Module):
                 if isinstance(self.img_projection, nn.Sequential):  
                         target_device = self.img_projection[0].bias.device  
                         target_dtype = self.img_projection[0].bias.dtype  
-                else:  # Es una sola capa nn.Linear  
+                else:  # It's a single nn.Linear layer  
                         target_device = self.img_projection.bias.device  
                         target_dtype = self.img_projection.bias.dtype  
 
@@ -210,10 +210,10 @@ class Phi3ImageEmbedding(nn.Module):
 
                         if self.use_hd_transform and img_sizes is not None and len(img_sizes):
                                 hd_transform = True
-                                assert img_embeds.ndim == 5, f'img_embeds size: {img_embeds.size()}, se espera tensor 5D para transformación HD'
+                                assert img_embeds.ndim == 5, f'img_embeds size: {img_embeds.size()}, expect 5D tensor for hd transform'
                                 img_features = self.get_img_features(img_embeds.flatten(0, 1))
                                 base_feat_height = base_feat_width = int(img_features.shape[1] ** 0.5)
-                                assert base_feat_height == 24 y base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, se esperan características 24x24 para transformación HD'
+                                assert base_feat_height == 24 and base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, expect 24x24 features for hd transform'
                                 img_features = img_features.view(bs, -1, base_feat_height * base_feat_width, self.image_dim_out)
                                 C = self.image_dim_out
                                 H = base_feat_height
@@ -243,7 +243,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         elif self.hd_transform_order == 'sub_glb':
                                                 output_imgs.append(torch.cat([sub_img, self.glb_GN, glb_img], dim=1))
                                         else:
-                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, no implementado')
+                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, not implemented')
                                         temp_len = int((h*w+1)*144 + 1 + (h+1)*12)
                                         assert temp_len == output_imgs[-1].shape[1], f'temp_len: {temp_len}, output_imgs[-1].shape[1]: {output_imgs[-1].shape[1]}'
                                         output_len.append(temp_len)
@@ -313,4 +313,5 @@ class Phi3ImageEmbedding(nn.Module):
                 return hidden_states
 ```
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**: 
+Este documento ha sido traducido utilizando servicios de traducción basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción humana profesional. No nos hacemos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.

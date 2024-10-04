@@ -2,11 +2,12 @@
 
 With the advancement of generative AI and the improvement in edge device hardware capabilities, an increasing number of generative AI models can now be integrated into users' Bring Your Own Device (BYOD) devices. AI PCs are among these models. Beginning in 2024, Intel, AMD, and Qualcomm have collaborated with PC manufacturers to introduce AI PCs that facilitate the deployment of localized generative AI models through hardware modifications. In this discussion, we will focus on Intel AI PCs and explore how to deploy Phi-3 on an Intel AI PC.
 
-### **What's NPU**
+### What's NPU
 
 An NPU (Neural Processing Unit) is a dedicated processor or processing unit on a larger SoC designed specifically for accelerating neural network operations and AI tasks. Unlike general-purpose CPUs and GPUs, NPUs are optimized for a data-driven parallel computing, making them highly efficient at processing massive multimedia data like videos and images and processing data for neural networks. They are particularly adept at handling AI-related tasks, such as speech recognition, background blurring in video calls, and photo or video editing processes like object detection.
 
-## **NPU vs GPU** 
+## NPU vs GPU
+
 While many AI and machine learning workloads run on GPUs, there's a crucial distinction between GPUs and NPUs.
 GPUs are known for their parallel computing capabilities, but not all GPUs are equally efficient beyond processing graphics. NPUs, on the other hand, are purpose-built for complex computations involved in neural network operations, making them highly effective for AI tasks.
 
@@ -40,11 +41,9 @@ Install the Python Library with pip
 
 ***Note*** The project is still under development, but the reference model is already very complete.
 
-
 ### **Running Phi-3 with Intel NPU Acceleration Library**
 
 Using Intel NPU acceleration, this library does not affect the traditional encoding process. You only need to use this library to quantize the original Phi-3 model, such as FP16，INT8，INT4，such as 
-
 
 ```python
 
@@ -98,9 +97,7 @@ When executing code, we can view the running status of the NPU through Task Mana
 
 ![NPU](../../imgs/03/AIPC/aipc_NPU.png)
 
-
 ***Samples*** : [AIPC_NPU_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
-
 
 ## **2. Use DirectML + ONNX Runtime to run Phi-3 Model**
 
@@ -129,13 +126,14 @@ When used standalone, the DirectML API is a low-level DirectX 12 library and is 
 - Customization: Developers can fine-tune CUDA settings for specific tasks, which can lead to optimal performance.
 - Limitations: However, CUDA's dependency on NVIDIA hardware can be limiting if you want broader compatibility across different GPUs.
 
-### Choosing Between DirectML and CUDA:
+### Choosing Between DirectML and CUDA
+
 The choice between DirectML and CUDA depends on your specific use case, hardware availability, and preferences.
 If you're looking for broader compatibility and ease of setup, DirectML might be a good choice. However, if you have NVIDIA GPUs and need highly optimized performance, CUDA remains a strong contender. In summary, both DirectML and CUDA have their strengths and weaknesses, so consider your requirements and available hardware when making a decision 
 
 ### **Generative AI with ONNX Runtime**
 
-In the era of AI , the portability of AI models is very important. ONNX Runtime can easily deploy trained models to different devices. Developers do not need to pay attention to the inference framework and use a unified API to complete model inference. In the era of generative AI, ONNX Runtime has also performed code optimization (https: //onnxruntime.ai/docs/genai/). Through the optimized ONNX Runtime, the quantized generative AI model can be inferred on different terminals. In Generative AI with ONNX Runtime, you can inferene AI model API through Python, C#, C / C++. of course,Deployment on iPhone can take advantage of C++'s Generative AI with ONNX Runtime API. 
+In the era of AI , the portability of AI models is very important. ONNX Runtime can easily deploy trained models to different devices. Developers do not need to pay attention to the inference framework and use a unified API to complete model inference. In the era of generative AI, ONNX Runtime has also performed code optimization (https: //onnxruntime.ai/docs/genai/). Through the optimized ONNX Runtime, the quantized generative AI model can be inferred on different terminals. In Generative AI with ONNX Runtime, you can inferene AI model API through Python, C#, C / C++. of course,Deployment on iPhone can take advantage of C++'s Generative AI with ONNX Runtime API.
 
 [Sample Code](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/onnx)
 
@@ -180,7 +178,6 @@ python build.py --use_dml
 
 **Install library**
 
-
 ```bash
 
 pip install .\onnxruntime_genai_directml-0.3.0.dev0-cp310-cp310-win_amd64.whl
@@ -201,9 +198,7 @@ This is running result
 
 ***Note***: Currently, OpenVINO does not support NPU at this time.
 
-
 ### **Install OpenVINO Library**
-
 
 ```bash
 
@@ -238,7 +233,6 @@ optimum-cli export openvino --model "microsoft/Phi-3-mini-4k-instruct" --task te
 the converted format , like this
 
 ![openvino_convert](../../imgs/03/AIPC/aipc_OpenVINO_convert.png)
-
 
 Load model paths(model_dir), related configurations(ov_config = {"PERFORMANCE_HINT": "LATENCY", "NUM_STREAMS": "1", "CACHE_DIR": ""}), and hardware-accelerated devices(GPU.0) through OVModelForCausalLM
 

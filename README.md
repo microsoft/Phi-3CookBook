@@ -94,6 +94,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
   - [WinUI3 Multi Model AI Powered Notes App Sample](https://github.com/microsoft/ai-powered-notes-winui3-sample)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration.md)(✅)
   - [Fine-tune and Integrate custom Phi-3 models with Prompt flow in Azure AI Studio](./md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration_AIstudio.md)(✅)
+  - [Evaluate the Fine-tuned Phi-3 / Phi-3.5 Model in Azure AI Studio Focusing on Microsoft's Responsible AI Principles](./md/06.E2ESamples/E2E_Phi-3-Evaluation_AIstudio.md)(✅)
   - [Phi-3.5-mini-instruct language prediction sample (Chinese/English)](./code/09.UpdateSamples/Aug/phi3-instruct-demo.ipynb)(✅)
 
 - E2E Samples for Phi-3-vision
@@ -135,7 +136,6 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
     - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/08.Update/Phi35/031.WebGPUWithPhi35Readme.md)(✅)
     - [Create your own Visual Studio Code Chat Copilot Agent with Phi-3.5 by GitHub Models](./md/08.Update/Phi35/032.CreateVSCodeChatAgentWithGitHubModels.md)(✅)
 
-
 ## Using Phi-3 Models
 
 ### Phi-3 on Azure AI Studio
@@ -166,13 +166,13 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 
 | Language             | Code | Link to Translated README                               | Last Updated |
 |----------------------|------|---------------------------------------------------------|--------------|
-| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-09-21   |
-| Chinese (Traditional)| tw   | [Chinese Translation](./translations/tw/README.md)      | 2024-09-21   |
-| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-09-21   |
-| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-09-21   |
-| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-09-21   |
-| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-09-21   |
- 
+| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-10-04   |
+| Chinese (Traditional)| tw   | [Chinese Translation](./translations/tw/README.md)      | 2024-10-04   |
+| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-10-04   |
+| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-10-04   |
+| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-10-04   |
+| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-10-04   |
+
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).

@@ -1,36 +1,36 @@
-# CLIPVisionModel을 사용하여 이미지 처리 및 이미지 임베딩 생성하기 (Phi-3-vision 활용)
+# CLIPVisionModel을 사용하여 이미지 처리 및 Phi-3-vision으로 이미지 임베딩 생성하기
 
 다음 파이썬 샘플은 CLIPVisionModel을 사용하여 이미지를 처리하고 이미지 임베딩을 생성하는 데 필요한 기능을 제공합니다.
 
-## CLIP이란?
-CLIP은 Contrastive Language-Image Pre-training의 약자로, OpenAI에서 개발한 모델로 자연어 감독을 통해 시각적 개념을 효율적으로 학습합니다. 이미지와 텍스트 이해를 단일 프레임워크에 결합한 멀티모달 모델입니다. CLIP은 다양한 인터넷 이미지와 그에 대한 텍스트를 학습하여 어떤 이미지가 어떤 텍스트와 짝지어졌는지 예측함으로써 두 가지 모달리티를 연결합니다.
+## CLIP이란 무엇인가
+CLIP은 Contrastive Language-Image Pre-training의 약자로, 자연어 감독을 통해 시각적 개념을 효율적으로 학습하는 OpenAI가 개발한 모델입니다. 이미지와 텍스트 이해를 하나의 프레임워크로 결합한 멀티모달 모델입니다. CLIP은 다양한 인터넷 소스에서 가져온 이미지와 그와 함께 발견된 텍스트를 학습하여, 어떤 이미지가 어떤 텍스트와 쌍을 이루었는지 예측합니다. 이로써 두 가지 모달리티를 효과적으로 연결합니다.
 
-이 모델은 이미지와 텍스트 조각을 입력으로 받아 텍스트가 이미지의 정확한 설명일 가능성을 예측합니다. 이 접근 방식은 CLIP이 객체 인식, 분류, 심지어 처음 보는 이미지에 대한 설명 생성 등 다양한 시각적 작업을 처리할 수 있게 합니다.
+이 모델은 이미지와 텍스트 조각을 입력으로 받아 텍스트가 이미지의 정확한 설명일 가능성을 예측합니다. 이 접근 방식은 CLIP이 객체 인식, 분류, 심지어 이전에 본 적 없는 이미지에 대한 설명 생성 등 다양한 시각적 작업을 처리할 수 있게 합니다.
 
-CLIP의 주요 장점 중 하나는 "제로샷" 학습 능력입니다. 모델이 명시적으로 훈련되지 않은 작업도 단순히 작업 설명을 읽음으로써 올바르게 처리할 수 있습니다. 이는 방대한 양의 다양한 데이터를 학습했기 때문에 새로운 작업에 잘 일반화할 수 있습니다.
+CLIP의 주요 장점 중 하나는 "제로샷" 학습을 수행할 수 있다는 것입니다. 이는 모델이 명시적으로 학습되지 않은 작업도 단순히 작업 설명을 읽음으로써 올바르게 처리할 수 있다는 것입니다. 이는 모델이 방대한 양의 다양한 데이터를 학습했기 때문에 새로운 작업에 잘 일반화할 수 있기 때문입니다.
 
 ## Phi-3-vision
-Phi-3-vision은 42억 개의 파라미터를 가진 멀티모달 모델로, 언어 및 시각적 능력을 갖추고 있습니다. 실제 세계 이미지와 디지털 문서를 통해 추론하고, 이미지에서 텍스트를 추출 및 추론하며, 차트나 다이어그램과 관련된 통찰력과 답변을 생성할 수 있습니다.
+Phi-3-vision은 언어 및 시각 기능을 갖춘 4.2B 파라미터 멀티모달 모델로, 실제 이미지와 디지털 문서를 분석하고 텍스트를 추출 및 분석하며, 차트나 다이어그램과 관련된 통찰력과 답변을 생성할 수 있습니다.
 
 ## 샘플 코드
 이 코드는 이미지 임베딩 모델을 나타내는 Phi3ImageEmbedding이라는 클래스를 정의합니다. 이 클래스의 목적은 이미지를 처리하고 이미지 분류나 검색과 같은 다운스트림 작업에 사용할 수 있는 임베딩을 생성하는 것입니다.
 
-__init__ 메서드는 모델을 초기화하며, 임베딩 드롭아웃, 이미지 프로세서, HD 변환 매개변수, 이미지 프로젝션 등 다양한 구성 요소를 설정합니다. 이 메서드는 모델의 구성 매개변수를 포함하는 config 객체를 입력으로 받습니다. wte 매개변수는 단어 토큰 임베딩을 나타내는 선택적 입력입니다.
+__init__ 메서드는 임베딩 드롭아웃, 이미지 프로세서, HD 변환 파라미터 및 이미지 프로젝션과 같은 다양한 구성 요소를 설정하여 모델을 초기화합니다. 이 메서드는 모델의 구성 파라미터를 포함하는 config 객체를 입력으로 받습니다. wte 파라미터는 단어 토큰 임베딩을 나타내는 선택적 입력입니다.
 
-get_img_features 메서드는 img_embeds라는 이미지 임베딩을 나타내는 입력 텐서를 받아 추출된 이미지 특징을 나타내는 텐서를 반환합니다. 이 메서드는 img_processor를 사용하여 이미지 임베딩을 처리하고 layer_idx 및 type_feature 매개변수에 따라 원하는 특징을 추출합니다.
+get_img_features 메서드는 이미지 임베딩을 나타내는 입력 텐서 img_embeds를 받아 추출된 이미지 특징을 나타내는 텐서를 반환합니다. 이 메서드는 img_processor를 사용하여 이미지 임베딩을 처리하고 layer_idx 및 type_feature 파라미터에 따라 원하는 특징을 추출합니다.
 
 ## 코드 설명
 코드를 단계별로 설명해 보겠습니다:
 
-코드는 math, torch, torch.nn, transformers 라이브러리의 다양한 구성 요소를 포함한 필요한 라이브러리와 모듈을 임포트합니다.
+코드는 math, torch, torch.nn 및 transformers 라이브러리의 다양한 구성 요소를 포함한 필요한 라이브러리와 모듈을 임포트합니다.
 
-코드는 이미지 임베딩 모델을 위한 다양한 하이퍼파라미터를 포함하는 CLIP_VIT_LARGE_PATCH14_336_CONFIG라는 구성 객체를 정의합니다.
+코드는 이미지 임베딩 모델에 대한 다양한 하이퍼파라미터를 포함하는 CLIP_VIT_LARGE_PATCH14_336_CONFIG라는 구성 객체를 정의합니다.
 
-Phi3ImageEmbedding 클래스가 정의되며, 이는 torch.nn.Module의 서브클래스입니다. 이 클래스는 이미지 임베딩 모델을 나타내며, 순전파 및 이미지 특징 설정을 위한 메서드를 포함합니다.
+Phi3ImageEmbedding 클래스가 정의되며, 이는 torch.nn.Module의 하위 클래스입니다. 이 클래스는 이미지 임베딩 모델을 나타내며, 순방향 전파 및 이미지 특징 설정을 위한 메서드를 포함합니다.
 
 __init__ 메서드는 Phi3ImageEmbedding 객체를 초기화합니다. 이 메서드는 PretrainedConfig 클래스의 인스턴스인 config 객체를 입력으로 받습니다. 또한 선택적 wte 인수를 받습니다.
 
-__init__ 메서드는 제공된 config 객체를 기반으로 Phi3ImageEmbedding 객체의 다양한 속성을 초기화합니다. 숨겨진 크기, 드롭아웃 비율, 이미지 프로세서, 이미지 프로젝션 및 기타 매개변수를 설정합니다.
+__init__ 메서드는 제공된 config 객체를 기반으로 Phi3ImageEmbedding 객체의 다양한 속성을 초기화합니다. 숨겨진 크기, 드롭아웃 비율, 이미지 프로세서, 이미지 프로젝션 및 기타 파라미터를 설정합니다.
 
 set_img_features 메서드는 모델의 이미지 특징을 설정합니다. 이 메서드는 이미지 특징의 텐서를 입력으로 받아 객체의 img_features 속성에 할당합니다.
 
@@ -38,9 +38,9 @@ set_img_sizes 메서드는 모델의 이미지 크기를 설정합니다. 이 �
 
 get_img_features 메서드는 입력 이미지 임베딩에서 이미지 특징을 추출합니다. 이 메서드는 이미지 임베딩의 텐서를 입력으로 받아 추출된 이미지 특징을 반환합니다.
 
-forward 메서드는 모델을 통해 순전파를 수행합니다. 이 메서드는 입력 ID, 픽셀 값 및 이미지 크기를 입력으로 받아 모델의 숨겨진 상태를 반환합니다. 먼저 이미지 특징과 크기가 이미 설정되었는지 확인하고, 설정되지 않은 경우 제공된 입력을 사용하여 설정합니다. 그런 다음 입력 ID를 처리하고 구성된 이미지 프로세서를 기반으로 이미지 특징을 추출합니다. 마지막으로 추출된 특징에 이미지 프로젝션을 적용하고 숨겨진 상태를 반환합니다.
+forward 메서드는 모델을 통해 순방향 전파를 수행합니다. 이 메서드는 입력 ID, 픽셀 값 및 이미지 크기를 입력으로 받아 모델의 숨겨진 상태를 반환합니다. 먼저 이미지 특징과 크기가 이미 설정되어 있는지 확인하고, 그렇지 않으면 제공된 입력을 사용하여 설정합니다. 그런 다음 입력 ID를 처리하고 구성된 이미지 프로세서를 기반으로 이미지 특징을 추출합니다. 마지막으로 추출된 특징에 이미지 프로젝션을 적용하고 숨겨진 상태를 반환합니다.
 
-전반적으로 이 코드는 이미지 임베딩 모델을 나타내는 클래스를 정의하고, 이미지 특징을 설정하고 순전파를 수행하는 메서드를 제공합니다.
+전반적으로 이 코드는 이미지 임베딩 모델을 나타내는 클래스를 정의하고, 이미지 특징을 설정하고 순방향 전파를 수행하는 메서드를 제공합니다.
 
 [Code Sample](../../../../code/06.E2E/phi3imageembedding.py)
 ```
@@ -51,13 +51,13 @@ from transformers import CLIPVisionConfig
 from transformers.utils import logging
 from datetime import datetime 
 
-# 필요한 라이브러리 임포트
+# Import necessary libraries
 import torch.nn as nn
 
-# 로깅 설정
+# Set up logging
 logger = logging.get_logger(__name__)
 
-# CLIPVisionModel에 대한 구성 정의
+# Define the configuration for the CLIPVisionModel
 CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     attention_dropout=0.0,
     dropout=0.0,
@@ -75,14 +75,14 @@ CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     projection_dim=768 
 )
 
-# Phi3ImageEmbedding 클래스 정의
+# Define the Phi3ImageEmbedding class
 class Phi3ImageEmbedding(nn.Module):
-        """Phi3 이미지 임베딩."""
+        """Phi3 Image embedding."""
 
         def __init__(self, config: PretrainedConfig, wte=None, **kwargs) -> None:
                 super().__init__()
 
-                # 임베딩 드롭아웃 설정
+                # Set up the embedding dropout
                 hidden_size = config.n_embd if hasattr(config, 'n_embd') else config.hidden_size
                 if hasattr(config, 'embd_pdrop') or hasattr(config, 'embed_pdrop'):
                         embd_drop = config.embd_pdrop if hasattr(config, 'embd_pdrop') else config.embed_pdrop
@@ -92,34 +92,34 @@ class Phi3ImageEmbedding(nn.Module):
 
                 self.wte = wte
 
-                # 구성에 따라 이미지 프로세서 설정
+                # Set up the image processor based on the configuration
                 if isinstance(config.img_processor, dict) and config.img_processor.get('name', None) == 'clip_vision_model':
-                        assert 'model_name' in config.img_processor, 'CLIPVisionModel을 위한 model_name이 제공되어야 합니다'
-                        assert 'image_dim_out' in config.img_processor, 'CLIPVisionModel을 위한 image_dim_out이 제공되어야 합니다'
-                        assert 'num_img_tokens' in config.img_processor, 'CLIPVisionModel을 위한 num_img_tokens이 제공되어야 합니다'
+                        assert 'model_name' in config.img_processor, 'model_name must be provided for CLIPVisionModel'
+                        assert 'image_dim_out' in config.img_processor, 'image_dim_out must be provided for CLIPVisionModel'
+                        assert 'num_img_tokens' in config.img_processor, 'num_img_tokens must be provided for CLIPVisionModel'
                         assert config.img_processor['model_name'] == 'openai/clip-vit-large-patch14-336'
                         clip_config = CLIP_VIT_LARGE_PATCH14_336_CONFIG
                         self.img_processor = CLIPVisionModel(clip_config)
                         image_dim_out = config.img_processor['image_dim_out']
                         self.num_img_tokens = config.img_processor['num_img_tokens']
                 else:
-                        raise NotImplementedError(f'img_processor = {config.img_processor}, 구현되지 않았습니다')
+                        raise NotImplementedError(f'img_processor = {config.img_processor}, not implemented')
 
                 self.image_dim_out = image_dim_out
                 self.img_sizes = None
 
-                # HD 변환 매개변수 설정
+                # Set up the HD transform parameters
                 self.use_hd_transform = kwargs.get('use_hd_transform', False)
                 self.with_learnable_separator = kwargs.get('with_learnable_separator', False)
                 self.hd_transform_order = kwargs.get('hd_transform_order', 'glb_sub')
-                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform과 with_learnable_separator는 동일한 값을 가져야 합니다'
+                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform and with_learnable_separator should have same value'
                 if self.with_learnable_separator:
-                        assert self.use_hd_transform, 'learnable separator는 hd 변환에만 해당됩니다'
+                        assert self.use_hd_transform, 'learnable separator is only for hd transform'
                         self.glb_GN = nn.Parameter(torch.zeros([1, 1, self.image_dim_out * 4]))
                         self.sub_GN = nn.Parameter(torch.zeros([1, 1, 1, self.image_dim_out * 4]))
-                        logger.info(f'learnable separator가 hd 변환에 대해 활성화되었습니다, hd_transform_order = {self.hd_transform_order}')
+                        logger.info(f'learnable separator enabled for hd transform, hd_transform_order = {self.hd_transform_order}')
 
-                # projection_cls에 따라 이미지 프로젝션 설정
+                # Set up the image projection based on the projection_cls
                 projection_cls = kwargs.get('projection_cls', 'linear')
                 if projection_cls == 'linear':
                         self.img_projection = nn.Linear(image_dim_out, hidden_size)
@@ -140,12 +140,12 @@ class Phi3ImageEmbedding(nn.Module):
                                                                 nn.Linear(dim_projection, dim_projection)])
                         self.img_projection = nn.Sequential(*layers)
                 else:
-                        raise NotImplementedError(f'projection_cls = {projection_cls}, 구현되지 않았습니다')
+                        raise NotImplementedError(f'projection_cls = {projection_cls}, not implemented')
 
                 self.vocab_size = config.vocab_size
                 self.img_features = None
 
-                # 이미지 프로세서를 위한 레이어 인덱스 및 특징 유형 설정
+                # Set up the layer index and type of feature for the image processor
                 if isinstance(config.img_processor, dict):
                         self.layer_idx = config.img_processor.get('layer_idx', -2)
                         self.type_feature = config.img_processor.get('type_feature', 'patch')
@@ -200,7 +200,7 @@ class Phi3ImageEmbedding(nn.Module):
                 if isinstance(self.img_projection, nn.Sequential):  
                         target_device = self.img_projection[0].bias.device  
                         target_dtype = self.img_projection[0].bias.dtype  
-                else:  # 단일 nn.Linear 레이어일 경우  
+                else:  # It's a single nn.Linear layer  
                         target_device = self.img_projection.bias.device  
                         target_dtype = self.img_projection.bias.dtype  
 
@@ -210,10 +210,10 @@ class Phi3ImageEmbedding(nn.Module):
 
                         if self.use_hd_transform and img_sizes is not None and len(img_sizes):
                                 hd_transform = True
-                                assert img_embeds.ndim == 5, f'img_embeds 크기: {img_embeds.size()}, hd 변환을 위해 5D 텐서가 필요합니다'
+                                assert img_embeds.ndim == 5, f'img_embeds size: {img_embeds.size()}, expect 5D tensor for hd transform'
                                 img_features = self.get_img_features(img_embeds.flatten(0, 1))
                                 base_feat_height = base_feat_width = int(img_features.shape[1] ** 0.5)
-                                assert base_feat_height == 24 and base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, hd 변환을 위해 24x24 특징이 필요합니다'
+                                assert base_feat_height == 24 and base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, expect 24x24 features for hd transform'
                                 img_features = img_features.view(bs, -1, base_feat_height * base_feat_width, self.image_dim_out)
                                 C = self.image_dim_out
                                 H = base_feat_height
@@ -243,7 +243,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         elif self.hd_transform_order == 'sub_glb':
                                                 output_imgs.append(torch.cat([sub_img, self.glb_GN, glb_img], dim=1))
                                         else:
-                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, 구현되지 않았습니다')
+                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, not implemented')
                                         temp_len = int((h*w+1)*144 + 1 + (h+1)*12)
                                         assert temp_len == output_imgs[-1].shape[1], f'temp_len: {temp_len}, output_imgs[-1].shape[1]: {output_imgs[-1].shape[1]}'
                                         output_len.append(temp_len)
@@ -253,10 +253,10 @@ class Phi3ImageEmbedding(nn.Module):
                                 for _output_img in output_imgs:
                                         img_feature_proj = self.img_projection(_output_img.to(target_device).to(target_dtype))
                                         img_set_tensor.append(img_feature_proj)
-                                logger.info(f'img_embeds 크기: {img_embeds.size()}, 이미지 크기: {img_sizes} 로딩 시간 {datetime.now() - start_time}')
+                                logger.info(f'img_embeds size: {img_embeds.size()}, image sizes: {img_sizes} loading time {datetime.now() - start_time}')
                         elif img_embeds.ndim == 4:
                                 selected_g_values = g_values[::self.num_img_tokens]
-                                assert len(img_embeds) == len(selected_g_values), f'img_embeds 크기: {img_embeds.size()}, selected_g_values 크기: {len(selected_g_values)}, selected_g_value {selected_g_values}'
+                                assert len(img_embeds) == len(selected_g_values), f'img_embeds size: {img_embeds.size()}, selected_g_values size: {len(selected_g_values)}, selected_g_value {selected_g_values}'
                                 start_time = datetime.now()
                                 tt = (
                                         self.get_img_features(img_embeds)
@@ -264,11 +264,11 @@ class Phi3ImageEmbedding(nn.Module):
                                         .to(target_dtype)
                                         .reshape(-1, self.image_dim_out)
                                 )
-                                logger.info(f'img_embeds 크기: {img_embeds.size()}, 로딩 시간 {datetime.now() - start_time}')
+                                logger.info(f'img_embeds size: {img_embeds.size()}, loading time {datetime.now() - start_time}')
                                 img_set_tensor = self.img_projection(tt)
                         elif img_embeds.ndim == 3:
                                 selected_g_values = g_values[::self.num_img_tokens]
-                                assert len(img_embeds) == len(selected_g_values), f'img_embeds 크기: {img_embeds.size()}, selected_g_values 크기: {len(selected_g_values)}, selected_g_value {selected_g_values}'
+                                assert len(img_embeds) == len(selected_g_values), f'img_embeds size: {img_embeds.size()}, selected_g_values size: {len(selected_g_values)}, selected_g_value {selected_g_values}'
                                 tt = (
                                         img_embeds
                                         .to(target_device)
@@ -297,7 +297,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         idx += cnt
                         else:
                                 idx = 0
-                                assert len(selected_g_values) * self.num_img_tokens == len(img_set_tensor), f'len(selected_g_values) * self.num_img_tokens = {len(selected_g_values) * self.num_img_tokens}, len(img_set_tensor = {len(img_set_tensor)}'
+                                assert len(selected_g_values) * self.num_img_tokens == len(img_set_tensor), f'len(selected_g_values) * self.num_img_tokens = {len(selected_g_values) * self.num_img_tokens}, len(img_set_tensor) = {len(img_set_tensor)}'
                                 for i, g in enumerate(selected_g_values):
                                         cnt = self.num_img_tokens
                                         hidden_states[positions[idx, 0], positions[idx, 1] : positions[idx, 1] + cnt] = (
@@ -305,7 +305,13 @@ class Phi3ImageEmbedding(nn.Module):
                                                 .to(hidden_states.dtype)
                                                 .to(hidden_states.device)
                                                 )
-                                       
+                                        idx += cnt
 
-면책 조항: 이 번역은 원본을 AI 모델에 의해 번역된 것이며 완벽하지 않을 수 있습니다. 
-출력을 검토하고 필요한 수정 사항을 반영해 주시기 바랍니다.
+                if self.drop is not None:
+                        hidden_states = self.drop(hidden_states)
+
+                return hidden_states
+```
+
+**면책 조항**:
+이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 정확성을 위해 노력하고 있지만 자동 번역에는 오류나 부정확성이 있을 수 있습니다. 원본 문서가 작성된 언어의 문서를 권위 있는 출처로 간주해야 합니다. 중요한 정보에 대해서는 전문적인 인간 번역을 권장합니다. 이 번역을 사용하여 발생하는 오해나 잘못된 해석에 대해 당사는 책임을 지지 않습니다.

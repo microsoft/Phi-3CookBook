@@ -29,17 +29,20 @@ pip install bitsandbytes==0.43.1
 We provide two example finetuning scripts, one for DocVQA and one for hateful meme classification.
 
 Minimal hardware tested on 4x RTX8000 (48GB RAM per GPU)
+
 ```bash
 # minimal script on a mini-train split of DocVQA
 torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 ```
 
 Phi-3.5-vision now officially support multi-image inputs. Here's an example for finetuning NLVR2
+
 ```bash
 torchrun --nproc_per_node=8 finetune_hf_trainer_nlvr2.py
 ```
 
 ## Usage guide
+
 Depending on the hardware, users may choose different finetuning strategies. We support
 full-finetuning (with Deepspeed Zero-2) with optionally frozen vision parameters, and LoRA (including 4bit QLoRA).
 In general, we recommend using full finetuning with flash attention and bf16 whenever possible.
@@ -57,7 +60,8 @@ torchrun --nproc_per_node=4 finetune_hf_trainer_ucf101.py --data_dir /path/to/co
 ```
 
 The converted data will look like this:
-```
+
+```bash
 > tree --filelimit=10 /path/to/converted_ucf101
 /path/to/converted_ucf101
 ├── images
@@ -101,8 +105,8 @@ The converted data will look like this:
 34 directories, 3 files
 ```
 
-
 For the `jsonl` annotation, each line should be a dictionary like:
+
 ```json
 {"id": "val-0000000300", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g21_c04.0.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.1.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.2.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.3.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.4.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.5.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.6.jpg", "val/BabyCrawling/v_BabyCrawling_g21_c04.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
 {"id": "val-0000000301", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g09_c06.0.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.1.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.2.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.3.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.4.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.5.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.6.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
@@ -111,15 +115,16 @@ For the `jsonl` annotation, each line should be a dictionary like:
 Note that `conversations` is a list, thus multi-turn conversation can be supported if such data is
 available.
 
-
 ## Requesting Azure GPU Quota 
 
 ### Prerequisites
+
 An Azure account with the Contributor role (or another role that includes Contributor access).
 
 If you don't have an Azure account, create a [free account before you begin](https://azure.microsoft.com).
 
 ### Request a quota increase
+
 You can submit a request for a quota increase directly from My quotas. Follow the steps below to request an increase for a quota. For this example, you can select any adjustable quota in your subscription.
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -154,6 +159,7 @@ If your request isn't fulfilled, you'll see a link to create a support request. 
 Here are some examples:
 
 ### If you have A100 or H100 GPUs
+
 Full finetuning usually gives the best performance. You can use the following command to finetune Phi-3-V on hateful memes classification.
 
 ```bash
@@ -167,6 +173,7 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
 ```
 
 ### If you have Standard_ND40rs_v2 8x V100-32GB GPUs
+
 It is still possible to fully finetune Phi-3-V on hateful memes classification. However, expect
 much lower throughput compared to A100 or H100 GPUs due to the lack of flash attention support.
 Accuracy could also be affected due to the lack of bf16 support (fp16 mixed-precision training is
@@ -179,7 +186,6 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
   --output_dir <output_dir> \
   --batch_size 64
 ```
-
 
 ### If you don't have access to data center GPUs
 Lora might be your only choice. You can use the following command to finetune Phi-3-V on hateful memes classification.
@@ -203,9 +209,9 @@ torchrun --nproc_per_node=2 \
   --use_qlora
 ```
 
-
 ## Suggested hyperparameters and expected accuracy
 ### NLVR2
+
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_nlvr2.py \
@@ -217,19 +223,18 @@ torchrun --nproc_per_node=4 \
 
 ```
 
-
 Training method | Frozen vision model | data type | LoRA rank | LoRA alpha | batch size | learning rate | epochs | Accuracy
 --- | --- | --- | --- | --- | --- | --- | --- | --- |
 full-finetuning |  |bf16 | - | - | 64 | 1e-5 | 3 | 89.40 |
 full-finetuning | &#x2714; |bf16 | - | - | 64 | 2e-5 | 2 | 89.20 |
 LoRA results comming soon |  |  |  |  |  |  |  |  |
 
-
 ### NOTE
 The Below DocVQA and Hateful memes results are based on the previous version (Phi-3-vision).
 The new results with Phi-3.5-vision will be updated soon.
 
 ### DocVQA (NOTE: Phi-3-vision)
+
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_docvqa.py \
@@ -242,7 +247,6 @@ torchrun --nproc_per_node=4 \
 
 ```
 
-
 Training method | data type | LoRA rank | LoRA alpha | batch size | learning rate | epochs | ANLS
 --- | --- | --- | --- | --- | --- | --- | --- |
 full-finetuning | bf16 | - | - | 64 | 5e-6 | 2 | 83.65 |
@@ -254,8 +258,8 @@ LoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 82.34 |
 QLoRA | bf16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 QLoRA | fp16 | 32 | 16 | 64 | 2e-4 | 2 | 81.85 |
 
-
 ### Hateful memes (NOTE: Phi-3-vision)
+
 ```bash
 torchrun --nproc_per_node=4 \
   finetune_hf_trainer_hateful_memes.py \
@@ -278,8 +282,6 @@ LoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 85.2 |
 QLoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 84.0 |
 QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 |
 
-
-
 ## Speed benchmarking (NOTE: Phi-3-vision)
 
 New benchmarking results with Phi-3.5-vision will be updated soon.
@@ -288,6 +290,7 @@ Speed benchmarking is performed on the DocVQA dataset. The average sequence leng
 is 2443.23 tokens (using `num_crops=16` for the image model).
 
 ### 8x A100-80GB (Ampere)
+
 Training method | \# nodes | GPUs | flash attention | Effective batch size | Throughput (img/s) | Speedup | Peak GPU mem (GB)
 --- | --- | --- | --- | --- | --- | --- | --- |
 full-finetuning | 1 | 8 |  | 64 | 5.041 |  1x | ~42
@@ -301,9 +304,8 @@ LoRA | 1 | 8 | &#x2714; | 64 | 12.127 | 2.41x | ~16
 QLoRA | 1 | 8 |  | 64 | 4.831 | 0.96x | ~32
 QLoRA | 1 | 8 | &#x2714; | 64 | 10.545 | 2.09x | ~10
 
-
-
 ### 8x V100-32GB (Volta)
+
 Training method | \# nodes | GPUs | flash attention | Effective batch size | Throughput (img/s) | Speedup | Peak GPU mem (GB)
 --- | --- | --- | --- | --- | --- | --- | --- |
 full-finetuning | 1 | 8 | | 64 | 2.462 |  1x | ~32
@@ -311,7 +313,6 @@ full-finetuning | 2 | 16 |  | 64 | 4.182 | 1.70x | ~32
 full-finetuning | 4 | 32 |  | 64 | 5.465 | 2.22x | ~32
 frozen image model | 1 | 8 |  | 64 | 8.942 | 3.63x | ~27
 LoRA | 1 | 8 |  | 64 | 2.807 | 1.14x | ~30
-
 
 ## Known issues
 

@@ -1,40 +1,40 @@
 # **iOSでのPhi-3推論**
 
-Phi-3-miniは、Microsoftが提供する新しいモデルシリーズで、エッジデバイスやIoTデバイス上での大規模言語モデル（LLMs）の展開を可能にします。Phi-3-miniはiOS、Android、エッジデバイス向けに利用可能で、BYOD環境での生成AIの展開をサポートします。以下の例では、iOSでPhi-3-miniを展開する方法を説明します。
+Phi-3-miniは、Microsoftが提供する新しいモデルシリーズで、大規模言語モデル（LLM）をエッジデバイスやIoTデバイスにデプロイすることができます。Phi-3-miniはiOS、Android、エッジデバイス向けに提供されており、BYOD環境での生成AIのデプロイが可能です。以下の例では、iOSでPhi-3-miniをデプロイする方法を示します。
 
 ## **1. 準備**
 
 - **a.** macOS 14以上
 - **b.** Xcode 15以上
-- **c.** iOS SDK 17.x（iPhone 14 A16以降）
+- **c.** iOS SDK 17.x（iPhone 14 A16以上）
 - **d.** Python 3.10以上をインストール（Conda推奨）
-- **e.** Pythonライブラリ `python-flatbuffers` をインストール
+- **e.** Pythonライブラリをインストール: `python-flatbuffers`
 - **f.** CMakeをインストール
 
 ### Semantic Kernelと推論
 
-Semantic Kernelは、Azure OpenAI Service、OpenAIモデル、さらにはローカルモデルに対応したアプリケーションを作成するためのフレームワークです。Semantic Kernelを通じてローカルサービスにアクセスすることで、自己ホスト型のPhi-3-miniモデルサーバーとの統合が簡単になります。
+Semantic Kernelは、Azure OpenAI Service、OpenAIモデル、さらにはローカルモデルと互換性のあるアプリケーションを作成するためのフレームワークです。Semantic Kernelを介してローカルサービスにアクセスすることで、セルフホストされたPhi-3-miniモデルサーバーとの統合が簡単に行えます。
 
-### OllamaやLlamaEdgeで量子化モデルを呼び出す
+### OllamaまたはLlamaEdgeを使用した量子化モデルの呼び出し
 
 多くのユーザーは、ローカルでモデルを実行するために量子化モデルを使用することを好みます。[Ollama](https://ollama.com)や[LlamaEdge](https://llamaedge.com)を使用すると、さまざまな量子化モデルを呼び出すことができます。
 
 #### **Ollama**
 
-`ollama run phi3`を直接実行するか、オフラインで設定できます。Modelfileを作成し、`gguf`ファイルへのパスを指定します。Phi-3-mini量子化モデルを実行するためのサンプルコード：
+`ollama run phi3`を直接実行するか、オフラインで設定することができます。`gguf`ファイルへのパスを含むModelfileを作成します。Phi-3-mini量子化モデルを実行するためのサンプルコード:
 
 ```gguf
 FROM {Add your gguf file path}
-TEMPLATE \"\"\"<|user|> {{.Prompt}}<|end|> <|assistant|>\"\"\"
+TEMPLATE \"\"\"<|user|> .Prompt<|end|> <|assistant|>\"\"\"
 PARAMETER stop <|end|>
 PARAMETER num_ctx 4096
 ```
 
 #### **LlamaEdge**
 
-クラウドとエッジデバイスの両方で`gguf`を同時に使用したい場合、LlamaEdgeは素晴らしいオプションです。
+クラウドとエッジデバイスの両方で`gguf`を同時に使用したい場合、LlamaEdgeは優れた選択肢です。
 
-## **2. iOS用のONNX Runtimeのコンパイル**
+## **2. iOS向けONNX Runtimeのコンパイル**
 
 ```bash
 
@@ -48,21 +48,21 @@ cd ../
 
 ```
 
-### **注意**
+### **注意事項**
 
-- **a.** コンパイル前に、Xcodeが適切に設定されていることを確認し、ターミナルでアクティブな開発者ディレクトリとして設定します：
+- **a.** コンパイルする前に、Xcodeが適切に設定されていることを確認し、ターミナルでアクティブな開発者ディレクトリとして設定します。
 
     ```bash
     sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
     ```
 
-- **b.** ONNX Runtimeは異なるプラットフォーム用にコンパイルする必要があります。iOSの場合、`arm64`または`x86_64`用にコンパイルできます。
+- **b.** ONNX Runtimeは異なるプラットフォーム向けにコンパイルする必要があります。iOS向けには、`arm64` or `x86_64`向けにコンパイルできます。
 
-- **c.** コンパイルには最新のiOS SDKを使用することを推奨します。ただし、以前のSDKとの互換性が必要な場合は、古いバージョンを使用することもできます。
+- **c.** 最新のiOS SDKを使用してコンパイルすることをお勧めしますが、以前のSDKとの互換性が必要な場合は古いバージョンを使用することもできます。
 
-## **3. iOS用ONNX Runtimeで生成AIをコンパイル**
+## **3. iOS向けONNX Runtimeを使用した生成AIのコンパイル**
 
-> **Note:** ONNX Runtimeでの生成AIはプレビュー段階にあるため、変更の可能性があることに注意してください。
+> **Note:** 生成AIとONNX Runtimeの組み合わせはプレビュー段階にあるため、変更がある可能性があります。
 
 ```bash
 
@@ -92,13 +92,13 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ## **4. Xcodeでアプリケーションを作成**
 
-ONNX Runtime C++ APIを使用するため、アプリの開発方法としてObjective-Cを選びました。もちろん、Swiftブリッジングを通じて関連する呼び出しを行うこともできます。
+Objective-Cをアプリ開発方法として選びました。これは、ONNX Runtime C++ APIを使用する場合、Objective-Cがより適しているためです。もちろん、Swiftブリッジングを通じて関連する呼び出しを完了することも可能です。
 
 ![xcode](../../../../translated_images/xcode.2817f1d089dc7d09ba6a41361db7052567d63f714062e2e4325b0e0895ccb4c4.ja.png)
 
 ## **5. ONNX量子化INT4モデルをアプリケーションプロジェクトにコピー**
 
-まず、ONNX形式のINT4量子化モデルをインポートする必要があります。これをダウンロードします。
+まず、ONNX形式のINT4量子化モデルをダウンロードして、プロジェクトのResourcesディレクトリに追加する必要があります。
 
 ![hf](../../../../translated_images/hf.dd843c3e95f3b462a3d5f06dbbb17c1f1a33b87688c1cda4d990084ef71a4eed.ja.png)
 
@@ -108,19 +108,19 @@ ONNX Runtime C++ APIを使用するため、アプリの開発方法としてObj
 
 ## **6. ViewControllersにC++ APIを追加**
 
-> **注意:**
+> **注意事項:**
 
 - **a.** プロジェクトに対応するC++ヘッダーファイルを追加します。
 
   ![Header File](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.ja.png)
 
-- **b.** `onnxruntime-genai`動的ライブラリをXcodeに含めます。
+- **b.** `onnxruntime-genai` dynamic library in Xcode.
 
   ![Library](../../../../translated_images/lib.9388329df08543518d094d14c8ca0c8e6f0ce264ee68630a8c5c3d783355b6d1.ja.png)
 
-- **c.** テストにはC Samplesコードを使用します。さらに機能を追加したい場合は、ChatUIなどの機能を追加できます。
+- **c.** Use the C Samples code for testing. You can also add additional features like ChatUI for more functionality.
 
-- **d.** プロジェクトでC++を使用する必要があるため、`ViewController.m`を`ViewController.mm`にリネームしてObjective-C++サポートを有効にします。
+- **d.** Since you need to use C++ in your project, rename `ViewController.m` to `ViewController.mm`を含めて、Objective-C++サポートを有効にします。
 
 ```objc
 
@@ -157,4 +157,5 @@ ONNX Runtime C++ APIを使用するため、アプリの開発方法としてObj
 
 詳細なサンプルコードや手順については、[Phi-3 Mini Samplesリポジトリ](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios)をご覧ください。
 
-免責事項: この翻訳はAIモデルによって元の文章から翻訳されたものであり、完璧ではない可能性があります。 出力を確認し、必要な修正を行ってください。
+**免責事項**:
+この文書は機械翻訳AIサービスを使用して翻訳されています。正確さを期しておりますが、自動翻訳には誤りや不正確さが含まれる可能性があることをご理解ください。原文が元の言語で記載された文書が信頼できる情報源と見なされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の使用に起因する誤解や誤訳について、当社は一切の責任を負いません。

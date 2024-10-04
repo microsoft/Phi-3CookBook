@@ -1,139 +1,170 @@
 # **Ajuste fino de Phi-3 con el Framework Apple MLX**
 
-Podemos completar el ajuste fino combinado con Lora a través de la línea de comandos del framework Apple MLX. (Si deseas saber más sobre el funcionamiento del Framework MLX, por favor lee [Inferencia Phi-3 con el Framework Apple MLX](../03.Inference/MLX_Inference.md)
+Podemos completar el ajuste fino combinado con Lora a través de la línea de comandos del framework Apple MLX. (Si quieres saber más sobre el funcionamiento del Framework MLX, por favor lee [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
+
 
 ## **1. Preparación de datos**
 
-Por defecto, el Framework MLX requiere el formato jsonl para train, test y eval, y se combina con Lora para completar los trabajos de ajuste fino.
+Por defecto, el Framework MLX requiere el formato jsonl para entrenamiento, prueba y evaluación, y se combina con Lora para completar los trabajos de ajuste fino.
+
 
 ### ***Nota:***
 
 1. Formato de datos jsonl:
 
+
 ```json
+
 {"text": "<|user|>\nWhen were iron maidens commonly used? <|end|>\n<|assistant|> \nIron maidens were never commonly used <|end|>"}
 {"text": "<|user|>\nWhat did humans evolve from? <|end|>\n<|assistant|> \nHumans and apes evolved from a common ancestor <|end|>"}
 {"text": "<|user|>\nIs 91 a prime number? <|end|>\n<|assistant|> \nNo, 91 is not a prime number <|end|>"}
 ....
+
 ```
 
-2. Nuestro ejemplo usa los datos de [TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), pero la cantidad de datos es relativamente insuficiente, por lo que los resultados del ajuste fino no son necesariamente los mejores. Se recomienda que los aprendices utilicen mejores datos basados en sus propios escenarios para completar.
+2. Nuestro ejemplo usa [los datos de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), pero la cantidad de datos es relativamente insuficiente, por lo que los resultados del ajuste fino no son necesariamente los mejores. Se recomienda que los usuarios utilicen mejores datos basados en sus propios escenarios para completar.
 
-3. El formato de los datos está combinado con la plantilla de Phi-3.
+3. El formato de datos se combina con la plantilla Phi-3
 
-Por favor, descarga los datos desde este [enlace](../../../../code/04.Finetuning/mlx), incluye todos los archivos .jsonl en la carpeta ***data***.
+Por favor, descarga los datos desde este [enlace](../../../../code/04.Finetuning/mlx), incluye todos los .jsonl en la carpeta ***data***
+
 
 ## **2. Ajuste fino en tu terminal**
 
-Por favor, ejecuta este comando en el terminal:
+Por favor, ejecuta este comando en el terminal
+
 
 ```bash
+
 python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./data --iters 1000 
+
 ```
+
 
 ## ***Nota:***
 
-1. Este es un ajuste fino con LoRA, el framework MLX no ha publicado QLoRA.
+1. Este es un ajuste fino LoRA, el framework MLX no ha publicado QLoRA
 
-2. Puedes configurar config.yaml para cambiar algunos argumentos, como:
+2. Puedes configurar config.yaml para cambiar algunos argumentos, como
+
 
 ```yaml
-# La ruta al directorio del modelo local o repositorio de Hugging Face.
+
+
+# The path to the local model directory or Hugging Face repo.
 model: "microsoft/Phi-3-mini-4k-instruct"
-# Si entrenar o no (booleano)
+# Whether or not to train (boolean)
 train: true
 
-# Directorio con archivos {train, valid, test}.jsonl
+# Directory with {train, valid, test}.jsonl files
 data: "data"
 
-# La semilla PRNG
+# The PRNG seed
 seed: 0
 
-# Número de capas a ajustar finamente
+# Number of layers to fine-tune
 lora_layers: 32
 
-# Tamaño del minibatch.
+# Minibatch size.
 batch_size: 1
 
-# Iteraciones para entrenar.
+# Iterations to train for.
 iters: 1000
 
-# Número de lotes de validación, -1 usa todo el conjunto de validación.
+# Number of validation batches, -1 uses the entire validation set.
 val_batches: 25
 
-# Tasa de aprendizaje de Adam.
+# Adam learning rate.
 learning_rate: 1e-6
 
-# Número de pasos de entrenamiento entre reportes de pérdida.
+# Number of training steps between loss reporting.
 steps_per_report: 10
 
-# Número de pasos de entrenamiento entre validaciones.
+# Number of training steps between validations.
 steps_per_eval: 200
 
-# Ruta de carga para reanudar el entrenamiento con los pesos del adaptador dado.
+# Load path to resume training with the given adapter weights.
 resume_adapter_file: null
 
-# Ruta de guardado/carga para los pesos del adaptador entrenado.
+# Save/load path for the trained adapter weights.
 adapter_path: "adapters"
 
-# Guardar el modelo cada N iteraciones.
+# Save the model every N iterations.
 save_every: 1000
 
-# Evaluar en el conjunto de prueba después del entrenamiento.
+# Evaluate on the test set after training
 test: false
 
-# Número de lotes del conjunto de prueba, -1 usa todo el conjunto de prueba.
+# Number of test set batches, -1 uses the entire test set.
 test_batches: 100
 
-# Longitud máxima de la secuencia.
+# Maximum sequence length.
 max_seq_length: 2048
 
-# Usar checkpointing de gradiente para reducir el uso de memoria.
+# Use gradient checkpointing to reduce memory use.
 grad_checkpoint: true
 
-# Los parámetros de LoRA solo pueden especificarse en un archivo de configuración.
+# LoRA parameters can only be specified in a config file
 lora_parameters:
-  # Las claves de las capas a las que se aplicará LoRA.
-  # Estas se aplicarán a las últimas lora_layers.
+  # The layer keys to apply LoRA to.
+  # These will be applied for the last lora_layers
   keys: ["o_proj","qkv_proj"]
   rank: 64
   alpha: 64
   dropout: 0.1
+
+
 ```
 
-Por favor, ejecuta este comando en el terminal:
+Por favor, ejecuta este comando en el terminal
+
 
 ```bash
+
 python -m  mlx_lm.lora --config lora_config.yaml
+
 ```
+
 
 ## **3. Ejecutar el adaptador de ajuste fino para probar**
 
-Puedes ejecutar el adaptador de ajuste fino en el terminal, así:
+Puedes ejecutar el adaptador de ajuste fino en el terminal, de esta manera
+
 
 ```bash
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Why do chameleons change colors?" --eos-token "<|end|>"    
+
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-path ./adapters --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
+
 ```
 
-y ejecutar el modelo original para comparar el resultado:
+y ejecutar el modelo original para comparar resultados
+
 
 ```bash
-python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Why do chameleons change colors?" --eos-token "<|end|>"    
+
+python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2048 --prompt "Why do chameleons change colors? " --eos-token "<|end|>"    
+
 ```
 
-Puedes intentar comparar los resultados del ajuste fino con el modelo original.
+Puedes intentar comparar los resultados del ajuste fino con el modelo original
+
 
 ## **4. Fusionar adaptadores para generar nuevos modelos**
 
+
 ```bash
+
 python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
+
 ```
 
 ## **5. Ejecutar modelos de ajuste fino cuantificados usando ollama**
 
-Antes de usar, por favor configura tu entorno llama.cpp:
+Antes de usar, por favor configura tu entorno llama.cpp
+
 
 ```bash
+
 git clone https://github.com/ggerganov/llama.cpp.git
 
 cd llama.cpp
@@ -141,29 +172,37 @@ cd llama.cpp
 pip install -r requirements.txt
 
 python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtype f16 
+
 ```
 
 ***Nota:*** 
 
-1. Ahora se admite la conversión de cuantización de fp32, fp16 e INT 8.
+1. Ahora se soporta la conversión de cuantización de fp32, fp16 e INT 8
 
-2. El modelo fusionado carece de tokenizer.model, por favor descárgalo desde https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
+2. El modelo fusionado carece de tokenizer.model, por favor descárgalo desde https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Configura el archivo del modelo de Ollama (si no tienes instalado ollama, por favor lee [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)):
+configura el archivo de modelo de Ollma (Si no tienes instalado ollama, por favor lee [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
+
 
 ```txt
+
 FROM ./phi-3-mini-ft.gguf
 PARAMETER stop "<|end|>"
+
 ```
 
-Ejecuta el comando en el terminal:
+ejecuta el comando en el terminal
+
 
 ```bash
-ollama create phi3ft -f Modelfile 
 
-ollama run phi3ft "Why do chameleons change colors?" 
+ ollama create phi3ft -f Modelfile 
+
+ ollama run phi3ft "Why do chameleons change colors?" 
+
 ```
 
-¡Felicidades! Has dominado el ajuste fino con el Framework MLX.
+¡Felicidades! Domina el ajuste fino con el Framework MLX
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de inteligencia artificial y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
+        **Descargo de responsabilidad**:
+        Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

@@ -1,6 +1,6 @@
-# Commencer avec Phi-3 en local
+# Commencer avec Phi-3 localement
 
-Ce guide vous aidera à configurer votre environnement local pour exécuter le modèle Phi-3 en utilisant Ollama. Vous pouvez exécuter le modèle de différentes manières, y compris en utilisant GitHub Codespaces, les conteneurs de développement VS Code, ou votre environnement local.
+Ce guide vous aidera à configurer votre environnement local pour exécuter le modèle Phi-3 en utilisant Ollama. Vous pouvez exécuter le modèle de différentes manières, notamment en utilisant GitHub Codespaces, les conteneurs de développement VS Code ou votre environnement local.
 
 ## Configuration de l'environnement
 
@@ -38,7 +38,7 @@ Une option similaire est les conteneurs de développement VS Code, qui ouvriront
 
 ## Tester le modèle
 
-1. Demandez à Ollama de télécharger et d'exécuter le modèle phi3:mini :
+1. Demandez à Ollama de télécharger et exécuter le modèle phi3:mini :
 
     ```shell
     ollama run phi3:mini
@@ -49,14 +49,14 @@ Une option similaire est les conteneurs de développement VS Code, qui ouvriront
 2. Une fois que vous voyez "success" dans la sortie, vous pouvez envoyer un message à ce modèle depuis l'invite.
 
     ```shell
-    >>> Écris un haïku sur les hippopotames affamés
+    >>> Write a haiku about hungry hippos
     ```
 
-3. Après plusieurs secondes, vous devriez voir une réponse du modèle.
+3. Après quelques secondes, vous devriez voir une réponse en provenance du modèle.
 
-4. Pour en savoir plus sur les différentes techniques utilisées avec les modèles de langage, ouvrez le notebook Python [ollama.ipynb](../../../../code/01.Introduce/ollama.ipynb) et exécutez chaque cellule. Si vous avez utilisé un modèle autre que 'phi3:mini', changez le `MODEL_NAME` dans la première cellule.
+4. Pour en savoir plus sur les différentes techniques utilisées avec les modèles de langage, ouvrez le notebook Python [ollama.ipynb](../../../../code/01.Introduce/ollama.ipynb) et exécutez chaque cellule. Si vous avez utilisé un modèle autre que 'phi3:mini', changez le `MODEL_NAME` in the first cell.
 
-5. Pour avoir une conversation avec le modèle phi3:mini depuis Python, ouvrez le fichier Python [chat.py](../../../../code/01.Introduce/chat.py) et exécutez-le. Vous pouvez changer le `MODEL_NAME` en haut du fichier si nécessaire, et vous pouvez également modifier le message système ou ajouter des exemples few-shot si vous le souhaitez.
+5. To have a conversation with the phi3:mini model from Python, open the Python file [chat.py](../../../../code/01.Introduce/chat.py) and run it. You can change the `MODEL_NAME` en haut du fichier si nécessaire, et vous pouvez également modifier le message système ou ajouter des exemples few-shot si désiré.
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement**:
+Ce document a été traduit en utilisant des services de traduction automatique par IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

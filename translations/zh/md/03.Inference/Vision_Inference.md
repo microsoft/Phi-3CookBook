@@ -1,10 +1,10 @@
-# **本地推理 Phi-3-Vision**
+# **在本地推理 Phi-3-Vision**
 
-Phi-3-vision-128k-instruct 使得 Phi-3 不仅能理解语言，还能视觉化地感知世界。通过 Phi-3-vision-128k-instruct，我们可以解决不同的视觉问题，如 OCR、表格分析、物体识别、图片描述等。我们可以轻松完成以前需要大量数据训练的任务。以下是 Phi-3-vision-128k-instruct 引用的相关技术和应用场景。
+Phi-3-vision-128k-instruct 让 Phi-3 不仅能理解语言，还能视觉化地看世界。通过 Phi-3-vision-128k-instruct，我们可以解决不同的视觉问题，如 OCR、表格分析、物体识别、描述图片等。我们可以轻松完成以前需要大量数据训练的任务。以下是 Phi-3-vision-128k-instruct 引用的相关技术和应用场景。
 
 ## **0. 准备工作**
 
-在使用之前，请确保已安装以下 Python 库（推荐使用 Python 3.10+）：
+在使用前，请确保已安装以下 Python 库（推荐使用 Python 3.10+）
 
 ```bash
 pip install transformers -U
@@ -12,13 +12,13 @@ pip install datasets -U
 pip install torch -U
 ```
 
-推荐使用 ***CUDA 11.6+*** 并安装 flatten：
+推荐使用 ***CUDA 11.6+*** 并安装 flatten
 
 ```bash
 pip install flash-attn --no-build-isolation
 ```
 
-创建一个新的 Notebook。为了完成示例，建议您首先创建以下内容：
+创建一个新的 Notebook。为了完成示例，建议您首先创建以下内容。
 
 ```python
 from PIL import Image
@@ -38,11 +38,12 @@ model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, t
 user_prompt = '<|user|>\n'
 assistant_prompt = '<|assistant|>\n'
 prompt_suffix = "<|end|>\n"
+
 ```
 
 ## **1. 使用 Phi-3-Vision 分析图像**
 
-我们希望 AI 能够分析图片的内容并给出相关描述。
+我们希望 AI 能够分析我们的图片内容并给出相关描述
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
@@ -64,7 +65,7 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-我们可以通过在 Notebook 中执行以下脚本来获得相关答案：
+通过在 Notebook 中执行以下脚本，我们可以获得相关答案
 
 ```txt
 Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
@@ -72,7 +73,7 @@ Certainly! Nvidia Corporation is a global leader in advanced computing and artif
 
 ## **2. 使用 Phi-3-Vision 进行 OCR**
 
-除了分析图像，我们还可以从图像中提取信息。这是以前需要编写复杂代码才能完成的 OCR 过程。
+除了分析图像外，我们还可以从图像中提取信息。这是以前需要编写复杂代码来完成的 OCR 过程。
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nHelp me get the title and author information of this book?{prompt_suffix}{assistant_prompt}"
@@ -95,15 +96,15 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-结果是：
+结果是
 
 ```txt
 The title of the book is "ALONE" and the author is Morgan Maxwell.
 ```
 
-## **3. 多图比较**
+## **3. 多图像比较**
 
-Phi-3 Vision 支持多图比较。我们可以使用这个模型来找出图像之间的差异。
+Phi-3 Vision 支持多图像比较。我们可以使用这个模型来找出图像之间的差异。
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\n<|image_2|>\n What is difference in this two images?{prompt_suffix}{assistant_prompt}"
@@ -132,10 +133,11 @@ generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 ```
 
-结果是：
+结果是
 
 ```txt
 The first image shows a group of soccer players from the Arsenal Football Club posing for a team photo with their trophies, while the second image shows a group of soccer players from the Arsenal Football Club celebrating a victory with a large crowd of fans in the background. The difference between the two images is the context in which the photos were taken, with the first image focusing on the team and their trophies, and the second image capturing a moment of celebration and victory.
 ```
 
-免责声明：该翻译由AI模型从原文翻译而来，可能不完美。请审阅输出内容并进行必要的修改。
+**免责声明**：
+本文档是使用基于机器的人工智能翻译服务翻译的。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原文档的母语版本视为权威来源。对于关键信息，建议使用专业人工翻译。对于因使用此翻译而产生的任何误解或误读，我们不承担责任。
