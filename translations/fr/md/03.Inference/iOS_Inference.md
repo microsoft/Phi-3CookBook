@@ -1,43 +1,40 @@
 # **Inférence Phi-3 sur iOS**
 
-Phi-3-mini est une nouvelle série de modèles de Microsoft qui permet le déploiement de grands modèles de langage (LLM) sur des appareils edge et des dispositifs IoT. Phi-3-mini est disponible sur les plateformes iOS, Android et les appareils Edge, permettant le déploiement de l'IA générative en BYOD (Bring Your Own Device). L'exemple suivant déploie Phi-3-mini sur iOS.
+Phi-3-mini est une nouvelle série de modèles de Microsoft qui permet le déploiement de Large Language Models (LLMs) sur des appareils edge et des dispositifs IoT. Phi-3-mini est disponible pour des déploiements sur iOS, Android et appareils edge, permettant ainsi de déployer l'IA générative dans des environnements BYOD. L'exemple suivant montre comment déployer Phi-3-mini sur iOS.
 
 ## **1. Préparation**
 
-a. macOS 14+
-
-b. Xcode 15+
-
-c. SDK iOS 17.x (iPhone 14 A16 ou supérieur)
-
-d. Installer Python 3.10+ (Conda est recommandé)
-
-e. Installer la bibliothèque Python - python-flatbuffers
-
-f. Installer CMake
+- **a.** macOS 14+
+- **b.** Xcode 15+
+- **c.** iOS SDK 17.x (iPhone 14 A16 ou supérieur)
+- **d.** Installer Python 3.10+ (Conda est recommandé)
+- **e.** Installer la bibliothèque Python : `python-flatbuffers`
+- **f.** Installer CMake
 
 ### Semantic Kernel et Inférence
 
-Semantic Kernel est un cadre d'application qui vous permet de créer des applications compatibles avec Azure OpenAI Service, les modèles OpenAI et même des modèles locaux. Accéder aux services locaux via Semantic Kernel permet de connecter facilement votre propre serveur de modèle Phi-3-mini.
+Semantic Kernel est un framework d'application qui permet de créer des applications compatibles avec Azure OpenAI Service, les modèles OpenAI et même des modèles locaux. Accéder aux services locaux via Semantic Kernel permet une intégration facile avec votre serveur de modèle Phi-3-mini auto-hébergé.
 
-### Appel des modèles quantifiés avec Ollama ou LlamaEdge
+### Appeler des Modèles Quantifiés avec Ollama ou LlamaEdge
 
-De nombreux utilisateurs préfèrent utiliser des modèles quantifiés pour exécuter des modèles localement. [Ollama](https://ollama.com) et [LlamaEdge](https://llamaedge.com) permettent aux utilisateurs individuels d'appeler différents modèles quantifiés :
+Beaucoup d'utilisateurs préfèrent utiliser des modèles quantifiés pour exécuter des modèles localement. [Ollama](https://ollama.com) et [LlamaEdge](https://llamaedge.com) permettent aux utilisateurs d'appeler différents modèles quantifiés :
 
-**Ollama**  
-Vous pouvez exécuter directement `ollama run phi3` ou le configurer hors ligne. Créez un fichier Modelfile avec le chemin vers votre fichier gguf. Exemple de code pour exécuter le modèle quantifié Phi-3-mini :
+#### **Ollama**
 
-```
+Vous pouvez exécuter `ollama run phi3` directement ou le configurer hors ligne. Créez un Modelfile avec le chemin vers votre fichier `gguf`. Exemple de code pour exécuter le modèle quantifié Phi-3-mini :
+
+```gguf
 FROM {Add your gguf file path}
-TEMPLATE \"\"\"<|user|> {{.Prompt}}<|end|> <|assistant|>\"\"\"
+TEMPLATE \"\"\"<|user|> .Prompt<|end|> <|assistant|>\"\"\"
 PARAMETER stop <|end|>
 PARAMETER num_ctx 4096
 ```
 
-**LlamaEdge**
-Si vous souhaitez utiliser gguf à la fois dans le cloud et sur les appareils edge, LlamaEdge peut être votre choix.
+#### **LlamaEdge**
 
-## **2. Compilation de ONNX Runtime pour iOS**
+Si vous souhaitez utiliser `gguf` à la fois sur des appareils cloud et edge simultanément, LlamaEdge est une excellente option.
+
+## **2. Compiler ONNX Runtime pour iOS**
 
 ```bash
 
@@ -50,25 +47,22 @@ cd onnxruntime
 cd ../
 
 ```
- 
-***Remarque*** 
 
-a. Avant de compiler, vous devez vous assurer que Xcode est correctement configuré et l'avoir défini dans le terminal.
+### **Remarque**
 
-```bash
+- **a.** Avant de compiler, assurez-vous que Xcode est correctement configuré et définissez-le comme le répertoire de développeur actif dans le terminal :
 
-sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer 
+    ```bash
+    sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+    ```
 
-```
+- **b.** ONNX Runtime doit être compilé pour différentes plateformes. Pour iOS, vous pouvez compiler pour `arm64` or `x86_64`.
 
-b. ONNX Runtime doit être compilé en fonction des différentes plateformes. Pour iOS, vous pouvez compiler en fonction de arm64 / x86_64.
+- **c.** Il est recommandé d'utiliser le dernier SDK iOS pour la compilation. Cependant, vous pouvez également utiliser une version plus ancienne si vous avez besoin de compatibilité avec des SDK précédents.
 
-c. Il est recommandé d'utiliser directement le dernier SDK iOS pour la compilation. Bien sûr, vous pouvez également abaisser la version pour la compatibilité avec les SDK précédents.
+## **3. Compiler l'IA Générative avec ONNX Runtime pour iOS**
 
-## **3. Compilation de l'IA Générative avec ONNX Runtime pour iOS**
-
- ***Note:*** Comme l'IA générative avec ONNX Runtime est en aperçu, veuillez noter les changements.
-
+> **Note :** Comme l'IA Générative avec ONNX Runtime est en aperçu, veuillez être conscient des changements potentiels.
 
 ```bash
 
@@ -96,15 +90,15 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ```
 
-## **4. Créer une application dans Xcode**
+## **4. Créer une application App dans Xcode**
 
-J'ai choisi Objective-C comme méthode de développement d'application, car l'utilisation de l'API C++ de Generative AI avec ONNX Runtime est mieux compatible avec Objective-C. Bien sûr, vous pouvez également effectuer les appels nécessaires via le pontage Swift.
+J'ai choisi Objective-C comme méthode de développement de l'application, car l'utilisation de l'IA Générative avec l'API C++ d'ONNX Runtime est mieux compatible avec Objective-C. Bien sûr, vous pouvez également effectuer les appels associés via un pont Swift.
 
 ![xcode](../../../../translated_images/xcode.2817f1d089dc7d09ba6a41361db7052567d63f714062e2e4325b0e0895ccb4c4.fr.png)
 
 ## **5. Copier le modèle quantifié INT4 ONNX dans le projet de l'application**
 
-Nous devons importer le modèle de quantification INT4 au format ONNX, qui doit être téléchargé au préalable.
+Nous devons importer le modèle de quantification INT4 au format ONNX, qui doit d'abord être téléchargé.
 
 ![hf](../../../../translated_images/hf.dd843c3e95f3b462a3d5f06dbbb17c1f1a33b87688c1cda4d990084ef71a4eed.fr.png)
 
@@ -112,21 +106,21 @@ Après le téléchargement, vous devez l'ajouter au répertoire Resources du pro
 
 ![model](../../../../translated_images/model.2b8e95a590e70374b2294b16f8ae18c9110239a550e64dc034d6bc16d37e0106.fr.png)
 
-## **6. Ajouter l'API C++ dans les ViewControllers**
+## **6. Ajouter l'API C++ dans ViewControllers**
 
-**Remarque**:
+> **Remarque :**
 
-  a. Ajouter le fichier d'en-tête C++ correspondant au projet.
+- **a.** Ajoutez les fichiers d'en-tête C++ correspondants au projet.
 
-  ![head](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.fr.png)
+  ![Header File](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.fr.png)
 
-  b. Ajouter la dylib onnxruntime-genai dans Xcode.
+- **b.** Incluez `onnxruntime-genai` dynamic library in Xcode.
 
-  ![lib](../../../../translated_images/lib.9388329df08543518d094d14c8ca0c8e6f0ce264ee68630a8c5c3d783355b6d1.fr.png)
+  ![Library](../../../../translated_images/lib.9388329df08543518d094d14c8ca0c8e6f0ce264ee68630a8c5c3d783355b6d1.fr.png)
 
-  c. Utiliser directement le code des échantillons C pour les tests dans ces exemples. Vous pouvez également ajouter directement plus de fonctionnalités pour exécuter (comme ChatUI)..
+- **c.** Use the C Samples code for testing. You can also add additional features like ChatUI for more functionality.
 
-  d. Parce que vous devez appeler du C++, veuillez changer ViewController.m en ViewController.mm.
+- **d.** Since you need to use C++ in your project, rename `ViewController.m` to `ViewController.mm` pour activer la prise en charge d'Objective-C++.
 
 ```objc
 
@@ -155,14 +149,13 @@ Après le téléchargement, vous devez l'ajouter au répertoire Resources du pro
 
 ```
 
+## **7. Exécuter l'application**
 
+Une fois la configuration terminée, vous pouvez exécuter l'application pour voir les résultats de l'inférence du modèle Phi-3-mini.
 
+![Running Result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.fr.jpg)
 
-## **7. Les résultats de l'exécution**
+Pour plus de code d'exemple et d'instructions détaillées, visitez le [dépôt des exemples Phi-3 Mini](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios).
 
-![result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.fr.jpg)
-
-**Codes d'exemple:** [https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios)
-
-Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit en utilisant des services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations cruciales, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

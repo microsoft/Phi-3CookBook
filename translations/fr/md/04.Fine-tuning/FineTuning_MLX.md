@@ -1,16 +1,16 @@
-# **Affinage de Phi-3 avec le framework Apple MLX**
+# **Affiner Phi-3 avec le Framework Apple MLX**
 
-Nous pouvons effectuer l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Si vous souhaitez en savoir plus sur le fonctionnement du framework MLX, veuillez lire [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
+Nous pouvons réaliser l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Pour en savoir plus sur le fonctionnement du framework MLX, veuillez lire [Inférence Phi-3 avec le Framework Apple MLX](../03.Inference/MLX_Inference.md))
 
 
 ## **1. Préparation des données**
 
-Par défaut, le framework MLX nécessite le format jsonl pour l'entraînement, le test et l'évaluation, et est combiné avec Lora pour compléter les travaux d'affinage.
+Par défaut, le framework MLX nécessite le format jsonl pour les ensembles d'entraînement, de test et d'évaluation, et il est combiné avec Lora pour compléter les tâches d'affinage.
 
 
-### ***Remarque:***
+### ***Remarque :***
 
-1. Format de données jsonl :
+1. Format des données jsonl :
 
 
 ```json
@@ -22,11 +22,11 @@ Par défaut, le framework MLX nécessite le format jsonl pour l'entraînement, l
 
 ```
 
-2. Notre exemple utilise les données de [TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats de l'affinage ne sont pas nécessairement les meilleurs. Il est recommandé aux apprenants d'utiliser de meilleures données en fonction de leurs propres scénarios pour compléter.
+2. Notre exemple utilise les [données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats de l'affinage ne sont pas forcément les meilleurs. Il est recommandé aux apprenants d'utiliser de meilleures données en fonction de leurs propres scénarios.
 
 3. Le format des données est combiné avec le modèle Phi-3
 
-Veuillez télécharger les données depuis ce [lien](../../../../code/04.Finetuning/mlx), veuillez inclure tous les fichiers .jsonl dans le dossier ***data***
+Veuillez télécharger les données à partir de ce [lien](../../../../code/04.Finetuning/mlx), veuillez inclure tous les fichiers .jsonl dans le dossier ***data***
 
 
 ## **2. Affinage dans votre terminal**
@@ -41,7 +41,7 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 ```
 
 
-## ***Remarque:***
+## ***Remarque :***
 
 1. Ceci est un affinage LoRA, le framework MLX n'a pas publié QLoRA
 
@@ -51,63 +51,63 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 ```yaml
 
 
-# Le chemin vers le répertoire du modèle local ou le dépôt Hugging Face.
+# The path to the local model directory or Hugging Face repo.
 model: "microsoft/Phi-3-mini-4k-instruct"
-# Entraîner ou non (booléen)
+# Whether or not to train (boolean)
 train: true
 
-# Répertoire avec les fichiers {train, valid, test}.jsonl
+# Directory with {train, valid, test}.jsonl files
 data: "data"
 
-# La graine PRNG
+# The PRNG seed
 seed: 0
 
-# Nombre de couches à affiner
+# Number of layers to fine-tune
 lora_layers: 32
 
-# Taille des mini-lots.
+# Minibatch size.
 batch_size: 1
 
-# Nombre d'itérations pour l'entraînement.
+# Iterations to train for.
 iters: 1000
 
-# Nombre de lots de validation, -1 utilise l'ensemble de validation complet.
+# Number of validation batches, -1 uses the entire validation set.
 val_batches: 25
 
-# Taux d'apprentissage Adam.
+# Adam learning rate.
 learning_rate: 1e-6
 
-# Nombre d'étapes d'entraînement entre les rapports de perte.
+# Number of training steps between loss reporting.
 steps_per_report: 10
 
-# Nombre d'étapes d'entraînement entre les validations.
+# Number of training steps between validations.
 steps_per_eval: 200
 
-# Chemin de chargement pour reprendre l'entraînement avec les poids de l'adaptateur donnés.
+# Load path to resume training with the given adapter weights.
 resume_adapter_file: null
 
-# Chemin de sauvegarde/chargement pour les poids de l'adaptateur entraîné.
+# Save/load path for the trained adapter weights.
 adapter_path: "adapters"
 
-# Sauvegarder le modèle toutes les N itérations.
+# Save the model every N iterations.
 save_every: 1000
 
-# Évaluer sur l'ensemble de test après l'entraînement
+# Evaluate on the test set after training
 test: false
 
-# Nombre de lots de l'ensemble de test, -1 utilise l'ensemble de test complet.
+# Number of test set batches, -1 uses the entire test set.
 test_batches: 100
 
-# Longueur maximale de la séquence.
+# Maximum sequence length.
 max_seq_length: 2048
 
-# Utiliser le point de contrôle de gradient pour réduire l'utilisation de la mémoire.
+# Use gradient checkpointing to reduce memory use.
 grad_checkpoint: true
 
-# Les paramètres LoRA ne peuvent être spécifiés que dans un fichier de configuration
+# LoRA parameters can only be specified in a config file
 lora_parameters:
-  # Les clés de couche auxquelles appliquer LoRA.
-  # Ceux-ci seront appliqués pour les dernières lora_layers
+  # The layer keys to apply LoRA to.
+  # These will be applied for the last lora_layers
   keys: ["o_proj","qkv_proj"]
   rank: 64
   alpha: 64
@@ -128,7 +128,7 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ## **3. Exécuter l'adaptateur d'affinage pour tester**
 
-Vous pouvez exécuter l'adaptateur d'affinage dans le terminal, comme ceci 
+Vous pouvez exécuter l'adaptateur d'affinage dans le terminal, comme ceci
 
 
 ```bash
@@ -137,7 +137,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-et exécuter le modèle original pour comparer les résultats 
+et exécuter le modèle original pour comparer les résultats
 
 
 ```bash
@@ -158,7 +158,7 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. Exécution de modèles d'affinage quantifiés avec ollama**
+## **5. Exécuter des modèles d'affinage quantifiés avec ollama**
 
 Avant utilisation, veuillez configurer votre environnement llama.cpp
 
@@ -175,13 +175,13 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 ```
 
-***Remarque:*** 
+***Remarque :*** 
 
 1. Prend désormais en charge la conversion de quantification de fp32, fp16 et INT 8
 
-2. Le modèle fusionné manque de tokenizer.model, veuillez le télécharger depuis https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
+2. Le modèle fusionné manque tokenizer.model, veuillez le télécharger depuis https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Configurer le fichier modèle Ollama (Si Ollama n'est pas installé, veuillez lire [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
+Configurer le fichier du modèle Ollma (Si ollama n'est pas installé, veuillez lire [Démarrage rapide d'Ollama](../02.QuickStart/Ollama_QuickStart.md))
 
 
 ```txt
@@ -202,6 +202,7 @@ exécuter la commande dans le terminal
 
 ```
 
-Félicitations! Vous maîtrisez l'affinage avec le framework MLX
+Félicitations ! Vous maîtrisez l'affinage avec le framework MLX
 
-Avertissement : La traduction a été effectuée à partir de son original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement**:
+Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

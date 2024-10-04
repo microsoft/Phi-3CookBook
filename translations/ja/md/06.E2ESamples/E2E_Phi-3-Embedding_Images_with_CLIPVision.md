@@ -1,48 +1,48 @@
-# CLIPVisionModelを使って画像を処理し、Phi-3-visionで画像埋め込みを生成する
+# CLIPVisionModelを使って画像を処理し、Phi-3-visionで画像埋め込みを生成する方法
 
 以下のPythonサンプルは、CLIPVisionModelを使用して画像を処理し、画像埋め込みを生成するための必要な機能を提供します。
 
 ## CLIPとは
-CLIP（Contrastive Language-Image Pre-training）は、OpenAIが開発したモデルで、自然言語の監督から視覚的な概念を効率的に学習します。これは、画像とテキストの理解を単一のフレームワークに組み合わせたマルチモーダルモデルです。CLIPは、インターネットから取得したさまざまな画像とそれに付随するテキストで訓練され、どの画像がどのテキストとペアになっているかを予測することを学び、2つのモダリティを効果的にリンクします。
+CLIPは、Contrastive Language-Image Pre-trainingの略で、OpenAIによって開発されたモデルです。自然言語の監督を受けて視覚的な概念を効率的に学習します。画像とテキストの理解を単一のフレームワークで組み合わせたマルチモーダルモデルです。CLIPは、インターネットから収集されたさまざまな画像と、それに付随するテキストを使って訓練され、どの画像がどのテキストとペアになっているかを予測することにより、2つのモダリティを効果的にリンクさせます。
 
-このモデルは、画像とテキストのスニペットを入力として受け取り、テキストが画像の正確な説明である可能性を予測することで動作します。このアプローチにより、CLIPはオブジェクト認識や分類、さらには初めて見る画像の説明を生成するなど、幅広い視覚タスクを処理できます。
+このモデルは、画像とテキストのスニペットを入力として受け取り、そのテキストが画像の正確な説明である可能性を予測することで機能します。このアプローチにより、CLIPは物体認識や分類、さらにはこれまで見たことのない画像の説明生成など、幅広い視覚タスクに対応できます。
 
-CLIPの主要な利点の1つは、「ゼロショット」学習が可能なことです。これは、モデルが明示的に訓練されていないタスクを、タスクの説明を読むだけで正しく処理できることを意味します。これは、訓練に使用された多様なデータ量が非常に多いため、新しいタスクに対してもよく一般化できるからです。
+CLIPの主な利点の一つは、「ゼロショット」学習を行う能力です。これは、明示的に訓練されていないタスクでも、タスクの説明を読むだけで正しく処理できるというものです。これは、非常に多様なデータで訓練されているため、新しいタスクにも一般化しやすいからです。
 
 ## Phi-3-vision
-Phi-3-visionは、4.2Bパラメータのマルチモーダルモデルで、言語と視覚の機能を持ち、実世界の画像やデジタルドキュメントを理解し、画像からテキストを抽出し、チャートや図に関連する洞察や回答を生成することができます。
+Phi-3-visionは、言語と視覚の能力を持つ42億パラメータのマルチモーダルモデルで、現実世界の画像やデジタル文書を分析し、画像からテキストを抽出して推論し、チャートや図表に関連する洞察や回答を生成することができます。
 
 ## サンプルコード
-このコードは、画像埋め込みモデルを表すPhi3ImageEmbeddingというクラスを定義しています。このクラスの目的は、画像を処理し、画像分類や検索などの下流タスクに使用できる埋め込みを生成することです。
+このコードは、画像埋め込みモデルを表すPhi3ImageEmbeddingというクラスを定義しています。このクラスの目的は、画像を処理し、画像分類や検索などのダウンストリームタスクで使用できる埋め込みを生成することです。
 
-__init__メソッドは、埋め込みドロップアウト、画像プロセッサ、HD変換パラメータ、および画像プロジェクションなどのさまざまなコンポーネントを設定することでモデルを初期化します。このメソッドは、モデルの構成パラメータを含むconfigオブジェクトを入力として受け取ります。wteパラメータは、単語トークン埋め込みを表すオプションの入力です。
+__init__メソッドは、埋め込みドロップアウト、画像プロセッサ、HD変換パラメータ、画像プロジェクションなどのさまざまなコンポーネントを設定することでモデルを初期化します。このメソッドは、モデルの設定パラメータを含むconfigオブジェクトを入力として受け取ります。wteパラメータは、単語トークン埋め込みを表すオプションの入力です。
 
-get_img_featuresメソッドは、画像埋め込みを表す入力テンソルimg_embedsを受け取り、抽出された画像特徴を表すテンソルを返します。これは、img_processorを使用して画像埋め込みを処理し、layer_idxおよびtype_featureパラメータに基づいて目的の特徴を抽出します。
+get_img_featuresメソッドは、画像埋め込みを表す入力テンソルimg_embedsを受け取り、抽出された画像特徴を表すテンソルを返します。img_processorを使用して画像埋め込みを処理し、layer_idxおよびtype_featureパラメータに基づいて必要な特徴を抽出します。
 
 ## コードの説明
-コードをステップバイステップで説明しましょう：
+コードを一歩一歩見ていきましょう：
 
-このコードは、必要なライブラリとモジュール（math、torch、torch.nn、およびtransformersライブラリのさまざまなコンポーネント）をインポートします。
+コードは、math、torch、torch.nn、およびtransformersライブラリのさまざまなコンポーネントをインポートします。
 
-コードは、画像埋め込みモデルのさまざまなハイパーパラメータを含むCLIP_VIT_LARGE_PATCH14_336_CONFIGという構成オブジェクトを定義します。
+コードは、画像埋め込みモデルのさまざまなハイパーパラメータを含むCLIP_VIT_LARGE_PATCH14_336_CONFIGという設定オブジェクトを定義します。
 
-Phi3ImageEmbeddingクラスが定義されており、これはtorch.nn.Moduleのサブクラスです。このクラスは画像埋め込みモデルを表し、順伝播と画像特徴の設定のためのメソッドを含みます。
+Phi3ImageEmbeddingクラスが定義されます。これはtorch.nn.Moduleのサブクラスです。このクラスは画像埋め込みモデルを表し、順伝播と画像特徴の設定のためのメソッドを含んでいます。
 
 __init__メソッドはPhi3ImageEmbeddingオブジェクトを初期化します。これはPretrainedConfigクラスのインスタンスであるconfigオブジェクトを入力として受け取ります。また、オプションのwte引数も受け取ります。
 
-__init__メソッドは、提供されたconfigオブジェクトに基づいてPhi3ImageEmbeddingオブジェクトのさまざまな属性を初期化します。これは隠れ層のサイズ、ドロップアウト率、画像プロセッサ、画像プロジェクション、その他のパラメータを設定します。
+__init__メソッドは、提供されたconfigオブジェクトに基づいてPhi3ImageEmbeddingオブジェクトのさまざまな属性を初期化します。隠れ層のサイズ、ドロップアウト率、画像プロセッサ、画像プロジェクション、およびその他のパラメータを設定します。
 
-set_img_featuresメソッドは、モデルの画像特徴を設定します。これは画像特徴のテンソルを入力として受け取り、それをオブジェクトのimg_features属性に割り当てます。
+set_img_featuresメソッドは、モデルの画像特徴を設定します。画像特徴のテンソルを入力として受け取り、それをオブジェクトのimg_features属性に割り当てます。
 
-set_img_sizesメソッドは、モデルの画像サイズを設定します。これは画像サイズのテンソルを入力として受け取り、それをオブジェクトのimg_sizes属性に割り当てます。
+set_img_sizesメソッドは、モデルの画像サイズを設定します。画像サイズのテンソルを入力として受け取り、それをオブジェクトのimg_sizes属性に割り当てます。
 
-get_img_featuresメソッドは、入力画像埋め込みから画像特徴を抽出します。これは画像埋め込みのテンソルを入力として受け取り、抽出された画像特徴を返します。
+get_img_featuresメソッドは、入力画像埋め込みから画像特徴を抽出します。画像埋め込みのテンソルを入力として受け取り、抽出された画像特徴を返します。
 
-forwardメソッドは、モデルを通じて順伝播を行います。これはinput IDs、ピクセル値、および画像サイズを入力として受け取り、モデルの隠れ状態を返します。まず、画像特徴とサイズが既に設定されているかどうかを確認し、設定されていない場合は提供された入力を使用してそれらを設定します。次に、入力IDsを処理し、構成された画像プロセッサに基づいて画像特徴を抽出します。最後に、抽出された特徴に画像プロジェクションを適用し、隠れ状態を返します。
+forwardメソッドは、モデルを通じて順伝播を行います。入力ID、ピクセル値、および画像サイズを入力として受け取り、モデルの隠れ状態を返します。まず、画像特徴とサイズがすでに設定されているかを確認し、設定されていない場合は提供された入力を使用してそれらを設定します。その後、入力IDを処理し、設定された画像プロセッサに基づいて画像特徴を抽出します。最後に、抽出された特徴に画像プロジェクションを適用し、隠れ状態を返します。
 
-全体として、このコードは画像埋め込みモデルを表すクラスを定義し、画像特徴の設定と順伝播を行うためのメソッドを提供します。
+全体として、このコードは画像埋め込みモデルを表し、画像特徴の設定と順伝播を行うためのメソッドを提供します。
 
-[コードサンプル](../../../../code/06.E2E/phi3imageembedding.py)
+[Code Sample](../../../../code/06.E2E/phi3imageembedding.py)
 ```
 import math
 import torch
@@ -51,13 +51,13 @@ from transformers import CLIPVisionConfig
 from transformers.utils import logging
 from datetime import datetime 
 
-# 必要なライブラリをインポート
+# Import necessary libraries
 import torch.nn as nn
 
-# ログの設定
+# Set up logging
 logger = logging.get_logger(__name__)
 
-# CLIPVisionModelの構成を定義
+# Define the configuration for the CLIPVisionModel
 CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     attention_dropout=0.0,
     dropout=0.0,
@@ -75,14 +75,14 @@ CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     projection_dim=768 
 )
 
-# Phi3ImageEmbeddingクラスを定義
+# Define the Phi3ImageEmbedding class
 class Phi3ImageEmbedding(nn.Module):
         """Phi3 Image embedding."""
 
         def __init__(self, config: PretrainedConfig, wte=None, **kwargs) -> None:
                 super().__init__()
 
-                # 埋め込みドロップアウトの設定
+                # Set up the embedding dropout
                 hidden_size = config.n_embd if hasattr(config, 'n_embd') else config.hidden_size
                 if hasattr(config, 'embd_pdrop') or hasattr(config, 'embed_pdrop'):
                         embd_drop = config.embd_pdrop if hasattr(config, 'embd_pdrop') else config.embed_pdrop
@@ -92,7 +92,7 @@ class Phi3ImageEmbedding(nn.Module):
 
                 self.wte = wte
 
-                # 構成に基づいて画像プロセッサを設定
+                # Set up the image processor based on the configuration
                 if isinstance(config.img_processor, dict) and config.img_processor.get('name', None) == 'clip_vision_model':
                         assert 'model_name' in config.img_processor, 'model_name must be provided for CLIPVisionModel'
                         assert 'image_dim_out' in config.img_processor, 'image_dim_out must be provided for CLIPVisionModel'
@@ -108,7 +108,7 @@ class Phi3ImageEmbedding(nn.Module):
                 self.image_dim_out = image_dim_out
                 self.img_sizes = None
 
-                # HD変換パラメータの設定
+                # Set up the HD transform parameters
                 self.use_hd_transform = kwargs.get('use_hd_transform', False)
                 self.with_learnable_separator = kwargs.get('with_learnable_separator', False)
                 self.hd_transform_order = kwargs.get('hd_transform_order', 'glb_sub')
@@ -119,7 +119,7 @@ class Phi3ImageEmbedding(nn.Module):
                         self.sub_GN = nn.Parameter(torch.zeros([1, 1, 1, self.image_dim_out * 4]))
                         logger.info(f'learnable separator enabled for hd transform, hd_transform_order = {self.hd_transform_order}')
 
-                # プロジェクションクラスに基づいて画像プロジェクションを設定
+                # Set up the image projection based on the projection_cls
                 projection_cls = kwargs.get('projection_cls', 'linear')
                 if projection_cls == 'linear':
                         self.img_projection = nn.Linear(image_dim_out, hidden_size)
@@ -145,7 +145,7 @@ class Phi3ImageEmbedding(nn.Module):
                 self.vocab_size = config.vocab_size
                 self.img_features = None
 
-                # 画像プロセッサのレイヤーインデックスと特徴タイプを設定
+                # Set up the layer index and type of feature for the image processor
                 if isinstance(config.img_processor, dict):
                         self.layer_idx = config.img_processor.get('layer_idx', -2)
                         self.type_feature = config.img_processor.get('type_feature', 'patch')
@@ -281,7 +281,37 @@ class Phi3ImageEmbedding(nn.Module):
                         select = True
                 
                 with torch.no_grad():
-                        input_ids.clamp_min_(0).clamp_max_(self
+                        input_ids.clamp_min_(0).clamp_max_(self.vocab_size)
+                
+                hidden_states = self.wte(input_ids)
 
-免責事項: 翻訳はAIモデルによって原文から翻訳されたものであり、完璧ではない可能性があります。
-出力を確認し、必要に応じて修正を行ってください。
+                if select:
+                        if hd_transform:
+                                idx = 0
+                                for i, cnt in enumerate(num_img_tokens):
+                                        hidden_states[positions[idx, 0], positions[idx, 1] : positions[idx, 1] + cnt] = (
+                                                img_set_tensor[i]
+                                                .to(hidden_states.dtype)
+                                                .to(hidden_states.device)
+                                                )
+                                        idx += cnt
+                        else:
+                                idx = 0
+                                assert len(selected_g_values) * self.num_img_tokens == len(img_set_tensor), f'len(selected_g_values) * self.num_img_tokens = {len(selected_g_values) * self.num_img_tokens}, len(img_set_tensor) = {len(img_set_tensor)}'
+                                for i, g in enumerate(selected_g_values):
+                                        cnt = self.num_img_tokens
+                                        hidden_states[positions[idx, 0], positions[idx, 1] : positions[idx, 1] + cnt] = (
+                                                img_set_tensor[i * cnt : (i + 1) * cnt]
+                                                .to(hidden_states.dtype)
+                                                .to(hidden_states.device)
+                                                )
+                                        idx += cnt
+
+                if self.drop is not None:
+                        hidden_states = self.drop(hidden_states)
+
+                return hidden_states
+```
+
+**免責事項**:
+この文書は、機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期すために努めておりますが、自動翻訳には誤りや不正確さが含まれる場合がありますのでご注意ください。元の言語での原文を権威ある情報源と見なすべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤訳については、一切の責任を負いかねます。

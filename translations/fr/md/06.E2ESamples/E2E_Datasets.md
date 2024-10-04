@@ -1,6 +1,6 @@
 # **Préparez vos données industrielles**
 
-Nous espérons injecter Phi-3-mini dans [les données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv). La première étape consiste à importer les données de TruthfulQA.
+Nous espérons injecter Phi-3-mini dans les [données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv). La première étape consiste à importer les données de TruthfulQA.
 
 ### **1. Charger les données dans un fichier csv et les enregistrer en json**
 
@@ -29,6 +29,7 @@ with open('./output/TruthfulQA.json', 'r') as file:
         print(str(i))
         i+=1
 
+
 ```
 
 ### **2. Télécharger les données vers les datastores Azure ML**
@@ -39,4 +40,5 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 Vos données ont été chargées avec succès. Ensuite, vous devez configurer vos données et les algorithmes associés via Microsoft Olive [E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez vérifier le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

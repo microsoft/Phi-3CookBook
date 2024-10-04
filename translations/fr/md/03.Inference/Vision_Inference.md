@@ -1,36 +1,26 @@
 # **Inférence Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permet à Phi-3 non seulement de comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre divers problèmes visuels, tels que l'OCR, l'analyse de tableaux, la reconnaissance d'objets, la description d'images, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup d'entraînement de données. Voici les techniques et scénarios d'application cités par Phi-3-vision-128k-instruct.
-
-
+Phi-3-vision-128k-instruct permet à Phi-3 non seulement de comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre divers problèmes visuels, tels que l'OCR, l'analyse de tableaux, la reconnaissance d'objets, la description d'images, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup de formation de données. Voici les techniques et scénarios d'application liés cités par Phi-3-vision-128k-instruct.
 
 ## **0. Préparation**
 
-Assurez-vous que les bibliothèques Python suivantes sont installées avant utilisation (Python 3.10+ est recommandé)
-
+Veuillez vous assurer que les bibliothèques Python suivantes sont installées avant utilisation (Python 3.10+ est recommandé)
 
 ```bash
-
 pip install transformers -U
 pip install datasets -U
 pip install torch -U
-
 ```
 
 Il est recommandé d'utiliser ***CUDA 11.6+*** et d'installer flatten
 
-
 ```bash
-
 pip install flash-attn --no-build-isolation
-
 ```
 
 Créez un nouveau Notebook. Pour compléter les exemples, il est recommandé de créer d'abord le contenu suivant.
 
-
 ```python
-
 from PIL import Image
 import requests
 import torch
@@ -48,18 +38,14 @@ model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, t
 user_prompt = '<|user|>\n'
 assistant_prompt = '<|assistant|>\n'
 prompt_suffix = "<|end|>\n"
-
 ```
-
 
 ## **1. Analyser l'image avec Phi-3-Vision**
 
-Nous voulons que l'IA soit capable d'analyser le contenu de nos images et de fournir des descriptions pertinentes.
-
+Nous voulons que l'IA puisse analyser le contenu de nos images et fournir des descriptions pertinentes.
 
 ```python
-
-prompt = f"{user_prompt}<|image_1|>\nPourriez-vous me présenter cette action ?{prompt_suffix}{assistant_prompt}"
+prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
 
 
 url = "https://g.foolcdn.com/editorial/images/767633/nvidiadatacenterrevenuefy2017tofy2024.png"
@@ -77,28 +63,20 @@ generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 response = processor.batch_decode(generate_ids, 
                                   skip_special_tokens=True, 
                                   clean_up_tokenization_spaces=False)[0]
-
 ```
 
-Nous pouvons obtenir les réponses pertinentes en exécutant le script suivant dans le Notebook
-
+Nous pouvons obtenir les réponses pertinentes en exécutant le script suivant dans Notebook.
 
 ```txt
-
-Bien sûr ! Nvidia Corporation est un leader mondial dans l'informatique avancée et l'intelligence artificielle (IA). L'entreprise conçoit et développe des unités de traitement graphique (GPU), qui sont des accélérateurs matériels spécialisés utilisés pour traiter et rendre des images et des vidéos. Les GPU de Nvidia sont largement utilisés dans la visualisation professionnelle, les centres de données et les jeux. L'entreprise propose également des logiciels et des services pour améliorer les capacités de ses GPU. Les technologies innovantes de Nvidia ont des applications dans diverses industries, notamment l'automobile, la santé et le divertissement. L'action de l'entreprise est cotée en bourse et peut être trouvée sur les principales places boursières.
-
+Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
 ```
-
 
 ## **2. OCR avec Phi-3-Vision**
 
-
-En plus d'analyser l'image, nous pouvons également extraire des informations de l'image. C'est le processus OCR que nous devions auparavant écrire du code complexe pour compléter.
-
+En plus d'analyser l'image, nous pouvons également extraire des informations de l'image. C'est le processus OCR que nous devions auparavant écrire du code complexe pour accomplir.
 
 ```python
-
-prompt = f"{user_prompt}<|image_1|>\nAidez-moi à obtenir le titre et les informations sur l'auteur de ce livre ?{prompt_suffix}{assistant_prompt}"
+prompt = f"{user_prompt}<|image_1|>\nHelp me get the title and author information of this book?{prompt_suffix}{assistant_prompt}"
 
 url = "https://marketplace.canva.com/EAFPHUaBrFc/1/0/1003w/canva-black-and-white-modern-alone-story-book-cover-QHBKwQnsgzs.jpg"
 
@@ -117,26 +95,20 @@ response = processor.batch_decode(generate_ids,
                                   skip_special_tokens=False, 
                                   clean_up_tokenization_spaces=False)[0]
 
-
 ```
 
 Le résultat est
 
-
 ```txt
-
-Le titre du livre est "ALONE" et l'auteur est Morgan Maxwell.
-
+The title of the book is "ALONE" and the author is Morgan Maxwell.
 ```
 
 ## **3. Comparaison de plusieurs images**
 
 Phi-3 Vision prend en charge la comparaison de plusieurs images. Nous pouvons utiliser ce modèle pour trouver les différences entre les images.
 
-
 ```python
-
-prompt = f"{user_prompt}<|image_1|>\n<|image_2|>\n Quelle est la différence entre ces deux images ?{prompt_suffix}{assistant_prompt}"
+prompt = f"{user_prompt}<|image_1|>\n<|image_2|>\n What is difference in this two images?{prompt_suffix}{assistant_prompt}"
 
 print(f">>> Prompt\n{prompt}")
 
@@ -160,20 +132,13 @@ generate_ids = model.generate(**inputs,
 generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 
 response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-
-
-
 ```
-
 
 Le résultat est
 
-
 ```txt
-
-La première image montre un groupe de joueurs de football du club Arsenal posant pour une photo d'équipe avec leurs trophées, tandis que la deuxième image montre un groupe de joueurs de football du club Arsenal célébrant une victoire avec une grande foule de fans en arrière-plan. La différence entre les deux images réside dans le contexte dans lequel les photos ont été prises, avec la première image se concentrant sur l'équipe et leurs trophées, et la deuxième image capturant un moment de célébration et de victoire.
-
+The first image shows a group of soccer players from the Arsenal Football Club posing for a team photo with their trophies, while the second image shows a group of soccer players from the Arsenal Football Club celebrating a victory with a large crowd of fans in the background. The difference between the two images is the context in which the photos were taken, with the first image focusing on the team and their trophies, and the second image capturing a moment of celebration and victory.
 ```
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.
