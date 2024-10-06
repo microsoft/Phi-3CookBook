@@ -1,0 +1,7 @@
+name: qa_truth_20211006
+flow: .
+data: ./eval/data/qa_batch_data.jsonl
+#run: <Uncomment to select a run input>
+column_mapping:
+  chat_history: ${data.chat_history}
+  question: ${data.question}

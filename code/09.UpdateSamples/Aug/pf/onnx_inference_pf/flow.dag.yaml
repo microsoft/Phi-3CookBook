@@ -1,0 +1,28 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  question:
+    type: string
+    default: Can you introduce yourself
+    is_chat_input: true
+    is_chat_history: false
+  chat_history:
+    type: list
+    default: []
+    is_chat_input: false
+    is_chat_history: true
+outputs:
+  answer:
+    type: string
+    reference: ${chat_phi3_ort.output}
+    is_chat_output: true
+nodes:
+- name: chat_phi3_ort
+  type: python
+  source:
+    type: code
+    path: chat_phi3_ort.py
+  inputs:
+    input: ${inputs.question}
