@@ -25,6 +25,9 @@ The above figure presents the Kaito architecture overview. Its major components 
 - **Node provisioner controller**: The controller's name is *gpu-provisioner* in [gpu-provisioner helm chart](https://github.com/Azure/gpu-provisioner/tree/main/charts/gpu-provisioner). It uses the `machine` CRD originated from [Karpenter](https://sigs.k8s.io/karpenter) to interact with the workspace controller. It integrates with Azure Kubernetes Service(AKS) APIs to add new GPU nodes to the AKS cluster. 
 > Note: The [*gpu-provisioner*](https://github.com/Azure/gpu-provisioner) is an open sourced component. It can be replaced by other controllers if they support [Karpenter-core](https://sigs.k8s.io/karpenter) APIs.
 
+## Overview video 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pmfBSg7L6lE?si=b8hXKJXb1gEZcmAe" frameborder="0" allowfullscreen></iframe>
+
 ## Installation
 
 Please check the installation guidance [here](https://github.com/Azure/kaito/blob/main/docs/installation.md).
