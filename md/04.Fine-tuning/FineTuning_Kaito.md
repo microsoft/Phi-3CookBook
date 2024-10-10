@@ -26,8 +26,7 @@ The above figure presents the Kaito architecture overview. Its major components 
 > Note: The [*gpu-provisioner*](https://github.com/Azure/gpu-provisioner) is an open sourced component. It can be replaced by other controllers if they support [Karpenter-core](https://sigs.k8s.io/karpenter) APIs.
 
 ## Overview video 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pmfBSg7L6lE?si=b8hXKJXb1gEZcmAe" frameborder="0" allowfullscreen></iframe>
-
+[Watch the Kaito Demo](https://www.youtube.com/embed/pmfBSg7L6lE?si=b8hXKJXb1gEZcmAe)
 ## Installation
 
 Please check the installation guidance [here](https://github.com/Azure/kaito/blob/main/docs/installation.md).
