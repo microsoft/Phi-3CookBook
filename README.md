@@ -46,6 +46,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
 
 - [Inference Phi-3](./md/03.Inference/overview.md)  
   - [Inference Phi-3 in iOS](./md/03.Inference/iOS_Inference.md)(✅)
+  - [Inference Phi-3.5 in Android](./md/08.Update/Phi35/050.UsingPhi35TFLiteCreateAndroidApp.md)(✅)
   - [Inference Phi-3 in Jetson](./md/03.Inference/Jetson_Inference.md)(✅)
   - [Inference Phi-3 in AI PC](./md/03.Inference/AIPC_Inference.md)(✅)
   - [Inference Phi-3 with Apple MLX Framework](./md/03.Inference/MLX_Inference.md)(✅)
@@ -136,6 +137,7 @@ Phi, is a family of open AI models developed by Microsoft. Phi models are the mo
     - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/08.Update/Phi35/031.WebGPUWithPhi35Readme.md)(✅)
     - [Create your own Visual Studio Code Chat Copilot Agent with Phi-3.5 by GitHub Models](./md/08.Update/Phi35/032.CreateVSCodeChatAgentWithGitHubModels.md)(✅)
     - [Using Windows GPU to create Prompt flow solution with Phi-3.5-Instruct ONNX ](./md/08.Update/Phi35/040.UsingPromptFlowWithONNX.md)(✅)
+    - [Using Microsoft Phi-3.5 tflite to create Android app](./md/08.Update/Phi35/050.UsingPhi35TFLiteCreateAndroidApp.md)(✅)
 
 
 ## Using Phi-3 Models
