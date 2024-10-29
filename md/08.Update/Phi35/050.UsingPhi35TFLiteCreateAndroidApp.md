@@ -19,7 +19,7 @@ Googld AI Edge Torch is a python library that supports converting PyTorch models
 
 ***Suggestion:*** using conda to install your Python env
 
-2. Ubuntu 20.04 / 22.04 (please focus on [google ai-edge-torch](https://github.com/google-ai-edge/ai-edge-torc))
+2. Ubuntu 20.04 / 22.04 (please focus on [google ai-edge-torch](https://github.com/google-ai-edge/ai-edge-torch))
 
 ***Suggestion:*** Using Azure Linux VM or 3rd party cloud vm to create your env
 
