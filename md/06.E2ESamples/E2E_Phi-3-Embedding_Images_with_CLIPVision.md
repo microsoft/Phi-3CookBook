@@ -12,6 +12,12 @@ One of the key advantages of CLIP is its ability to perform “zero-shot” lear
 ## Phi-3-vision
 Phi-3-vision is a 4.2B parameter multimodal model with language and vision capabilities, capable of reasoning over real-world images and digital documents, extracting and reasoning over text from images, and generating insights and answers related to charts or diagrams
 
+**Example Purpose:** This example demonstrates generating image embeddings using CLIP and how it can be applied to tasks related to the Phi-3 model. It serves as a reference for comparing the performance and characteristics of different embedding techniques (CLIP vs. Phi-3).
+**Integration Challenge:** Integrating another vision encoder like CLIP directly into Phi-3 is indeed complex. This complexity arises due to architectural differences and the need for seamless integration without losing context or performance. Integration hasn't been fully evaluated or implemented yet so this included.
+**Comparison Approach:** The code aims to provide a parallel comparison rather than an integrated solution. It allows users to see how CLIP embeddings perform alongside Phi-3 embeddings, providing insights into potential benefits or drawbacks.
+**Clarification:** This Phi-3CookBook Example: Showcases how to use CLIP embeddings as a comparative tool rather than a direct integration into Phi-3.
+**Integration Work:** Full integration of CLIP embeddings into Phi-3 remains a challenge and has not been fully explored but its there for customer to experiment.
+
 ## Sample Code
 This code defines a class called Phi3ImageEmbedding that represents an image embedding model. The purpose of this class is to process images and generate embeddings that can be used for downstream tasks such as image classification or retrieval.
 
@@ -312,3 +318,88 @@ class Phi3ImageEmbedding(nn.Module):
 
                 return hidden_states
 ```
+
+## Building your Pipeline
+
+Working with code that generates embeddings, such as the example above, you typically integrate it into your pipeline depending on your specific use case.
+ 
+1. Loading Pre-trained Models: If you're loading pre-trained models from Hugging Face, these models are indeed binary. You can use them directly for generating embeddings without additional training. This is useful for tasks like feature extraction or semantic search where you need embeddings out-of-the-box.
+ 
+2. Fine-Tuning Pipeline: If you need to adapt the model to a specific task or dataset, you would integrate the code into a fine-tuning pipeline. This involves:
+   - Loading the Pre-trained Model: Start with a pre-trained model from Hugging Face.
+   - Preparing Your Dataset: Ensure your dataset is in the correct format for training.
+   - Fine-Tuning: Use libraries like `transformers` and `datasets` from Hugging Face to fine-tune the model on your dataset. This step adjusts the model weights to better suit your specific task.
+ 
+For example, in the context of the Phi-3 Cookbook and CLIPVision, you might:
+- Generate Embeddings: Use the pre-trained CLIP model to generate embeddings for images.
+- Fine-Tune: If the embeddings need to be more specific to your application, fine-tune the CLIP model on a dataset relevant to your use case.
+ 
+Here's a simplified example of how you might integrate this in code:
+ 
+```python
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained model and processor
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings
+with torch.no_grad():
+    embeddings = model.get_image_features(**inputs)
+ 
+# Fine-tuning (if needed)
+# Define your fine-tuning logic here
+```
+ 
+This approach allows you to leverage powerful pre-trained models and adapt them to your specific needs.
+
+## Integrating the Phi Family of Models
+
+Integrating the Phi-3 model with the provided code example involving CLIP can indeed be challenging as Dongdong said, especially when considering different vision encoders. 
+ 
+Here's a brief overview of how you might approach this:
+ 
+### Key Points
+**Data Processing:** Ensure that the images are processed in a way that fits the input requirements of the Phi-3 model.
+**Embedding Generation:** Replace the CLIP embedding generation with the corresponding method from your Phi-3 model.
+**Fine-Tuning:** If you need to fine-tune the Phi-3 model, ensure the logic is included after generating the embeddings.
+
+## Steps to Integrate Phi-3 Model
+**Load the Phi-3 Model:** Assuming you have a Phi3Model class for the vanilla or fine-tuned Phi-3 model.
+**Modify the Data Preparation:** Adjust the data preparation to suit the input requirements of the Phi-3 model.
+**Integrate Phi-3 Embeddings:** Replace the part where CLIP embeddings are generated with the Phi-3 model's embedding generation.
+
+```
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained CLIP model and processor
+clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Load Phi-3 model (vanilla or fine-tuned)
+# Assuming you have a load_phi3_model function to load your Phi-3 model
+phi3_model = load_phi3_model(fine_tuned=True)
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = clip_processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings using CLIP (for comparison)
+with torch.no_grad():
+    clip_embeddings = clip_model.get_image_features(**inputs)
+ 
+# Generate embeddings using Phi-3
+# Adjust this part according to how your Phi-3 model processes inputs
+phi3_inputs = process_for_phi3_model(images)
+with torch.no_grad():
+    phi3_embeddings = phi3_model.get_image_features(phi3_inputs)
+ 
+# Fine-tuning or further processing (if needed)
+# Define your fine-tuning logic here
+``
