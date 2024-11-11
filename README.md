@@ -16,6 +16,10 @@
 
 Phi, is a family of open AI models developed by Microsoft. Phi models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across a variety of language, reasoning, coding, and math benchmarks. The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. For more detailed information about Microsoft's Phi family, please visit the [Welcome to the Phi Family](/md/01.Introduce/Phi3Family.md) page.
 
+Follow these steps:
+1. **Fork the Repository**: Click on the "Fork" button at the top-right corner of this page.
+2. **Clone the Repository**:   `git clone https://github.com/microsoft/Phi-3CookBook.git`
+
 ![Phi3Family](/imgs/00/Phi3getstarted.png)
 
 ## Table of Contents
