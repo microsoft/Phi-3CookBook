@@ -360,7 +360,7 @@ This approach allows you to leverage powerful pre-trained models and adapt them 
 
 ## Integrating the Phi Family of Models
 
-Integrating the Phi-3 model with the provided code example involving CLIP can indeed be challenging as Dongdong said, especially when considering different vision encoders. 
+Integrating the Phi-3 model with the provided code example involving CLIP can indeed be challenging, especially when considering different vision encoders. 
  
 Here's a brief overview of how you might approach this:
  
