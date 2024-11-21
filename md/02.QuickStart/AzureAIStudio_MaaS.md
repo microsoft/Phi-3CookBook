@@ -7,27 +7,27 @@ Phi-3 models (Mini, Small and Medium) in the [Azure model catalog](https://learn
 ## Prerequisites
 
 1. An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a paid Azure account to begin.
-1. An [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) hub. The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
+1. An [Azure AI Foundry](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) hub. The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
     - **East US 2**
     - **Sweden Central**
 
     > [!NOTE]
     > For a list of regions that are available for each of the models supporting serverless API endpoint deployments, see Region availability for models in serverless API endpoints.
 
-1. An [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) project.
-1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the Azure AI Developer role on the resource group.
+1. An [Azure AI Foundry](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo) project.
+1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Foundry. To perform the steps in this article, your user account must be assigned the Azure AI Developer role on the resource group.
 
 ## Create a new deployment
 
 Perform the following tasks to create a deployment:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
+1. Sign in to [Azure AI Foundry](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 1. Select Model catalog from the left sidebar.
 1. Search for and select the model you want to deploy, for example Phi-3-mini-4k-Instruct, to open its Details page.
 1. Select Deploy.
 1. Choose the option Serverless API to open a serverless API deployment window for the model.
 
-Alternatively, you can initiate a deployment by starting from your project in AI Studio.
+Alternatively, you can initiate a deployment by starting from your project in AI Foundry.
 
 1. From the left sidebar of your project, select Components > Deployments.
 1. Select + Create deployment.
@@ -66,6 +66,6 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 MaaS Models as a Service For details on [MaaS Deployment](https://learn.microsoft.com//azure/ai-studio/how-to/deploy-models-serverless?tabs=azure-ai-studio?WT.mc_id=aiml-137032-kinfeylo)
 
-### How to deploy Phi-3 family of small language models with Azure Machine Learning studio or Azure AI Studio
+### How to deploy Phi-3 family of small language models with Azure Machine Learning studio or Azure AI Foundry
 
 Maap Models as a Platform for details on [MaaP Deployment](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-models-phi-3?view=azureml-api-2&tabs=phi-3-mini)
