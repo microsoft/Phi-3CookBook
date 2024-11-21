@@ -62,17 +62,17 @@ Data encryption and access controls can help protect user privacy and security i
 
 Following ethical principles, such as fairness, transparency, and accountability, can help build trust in AI systems and ensure that they are developed in a responsible manner.
 
-## Using AI Studio for Responsible AI 
+## Using AI Foundry for Responsible AI 
 
-[Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) is a powerful platform that allows developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications. Here are some key features and capabilities of Azure AI Studio:
+[Azure AI Foundry](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) is a powerful platform that allows developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications. Here are some key features and capabilities of Azure AI Foundry:
 
 **Out-of-the-Box APIs and Models** 
 
-Azure AI Studio provides pre-built and customizable APIs and models. These cover a wide range of AI tasks, including generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+Azure AI Foundry provides pre-built and customizable APIs and models. These cover a wide range of AI tasks, including generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 **Prompt Flow** 
 
-Prompt flow in Azure AI Studio enables you to create conversational AI experiences. It allows you to design and manage conversational flows, making it easier to build chatbots, virtual assistants, and other interactive applications.
+Prompt flow in Azure AI Foundry enables you to create conversational AI experiences. It allows you to design and manage conversational flows, making it easier to build chatbots, virtual assistants, and other interactive applications.
 
 **Retrieval Augmented Generation (RAG)** 
 
@@ -80,9 +80,9 @@ RAG is a technique that combines retrieval-based and generative-based approaches
 
 **Evaluation and Monitoring Metrics for Generative AI** 
 
-Azure AI Studio provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you've created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/?WT.mc_id=aiml-138114-kinfeylo) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
+Azure AI Foundry provides tools for evaluating and monitoring generative AI models. You can assess their performance, fairness, and other important metrics to ensure responsible deployment. Additionally, if you've created a dashboard, you can use the no-code UI in Azure Machine Learning Studio to customize and generate a Responsible AI Dashboard and associated scorecard based of the [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/?WT.mc_id=aiml-138114-kinfeylo) Python Libraries. This scorecard helps you share key insights related to fairness, feature importance, and other responsible deployment considerations with both technical and non-technical stakeholders.
 
-To use AI Studio with responsible AI, you can follow these best practices:
+To use AI Foundry with responsible AI, you can follow these best practices:
 
 **Define the problem and objectives of your AI system**
 
@@ -108,4 +108,4 @@ AI systems should be transparent and explainable so that users can understand ho
 
 AI systems should be continuously monitored and updated to ensure that they remain accurate and effective over time. This requires ongoing maintenance, testing, and retraining of the model.
 
-In conclusion, Microsoft Responsible AI is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. Remember that responsible AI implementation is crucial, and Azure AI Studio aims to make it practical for organizations. By following ethical principles and best practices, we can ensure that AI systems are developed and deployed in a responsible manner that benefits society as a whole.
+In conclusion, Microsoft Responsible AI is an initiative that aims to help developers and organizations build AI systems that are transparent, trustworthy, and accountable. Remember that responsible AI implementation is crucial, and Azure AI Foundry aims to make it practical for organizations. By following ethical principles and best practices, we can ensure that AI systems are developed and deployed in a responsible manner that benefits society as a whole.

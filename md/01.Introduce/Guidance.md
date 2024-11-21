@@ -1,5 +1,5 @@
 ### Guidance-AI and Phi Models as a Service (MaaS)
-We are bringing [Guidance](https://github.com/guidance-ai/guidance) to the Phi-3.5-mini serverless endpoint offering in Azure AI Studio to make outputs more predictable through defining the structure tailored to an application. With Guidance, you can eliminate expensive retries, and can, for example, constrain the model to select from pre-defined lists (e.g., medical codes), restrict outputs to direct quotes from provided context, or follow in any regex. Guidance steers the model token by token in the inference stack, reducing cost and latency by 30-50%, which makes it a unique and valuable add-on to the [Phi-3-mini serverless endpoint](https://aka.ms/try-phi3.5mini).
+We are bringing [Guidance](https://github.com/guidance-ai/guidance) to the Phi-3.5-mini serverless endpoint offering in Azure AI Foundry to make outputs more predictable through defining the structure tailored to an application. With Guidance, you can eliminate expensive retries, and can, for example, constrain the model to select from pre-defined lists (e.g., medical codes), restrict outputs to direct quotes from provided context, or follow in any regex. Guidance steers the model token by token in the inference stack, reducing cost and latency by 30-50%, which makes it a unique and valuable add-on to the [Phi-3-mini serverless endpoint](https://aka.ms/try-phi3.5mini).
 
 ## [**Guidance-AI**](https://github.com/guidance-ai/guidance) is a framework designed to help developers create and deploy AI models efficiently. It focuses on providing tools and best practices for building robust AI applications. 
 
@@ -33,7 +33,7 @@ For more detailed information and examples, you can check out the [Guidance-AI G
 Phi models are available through a pay-as-you-go billing system via inference APIs, making it easy to integrate them into your applications without significant upfront costs.
 
 ### Getting Started with Phi-3:
-To start using Phi models, you can explore the [Azure AI model catalog](https://ai.azure.com/explore/models) or the GitHub Marketplace Models](https://github.com/marketplace/models) which offers prebuilt and customizable models. Additionally, you can use tools like [Azure AI Studio](https://ai.azure.com) to develop and deploy your AI applications.
+To start using Phi models, you can explore the [Azure AI model catalog](https://ai.azure.com/explore/models) or the GitHub Marketplace Models](https://github.com/marketplace/models) which offers prebuilt and customizable models. Additionally, you can use tools like [Azure AI Foundry](https://ai.azure.com) to develop and deploy your AI applications.
 
 ### Resources
 [Sample Notebook on getting started with Guidance](../../code/01.Introduce/guidance.ipynb)

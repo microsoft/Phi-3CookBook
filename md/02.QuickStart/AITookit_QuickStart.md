@@ -1,6 +1,6 @@
 # AI Toolkit for VScode (Windows)
 
-[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) simplifies generative AI app development by bringing together cutting-edge AI development tools and models from Azure AI Studio Catalog and other catalogs like Hugging Face. You will be able browse the AI models catalog powered by Azure ML and Hugging Face, download them locally, fine-tune, test and use them in your application.
+[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) simplifies generative AI app development by bringing together cutting-edge AI development tools and models from Azure AI Foundry Catalog and other catalogs like Hugging Face. You will be able browse the AI models catalog powered by Azure ML and Hugging Face, download them locally, fine-tune, test and use them in your application.
 
 AI Toolkit Preview will run locally. Depends on the model you selected, some tasks have Windows and Linux support only, 
 
