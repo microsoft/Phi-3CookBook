@@ -94,7 +94,7 @@ Una vez que tu modelo se haya descargado, selecciona **Cargar en Playground** en
 
 Cuando el modelo se haya descargado, puedes lanzar el proyecto desde AI Toolkit.
 
-> ***Nota*** Si deseas probar la función de vista previa para hacer inferencia o ajuste fino de manera remota, sigue [esta guía](https://aka.ms/previewFinetune)
+> ***Nota*** Si deseas probar la función de vista previa para hacer inferencia o ajuste fino de manera remota, sigue [esta guía](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md)
 
 ### Modelos Optimizados para Windows
 
@@ -250,7 +250,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ## Recursos de Preguntas y Respuestas de AI Toolkit
 
-Por favor, consulta nuestra [página de preguntas y respuestas](https://github.com/microsoft/vscode-ai-toolkit/blob/main/QA.md) para los problemas más comunes y sus resoluciones.
+Por favor, consulta nuestra [página de preguntas y respuestas](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md) para los problemas más comunes y sus resoluciones.
 
 **Descargo de responsabilidad**:
 Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No nos hacemos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

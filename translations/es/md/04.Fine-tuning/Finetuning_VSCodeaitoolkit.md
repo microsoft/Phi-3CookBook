@@ -103,8 +103,8 @@ Usamos [Olive](https://microsoft.github.io/Olive/overview/olive.html) para ejecu
 ### Ejemplos y Recursos de Ajuste
 
 - [Guía de Inicio Rápido de Ajuste](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [Ajuste con un Dataset de HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Ajuste con un Dataset Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [Ajuste con un Dataset de HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Ajuste con un Dataset Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[Vista Previa Privada]** Desarrollo Remoto
 ### Requisitos previos
@@ -116,7 +116,7 @@ Usamos [Olive](https://microsoft.github.io/Olive/overview/olive.html) para ejecu
    3. Selecciona la opción *"Habilitar Ajuste e Inferencia Remotos"*.
    4. Recarga VS Code para que tenga efecto.
 
-- [Ajuste Remoto](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [Ajuste Remoto](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### Configurar un Proyecto de Desarrollo Remoto
 1. Ejecuta el comando paleta `AI Toolkit: Focus on Resource View`.
