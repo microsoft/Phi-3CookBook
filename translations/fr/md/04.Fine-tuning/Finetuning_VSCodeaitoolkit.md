@@ -103,8 +103,8 @@ Nous utilisons [Olive](https://microsoft.github.io/Olive/overview/olive.html) po
 ### Exemples et Ressources d'Ajustement Fin
 
 - [Guide de Démarrage pour l'Ajustement Fin](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [Ajustement Fin avec un Jeu de Données HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Ajustement Fin avec un Jeu de Données Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [Ajustement Fin avec un Jeu de Données HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Ajustement Fin avec un Jeu de Données Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 
 ## **[Aperçu Privé]** Développement à Distance
@@ -117,7 +117,7 @@ Nous utilisons [Olive](https://microsoft.github.io/Olive/overview/olive.html) po
    3. Sélectionnez l'option *"Activer l'Ajustement Fin et l'Inférence à Distance"*.
    4. Rechargez VS Code pour que cela prenne effet.
 
-- [Ajustement Fin à Distance](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [Ajustement Fin à Distance](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### Configuration d'un Projet de Développement à Distance
 1. Exécutez la palette de commandes `AI Toolkit: Focus on Resource View`.

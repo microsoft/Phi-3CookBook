@@ -94,7 +94,7 @@ Une fois votre modèle téléchargé, sélectionnez **Charger dans le terrain de
 
 Lorsque le modèle est téléchargé, vous pouvez lancer le projet depuis AI Toolkit.
 
-> ***Note*** Si vous souhaitez essayer la fonctionnalité de prévisualisation pour faire de l'inférence ou de l'ajustement à distance, veuillez suivre [ce guide](https://aka.ms/previewFinetune)
+> ***Note*** Si vous souhaitez essayer la fonctionnalité de prévisualisation pour faire de l'inférence ou de l'ajustement à distance, veuillez suivre [ce guide](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md)
 
 ### Modèles optimisés pour Windows
 
@@ -250,7 +250,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ## Ressources de Q&R pour AI Toolkit
 
-Veuillez consulter notre [page de Q&R](https://github.com/microsoft/vscode-ai-toolkit/blob/main/QA.md) pour les problèmes les plus courants et leurs solutions.
+Veuillez consulter notre [page de Q&R](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md) pour les problèmes les plus courants et leurs solutions.
 
 **Avertissement** :
 Ce document a été traduit à l'aide de services de traduction automatique par IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.
