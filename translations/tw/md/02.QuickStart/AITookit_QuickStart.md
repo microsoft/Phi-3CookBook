@@ -94,7 +94,7 @@ AI Toolkit 的主要側邊欄組織成
 
 當模型下載完成後，你可以從 AI Toolkit 啟動項目。
 
-> ***Note*** 如果你想嘗試預覽功能進行遠端推理或微調，請遵循[這個指南](https://aka.ms/previewFinetune)
+> ***Note*** 如果你想嘗試預覽功能進行遠端推理或微調，請遵循[這個指南](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md)
 
 ### 針對 Windows 優化的模型
 
@@ -250,7 +250,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ## AI Toolkit 問答資源
 
-請參閱我們的 [問答頁面](https://github.com/microsoft/vscode-ai-toolkit/blob/main/QA.md)，了解最常見的問題和解決方案。
+請參閱我們的 [問答頁面](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md)，了解最常見的問題和解決方案。
 
 免责声明：此翻译由AI模型从原文翻译而来，可能不够完美。
 请审阅翻译结果并做出任何必要的修改。

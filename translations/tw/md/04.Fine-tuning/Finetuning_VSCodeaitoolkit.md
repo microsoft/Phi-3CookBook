@@ -103,8 +103,8 @@ Phi3-mini (int4) 模型大約為 2GB-3GB，下載時間取決於您的網速。
 ### 微調範例和資源
 
 - [微調入門指南](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [使用 HuggingFace 數據集進行微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [使用簡單數據集進行微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [使用 HuggingFace 數據集進行微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [使用簡單數據集進行微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[私密預覽]** 遠程開發
 ### 先決條件
@@ -116,7 +116,7 @@ Phi3-mini (int4) 模型大約為 2GB-3GB，下載時間取決於您的網速。
    3. 選擇 *"啟用遠程微調和推理"* 選項。
    4. 重新加載 VS Code 以生效。
 
-- [遠程微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [遠程微調](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### 設置遠程開發項目
 1. 執行命令面板 `AI Toolkit: Focus on Resource View`。
