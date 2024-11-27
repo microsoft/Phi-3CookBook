@@ -98,7 +98,7 @@ Luego, selecciona un modelo del catálogo de modelos. Se te pedirá que descargu
 
 ### Microsoft Olive
 
-Usamos [Olive](https://microsoft.github.io/Olive/overview/olive.html) para ejecutar el ajuste QLoRA en un modelo PyTorch de nuestro catálogo. Todas las configuraciones están preestablecidas con los valores predeterminados para optimizar la ejecución del proceso de ajuste localmente con uso optimizado de memoria, pero se puede ajustar para tu escenario.
+Usamos [Olive](https://microsoft.github.io/Olive/why-olive.html) para ejecutar el ajuste QLoRA en un modelo PyTorch de nuestro catálogo. Todas las configuraciones están preestablecidas con los valores predeterminados para optimizar la ejecución del proceso de ajuste localmente con uso optimizado de memoria, pero se puede ajustar para tu escenario.
 
 ### Ejemplos y Recursos de Ajuste
 

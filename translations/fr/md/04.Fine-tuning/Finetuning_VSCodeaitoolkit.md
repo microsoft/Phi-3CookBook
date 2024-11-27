@@ -98,7 +98,7 @@ Ensuite, sélectionnez un modèle à partir du catalogue de modèles. Vous serez
 
 ### Microsoft Olive 
 
-Nous utilisons [Olive](https://microsoft.github.io/Olive/overview/olive.html) pour exécuter l'ajustement fin QLoRA sur un modèle PyTorch de notre catalogue. Tous les paramètres sont préréglés avec les valeurs par défaut pour optimiser l'exécution du processus d'ajustement fin localement avec une utilisation optimisée de la mémoire, mais ils peuvent être ajustés pour votre scénario.
+Nous utilisons [Olive](https://microsoft.github.io/Olive/why-olive.html) pour exécuter l'ajustement fin QLoRA sur un modèle PyTorch de notre catalogue. Tous les paramètres sont préréglés avec les valeurs par défaut pour optimiser l'exécution du processus d'ajustement fin localement avec une utilisation optimisée de la mémoire, mais ils peuvent être ajustés pour votre scénario.
 
 ### Exemples et Ressources d'Ajustement Fin
 

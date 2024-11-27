@@ -98,7 +98,7 @@ Phi3-mini (int4) 모델은 약 2GB-3GB 크기입니다. 네트워크 속도에 �
 
 ### Microsoft Olive 
 
-우리는 [Olive](https://microsoft.github.io/Olive/overview/olive.html)를 사용하여 카탈로그의 PyTorch 모델에서 QLoRA 미세 조정을 실행합니다. 모든 설정은 메모리를 최적화하여 로컬에서 미세 조정 프로세스를 실행할 수 있도록 기본값으로 설정되어 있지만, 사용자의 시나리오에 맞게 조정할 수 있습니다.
+우리는 [Olive](https://microsoft.github.io/Olive/why-olive.html)를 사용하여 카탈로그의 PyTorch 모델에서 QLoRA 미세 조정을 실행합니다. 모든 설정은 메모리를 최적화하여 로컬에서 미세 조정 프로세스를 실행할 수 있도록 기본값으로 설정되어 있지만, 사용자의 시나리오에 맞게 조정할 수 있습니다.
 
 ### 미세 조정 샘플 및 리소스
 

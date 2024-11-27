@@ -98,7 +98,7 @@ Phi3-mini (int4) モデルは約 2GB-3GB のサイズです。ネットワーク
 
 ### Microsoft Olive
 
-カタログから PyTorch モデルを使用して QLoRA 微調整を実行するために [Olive](https://microsoft.github.io/Olive/overview/olive.html) を使用します。すべての設定はデフォルト値で事前設定されており、メモリの最適使用を考慮してローカルで微調整プロセスを実行するように最適化されていますが、シナリオに応じて調整できます。
+カタログから PyTorch モデルを使用して QLoRA 微調整を実行するために [Olive](https://microsoft.github.io/Olive/why-olive.html) を使用します。すべての設定はデフォルト値で事前設定されており、メモリの最適使用を考慮してローカルで微調整プロセスを実行するように最適化されていますが、シナリオに応じて調整できます。
 
 ### 微調整のサンプルとリソース
 

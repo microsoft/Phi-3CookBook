@@ -98,7 +98,7 @@ Phi3-mini (int4) 模型大约为 2GB-3GB。根据你的网络速度，下载可�
 
 ### Microsoft Olive
 
-我们使用 [Olive](https://microsoft.github.io/Olive/overview/olive.html) 在我们的目录中运行 PyTorch 模型的 QLoRA 微调。所有设置均已预设为默认值，以优化本地内存使用，但可以根据你的场景进行调整。
+我们使用 [Olive](https://microsoft.github.io/Olive/why-olive.html) 在我们的目录中运行 PyTorch 模型的 QLoRA 微调。所有设置均已预设为默认值，以优化本地内存使用，但可以根据你的场景进行调整。
 
 ### 微调示例和资源
 
