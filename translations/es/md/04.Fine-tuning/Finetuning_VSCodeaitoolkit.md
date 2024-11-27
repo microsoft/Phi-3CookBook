@@ -98,13 +98,13 @@ Luego, selecciona un modelo del catálogo de modelos. Se te pedirá que descargu
 
 ### Microsoft Olive
 
-Usamos [Olive](https://microsoft.github.io/Olive/overview/olive.html) para ejecutar el ajuste QLoRA en un modelo PyTorch de nuestro catálogo. Todas las configuraciones están preestablecidas con los valores predeterminados para optimizar la ejecución del proceso de ajuste localmente con uso optimizado de memoria, pero se puede ajustar para tu escenario.
+Usamos [Olive](https://microsoft.github.io/Olive/why-olive.html) para ejecutar el ajuste QLoRA en un modelo PyTorch de nuestro catálogo. Todas las configuraciones están preestablecidas con los valores predeterminados para optimizar la ejecución del proceso de ajuste localmente con uso optimizado de memoria, pero se puede ajustar para tu escenario.
 
 ### Ejemplos y Recursos de Ajuste
 
 - [Guía de Inicio Rápido de Ajuste](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [Ajuste con un Dataset de HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Ajuste con un Dataset Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [Ajuste con un Dataset de HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Ajuste con un Dataset Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[Vista Previa Privada]** Desarrollo Remoto
 ### Requisitos previos
@@ -116,7 +116,7 @@ Usamos [Olive](https://microsoft.github.io/Olive/overview/olive.html) para ejecu
    3. Selecciona la opción *"Habilitar Ajuste e Inferencia Remotos"*.
    4. Recarga VS Code para que tenga efecto.
 
-- [Ajuste Remoto](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [Ajuste Remoto](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### Configurar un Proyecto de Desarrollo Remoto
 1. Ejecuta el comando paleta `AI Toolkit: Focus on Resource View`.

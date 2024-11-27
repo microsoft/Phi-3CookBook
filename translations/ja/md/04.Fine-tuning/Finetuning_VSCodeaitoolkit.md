@@ -98,13 +98,13 @@ Phi3-mini (int4) モデルは約 2GB-3GB のサイズです。ネットワーク
 
 ### Microsoft Olive
 
-カタログから PyTorch モデルを使用して QLoRA 微調整を実行するために [Olive](https://microsoft.github.io/Olive/overview/olive.html) を使用します。すべての設定はデフォルト値で事前設定されており、メモリの最適使用を考慮してローカルで微調整プロセスを実行するように最適化されていますが、シナリオに応じて調整できます。
+カタログから PyTorch モデルを使用して QLoRA 微調整を実行するために [Olive](https://microsoft.github.io/Olive/why-olive.html) を使用します。すべての設定はデフォルト値で事前設定されており、メモリの最適使用を考慮してローカルで微調整プロセスを実行するように最適化されていますが、シナリオに応じて調整できます。
 
 ### 微調整のサンプルとリソース
 
 - [微調整の開始ガイド](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [HuggingFace データセットを使用した微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [シンプルデータセットを使用した微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [HuggingFace データセットを使用した微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [シンプルデータセットを使用した微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[Private Preview]** リモート開発
 ### 前提条件
@@ -116,7 +116,7 @@ Phi3-mini (int4) モデルは約 2GB-3GB のサイズです。ネットワーク
    3. *"Enable Remote Fine-tuning And Inference"* オプションを選択します。
    4. 効果を反映するために VS Code をリロードします。
 
-- [リモート微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [リモート微調整](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### リモート開発プロジェクトの設定
 1. コマンドパレットで `AI Toolkit: Focus on Resource View` を実行します。

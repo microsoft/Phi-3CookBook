@@ -72,7 +72,7 @@ Upon launching AI Toolkit from VS Code side bar, you can select from the followi
 >
 > You'll notice that the model cards show the model size, the platform and accelerator type (CPU, GPU). For optimized performance on **Windows devices that have at least one GPU**, select model versions that only target Windows.
 >
-> This ensures you have a model optimized for the DirectML accelerator. 
+> This ensures you have a model optimized for the DirectML accelerator.
 >
 > The model names are in the format of
 >
@@ -94,7 +94,7 @@ Once your model has downloaded, select **Load in Playground** on the model card 
 
 When the model is downloaded, you can launch the project from AI Toolkit.
 
-> ***Note*** If you want to try preview feature to do inference or fine-tuning remotely, please follow [this guide](https://aka.ms/previewFinetune)
+> ***Note*** If you want to try preview feature to do inference or fine-tuning remotely, please follow [this guide](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md)
 
 ### Windows Optimized Models
 
@@ -250,4 +250,4 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ## AI Toolkit Q&A Resources
 
-Please refer to our [Q&A page](https://github.com/microsoft/vscode-ai-toolkit/blob/main/QA.md) for most common issues and resolutions
+Please refer to our [Q&A page](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md) for most common issues and resolutions

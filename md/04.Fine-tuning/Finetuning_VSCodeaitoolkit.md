@@ -100,17 +100,18 @@ Next, select a model from the model catalog. You will be prompted to download th
 
 ### Microsoft Olive 
 
-We use [Olive](https://microsoft.github.io/Olive/overview/olive.html) to run QLoRA fine-tuning on a PyTorch model from our catalog. All of the settings are preset with the default values to optimize to run the fine-tuning process locally with optimized use of memory, but it can be adjusted for your scenario.
+We use [Olive](https://microsoft.github.io/Olive/why-olive.html) to run QLoRA fine-tuning on a PyTorch model from our catalog. All of the settings are preset with the default values to optimize to run the fine-tuning process locally with optimized use of memory, but it can be adjusted for your scenario.
 
 ### Fine Tuning Samples and Resoures
 
 - [Fine tuning Getting Started Guide](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [Fine tuning with a HuggingFace Dataset](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Fine tuning with Simple DataSet](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
-
+- [Fine tuning with a HuggingFace Dataset](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Fine tuning with Simple DataSet](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[Private Preview]** Remote Development
+
 ### Prerequisites
+
 1. To run the model fine-tuning in your remote Azure Container App Environment, make sure your subscription has enough GPU capacity. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the required capacity for your application. [Get More Info about GPU capacity](https://learn.microsoft.com/azure/container-apps/workload-profiles-overview)
 2. If you are using private dataset on HuggingFace, make sure you have a [HuggingFace account](https://huggingface.co/) and [generate an access token](https://huggingface.co/docs/hub/security-tokens)
 3. Enable Remote Fine-tuning and Inference feature flag in the AI Toolkit for VS Code
@@ -119,7 +120,7 @@ We use [Olive](https://microsoft.github.io/Olive/overview/olive.html) to run QLo
    3. Select the *"Enable Remote Fine-tuning And Inference"* option.
    4. Reload VS Code to take effect.
 
-- [Remote Fine tuning](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [Remote Fine tuning](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### Setting Up a Remote Development Project
 1. Execute the command palette `AI Toolkit: Focus on Resource View`.
@@ -152,8 +153,8 @@ The results of the fine-tuning will be stored in the Azure Files.
 
 ### Provision Inference Endpoint
 After the adapters are trained in the remote environment, use a simple Gradio application to interact with the model.
-Similar to the fine-tuning process, you need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette. 
-   
+Similar to the fine-tuning process, you need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette.
+
 By default, the subscription and the resource group for inference should match those used for fine-tuning. The inference will use the same Azure Container App Environment and access the model and model adapter stored in Azure Files, which were generated during the fine-tuning step. 
 
 

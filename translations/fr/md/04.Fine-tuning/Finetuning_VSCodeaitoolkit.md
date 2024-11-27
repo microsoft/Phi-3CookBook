@@ -98,13 +98,13 @@ Ensuite, sélectionnez un modèle à partir du catalogue de modèles. Vous serez
 
 ### Microsoft Olive 
 
-Nous utilisons [Olive](https://microsoft.github.io/Olive/overview/olive.html) pour exécuter l'ajustement fin QLoRA sur un modèle PyTorch de notre catalogue. Tous les paramètres sont préréglés avec les valeurs par défaut pour optimiser l'exécution du processus d'ajustement fin localement avec une utilisation optimisée de la mémoire, mais ils peuvent être ajustés pour votre scénario.
+Nous utilisons [Olive](https://microsoft.github.io/Olive/why-olive.html) pour exécuter l'ajustement fin QLoRA sur un modèle PyTorch de notre catalogue. Tous les paramètres sont préréglés avec les valeurs par défaut pour optimiser l'exécution du processus d'ajustement fin localement avec une utilisation optimisée de la mémoire, mais ils peuvent être ajustés pour votre scénario.
 
 ### Exemples et Ressources d'Ajustement Fin
 
 - [Guide de Démarrage pour l'Ajustement Fin](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [Ajustement Fin avec un Jeu de Données HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Ajustement Fin avec un Jeu de Données Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [Ajustement Fin avec un Jeu de Données HuggingFace](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Ajustement Fin avec un Jeu de Données Simple](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 
 ## **[Aperçu Privé]** Développement à Distance
@@ -117,7 +117,7 @@ Nous utilisons [Olive](https://microsoft.github.io/Olive/overview/olive.html) po
    3. Sélectionnez l'option *"Activer l'Ajustement Fin et l'Inférence à Distance"*.
    4. Rechargez VS Code pour que cela prenne effet.
 
-- [Ajustement Fin à Distance](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [Ajustement Fin à Distance](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### Configuration d'un Projet de Développement à Distance
 1. Exécutez la palette de commandes `AI Toolkit: Focus on Resource View`.

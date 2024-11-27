@@ -94,7 +94,7 @@ VS Code サイドバーから AI Toolkit を起動すると、次のオプショ
 
 モデルがダウンロードされたら、AI Toolkit からプロジェクトを起動できます。
 
-> ***Note*** リモートで推論や微調整を行うプレビューフィーチャーを試したい場合は、[このガイド](https://aka.ms/previewFinetune) に従ってください。
+> ***Note*** リモートで推論や微調整を行うプレビューフィーチャーを試したい場合は、[このガイド](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md) に従ってください。
 
 ### Windows に最適化されたモデル
 
@@ -250,7 +250,7 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 
 ## AI Toolkit Q&A リソース
 
-最も一般的な問題と解決策については、[Q&A ページ](https://github.com/microsoft/vscode-ai-toolkit/blob/main/QA.md) を参照してください。
+最も一般的な問題と解決策については、[Q&A ページ](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md) を参照してください。
 
 **免責事項**:
 この文書は機械翻訳AIサービスを使用して翻訳されています。正確性を期すために努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。原文が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤解釈については、一切の責任を負いかねます。

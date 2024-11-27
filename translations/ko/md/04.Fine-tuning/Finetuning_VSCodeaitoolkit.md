@@ -98,13 +98,13 @@ Phi3-mini (int4) 모델은 약 2GB-3GB 크기입니다. 네트워크 속도에 �
 
 ### Microsoft Olive 
 
-우리는 [Olive](https://microsoft.github.io/Olive/overview/olive.html)를 사용하여 카탈로그의 PyTorch 모델에서 QLoRA 미세 조정을 실행합니다. 모든 설정은 메모리를 최적화하여 로컬에서 미세 조정 프로세스를 실행할 수 있도록 기본값으로 설정되어 있지만, 사용자의 시나리오에 맞게 조정할 수 있습니다.
+우리는 [Olive](https://microsoft.github.io/Olive/why-olive.html)를 사용하여 카탈로그의 PyTorch 모델에서 QLoRA 미세 조정을 실행합니다. 모든 설정은 메모리를 최적화하여 로컬에서 미세 조정 프로세스를 실행할 수 있도록 기본값으로 설정되어 있지만, 사용자의 시나리오에 맞게 조정할 수 있습니다.
 
 ### 미세 조정 샘플 및 리소스
 
 - [미세 조정 시작 가이드](https://learn.microsoft.com/windows/ai/toolkit/toolkit-fine-tune)
-- [HuggingFace 데이터셋으로 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-hf-dataset.md)
-- [Simple DataSet으로 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/walkthrough-simple-dataset.md)
+- [HuggingFace 데이터셋으로 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-hf-dataset.md)
+- [Simple DataSet으로 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/walkthrough-simple-dataset.md)
 
 ## **[Private Preview]** 원격 개발
 ### 사전 요구 사항
@@ -116,7 +116,7 @@ Phi3-mini (int4) 모델은 약 2GB-3GB 크기입니다. 네트워크 속도에 �
    3. *"원격 미세 조정 및 추론 활성화"* 옵션을 선택합니다.
    4. 효과를 적용하려면 VS Code를 다시 로드하세요.
 
-- [원격 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/remote-finetuning.md)
+- [원격 미세 조정](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-finetuning.md)
 
 ### 원격 개발 프로젝트 설정
 1. 명령 팔레트에서 `AI Toolkit: Focus on Resource View` 명령을 실행합니다.
