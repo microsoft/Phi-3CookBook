@@ -176,12 +176,12 @@ Microsoft Phi-3를 사용하고 다양한 하드웨어 장치에서 E2E 솔루�
 
 | 언어                  | 코드 | 번역된 README 링크                                      | 마지막 업데이트 |
 |----------------------|------|---------------------------------------------------------|-----------------|
-| 중국어 (간체)        | zh   | [Chinese Translation](../zh/README.md)      | 2024-10-04      |
-| 중국어 (번체)        | tw   | [Chinese Translation](../tw/README.md)      | 2024-10-04      |
-| 프랑스어             | fr   | [French Translation](../fr/README.md)       | 2024-10-04      |
-| 일본어               | ja   | [Japanese Translation](../ja/README.md)     | 2024-10-04      |
-| 한국어               | ko   | [Korean Translation](./README.md)       | 2024-10-04      |
-| 스페인어             | es   | [Spanish Translation](../es/README.md)      | 2024-10-04      |
+| 중국어 (간체)        | zh   | [Chinese Translation](../zh/README.md)      | 2024-11-29      |
+| 중국어 (번체)        | tw   | [Chinese Translation](../tw/README.md)      | 2024-11-29      |
+| 프랑스어             | fr   | [French Translation](../fr/README.md)       | 2024-11-29      |
+| 일본어               | ja   | [Japanese Translation](../ja/README.md)     | 2024-11-29      |
+| 한국어               | ko   | [Korean Translation](./README.md)       | 2024-11-29      |
+| 스페인어             | es   | [Spanish Translation](../es/README.md)      | 2024-11-29      |
 
 ## 상표
 

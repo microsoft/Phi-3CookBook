@@ -176,12 +176,12 @@ Vous pouvez également trouver le modèle sur [Hugging Face](https://huggingface
 
 | Langue               | Code | Lien vers le README traduit                             | Dernière mise à jour |
 |----------------------|------|---------------------------------------------------------|----------------------|
-| Chinois (Simplifié)  | zh   | [Traduction en chinois](../zh/README.md)    | 2024-10-04           |
-| Chinois (Traditionnel)| tw  | [Traduction en chinois](../tw/README.md)    | 2024-10-04           |
-| Français             | fr   | [Traduction en français](./README.md)   | 2024-10-04           |
-| Japonais             | ja   | [Traduction en japonais](../ja/README.md)   | 2024-10-04           |
-| Coréen               | ko   | [Traduction en coréen](../ko/README.md)     | 2024-10-04           |
-| Espagnol             | es   | [Traduction en espagnol](../es/README.md)   | 2024-10-04           |
+| Chinois (Simplifié)  | zh   | [Traduction en chinois](../zh/README.md)    | 2024-11-29           |
+| Chinois (Traditionnel)| tw  | [Traduction en chinois](../tw/README.md)    | 2024-11-29           |
+| Français             | fr   | [Traduction en français](./README.md)   | 2024-11-29           |
+| Japonais             | ja   | [Traduction en japonais](../ja/README.md)   | 2024-11-29           |
+| Coréen               | ko   | [Traduction en coréen](../ko/README.md)     | 2024-11-29           |
+| Espagnol             | es   | [Traduction en espagnol](../es/README.md)   | 2024-11-29           |
 
 ## Marques de commerce
 

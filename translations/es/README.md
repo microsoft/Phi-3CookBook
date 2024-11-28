@@ -177,12 +177,12 @@ También puedes encontrar el modelo en [Hugging Face](https://huggingface.co/mic
 
 | Idioma               | Código | Enlace al README Traducido                             | Última Actualización |
 |----------------------|--------|--------------------------------------------------------|-----------------------|
-| Chino (Simplificado) | zh     | [Traducción al Chino](../zh/README.md)     | 2024-10-04            |
-| Chino (Tradicional)  | tw     | [Traducción al Chino](../tw/README.md)     | 2024-10-04            |
-| Francés              | fr     | [Traducción al Francés](../fr/README.md)   | 2024-10-04            |
-| Japonés              | ja     | [Traducción al Japonés](../ja/README.md)   | 2024-10-04            |
-| Coreano              | ko     | [Traducción al Coreano](../ko/README.md)   | 2024-10-04            |
-| Español              | es     | [Traducción al Español](./README.md)   | 2024-10-04            |
+| Chino (Simplificado) | zh     | [Traducción al Chino](../zh/README.md)     | 2024-11-29            |
+| Chino (Tradicional)  | tw     | [Traducción al Chino](../tw/README.md)     | 2024-11-29            |
+| Francés              | fr     | [Traducción al Francés](../fr/README.md)   | 2024-11-29            |
+| Japonés              | ja     | [Traducción al Japonés](../ja/README.md)   | 2024-11-29            |
+| Coreano              | ko     | [Traducción al Coreano](../ko/README.md)   | 2024-11-29            |
+| Español              | es     | [Traducción al Español](./README.md)   | 2024-11-29            |
 
 ## Marcas Registradas
 

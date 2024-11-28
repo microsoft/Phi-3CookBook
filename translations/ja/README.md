@@ -176,12 +176,12 @@ Microsoft Phi-3の使用方法と、異なるハードウェアデバイスでE2
 
 | 言語                 | コード | 翻訳されたREADMEへのリンク                             | 最終更新日   |
 |----------------------|--------|---------------------------------------------------------|--------------|
-| 中国語 (簡体字)      | zh     | [Chinese Translation](../zh/README.md)      | 2024-10-04   |
-| 中国語 (繁体字)      | tw     | [Chinese Translation](../tw/README.md)      | 2024-10-04   |
-| フランス語           | fr     | [French Translation](../fr/README.md)       | 2024-10-04   |
-| 日本語               | ja     | [Japanese Translation](./README.md)     | 2024-10-04   |
-| 韓国語               | ko     | [Korean Translation](../ko/README.md)       | 2024-10-04   |
-| スペイン語           | es     | [Spanish Translation](../es/README.md)      | 2024-10-04   |
+| 中国語 (簡体字)      | zh     | [Chinese Translation](../zh/README.md)      | 2024-11-29   |
+| 中国語 (繁体字)      | tw     | [Chinese Translation](../tw/README.md)      | 2024-11-29   |
+| フランス語           | fr     | [French Translation](../fr/README.md)       | 2024-11-29   |
+| 日本語               | ja     | [Japanese Translation](./README.md)     | 2024-11-29   |
+| 韓国語               | ko     | [Korean Translation](../ko/README.md)       | 2024-11-29   |
+| スペイン語           | es     | [Spanish Translation](../es/README.md)      | 2024-11-29   |
 
 ## 商標
 

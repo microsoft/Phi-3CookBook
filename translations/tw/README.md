@@ -176,12 +176,12 @@ Phi 是微軟開發的一系列開源 AI 模型。Phi 模型是目前最強大�
 
 | 語言                | 代碼 | 翻譯後的 README 連結                                   | 最後更新日期   |
 |---------------------|------|---------------------------------------------------------|--------------|
-| 中文（簡體）        | zh   | [Chinese Translation](../zh/README.md)      | 2024-10-04   |
-| 中文（繁體）        | tw   | [Chinese Translation](./README.md)      | 2024-10-04   |
-| 法文                | fr   | [French Translation](../fr/README.md)       | 2024-10-04   |
-| 日文                | ja   | [Japanese Translation](../ja/README.md)     | 2024-10-04   |
-| 韓文                | ko   | [Korean Translation](../ko/README.md)       | 2024-10-04   |
-| 西班牙文            | es   | [Spanish Translation](../es/README.md)      | 2024-10-04   |
+| 中文（簡體）        | zh   | [Chinese Translation](../zh/README.md)      | 2024-11-29   |
+| 中文（繁體）        | tw   | [Chinese Translation](./README.md)      | 2024-11-29   |
+| 法文                | fr   | [French Translation](../fr/README.md)       | 2024-11-29   |
+| 日文                | ja   | [Japanese Translation](../ja/README.md)     | 2024-11-29   |
+| 韓文                | ko   | [Korean Translation](../ko/README.md)       | 2024-11-29   |
+| 西班牙文            | es   | [Spanish Translation](../es/README.md)      | 2024-11-29   |
 
 ## 商標
 
