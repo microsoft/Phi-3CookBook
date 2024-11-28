@@ -1,44 +1,44 @@
-## Azure ML 시스템 레지스트리에서 chat-completion 컴포넌트를 사용하여 모델을 미세 조정하는 방법
+## Azure ML 시스템 레지스트리에서 채팅 완료 구성 요소를 사용하여 모델을 미세 조정하는 방법
 
-이 예제에서는 ultrachat_200k 데이터셋을 사용하여 두 사람 간의 대화를 완료하기 위해 Phi-3-mini-4k-instruct 모델을 미세 조정하는 작업을 수행합니다.
+이 예제에서는 ultrachat_200k 데이터셋을 사용하여 두 사람 간의 대화를 완성하는 Phi-3-mini-4k-instruct 모델을 미세 조정할 것입니다.
 
 ![MLFineTune](../../../../translated_images/MLFineTune.d123c711c7564f898ded140931f7c1afda37029a6c396334a66081ba62213083.ko.png)
 
-이 예제는 Azure ML SDK와 Python을 사용하여 모델을 미세 조정하고, 이후 실시간 추론을 위해 온라인 엔드포인트에 배포하는 방법을 보여줍니다.
+이 예제에서는 Azure ML SDK와 Python을 사용하여 미세 조정을 수행한 후, 실시간 추론을 위해 온라인 엔드포인트에 미세 조정된 모델을 배포하는 방법을 보여줍니다.
 
-### 훈련 데이터
+### 학습 데이터
 
-ultrachat_200k 데이터셋을 사용합니다. 이 데이터셋은 UltraChat 데이터셋의 강력하게 필터링된 버전이며, 최첨단 7b 채팅 모델인 Zephyr-7B-β를 훈련하는 데 사용되었습니다.
+우리는 ultrachat_200k 데이터셋을 사용할 것입니다. 이 데이터셋은 UltraChat 데이터셋의 강력히 필터링된 버전으로, 최신 7b 채팅 모델인 Zephyr-7B-β를 학습시키는 데 사용되었습니다.
 
 ### 모델
 
-Phi-3-mini-4k-instruct 모델을 사용하여 사용자가 chat-completion 작업을 위해 모델을 미세 조정하는 방법을 보여줍니다. 이 노트북을 특정 모델 카드에서 열었다면, 해당 모델 이름을 대체하는 것을 잊지 마세요.
+우리는 Phi-3-mini-4k-instruct 모델을 사용하여 사용자가 채팅 완료 작업을 위해 모델을 미세 조정하는 방법을 보여줄 것입니다. 이 노트북을 특정 모델 카드에서 열었다면, 해당 모델 이름으로 교체해야 합니다.
 
 ### 작업
 
 - 미세 조정할 모델 선택
-- 훈련 데이터 선택 및 탐색
+- 학습 데이터 선택 및 탐색
 - 미세 조정 작업 구성
 - 미세 조정 작업 실행
-- 훈련 및 평가 지표 검토
+- 학습 및 평가 메트릭 검토
 - 미세 조정된 모델 등록
 - 실시간 추론을 위해 미세 조정된 모델 배포
 - 리소스 정리
 
-## 1. 사전 준비 사항 설정
+## 1. 사전 준비 설정
 
 - 종속성 설치
-- AzureML 워크스페이스에 연결. SDK 인증 설정에 대해 자세히 알아보세요. 아래의 <WORKSPACE_NAME>, <RESOURCE_GROUP> 및 <SUBSCRIPTION_ID>를 대체하세요.
+- AzureML 워크스페이스에 연결. SDK 인증 설정에 대해 자세히 알아보세요. 아래의 <WORKSPACE_NAME>, <RESOURCE_GROUP>, <SUBSCRIPTION_ID>를 교체하세요.
 - azureml 시스템 레지스트리에 연결
-- 선택적으로 실험 이름 설정
+- 실험 이름 설정 (선택 사항)
 - 컴퓨팅 확인 또는 생성
 
 > [!NOTE]
-> 요구 사항: 하나의 GPU 노드에는 여러 GPU 카드가 있을 수 있습니다. 예를 들어, Standard_NC24rs_v3의 한 노드에는 4개의 NVIDIA V100 GPU가 있고, Standard_NC12s_v3에는 2개의 NVIDIA V100 GPU가 있습니다. 자세한 정보는 문서를 참조하세요. 노드당 GPU 카드 수는 아래의 gpus_per_node 매개변수에 설정됩니다. 이 값을 올바르게 설정하면 노드 내 모든 GPU를 활용할 수 있습니다. 권장 GPU 컴퓨팅 SKU는 여기와 여기에서 찾을 수 있습니다.
+> 요구 사항 단일 GPU 노드는 여러 GPU 카드를 가질 수 있습니다. 예를 들어, Standard_NC24rs_v3의 한 노드에는 4개의 NVIDIA V100 GPU가 있으며 Standard_NC12s_v3에는 2개의 NVIDIA V100 GPU가 있습니다. 이 정보에 대해서는 문서를 참조하세요. 노드당 GPU 카드 수는 아래의 gpus_per_node 매개변수에 설정됩니다. 이 값을 올바르게 설정하면 노드의 모든 GPU를 활용할 수 있습니다. 권장되는 GPU 컴퓨팅 SKU는 여기와 여기에서 찾을 수 있습니다.
 
 ### Python 라이브러리
 
-아래 셀을 실행하여 종속성을 설치하세요. 새로운 환경에서 실행하는 경우 이 단계는 선택 사항이 아닙니다.
+아래 셀을 실행하여 종속성을 설치하세요. 새로운 환경에서 실행 중이라면 필수 단계입니다.
 
 ```bash
 pip install azure-ai-ml
@@ -48,21 +48,21 @@ pip install mlflow
 pip install azureml-mlflow
 ```
 
-### Azure ML과 상호작용
+### Azure ML과 상호 작용하기
 
-1. 이 Python 스크립트는 Azure Machine Learning(Azure ML) 서비스와 상호작용하기 위해 사용됩니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning (Azure ML) 서비스와 상호 작용하는 데 사용됩니다. 다음은 그 기능에 대한 설명입니다:
 
-    - azure.ai.ml, azure.identity, azure.ai.ml.entities 패키지에서 필요한 모듈을 가져옵니다. 또한 time 모듈도 가져옵니다.
+    - azure.ai.ml, azure.identity 및 azure.ai.ml.entities 패키지에서 필요한 모듈을 가져옵니다. 또한 time 모듈도 가져옵니다.
 
-    - DefaultAzureCredential()을 사용하여 인증을 시도합니다. 이는 Azure 클라우드에서 애플리케이션 개발을 빠르게 시작할 수 있는 간소화된 인증 경험을 제공합니다. 실패할 경우 InteractiveBrowserCredential()로 대체되어 대화형 로그인 프롬프트를 제공합니다.
+    - DefaultAzureCredential()을 사용하여 인증을 시도합니다. 이는 Azure 클라우드에서 애플리케이션 개발을 빠르게 시작할 수 있도록 단순화된 인증 경험을 제공합니다. 실패할 경우 InteractiveBrowserCredential()로 대체되며, 이는 대화형 로그인 프롬프트를 제공합니다.
 
-    - from_config 메서드를 사용하여 기본 구성 파일(config.json)에서 구성을 읽어 MLClient 인스턴스를 생성하려고 시도합니다. 실패할 경우 subscription_id, resource_group_name, workspace_name을 수동으로 제공하여 MLClient 인스턴스를 생성합니다.
+    - from_config 메서드를 사용하여 기본 구성 파일(config.json)에서 구성을 읽어 MLClient 인스턴스를 생성하려고 시도합니다. 실패할 경우 subscription_id, resource_group_name 및 workspace_name을 수동으로 제공하여 MLClient 인스턴스를 생성합니다.
 
-    - "azureml"이라는 이름의 Azure ML 레지스트리를 위한 또 다른 MLClient 인스턴스를 생성합니다. 이 레지스트리는 모델, 미세 조정 파이프라인 및 환경이 저장되는 곳입니다.
+    - 이번에는 "azureml"이라는 이름의 Azure ML 레지스트리에 대한 MLClient 인스턴스를 생성합니다. 이 레지스트리는 모델, 미세 조정 파이프라인 및 환경이 저장되는 곳입니다.
 
     - experiment_name을 "chat_completion_Phi-3-mini-4k-instruct"로 설정합니다.
 
-    - 현재 시간(초 단위)을 정수로 변환한 후 문자열로 변환하여 고유한 타임스탬프를 생성합니다. 이 타임스탬프는 고유한 이름과 버전을 생성하는 데 사용할 수 있습니다.
+    - 현재 시간(에포크 이후의 초로 표시된 부동 소수점 숫자)을 정수로 변환한 다음 문자열로 변환하여 고유한 타임스탬프를 생성합니다. 이 타임스탬프는 고유한 이름과 버전을 생성하는 데 사용할 수 있습니다.
 
     ```python
     # Import necessary modules from Azure ML and Azure Identity
@@ -105,18 +105,18 @@ pip install azureml-mlflow
 
 ## 2. 미세 조정할 기본 모델 선택
 
-1. Phi-3-mini-4k-instruct는 3.8B 파라미터를 가진 경량의 최첨단 오픈 모델로, Phi-2에 사용된 데이터셋을 기반으로 구축되었습니다. 이 모델은 Phi-3 모델 패밀리에 속하며, Mini 버전은 4K와 128K 두 가지 변형으로 제공됩니다. 이는 지원할 수 있는 컨텍스트 길이(토큰 수)입니다. 모델을 사용하려면 특정 목적에 맞게 모델을 미세 조정해야 합니다. 이 노트북을 다른 모델 카드에서 열었다면 모델 이름과 버전을 적절히 대체하세요.
+1. Phi-3-mini-4k-instruct는 Phi-2에 사용된 데이터셋을 기반으로 구축된 3.8B 파라미터의 가벼운 최신 오픈 모델입니다. 이 모델은 Phi-3 모델 계열에 속하며, Mini 버전은 4K 및 128K의 두 가지 변형이 있습니다. 이는 지원할 수 있는 컨텍스트 길이(토큰 수)를 나타냅니다. 우리는 모델을 특정 용도로 사용하기 위해 미세 조정해야 합니다. 이 모델은 AzureML Studio의 모델 카탈로그에서 채팅 완료 작업으로 필터링하여 탐색할 수 있습니다. 이 예제에서는 Phi-3-mini-4k-instruct 모델을 사용합니다. 이 노트북을 다른 모델에 대해 열었다면, 모델 이름과 버전을 적절히 교체하세요.
 
     > [!NOTE]
-    > 모델의 id 속성. 이는 미세 조정 작업에 입력으로 전달됩니다. 이는 AzureML Studio 모델 카탈로그의 모델 세부 정보 페이지에서 Asset ID 필드로도 확인할 수 있습니다.
+    > 모델의 model id 속성입니다. 이는 미세 조정 작업에 입력으로 전달됩니다. 이는 또한 AzureML Studio 모델 카탈로그의 모델 세부 정보 페이지에서 Asset ID 필드로 사용할 수 있습니다.
 
-2. 이 Python 스크립트는 Azure Machine Learning(Azure ML) 서비스와 상호작용하고 있습니다. 주요 기능은 다음과 같습니다:
+2. 이 Python 스크립트는 Azure Machine Learning (Azure ML) 서비스와 상호 작용하고 있습니다. 다음은 그 기능에 대한 설명입니다:
 
     - model_name을 "Phi-3-mini-4k-instruct"로 설정합니다.
 
-    - registry_ml_client 객체의 models 속성의 get 메서드를 사용하여 Azure ML 레지스트리에서 지정된 이름의 최신 버전 모델을 검색합니다. get 메서드는 모델의 이름과 최신 버전을 지정하는 레이블을 인수로 받습니다.
+    - registry_ml_client 객체의 models 속성의 get 메서드를 사용하여 지정된 이름의 모델 최신 버전을 Azure ML 레지스트리에서 검색합니다. get 메서드는 모델의 이름과 최신 버전을 검색해야 함을 나타내는 라벨을 두 개의 인수로 받습니다.
 
-    - 미세 조정에 사용할 모델의 이름, 버전 및 id를 콘솔에 출력합니다. 문자열의 format 메서드를 사용하여 메시지에 모델의 이름, 버전 및 id를 삽입합니다. 모델의 이름, 버전 및 id는 foundation_model 객체의 속성으로 액세스할 수 있습니다.
+    - 미세 조정에 사용할 모델의 이름, 버전 및 id를 콘솔에 표시하는 메시지를 출력합니다. 문자열의 format 메서드를 사용하여 모델의 이름, 버전 및 id를 메시지에 삽입합니다. 모델의 이름, 버전 및 id는 foundation_model 객체의 속성으로 접근합니다.
 
     ```python
     # Set the model name
@@ -136,27 +136,27 @@ pip install azureml-mlflow
 
 ## 3. 작업에 사용할 컴퓨팅 생성
 
-미세 조정 작업은 GPU 컴퓨팅에서만 작동합니다. 컴퓨팅 크기는 모델의 크기에 따라 다르며, 대부분의 경우 작업에 적합한 컴퓨팅을 식별하는 것이 까다로울 수 있습니다. 이 셀에서는 사용자가 작업에 적합한 컴퓨팅을 선택하는 방법을 안내합니다.
+미세 조정 작업은 GPU 컴퓨팅에서만 작동합니다. 컴퓨팅의 크기는 모델의 크기에 따라 달라지며, 대부분의 경우 작업에 적합한 컴퓨팅을 식별하는 것이 까다로울 수 있습니다. 이 셀에서는 사용자가 작업에 적합한 컴퓨팅을 선택하는 방법을 안내합니다.
 
 > [!NOTE]
-> 아래에 나열된 컴퓨팅은 가장 최적화된 구성과 함께 작동합니다. 구성 변경 시 Cuda Out Of Memory 오류가 발생할 수 있습니다. 이러한 경우 더 큰 컴퓨팅 크기로 업그레이드해 보세요.
+> 아래 나열된 컴퓨팅은 최적화된 구성으로 작동합니다. 구성 변경 시 Cuda Out Of Memory 오류가 발생할 수 있습니다. 이 경우 더 큰 컴퓨팅 크기로 업그레이드해 보세요.
 
 > [!NOTE]
-> 아래에서 compute_cluster_size를 선택할 때, 컴퓨팅이 리소스 그룹에서 사용 가능한지 확인하세요. 특정 컴퓨팅이 사용 가능하지 않다면, 컴퓨팅 리소스에 대한 접근 요청을 할 수 있습니다.
+> 아래에서 compute_cluster_size를 선택할 때, 컴퓨팅이 리소스 그룹에 있는지 확인하세요. 특정 컴퓨팅이 없을 경우, 컴퓨팅 리소스에 대한 액세스 요청을 할 수 있습니다.
 
 ### 미세 조정 지원을 위한 모델 확인
 
-1. 이 Python 스크립트는 Azure Machine Learning(Azure ML) 모델과 상호작용하고 있습니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning (Azure ML) 모델과 상호 작용하고 있습니다. 다음은 그 기능에 대한 설명입니다:
 
-    - ast 모듈을 가져옵니다. 이는 Python 추상 구문 문법의 트리를 처리하는 기능을 제공합니다.
+    - Python 추상 구문 트리의 트리를 처리하는 기능을 제공하는 ast 모듈을 가져옵니다.
 
     - foundation_model 객체(이는 Azure ML의 모델을 나타냄)에 finetune_compute_allow_list라는 태그가 있는지 확인합니다. Azure ML의 태그는 필터링 및 정렬에 사용할 수 있는 키-값 쌍입니다.
 
-    - finetune_compute_allow_list 태그가 있으면, ast.literal_eval 함수를 사용하여 태그의 값을 안전하게 Python 리스트로 파싱합니다. 이 리스트는 computes_allow_list 변수에 할당됩니다. 그런 다음 리스트에서 컴퓨팅을 생성해야 한다는 메시지를 출력합니다.
+    - finetune_compute_allow_list 태그가 있으면 ast.literal_eval 함수를 사용하여 태그의 값을 안전하게 Python 리스트로 구문 분석합니다. 이 리스트는 computes_allow_list 변수에 할당됩니다. 그런 다음 리스트에서 컴퓨팅을 생성해야 한다는 메시지를 출력합니다.
 
-    - finetune_compute_allow_list 태그가 없으면, computes_allow_list를 None으로 설정하고 모델의 태그에 finetune_compute_allow_list 태그가 없다는 메시지를 출력합니다.
+    - finetune_compute_allow_list 태그가 없으면 computes_allow_list를 None으로 설정하고 모델의 태그에 finetune_compute_allow_list 태그가 없다는 메시지를 출력합니다.
 
-    - 요약하자면, 이 스크립트는 모델의 메타데이터에서 특정 태그를 확인하고, 태그의 값을 리스트로 변환하며, 사용자에게 이에 대한 피드백을 제공합니다.
+    - 요약하면, 이 스크립트는 모델의 메타데이터에서 특정 태그를 확인하고, 태그의 값이 존재하면 리스트로 변환하며, 사용자에게 피드백을 제공합니다.
 
     ```python
     # Import the ast module, which provides functions to process trees of the Python abstract syntax grammar
@@ -179,20 +179,20 @@ pip install azureml-mlflow
 
 ### 컴퓨팅 인스턴스 확인
 
-1. 이 Python 스크립트는 Azure Machine Learning(Azure ML) 서비스와 상호작용하며 컴퓨팅 인스턴스에 대해 여러 가지 확인을 수행합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning (Azure ML) 서비스와 상호 작용하고 있으며, 컴퓨팅 인스턴스에 대한 여러 검사를 수행하고 있습니다. 다음은 그 기능에 대한 설명입니다:
 
-    - compute_cluster에 저장된 이름으로 Azure ML 워크스페이스에서 컴퓨팅 인스턴스를 검색하려고 시도합니다. 컴퓨팅 인스턴스의 프로비저닝 상태가 "failed"이면 ValueError를 발생시킵니다.
+    - compute_cluster에 저장된 이름으로 Azure ML 워크스페이스에서 컴퓨팅 인스턴스를 검색하려고 시도합니다. 컴퓨팅 인스턴스의 프로비저닝 상태가 "failed"인 경우 ValueError를 발생시킵니다.
 
     - computes_allow_list가 None이 아닌지 확인합니다. 그렇지 않으면 리스트의 모든 컴퓨팅 크기를 소문자로 변환하고 현재 컴퓨팅 인스턴스의 크기가 리스트에 있는지 확인합니다. 그렇지 않으면 ValueError를 발생시킵니다.
 
     - computes_allow_list가 None인 경우, 컴퓨팅 인스턴스의 크기가 지원되지 않는 GPU VM 크기 리스트에 있는지 확인합니다. 그렇다면 ValueError를 발생시킵니다.
 
-    - 워크스페이스에서 사용 가능한 모든 컴퓨팅 크기의 리스트를 검색합니다. 그런 다음 이 리스트를 반복하면서 각 컴퓨팅 크기의 이름이 현재 컴퓨팅 인스턴스의 크기와 일치하는지 확인합니다. 일치하면 해당 컴퓨팅 크기에 대한 GPU 수를 검색하고 gpu_count_found를 True로 설정합니다.
+    - 워크스페이스에서 사용 가능한 모든 컴퓨팅 크기의 리스트를 검색합니다. 그런 다음 이 리스트를 반복하고, 각 컴퓨팅 크기에 대해 현재 컴퓨팅 인스턴스의 크기와 일치하는지 확인합니다. 일치하면 해당 컴퓨팅 크기의 GPU 수를 검색하고 gpu_count_found를 True로 설정합니다.
 
     - gpu_count_found가 True이면 컴퓨팅 인스턴스의 GPU 수를 출력합니다. gpu_count_found가 False이면 ValueError를 발생시킵니다.
 
-    - 요약하자면, 이 스크립트는 Azure ML 워크스페이스의 컴퓨팅 인스턴스에 대해 여러 가지 확인을 수행하며, 프로비저닝 상태, 허용 리스트 또는 거부 리스트와의 크기 비교, GPU 수 등을 확인합니다.
-    
+    - 요약하면, 이 스크립트는 Azure ML 워크스페이스의 컴퓨팅 인스턴스에 대한 여러 검사를 수행하고 있으며, 프로비저닝 상태, 허용 리스트 또는 거부 리스트와의 크기 비교, GPU 수 등을 확인합니다.
+
     ```python
     # Print the exception message
     print(e)
@@ -260,9 +260,9 @@ pip install azureml-mlflow
         )
     ```
 
-## 4. 모델 미세 조정을 위한 데이터셋 선택
+## 4. 모델을 미세 조정할 데이터셋 선택
 
-1. ultrachat_200k 데이터셋을 사용합니다. 이 데이터셋은 Supervised fine-tuning (sft) 및 Generation ranking (gen)에 적합한 네 가지 분할을 가지고 있습니다. 각 분할의 예제 수는 다음과 같습니다:
+1. 우리는 ultrachat_200k 데이터셋을 사용합니다. 이 데이터셋은 Supervised fine-tuning (sft)에 적합한 네 가지 분할을 가지고 있습니다. 각 분할의 예제 수는 다음과 같습니다:
 
     ```bash
     train_sft test_sft  train_gen  test_gen
@@ -273,28 +273,27 @@ pip install azureml-mlflow
 
 ### 일부 데이터 행 시각화
 
-이 샘플을 빠르게 실행하려면 이미 트림된 행의 5%를 포함하는 train_sft, test_sft 파일을 저장합니다. 이는 미세 조정된 모델의 정확도가 낮아 실제 사용에 적합하지 않음을 의미합니다.
-download-dataset.py는 ultrachat_200k 데이터셋을 다운로드하고 데이터셋을 미세 조정 파이프라인 컴포넌트가 소비할 수 있는 형식으로 변환하는 데 사용됩니다. 또한 데이터셋이 크므로 여기서는 데이터셋의 일부만 사용합니다.
+이 샘플이 빠르게 실행되기를 원하므로 train_sft, test_sft 파일에 이미 잘라낸 행의 5%를 저장합니다. 이는 미세 조정된 모델의 정확도가 낮아질 수 있으므로 실제 사용에 적합하지 않습니다. download-dataset.py는 ultrachat_200k 데이터셋을 다운로드하고, 데이터셋을 미세 조정 파이프라인 구성 요소가 소비할 수 있는 형식으로 변환하는 데 사용됩니다. 데이터셋이 크기 때문에 여기서는 데이터셋의 일부만 사용합니다.
 
-1. 아래 스크립트를 실행하면 데이터의 5%만 다운로드됩니다. 이 비율은 dataset_split_pc 매개변수를 원하는 비율로 변경하여 증가시킬 수 있습니다.
+1. 아래 스크립트를 실행하면 데이터의 5%만 다운로드됩니다. dataset_split_pc 매개변수를 원하는 비율로 변경하여 이를 늘릴 수 있습니다.
 
     > [!NOTE]
-    > 일부 언어 모델은 다른 언어 코드를 가지고 있으므로 데이터셋의 열 이름도 동일하게 반영해야 합니다.
+    > 일부 언어 모델은 다른 언어 코드를 가지므로 데이터셋의 열 이름이 이를 반영해야 합니다.
 
-1. 데이터가 어떻게 생겼는지에 대한 예제는 다음과 같습니다.
-chat-completion 데이터셋은 각 항목이 다음 스키마를 사용하는 parquet 형식으로 저장됩니다:
+1. 데이터가 어떻게 생겼는지에 대한 예는 다음과 같습니다:
+채팅 완료 데이터셋은 각 항목이 다음 스키마를 사용하는 파케이 형식으로 저장됩니다:
 
-    - 이는 JSON(JavaScript Object Notation) 문서로, 데이터 교환 형식으로 인기가 있습니다. 실행 가능한 코드는 아니지만 데이터를 저장하고 전송하는 방법입니다. 구조는 다음과 같습니다:
+    - 이는 JavaScript Object Notation (JSON) 문서로, 데이터 교환 형식으로 인기가 있습니다. 실행 가능한 코드는 아니지만 데이터를 저장하고 전송하는 방법입니다. 구조에 대한 설명은 다음과 같습니다:
 
-    - "prompt": 이 키는 AI 어시스턴트에게 제시된 작업이나 질문을 나타내는 문자열 값을 가집니다.
+    - "prompt": AI 어시스턴트에게 제시된 작업이나 질문을 나타내는 문자열 값을 가집니다.
 
-    - "messages": 이 키는 객체 배열을 가집니다. 각 객체는 사용자와 AI 어시스턴트 간의 대화에서 하나의 메시지를 나타냅니다. 각 메시지 객체는 두 개의 키를 가집니다:
+    - "messages": 대화에서 사용자와 AI 어시스턴트 간의 메시지를 나타내는 객체 배열을 가집니다. 각 메시지 객체는 두 개의 키를 가집니다:
 
-    - "content": 이 키는 메시지의 내용을 나타내는 문자열 값을 가집니다.
-    - "role": 이 키는 메시지를 보낸 엔티티의 역할을 나타내는 문자열 값을 가집니다. 이는 "user" 또는 "assistant"일 수 있습니다.
-    - "prompt_id": 이 키는 프롬프트의 고유 식별자를 나타내는 문자열 값을 가집니다.
+    - "content": 메시지의 내용을 나타내는 문자열 값을 가집니다.
+    - "role": 메시지를 보낸 엔티티의 역할을 나타내는 문자열 값을 가집니다. "user" 또는 "assistant"일 수 있습니다.
+    - "prompt_id": 프롬프트의 고유 식별자를 나타내는 문자열 값을 가집니다.
 
-1. 이 특정 JSON 문서에서는 사용자가 AI 어시스턴트에게 디스토피아 이야기의 주인공을 만들도록 요청하는 대화가 나타나 있습니다. 어시스턴트가 응답하고, 사용자가 더 많은 세부 사항을 요청합니다. 어시스턴트가 더 많은 세부 사항을 제공하겠다고 동의합니다. 전체 대화는 특정 프롬프트 id와 연결되어 있습니다.
+1. 이 특정 JSON 문서에서는 사용자가 AI 어시스턴트에게 디스토피아 이야기의 주인공을 만들라고 요청하는 대화를 나타냅니다. 어시스턴트가 응답하고, 사용자는 더 많은 세부 정보를 요청합니다. 어시스턴트는 더 많은 세부 정보를 제공하겠다고 동의합니다. 전체 대화는 특정 프롬프트 ID와 연관되어 있습니다.
 
     ```python
     {
@@ -336,16 +335,16 @@ chat-completion 데이터셋은 각 항목이 다음 스키마를 사용하는 p
 
 ### 데이터 다운로드
 
-1. 이 Python 스크립트는 download-dataset.py라는 헬퍼 스크립트를 사용하여 데이터셋을 다운로드합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 download-dataset.py라는 헬퍼 스크립트를 사용하여 데이터셋을 다운로드합니다. 다음은 그 기능에 대한 설명입니다:
 
-    - os 모듈을 가져옵니다. 이는 운영 체제 종속 기능을 사용할 수 있는 이식 가능한 방법을 제공합니다.
+    - 운영 체제 종속 기능을 사용하는 휴대용 방법을 제공하는 os 모듈을 가져옵니다.
 
-    - os.system 함수를 사용하여 download-dataset.py 스크립트를 특정 명령줄 인수와 함께 셸에서 실행합니다. 인수는 다운로드할 데이터셋(HuggingFaceH4/ultrachat_200k), 다운로드할 디렉토리(ultrachat_200k_dataset), 데이터셋을 분할할 비율(5)을 지정합니다. os.system 함수는 실행한 명령의 종료 상태를 반환하며, 이 상태는 exit_status 변수에 저장됩니다.
+    - os.system 함수를 사용하여 특정 명령줄 인수와 함께 쉘에서 download-dataset.py 스크립트를 실행합니다. 인수는 다운로드할 데이터셋(HuggingFaceH4/ultrachat_200k), 다운로드할 디렉토리(ultrachat_200k_dataset) 및 데이터셋을 분할할 비율(5)을 지정합니다. os.system 함수는 실행한 명령의 종료 상태를 반환합니다. 이 상태는 exit_status 변수에 저장됩니다.
 
-    - exit_status가 0이 아닌지 확인합니다. Unix 계열 운영 체제에서 종료 상태가 0이면 명령이 성공했음을 나타내며, 다른 숫자는 오류를 나타냅니다. exit_status가 0이 아니면 데이터셋 다운로드에 오류가 발생했음을 나타내는 메시지와 함께 예외를 발생시킵니다.
+    - exit_status가 0이 아닌지 확인합니다. 유닉스 계열 운영 체제에서 종료 상태가 0인 경우 명령이 성공했음을 나타내며, 다른 숫자는 오류를 나타냅니다. exit_status가 0이 아닌 경우 데이터셋 다운로드 중 오류가 발생했음을 나타내는 메시지와 함께 예외를 발생시킵니다.
 
-    - 요약하자면, 이 스크립트는 헬퍼 스크립트를 사용하여 데이터셋을 다운로드하는 명령을 실행하고, 명령이 실패하면 예외를 발생시킵니다.
-    
+    - 요약하면, 이 스크립트는 헬퍼 스크립트를 사용하여 데이터셋을 다운로드하는 명령을 실행하며, 명령이 실패하면 예외를 발생시킵니다.
+
     ```python
     # Import the os module, which provides a way of using operating system dependent functionality
     import os
@@ -364,20 +363,20 @@ chat-completion 데이터셋은 각 항목이 다음 스키마를 사용하는 p
         raise Exception("Error downloading dataset")
     ```
 
-### 데이터 프레임에 데이터 로딩
+### 데이터 프레임에 데이터 로드
 
-1. 이 Python 스크립트는 JSON Lines 파일을 pandas 데이터 프레임에 로드하고 처음 5개의 행을 표시합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 JSON Lines 파일을 pandas 데이터 프레임에 로드하고 첫 5개의 행을 표시합니다. 다음은 그 기능에 대한 설명입니다:
 
-    - pandas 라이브러리를 가져옵니다. 이는 강력한 데이터 조작 및 분석 라이브러리입니다.
+    - 강력한 데이터 조작 및 분석 라이브러리인 pandas를 가져옵니다.
 
-    - pandas의 display 옵션에서 최대 열 너비를 0으로 설정합니다. 이는 데이터 프레임이 출력될 때 각 열의 전체 텍스트가 잘리지 않고 표시됨을 의미합니다.
+    - pandas의 표시 옵션에서 최대 열 너비를 0으로 설정합니다. 이는 데이터 프레임을 출력할 때 각 열의 전체 텍스트가 잘리지 않고 표시됨을 의미합니다.
 
-    - pd.read_json 함수를 사용하여 ultrachat_200k_dataset 디렉토리에서 train_sft.jsonl 파일을 데이터 프레임에 로드합니다. lines=True 인수는 파일이 JSON Lines 형식임을 나타내며, 각 행이 별도의 JSON 객체입니다.
+    - pd.read_json 함수를 사용하여 ultrachat_200k_dataset 디렉토리에서 train_sft.jsonl 파일을 데이터 프레임에 로드합니다. lines=True 인수는 파일이 각 줄이 별도의 JSON 객체인 JSON Lines 형식임을 나타냅니다.
 
-    - head 메서드를 사용하여 데이터 프레임의 처음 5개의 행을 표시합니다. 데이터 프레임에 5개 미만의 행이 있는 경우 모든 행을 표시합니다.
+    - head 메서드를 사용하여 데이터 프레임의 첫 5개의 행을 표시합니다. 데이터 프레임에 5개 미만의 행이 있는 경우 모든 행을 표시합니다.
 
-    - 요약하자면, 이 스크립트는 JSON Lines 파일을 데이터 프레임에 로드하고 처음 5개의 행을 전체 열 텍스트와 함께 표시합니다.
-    
+    - 요약하면, 이 스크립트는 JSON Lines 파일을 데이터 프레임에 로드하고 첫 5개의 행을 전체 열 텍스트와 함께 표시합니다.
+
     ```python
     # Import the pandas library, which is a powerful data manipulation and analysis library
     import pandas as pd
@@ -397,29 +396,44 @@ chat-completion 데이터셋은 각 항목이 다음 스키마를 사용하는 p
 
 ## 5. 모델과 데이터를 입력으로 사용하여 미세 조정 작업 제출
 
-chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합니다. 미세 조정을 지원하는 모든 매개변수에 대해 자세히 알아보세요.
+채팅 완료 파이프라인 구성 요소를 사용하는 작업을 생성합니다. 미세 조정을 위한 모든 지원 매개변수에 대해 자세히 알아보세요.
 
 ### 미세 조정 매개변수 정의
 
-1. 미세 조정 매개변수는 두 가지 범주로 그룹화될 수 있습니다 - 훈련 매개변수, 최적화 매개변수
+1. 미세 조정 매개변수는 두 가지 범주로 그룹화될 수 있습니다 - 학습 매개변수, 최적화 매개변수
 
-1. 훈련 매개변수는 다음과 같은 훈련 측면을 정의합니다 -
+1. 학습 매개변수는 다음과 같은 학습 측면을 정의합니다 -
 
     - 사용할 옵티마이저, 스케줄러
     - 미세 조정을 최적화할 메트릭
-    - 훈련 단계 수와 배치 크기 등
-    - 최적화 매개변수는 GPU 메모리를 최적화하고 컴퓨팅 리소스를 효과적으로 사용하는 데 도움을 줍니다.
+    - 학습 단계 수 및 배치 크기 등
+    - 최적화 매개변수는 GPU 메모리를 최적화하고 컴퓨팅 리소스를 효과적으로 사용하는 데 도움이 됩니다.
 
-1. 아래는 이 범주에 속하는 몇 가지 매개변수입니다. 최적화 매개변수는 각 모델마다 다르며, 이러한 변동을 처리하기 위해 모델과 함께 패키지로 제공됩니다.
+1. 아래는 이 범주에 속하는 몇 가지 매개변수입니다. 최적화 매개변수는 모델마다 다르며 이러한 변형을 처리하기 위해 모델과 함께 패키징됩니다.
 
     - deepspeed 및 LoRA 활성화
-    - 혼합 정밀도 훈련 활성화
-    - 다중 노드 훈련 활성화
+    - 혼합 정밀도 학습 활성화
+    - 다중 노드 학습 활성화
 
 > [!NOTE]
-> 감독된 미세 조정은 정렬 손실 또는 치명적인 망각을 초래할 수 있습니다. 이 문제를 확인하고 미세 조정 후 정렬 단계를 실행하는 것을 권장합니다.
-### 미세 조정 매개변수 1. 이 Python 스크립트는 머신 러닝 모델을 미세 조정하기 위한 매개변수를 설정하고 있습니다. 주요 기능은 다음과 같습니다: - 훈련 에포크 수, 훈련 및 평가 배치 크기, 학습률, 학습률 스케줄러 유형 등 기본 훈련 매개변수를 설정합니다. - LoRa 및 DeepSpeed 적용 여부, DeepSpeed 단계 등 기본 최적화 매개변수를 설정합니다. - 훈련 및 최적화 매개변수를 하나의 사전인 finetune_parameters에 결합합니다. - foundation_model에 모델별 기본 매개변수가 있는지 확인합니다. 있다면 경고 메시지를 출력하고, ast.literal_eval 함수를 사용하여 모델별 기본 매개변수를 문자열에서 Python 사전으로 변환하여 finetune_parameters 사전에 업데이트합니다. - 실행에 사용할 최종 미세 조정 매개변수를 출력합니다. - 요약하자면, 이 스크립트는 머신 러닝 모델을 미세 조정하기 위한 매개변수를 설정하고 표시하며, 모델별 매개변수로
-## 다양한 매개변수를 기반으로 훈련 파이프라인을 설정하고, 이 디스플레이 이름을 출력합니다. ```python
+> 지도 미세 조정은 정렬 손실 또는 치명적인 망각을 초래할 수 있습니다. 이러한 문제를 확인하고 미세 조정 후 정렬 단계를 실행하는 것이 좋습니다.
+
+### 미세 조정 매개변수
+
+1. 이 Python 스크립트는 머신 러닝 모델을 미세 조정하기 위한 매개변수를 설정하고 있습니다. 다음은 그 기능에 대한 설명입니다:
+
+    - 학습 에포크 수, 학습 및 평가 배치 크기, 학습률, 학습률 스케줄러 유형과 같은 기본 학습 매개변수를 설정합니다.
+
+    - Layer-wise Relevance Propagation (LoRa) 및 DeepSpeed를 적용할지 여부, DeepSpeed 단계를 포함한 기본 최적화 매개변수를 설정합니다.
+
+    - 학습 및 최적화 매개변수를 finetune_parameters라는 단일 딕셔너리로 결합합니다.
+
+    - foundation_model에 모델별 기본 매개변수가 있는지 확인합니다. 있는 경우 경고 메시지를 출력하고 ast.literal_eval 함수를 사용하여 모델별 기본 매개변수를 문자열에서 Python 딕셔너리로 변환한 다음 finetune_parameters 딕셔너리를 업데이트합니다.
+
+    - 실행에 사용할 최종 미세 조정 매개변수를 출력합니다.
+
+    - 요약하면, 이 스
+훈련 파이프라인을 다양한 매개변수에 기반하여 구성하고, 이 표시 이름을 출력합니다. ```python
     # Define a function to generate a display name for the training pipeline
     def get_pipeline_display_name():
         # Calculate the total batch size by multiplying the per-device batch size, the number of gradient accumulation steps, the number of GPUs per node, and the number of nodes used for fine-tuning
@@ -474,13 +488,13 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     print(f"Display name used for the run: {pipeline_display_name}")
     ```
 
-### 파이프라인 구성하기
+### 파이프라인 구성
 
-이 Python 스크립트는 Azure Machine Learning SDK를 사용하여 머신 러닝 파이프라인을 정의하고 구성합니다. 다음은 주요 기능입니다:
+이 Python 스크립트는 Azure Machine Learning SDK를 사용하여 머신 러닝 파이프라인을 정의하고 구성합니다. 다음은 이 스크립트의 주요 작업입니다:
 
 1. Azure AI ML SDK에서 필요한 모듈을 가져옵니다.
-2. 레지스트리에서 "chat_completion_pipeline"이라는 파이프라인 컴포넌트를 가져옵니다.
-3. `@pipeline` decorator and the function `create_pipeline`. The name of the pipeline is set to `pipeline_display_name`.
+1. 레지스트리에서 "chat_completion_pipeline"이라는 파이프라인 컴포넌트를 가져옵니다.
+1. `@pipeline` decorator and the function `create_pipeline`. The name of the pipeline is set to `pipeline_display_name`.
 
 1. Inside the `create_pipeline` function, it initializes the fetched pipeline component with various parameters, including the model path, compute clusters for different stages, dataset splits for training and testing, the number of GPUs to use for fine-tuning, and other fine-tuning parameters.
 
@@ -490,8 +504,8 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
 
 1. It sets the `force_rerun` setting of the pipeline to `True`, meaning that cached results from previous jobs will not be used.
 
-1. It sets the `continue_on_step_failure` setting of the pipeline to `False`를 사용하여 파이프라인 작업을 정의합니다. 이는 파이프라인의 어떤 단계라도 실패하면 중지되도록 설정합니다.
-4. 요약하면, 이 스크립트는 Azure Machine Learning SDK를 사용하여 채팅 완료 작업을 위한 머신 러닝 파이프라인을 정의하고 구성합니다.
+1. It sets the `continue_on_step_failure` setting of the pipeline to `False`를 사용하여 파이프라인 작업을 정의합니다. 이는 어떤 단계가 실패하면 파이프라인이 중지된다는 의미입니다.
+1. 요약하자면, 이 스크립트는 Azure Machine Learning SDK를 사용하여 채팅 완료 작업을 위한 머신 러닝 파이프라인을 정의하고 구성합니다.
 
 ```python
     # Import necessary modules from the Azure AI ML SDK
@@ -544,13 +558,15 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     pipeline_object.settings.continue_on_step_failure = False
     ```
 
-### 작업 제출하기
+### 작업 제출
 
-1. 이 Python 스크립트는 Azure Machine Learning 워크스페이스에 머신 러닝 파이프라인 작업을 제출하고 작업이 완료될 때까지 기다립니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning 작업 공간에 머신 러닝 파이프라인 작업을 제출하고 작업이 완료될 때까지 기다립니다. 다음은 이 스크립트의 주요 작업입니다:
 
-    - workspace_ml_client의 jobs 객체의 create_or_update 메서드를 호출하여 파이프라인 작업을 제출합니다. 실행할 파이프라인은 pipeline_object로 지정되고, 작업이 실행될 실험은 experiment_name으로 지정됩니다.
-    - 그런 다음 workspace_ml_client의 jobs 객체의 stream 메서드를 호출하여 파이프라인 작업이 완료될 때까지 기다립니다. 대기할 작업은 pipeline_job 객체의 name 속성으로 지정됩니다.
-    - 요약하면, 이 스크립트는 Azure Machine Learning 워크스페이스에 머신 러닝 파이프라인 작업을 제출하고 작업이 완료될 때까지 기다립니다.
+    - workspace_ml_client의 jobs 객체의 create_or_update 메서드를 호출하여 파이프라인 작업을 제출합니다. 실행할 파이프라인은 pipeline_object로 지정되며, 작업이 실행되는 실험은 experiment_name으로 지정됩니다.
+    
+    - 그런 다음 workspace_ml_client의 jobs 객체의 stream 메서드를 호출하여 파이프라인 작업이 완료될 때까지 기다립니다. 기다릴 작업은 pipeline_job 객체의 name 속성으로 지정됩니다.
+
+    - 요약하자면, 이 스크립트는 Azure Machine Learning 작업 공간에 머신 러닝 파이프라인 작업을 제출하고 작업이 완료될 때까지 기다립니다.
 
 ```python
     # Submit the pipeline job to the Azure Machine Learning workspace
@@ -565,23 +581,29 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     workspace_ml_client.jobs.stream(pipeline_job.name)
     ```
 
-## 6. 미세 조정된 모델을 워크스페이스에 등록하기
+## 6. 미세 조정된 모델을 작업 공간에 등록하기
 
-미세 조정 작업의 출력을 모델로 등록합니다. 이는 미세 조정된 모델과 미세 조정 작업 간의 계보를 추적합니다. 미세 조정 작업은 기본 모델, 데이터 및 훈련 코드와의 계보를 추적합니다.
+우리는 미세 조정 작업의 출력에서 모델을 등록할 것입니다. 이는 미세 조정된 모델과 미세 조정 작업 간의 계보를 추적할 수 있게 합니다. 미세 조정 작업은 기본 모델, 데이터 및 훈련 코드에 대한 계보를 추적합니다.
 
-### ML 모델 등록하기
+### ML 모델 등록
 
-1. 이 Python 스크립트는 Azure Machine Learning 파이프라인에서 훈련된 머신 러닝 모델을 등록합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning 파이프라인에서 훈련된 머신 러닝 모델을 등록합니다. 다음은 이 스크립트의 주요 작업입니다:
 
     - Azure AI ML SDK에서 필요한 모듈을 가져옵니다.
-    - workspace_ml_client의 jobs 객체의 get 메서드를 호출하고 outputs 속성을 액세스하여 훈련된 모델 출력이 있는지 확인합니다.
-    - 파이프라인 작업 이름과 출력 이름("trained_model")을 사용하여 훈련된 모델의 경로를 구성합니다.
-    - 원래 모델 이름에 "-ultrachat-200k"를 추가하고 슬래시를 하이픈으로 대체하여 미세 조정된 모델의 이름을 정의합니다.
-    - 모델의 경로, 모델의 유형(MLflow 모델), 모델의 이름과 버전, 모델 설명을 포함한 다양한 매개변수로 Model 객체를 생성하여 모델 등록을 준비합니다.
-    - Model 객체를 인수로 하여 workspace_ml_client의 models 객체의 create_or_update 메서드를 호출하여 모델을 등록합니다.
-    - 등록된 모델을 출력합니다.
     
-    요약하면, 이 스크립트는 Azure Machine Learning 파이프라인에서 훈련된 머신 러닝 모델을 등록합니다.
+    - workspace_ml_client의 jobs 객체의 get 메서드를 호출하여 파이프라인 작업의 출력에서 trained_model이 사용 가능한지 확인하고, 그 출력 속성에 접근합니다.
+    
+    - 파이프라인 작업의 이름과 출력 이름("trained_model")을 사용하여 훈련된 모델의 경로를 구성합니다.
+    
+    - 원래 모델 이름에 "-ultrachat-200k"를 추가하고 슬래시를 하이픈으로 대체하여 미세 조정된 모델의 이름을 정의합니다.
+    
+    - 모델 경로, 모델 유형(MLflow 모델), 모델 이름 및 버전, 모델 설명 등 다양한 매개변수로 Model 객체를 생성하여 모델을 등록할 준비를 합니다.
+    
+    - Model 객체를 인수로 사용하여 workspace_ml_client의 models 객체의 create_or_update 메서드를 호출하여 모델을 등록합니다.
+    
+    - 등록된 모델을 출력합니다.
+
+1. 요약하자면, 이 스크립트는 Azure Machine Learning 파이프라인에서 훈련된 머신 러닝 모델을 등록합니다.
 
 ```python
     # Import necessary modules from the Azure AI ML SDK
@@ -627,16 +649,19 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
 
 온라인 엔드포인트는 모델을 사용해야 하는 애플리케이션과 통합할 수 있는 지속 가능한 REST API를 제공합니다.
 
-### 엔드포인트 관리하기
+### 엔드포인트 관리
 
-1. 이 Python 스크립트는 등록된 모델을 위한 Azure Machine Learning의 관리형 온라인 엔드포인트를 생성합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning에서 등록된 모델을 위한 관리형 온라인 엔드포인트를 생성합니다. 다음은 이 스크립트의 주요 작업입니다:
 
     - Azure AI ML SDK에서 필요한 모듈을 가져옵니다.
-    - 현재 시간의 타임스탬프를 "ultrachat-completion-" 문자열에 추가하여 온라인 엔드포인트의 고유 이름을 정의합니다.
-    - 엔드포인트의 이름, 설명, 인증 모드("key")를 포함한 다양한 매개변수로 ManagedOnlineEndpoint 객체를 생성하여 온라인 엔드포인트를 생성할 준비를 합니다.
-    - ManagedOnlineEndpoint 객체를 인수로 하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 온라인 엔드포인트를 생성합니다. 그런 다음 wait 메서드를 호출하여 생성 작업이 완료될 때까지 기다립니다.
     
-    요약하면, 이 스크립트는 등록된 모델을 위한 Azure Machine Learning의 관리형 온라인 엔드포인트를 생성합니다.
+    - "ultrachat-completion-" 문자열에 타임스탬프를 추가하여 온라인 엔드포인트의 고유 이름을 정의합니다.
+    
+    - 엔드포인트 이름, 엔드포인트 설명, 인증 모드("key") 등 다양한 매개변수로 ManagedOnlineEndpoint 객체를 생성하여 온라인 엔드포인트를 생성할 준비를 합니다.
+    
+    - ManagedOnlineEndpoint 객체를 인수로 사용하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 온라인 엔드포인트를 생성합니다. 그런 다음 wait 메서드를 호출하여 생성 작업이 완료될 때까지 기다립니다.
+
+1. 요약하자면, 이 스크립트는 Azure Machine Learning에서 등록된 모델을 위한 관리형 온라인 엔드포인트를 생성합니다.
 
 ```python
     # Import necessary modules from the Azure AI ML SDK
@@ -666,22 +691,29 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     ```
 
 > [!NOTE]
-> 배포에 지원되는 SKU 목록은 여기에서 확인할 수 있습니다 - [Managed online endpoints SKU list](https://learn.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
+> 배포에 지원되는 SKU 목록을 여기에서 확인할 수 있습니다 - [Managed online endpoints SKU list](https://learn.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list)
 
-### ML 모델 배포하기
+### ML 모델 배포
 
-1. 이 Python 스크립트는 등록된 머신 러닝 모델을 Azure Machine Learning의 관리형 온라인 엔드포인트에 배포합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 등록된 머신 러닝 모델을 Azure Machine Learning의 관리형 온라인 엔드포인트에 배포합니다. 다음은 이 스크립트의 주요 작업입니다:
 
-    - Python 추상 구문 트리를 처리하는 함수들을 제공하는 ast 모듈을 가져옵니다.
-    - 배포에 사용할 인스턴스 유형을 "Standard_NC6s_v3"로 설정합니다.
-    - inference_compute_allow_list 태그가 기본 모델에 있는지 확인합니다. 있다면 태그 값을 문자열에서 Python 리스트로 변환하고 inference_computes_allow_list에 할당합니다. 없다면 inference_computes_allow_list를 None으로 설정합니다.
-    - 지정된 인스턴스 유형이 허용 목록에 있는지 확인합니다. 없다면 사용자가 허용 목록에서 인스턴스 유형을 선택하도록 요청하는 메시지를 출력합니다.
-    - 배포의 이름, 엔드포인트의 이름, 모델의 ID, 인스턴스 유형 및 수량, 생존 확인 설정, 요청 설정을 포함한 다양한 매개변수로 ManagedOnlineDeployment 객체를 생성하여 배포를 준비합니다.
-    - ManagedOnlineDeployment 객체를 인수로 하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 배포를 생성합니다. 그런 다음 wait 메서드를 호출하여 생성 작업이 완료될 때까지 기다립니다.
+    - Python 추상 구문 트리 문법의 트리를 처리하는 함수를 제공하는 ast 모듈을 가져옵니다.
+    
+    - 배포 인스턴스 유형을 "Standard_NC6s_v3"로 설정합니다.
+    
+    - 기본 모델에 inference_compute_allow_list 태그가 있는지 확인합니다. 있다면 태그 값을 문자열에서 Python 리스트로 변환하여 inference_computes_allow_list에 할당합니다. 없다면 inference_computes_allow_list를 None으로 설정합니다.
+    
+    - 지정된 인스턴스 유형이 허용 목록에 있는지 확인합니다. 그렇지 않다면 사용자가 허용 목록에서 인스턴스 유형을 선택하도록 메시지를 출력합니다.
+    
+    - 배포 이름, 엔드포인트 이름, 모델 ID, 인스턴스 유형 및 수, 라이브니스 프로브 설정, 요청 설정 등 다양한 매개변수로 ManagedOnlineDeployment 객체를 생성하여 배포를 준비합니다.
+    
+    - ManagedOnlineDeployment 객체를 인수로 사용하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 배포를 생성합니다. 그런 다음 wait 메서드를 호출하여 생성 작업이 완료될 때까지 기다립니다.
+    
     - 엔드포인트의 트래픽을 "demo" 배포로 100% 유도하도록 설정합니다.
-    - endpoint 객체를 인수로 하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 엔드포인트를 업데이트합니다. 그런 다음 result 메서드를 호출하여 업데이트 작업이 완료될 때까지 기다립니다.
+    
+    - 엔드포인트 객체를 인수로 사용하여 workspace_ml_client의 begin_create_or_update 메서드를 호출하여 엔드포인트를 업데이트합니다. 그런 다음 result 메서드를 호출하여 업데이트 작업이 완료될 때까지 기다립니다.
 
-    요약하면, 이 스크립트는 등록된 머신 러닝 모델을 Azure Machine Learning의 관리형 온라인 엔드포인트에 배포합니다.
+1. 요약하자면, 이 스크립트는 등록된 머신 러닝 모델을 Azure Machine Learning의 관리형 온라인 엔드포인트에 배포합니다.
 
     ```python
     # Import the ast module, which provides functions to process trees of the Python abstract syntax grammar
@@ -734,20 +766,23 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     workspace_ml_client.begin_create_or_update(endpoint).result()
     ```
 
-## 8. 샘플 데이터를 사용하여 엔드포인트 테스트하기
+## 8. 샘플 데이터로 엔드포인트 테스트하기
 
-테스트 데이터셋에서 샘플 데이터를 가져와 온라인 엔드포인트에 제출하여 추론을 수행합니다. 그런 다음 예측된 레이블과 실제 레이블을 함께 표시합니다.
+테스트 데이터셋에서 일부 샘플 데이터를 가져와 온라인 엔드포인트에 제출하여 추론을 수행합니다. 그런 다음 예측된 레이블을 실제 레이블과 함께 표시합니다.
 
 ### 결과 읽기
 
-1. 이 Python 스크립트는 JSON Lines 파일을 pandas DataFrame으로 읽고, 랜덤 샘플을 추출하고, 인덱스를 재설정합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 JSON Lines 파일을 pandas DataFrame으로 읽어 무작위 샘플을 추출하고 인덱스를 재설정합니다. 다음은 이 스크립트의 주요 작업입니다:
 
-    - ./ultrachat_200k_dataset/test_gen.jsonl 파일을 pandas DataFrame으로 읽습니다. 파일이 JSON Lines 형식이므로 read_json 함수에서 lines=True 인수를 사용합니다.
-    - DataFrame에서 1개의 랜덤 행을 샘플링합니다. sample 함수에서 n=1 인수를 사용하여 선택할 랜덤 행의 수를 지정합니다.
-    - DataFrame의 인덱스를 재설정합니다. reset_index 함수에서 drop=True 인수를 사용하여 원래 인덱스를 삭제하고 새로운 기본 정수 인덱스로 대체합니다.
-    - head 함수에서 인수로 2를 사용하여 DataFrame의 첫 2행을 표시합니다. 그러나 샘플링 후 DataFrame에 하나의 행만 포함되므로 이 행만 표시됩니다.
+    - ./ultrachat_200k_dataset/test_gen.jsonl 파일을 pandas DataFrame으로 읽습니다. 파일이 JSON Lines 형식이므로 lines=True 인수를 사용하여 read_json 함수를 호출합니다.
+    
+    - DataFrame에서 1개의 행을 무작위로 샘플링합니다. sample 함수에 n=1 인수를 사용하여 선택할 무작위 행의 수를 지정합니다.
+    
+    - DataFrame의 인덱스를 재설정합니다. reset_index 함수에 drop=True 인수를 사용하여 원래 인덱스를 삭제하고 기본 정수 값의 새 인덱스로 대체합니다.
+    
+    - head 함수에 인수 2를 사용하여 DataFrame의 처음 2개의 행을 표시합니다. 그러나 샘플링 후 DataFrame에 하나의 행만 남아 있으므로 이 행만 표시됩니다.
 
-    요약하면, 이 스크립트는 JSON Lines 파일을 pandas DataFrame으로 읽고, 1개의 랜덤 샘플을 추출하고, 인덱스를 재설정하고, 첫 번째 행을 표시합니다.
+1. 요약하자면, 이 스크립트는 JSON Lines 파일을 pandas DataFrame으로 읽어 1개의 행을 무작위로 샘플링하고 인덱스를 재설정한 다음 첫 번째 행을 표시합니다.
 
     ```python
     # Import pandas library
@@ -771,13 +806,16 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     test_df.head(2)
     ```
 
-### JSON 객체 생성하기
+### JSON 객체 생성
 
-1. 이 Python 스크립트는 특정 매개변수를 가진 JSON 객체를 생성하고 파일에 저장합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 특정 매개변수로 JSON 객체를 생성하고 파일에 저장합니다. 다음은 이 스크립트의 주요 작업입니다:
 
-    - JSON 데이터를 다루는 함수를 제공하는 json 모듈을 가져옵니다.
-    - "temperature", "top_p", "do_sample", "max_new_tokens" 키와 각각의 값이 0.6, 0.9, True, 200인 매개변수를 나타내는 키-값 쌍을 가진 딕셔너리 parameters를 생성합니다.
-    - 두 개의 키 "input_data"와 "params"를 가진 딕셔너리 test_json을 생성합니다. "input_data"의 값은 "input_string"과 "parameters" 키를 가진 또 다른 딕셔너리입니다. "input_string"의 값은 test_df DataFrame의 첫 번째 메시지를 포함하는 리스트입니다. "parameters"의 값은 이전에 생성한 parameters 딕셔너리입니다. "params"의 값은 빈 딕셔너리입니다.
+    - JSON 데이터를 처리하는 함수를 제공하는 json 모듈을 가져옵니다.
+    
+    - "temperature", "top_p", "do_sample", "max_new_tokens" 키와 그에 상응하는 값인 0.6, 0.9, True, 200을 가진 딕셔너리 parameters를 생성합니다.
+    
+    - "input_data"와 "params" 키를 가진 또 다른 딕셔너리 test_json을 생성합니다. "input_data"의 값은 "input_string"과 "parameters" 키를 가진 또 다른 딕셔너리입니다. "input_string"의 값은 test_df DataFrame의 첫 번째 메시지를 포함하는 리스트입니다. "parameters"의 값은 이전에 생성된 parameters 딕셔너리입니다. "params"의 값은 빈 딕셔너리입니다.
+    
     - sample_score.json이라는 파일을 엽니다.
 
     ```python
@@ -812,17 +850,21 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
         json.dump(test_json, f)
     ```
 
-### 엔드포인트 호출하기
+### 엔드포인트 호출
 
-1. 이 Python 스크립트는 Azure Machine Learning의 온라인 엔드포인트를 호출하여 JSON 파일을 점수화합니다. 주요 기능은 다음과 같습니다:
+1. 이 Python 스크립트는 Azure Machine Learning의 온라인 엔드포인트를 호출하여 JSON 파일을 평가합니다. 다음은 이 스크립트의 주요 작업입니다:
 
     - workspace_ml_client 객체의 online_endpoints 속성의 invoke 메서드를 호출합니다. 이 메서드는 온라인 엔드포인트에 요청을 보내고 응답을 받는 데 사용됩니다.
-    - endpoint_name과 deployment_name 인수를 사용하여 엔드포인트와 배포의 이름을 지정합니다. 이 경우 엔드포인트 이름은 online_endpoint_name 변수에 저장되고, 배포 이름은 "demo"입니다.
-    - request_file 인수를 사용하여 점수화할 JSON 파일의 경로를 지정합니다. 이 경우 파일은 ./ultrachat_200k_dataset/sample_score.json입니다.
-    - 엔드포인트의 응답을 response 변수에 저장합니다.
+    
+    - endpoint_name과 deployment_name 인수로 엔드포인트와 배포의 이름을 지정합니다. 이 경우, 엔드포인트 이름은 online_endpoint_name 변수에 저장되어 있고 배포 이름은 "demo"입니다.
+    
+    - request_file 인수로 평가할 JSON 파일의 경로를 지정합니다. 이 경우, 파일은 ./ultrachat_200k_dataset/sample_score.json에 있습니다.
+    
+    - 엔드포인트로부터의 응답을 response 변수에 저장합니다.
+    
     - 원시 응답을 출력합니다.
 
-    요약하면, 이 스크립트는 Azure Machine Learning의 온라인 엔드포인트를 호출하여 JSON 파일을 점수화하고 응답을 출력합니다.
+1. 요약하자면, 이 스크립트는 Azure Machine Learning의 온라인 엔드포인트를 호출하여 JSON 파일을 평가하고 응답을 출력합니다.
 
     ```python
     # Invoke the online endpoint in Azure Machine Learning to score the `sample_score.json` file
@@ -840,15 +882,17 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     print("raw response: \n", response, "\n")
     ```
 
-## 9. 온라인 엔드포인트 삭제하기
+## 9. 온라인 엔드포인트 삭제
 
-1. 온라인 엔드포인트를 삭제하지 않으면 엔드포인트에서 사용된 컴퓨팅에 대한 청구가 계속될 수 있습니다. 이 Python 코드 라인은 Azure Machine Learning에서 온라인 엔드포인트를 삭제합니다. 주요 기능은 다음과 같습니다:
+1. 온라인 엔드포인트를 삭제하는 것을 잊지 마세요. 그렇지 않으면 엔드포인트에서 사용되는 컴퓨팅 비용이 계속 청구됩니다. 이 Python 코드 라인은 Azure Machine Learning에서 온라인 엔드포인트를 삭제합니다. 다음은 이 코드의 주요 작업입니다:
 
     - workspace_ml_client 객체의 online_endpoints 속성의 begin_delete 메서드를 호출합니다. 이 메서드는 온라인 엔드포인트 삭제를 시작하는 데 사용됩니다.
-    - name 인수를 사용하여 삭제할 엔드포인트의 이름을 지정합니다. 이 경우 엔드포인트 이름은 online_endpoint_name 변수에 저장됩니다.
-    - wait 메서드를 호출하여 삭제 작업이 완료될 때까지 기다립니다. 이는 블로킹 작업으로, 삭제가 완료될 때까지 스크립트가 계속 진행되지 않습니다.
-
-    요약하면, 이 코드 라인은 Azure Machine Learning에서 온라인 엔드포인트 삭제를 시작하고 작업이 완료될 때까지 기다립니다.
+    
+    - name 인수로 삭제할 엔드포인트의 이름을 지정합니다. 이 경우, 엔드포인트 이름은 online_endpoint_name 변수에 저장되어 있습니다.
+    
+    - wait 메서드를 호출하여 삭제 작업이 완료될 때까지 기다립니다. 이는 차단 작업으로, 삭제가 완료될 때까지 스크립트 실행을 중지합니다.
+    
+    - 요약하자면, 이 코드 라인은 Azure Machine Learning에서 온라인 엔드포인트 삭제를 시작하고 작업이 완료될 때까지 기다립니다.
 
     ```python
     # Delete the online endpoint in Azure Machine Learning
@@ -859,4 +903,4 @@ chat-completion 파이프라인 컴포넌트를 사용하는 작업을 생성합
     ```
 
 **면책 조항**:
-이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 정확성을 위해 노력하고 있지만 자동 번역에는 오류나 부정확성이 있을 수 있습니다. 원어로 작성된 원본 문서를 권위 있는 자료로 간주해야 합니다. 중요한 정보의 경우, 전문 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해서는 책임을 지지 않습니다.
+이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 우리는 정확성을 위해 노력하지만, 자동 번역에는 오류나 부정확성이 있을 수 있음을 유의하시기 바랍니다. 원어로 작성된 원본 문서를 권위 있는 출처로 간주해야 합니다. 중요한 정보에 대해서는 전문 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 오역에 대해 당사는 책임을 지지 않습니다.

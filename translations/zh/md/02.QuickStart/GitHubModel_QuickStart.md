@@ -1,14 +1,14 @@
-## GitHub 模型 - 限量公开测试
+## GitHub 模型 - 限量公开测试版
 
-欢迎使用 [GitHub Models](https://github.com/marketplace/models)! 我们已经为您准备好了在 Azure AI 上托管的 AI 模型，供您探索。
+欢迎使用 [GitHub 模型](https://github.com/marketplace/models)! 我们已经为您准备好了所有内容，您可以在 Azure AI 上探索托管的 AI 模型。
 
 ![GitHubModel](../../../../translated_images/GitHub_ModelCatalog.a652f32407f52c16c528c26d70462aba0e55e3ff90d17ebbc9dffd9533c39363.zh.png)
 
-关于 GitHub Models 上可用模型的更多信息，请查看 [GitHub Model Marketplace](https://github.com/marketplace/models)。
+有关 GitHub 模型上可用模型的更多信息，请查看 [GitHub 模型市场](https://github.com/marketplace/models)
 
 ## 可用模型
 
-每个模型都有专门的试验区和示例代码
+每个模型都有一个专用的操作界面和示例代码
 
 ![Phi-3Model_Github](../../../../translated_images/GitHub_ModelPlay.e87859d6934a9e70830479431732ecc1826348036ebb998882091be8fa5d4fe7.zh.png)
 
@@ -26,28 +26,28 @@
 
 [Phi-3-small-8k-instruct](https://github.com/marketplace/models/azureml/Phi-3-small-8k-instruct)
 
-## 快速开始
+## 入门
 
-我们已经为您准备了一些基本的示例，您可以在 samples 目录中找到它们。如果您想直接使用自己喜欢的语言，可以在以下语言中找到相应的示例：
+这里有一些基本示例，您可以立即运行。您可以在 samples 目录中找到它们。如果您想直接使用自己喜欢的语言，可以在以下语言中找到示例：
 
 - Python
 - JavaScript
 - cURL
 
-我们还为运行示例和模型提供了专用的 Codespaces 环境。
+还有一个专门的 Codespaces 环境用于运行示例和模型。
 
 ![Getting Started](../../../../translated_images/GitHub_ModelGetStarted.7eddfc63957b37d8cf9803ec7073b3545f5002d3dae7ab3034ad5fec267e6beb.zh.png)
 
 ## 示例代码
 
-以下是一些用例的示例代码片段。关于 Azure AI Inference SDK 的更多信息，请参阅完整的文档和示例。
+下面是一些用例的示例代码片段。有关 Azure AI 推理 SDK 的更多信息，请参阅完整文档和示例。
 
 ## 设置
 
 1. 创建个人访问令牌
-您不需要为令牌授予任何权限。请注意，令牌将发送到 Microsoft 服务。
+您不需要为令牌赋予任何权限。请注意，该令牌将发送到 Microsoft 服务。
 
-要使用下面的代码片段，请创建一个环境变量，将您的令牌设置为客户端代码的密钥。
+要使用下面的代码片段，请创建一个环境变量，将令牌设置为客户端代码的密钥。
 
 如果您使用的是 bash：
 ```
@@ -67,8 +67,8 @@ set GITHUB_TOKEN=<your-github-token-goes-here>
 
 ## Python 示例
 
-### 安装依赖
-使用 pip 安装 Azure AI Inference SDK（要求：Python >=3.8）：
+### 安装依赖项
+使用 pip 安装 Azure AI 推理 SDK（要求：Python >=3.8）：
 
 ```
 pip install azure-ai-inference
@@ -84,7 +84,7 @@ from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
 
 endpoint = "https://models.inference.ai.azure.com"
-# 替换 Model_Name
+# Replace Model_Name 
 model_name = "Phi-3-small-8k-instruct"
 token = os.environ["GITHUB_TOKEN"]
 
@@ -109,7 +109,7 @@ print(response.choices[0].message.content)
 
 ### 运行多轮对话
 
-此示例演示了使用聊天完成 API 进行多轮对话。当您在聊天应用程序中使用该模型时，您需要管理对话的历史记录并将最新的消息发送给模型。
+此示例演示了与聊天完成 API 的多轮对话。当将模型用于聊天应用程序时，您需要管理该对话的历史记录，并将最新消息发送到模型。
 
 ```
 import os
@@ -119,7 +119,7 @@ from azure.core.credentials import AzureKeyCredential
 
 token = os.environ["GITHUB_TOKEN"]
 endpoint = "https://models.inference.ai.azure.com"
-# 替换 Model_Name
+# Replace Model_Name
 model_name = "Phi-3-small-8k-instruct"
 
 client = ChatCompletionsClient(
@@ -141,7 +141,7 @@ print(response.choices[0].message.content)
 
 ### 流式输出
 
-为了更好的用户体验，您可能希望流式传输模型的响应，以便第一个令牌尽早显示，避免等待长时间的响应。
+为了更好的用户体验，您会希望流式传输模型的响应，以便第一个令牌能尽早显示，避免等待长时间的响应。
 
 ```
 import os
@@ -151,7 +151,7 @@ from azure.core.credentials import AzureKeyCredential
 
 token = os.environ["GITHUB_TOKEN"]
 endpoint = "https://models.inference.ai.azure.com"
-# 替换 Model_Name
+# Replace Model_Name
 model_name = "Phi-3-small-8k-instruct"
 
 client = ChatCompletionsClient(
@@ -176,11 +176,11 @@ client.close()
 ```
 ## JavaScript
 
-### 安装依赖
+### 安装依赖项
 
 安装 Node.js。
 
-复制以下内容并将其保存为文件 package.json 到您的文件夹中。
+将以下文本行复制并保存为文件 package.json 放在您的文件夹中。
 
 ```
 {
@@ -195,9 +195,9 @@ client.close()
 
 注意：@azure/core-sse 仅在您流式传输聊天完成响应时需要。
 
-在此文件夹中打开终端窗口并运行 npm install。
+在此文件夹中打开一个终端窗口并运行 npm install。
 
-对于下面的每个代码片段，将内容复制到文件 sample.js 中并使用 node sample.js 运行。
+对于以下每个代码片段，将内容复制到文件 sample.js 中，并使用 node sample.js 运行。
 
 ### 运行基本代码示例
 
@@ -209,7 +209,7 @@ import { AzureKeyCredential } from "@azure/core-auth";
 
 const token = process.env["GITHUB_TOKEN"];
 const endpoint = "https://models.inference.ai.azure.com";
-// 更新您的 modelname
+// Update your modelname
 const modelName = "Phi-3-small-8k-instruct";
 
 export async function main() {
@@ -242,7 +242,7 @@ main().catch((err) => {
 
 ### 运行多轮对话
 
-此示例演示了使用聊天完成 API 进行多轮对话。当您在聊天应用程序中使用该模型时，您需要管理对话的历史记录并将最新的消息发送给模型。
+此示例演示了与聊天完成 API 的多轮对话。当将模型用于聊天应用程序时，您需要管理该对话的历史记录，并将最新消息发送到模型。
 
 ```
 import ModelClient from "@azure-rest/ai-inference";
@@ -250,7 +250,7 @@ import { AzureKeyCredential } from "@azure/core-auth";
 
 const token = process.env["GITHUB_TOKEN"];
 const endpoint = "https://models.inference.ai.azure.com";
-// 更新您的 modelname
+// Update your modelname
 const modelName = "Phi-3-small-8k-instruct";
 
 export async function main() {
@@ -284,7 +284,7 @@ main().catch((err) => {
 ```
 
 ### 流式输出
-为了更好的用户体验，您可能希望流式传输模型的响应，以便第一个令牌尽早显示，避免等待长时间的响应。
+为了更好的用户体验，您会希望流式传输模型的响应，以便第一个令牌能尽早显示，避免等待长时间的响应。
 
 ```
 import ModelClient from "@azure-rest/ai-inference";
@@ -293,7 +293,7 @@ import { createSseStream } from "@azure/core-sse";
 
 const token = process.env["GITHUB_TOKEN"];
 const endpoint = "https://models.inference.ai.azure.com";
-// 更新您的 modelname
+// Update your modelname
 const modelName = "Phi-3-small-8k-instruct";
 
 export async function main() {
@@ -420,16 +420,17 @@ curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
 
 ![Model Catalog](../../../../translated_images/GitHub_Model.7cf5115ec8870189517837690a06a18f35716f5b491a315303414a42cf9f9a4e.zh.png)
 
-[试验区和免费 API 使用的速率限制](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)旨在帮助您试验模型并原型化您的 AI 应用程序。要超出这些限制并将您的应用程序扩展到生产规模，您必须从 Azure 账户中配置资源，并从那里进行身份验证，而不是使用您的 GitHub 个人访问令牌。您不需要在代码中更改任何其他内容。使用此链接了解如何超越 Azure AI 的免费层限制。
+[操作界面和免费 API 使用的速率限制](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits) 旨在帮助您试验模型并为您的 AI 应用程序制作原型。若要超出这些限制并将应用程序扩展到规模，您必须从 Azure 帐户中配置资源，并从那里进行身份验证，而不是使用您的 GitHub 个人访问令牌。您无需更改代码中的任何其他内容。使用此链接了解如何超越 Azure AI 的免费层限制。
 
 ### 声明
 
 请记住，在与模型交互时，您是在试验 AI，因此可能会出现内容错误。
 
-该功能受各种限制（包括每分钟请求数、每天请求数、每次请求的令牌数和并发请求数）限制，并且不适用于生产用例。
+该功能受各种限制（包括每分钟请求数、每天请求数、每个请求的令牌数和并发请求数）的约束，不适用于生产用例。
 
-GitHub Models 使用 Azure AI 内容安全。这些过滤器不能在 GitHub Models 体验中关闭。如果您决定通过付费服务使用模型，请配置您的内容过滤器以满足您的要求。
+GitHub 模型使用 Azure AI 内容安全。这些过滤器无法在 GitHub 模型体验中关闭。如果您决定通过付费服务使用模型，请配置您的内容过滤器以满足您的需求。
 
 此服务受 GitHub 的预发布条款约束。
 
-免责声明：该翻译由AI模型从原文翻译而来，可能不够完美。请审阅输出内容并进行必要的修改。
+**免责声明**：
+本文档使用基于机器的人工智能翻译服务进行翻译。尽管我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。应将原始语言的文档视为权威来源。对于关键信息，建议使用专业人工翻译。对于因使用此翻译而引起的任何误解或误释，我们不承担任何责任。

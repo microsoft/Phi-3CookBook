@@ -1,10 +1,10 @@
-# **在本地推理 Phi-3-Vision**
+# **本地推理 Phi-3-Vision**
 
-Phi-3-vision-128k-instruct 让 Phi-3 不仅能理解语言，还能视觉化地看世界。通过 Phi-3-vision-128k-instruct，我们可以解决不同的视觉问题，如 OCR、表格分析、物体识别、描述图片等。我们可以轻松完成以前需要大量数据训练的任务。以下是 Phi-3-vision-128k-instruct 引用的相关技术和应用场景。
+Phi-3-vision-128k-instruct 使 Phi-3 不仅能理解语言，还能视觉地看世界。通过 Phi-3-vision-128k-instruct，我们可以解决不同的视觉问题，如 OCR、表格分析、物体识别、描述图片等。我们可以轻松完成以前需要大量数据训练的任务。以下是 Phi-3-vision-128k-instruct 引用的相关技术和应用场景。
 
 ## **0. 准备工作**
 
-在使用前，请确保已安装以下 Python 库（推荐使用 Python 3.10+）
+请确保在使用前已安装以下 Python 库（推荐使用 Python 3.10+）
 
 ```bash
 pip install transformers -U
@@ -38,15 +38,15 @@ model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, t
 user_prompt = '<|user|>\n'
 assistant_prompt = '<|assistant|>\n'
 prompt_suffix = "<|end|>\n"
-
 ```
 
 ## **1. 使用 Phi-3-Vision 分析图像**
 
-我们希望 AI 能够分析我们的图片内容并给出相关描述
+我们希望 AI 能够分析我们图片的内容并给出相关描述。
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
+
 
 url = "https://g.foolcdn.com/editorial/images/767633/nvidiadatacenterrevenuefy2017tofy2024.png"
 
@@ -65,7 +65,7 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-通过在 Notebook 中执行以下脚本，我们可以获得相关答案
+我们可以通过在 Notebook 中执行以下脚本来获取相关答案。
 
 ```txt
 Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
@@ -94,6 +94,7 @@ generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 response = processor.batch_decode(generate_ids, 
                                   skip_special_tokens=False, 
                                   clean_up_tokenization_spaces=False)[0]
+
 ```
 
 结果是
@@ -140,4 +141,4 @@ The first image shows a group of soccer players from the Arsenal Football Club p
 ```
 
 **免责声明**：
-本文档是使用基于机器的人工智能翻译服务翻译的。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原文档的母语版本视为权威来源。对于关键信息，建议使用专业人工翻译。对于因使用此翻译而产生的任何误解或误读，我们不承担责任。
+本文档已使用基于机器的人工智能翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原始文档的母语版本视为权威来源。对于关键信息，建议进行专业人工翻译。对于因使用此翻译而产生的任何误解或误读，我们不承担任何责任。

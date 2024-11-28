@@ -2,15 +2,15 @@
 
 ## **什么是 MLX 框架**
 
-MLX 是一个专为 Apple Silicon 设计的机器学习研究框架，由 Apple 机器学习研究团队推出。
+MLX 是一个用于在 Apple 硅芯片上进行机器学习研究的数组框架，由 Apple 机器学习研究团队推出。
 
-MLX 是由机器学习研究人员为机器学习研究人员设计的。这个框架旨在用户友好，但仍然高效地训练和部署模型。框架的设计理念也相对简单。我们希望研究人员能够轻松扩展和改进 MLX，以快速探索新想法为目标。
+MLX 是由机器学习研究人员为机器学习研究人员设计的。该框架旨在用户友好，同时在训练和部署模型时依然高效。框架本身的设计在概念上也很简单。我们希望研究人员可以轻松扩展和改进 MLX，以便快速探索新想法。
 
-通过 MLX，可以在 Apple Silicon 设备上加速 LLMs，并且可以非常方便地在本地运行模型。
+通过 MLX，可以在 Apple 硅设备上加速 LLMs，并且可以非常方便地在本地运行模型。
 
 ## **使用 MLX 进行 Phi-3-mini 推理**
 
-### **1. 设置你的 MLX 环境**
+### **1. 设置 MLX 环境**
 
 1. Python 3.11.x
 2. 安装 MLX 库
@@ -29,11 +29,11 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 ```
 
-结果（我的环境是 Apple M1 Max，64GB）如下：
+结果（我的环境是 Apple M1 Max, 64GB）如下
 
 ![Terminal](../../../../translated_images/01.5cb5f10f82619d0a98bc3584bf81264105a33d9d8559f125418a93b8d7527728.zh.png)
 
-### **3. 在终端中使用 MLX 对 Phi-3-mini 进行量化**
+### **3. 在终端中使用 MLX 量化 Phi-3-mini**
 
 ```bash
 
@@ -41,11 +41,11 @@ python -m mlx_lm.convert --hf-path microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-***Note：*** 模型可以通过 mlx_lm.convert 进行量化，默认的量化方式是 INT4。这个例子将 Phi-3-mini 量化为 INT4。
+***注意：*** 模型可以通过 mlx_lm.convert 进行量化，默认量化为 INT4。此示例将 Phi-3-mini 量化为 INT4
 
-量化后的模型将存储在默认目录 ./mlx_model 中。
+模型可以通过 mlx_lm.convert 进行量化，默认量化为 INT4。此示例将 Phi-3-mini 量化为 INT4。量化后将存储在默认目录 ./mlx_model 中
 
-我们可以在终端中测试量化后的模型
+我们可以在终端中测试使用 MLX 量化后的模型
 
 ```bash
 
@@ -53,7 +53,7 @@ python -m mlx_lm.generate --model ./mlx_model/ --max-token 2048 --prompt  "<|use
 
 ```
 
-结果如下：
+结果如下
 
 ![INT4](../../../../translated_images/02.6ca278966b75435a31021b0a6f1f3b377102d7e59e7b90daf8f017c1a9876cb2.zh.png)
 
@@ -61,7 +61,7 @@ python -m mlx_lm.generate --model ./mlx_model/ --max-token 2048 --prompt  "<|use
 
 ![Notebook](../../../../translated_images/03.5b701d4bfe17c5d20c075f7d4c8d1201b8073c8e8196b364a9a19cbe684dd26a.zh.png)
 
-***Note:*** 请阅读这个示例 [点击此链接](../../../../code/03.Inference/MLX/MLX_DEMO.ipynb)
+***注意：*** 请阅读此示例 [点击此链接](../../../../code/03.Inference/MLX/MLX_DEMO.ipynb)
 
 ## **资源**
 
@@ -69,4 +69,5 @@ python -m mlx_lm.generate --model ./mlx_model/ --max-token 2048 --prompt  "<|use
 
 2. Apple MLX GitHub 仓库 [https://github.com/ml-explore](https://github.com/ml-explore)
 
-免责声明：此翻译由AI模型从原文翻译而来，可能不够完美。请审阅翻译结果并进行必要的修改。
+**免责声明**：
+本文件使用基于机器的AI翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原文档的母语版本视为权威来源。对于关键信息，建议进行专业的人类翻译。对于因使用本翻译而产生的任何误解或误读，我们概不负责。

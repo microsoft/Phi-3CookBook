@@ -1,17 +1,14 @@
-# **Apple MLXフレームワークでPhi-3をファインチューニング**
+# **Apple MLXフレームワークでPhi-3のファインチューニング**
 
-Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせたファインチューニングを行うことができます。（MLXフレームワークの操作について詳しく知りたい方は、[Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)をご覧ください）
+Apple MLXフレームワークのコマンドラインを使用して、Loraと組み合わせたファインチューニングを行うことができます。（MLXフレームワークの操作について詳しく知りたい場合は、[Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md) をご覧ください）
 
-
-## **1. データ準備**
+## **1. データの準備**
 
 デフォルトでは、MLXフレームワークはtrain、test、およびevalのjsonl形式を必要とし、Loraと組み合わせてファインチューニングジョブを完了します。
-
 
 ### ***注意:***
 
 1. jsonlデータ形式：
-
 
 ```json
 
@@ -22,17 +19,15 @@ Apple MLXフレームワークのコマンドラインを使用して、Loraと�
 
 ```
 
-2. 例として[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)を使用していますが、データ量が比較的少ないため、ファインチューニングの結果が必ずしも最良とは限りません。各自のシナリオに基づいて、より良いデータを使用することをお勧めします。
+2. 我々の例では[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)を使用していますが、データ量が比較的不足しているため、ファインチューニングの結果が必ずしも最良ではありません。学習者は自分のシナリオに基づいてより良いデータを使用して完了することをお勧めします。
 
-3. データ形式はPhi-3テンプレートと組み合わせます
+3. データ形式はPhi-3テンプレートと組み合わせる
 
-この[リンク](../../../../code/04.Finetuning/mlx)からデータをダウンロードしてください。***data***フォルダにすべての.jsonlファイルを含めてください。
+この[リンク](../../../../code/04.Finetuning/mlx)からデータをダウンロードし、***data***フォルダーにすべての.jsonlファイルを含めてください。
 
+## **2. ターミナルでファインチューニングを実行**
 
-## **2. ターミナルでファインチューニング**
-
-以下のコマンドをターミナルで実行してください
-
+ターミナルでこのコマンドを実行してください。
 
 ```bash
 
@@ -40,74 +35,72 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ```
 
-
 ## ***注意:***
 
-1. これはLoRAファインチューニングであり、MLXフレームワークはQLoRAを公開していません
+1. これはLoRAのファインチューニングであり、MLXフレームワークはまだQLoRAを公開していません。
 
-2. config.yamlを設定して、以下のようにいくつかの引数を変更できます
-
+2. config.yamlを設定して、いくつかの引数を変更することができます。例えば：
 
 ```yaml
 
 
-# ローカルモデルディレクトリまたはHugging Faceリポジトリへのパス
+# The path to the local model directory or Hugging Face repo.
 model: "microsoft/Phi-3-mini-4k-instruct"
-# トレーニングを行うかどうか（ブール値）
+# Whether or not to train (boolean)
 train: true
 
-# {train, valid, test}.jsonlファイルがあるディレクトリ
+# Directory with {train, valid, test}.jsonl files
 data: "data"
 
-# PRNGシード
+# The PRNG seed
 seed: 0
 
-# ファインチューニングするレイヤーの数
+# Number of layers to fine-tune
 lora_layers: 32
 
-# ミニバッチサイズ
+# Minibatch size.
 batch_size: 1
 
-# トレーニングの反復回数
+# Iterations to train for.
 iters: 1000
 
-# 検証バッチの数、-1は検証セット全体を使用
+# Number of validation batches, -1 uses the entire validation set.
 val_batches: 25
 
-# Adam学習率
+# Adam learning rate.
 learning_rate: 1e-6
 
-# 損失報告の間のトレーニングステップ数
+# Number of training steps between loss reporting.
 steps_per_report: 10
 
-# 検証の間のトレーニングステップ数
+# Number of training steps between validations.
 steps_per_eval: 200
 
-# 指定されたアダプタウェイトでトレーニングを再開するためのロードパス
+# Load path to resume training with the given adapter weights.
 resume_adapter_file: null
 
-# トレーニングされたアダプタウェイトの保存/ロードパス
+# Save/load path for the trained adapter weights.
 adapter_path: "adapters"
 
-# N回の反復ごとにモデルを保存
+# Save the model every N iterations.
 save_every: 1000
 
-# トレーニング後にテストセットで評価
+# Evaluate on the test set after training
 test: false
 
-# テストセットバッチの数、-1はテストセット全体を使用
+# Number of test set batches, -1 uses the entire test set.
 test_batches: 100
 
-# 最大シーケンス長
+# Maximum sequence length.
 max_seq_length: 2048
 
-# メモリ使用量を減らすための勾配チェックポイントの使用
+# Use gradient checkpointing to reduce memory use.
 grad_checkpoint: true
 
-# LoRAパラメータはconfigファイルでのみ指定可能
+# LoRA parameters can only be specified in a config file
 lora_parameters:
-  # LoRAを適用するレイヤーキー
-  # これらは最後のlora_layersに適用されます
+  # The layer keys to apply LoRA to.
+  # These will be applied for the last lora_layers
   keys: ["o_proj","qkv_proj"]
   rank: 64
   alpha: 64
@@ -116,8 +109,7 @@ lora_parameters:
 
 ```
 
-以下のコマンドをターミナルで実行してください
-
+ターミナルでこのコマンドを実行してください。
 
 ```bash
 
@@ -125,11 +117,9 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ```
 
+## **3. ファインチューニングアダプターを実行してテスト**
 
-## **3. ファインチューニングアダプタのテスト**
-
-ターミナルでファインチューニングアダプタを実行できます。このように
-
+ターミナルでファインチューニングアダプターを実行できます。このように：
 
 ```bash
 
@@ -137,8 +127,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-そして、元のモデルを実行して結果を比較します
-
+そして、オリジナルモデルを実行して結果を比較します。
 
 ```bash
 
@@ -146,10 +135,9 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 ```
 
-ファインチューニングの結果と元のモデルの結果を比較してみてください
+ファインチューニングの結果をオリジナルモデルと比較してみてください。
 
-
-## **4. アダプタをマージして新しいモデルを生成**
+## **4. アダプターをマージして新しいモデルを生成**
 
 ```bash
 
@@ -157,10 +145,9 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. ollamaを使用して量子化されたファインチューニングモデルを実行**
+## **5. Ollamaを使用して量子化されたファインチューニングモデルを実行**
 
-使用前に、llama.cpp環境を設定してください
-
+使用前に、llama.cpp環境を設定してください。
 
 ```bash
 
@@ -176,12 +163,11 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 ***注意:*** 
 
-1. 現在、fp32、fp16、およびINT 8の量子化変換をサポートしています
+1. 現在、fp32、fp16、およびINT 8の量子化変換をサポートしています。
 
-2. マージされたモデルにはtokenizer.modelが欠けています。https://huggingface.co/microsoft/Phi-3-mini-4k-instruct からダウンロードしてください
+2. マージされたモデルにはtokenizer.modelが欠けているため、https://huggingface.co/microsoft/Phi-3-mini-4k-instruct からダウンロードしてください。
 
-Ollmaモデルファイルを設定（ollamaがインストールされていない場合は、[Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)をご覧ください）
-
+Ollmaモデルファイルを設定（Ollamaがインストールされていない場合は、[Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md) をご覧ください）
 
 ```txt
 
@@ -190,8 +176,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-ターミナルで以下のコマンドを実行
-
+ターミナルでコマンドを実行してください。
 
 ```bash
 
@@ -201,7 +186,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-おめでとうございます！MLXフレームワークでファインチューニングをマスターしました
+おめでとうございます！MLXフレームワークでファインチューニングをマスターしました。
 
-免責事項: この翻訳はAIモデルによって原文から翻訳されたものであり、完璧ではない可能性があります。
-出力を確認し、必要に応じて修正を行ってください。
+**免責事項**:
+この文書は、機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期すために努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があることをご承知おきください。原文の言語で記載された文書が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤訳については、一切の責任を負いかねます。

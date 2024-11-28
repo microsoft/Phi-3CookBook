@@ -1,10 +1,10 @@
 # **Usando Phi-3 en Hugging Face**
 
-[Hugging Face](https://huggingface.co/) es una comunidad de IA muy popular con datos ricos y recursos de modelos de código abierto. Diferentes fabricantes lanzan LLM y SLM de código abierto a través de Hugging Face, como Microsoft, Meta, Mistral, Apple, Google, etc.
+[Hugging Face](https://huggingface.co/) es una comunidad de IA muy popular con datos ricos y recursos de modelos de código abierto. Diferentes fabricantes lanzarán LLM y SLM de código abierto a través de Hugging Face, como Microsoft, Meta, Mistral, Apple, Google, etc.
 
 ![Phi3](../../../../translated_images/Hg_Phi3.dc94956455e775c886b69f7430a05b7a42aab729a81fa4083c906812edb475f8.es.png)
 
-Microsoft Phi-3 ha sido lanzado en Hugging Face. Los desarrolladores pueden descargar el modelo Phi-3 correspondiente basado en escenarios y negocios. Además de desplegar modelos Pytorch de Phi-3 en Hugging Face, también hemos lanzado modelos cuantificados, utilizando formatos GGUF y ONNX para ofrecer opciones a los usuarios finales.
+Microsoft Phi-3 ha sido lanzado en Hugging Face. Los desarrolladores pueden descargar el modelo Phi-3 correspondiente basado en escenarios y negocios. Además de desplegar modelos Pytorch de Phi-3 en Hugging Face, también lanzamos modelos cuantizados, utilizando formatos GGUF y ONNX para dar a los usuarios finales una opción.
 
 
 ## **1. Descargar Phi-3 desde Hugging Face**
@@ -19,7 +19,7 @@ git clone https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
 ## **2. Conocer la Plantilla de Prompt de Phi-3**
 
-Existe una plantilla de datos específica al entrenar Phi-3, por lo que al usar Phi-3, el envío de Prompt necesita configurarse a través de la Plantilla. Durante el ajuste fino, los datos también deben expandirse según la plantilla.
+Hay una plantilla de datos específica cuando se entrena Phi-3, por lo que al usar Phi-3, el envío de Prompt necesita ser configurado a través de la Plantilla. Durante el ajuste fino, los datos también necesitan ser ampliados según la plantilla.
 
 La plantilla tiene tres roles, incluyendo sistema, usuario y asistente.
 
@@ -38,18 +38,18 @@ por ejemplo
 ```txt
 
 <|system|>
-Eres un desarrollador de Python.<|end|>
+Your are a python developer.<|end|>
 <|user|>
-Ayúdame a generar un algoritmo de burbuja<|end|>
+Help me generate a bubble algorithm<|end|>
 <|assistant|>
 
 ```
 
-## **3. Inferencias con Phi-3 usando Python**
+## **3. Inferencias con Phi-3 en Python**
 
-Las inferencias con Phi-3 se refieren al proceso de usar los modelos Phi-3 para generar predicciones o salidas basadas en datos de entrada. Los modelos Phi-3 son una familia de pequeños modelos de lenguaje (SLMs) que incluyen variantes como Phi-3-Mini, Phi-3-Small y Phi-3-Medium, cada uno diseñado para diferentes escenarios de aplicación y con tamaños de parámetros variados. Estos modelos han sido entrenados con datos de alta calidad y están afinados para capacidades de chat, alineación, robustez y seguridad. Pueden ser desplegados tanto en plataformas de borde como en la nube usando ONNX y TensorFlow Lite, y se desarrollan de acuerdo con los principios de IA Responsable de Microsoft.
+Las inferencias con Phi-3 se refieren al proceso de usar los modelos Phi-3 para generar predicciones o salidas basadas en datos de entrada. Los modelos Phi-3 son una familia de pequeños modelos de lenguaje (SLMs) que incluyen variantes como Phi-3-Mini, Phi-3-Small y Phi-3-Medium, cada uno diseñado para diferentes escenarios de aplicación y con tamaños de parámetros variados. Estos modelos han sido entrenados con datos de alta calidad y están afinados para capacidades de chat, alineación, robustez y seguridad. Pueden ser desplegados en plataformas tanto de borde como en la nube utilizando ONNX y TensorFlow Lite, y se desarrollan de acuerdo con los principios de IA Responsable de Microsoft.
 
-Por ejemplo, el Phi-3-Mini es un modelo ligero y de última generación con 3.8 mil millones de parámetros, adecuado para prompts en formato de chat y soportando una longitud de contexto de hasta 128K tokens. Es el primer modelo en su clase de peso en soportar un contexto tan largo.
+Por ejemplo, el Phi-3-Mini es un modelo ligero y de última generación con 3.8 mil millones de parámetros, adecuado para prompts utilizando formato de chat y soportando una longitud de contexto de hasta 128K tokens. Es el primer modelo en su clase de peso que soporta un contexto tan largo.
 
 Los modelos Phi-3 están disponibles en plataformas como Azure AI MaaS, HuggingFace, NVIDIA, Ollama, ONNX, y pueden ser usados para una variedad de aplicaciones, incluyendo interacciones en tiempo real, sistemas autónomos y aplicaciones que requieren baja latencia.
 
@@ -73,8 +73,8 @@ model = AutoModelForCausalLM.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
 
 messages = [
-    {"role": "system", "content": "Eres un desarrollador de Python."},
-    {"role": "user", "content": "Ayúdame a generar un algoritmo de burbuja"},
+    {"role": "system", "content": "Your are a python developer."},
+    {"role": "user", "content": "Help me generate a bubble algorithm"},
 ]
 
 pipe = pipeline(
@@ -99,11 +99,11 @@ print(output[0]['generated_text'])
 > [!NOTE]
 > Puedes ver si este resultado es consistente con el resultado en tu mente
 
-## **4. Inferencias con Phi-3 usando C#**
+## **4. Inferencias con Phi-3 en C#**
 
 Aquí hay un ejemplo en una aplicación de consola .NET.
 
-El proyecto de C# debe agregar los siguientes paquetes:
+El proyecto C# debe agregar los siguientes paquetes:
 
 ```bash
 dotnet add package Microsoft.ML.OnnxRuntime --version 1.18.0
@@ -118,21 +118,21 @@ using System;
 using Microsoft.ML.OnnxRuntimeGenAI;
 
 
-// ubicación de la carpeta del archivo de modelo ONNX
+// folder location of the ONNX model file
 var modelPath = @"..\models\Phi-3-mini-4k-instruct-onnx";
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 
-var systemPrompt = "Eres un asistente de IA que ayuda a las personas a encontrar información. Responde preguntas usando un estilo directo. No compartas más información de la solicitada por los usuarios.";
+var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
 
-// inicio del chat
-Console.WriteLine(@"Haz tu pregunta. Escribe una cadena vacía para salir.");
+// chat start
+Console.WriteLine(@"Ask your question. Type an empty string to Exit.");
 
 
-// bucle de chat
+// chat loop
 while (true)
 {
-    // Obtener pregunta del usuario
+    // Get user question
     Console.WriteLine();
     Console.Write(@"Q: ");
     var userQ = Console.ReadLine();    
@@ -141,7 +141,7 @@ while (true)
         break;
     }
 
-    // mostrar respuesta de phi3
+    // show phi3 response
     Console.Write("Phi3: ");
     var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{userQ}<|end|><|assistant|>";
     var tokens = tokenizer.Encode(fullPrompt);
@@ -169,7 +169,7 @@ La demostración en ejecución es similar a esta:
 
 ![Chat running demo](../../../../imgs/02/csharp/20SampleConsole.gif)
 
-***Nota:** hay un error tipográfico en la primera pregunta, ¡Phi-3 es lo suficientemente genial para compartir la respuesta correcta!*
+***Nota:** ¡hay un error tipográfico en la primera pregunta, Phi-3 es lo suficientemente genial como para compartir la respuesta correcta!*
 
 ## **5. Usando Phi-3 en el Chat de Hugging Face**
 
@@ -177,5 +177,5 @@ El chat de Hugging Face proporciona una experiencia relacionada. Ingresa [aquí 
 
 ![Hg_Chat](../../../../translated_images/Hg_Chat.6ca1ac61a91bc770f0fb8043586eaf117397de78a5f3c77dac81a6f115c5347c.es.png)
 
-        Descargo de responsabilidad: La traducción fue realizada a partir de su original por un modelo de IA y puede no ser perfecta. 
-        Por favor, revise el resultado y haga las correcciones necesarias.
+        **Descargo de responsabilidad**:
+        Este documento ha sido traducido utilizando servicios de traducción automatizada por IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

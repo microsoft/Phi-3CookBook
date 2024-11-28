@@ -1,10 +1,10 @@
 # **ローカルでのPhi-3-Vision推論**
 
-Phi-3-vision-128k-instructを使用すると、Phi-3は言語を理解するだけでなく、視覚的にも世界を見ることができます。Phi-3-vision-128k-instructを通じて、OCR、テーブル解析、物体認識、画像の説明など、さまざまな視覚的な問題を解決することができます。以前は大量のデータトレーニングが必要だったタスクも簡単に完了できます。以下に、Phi-3-vision-128k-instructが引用する関連技術と応用シナリオを示します。
+Phi-3-vision-128k-instructは、Phi-3が言語を理解するだけでなく、視覚的にも世界を捉えることを可能にします。Phi-3-vision-128k-instructを通じて、OCR、テーブル解析、物体認識、画像の説明など、さまざまな視覚的問題を解決することができます。以前は大量のデータトレーニングが必要だったタスクも簡単に完了できます。以下は、Phi-3-vision-128k-instructによって引用された関連技術とアプリケーションシナリオです。
 
 ## **0. 準備**
 
-使用前に以下のPythonライブラリがインストールされていることを確認してください（Python 3.10+推奨）
+使用前に以下のPythonライブラリがインストールされていることを確認してください（Python 3.10+を推奨）
 
 ```bash
 pip install transformers -U
@@ -12,13 +12,13 @@ pip install datasets -U
 pip install torch -U
 ```
 
-***CUDA 11.6+***を使用し、flattenをインストールすることをお勧めします。
+***CUDA 11.6+*** を使用し、flattenをインストールすることを推奨します。
 
 ```bash
 pip install flash-attn --no-build-isolation
 ```
 
-新しいノートブックを作成します。例を完了するために、まず以下の内容を作成することをお勧めします。
+新しいNotebookを作成します。例を完了するために、まず以下の内容を作成することを推奨します。
 
 ```python
 from PIL import Image
@@ -42,7 +42,7 @@ prompt_suffix = "<|end|>\n"
 
 ## **1. Phi-3-Visionで画像を解析する**
 
-AIが画像の内容を解析し、関連する説明を提供できるようにします。
+AIが私たちの画像の内容を解析し、関連する説明を提供できるようにしたいと思います。
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
@@ -65,7 +65,7 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-ノートブックで以下のスクリプトを実行することで、関連する回答を得ることができます。
+Notebookで以下のスクリプトを実行することで、関連する答えを得ることができます。
 
 ```txt
 Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
@@ -73,7 +73,7 @@ Certainly! Nvidia Corporation is a global leader in advanced computing and artif
 
 ## **2. Phi-3-VisionでOCRを行う**
 
-画像を解析するだけでなく、画像から情報を抽出することもできます。これは、以前は複雑なコードを書く必要があったOCRプロセスです。
+画像を解析するだけでなく、画像から情報を抽出することもできます。これは、以前は複雑なコードを書かなければならなかったOCRプロセスです。
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nHelp me get the title and author information of this book?{prompt_suffix}{assistant_prompt}"
@@ -141,4 +141,4 @@ The first image shows a group of soccer players from the Arsenal Football Club p
 ```
 
 **免責事項**:
-この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期すよう努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。原文が権威ある情報源とみなされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤解釈については、一切の責任を負いかねます。
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期しておりますが、自動翻訳には誤りや不正確さが含まれる場合があります。元の言語の文書を権威ある情報源と見なすべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤った解釈について、当社は一切の責任を負いません。

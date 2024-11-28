@@ -1,36 +1,35 @@
-## Kaitoでの推論
+## Kaito での推論
 
-[Kaito](https://github.com/Azure/kaito)は、Kubernetesクラスター内でAI/ML推論モデルのデプロイを自動化するオペレーターです。
+[Kaito](https://github.com/Azure/kaito) は、Kubernetes クラスター内で AI/ML 推論モデルのデプロイを自動化するオペレーターです。
 
-Kaitoは、ほとんどの仮想マシンインフラストラクチャ上に構築された主流のモデルデプロイ方法と比較して、以下の主要な違いがあります：
+Kaito は、仮想マシンインフラストラクチャの上に構築された主流のモデルデプロイ手法と比較して、以下の重要な差別化要素があります：
 
-- コンテナイメージを使用してモデルファイルを管理します。モデルライブラリを使用して推論呼び出しを行うためのHTTPサーバーが提供されます。
-- プリセット構成を提供することで、GPUハードウェアに適合するデプロイパラメータの調整を避けます。
-- モデルの要件に基づいてGPUノードを自動プロビジョニングします。
-- ライセンスが許可する場合、Microsoft Container Registry (MCR)に大規模なモデルイメージをホストします。
+- コンテナイメージを使用してモデルファイルを管理します。モデルライブラリを使用して推論呼び出しを行うための http サーバーが提供されます。
+- プリセット構成を提供することで、GPU ハードウェアに適合するようにデプロイパラメーターを調整する必要を避けます。
+- モデルの要件に基づいて GPU ノードを自動プロビジョニングします。
+- ライセンスが許可する場合、大規模なモデルイメージをパブリック Microsoft Container Registry (MCR) にホストします。
 
-Kaitoを使用すると、Kubernetesにおける大規模なAI推論モデルのオンボーディングワークフローが大幅に簡素化されます。
-
+Kaito を使用することで、Kubernetes での大規模 AI 推論モデルのオンボーディングのワークフローが大幅に簡素化されます。
 
 ## アーキテクチャ
 
-Kaitoは、クラシックなKubernetesカスタムリソース定義（CRD）/コントローラーデザインパターンに従います。ユーザーは、GPUの要件と推論仕様を記述する`workspace`カスタムリソースを管理します。Kaitoコントローラーは、`workspace`カスタムリソースを調整することでデプロイを自動化します。
+Kaito は、クラシックな Kubernetes Custom Resource Definition (CRD) / コントローラーデザインパターンに従っています。ユーザーは GPU 要件と推論仕様を記述した `workspace` カスタムリソースを管理します。Kaito コントローラーは、この `workspace` カスタムリソースを調整することでデプロイを自動化します。
 <div align="left">
   <img src="https://github.com/Azure/kaito/blob/main/docs/img/arch.png" width=80% title="Kaito architecture" alt="Kaito architecture">
 </div>
 
-上の図は、Kaitoアーキテクチャの概要を示しています。主なコンポーネントは以下の通りです：
+上図は Kaito アーキテクチャの概要を示しています。その主要なコンポーネントは以下の通りです：
 
-- **Workspaceコントローラー**：`workspace`カスタムリソースを調整し、ノードの自動プロビジョニングをトリガーするために`machine`（以下で説明）カスタムリソースを作成し、モデルのプリセット構成に基づいて推論ワークロード（`deployment`または`statefulset`）を作成します。
-- **ノードプロビジョナーコントローラー**：このコントローラーの名前は、[gpu-provisioner helm chart](https://github.com/Azure/gpu-provisioner/tree/main/charts/gpu-provisioner)内の*gpu-provisioner*です。[Karpenter](https://sigs.k8s.io/karpenter)から派生した`machine` CRDを使用してworkspaceコントローラーと対話します。Azure Kubernetes Service（AKS）APIと統合して、AKSクラスターに新しいGPUノードを追加します。
-> Note: [*gpu-provisioner*](https://github.com/Azure/gpu-provisioner)はオープンソースのコンポーネントです。[Karpenter-core](https://sigs.k8s.io/karpenter) APIをサポートする他のコントローラーに置き換えることができます。
+- **Workspace コントローラー**：`workspace` カスタムリソースを調整し、ノードの自動プロビジョニングをトリガーする `machine` (後述) カスタムリソースを作成し、モデルのプリセット構成に基づいて推論ワークロード (`deployment` または `statefulset`) を作成します。
+- **Node プロビジョナーコントローラー**：このコントローラーの名前は [gpu-provisioner helm chart](https://github.com/Azure/gpu-provisioner/tree/main/charts/gpu-provisioner) の *gpu-provisioner* です。これは、[Karpenter](https://sigs.k8s.io/karpenter) から派生した `machine` CRD を使用して Workspace コントローラーと対話します。Azure Kubernetes Service (AKS) API と統合して、AKS クラスターに新しい GPU ノードを追加します。
+> Note: [*gpu-provisioner*](https://github.com/Azure/gpu-provisioner) はオープンソースコンポーネントです。他のコントローラーが [Karpenter-core](https://sigs.k8s.io/karpenter) API をサポートしている場合、それらに置き換えることができます。
 
 ## インストール
 
-インストールガイドは[こちら](https://github.com/Azure/kaito/blob/main/docs/installation.md)を参照してください。
+インストールガイダンスは [こちら](https://github.com/Azure/kaito/blob/main/docs/installation.md) をご覧ください。
 
-## Phi-3のクイックスタート推論
-[Sample Code Inference Phi-3](https://github.com/Azure/kaito/tree/main/examples/inference)
+## クイックスタート推論 Phi-3
+[サンプルコード推論 Phi-3](https://github.com/Azure/kaito/tree/main/examples/inference)
 
 ```
 apiVersion: kaito.sh/v1alpha1
@@ -75,7 +74,7 @@ tuning:
 $ kubectl apply -f examples/inference/kaito_workspace_phi_3.yaml
 ```
 
-次のコマンドを実行して、workspaceのステータスを追跡できます。WORKSPACEREADY列が`True`になったら、モデルのデプロイが成功したことを示します。
+次のコマンドを実行して Workspace のステータスを追跡できます。WORKSPACEREADY カラムが `True` になると、モデルが正常にデプロイされたことを示します。
 
 ```sh
 $ kubectl get workspace kaito_workspace_phi_3.yaml
@@ -83,7 +82,7 @@ NAME                  INSTANCE            RESOURCEREADY   INFERENCEREADY   WORKS
 workspace-phi-3-mini   Standard_NC6s_v3   True            True             True             10m
 ```
 
-次に、推論サービスのクラスターIPを見つけ、クラスタ内のサービスエンドポイントをテストするために一時的な`curl`ポッドを使用できます。
+次に、推論サービスのクラスター IP を見つけ、一時的な `curl` ポッドを使用してクラスター内のサービスエンドポイントをテストできます。
 
 ```sh
 $ kubectl get svc workspace-phi-3-mini
@@ -94,11 +93,11 @@ export CLUSTERIP=$(kubectl get svc workspace-phi-3-mini-adapter -o jsonpath="{.s
 $ kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- curl -X POST http://$CLUSTERIP/chat -H "accept: application/json" -H "Content-Type: application/json" -d "{\"prompt\":\"YOUR QUESTION HERE\"}"
 ```
 
-## アダプター付きPhi-3のクイックスタート推論
+## クイックスタート推論 Phi-3 with adapters
 
-Kaitoをインストールした後、次のコマンドを試して推論サービスを開始できます。
+Kaito をインストールした後、以下のコマンドを試して推論サービスを開始できます。
 
-[Sample Code Inference Phi-3 with Adapters](https://github.com/Azure/kaito/blob/main/examples/inference/kaito_workspace_phi_3_with_adapters.yaml)
+[サンプルコード推論 Phi-3 with Adapters](https://github.com/Azure/kaito/blob/main/examples/inference/kaito_workspace_phi_3_with_adapters.yaml)
 
 ```
 apiVersion: kaito.sh/v1alpha1
@@ -147,7 +146,7 @@ tuning:
 $ kubectl apply -f examples/inference/kaito_workspace_phi_3_with_adapters.yaml
 ```
 
-次のコマンドを実行して、workspaceのステータスを追跡できます。WORKSPACEREADY列が`True`になったら、モデルのデプロイが成功したことを示します。
+次のコマンドを実行して Workspace のステータスを追跡できます。WORKSPACEREADY カラムが `True` になると、モデルが正常にデプロイされたことを示します。
 
 ```sh
 $ kubectl get workspace kaito_workspace_phi_3_with_adapters.yaml
@@ -155,7 +154,7 @@ NAME                  INSTANCE            RESOURCEREADY   INFERENCEREADY   WORKS
 workspace-phi-3-mini-adapter   Standard_NC6s_v3   True            True             True             10m
 ```
 
-次に、推論サービスのクラスターIPを見つけ、クラスタ内のサービスエンドポイントをテストするために一時的な`curl`ポッドを使用できます。
+次に、推論サービスのクラスター IP を見つけ、一時的な `curl` ポッドを使用してクラスター内のサービスエンドポイントをテストできます。
 
 ```sh
 $ kubectl get svc workspace-phi-3-mini-adapter
@@ -166,5 +165,5 @@ export CLUSTERIP=$(kubectl get svc workspace-phi-3-mini-adapter -o jsonpath="{.s
 $ kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- curl -X POST http://$CLUSTERIP/chat -H "accept: application/json" -H "Content-Type: application/json" -d "{\"prompt\":\"YOUR QUESTION HERE\"}"
 ```
 
-免責事項: この翻訳はAIモデルによって原文から翻訳されたものであり、完璧ではない可能性があります。
-出力を確認し、必要な修正を行ってください。
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期していますが、自動翻訳には誤りや不正確さが含まれる場合があることにご注意ください。元の言語での原文を権威ある情報源と見なすべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用によって生じたいかなる誤解や誤訳についても、当社は責任を負いません。

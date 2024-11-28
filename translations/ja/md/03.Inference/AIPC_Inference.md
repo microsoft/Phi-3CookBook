@@ -1,23 +1,22 @@
 # **AI PCでのPhi-3推論**
 
-生成AIの進化とエッジデバイスのハードウェア能力の向上により、より多くの生成AIモデルがユーザーのBYODデバイスに統合できるようになりました。AI PCもその一つです。2024年から、Intel、AMD、QualcommはPCメーカーと協力して、ハードウェアの改良を通じてローカルの生成AIモデルを展開できるAI PCを導入しています。この議論では、Intel AI PCに焦点を当て、Intel AI PCでPhi-3を展開する方法を探ります。
+生成AIの進化とエッジデバイスのハードウェア能力の向上に伴い、ますます多くの生成AIモデルがユーザーのBYODデバイスに統合されるようになっています。AI PCもその一例です。2024年から、Intel、AMD、QualcommはPCメーカーと協力し、ハードウェアの改良を通じてローカル生成AIモデルの展開を促進するAI PCを導入します。このディスカッションでは、Intel AI PCに焦点を当て、Intel AI PCでPhi-3を展開する方法を探ります。
 
 ### NPUとは
 
-NPU（Neural Processing Unit）は、ニューラルネットワークの操作やAIタスクを加速するために設計された専用のプロセッサまたは処理ユニットです。一般的なCPUやGPUとは異なり、NPUsはデータ駆動型の並列コンピューティングに最適化されており、ビデオや画像のような大規模なマルチメディアデータの処理やニューラルネットワークのデータ処理に非常に効率的です。特に、音声認識、ビデオ通話の背景ぼかし、オブジェクト検出などの写真やビデオ編集プロセスなど、AI関連のタスクに適しています。
+NPU（Neural Processing Unit）は、ニューラルネットワークの操作やAIタスクを加速するために特別に設計されたプロセッサまたは処理ユニットです。一般的なCPUやGPUとは異なり、NPUはデータ駆動型の並列計算に最適化されており、大量のマルチメディアデータ（ビデオや画像など）やニューラルネットワークのデータ処理に非常に効率的です。特に音声認識、ビデオ通話の背景ぼかし、オブジェクト検出などの写真やビデオ編集プロセスなどのAI関連タスクに優れています。
 
-## NPUとGPUの違い
+## NPU vs GPU
 
-多くのAIや機械学習のワークロードはGPUで実行されますが、GPUとNPUには重要な違いがあります。
-GPUは並列コンピューティング能力で知られていますが、すべてのGPUがグラフィックス処理以外でも同じ効率を持っているわけではありません。一方、NPUはニューラルネットワーク操作に関わる複雑な計算のために特化されており、AIタスクに非常に効果的です。
+多くのAIや機械学習のワークロードはGPUで実行されますが、GPUとNPUには重要な違いがあります。GPUは並列計算能力で知られていますが、すべてのGPUがグラフィックス処理以外の効率が同じとは限りません。一方、NPUはニューラルネットワーク操作に関わる複雑な計算のために特別に設計されており、AIタスクに非常に効果的です。
 
-要するに、NPUはAI計算を加速する数学の達人であり、新しいAI PC時代において重要な役割を果たします！
+まとめると、NPUはAI計算を加速する数学の天才であり、AI PCの新しい時代において重要な役割を果たしています！
 
-***この例はIntelの最新Intel Core Ultra Processorに基づいています***
+***この例はIntelの最新のIntel Core Ultraプロセッサに基づいています***
 
 ## **1. NPUを使用してPhi-3モデルを実行する**
 
-Intel® NPUデバイスは、Intel® Core™ Ultra世代のCPU（旧称Meteor Lake）からIntelクライアントCPUに統合されたAI推論アクセラレータです。これにより、人工ニューラルネットワークタスクのエネルギー効率の高い実行が可能になります。
+Intel® NPUデバイスは、IntelクライアントCPUに統合されたAI推論アクセラレータであり、Intel® Core™ Ultra世代のCPU（以前はMeteor Lakeとして知られていた）から始まります。これにより、人工ニューラルネットワークタスクのエネルギー効率の良い実行が可能になります。
 
 ![Latency](../../../../translated_images/aipcphitokenlatency.eed732e4809ddb0ed39f84f7c305e0ad0083dfa88b79290779fdfeb1ecab90ba.ja.png)
 
@@ -25,13 +24,13 @@ Intel® NPUデバイスは、Intel® Core™ Ultra世代のCPU（旧称Meteor La
 
 **Intel NPU Acceleration Library**
 
-Intel NPU Acceleration Library [https://github.com/intel/intel-npu-acceleration-library](https://github.com/intel/intel-npu-acceleration-library) は、Intel Neural Processing Unit (NPU) の力を活用して、対応するハードウェア上で高速計算を実行することで、アプリケーションの効率を向上させるためのPythonライブラリです。
+Intel NPU Acceleration Library [https://github.com/intel/intel-npu-acceleration-library](https://github.com/intel/intel-npu-acceleration-library) は、Intel Neural Processing Unit (NPU) のパワーを活用して互換性のあるハードウェア上で高速計算を実行することで、アプリケーションの効率を向上させるためのPythonライブラリです。
 
-Intel® Core™ Ultraプロセッサ搭載のAI PCで動作するPhi-3-miniの例。
+Intel® Core™ Ultraプロセッサを搭載したAI PCでのPhi-3-miniの例。
 
 ![DemoPhiIntelAIPC](../../../../imgs/03/AIPC/aipcphi3-mini.gif)
 
-pipでPythonライブラリをインストール
+pipを使ってPythonライブラリをインストールする
 
 ```bash
 
@@ -39,11 +38,11 @@ pipでPythonライブラリをインストール
 
 ```
 
-***Note*** プロジェクトはまだ開発中ですが、リファレンスモデルはすでに非常に完成しています。
+***Note*** プロジェクトはまだ開発中ですが、リファレンスモデルはすでに非常に完成度が高いです。
 
 ### **Intel NPU Acceleration Libraryを使用してPhi-3を実行する**
 
-Intel NPUアクセラレーションを使用することで、このライブラリは従来のエンコードプロセスに影響を与えません。このライブラリを使用して、元のPhi-3モデルを量子化するだけで済みます。例えばFP16、INT8、INT4など
+Intel NPUアクセラレーションを使用することで、このライブラリは従来のエンコードプロセスに影響を与えません。元のPhi-3モデルをFP16、INT8、INT4などに量子化するためにこのライブラリを使用するだけで済みます。
 
 ```python
 
@@ -92,7 +91,7 @@ with warnings.catch_warnings():
 
 ```
 
-コードを実行するとき、タスクマネージャーを通じてNPUの実行状況を確認できます。
+コードを実行すると、タスクマネージャーを通じてNPUの動作状況を確認できます。
 
 ![NPU](../../../../translated_images/aipc_NPU.5995e81d09fc503ab2c3b4d17954a9a68ff46f8f8ce62957344c4957baf105e6.ja.png)
 
@@ -102,37 +101,37 @@ with warnings.catch_warnings():
 
 ### **DirectMLとは**
 
-[DirectML](https://github.com/microsoft/DirectML) は、機械学習のための高性能でハードウェアアクセラレートされたDirectX 12ライブラリです。DirectMLは、AMD、Intel、NVIDIA、Qualcommなどのベンダーから提供されるすべてのDirectX 12対応GPUを含む広範なハードウェアとドライバに対して、一般的な機械学習タスクのGPUアクセラレーションを提供します。
+[DirectML](https://github.com/microsoft/DirectML) は、機械学習のための高性能でハードウェアアクセラレートされたDirectX 12ライブラリです。DirectMLは、AMD、Intel、NVIDIA、QualcommなどのベンダーからのすべてのDirectX 12対応GPUを含む、広範なサポートハードウェアとドライバで一般的な機械学習タスクのGPUアクセラレーションを提供します。
 
-スタンドアロンで使用する場合、DirectML APIは低レベルのDirectX 12ライブラリであり、フレームワーク、ゲーム、その他のリアルタイムアプリケーションなどの高性能で低レイテンシのアプリケーションに適しています。DirectMLのDirect3D 12とのシームレスな相互運用性、低オーバーヘッド、およびハードウェア全体での一貫性により、高性能が求められる場合やハードウェア全体での結果の信頼性と予測可能性が重要な場合に、DirectMLは機械学習のアクセラレーションに最適です。
+単独で使用される場合、DirectML APIは低レベルのDirectX 12ライブラリであり、フレームワーク、ゲーム、その他のリアルタイムアプリケーションなどの高性能で低遅延のアプリケーションに適しています。DirectMLのDirect3D 12とのシームレスな相互運用性、その低オーバーヘッド、およびハードウェア間の一貫性は、高性能が求められ、かつハードウェア間での結果の信頼性と予測可能性が重要な場合に、機械学習を加速するための理想的な選択肢です。
 
-***Note*** : 最新のDirectMLはすでにNPUをサポートしています(https://devblogs.microsoft.com/directx/introducing-neural-processor-unit-npu-support-in-directml-developer-preview/)
+***Note*** : 最新のDirectMLはすでにNPUをサポートしています (https://devblogs.microsoft.com/directx/introducing-neural-processor-unit-npu-support-in-directml-developer-preview/)
 
-### DirectMLとCUDAの能力とパフォーマンスの比較
+### DirectMLとCUDAの能力とパフォーマンスの比較：
 
-**DirectML** はMicrosoftが開発した機械学習ライブラリです。Windowsデバイス（デスクトップ、ラップトップ、エッジデバイス）上で機械学習ワークロードを加速するために設計されています。
-- DX12ベース: DirectMLはDirectX 12 (DX12) の上に構築されており、NVIDIAとAMDの両方を含むGPU全体に広範なハードウェアサポートを提供します。
-- 広範なサポート: DX12を活用しているため、DirectMLはDX12をサポートするすべてのGPU（統合GPUを含む）で動作します。
+**DirectML** はMicrosoftが開発した機械学習ライブラリです。Windowsデバイス（デスクトップ、ラップトップ、エッジデバイスなど）で機械学習ワークロードを加速するために設計されています。
+- DX12ベース: DirectMLはDirectX 12 (DX12) の上に構築されており、NVIDIAとAMDの両方を含むGPU全体で幅広いハードウェアサポートを提供します。
+- 幅広いサポート: DX12を活用するため、DirectMLはDX12をサポートする任意のGPUで動作し、統合GPUでも動作します。
 - 画像処理: DirectMLはニューラルネットワークを使用して画像やその他のデータを処理し、画像認識、オブジェクト検出などのタスクに適しています。
-- 設定の簡単さ: DirectMLの設定は簡単で、特定のSDKやライブラリをGPUメーカーから取得する必要はありません。
-- パフォーマンス: 一部のケースでは、DirectMLは優れたパフォーマンスを発揮し、特定のワークロードに対してCUDAよりも高速になることがあります。
-- 制限: しかし、DirectMLはfloat16の大きなバッチサイズの場合には遅くなることがあります。
+- セットアップの容易さ: DirectMLのセットアップは簡単で、特定のSDKやGPUメーカーのライブラリを必要としません。
+- パフォーマンス: 場合によっては、DirectMLは良好なパフォーマンスを発揮し、特定のワークロードではCUDAよりも高速になることがあります。
+- 制限: しかし、DirectMLは特にfloat16の大きなバッチサイズでは遅くなることがあります。
 
-**CUDA** はNVIDIAの並列コンピューティングプラットフォームおよびプログラミングモデルです。NVIDIA GPUの力を一般的な計算、機械学習、科学シミュレーションに活用することができます。
-- NVIDIA専用: CUDAはNVIDIA GPUと密接に統合されており、それらのために特別に設計されています。
-- 高度に最適化: GPUアクセラレートされたタスクに対して優れたパフォーマンスを提供し、特にNVIDIA GPUを使用する場合に最適です。
-- 広く使用されている: 多くの機械学習フレームワークやライブラリ（TensorFlowやPyTorchなど）はCUDAをサポートしています。
-- カスタマイズ: 開発者は特定のタスクに対してCUDA設定を微調整でき、最適なパフォーマンスを引き出すことができます。
-- 制限: しかし、CUDAのNVIDIAハードウェアへの依存は、異なるGPU全体での広範な互換性が必要な場合には制約となることがあります。
+**CUDA** はNVIDIAの並列計算プラットフォームおよびプログラミングモデルです。開発者はNVIDIA GPUのパワーを活用して、機械学習や科学シミュレーションなどの一般的な計算を行うことができます。
+- NVIDIA専用: CUDAはNVIDIA GPUと緊密に統合されており、特にNVIDIA GPU用に設計されています。
+- 高度に最適化: GPUアクセラレートされたタスクに優れたパフォーマンスを提供し、特にNVIDIA GPUを使用する場合に最適です。
+- 広く使用されている: 多くの機械学習フレームワークやライブラリ（TensorFlowやPyTorchなど）がCUDAをサポートしています。
+- カスタマイズ: 開発者は特定のタスクのためにCUDA設定を微調整でき、最適なパフォーマンスを実現できます。
+- 制限: しかし、CUDAはNVIDIAハードウェアに依存しているため、異なるGPU間での互換性を求める場合には制限があります。
 
 ### DirectMLとCUDAの選択
 
-DirectMLとCUDAの選択は、特定の使用ケース、ハードウェアの可用性、好みに依存します。
-より広範な互換性と設定の簡単さを求める場合、DirectMLが良い選択かもしれません。しかし、NVIDIA GPUを持ち、最適化されたパフォーマンスが必要な場合、CUDAは強力な候補です。要するに、DirectMLとCUDAのどちらにも強みと弱みがあるため、決定する際には要件と利用可能なハードウェアを考慮してください。
+DirectMLとCUDAの選択は、具体的な使用ケース、ハードウェアの可用性、および好みに依存します。
+より広範な互換性とセットアップの容易さを求める場合は、DirectMLが適しているかもしれません。しかし、NVIDIA GPUを持ち、高度に最適化されたパフォーマンスが必要な場合は、CUDAが強力な選択肢です。要約すると、DirectMLとCUDAの両方に強みと弱みがあるため、選択する際には要件と利用可能なハードウェアを考慮してください。
 
-### **ONNX Runtimeでの生成AI**
+### **ONNX Runtimeによる生成AI**
 
-AIの時代において、AIモデルのポータビリティは非常に重要です。ONNX Runtimeは、トレーニング済みのモデルを簡単に異なるデバイスに展開できます。開発者は推論フレームワークに注意を払う必要がなく、統一されたAPIを使用してモデル推論を完了できます。生成AIの時代において、ONNX Runtimeはコード最適化も行っています（https://onnxruntime.ai/docs/genai/）。最適化されたONNX Runtimeを通じて、量子化された生成AIモデルは異なる端末で推論できます。ONNX Runtimeを使用した生成AIでは、Python、C#、C/C++を通じてAIモデルAPIを推論できます。もちろん、iPhoneでのデプロイメントでは、C++のONNX Runtime APIを利用することができます。
+AIの時代において、AIモデルの移植性は非常に重要です。ONNX Runtimeを使用すると、訓練されたモデルを簡単に異なるデバイスに展開できます。開発者は推論フレームワークに注意を払う必要がなく、統一されたAPIを使用してモデル推論を完了できます。生成AIの時代においても、ONNX Runtimeはコードの最適化を行っています (https://onnxruntime.ai/docs/genai/)。最適化されたONNX Runtimeを通じて、量子化された生成AIモデルを異なる端末で推論できます。生成AIをONNX Runtimeで実行する場合、Python、C#、C / C++を通じてAIモデルAPIを推論できます。もちろん、iPhoneへの展開はC++のGenerative AI with ONNX Runtime APIを活用できます。
 
 [サンプルコード](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/onnx)
 
@@ -183,7 +182,7 @@ pip install .\onnxruntime_genai_directml-0.3.0.dev0-cp310-cp310-win_amd64.whl
 
 ```
 
-これは実行結果です
+実行結果は次の通りです
 
 ![DML](../../../../translated_images/aipc_DML.311f483cb2951360febbe203ff1f8d66049cbaaafdfa33d06f1f201167548191.ja.png)
 
@@ -193,7 +192,7 @@ pip install .\onnxruntime_genai_directml-0.3.0.dev0-cp310-cp310-win_amd64.whl
 
 ### **OpenVINOとは**
 
-[OpenVINO](https://github.com/openvinotoolkit/openvino) は、ディープラーニングモデルの最適化とデプロイのためのオープンソースツールキットです。TensorFlow、PyTorchなどの人気のあるフレームワークからのビジョン、オーディオ、言語モデルのディープラーニングパフォーマンスを向上させます。OpenVINOは、CPUおよびGPUと組み合わせてPhi-3モデルを実行することもできます。
+[OpenVINO](https://github.com/openvinotoolkit/openvino) は、ディープラーニングモデルの最適化と展開のためのオープンソースツールキットです。TensorFlow、PyTorchなどの人気のあるフレームワークからのビジョン、オーディオ、および言語モデルのディープラーニングパフォーマンスを向上させます。OpenVINOを使い始めましょう。OpenVINOは、CPUとGPUを組み合わせてPhi3モデルを実行することもできます。
 
 ***Note***: 現在、OpenVINOはNPUをサポートしていません。
 
@@ -229,11 +228,11 @@ optimum-cli export openvino --model "microsoft/Phi-3-mini-4k-instruct" --task te
 
 ```
 
-変換された形式は以下のようになります
+変換された形式は次のようになります
 
 ![openvino_convert](../../../../translated_images/aipc_OpenVINO_convert.57010ce04f9c100fa55b9762e934818e663ec993f1bd026429c48fb9a65811ad.ja.png)
 
-OVModelForCausalLMを通じて、モデルパス（model_dir）、関連する設定（ov_config = {"PERFORMANCE_HINT": "LATENCY", "NUM_STREAMS": "1", "CACHE_DIR": ""}）、およびハードウェアアクセラレートされたデバイス（GPU.0）をロードします。
+OVModelForCausalLMを通じてモデルパス（model_dir）、関連する設定（ov_config = {"PERFORMANCE_HINT": "LATENCY", "NUM_STREAMS": "1", "CACHE_DIR": ""}）、およびハードウェアアクセラレートされたデバイス（GPU.0）をロードします。
 
 ```python
 
@@ -247,13 +246,13 @@ ov_model = OVModelForCausalLM.from_pretrained(
 
 ```
 
-コードを実行するとき、タスクマネージャーを通じてGPUの実行状況を確認できます。
+コードを実行すると、タスクマネージャーを通じてGPUの動作状況を確認できます。
 
 ![openvino_gpu](../../../../translated_images/aipc_OpenVINO_GPU.5e46f3572708832f1b6ea786cb0b0a99a1b662dfd6a860ac3477fb8cd5e64037.ja.png)
 
 ***Samples*** : [AIPC_OpenVino_Demo.ipynb](../../../../code/03.Inference/AIPC/AIPC_OpenVino_Demo.ipynb)
 
-### ***Note*** : 上記の3つの方法にはそれぞれ利点がありますが、AI PC推論にはNPUアクセラレーションの使用を推奨します。
+### ***Note*** : 上記の三つの方法にはそれぞれの利点がありますが、AI PC推論にはNPUアクセラレーションの使用をお勧めします。
 
-**免責事項**：
-この文書は、機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期すために努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。元の言語での原文が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の使用に起因する誤解や誤認について、当社は一切の責任を負いません。
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期しておりますが、自動翻訳には誤りや不正確さが含まれる可能性があることをご承知おきください。権威ある情報源としては、原文の母国語の文書を考慮すべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤解釈について、当社は一切の責任を負いません。

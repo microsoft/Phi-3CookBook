@@ -1,4 +1,4 @@
-Esta demostración muestra cómo usar un modelo preentrenado para generar código Python basado en una imagen y una indicación de texto.
+Este demo muestra cómo usar un modelo preentrenado para generar código Python basado en una imagen y un mensaje de texto.
 
 [Código de Ejemplo](../../../../code/06.E2E/E2E_OpenVino_Phi3-vision.ipynb)
 
@@ -7,30 +7,31 @@ Aquí tienes una explicación paso a paso:
 1. **Importaciones y Configuración**:
    - Se importan las bibliotecas y módulos necesarios, incluyendo `requests`, `PIL` para el procesamiento de imágenes, y `transformers` para manejar el modelo y el procesamiento.
 
-2. **Cargar y Mostrar la Imagen**:
-   - Se abre un archivo de imagen (`demo.png`) usando la biblioteca `PIL` y se muestra.
+2. **Cargando y Mostrando la Imagen**:
+   - Se abre un archivo de imagen (`demo.png`) utilizando la biblioteca `PIL` y se muestra.
 
-3. **Definir la Indicación**:
-   - Se crea un mensaje que incluye la imagen y una solicitud para generar código Python que procese la imagen y la guarde usando `plt` (matplotlib).
+3. **Definiendo el Prompt**:
+   - Se crea un mensaje que incluye la imagen y una solicitud para generar código Python para procesar la imagen y guardarla utilizando `plt` (matplotlib).
 
-4. **Cargar el Procesador**:
+4. **Cargando el Procesador**:
    - Se carga el `AutoProcessor` desde un modelo preentrenado especificado por el directorio `out_dir`. Este procesador manejará las entradas de texto e imagen.
 
-5. **Crear la Indicación**:
-   - Se utiliza el método `apply_chat_template` para formatear el mensaje en una indicación adecuada para el modelo.
+5. **Creando el Prompt**:
+   - Se utiliza el método `apply_chat_template` para formatear el mensaje en un prompt adecuado para el modelo.
 
-6. **Procesar las Entradas**:
-   - La indicación y la imagen se procesan en tensores que el modelo puede entender.
+6. **Procesando las Entradas**:
+   - El prompt y la imagen se procesan en tensores que el modelo puede entender.
 
-7. **Establecer Argumentos de Generación**:
-   - Se definen argumentos para el proceso de generación del modelo, incluyendo el número máximo de nuevos tokens a generar y si se debe muestrear la salida.
+7. **Configurando los Argumentos de Generación**:
+   - Se definen los argumentos para el proceso de generación del modelo, incluyendo el número máximo de nuevos tokens a generar y si se debe muestrear la salida.
 
-8. **Generar el Código**:
-   - El modelo genera el código Python basado en las entradas y los argumentos de generación. Se utiliza el `TextStreamer` para manejar la salida, omitiendo la indicación y los tokens especiales.
+8. **Generando el Código**:
+   - El modelo genera el código Python basado en las entradas y los argumentos de generación. Se utiliza `TextStreamer` para manejar la salida, omitiendo el prompt y los tokens especiales.
 
 9. **Salida**:
-   - Se imprime el código generado, que debería incluir código Python para procesar la imagen y guardarla según lo especificado en la indicación.
+   - Se imprime el código generado, que debería incluir código Python para procesar la imagen y guardarla como se especifica en el prompt.
 
-Esta demostración ilustra cómo aprovechar un modelo preentrenado usando OpenVino para generar código dinámicamente basado en la entrada del usuario e imágenes.
+Este demo ilustra cómo aprovechar un modelo preentrenado usando OpenVino para generar código dinámicamente basado en la entrada del usuario e imágenes.
 
-Aviso legal: La traducción fue realizada a partir de su original por un modelo de inteligencia artificial y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

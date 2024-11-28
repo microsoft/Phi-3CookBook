@@ -1,27 +1,27 @@
-# Scénario Complet de RAG Local Utilisant Phi-3, SemanticKernel et TextMemory
+# Scénario RAG Complet en Local Utilisant Phi-3, SemanticKernel, et TextMemory
 
 ## Introduction
 
-Bienvenue dans le dépôt pour le scénario complet de RAG local utilisant Phi-3, SemanticKernel et TextMemory. Ce projet démontre la puissance de Phi-3, un modèle de langage de petite taille révolutionnaire qui redéfinit les capacités de l'IA pour les développeurs et les entreprises.
+Bienvenue dans le dépôt pour le scénario RAG complet en local utilisant Phi-3, SemanticKernel, et TextMemory. Ce projet démontre la puissance de Phi-3, un modèle de langage de petite taille révolutionnaire qui redéfinit les capacités de l'IA pour les développeurs et les entreprises.
 
-## Vue d'ensemble du scénario
+## Aperçu du Scénario
 
-Le scénario de démonstration est conçu pour répondre à la question "Quel est le super héros préféré de Bruno ?" en utilisant deux approches différentes :
+Le scénario de démonstration est conçu pour répondre à la question, "Quel est le super héros préféré de Bruno ?" en utilisant deux approches différentes :
 
 1. Demander directement au modèle Phi-3.
 2. Ajouter un objet de mémoire sémantique avec des faits de fans chargés, puis poser la question.
 
-## Importance du scénario complet
+## Importance du Scénario Complet
 
 Phi-3 représente un saut significatif dans les modèles de langage de petite taille, offrant un mélange unique de performance et d'efficacité. Il est capable de gérer des scénarios complets de manière autonome, ce qui simplifie le processus de développement et réduit les complexités d'intégration.
 
-## Explication du code
+## Explication du Code
 
-L'application console démontre l'utilisation d'un modèle local hébergé dans Ollama et de la mémoire sémantique pour la recherche. Le programme utilise plusieurs bibliothèques externes pour l'injection de dépendances, la configuration, et les fonctionnalités du noyau sémantique et de la mémoire.
+L'application console démontre l'utilisation d'un modèle local hébergé dans Ollama et de la mémoire sémantique pour la recherche. Le programme utilise plusieurs bibliothèques externes pour l'injection de dépendances, la configuration, et les fonctionnalités de noyau sémantique et de mémoire.
 
-## Comment tester
+## Comment Tester
 
-1. Ouvrez un terminal et naviguez jusqu'au projet actuel.
+1. Ouvrez un terminal et naviguez vers le projet actuel.
 
     ```bash
     cd .\src\Sample03\
@@ -33,47 +33,47 @@ L'application console démontre l'utilisation d'un modèle local hébergé dans 
     dotnet run
     ```
 
-1. Le projet `Sample03`, répond à la question suivante :
+1. Le projet `Sample03`, répondez à la question suivante :
 
     ```csharp
-    var question = "Quel est le super héros préféré de Bruno ?"
+    var question = "What is Bruno's favourite super hero?"
     ```
 
-1. D'abord, la question est posée directement au modèle Phi-3. Ensuite, le programme charge les informations suivantes dans une mémoire texte, et pose à nouveau la question.
+1. D'abord, la question est posée directement au modèle Phi-3. Ensuite, le programme charge les informations suivantes dans une mémoire textuelle, et pose à nouveau la question.
 
     ```csharp
 
-    // obtenir le service générateur d'embeddings
+    // get the embeddings generator service
     var embeddingGenerator = kernel.Services.GetRequiredService<ITextEmbeddingGenerationService>();
     var memory = new SemanticTextMemory(new VolatileMemoryStore(), embeddingGenerator);    
 
-    // ajouter des faits à la collection
+    // add facts to the collection
     const string MemoryCollectionName = "fanFacts";
     
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", 
-            text: "Le super héros préféré de Gisela est Batman");
+            text: "Gisela's favourite super hero is Batman");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info2", 
-            text: "Le dernier film de super héros vu par Gisela était Les Gardiens de la Galaxie Vol 3");
+            text: "The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info3", 
-            text: "Le super héros préféré de Bruno est Invincible");
+            text: "Bruno's favourite super hero is Invincible");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info4", 
-            text: "Le dernier film de super héros vu par Bruno était Aquaman II");
+            text: "The last super hero movie watched by Bruno was Aquaman II");
     await memory.SaveInformationAsync(MemoryCollectionName, id: "info5", 
-            text: "Bruno n'aime pas le film de super héros : Les Éternels");    
+            text: "Bruno don't like the super hero movie: Eternals");    
     ```
 
-1. Une fois la mémoire texte prête, elle est chargée dans le noyau comme un plugin.
+1. Une fois la mémoire textuelle prête, elle est chargée dans le noyau en tant que plugin.
 
     ```csharp
     TextMemoryPlugin memoryPlugin = new(memory);
     
-    // Importer le plugin de mémoire texte dans le Kernel.
+    // Import the text memory plugin into the Kernel.
     kernel.ImportPluginFromObject(memoryPlugin);    
     ```
 
-1. Voici l'application console de démonstration s'exécutant dans un Codespace :
+1. Voici l'application console de démonstration en cours d'exécution dans un Codespace :
 
-    ![Application console de démonstration s'exécutant dans un Codespace](../../../../../../../md/07.Labs/CsharpOllamaCodeSpaces/src/Sample03/img/10RAGPhi3.gif)
+    ![Application console de démonstration en cours d'exécution dans un Codespace](../../../../../../../md/07.Labs/CsharpOllamaCodeSpaces/src/Sample03/img/10RAGPhi3.gif)
 
 ## Références
 
@@ -84,5 +84,5 @@ L'application console démontre l'utilisation d'un modèle local hébergé dans 
 - [Semantic Kernel main repository](https://github.com/microsoft/semantic-kernel)
 - [Smart Components - Local Embeddings](https://github.com/dotnet-smartcomponents/smartcomponents/blob/main/docs/local-embeddings.md)
 
-Avertissement : La traduction a été effectuée à partir de son original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement**:
+Ce document a été traduit à l'aide de services de traduction automatisée basés sur l'intelligence artificielle. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

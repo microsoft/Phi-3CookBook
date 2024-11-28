@@ -1,6 +1,6 @@
 # **Usando Phi-3 en LM Studio**
 
-[LM Studio](https://lmstudio.ai) es una aplicación para llamar a SLM y LLM en una aplicación de escritorio local. Permite a los usuarios usar fácilmente diferentes modelos y soporta computación acelerada usando GPU de NVIDIA/AMD/Apple Silicon. A través de LM Studio, los usuarios pueden descargar, instalar y ejecutar varios LLM y SLM de código abierto basados en Hugging Face para probar el rendimiento de los modelos localmente sin necesidad de programar.
+[LM Studio](https://lmstudio.ai) es una aplicación para llamar SLM y LLM en una aplicación de escritorio local. Permite a los usuarios utilizar fácilmente diferentes modelos y soporta computación acelerada usando NVIDIA/AMD GPU/Apple Silicon. A través de LM Studio, los usuarios pueden descargar, instalar y ejecutar varios LLM y SLM de código abierto basados en Hugging Face para probar el rendimiento del modelo localmente sin necesidad de codificar.
 
 ## **1. Instalación**
 
@@ -10,13 +10,13 @@ Puedes elegir instalar en Windows, Linux, macOS a través del sitio web de LM St
 
 ## **2. Descargar Phi-3 en LM Studio**
 
-LM Studio llama a modelos de código abierto en formato gguf cuantizado. Puedes descargarlo directamente desde la plataforma proporcionada por la interfaz de búsqueda de LM Studio, o puedes descargarlo tú mismo y especificar que se llame en el directorio relevante.
+LM Studio llama a modelos de código abierto en formato gguf cuantizado. Puedes descargarlo directamente desde la plataforma proporcionada por LM Studio Search UI, o puedes descargarlo tú mismo y especificar que se llame en el directorio relevante.
 
-***Buscamos Phi3 en la búsqueda de LM Studio y descargamos el modelo gguf de Phi-3***
+***Buscamos Phi3 en LM Studio Search y descargamos el modelo gguf de Phi-3***
 
 ![LMStudioSearch](../../../../translated_images/LMStudio_Search.1e577e0f69f336fc26e56653eeec2a20b90c3895cc4aa2ff05b6ec51059f12fd.es.png)
 
-***Gestiona los modelos descargados a través de LM Studio***
+***Gestionar los modelos descargados a través de LM Studio***
 
 ![LMStudioLocal](../../../../translated_images/LMStudio_Local.55f9d6f61eb27f0f37fc4833599aa43fa45a66dfc20444ba1419a922b60b5005.es.png)
 
@@ -30,13 +30,13 @@ Seleccionamos Phi-3 en LM Studio Chat y configuramos la plantilla de chat (Prese
 
 a. Puedes configurar parámetros a través de la Configuración Avanzada en el panel de control de LM Studio
 
-b. Debido a que Phi-3 tiene requisitos específicos de plantilla de chat, Phi-3 debe ser seleccionado en Preset
+b. Debido a que Phi-3 tiene requisitos específicos de plantilla de chat, se debe seleccionar Phi-3 en Preset
 
-c. También puedes configurar diferentes parámetros, como el uso de la GPU, etc.
+c. También puedes configurar diferentes parámetros, como el uso de GPU, etc.
 
 ## **4. Llamar a la API de Phi-3 desde LM Studio**
 
-LM Studio soporta el despliegue rápido de servicios locales, y puedes construir servicios de modelos sin programar.
+LM Studio soporta el despliegue rápido de servicios locales, y puedes construir servicios de modelo sin necesidad de codificar.
 
 ![LMStudioServer](../../../../translated_images/LMStudio_Server.917c115e12599e7698ce323085ce4f8bdb020665656bbe90edca2d45a7de932d.es.png)
 
@@ -44,5 +44,5 @@ Este es el resultado en Postman
 
 ![LMStudioPostman](../../../../translated_images/LMStudio_Postman.4481aa4873ecaae0e05032f539090897002fc9aca9da5d1336fb28776f4c45a7.es.png)
 
-Aviso legal: La traducción fue realizada a partir de su original por un modelo de IA y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción humana profesional. No nos hacemos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.

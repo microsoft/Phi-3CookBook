@@ -1,8 +1,8 @@
 # Rustを使ったクロスプラットフォーム推論
 
-このチュートリアルでは、RustとHuggingFaceの[Candle MLフレームワーク](https://github.com/huggingface/candle)を使用して推論を行うプロセスを説明します。Rustを使用した推論には、特に他のプログラミング言語と比較していくつかの利点があります。RustはCやC++と同等の高いパフォーマンスで知られており、計算量の多い推論タスクに最適です。これは主にゼロコスト抽象化と効率的なメモリ管理（ガベージコレクションのオーバーヘッドがない）によるものです。Rustのクロスプラットフォーム機能により、Windows、macOS、Linux、およびモバイルオペレーティングシステムなど、さまざまなオペレーティングシステムでコードを大きな変更なしに実行できます。
+このチュートリアルでは、HuggingFaceの[Candle MLフレームワーク](https://github.com/huggingface/candle)を使用してRustで推論を行う手順を紹介します。Rustを使用することで、他のプログラミング言語と比較していくつかの利点があります。RustはCやC++に匹敵する高いパフォーマンスで知られており、計算量の多い推論タスクに適しています。特に、ゼロコスト抽象化と効率的なメモリ管理により、ガベージコレクションのオーバーヘッドがないことが大きな要因です。Rustのクロスプラットフォーム機能により、Windows、macOS、Linux、さらにはモバイルOSなど、さまざまなオペレーティングシステムで動作するコードを大きな変更なしに開発することができます。
 
-このチュートリアルを進める前に、[Rustをインストール](https://www.rust-lang.org/tools/install)する必要があります。これにはRustコンパイラとパッケージマネージャであるCargoが含まれます。
+このチュートリアルを進めるための前提条件として、[Rustをインストール](https://www.rust-lang.org/tools/install)する必要があります。これにはRustコンパイラとパッケージマネージャであるCargoが含まれます。
 
 ## ステップ1: 新しいRustプロジェクトを作成する
 
@@ -12,9 +12,9 @@
 cargo new phi-console-app
 ```
 
-これにより、`Cargo.toml`ファイルと`main.rs`ファイルを含む`src`ディレクトリを持つ初期プロジェクト構造が生成されます。
+これにより、`Cargo.toml` file and a `src` directory containing a `main.rs` file.
 
-次に、`Cargo.toml`ファイルに`candle`、`hf-hub`、`tokenizers`クレートを依存関係として追加します。
+Next, we will add our dependencies - namely the `candle`, `hf-hub` and `tokenizers` crates - to the `Cargo.toml`ファイルを含む初期プロジェクト構造が生成されます。
 
 ```toml
 [package]
@@ -30,9 +30,9 @@ rand = "0.8"
 tokenizers = "0.15.2"
 ```
 
-## ステップ2: 基本的なパラメータを設定する
+## ステップ2: 基本パラメータの設定
 
-`main.rs`ファイル内で、推論のための初期パラメータを設定します。これらは簡単のためにハードコーディングされますが、必要に応じて変更できます。
+main.rsファイル内で、推論のための初期パラメータを設定します。これらは簡単のためにハードコードされていますが、必要に応じて変更することができます。
 
 ```rust
 let temperature: f64 = 1.0;
@@ -48,12 +48,12 @@ let device = Device::Cpu;
 
 - **temperature**: サンプリングプロセスのランダム性を制御します。
 - **sample_len**: 生成されるテキストの最大長を指定します。
-- **top_p**: 各ステップで考慮されるトークンの数を制限するための核サンプリングに使用されます。
-- **repeat_last_n**: 繰り返しシーケンスを防ぐためにペナルティを適用するトークンの数を制御します。
-- **repeat_penalty**: 繰り返しトークンを抑制するためのペナルティ値。
-- **seed**: ランダムシード（再現性を高めるために定数値を使用することもできます）。
-- **prompt**: 生成を開始するための初期プロンプトテキスト。モデルにアイスホッケーについての俳句を生成させるように要求し、会話のユーザーとアシスタント部分を示す特別なトークンでラップしています。モデルはこのプロンプトを完了して俳句を生成します。
-- **device**: この例ではCPUを使用します。CandleはCUDAやMetalを使用してGPU上での実行もサポートしています。
+- **top_p**: 各ステップで考慮されるトークンの数を制限するために使用されます。
+- **repeat_last_n**: 繰り返しのシーケンスを防ぐためにペナルティを適用するトークンの数を制御します。
+- **repeat_penalty**: 繰り返しトークンを抑制するためのペナルティ値です。
+- **seed**: ランダムシード（再現性を高めるために一定の値を使用できます）。
+- **prompt**: 生成を開始するための初期プロンプトテキストです。アイスホッケーについての俳句を生成するようモデルに指示し、会話のユーザーとアシスタントの部分を示す特別なトークンで囲みます。モデルはプロンプトを完了し、俳句を生成します。
+- **device**: この例では計算にCPUを使用します。CandleはCUDAおよびMetalを使用してGPU上での実行もサポートしています。
 
 ## ステップ3: モデルとトークナイザーのダウンロード/準備
 
@@ -73,9 +73,9 @@ let tokenizer_path = api
 let tokenizer = Tokenizer::from_file(tokenizer_path).map_err(|e| e.to_string())?;
 ```
 
-`hf_hub` APIを使用して、Hugging Faceモデルハブからモデルとトークナイザーファイルをダウンロードします。`gguf`ファイルには量子化されたモデルの重みが含まれており、`tokenizer.json`ファイルは入力テキストをトークナイズするために使用されます。ダウンロードされたモデルはキャッシュされるため、最初の実行は遅く（モデルの2.4GBをダウンロードするため）なりますが、次回以降の実行は速くなります。
+`hf_hub` API to download the model and tokenizer files from the Hugging Face model hub. The `gguf` file contains the quantized model weights, while the `tokenizer.json`ファイルは、入力テキストのトークン化に使用されます。ダウンロード後、モデルはキャッシュされるため、最初の実行は遅くなりますが（2.4GBのモデルをダウンロードするため）、その後の実行は速くなります。
 
-## ステップ4: モデルの読み込み
+## ステップ4: モデルのロード
 
 ```rust
 let mut file = std::fs::File::open(&model_path)?;
@@ -83,7 +83,7 @@ let model_content = gguf_file::Content::read(&mut file)?;
 let mut model = Phi3::from_gguf(false, model_content, &mut file, &device)?;
 ```
 
-量子化されたモデルの重みをメモリに読み込み、Phi-3モデルを初期化します。このステップでは、`gguf`ファイルからモデルの重みを読み込み、指定されたデバイス（この場合はCPU）での推論のためにモデルを設定します。
+量子化されたモデルの重みをメモリにロードし、Phi-3モデルを初期化します。このステップでは、`gguf`ファイルからモデルの重みを読み込み、指定されたデバイス（この場合はCPU）で推論を行うためのモデルを設定します。
 
 ## ステップ5: プロンプトの処理と推論の準備
 
@@ -111,9 +111,9 @@ for (pos, &token) in tokens.iter().enumerate() {
 }
 ```
 
-このステップでは、入力プロンプトをトークナイズし、トークンIDのシーケンスに変換して推論の準備をします。また、与えられた`temperature`と`top_p`の値に基づいてサンプリングプロセス（語彙に対する確率分布）を処理するために`LogitsProcessor`を初期化します。各トークンはテンソルに変換され、モデルに渡されてロジットが取得されます。
+このステップでは、入力プロンプトをトークン化し、トークンIDのシーケンスに変換して推論の準備を行います。また、`LogitsProcessor` to handle the sampling process (probability distribution over the vocabulary) based on the given `temperature` and `top_p`の値を初期化します。各トークンはテンソルに変換され、モデルを通じてロジットを取得します。
 
-ループはプロンプト内の各トークンを処理し、ロジットプロセッサを更新して次のトークン生成の準備をします。
+ループはプロンプト内の各トークンを処理し、ロジットプロセッサを更新して次のトークン生成の準備を行います。
 
 ## ステップ6: 推論
 
@@ -151,10 +151,10 @@ for index in 0..to_sample {
 }
 ```
 
-推論ループでは、指定されたサンプル長に達するか、シーケンス終了トークンに遭遇するまでトークンを一つずつ生成します。次のトークンはテンソルに変換され、モデルに渡され、ロジットが処理されてペナルティとサンプリングが適用されます。次にサンプリングされたトークンがシーケンスに追加され、デコードされます。
-繰り返しテキストを避けるために、`repeat_last_n`と`repeat_penalty`のパラメータに基づいて繰り返しトークンにペナルティが適用されます。
+推論ループでは、指定されたサンプル長に達するか、シーケンスの終了トークンに出会うまで、トークンを1つずつ生成します。次のトークンはテンソルに変換され、モデルを通じてロジットが処理され、ペナルティとサンプリングが適用されます。その後、次のトークンがサンプリングされ、デコードされ、シーケンスに追加されます。
+繰り返しのテキストを避けるために、`repeat_last_n` and `repeat_penalty`パラメータに基づいて繰り返しトークンにペナルティが適用されます。
 
-最後に、生成されたテキストはデコードされるとリアルタイムで出力されます。
+最後に、生成されたテキストがデコードされると同時にリアルタイムで出力されます。
 
 ## ステップ7: アプリケーションの実行
 
@@ -164,7 +164,7 @@ for index in 0..to_sample {
 cargo run --release
 ```
 
-これにより、Phi-3モデルによって生成されたアイスホッケーについての俳句が表示されます。例えば、次のようなものです。
+これにより、Phi-3モデルによって生成されたアイスホッケーに関する俳句が出力されます。例えば：
 
 ```
 Puck glides swiftly,  
@@ -182,9 +182,9 @@ Swish of sticks now alive.
 
 ## 結論
 
-これらのステップに従うことで、RustとCandleを使用してPhi-3モデルでテキスト生成を行うことができます。モデルの読み込み、トークナイズ、推論を処理し、入力プロンプトに基づいて一貫したテキストを生成するためにテンソルとロジット処理を活用しています。
+これらの手順に従うことで、100行未満のコードでRustとCandleを使用してPhi-3モデルを用いたテキスト生成を行うことができます。このコードはモデルのロード、トークン化、推論を処理し、入力プロンプトに基づいて一貫したテキストを生成します。
 
-このコンソールアプリケーションはWindows、Linux、Mac OSで実行できます。Rustのポータビリティのおかげで、コードはモバイルアプリ内で実行されるライブラリに適応させることもできます（コンソールアプリは実行できませんが）。
+このコンソールアプリケーションは、Windows、Linux、およびMac OSで動作します。Rustのポータビリティにより、このコードはモバイルアプリ内で実行されるライブラリに適応することもできます（コンソールアプリは実行できないため）。
 
 ## 付録: 完全なコード
 
@@ -295,7 +295,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
-Note: in order to run this code on aarch64 Linux or aarch64 Windows, add a file named `.cargo/config` with the following content:
+注：aarch64 Linuxまたはaarch64 Windowsでこのコードを実行するには、次の内容のファイル `.cargo/config` を追加します。
 
 ```toml
 [target.aarch64-pc-windows-msvc]
@@ -309,6 +309,7 @@ rustflags = [
 ]
 ```
 
-> You can visit the official [Candle examples](https://github.com/huggingface/candle/blob/main/candle-examples/examples/quantized-phi/main.rs) repository for more examples on how to use the Phi-3 model with Rust and Candle, including alternative approaches to inference.
+> 公式の[Candle examples](https://github.com/huggingface/candle/blob/main/candle-examples/examples/quantized-phi/main.rs)リポジトリには、RustとCandleを使用してPhi-3モデルを使用する方法の他の例が掲載されています。
 
-免責事項: この翻訳はAIモデルによって元の言語から翻訳されたものであり、完全ではない可能性があります。 出力を確認し、必要な修正を行ってください。
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期していますが、自動翻訳には誤りや不正確さが含まれる可能性があることをご理解ください。元の言語で記載された原文が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤った解釈について、当社は一切の責任を負いかねます。

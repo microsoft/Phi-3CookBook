@@ -4,7 +4,7 @@ Ceci est le README de votre extension "phi3ext". Après avoir rédigé une brèv
 
 ## Fonctionnalités
 
-Décrivez les fonctionnalités spécifiques de votre extension, y compris des captures d'écran de l'extension en cours d'exécution. Les chemins des images doivent être relatifs à ce fichier README.
+Décrivez les fonctionnalités spécifiques de votre extension, y compris des captures d'écran de l'extension en cours d'exécution. Le chemin des images est relatif à ce fichier README.
 
 Par exemple, si vous avez un sous-dossier d'images dans l'espace de travail de votre projet d'extension :
 
@@ -25,11 +25,11 @@ Par exemple :
 Cette extension contribue aux paramètres suivants :
 
 * `myExtension.enable`: Activer/désactiver cette extension.
-* `myExtension.thing`: Définir sur `blah` pour faire quelque chose.
+* `myExtension.thing`: Configurer pour `blah` pour faire quelque chose.
 
 ## Problèmes connus
 
-Indiquer les problèmes connus peut aider à réduire les questions répétitives des utilisateurs concernant votre extension.
+Indiquer les problèmes connus peut aider à réduire les utilisateurs ouvrant des problèmes en double pour votre extension.
 
 ## Notes de version
 
@@ -49,18 +49,18 @@ Ajout des fonctionnalités X, Y et Z.
 
 ---
 
-## Suivre les directives pour les extensions
+## Suivre les directives d'extension
 
-Assurez-vous d'avoir lu les directives pour les extensions et de suivre les meilleures pratiques pour la création d'extensions.
+Assurez-vous d'avoir lu les directives d'extension et de suivre les meilleures pratiques pour créer des extensions.
 
-* [Directives pour les extensions](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
+* [Directives d'extension](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
 
 ## Travailler avec Markdown
 
-Vous pouvez utiliser Visual Studio Code pour rédiger votre README. Voici quelques raccourcis d'éditeur utiles :
+Vous pouvez utiliser Visual Studio Code pour rédiger votre README. Voici quelques raccourcis utiles de l'éditeur :
 
 * Diviser l'éditeur (`Cmd+\` sur macOS ou `Ctrl+\` sur Windows et Linux).
-* Basculer l'aperçu (`Shift+Cmd+V` sur macOS ou `Shift+Ctrl+V` sur Windows et Linux).
+* Basculer la prévisualisation (`Shift+Cmd+V` sur macOS ou `Shift+Ctrl+V` sur Windows et Linux).
 * Appuyez sur `Ctrl+Space` (Windows, Linux, macOS) pour voir la liste des extraits de code Markdown.
 
 ## Pour plus d'informations
@@ -70,4 +70,5 @@ Vous pouvez utiliser Visual Studio Code pour rédiger votre README. Voici quelqu
 
 **Profitez-en !**
 
-Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement**:
+Ce document a été traduit à l'aide de services de traduction automatisée par IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

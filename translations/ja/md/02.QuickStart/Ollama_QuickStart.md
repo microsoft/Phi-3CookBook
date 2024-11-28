@@ -1,10 +1,10 @@
-# **OllamaでPhi-3を使う**
+# **OllamaでPhi-3を使用する**
 
-[Ollama](https://ollama.com)を使えば、オープンソースのLLMやSLMを簡単なスクリプトで直接デプロイできるだけでなく、ローカルのCopilotアプリケーションシナリオに役立つAPIを構築することもできます。
+[Ollama](https://ollama.com)は、シンプルなスクリプトを通じて、より多くの人々がオープンソースのLLMやSLMを直接デプロイできるようにし、ローカルのCopilotアプリケーションシナリオを支援するためのAPIを構築することもできます。
 
 ## **1. インストール**
 
-OllamaはWindows、macOS、Linuxで動作します。このリンクからOllamaをインストールできます（[https://ollama.com/download](https://ollama.com/download)）。インストールが完了したら、ターミナルウィンドウからOllamaスクリプトを使ってPhi-3を呼び出すことができます。すべての[利用可能なライブラリはOllamaのサイト](https://ollama.com/library)で確認できます。このリポジトリをCodespaceで開くと、Ollamaはすでにインストールされています。
+OllamaはWindows、macOS、Linux上で動作します。こちらのリンクからOllamaをインストールできます（[https://ollama.com/download](https://ollama.com/download)）。インストールが成功したら、ターミナルウィンドウを通じてOllamaスクリプトを使用してPhi-3を呼び出すことができます。すべての[利用可能なライブラリはOllamaで確認できます](https://ollama.com/library)。Codespaceでこのリポジトリを開くと、すでにOllamaがインストールされています。
 
 ```bash
 
@@ -13,13 +13,13 @@ ollama run phi3
 ```
 
 > [!NOTE]
-> 初めて実行するときはモデルが最初にダウンロードされます。もちろん、すでにダウンロード済みのPhi-3モデルを指定することもできます。ここではWSLを例にとってコマンドを実行します。モデルが正常にダウンロードされた後は、ターミナルで直接対話できます。
+> 初めて実行する際にはモデルがダウンロードされます。もちろん、すでにダウンロードされたPhi-3モデルを直接指定することもできます。WSLを例としてコマンドを実行します。モデルが正常にダウンロードされた後、ターミナル上で直接対話することができます。
 
 ![run](../../../../translated_images/ollama_run.302aa6484e50a7f8f09b40c787dc22eea10525cac6287c92825c8fc80c012c48.ja.png)
 
 ## **2. Ollamaからphi-3 APIを呼び出す**
 
-Ollamaで生成されたPhi-3 APIを呼び出したい場合は、このコマンドをターミナルで実行してOllamaサーバーを起動します。
+Ollamaで生成されたPhi-3 APIを呼び出したい場合、ターミナルでこのコマンドを使用してOllamaサーバーを起動できます。
 
 ```bash
 
@@ -28,7 +28,7 @@ ollama serve
 ```
 
 > [!NOTE]
-> MacOSまたはLinuxを使用している場合、次のエラーに遭遇する可能性があります **"Error: listen tcp 127.0.0.1:11434: bind: address already in use"** このエラーはサーバーがすでに実行中であることを示していることが多いので無視しても構いませんし、Ollamaを停止して再起動することもできます。
+> MacOSやLinuxを実行している場合、**"Error: listen tcp 127.0.0.1:11434: bind: address already in use"**というエラーに遭遇する可能性があります。このエラーは、通常サーバーがすでに実行中であることを示しているため、無視するか、Ollamaを停止して再起動することができます。
 
 **macOS**
 
@@ -46,7 +46,7 @@ sudo systemctl stop ollama
 
 ```
 
-Ollamaは2つのAPIをサポートしています：generateとchat。必要に応じて、ポート11434で動作するローカルサービスにリクエストを送信して、Ollamaが提供するモデルAPIを呼び出すことができます。
+Ollamaは2つのAPIをサポートしています：generateとchat。Ollamaが提供するモデルAPIを、ポート11434で実行されているローカルサービスにリクエストを送信することで、ニーズに応じて呼び出すことができます。
 
 **Chat**
 
@@ -57,11 +57,11 @@ curl http://127.0.0.1:11434/api/chat -d '{
   "messages": [
     {
       "role": "system",
-      "content": "あなたはPython開発者です。"
+      "content": "Your are a python developer."
     },
     {
       "role": "user",
-      "content": "バブルソートのアルゴリズムを生成するのを手伝ってください"
+      "content": "Help me generate a bubble algorithm"
     }
   ],
   "stream": false
@@ -79,7 +79,7 @@ curl http://127.0.0.1:11434/api/chat -d '{
 
 curl http://127.0.0.1:11434/api/generate -d '{
   "model": "phi3",
-  "prompt": "<|system|>あなたは私のAIアシスタントです。<|end|><|user|>AIを学ぶ方法を教えてください<|end|><|assistant|>",
+  "prompt": "<|system|>Your are my AI assistant.<|end|><|user|>tell me how to learn AI<|end|><|assistant|>",
   "stream": false
 }'
 
@@ -92,7 +92,7 @@ curl http://127.0.0.1:11434/api/generate -d '{
 
 ## 追加リソース
 
-Ollamaの利用可能なモデルのリストは[ライブラリ](https://ollama.com/library)で確認できます。
+Ollamaで利用可能なモデルのリストは[こちらのライブラリ](https://ollama.com/library)で確認できます。
 
 このコマンドを使用してOllamaサーバーからモデルを取得します
 
@@ -106,13 +106,13 @@ ollama pull phi3
 ollama run phi3
 ```
 
-***Note:*** 詳しくはこのリンクを参照してください [https://github.com/ollama/ollama/blob/main/docs/api.md](https://github.com/ollama/ollama/blob/main/docs/api.md)
+***Note:*** 詳細については、こちらのリンクをご覧ください [https://github.com/ollama/ollama/blob/main/docs/api.md](https://github.com/ollama/ollama/blob/main/docs/api.md)
 
 ## PythonからOllamaを呼び出す
 
-`requests`や`urllib3`を使って上記のローカルサーバーエンドポイントにリクエストを送ることができます。しかし、PythonでOllamaを使う一般的な方法は、OllamaがOpenAI互換のサーバーエンドポイントを提供しているため、[openai](https://pypi.org/project/openai/) SDKを使用することです。
+`requests` or `urllib3`を使用して、上記のローカルサーバーエンドポイントにリクエストを送信することができます。ただし、PythonでOllamaを使用する人気の方法は、[openai](https://pypi.org/project/openai/) SDKを介する方法です。OllamaはOpenAI互換のサーバーエンドポイントを提供しているためです。
 
-phi3-miniの例を以下に示します：
+phi3-miniの例は以下の通りです：
 
 ```python
 import openai
@@ -127,8 +127,8 @@ response = client.chat.completions.create(
     temperature=0.7,
     n=1,
     messages=[
-        {"role": "system", "content": "あなたは役に立つアシスタントです。"},
-        {"role": "user", "content": "空腹な猫についての俳句を書いてください"},
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Write a haiku about a hungry cat"},
     ],
 )
 
@@ -136,53 +136,53 @@ print("Response:")
 print(response.choices[0].message.content)
 ```
 
-## JavaScriptからOllamaを呼び出す 
+## JavaScriptからOllamaを呼び出す
 
 ```javascript
-// Phi-3を使ってファイルを要約する例
+// Example of Summarize a file with Phi-3
 script({
     model: "ollama:phi3",
-    title: "Phi-3で要約",
+    title: "Summarize with Phi-3",
     system: ["system"],
 })
 
-// 要約の例
+// Example of summarize
 const file = def("FILE", env.files)
 $`Summarize ${file} in a single paragraph.`
 ```
 
 ## C#からOllamaを呼び出す
 
-新しいC#コンソールアプリケーションを作成し、次のNuGetパッケージを追加します：
+新しいC#コンソールアプリケーションを作成し、以下のNuGetパッケージを追加します：
 
 ```bash
 dotnet add package Microsoft.SemanticKernel --version 1.13.0
 ```
 
-次に、`Program.cs`ファイルにこのコードを置き換えます
+次に、このコードを`Program.cs`ファイルに置き換えます
 
 ```csharp
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 
-// ローカルOllamaサーバーエンドポイントを使用してチャット補完サービスを追加
+// add chat completion service using the local ollama server endpoint
 #pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
 builder.AddOpenAIChatCompletion(
     modelId: "phi3.5",
     endpoint: new Uri("http://localhost:11434/"),
     apiKey: "non required");
 
-// チャットサービスにシンプルなプロンプトを送信
-string prompt = "子猫についてのジョークを言ってください";
+// invoke a simple prompt to the chat service
+string prompt = "Write a joke about kittens";
 var response = await kernel.InvokePromptAsync(prompt);
 Console.WriteLine(response.GetValue<string>());
 ```
 
-次のコマンドでアプリを実行します：
+このコマンドでアプリを実行します：
 
 ```bash
 dotnet run
 ```
 
-免責事項: この翻訳はAIモデルによって原文から翻訳されたものであり、完全ではない可能性があります。
-出力を確認し、必要に応じて修正を行ってください。
+**免責事項**：
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期しておりますが、自動翻訳には誤りや不正確さが含まれる場合があります。元の言語の文書が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤訳について、当社は一切の責任を負いません。

@@ -1,39 +1,39 @@
 # phi3ext README
 
-Este es el README de tu extensión "phi3ext". Después de escribir una breve descripción, te sugerimos que incluyas las siguientes secciones.
+Este es el README de tu extensión "phi3ext". Después de escribir una breve descripción, te sugerimos incluir las siguientes secciones.
 
 ## Features
 
-Describe las funciones específicas de tu extensión, incluyendo capturas de pantalla de la extensión en funcionamiento. Las rutas de las imágenes deben ser relativas a este archivo README.
+Describe las funciones específicas de tu extensión, incluyendo capturas de pantalla mientras la extensión está en funcionamiento. Las rutas de las imágenes son relativas a este archivo README.
 
 Por ejemplo, si hay una subcarpeta de imágenes en el espacio de trabajo de tu proyecto de extensión:
 
 \!\[feature X\]\(images/feature-x.png\)
 
-> Consejo: Muchas extensiones populares usan animaciones. ¡Es una excelente manera de mostrar tu extensión! Recomendamos animaciones breves y centradas para que sean fáciles de seguir.
+> Consejo: ¡Muchas extensiones populares usan animaciones! Es una excelente manera de mostrar tu extensión. Recomendamos animaciones breves y enfocadas, fáciles de seguir.
 
 ## Requirements
 
-Si tienes algún requisito o dependencia, añade una sección que describa estos requisitos y cómo instalarlos y configurarlos.
+Si tienes algún requisito o dependencia, agrega una sección que describa estos requisitos y cómo instalarlos y configurarlos.
 
 ## Extension Settings
 
-Si tu extensión añade alguna configuración de VS Code a través del punto de extensión `contributes.configuration`, inclúyela aquí.
+Si tu extensión agrega alguna configuración de VS Code a través del punto de extensión `contributes.configuration`, inclúyelas aquí.
 
 Por ejemplo:
 
 Esta extensión contribuye con las siguientes configuraciones:
 
-* `myExtension.enable`: Habilita/deshabilita esta extensión.
-* `myExtension.thing`: Configúralo a `blah` para hacer algo.
+* `myExtension.enable`: Habilitar/deshabilitar esta extensión.
+* `myExtension.thing`: Configurar para `blah` para hacer algo.
 
 ## Known Issues
 
-Indicar problemas conocidos puede ayudar a reducir la cantidad de problemas duplicados que los usuarios reporten sobre tu extensión.
+Señalar los problemas conocidos puede ayudar a reducir la cantidad de problemas repetidos que los usuarios reportan sobre tu extensión.
 
 ## Release Notes
 
-Los usuarios agradecerán las notas de lanzamiento cuando actualices tu extensión.
+Los usuarios apreciarán las notas de la versión cuando actualices tu extensión.
 
 ### 1.0.0
 
@@ -51,24 +51,24 @@ Se añadieron las funciones X, Y y Z.
 
 ## Following extension guidelines
 
-Asegúrate de haber leído las directrices para extensiones y seguir las mejores prácticas para crear extensiones.
+Asegúrate de haber leído las directrices de extensión y seguir las mejores prácticas para crear extensiones.
 
-* [Guía de extensiones](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
+* [Guía de Extensiones](https://code.visualstudio.com/api/references/extension-guidelines?WT.mc_id=aiml-137032-kinfeylo)
 
 ## Working with Markdown
 
-Puedes usar Visual Studio Code para redactar tu README. Aquí tienes algunos atajos útiles del editor:
+Puedes usar Visual Studio Code para escribir tu README. Aquí tienes algunos atajos de teclado útiles para el editor:
 
 * Dividir editor (`Cmd+\` en macOS o `Ctrl+\` en Windows y Linux).
 * Alternar vista previa (`Shift+Cmd+V` en macOS o `Shift+Ctrl+V` en Windows y Linux).
-* Presiona `Ctrl+Space` (Windows, Linux, macOS) para ver una lista de fragmentos de código Markdown.
+* Presiona `Ctrl+Space` (Windows, Linux, macOS) para ver la lista de fragmentos de código Markdown.
 
 ## For more information
 
 * [Soporte de Markdown en Visual Studio Code](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
-* [Referencia de sintaxis Markdown](https://help.github.com/articles/markdown-basics/)
+* [Referencia de sintaxis de Markdown](https://help.github.com/articles/markdown-basics/)
 
 **¡Disfruta!**
 
-        Descargo de responsabilidad: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta.
-        Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

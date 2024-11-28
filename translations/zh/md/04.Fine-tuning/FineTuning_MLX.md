@@ -1,6 +1,6 @@
-# **使用 Apple MLX 框架进行 Phi-3 微调**
+# **使用 Apple MLX 框架微调 Phi-3**
 
-我们可以通过 Apple MLX 框架的命令行完成结合 Lora 的微调。（如果你想了解更多关于 MLX 框架的操作，请阅读 [使用 Apple MLX 框架进行 Phi-3 推理](../03.Inference/MLX_Inference.md)
+我们可以通过 Apple MLX 框架命令行完成结合 Lora 的微调。（如果你想了解更多关于 MLX 框架的操作，请阅读 [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)）
 
 ## **1. 数据准备**
 
@@ -23,11 +23,11 @@
 
 3. 数据格式结合 Phi-3 模板
 
-请从这个 [链接](../../../../code/04.Finetuning/mlx) 下载数据，请将所有 .jsonl 文件包含在 ***data*** 文件夹中。
+请从这个 [链接](../../../../code/04.Finetuning/mlx) 下载数据，请将所有 .jsonl 文件放入 ***data*** 文件夹中。
 
-## **2. 在终端进行微调**
+## **2. 在终端中进行微调**
 
-请在终端运行此命令：
+请在终端中运行以下命令：
 
 ```bash
 
@@ -109,7 +109,7 @@ lora_parameters:
 
 ```
 
-请在终端运行此命令：
+请在终端中运行以下命令：
 
 ```bash
 
@@ -119,7 +119,7 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ## **3. 运行微调适配器进行测试**
 
-你可以在终端运行微调适配器，如下所示：
+你可以在终端中运行微调适配器，如下所示：
 
 ```bash
 
@@ -127,7 +127,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-并运行原始模型以进行结果对比：
+然后运行原始模型以比较结果：
 
 ```bash
 
@@ -145,9 +145,9 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. 使用 ollama 运行量化微调模型**
+## **5. 使用 ollama 运行量化后的微调模型**
 
-使用前，请配置你的 llama.cpp 环境：
+使用前，请配置你的 llama.cpp 环境。
 
 ```bash
 
@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. 合并后的模型缺少 tokenizer.model，请从 https://huggingface.co/microsoft/Phi-3-mini-4k-instruct 下载。
 
-设置 Ollma 模型文件（如果未安装 ollama，请阅读 [Ollama 快速入门](../02.QuickStart/Ollama_QuickStart.md)）
+设置 Ollma 模型文件（如果未安装 ollama，请阅读 [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)）
 
 ```txt
 
@@ -176,7 +176,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-在终端运行命令：
+在终端中运行命令：
 
 ```bash
 
@@ -186,7 +186,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-恭喜你！掌握了使用 MLX 框架进行微调的技巧。
+恭喜你！掌握了使用 MLX 框架进行微调。
 
-**免责声明**：
-本文件是使用机器翻译服务翻译的。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应以原文档的母语版本为权威来源。对于重要信息，建议使用专业的人类翻译服务。对于因使用本翻译而产生的任何误解或误读，我们不承担任何责任。
+**免责声明**:
+本文档已使用基于机器的人工智能翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原文档的母语版本视为权威来源。对于关键信息，建议使用专业人工翻译。我们不对因使用此翻译而产生的任何误解或误读承担责任。

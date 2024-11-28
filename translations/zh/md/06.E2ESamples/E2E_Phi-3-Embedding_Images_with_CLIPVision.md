@@ -1,46 +1,52 @@
-# 使用 CLIPVisionModel 处理图像并生成 Phi-3-vision 图像嵌入
+# 使用 CLIPVisionModel 处理图像并生成图像嵌入与 Phi-3-vision
 
 以下 Python 示例提供了使用 CLIPVisionModel 处理图像并生成图像嵌入所需的功能。
 
 ## 什么是 CLIP
-CLIP，全称为对比语言-图像预训练（Contrastive Language-Image Pre-training），是 OpenAI 开发的一个模型，它能够从自然语言监督中高效地学习视觉概念。CLIP 是一个多模态模型，将图像和文本理解结合在一个框架中。CLIP 在各种互联网来源的图像及其关联的文本上进行训练，学习预测哪些图像与哪些文本配对，从而有效地将两种模态联系起来。
+CLIP，全称为对比语言-图像预训练，是 OpenAI 开发的一个模型，通过自然语言监督高效地学习视觉概念。它是一个多模态模型，在单一框架内结合了图像和文本理解。CLIP 在各种互联网来源的图像及其对应的文本上进行训练，学习预测哪些图像与哪些文本配对，从而有效地将两种模态联系起来。
 
-该模型通过输入一个图像和一个文本片段，然后预测文本是否准确描述了图像。这种方法使 CLIP 能够处理各种视觉任务，如对象识别、分类，甚至为从未见过的图像生成描述。
+该模型通过输入图像和文本片段来预测文本是否准确描述图像。这种方法使 CLIP 能够处理广泛的视觉任务，如物体识别、分类，甚至为从未见过的图像生成描述。
 
-CLIP 的一个主要优势是其“零样本”学习能力，模型可以正确处理未明确训练过的任务，仅通过读取任务描述即可实现。这是因为它在大量多样化的数据上进行了训练，帮助其很好地泛化到新任务。
+CLIP 的一个关键优势是其“零样本”学习能力，即模型可以正确处理未明确训练过的任务，只需阅读任务描述即可。这得益于它在大量多样化数据上的训练，帮助其很好地泛化到新任务。
 
 ## Phi-3-vision
-Phi-3-vision 是一个具有 42 亿参数的多模态模型，具备语言和视觉能力，能够对现实世界的图像和数字文档进行推理，从图像中提取和推理文本，并生成与图表或图示相关的见解和答案。
+Phi-3-vision 是一个具有语言和视觉能力的 42 亿参数多模态模型，能够对现实世界图像和数字文档进行推理，从图像中提取和推理文本，并生成与图表或图解相关的见解和答案。
+
+**示例目的：** 本示例展示了使用 CLIP 生成图像嵌入，并说明其如何应用于与 Phi-3 模型相关的任务。它作为参考，用于比较不同嵌入技术（CLIP 与 Phi-3）的性能和特性。
+**集成挑战：** 将另一个视觉编码器如 CLIP 直接集成到 Phi-3 中确实复杂。这种复杂性源于架构差异以及在不丢失上下文或性能的情况下实现无缝集成。集成尚未完全评估或实现，因此包含在此。
+**比较方法：** 代码旨在提供平行比较而非集成解决方案。它允许用户查看 CLIP 嵌入与 Phi-3 嵌入的表现，为潜在的优缺点提供见解。
+**澄清：** 这个 Phi-3CookBook 示例：展示了如何使用 CLIP 嵌入作为比较工具，而不是直接集成到 Phi-3 中。
+**集成工作：** 将 CLIP 嵌入完全集成到 Phi-3 中仍然是一个挑战，并未完全探索，但提供给客户进行实验。
 
 ## 示例代码
-此代码定义了一个名为 Phi3ImageEmbedding 的类，代表一个图像嵌入模型。该类的目的是处理图像并生成可以用于下游任务（如图像分类或检索）的嵌入。
+此代码定义了一个名为 Phi3ImageEmbedding 的类，表示一个图像嵌入模型。这个类的目的是处理图像并生成可用于下游任务（如图像分类或检索）的嵌入。
 
-__init__ 方法通过设置各种组件（如嵌入 dropout、图像处理器、HD 变换参数和图像投影）来初始化模型。它接受一个 config 对象作为输入，其中包含模型的配置参数。wte 参数是一个可选输入，代表单词标记嵌入。
+__init__ 方法通过设置各种组件（如嵌入 dropout、图像处理器、HD 变换参数和图像投影）来初始化模型。它接受一个 config 对象作为输入，该对象包含模型的配置参数。wte 参数是一个可选输入，表示词嵌入。
 
-get_img_features 方法接受一个表示图像嵌入的输入张量 img_embeds，并返回一个表示提取的图像特征的张量。它使用 img_processor 处理图像嵌入，并根据 layer_idx 和 type_feature 参数提取所需特征。
+get_img_features 方法接受一个表示图像嵌入的输入张量 img_embeds，并返回一个表示提取图像特征的张量。它使用 img_processor 处理图像嵌入，并根据 layer_idx 和 type_feature 参数提取所需特征。
 
 ## 代码解释
-让我们逐步解释代码：
+让我们逐步解析代码：
 
-代码导入了必要的库和模块，包括 math、torch、torch.nn 和 transformers 库的各种组件。
+代码导入了必要的库和模块，包括 math、torch、torch.nn 以及 transformers 库的各种组件。
 
 代码定义了一个名为 CLIP_VIT_LARGE_PATCH14_336_CONFIG 的配置对象，包含图像嵌入模型的各种超参数。
 
-定义了 Phi3ImageEmbedding 类，这是 torch.nn.Module 的子类。此类代表图像嵌入模型，并包含前向传播和设置图像特征的方法。
+定义了 Phi3ImageEmbedding 类，它是 torch.nn.Module 的子类。这个类表示图像嵌入模型，并包含前向传播和设置图像特征的方法。
 
 __init__ 方法初始化 Phi3ImageEmbedding 对象。它接受一个 config 对象作为输入，该对象是 PretrainedConfig 类的实例。它还接受一个可选的 wte 参数。
 
-__init__ 方法根据提供的 config 对象初始化 Phi3ImageEmbedding 对象的各种属性。它设置了隐藏大小、dropout 率、图像处理器、图像投影和其他参数。
+__init__ 方法根据提供的 config 对象初始化 Phi3ImageEmbedding 对象的各种属性。它设置了隐藏大小、dropout 率、图像处理器、图像投影等参数。
 
-set_img_features 方法设置模型的图像特征。它接受一个图像特征的张量作为输入，并将其分配给对象的 img_features 属性。
+set_img_features 方法为模型设置图像特征。它接受一个图像特征张量作为输入，并将其分配给对象的 img_features 属性。
 
-set_img_sizes 方法设置模型的图像大小。它接受一个图像大小的张量作为输入，并将其分配给对象的 img_sizes 属性。
+set_img_sizes 方法为模型设置图像大小。它接受一个图像大小张量作为输入，并将其分配给对象的 img_sizes 属性。
 
-get_img_features 方法从输入的图像嵌入中提取图像特征。它接受一个图像嵌入的张量作为输入，并返回提取的图像特征。
+get_img_features 方法从输入的图像嵌入中提取图像特征。它接受一个图像嵌入张量作为输入，并返回提取的图像特征。
 
-forward 方法通过模型执行前向传播。它接受输入 ID、像素值和图像大小作为输入，并返回模型的隐藏状态。它首先检查是否已设置图像特征和大小，如果没有，则使用提供的输入设置它们。然后，它处理输入 ID 并根据配置的图像处理器提取图像特征。最后，它将图像投影应用于提取的特征，并返回隐藏状态。
+forward 方法通过模型进行前向传播。它接受输入 ID、像素值和图像大小作为输入，并返回模型的隐藏状态。它首先检查是否已设置图像特征和大小，如果没有，则使用提供的输入进行设置。然后，它处理输入 ID 并根据配置的图像处理器提取图像特征。最后，它将图像投影应用于提取的特征，并返回隐藏状态。
 
-总体而言，这段代码定义了一个表示图像嵌入模型的类，并提供了设置图像特征和执行前向传播的方法。
+总体而言，这段代码定义了一个表示图像嵌入模型的类，并提供了设置图像特征和进行前向传播的方法。
 
 [代码示例](../../../../code/06.E2E/phi3imageembedding.py)
 ```
@@ -51,13 +57,13 @@ from transformers import CLIPVisionConfig
 from transformers.utils import logging
 from datetime import datetime 
 
-# 导入必要的库
+# Import necessary libraries
 import torch.nn as nn
 
-# 设置日志
+# Set up logging
 logger = logging.get_logger(__name__)
 
-# 定义 CLIPVisionModel 的配置
+# Define the configuration for the CLIPVisionModel
 CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     attention_dropout=0.0,
     dropout=0.0,
@@ -75,14 +81,14 @@ CLIP_VIT_LARGE_PATCH14_336_CONFIG = CLIPVisionConfig(
     projection_dim=768 
 )
 
-# 定义 Phi3ImageEmbedding 类
+# Define the Phi3ImageEmbedding class
 class Phi3ImageEmbedding(nn.Module):
-        """Phi3 图像嵌入。"""
+        """Phi3 Image embedding."""
 
         def __init__(self, config: PretrainedConfig, wte=None, **kwargs) -> None:
                 super().__init__()
 
-                # 设置嵌入 dropout
+                # Set up the embedding dropout
                 hidden_size = config.n_embd if hasattr(config, 'n_embd') else config.hidden_size
                 if hasattr(config, 'embd_pdrop') or hasattr(config, 'embed_pdrop'):
                         embd_drop = config.embd_pdrop if hasattr(config, 'embd_pdrop') else config.embed_pdrop
@@ -92,34 +98,34 @@ class Phi3ImageEmbedding(nn.Module):
 
                 self.wte = wte
 
-                # 根据配置设置图像处理器
+                # Set up the image processor based on the configuration
                 if isinstance(config.img_processor, dict) and config.img_processor.get('name', None) == 'clip_vision_model':
-                        assert 'model_name' in config.img_processor, '必须为 CLIPVisionModel 提供 model_name'
-                        assert 'image_dim_out' in config.img_processor, '必须为 CLIPVisionModel 提供 image_dim_out'
-                        assert 'num_img_tokens' in config.img_processor, '必须为 CLIPVisionModel 提供 num_img_tokens'
+                        assert 'model_name' in config.img_processor, 'model_name must be provided for CLIPVisionModel'
+                        assert 'image_dim_out' in config.img_processor, 'image_dim_out must be provided for CLIPVisionModel'
+                        assert 'num_img_tokens' in config.img_processor, 'num_img_tokens must be provided for CLIPVisionModel'
                         assert config.img_processor['model_name'] == 'openai/clip-vit-large-patch14-336'
                         clip_config = CLIP_VIT_LARGE_PATCH14_336_CONFIG
                         self.img_processor = CLIPVisionModel(clip_config)
                         image_dim_out = config.img_processor['image_dim_out']
                         self.num_img_tokens = config.img_processor['num_img_tokens']
                 else:
-                        raise NotImplementedError(f'img_processor = {config.img_processor}, 未实现')
+                        raise NotImplementedError(f'img_processor = {config.img_processor}, not implemented')
 
                 self.image_dim_out = image_dim_out
                 self.img_sizes = None
 
-                # 设置 HD 变换参数
+                # Set up the HD transform parameters
                 self.use_hd_transform = kwargs.get('use_hd_transform', False)
                 self.with_learnable_separator = kwargs.get('with_learnable_separator', False)
                 self.hd_transform_order = kwargs.get('hd_transform_order', 'glb_sub')
-                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform 和 with_learnable_separator 应该具有相同的值'
+                assert self.use_hd_transform == self.with_learnable_separator, 'use_hd_transform and with_learnable_separator should have same value'
                 if self.with_learnable_separator:
-                        assert self.use_hd_transform, 'learnable separator 仅用于 hd transform'
+                        assert self.use_hd_transform, 'learnable separator is only for hd transform'
                         self.glb_GN = nn.Parameter(torch.zeros([1, 1, self.image_dim_out * 4]))
                         self.sub_GN = nn.Parameter(torch.zeros([1, 1, 1, self.image_dim_out * 4]))
-                        logger.info(f'learnable separator 启用 hd transform, hd_transform_order = {self.hd_transform_order}')
+                        logger.info(f'learnable separator enabled for hd transform, hd_transform_order = {self.hd_transform_order}')
 
-                # 根据 projection_cls 设置图像投影
+                # Set up the image projection based on the projection_cls
                 projection_cls = kwargs.get('projection_cls', 'linear')
                 if projection_cls == 'linear':
                         self.img_projection = nn.Linear(image_dim_out, hidden_size)
@@ -140,12 +146,12 @@ class Phi3ImageEmbedding(nn.Module):
                                                                 nn.Linear(dim_projection, dim_projection)])
                         self.img_projection = nn.Sequential(*layers)
                 else:
-                        raise NotImplementedError(f'projection_cls = {projection_cls}, 未实现')
+                        raise NotImplementedError(f'projection_cls = {projection_cls}, not implemented')
 
                 self.vocab_size = config.vocab_size
                 self.img_features = None
 
-                # 设置图像处理器的层索引和特征类型
+                # Set up the layer index and type of feature for the image processor
                 if isinstance(config.img_processor, dict):
                         self.layer_idx = config.img_processor.get('layer_idx', -2)
                         self.type_feature = config.img_processor.get('type_feature', 'patch')
@@ -210,10 +216,10 @@ class Phi3ImageEmbedding(nn.Module):
 
                         if self.use_hd_transform and img_sizes is not None and len(img_sizes):
                                 hd_transform = True
-                                assert img_embeds.ndim == 5, f'img_embeds 大小: {img_embeds.size()}, 期望 5D 张量用于 hd transform'
+                                assert img_embeds.ndim == 5, f'img_embeds size: {img_embeds.size()}, expect 5D tensor for hd transform'
                                 img_features = self.get_img_features(img_embeds.flatten(0, 1))
                                 base_feat_height = base_feat_width = int(img_features.shape[1] ** 0.5)
-                                assert base_feat_height == 24 and base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, 期望 24x24 特征用于 hd transform'
+                                assert base_feat_height == 24 and base_feat_width == 24, f'base_feat_height: {base_feat_height}, base_feat_width: {base_feat_width}, expect 24x24 features for hd transform'
                                 img_features = img_features.view(bs, -1, base_feat_height * base_feat_width, self.image_dim_out)
                                 C = self.image_dim_out
                                 H = base_feat_height
@@ -243,7 +249,7 @@ class Phi3ImageEmbedding(nn.Module):
                                         elif self.hd_transform_order == 'sub_glb':
                                                 output_imgs.append(torch.cat([sub_img, self.glb_GN, glb_img], dim=1))
                                         else:
-                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, 未实现')
+                                                raise NotImplementedError(f'hd_transform_order = {self.hd_transform_order}, not implemented')
                                         temp_len = int((h*w+1)*144 + 1 + (h+1)*12)
                                         assert temp_len == output_imgs[-1].shape[1], f'temp_len: {temp_len}, output_imgs[-1].shape[1]: {output_imgs[-1].shape[1]}'
                                         output_len.append(temp_len)
@@ -253,10 +259,10 @@ class Phi3ImageEmbedding(nn.Module):
                                 for _output_img in output_imgs:
                                         img_feature_proj = self.img_projection(_output_img.to(target_device).to(target_dtype))
                                         img_set_tensor.append(img_feature_proj)
-                                logger.info(f'img_embeds 大小: {img_embeds.size()}, 图像大小: {img_sizes} 加载时间 {datetime.now() - start_time}')
+                                logger.info(f'img_embeds size: {img_embeds.size()}, image sizes: {img_sizes} loading time {datetime.now() - start_time}')
                         elif img_embeds.ndim == 4:
                                 selected_g_values = g_values[::self.num_img_tokens]
-                                assert len(img_embeds) == len(selected_g_values), f'img_embeds 大小: {img_embeds.size()}, selected_g_values 大小: {len(selected_g_values)}, selected_g_value {selected_g_values}'
+                                assert len(img_embeds) == len(selected_g_values), f'img_embeds size: {img_embeds.size()}, selected_g_values size: {len(selected_g_values)}, selected_g_value {selected_g_values}'
                                 start_time = datetime.now()
                                 tt = (
                                         self.get_img_features(img_embeds)
@@ -264,11 +270,11 @@ class Phi3ImageEmbedding(nn.Module):
                                         .to(target_dtype)
                                         .reshape(-1, self.image_dim_out)
                                 )
-                                logger.info(f'img_embeds 大小: {img_embeds.size()}, 加载时间 {datetime.now() - start_time}')
+                                logger.info(f'img_embeds size: {img_embeds.size()}, loading time {datetime.now() - start_time}')
                                 img_set_tensor = self.img_projection(tt)
                         elif img_embeds.ndim == 3:
                                 selected_g_values = g_values[::self.num_img_tokens]
-                                assert len(img_embeds) == len(selected_g_values), f'img_embeds 大小: {img_embeds.size()}, selected_g_values 大小: {len(selected_g_values)}, selected_g_value {selected_g_values}'
+                                assert len(img_embeds) == len(selected_g_values), f'img_embeds size: {img_embeds.size()}, selected_g_values size: {len(selected_g_values)}, selected_g_value {selected_g_values}'
                                 tt = (
                                         img_embeds
                                         .to(target_device)
@@ -313,4 +319,90 @@ class Phi3ImageEmbedding(nn.Module):
                 return hidden_states
 ```
 
-免责声明：此翻译由AI模型从原文翻译而来，可能不完美。请审阅输出内容并进行必要的修改。
+## 构建你的流水线
+
+使用生成嵌入的代码，如上述示例，通常根据具体用例将其集成到你的流水线中。
+
+1. 加载预训练模型：如果你从 Hugging Face 加载预训练模型，这些模型确实是二进制的。你可以直接使用它们生成嵌入，无需额外训练。这对于需要现成嵌入的任务（如特征提取或语义搜索）非常有用。
+
+2. 微调流水线：如果你需要将模型适应于特定任务或数据集，你需要将代码集成到微调流水线中。这涉及：
+   - 加载预训练模型：从 Hugging Face 开始加载一个预训练模型。
+   - 准备你的数据集：确保你的数据集格式正确以便训练。
+   - 微调：使用 Hugging Face 的 `transformers` and `datasets` 等库在你的数据集上微调模型。这一步调整模型权重以更好地适应你的特定任务。
+
+例如，在 Phi-3 Cookbook 和 CLIPVision 的上下文中，你可能会：
+- 生成嵌入：使用预训练的 CLIP 模型生成图像嵌入。
+- 微调：如果嵌入需要更具体地适应你的应用，微调 CLIP 模型以适应与你用例相关的数据集。
+
+以下是你可能在代码中集成的简化示例：
+
+```python
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained model and processor
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings
+with torch.no_grad():
+    embeddings = model.get_image_features(**inputs)
+ 
+# Fine-tuning (if needed)
+# Define your fine-tuning logic here
+```
+
+这种方法允许你利用强大的预训练模型并将其适应于你的具体需求。
+
+## 集成 Phi 系列模型
+
+将 Phi-3 模型与包含 CLIP 的示例代码集成确实具有挑战性，特别是考虑到不同的视觉编码器。
+
+以下是你可能采用的简要方法：
+
+### 关键点
+**数据处理：** 确保图像的处理方式符合 Phi-3 模型的输入要求。
+**嵌入生成：** 用你的 Phi-3 模型的相应方法替换 CLIP 嵌入生成。
+**微调：** 如果需要微调 Phi-3 模型，请确保在生成嵌入后包含逻辑。
+
+## 集成 Phi-3 模型的步骤
+**加载 Phi-3 模型：** 假设你有一个用于原版或微调 Phi-3 模型的 Phi3Model 类。
+**修改数据准备：** 调整数据准备以适应 Phi-3 模型的输入要求。
+**集成 Phi-3 嵌入：** 用 Phi-3 模型的嵌入生成替换生成 CLIP 嵌入的部分。
+
+```
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained CLIP model and processor
+clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Load Phi-3 model (vanilla or fine-tuned)
+# Assuming you have a load_phi3_model function to load your Phi-3 model
+phi3_model = load_phi3_model(fine_tuned=True)
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = clip_processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings using CLIP (for comparison)
+with torch.no_grad():
+    clip_embeddings = clip_model.get_image_features(**inputs)
+ 
+# Generate embeddings using Phi-3
+# Adjust this part according to how your Phi-3 model processes inputs
+phi3_inputs = process_for_phi3_model(images)
+with torch.no_grad():
+    phi3_embeddings = phi3_model.get_image_features(phi3_inputs)
+ 
+# Fine-tuning or further processing (if needed)
+# Define your fine-tuning logic here
+``
+
+**免责声明**：
+本文档使用基于机器的人工智能翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原始文档的母语版本视为权威来源。对于关键信息，建议使用专业人工翻译。对于因使用本翻译而引起的任何误解或误读，我们不承担责任。

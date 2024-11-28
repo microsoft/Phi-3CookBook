@@ -1,19 +1,19 @@
-# **Inferencia Phi-3 con el Framework Apple MLX**
+# **Inferencia de Phi-3 con el Framework Apple MLX**
 
 ## **Qué es el Framework MLX**
 
-MLX es un framework de arrays para investigación en aprendizaje automático en dispositivos Apple silicon, desarrollado por el equipo de investigación en aprendizaje automático de Apple.
+MLX es un framework para investigación en aprendizaje automático en dispositivos con Apple silicon, desarrollado por el equipo de investigación en aprendizaje automático de Apple.
 
-MLX está diseñado por y para investigadores en aprendizaje automático. El framework busca ser fácil de usar, pero al mismo tiempo eficiente para entrenar y desplegar modelos. Su diseño es conceptualmente simple, con la intención de que los investigadores puedan extender y mejorar MLX fácilmente, facilitando la exploración rápida de nuevas ideas.
+MLX está diseñado por investigadores de aprendizaje automático para investigadores de aprendizaje automático. El framework está pensado para ser fácil de usar, pero aun así eficiente para entrenar y desplegar modelos. El diseño del framework en sí también es conceptualmente simple. Nuestro objetivo es facilitar a los investigadores la extensión y mejora de MLX para explorar rápidamente nuevas ideas.
 
-Los LLMs pueden ser acelerados en dispositivos Apple Silicon a través de MLX, y los modelos se pueden ejecutar localmente de manera muy conveniente.
+Los LLMs pueden acelerarse en dispositivos con Apple Silicon a través de MLX, y los modelos pueden ejecutarse localmente de manera muy conveniente.
 
-## **Usando MLX para inferencia con Phi-3-mini**
+## **Usando MLX para inferencia de Phi-3-mini**
 
 ### **1. Configura tu entorno MLX**
 
 1. Python 3.11.x
-2. Instalar la biblioteca MLX
+2. Instalar la Biblioteca MLX
 
 ```bash
 
@@ -21,7 +21,7 @@ pip install mlx-lm
 
 ```
 
-### **2. Ejecutando Phi-3-mini en la Terminal con MLX**
+### **2. Ejecutando Phi-3-mini en Terminal con MLX**
 
 ```bash
 
@@ -33,7 +33,7 @@ El resultado (mi entorno es Apple M1 Max, 64GB) es
 
 ![Terminal](../../../../translated_images/01.5cb5f10f82619d0a98bc3584bf81264105a33d9d8559f125418a93b8d7527728.es.png)
 
-### **3. Cuantizando Phi-3-mini con MLX en la Terminal**
+### **3. Cuantizando Phi-3-mini con MLX en Terminal**
 
 ```bash
 
@@ -41,9 +41,9 @@ python -m mlx_lm.convert --hf-path microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-***Nota:*** El modelo se puede cuantizar mediante mlx_lm.convert, y la cuantización predeterminada es INT4. Este ejemplo cuantiza Phi-3-mini a INT4
+***Nota:*** El modelo puede ser cuantizado a través de mlx_lm.convert, y la cuantización por defecto es INT4. Este ejemplo cuantiza Phi-3-mini a INT4.
 
-El modelo se puede cuantizar mediante mlx_lm.convert, y la cuantización predeterminada es INT4. Este ejemplo cuantiza Phi-3-mini a INT4. Después de la cuantización, se almacenará en el directorio predeterminado ./mlx_model
+El modelo puede ser cuantizado a través de mlx_lm.convert, y la cuantización por defecto es INT4. Este ejemplo es para cuantizar Phi-3-mini en INT4. Después de la cuantización, se almacenará en el directorio por defecto ./mlx_model
 
 Podemos probar el modelo cuantizado con MLX desde la terminal
 
@@ -69,4 +69,5 @@ El resultado es
 
 2. Repositorio de Apple MLX en GitHub [https://github.com/ml-explore](https://github.com/ml-explore)
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de inteligencia artificial y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

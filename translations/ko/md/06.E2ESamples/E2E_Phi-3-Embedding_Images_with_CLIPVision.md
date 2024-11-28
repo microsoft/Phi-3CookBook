@@ -1,32 +1,38 @@
-# CLIPVisionModel을 사용하여 이미지 처리 및 Phi-3-vision으로 이미지 임베딩 생성하기
+# CLIPVisionModel을 사용하여 이미지를 처리하고 Phi-3-vision으로 이미지 임베딩 생성하기
 
 다음 파이썬 샘플은 CLIPVisionModel을 사용하여 이미지를 처리하고 이미지 임베딩을 생성하는 데 필요한 기능을 제공합니다.
 
 ## CLIP이란 무엇인가
-CLIP은 Contrastive Language-Image Pre-training의 약자로, 자연어 감독을 통해 시각적 개념을 효율적으로 학습하는 OpenAI가 개발한 모델입니다. 이미지와 텍스트 이해를 하나의 프레임워크로 결합한 멀티모달 모델입니다. CLIP은 다양한 인터넷 소스에서 가져온 이미지와 그와 함께 발견된 텍스트를 학습하여, 어떤 이미지가 어떤 텍스트와 쌍을 이루었는지 예측합니다. 이로써 두 가지 모달리티를 효과적으로 연결합니다.
+CLIP은 Contrastive Language-Image Pre-training의 약자로, OpenAI에서 개발한 모델로 자연어 감독을 통해 효율적으로 시각적 개념을 학습합니다. 이 모델은 이미지와 텍스트 이해를 단일 프레임워크에서 결합한 멀티모달 모델입니다. CLIP은 다양한 인터넷 소스의 이미지와 해당 이미지에 포함된 텍스트를 학습하여 어떤 이미지가 어떤 텍스트와 짝지어졌는지 예측합니다. 이를 통해 두 가지 모달리티를 연결합니다.
 
-이 모델은 이미지와 텍스트 조각을 입력으로 받아 텍스트가 이미지의 정확한 설명일 가능성을 예측합니다. 이 접근 방식은 CLIP이 객체 인식, 분류, 심지어 이전에 본 적 없는 이미지에 대한 설명 생성 등 다양한 시각적 작업을 처리할 수 있게 합니다.
+이 모델은 이미지를 입력받아 텍스트 조각과 함께 입력받고, 해당 텍스트가 이미지의 정확한 설명일 가능성을 예측합니다. 이러한 접근 방식은 CLIP이 객체 인식, 분류 및 이전에 본 적 없는 이미지에 대한 설명 생성과 같은 다양한 시각적 작업을 처리할 수 있게 합니다.
 
-CLIP의 주요 장점 중 하나는 "제로샷" 학습을 수행할 수 있다는 것입니다. 이는 모델이 명시적으로 학습되지 않은 작업도 단순히 작업 설명을 읽음으로써 올바르게 처리할 수 있다는 것입니다. 이는 모델이 방대한 양의 다양한 데이터를 학습했기 때문에 새로운 작업에 잘 일반화할 수 있기 때문입니다.
+CLIP의 주요 장점 중 하나는 "제로샷" 학습 능력입니다. 이는 모델이 명시적으로 훈련되지 않은 작업을 단순히 작업 설명을 읽음으로써 올바르게 처리할 수 있는 능력입니다. 이는 다양하고 방대한 데이터를 학습했기 때문에 새로운 작업에 대해 잘 일반화할 수 있습니다.
 
 ## Phi-3-vision
-Phi-3-vision은 언어 및 시각 기능을 갖춘 4.2B 파라미터 멀티모달 모델로, 실제 이미지와 디지털 문서를 분석하고 텍스트를 추출 및 분석하며, 차트나 다이어그램과 관련된 통찰력과 답변을 생성할 수 있습니다.
+Phi-3-vision은 42억 개의 파라미터를 가진 멀티모달 모델로, 언어와 시각 기능을 갖추고 있으며, 실제 이미지와 디지털 문서를 통해 추론하고, 이미지에서 텍스트를 추출하고 추론하며, 차트나 다이어그램과 관련된 통찰력과 답변을 생성할 수 있습니다.
+
+**예제 목적:** 이 예제는 CLIP을 사용하여 이미지 임베딩을 생성하고 이를 Phi-3 모델 관련 작업에 적용하는 방법을 보여줍니다. 이는 다른 임베딩 기법(CLIP vs. Phi-3)의 성능과 특성을 비교하는 참고 자료로 사용됩니다.
+**통합 과제:** CLIP과 같은 다른 비전 인코더를 Phi-3에 직접 통합하는 것은 복잡합니다. 이는 아키텍처 차이와 맥락이나 성능을 잃지 않으면서 매끄럽게 통합해야 하는 필요성 때문입니다. 통합은 아직 완전히 평가되거나 구현되지 않았기 때문에 이 예제가 포함되었습니다.
+**비교 접근법:** 이 코드는 통합 솔루션이 아닌 평행 비교를 제공하는 것을 목표로 합니다. 사용자가 CLIP 임베딩이 Phi-3 임베딩과 나란히 어떻게 작동하는지 확인할 수 있게 하여 잠재적인 이점이나 단점을 파악할 수 있게 합니다.
+**명확화:** 이 Phi-3CookBook 예제는 CLIP 임베딩을 Phi-3에 직접 통합하는 것이 아니라 비교 도구로 사용하는 방법을 보여줍니다.
+**통합 작업:** CLIP 임베딩을 Phi-3에 완전히 통합하는 것은 여전히 도전 과제로 남아 있으며, 아직 완전히 탐구되지 않았지만 고객이 실험할 수 있도록 제공됩니다.
 
 ## 샘플 코드
 이 코드는 이미지 임베딩 모델을 나타내는 Phi3ImageEmbedding이라는 클래스를 정의합니다. 이 클래스의 목적은 이미지를 처리하고 이미지 분류나 검색과 같은 다운스트림 작업에 사용할 수 있는 임베딩을 생성하는 것입니다.
 
 __init__ 메서드는 임베딩 드롭아웃, 이미지 프로세서, HD 변환 파라미터 및 이미지 프로젝션과 같은 다양한 구성 요소를 설정하여 모델을 초기화합니다. 이 메서드는 모델의 구성 파라미터를 포함하는 config 객체를 입력으로 받습니다. wte 파라미터는 단어 토큰 임베딩을 나타내는 선택적 입력입니다.
 
-get_img_features 메서드는 이미지 임베딩을 나타내는 입력 텐서 img_embeds를 받아 추출된 이미지 특징을 나타내는 텐서를 반환합니다. 이 메서드는 img_processor를 사용하여 이미지 임베딩을 처리하고 layer_idx 및 type_feature 파라미터에 따라 원하는 특징을 추출합니다.
+get_img_features 메서드는 이미지 임베딩을 나타내는 img_embeds 입력 텐서를 받아 추출된 이미지 특징을 나타내는 텐서를 반환합니다. 이 메서드는 img_processor를 사용하여 이미지 임베딩을 처리하고 layer_idx 및 type_feature 파라미터를 기반으로 원하는 특징을 추출합니다.
 
 ## 코드 설명
-코드를 단계별로 설명해 보겠습니다:
+코드를 단계별로 살펴보겠습니다:
 
-코드는 math, torch, torch.nn 및 transformers 라이브러리의 다양한 구성 요소를 포함한 필요한 라이브러리와 모듈을 임포트합니다.
+코드는 math, torch, torch.nn 및 transformers 라이브러리의 다양한 구성 요소를 포함한 필요한 라이브러리와 모듈을 가져옵니다.
 
-코드는 이미지 임베딩 모델에 대한 다양한 하이퍼파라미터를 포함하는 CLIP_VIT_LARGE_PATCH14_336_CONFIG라는 구성 객체를 정의합니다.
+코드는 이미지 임베딩 모델을 위한 다양한 하이퍼파라미터를 포함하는 CLIP_VIT_LARGE_PATCH14_336_CONFIG라는 구성 객체를 정의합니다.
 
-Phi3ImageEmbedding 클래스가 정의되며, 이는 torch.nn.Module의 하위 클래스입니다. 이 클래스는 이미지 임베딩 모델을 나타내며, 순방향 전파 및 이미지 특징 설정을 위한 메서드를 포함합니다.
+Phi3ImageEmbedding 클래스가 정의됩니다. 이 클래스는 torch.nn.Module의 하위 클래스입니다. 이 클래스는 이미지 임베딩 모델을 나타내며, 순방향 전파 및 이미지 특징 설정을 위한 메서드를 포함합니다.
 
 __init__ 메서드는 Phi3ImageEmbedding 객체를 초기화합니다. 이 메서드는 PretrainedConfig 클래스의 인스턴스인 config 객체를 입력으로 받습니다. 또한 선택적 wte 인수를 받습니다.
 
@@ -38,9 +44,9 @@ set_img_sizes 메서드는 모델의 이미지 크기를 설정합니다. 이 �
 
 get_img_features 메서드는 입력 이미지 임베딩에서 이미지 특징을 추출합니다. 이 메서드는 이미지 임베딩의 텐서를 입력으로 받아 추출된 이미지 특징을 반환합니다.
 
-forward 메서드는 모델을 통해 순방향 전파를 수행합니다. 이 메서드는 입력 ID, 픽셀 값 및 이미지 크기를 입력으로 받아 모델의 숨겨진 상태를 반환합니다. 먼저 이미지 특징과 크기가 이미 설정되어 있는지 확인하고, 그렇지 않으면 제공된 입력을 사용하여 설정합니다. 그런 다음 입력 ID를 처리하고 구성된 이미지 프로세서를 기반으로 이미지 특징을 추출합니다. 마지막으로 추출된 특징에 이미지 프로젝션을 적용하고 숨겨진 상태를 반환합니다.
+forward 메서드는 모델을 통해 순방향 전파를 수행합니다. 이 메서드는 입력 ID, 픽셀 값 및 이미지 크기를 입력으로 받아 모델의 숨겨진 상태를 반환합니다. 먼저 이미지 특징과 크기가 이미 설정되었는지 확인하고, 설정되지 않은 경우 제공된 입력을 사용하여 설정합니다. 그런 다음 입력 ID를 처리하고 구성된 이미지 프로세서를 기반으로 이미지 특징을 추출합니다. 마지막으로 추출된 특징에 이미지 프로젝션을 적용하고 숨겨진 상태를 반환합니다.
 
-전반적으로 이 코드는 이미지 임베딩 모델을 나타내는 클래스를 정의하고, 이미지 특징을 설정하고 순방향 전파를 수행하는 메서드를 제공합니다.
+전체적으로 이 코드는 이미지 임베딩 모델을 나타내는 클래스를 정의하고 이미지 특징 설정 및 순방향 전파를 수행하는 메서드를 제공합니다.
 
 [Code Sample](../../../../code/06.E2E/phi3imageembedding.py)
 ```
@@ -313,5 +319,90 @@ class Phi3ImageEmbedding(nn.Module):
                 return hidden_states
 ```
 
+## 파이프라인 구축
+
+위의 예제와 같이 임베딩을 생성하는 코드를 사용할 때는 특정 사용 사례에 따라 파이프라인에 통합하는 것이 일반적입니다.
+ 
+1. 사전 훈련된 모델 로드: Hugging Face에서 사전 훈련된 모델을 로드하는 경우, 이러한 모델은 바이너리입니다. 추가 훈련 없이 직접 임베딩을 생성하는 데 사용할 수 있습니다. 이는 기능 추출이나 의미 검색과 같은 임베딩이 즉시 필요한 작업에 유용합니다.
+ 
+2. 파인 튜닝 파이프라인: 모델을 특정 작업이나 데이터셋에 맞게 조정해야 하는 경우, 코드를 파인 튜닝 파이프라인에 통합합니다. 이는 다음을 포함합니다:
+   - 사전 훈련된 모델 로드: Hugging Face에서 사전 훈련된 모델로 시작합니다.
+   - 데이터셋 준비: 데이터셋이 훈련에 적합한 형식인지 확인합니다.
+   - 파인 튜닝: Hugging Face의 `transformers` and `datasets` 라이브러리를 사용하여 모델을 데이터셋에 맞게 파인 튜닝합니다. 이 단계에서는 모델 가중치를 조정하여 특정 작업에 더 적합하게 만듭니다.
+ 
+예를 들어, Phi-3 Cookbook과 CLIPVision의 맥락에서:
+- 임베딩 생성: 사전 훈련된 CLIP 모델을 사용하여 이미지에 대한 임베딩을 생성합니다.
+- 파인 튜닝: 임베딩이 응용 프로그램에 더 적합하도록 CLIP 모델을 관련 데이터셋에 맞게 파인 튜닝합니다.
+ 
+다음은 이를 코드에 통합하는 간단한 예입니다:
+ 
+```python
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained model and processor
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings
+with torch.no_grad():
+    embeddings = model.get_image_features(**inputs)
+ 
+# Fine-tuning (if needed)
+# Define your fine-tuning logic here
+```
+ 
+이 접근 방식은 강력한 사전 훈련된 모델을 활용하고 이를 특정 요구에 맞게 조정할 수 있게 합니다.
+
+## Phi 모델 계열 통합
+
+CLIP을 포함한 제공된 코드 예제를 사용하여 Phi-3 모델을 통합하는 것은 특히 다른 비전 인코더를 고려할 때 도전적일 수 있습니다.
+ 
+다음은 이를 접근하는 방법에 대한 간략한 개요입니다:
+ 
+### 주요 포인트
+**데이터 처리:** 이미지가 Phi-3 모델의 입력 요구 사항에 맞게 처리되었는지 확인합니다.
+**임베딩 생성:** CLIP 임베딩 생성을 Phi-3 모델의 해당 메서드로 대체합니다.
+**파인 튜닝:** Phi-3 모델을 파인 튜닝해야 하는 경우, 임베딩을 생성한 후 논리를 포함합니다.
+
+## Phi-3 모델 통합 단계
+**Phi-3 모델 로드:** 기본 또는 파인 튜닝된 Phi-3 모델에 대한 Phi3Model 클래스를 가지고 있다고 가정합니다.
+**데이터 준비 수정:** 데이터를 Phi-3 모델의 입력 요구 사항에 맞게 준비합니다.
+**Phi-3 임베딩 통합:** CLIP 임베딩이 생성되는 부분을 Phi-3 모델의 임베딩 생성으로 대체합니다.
+
+```
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained CLIP model and processor
+clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Load Phi-3 model (vanilla or fine-tuned)
+# Assuming you have a load_phi3_model function to load your Phi-3 model
+phi3_model = load_phi3_model(fine_tuned=True)
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = clip_processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings using CLIP (for comparison)
+with torch.no_grad():
+    clip_embeddings = clip_model.get_image_features(**inputs)
+ 
+# Generate embeddings using Phi-3
+# Adjust this part according to how your Phi-3 model processes inputs
+phi3_inputs = process_for_phi3_model(images)
+with torch.no_grad():
+    phi3_embeddings = phi3_model.get_image_features(phi3_inputs)
+ 
+# Fine-tuning or further processing (if needed)
+# Define your fine-tuning logic here
+``
+
 **면책 조항**:
-이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 정확성을 위해 노력하고 있지만 자동 번역에는 오류나 부정확성이 있을 수 있습니다. 원본 문서가 작성된 언어의 문서를 권위 있는 출처로 간주해야 합니다. 중요한 정보에 대해서는 전문적인 인간 번역을 권장합니다. 이 번역을 사용하여 발생하는 오해나 잘못된 해석에 대해 당사는 책임을 지지 않습니다.
+이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 정확성을 위해 노력하지만 자동 번역에는 오류나 부정확성이 있을 수 있습니다. 원어로 작성된 원본 문서를 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 오역에 대해서는 책임지지 않습니다.

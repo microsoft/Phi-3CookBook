@@ -1,10 +1,10 @@
-# **Microsoft Oliveを使ってプロジェクトを設計する**
+# **Microsoft Oliveを使用してプロジェクトを設計する**
 
-企業が独自の業界向けモデルを持ちたい場合、データ、微調整、およびデプロイメントから始める必要があります。前回のコンテンツではMicrosoft Oliveの内容を紹介しましたが、今回はE2Eの作業に基づいてより詳細な紹介を行います。
+企業が独自の業界向けモデルを持ちたい場合、データの収集、微調整、およびデプロイメントから始める必要があります。前回の内容ではMicrosoft Oliveについて紹介しましたが、今回はE2Eの作業に基づいてより詳細な紹介を行います。
 
 ## **アーキテクチャ**
 
-VS CodeのAI Toolkitで生成されたプロジェクトを参考にして、データ、モデル、微調整フォーマット、推論などを含むプロジェクトを構築できます。例えば
+VS Code用のAI Toolkitで生成されたプロジェクトを参考にして、データ、モデル、微調整形式、および推論を含むプロジェクトを構築できます。例えば以下のように
 
 ```txt
 
@@ -21,27 +21,28 @@ VS CodeのAI Toolkitで生成されたプロジェクトを参考にして、デ
 
 - **datasets**
 
-    データはcsv、jsonなどの形式で保存できます。この例では、エクスポートされたjsonデータです。[dataset](./E2E_Datasets.md)
+    データはcsvやjsonなどの形式で保存できます。この例では、エクスポートされたjsonデータです。[dataset](./E2E_Datasets.md) 
 
-    ***Note*** データはすでにAzure MLにアップロードされているため、ここでは関連設定を無視できます（ローカルの場合はここでデータをアップロードできます）。
+    ***Note*** データはすでにAzure MLにアップロードされているため、ここでの設定は無視できます（ローカルの場合はここでデータをアップロードできます）
 
 - **fine-tuning**
     
-    微調整用のQLoRAおよびLoRAアルゴリズム、および関連パラメータを指定します。
+    微調整のためのQLoRAとLoRAアルゴリズム、および関連するパラメータを指定します
 
 - **inferences**
 
-    推論は微調整後のモデルです。微調整されたAdapterレイヤーの参照、微調整後にAdapterと統合されたモデルの参照、または量子化されたONNX Runtimeモデルが含まれます。
+    推論は微調整後のモデルです。微調整されたAdapter層の参照、微調整後にAdapterと統合されたモデルの参照、または量子化されたONNX Runtimeモデルが含まれます。
 
 - **model-cache**
 
-    Hugging Face CLIを通じてダウンロードされたモデルです。ここではPhi-3-Miniモデルです（Azure MLを使用している場合、このコンテンツを無視できます。ローカルで操作したい場合は、以下のスクリプトを実行してphi-3モデルを取得してください）。
+    Hugging face CLIを使用してダウンロードされたモデル、ここではPhi-3-Miniモデルです（Azure MLを使用する場合、この内容は無視できます。ローカルで操作する場合は以下のスクリプトを実行してphi-3モデルを取得してください）
+
 
 ```bash
 
 huggingface-cli login
 
-# Hugging Face Portalからキーを入力
+# input your key from Hugging Face Portal
 
 huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3-mini location
 
@@ -49,11 +50,12 @@ huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3
 
 - **gen-model**
 
-操作後に保存されるモデルには、微調整されたAdapterモデル、統合された微調整Adapterモデル、およびONNX Runtimeで実行される量子化モデルが含まれます。
+操作後に保存されたモデルには、微調整されたAdapterモデル、統合された微調整Adapterモデル、およびONNX Runtimeで実行される量子化モデルが含まれます。
 
 - **setup**
 
-必要なインストール環境を設定するために、以下を実行してください。
+必要なインストール環境、これを実行してOlive環境を設定してください
+
 
 ```bash
 
@@ -61,11 +63,12 @@ pip install -r requirements.txt
 
 ```
 
-## **Microsoft Olive Config**
+## **Microsoft Oliveの設定**
 
-Microsoft Oliveの設定について知りたい場合は、[Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)を参照してください。
+Microsoft Oliveの設定について知りたい場合は、[Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)をご覧ください。
 
-***Note*** 最新の状態を保つために、以下を使用してMicrosoft Oliveをインストールしてください。
+***Note*** 最新情報を得るために、以下を使用してMicrosoft Oliveをインストールしてください
+
 
 ```bash
 
@@ -77,7 +80,8 @@ pip install git+https://github.com/microsoft/Olive
 
 **LoRA**
 
-このサンプルはクラウドコンピュート、クラウドデータセットを使用し、fine-tuningフォルダにolive.configを追加します。
+このサンプルはクラウドコンピュート、クラウドデータセットを使用し、fine-tuningフォルダにolive.configを追加します
+
 
 ```json
 
@@ -388,14 +392,16 @@ pip install git+https://github.com/microsoft/Olive
 
 ***Notice*** 
 
-- QLoRAを使用する場合、現時点ではONNXRuntime-genaiの量子化変換はサポートされていません。
+- QLoRAを使用する場合、ONNXRuntime-genaiの量子化変換は現在サポートされていません。
 
-- 上記の手順は自分のニーズに合わせて設定できることを指摘しておきます。完全に上記の手順を設定する必要はなく、ニーズに応じてアルゴリズムの手順を直接使用できます。最終的には関連するエンジンを設定する必要があります。
+
+- ここでは、自分のニーズに応じて上記の手順を設定できることを指摘しておきます。上記の手順を完全に構成する必要はなく、ニーズに応じてアルゴリズムの手順を微調整せずに直接使用できます。最終的に関連するエンジンを構成する必要があります。
 
 ### **Microsoft Oliveの実行**
 
 
-Microsoft Oliveを設定した後、ターミナルで以下のコマンドを実行します。
+Microsoft Oliveを完了したら、ターミナルでこのコマンドを実行する必要があります
+
 
 ```bash
 
@@ -405,18 +411,18 @@ olive run --config olive-config.json
 
 ***Notice*** 
 
-1. Microsoft Oliveが実行されると、各ステップはキャッシュに保存されます。微調整ディレクトリを参照することで、関連するステップの結果を確認できます。
+1. Microsoft Oliveを実行すると、各ステップをキャッシュに保存できます。微調整ディレクトリを表示することで関連ステップの結果を確認できます。
 
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.ja.png)
 
 
-2. ここではLoRAとQLoRAの両方を提供しており、ニーズに応じて設定できます。
+2. LoRAとQLoRAの両方を提供しており、ニーズに応じて設定できます。
 
 3. 推奨される実行環境はWSL / Ubuntu 22.04+です。
 
-4. なぜORTを選ぶのか？ORTはエッジデバイスにデプロイでき、ORT環境で推論が実装されるためです。
+4. なぜORTを選ぶのか？それはORTがエッジデバイスにデプロイでき、推論がORT環境で実装されるからです。
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.ja.png)
 
-免責事項: この翻訳はAIモデルによって原文から翻訳されたものであり、完全ではない可能性があります。
-出力内容を確認し、必要な修正を行ってください。
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期すために努力していますが、自動翻訳には誤りや不正確さが含まれる場合があります。元の言語での文書が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤訳について、当社は一切の責任を負いません。

@@ -1,10 +1,10 @@
-# **Inférence Phi-3 avec le framework Apple MLX**
+# **Inference Phi-3 avec le Framework Apple MLX**
 
-## **Qu'est-ce que le framework MLX**
+## **Qu'est-ce que le Framework MLX**
 
-MLX est un framework de calcul pour la recherche en apprentissage automatique sur les puces Apple, développé par l'équipe de recherche en apprentissage automatique d'Apple.
+MLX est un framework de calcul pour la recherche en apprentissage automatique sur les puces Apple, proposé par l'équipe de recherche en apprentissage automatique d'Apple.
 
-MLX est conçu par des chercheurs en apprentissage automatique pour des chercheurs en apprentissage automatique. Le framework se veut convivial, tout en restant efficace pour entraîner et déployer des modèles. La conception du framework est également simple sur le plan conceptuel. Nous souhaitons faciliter l'extension et l'amélioration de MLX par les chercheurs, afin de permettre une exploration rapide de nouvelles idées.
+MLX est conçu par des chercheurs en apprentissage automatique pour des chercheurs en apprentissage automatique. Le framework se veut convivial, tout en restant efficace pour entraîner et déployer des modèles. Le design du framework est également conceptuellement simple. Nous avons l'intention de faciliter l'extension et l'amélioration de MLX pour explorer rapidement de nouvelles idées.
 
 Les LLMs peuvent être accélérés sur les appareils Apple Silicon grâce à MLX, et les modèles peuvent être exécutés localement de manière très pratique.
 
@@ -22,7 +22,7 @@ pip install mlx-lm
 
 ```
 
-### **2. Exécuter Phi-3-mini dans le terminal avec MLX**
+### **2. Exécuter Phi-3-mini dans le Terminal avec MLX**
 
 
 ```bash
@@ -31,11 +31,11 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 ```
 
-Le résultat (mon environnement est un Apple M1 Max, 64GB) est
+Le résultat (mon environnement est Apple M1 Max, 64GB) est
 
 ![Terminal](../../../../translated_images/01.5cb5f10f82619d0a98bc3584bf81264105a33d9d8559f125418a93b8d7527728.fr.png)
 
-### **3. Quantifier Phi-3-mini avec MLX dans le terminal**
+### **3. Quantifier Phi-3-mini avec MLX dans le Terminal**
 
 
 ```bash
@@ -44,9 +44,9 @@ python -m mlx_lm.convert --hf-path microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-***Note：*** Le modèle peut être quantifié via mlx_lm.convert, et la quantification par défaut est INT4. Cet exemple quantifie Phi-3-mini en INT4.
+***Note：*** Le modèle peut être quantifié via mlx_lm.convert, et la quantification par défaut est INT4. Cet exemple quantifie Phi-3-mini en INT4
 
-Le modèle peut être quantifié via mlx_lm.convert, et la quantification par défaut est INT4. Cet exemple quantifie Phi-3-mini en INT4. Après la quantification, il sera stocké dans le répertoire par défaut ./mlx_model
+Le modèle peut être quantifié via mlx_lm.convert, et la quantification par défaut est INT4. Cet exemple quantifie Phi-3-mini en INT4. Après quantification, il sera stocké dans le répertoire par défaut ./mlx_model
 
 Nous pouvons tester le modèle quantifié avec MLX depuis le terminal
 
@@ -72,8 +72,9 @@ Le résultat est
 
 ## **Ressources**
 
-1. En savoir plus sur le framework Apple MLX [https://ml-explore.github.io](https://ml-explore.github.io/mlx/build/html/index.html)
+1. En savoir plus sur le Framework Apple MLX [https://ml-explore.github.io](https://ml-explore.github.io/mlx/build/html/index.html)
 
 2. Dépôt GitHub Apple MLX [https://github.com/ml-explore](https://github.com/ml-explore)
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement**:  
+Ce document a été traduit en utilisant des services de traduction automatisés basés sur l'intelligence artificielle. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

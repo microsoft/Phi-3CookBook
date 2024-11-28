@@ -1,4 +1,4 @@
-# Receta de ajuste fino para Phi-3.5-vision
+# Receta de ajuste fino de Phi-3.5-vision
 
 Este es el soporte oficial para el ajuste fino de Phi-3.5-vision utilizando las bibliotecas de huggingface.
 Por favor, `cd` al directorio de código [vision_finetuning](../../../../code/04.Finetuning/vision_finetuning) antes de ejecutar los siguientes comandos.
@@ -26,7 +26,7 @@ pip install bitsandbytes==0.43.1
 
 ## Inicio rápido
 
-Proveemos dos scripts de ejemplo para el ajuste fino, uno para DocVQA y otro para la clasificación de memes de odio.
+Proporcionamos dos scripts de ejemplo para el ajuste fino, uno para DocVQA y otro para la clasificación de memes de odio.
 
 Hardware mínimo probado en 4x RTX8000 (48GB RAM por GPU)
 
@@ -35,7 +35,7 @@ Hardware mínimo probado en 4x RTX8000 (48GB RAM por GPU)
 torchrun --nproc_per_node=4 finetune_hf_trainer_docvqa.py
 ```
 
-Phi-3.5-vision ahora soporta oficialmente entradas de múltiples imágenes. Aquí tienes un ejemplo para el ajuste fino de NLVR2
+Phi-3.5-vision ahora soporta oficialmente entradas de múltiples imágenes. Aquí hay un ejemplo para el ajuste fino de NLVR2
 
 ```bash
 torchrun --nproc_per_node=8 finetune_hf_trainer_nlvr2.py
@@ -45,11 +45,11 @@ torchrun --nproc_per_node=8 finetune_hf_trainer_nlvr2.py
 
 Dependiendo del hardware, los usuarios pueden elegir diferentes estrategias de ajuste fino. Soportamos
 ajuste fino completo (con Deepspeed Zero-2) con parámetros de visión opcionalmente congelados, y LoRA (incluyendo QLoRA de 4 bits).
-En general, recomendamos usar el ajuste fino completo con flash attention y bf16 siempre que sea posible.
+En general, recomendamos usar ajuste fino completo con flash attention y bf16 siempre que sea posible.
 
-### Guía para convertir tu dataset personalizado al formato requerido
+### Guía para convertir tu conjunto de datos personalizado al formato requerido
 
-Usamos un dataset mínimo de clasificación de video (un subconjunto de UCF-101) como un ejemplo de extremo a extremo para demostrar cómo convertir tu dataset personalizado al formato requerido y ajustar finamente Phi-3.5-vision en él.
+Usamos un conjunto de datos mínimo de clasificación de videos (un subconjunto de UCF-101) como un ejemplo de extremo a extremo para demostrar cómo convertir tu conjunto de datos personalizado al formato requerido y ajustar finamente Phi-3.5-vision en él.
 
 ```bash
 # convert data
@@ -112,7 +112,7 @@ Para la anotación `jsonl`, cada línea debe ser un diccionario como:
 {"id": "val-0000000301", "source": "ucf101", "conversations": [{"images": ["val/BabyCrawling/v_BabyCrawling_g09_c06.0.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.1.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.2.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.3.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.4.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.5.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.6.jpg", "val/BabyCrawling/v_BabyCrawling_g09_c06.7.jpg"], "user": "Classify the video into one of the following classes: ApplyEyeMakeup, ApplyLipstick, Archery, BabyCrawling, BalanceBeam, BandMarching, BaseballPitch, Basketball, BasketballDunk, BenchPress.", "assistant": "BabyCrawling"}]}
 ```
 
-Ten en cuenta que `conversations` es una lista, por lo que se puede soportar una conversación de múltiples turnos si se dispone de tales datos.
+Ten en cuenta que `conversations` es una lista, por lo tanto, se puede soportar una conversación de múltiples turnos si se dispone de tales datos.
 
 ## Solicitud de cuota de GPU en Azure
 
@@ -124,16 +124,16 @@ Si no tienes una cuenta de Azure, crea una [cuenta gratuita antes de comenzar](h
 
 ### Solicitar un aumento de cuota
 
-Puedes enviar una solicitud para un aumento de cuota directamente desde Mis cuotas. Sigue los pasos a continuación para solicitar un aumento de cuota. Para este ejemplo, puedes seleccionar cualquier cuota ajustable en tu suscripción.
+Puedes enviar una solicitud de aumento de cuota directamente desde Mis cuotas. Sigue los pasos a continuación para solicitar un aumento de cuota. Para este ejemplo, puedes seleccionar cualquier cuota ajustable en tu suscripción.
 
 Inicia sesión en el [portal de Azure](https://portal.azure.com).
 
-Escribe "quotas" en el cuadro de búsqueda, y luego selecciona Quotas.
+Ingresa "quotas" en el cuadro de búsqueda y luego selecciona Cuotas.
 ![Quota](https://learn.microsoft.com/azure/quotas/media/quickstart-increase-quota-portal/quotas-portal.png)
 
-En la página de Resumen, selecciona un proveedor, como Compute o AML.
+En la página de descripción general, selecciona un proveedor, como Compute o AML.
 
-**Nota** Para todos los proveedores que no sean Compute, verás una columna de Solicitar aumento en lugar de la columna Ajustable descrita a continuación. Allí, puedes solicitar un aumento para una cuota específica, o crear una solicitud de soporte para el aumento.
+**Nota** Para todos los proveedores, excepto Compute, verás una columna de Solicitud de aumento en lugar de la columna Ajustable descrita a continuación. Allí, puedes solicitar un aumento para una cuota específica o crear una solicitud de soporte para el aumento.
 
 En la página Mis cuotas, bajo el nombre de la cuota, selecciona la cuota que deseas aumentar. Asegúrate de que la columna Ajustable muestre Sí para esta cuota.
 
@@ -143,11 +143,11 @@ Cerca de la parte superior de la página, selecciona Nueva solicitud de cuota, l
 
 En el panel Nueva solicitud de cuota, ingresa un valor numérico para tu nuevo límite de cuota, luego selecciona Enviar.
 
-Tu solicitud será revisada y se te notificará si la solicitud puede ser cumplida. Esto usualmente ocurre en pocos minutos.
+Tu solicitud será revisada y se te notificará si la solicitud puede ser cumplida. Esto generalmente sucede en unos pocos minutos.
 
-Si tu solicitud no es cumplida, verás un enlace para crear una solicitud de soporte. Cuando uses este enlace, un ingeniero de soporte te asistirá con tu solicitud de aumento.
+Si tu solicitud no se cumple, verás un enlace para crear una solicitud de soporte. Cuando uses este enlace, un ingeniero de soporte te asistirá con tu solicitud de aumento.
 
-## Sugerencias de SKU de máquinas GPU en Azure Compute
+## Sugerencias de SKU de máquinas de GPU de Azure Compute
 
 [ND A100 v4-series](https://learn.microsoft.com/azure/virtual-machines/nda100-v4-series)
 
@@ -173,9 +173,9 @@ torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
 
 ### Si tienes GPUs Standard_ND40rs_v2 8x V100-32GB
 
-Todavía es posible ajustar completamente Phi-3-V en la clasificación de memes de odio. Sin embargo, espera
-un rendimiento mucho menor en comparación con las GPUs A100 o H100 debido a la falta de soporte para flash attention.
-La precisión también podría verse afectada debido a la falta de soporte para bf16 (se usa entrenamiento de precisión mixta fp16 en su lugar).
+Todavía es posible ajustar finamente Phi-3-V en la clasificación de memes de odio. Sin embargo, espera
+un rendimiento mucho menor en comparación con las GPUs A100 o H100 debido a la falta de soporte de flash attention.
+La precisión también podría verse afectada debido a la falta de soporte de bf16 (se utiliza entrenamiento de precisión mixta fp16 en su lugar).
 
 ```bash
 torchrun --nproc_per_node=8 --nnodes=<num_nodes> \
@@ -196,7 +196,7 @@ torchrun --nproc_per_node=2 \
   --use_lora
 ```
 
-Para GPUs Turing+, se soporta QLoRA
+Para GPU Turing+, se soporta QLoRA
 
 ```bash
 torchrun --nproc_per_node=2 \
@@ -207,7 +207,7 @@ torchrun --nproc_per_node=2 \
   --use_qlora
 ```
 
-## Sugerencias de hiperparámetros y precisión esperada
+## Parámetros sugeridos y precisión esperada
 ### NLVR2
 
 ```bash
@@ -221,15 +221,15 @@ torchrun --nproc_per_node=4 \
 
 ```
 
-Método de entrenamiento | Modelo de visión congelado | tipo de datos | Rango LoRA | Alfa LoRA | tamaño de lote | tasa de aprendizaje | épocas | Precisión
+Método de entrenamiento | Modelo de visión congelado | Tipo de datos | Rango de LoRA | Alfa de LoRA | Tamaño de lote | Tasa de aprendizaje | Épocas | Precisión
 --- | --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo |  |bf16 | - | - | 64 | 1e-5 | 3 | 89.40 |
 ajuste fino completo | ✔ |bf16 | - | - | 64 | 2e-5 | 2 | 89.20 |
 Resultados de LoRA próximamente |  |  |  |  |  |  |  |  |
 
 ### NOTA
-Los resultados a continuación de DocVQA y memes de odio están basados en la versión anterior (Phi-3-vision).
-Los nuevos resultados con Phi-3.5-vision serán actualizados pronto.
+Los resultados a continuación de DocVQA y memes de odio se basan en la versión anterior (Phi-3-vision).
+Los nuevos resultados con Phi-3.5-vision se actualizarán pronto.
 
 ### DocVQA (NOTA: Phi-3-vision)
 
@@ -245,7 +245,7 @@ torchrun --nproc_per_node=4 \
 
 ```
 
-Método de entrenamiento | tipo de datos | Rango LoRA | Alfa LoRA | tamaño de lote | tasa de aprendizaje | épocas | ANLS
+Método de entrenamiento | Tipo de datos | Rango de LoRA | Alfa de LoRA | Tamaño de lote | Tasa de aprendizaje | Épocas | ANLS
 --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo | bf16 | - | - | 64 | 5e-6 | 2 | 83.65 |
 ajuste fino completo | fp16 | - | - | 64 | 5e-6 | 2 | 82.60 |
@@ -269,7 +269,7 @@ torchrun --nproc_per_node=4 \
 
 ```
 
-Método de entrenamiento | tipo de datos | Rango LoRA | Alfa LoRA | tamaño de lote | tasa de aprendizaje | épocas | Precisión
+Método de entrenamiento | Tipo de datos | Rango de LoRA | Alfa de LoRA | Tamaño de lote | Tasa de aprendizaje | Épocas | Precisión
 --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo | bf16 | - | - | 64 | 5e-5 | 2 | 86.4 |
 ajuste fino completo | fp16 | - | - | 64 | 5e-5 | 2 | 85.4 |
@@ -280,16 +280,16 @@ LoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 85.2 |
 QLoRA | bf16 | 128 | 256 | 64 | 2e-4 | 2 | 84.0 |
 QLoRA | fp16 | 128 | 256 | 64 | 2e-4 | 2 | 83.8 |
 
-## Benchmarking de velocidad (NOTA: Phi-3-vision)
+## Evaluación de velocidad (NOTA: Phi-3-vision)
 
-Nuevos resultados de benchmarking con Phi-3.5-vision serán actualizados pronto.
+Los nuevos resultados de evaluación con Phi-3.5-vision se actualizarán pronto.
 
-El benchmarking de velocidad se realiza en el dataset DocVQA. La longitud promedio de secuencia de este dataset
-es 2443.23 tokens (usando `num_crops=16` para el modelo de imagen).
+La evaluación de velocidad se realiza en el conjunto de datos DocVQA. La longitud promedio de la secuencia de este conjunto de datos
+es de 2443.23 tokens (usando `num_crops=16` para el modelo de imagen).
 
 ### 8x A100-80GB (Ampere)
 
-Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de lote efectivo | Rendimiento (img/s) | Aceleración | Memoria pico de GPU (GB)
+Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de lote efectivo | Rendimiento (img/s) | Aceleración | Memoria GPU máxima (GB)
 --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo | 1 | 8 |  | 64 | 5.041 |  1x | ~42
 ajuste fino completo | 1 | 8 | ✔ | 64 | 8.657 | 1.72x | ~36
@@ -304,7 +304,7 @@ QLoRA | 1 | 8 | ✔ | 64 | 10.545 | 2.09x | ~10
 
 ### 8x V100-32GB (Volta)
 
-Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de lote efectivo | Rendimiento (img/s) | Aceleración | Memoria pico de GPU (GB)
+Método de entrenamiento | \# nodos | GPUs | flash attention | Tamaño de lote efectivo | Rendimiento (img/s) | Aceleración | Memoria GPU máxima (GB)
 --- | --- | --- | --- | --- | --- | --- | --- |
 ajuste fino completo | 1 | 8 | | 64 | 2.462 |  1x | ~32
 ajuste fino completo | 2 | 16 |  | 64 | 4.182 | 1.70x | ~32
@@ -314,8 +314,8 @@ LoRA | 1 | 8 |  | 64 | 2.807 | 1.14x | ~30
 
 ## Problemas conocidos
 
-- No se puede ejecutar flash attention con fp16 (siempre se recomienda bf16 cuando está disponible, y todas las GPUs que soportan flash attention también soportan bf16).
+- No se puede ejecutar flash attention con fp16 (bf16 siempre es recomendado cuando está disponible, y todas las GPUs que soportan flash attention también soportan bf16).
 - Aún no se soporta guardar puntos de control intermedios y reanudar el entrenamiento.
 
         **Descargo de responsabilidad**:
-        Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.
+        Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

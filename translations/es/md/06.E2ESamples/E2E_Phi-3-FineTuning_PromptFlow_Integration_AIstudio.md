@@ -1,26 +1,26 @@
-# Ajustar y Integrar modelos Phi-3 personalizados con Prompt flow en Azure AI Studio
+# Ajustar y Integrar modelos Phi-3 personalizados con Prompt flow en Azure AI Foundry
 
-Este ejemplo de extremo a extremo (E2E) se basa en la guía "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow in Azure AI Studio](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in/ba-p/4191726?WT.mc_id=aiml-137032-kinfeylo)" de la Comunidad Técnica de Microsoft. Introduce los procesos de ajuste fino, despliegue e integración de modelos Phi-3 personalizados con Prompt flow en Azure AI Studio.
-A diferencia del ejemplo E2E, "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow](./E2E_Phi-3-FineTuning_PromptFlow_Integration.md)", que involucraba ejecutar código localmente, este tutorial se centra completamente en ajustar y integrar tu modelo dentro de Azure AI / ML Studio.
+Este ejemplo de extremo a extremo (E2E) se basa en la guía "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow in Azure AI Foundry](https://techcommunity.microsoft.com/t5/educator-developer-blog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in/ba-p/4191726?WT.mc_id=aiml-137032-kinfeylo)" de la Comunidad Técnica de Microsoft. Introduce los procesos de ajuste fino, despliegue e integración de modelos Phi-3 personalizados con Prompt flow en Azure AI Foundry.
+A diferencia del ejemplo E2E, "[Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow](./E2E_Phi-3-FineTuning_PromptFlow_Integration.md)", que implicaba ejecutar código localmente, este tutorial se centra completamente en ajustar e integrar tu modelo dentro de Azure AI / ML Studio.
 
 ## Descripción general
 
-En este ejemplo E2E, aprenderás a ajustar el modelo Phi-3 e integrarlo con Prompt flow en Azure AI Studio. Aprovechando Azure AI / ML Studio, establecerás un flujo de trabajo para desplegar y utilizar modelos de IA personalizados. Este ejemplo E2E está dividido en tres escenarios:
+En este ejemplo E2E, aprenderás a ajustar el modelo Phi-3 e integrarlo con Prompt flow en Azure AI Foundry. Aprovechando Azure AI / ML Studio, establecerás un flujo de trabajo para desplegar y utilizar modelos de IA personalizados. Este ejemplo E2E se divide en tres escenarios:
 
 **Escenario 1: Configurar recursos de Azure y Preparar para el ajuste fino**
 
 **Escenario 2: Ajustar el modelo Phi-3 y Desplegar en Azure Machine Learning Studio**
 
-**Escenario 3: Integrar con Prompt flow y Chatear con tu modelo personalizado en Azure AI Studio**
+**Escenario 3: Integrar con Prompt flow y Chatear con tu modelo personalizado en Azure AI Foundry**
 
-Aquí tienes una descripción general de este ejemplo E2E.
+Aquí hay una descripción general de este ejemplo E2E.
 
 ![Phi-3-FineTuning_PromptFlow_Integration Overview.](../../../../translated_images/00-01-architecture.fa40b38b29f795863378026c4dcc3007b0938b0b43afaf8c331906d03742b2e6.es.png)
 
-### Tabla de contenidos
+### Tabla de Contenidos
 
 1. **[Escenario 1: Configurar recursos de Azure y Preparar para el ajuste fino](../../../../md/06.E2ESamples)**
-    - [Crear un Workspace de Azure Machine Learning](../../../../md/06.E2ESamples)
+    - [Crear un Espacio de Trabajo de Azure Machine Learning](../../../../md/06.E2ESamples)
     - [Solicitar cuotas de GPU en la Suscripción de Azure](../../../../md/06.E2ESamples)
     - [Agregar asignación de roles](../../../../md/06.E2ESamples)
     - [Configurar proyecto](../../../../md/06.E2ESamples)
@@ -30,13 +30,13 @@ Aquí tienes una descripción general de este ejemplo E2E.
     - [Ajustar el modelo Phi-3](../../../../md/06.E2ESamples)
     - [Desplegar el modelo Phi-3 ajustado](../../../../md/06.E2ESamples)
 
-1. **[Escenario 3: Integrar con Prompt flow y Chatear con tu modelo personalizado en Azure AI Studio](../../../../md/06.E2ESamples)**
+1. **[Escenario 3: Integrar con Prompt flow y Chatear con tu modelo personalizado en Azure AI Foundry](../../../../md/06.E2ESamples)**
     - [Integrar el modelo Phi-3 personalizado con Prompt flow](../../../../md/06.E2ESamples)
     - [Chatear con tu modelo Phi-3 personalizado](../../../../md/06.E2ESamples)
 
 ## Escenario 1: Configurar recursos de Azure y Preparar para el ajuste fino
 
-### Crear un Workspace de Azure Machine Learning
+### Crear un Espacio de Trabajo de Azure Machine Learning
 
 1. Escribe *azure machine learning* en la **barra de búsqueda** en la parte superior de la página del portal y selecciona **Azure Machine Learning** de las opciones que aparecen.
 
@@ -44,20 +44,20 @@ Aquí tienes una descripción general de este ejemplo E2E.
 
 2. Selecciona **+ Crear** desde el menú de navegación.
 
-3. Selecciona **Nuevo workspace** desde el menú de navegación.
+3. Selecciona **Nuevo espacio de trabajo** desde el menú de navegación.
 
     ![Select new workspace.](../../../../translated_images/01-02-select-new-workspace.7648b384cbd786565740c0e5ea203d4710889d5ef23a2abf08428444f6d1a2a6.es.png)
 
 4. Realiza las siguientes tareas:
 
     - Selecciona tu **Suscripción** de Azure.
-    - Selecciona el **Grupo de recursos** a usar (crea uno nuevo si es necesario).
-    - Ingresa el **Nombre del Workspace**. Debe ser un valor único.
-    - Selecciona la **Región** que deseas usar.
-    - Selecciona la **Cuenta de almacenamiento** a usar (crea una nueva si es necesario).
-    - Selecciona el **Key vault** a usar (crea uno nuevo si es necesario).
-    - Selecciona el **Application insights** a usar (crea uno nuevo si es necesario).
-    - Selecciona el **Registro de contenedor** a usar (crea uno nuevo si es necesario).
+    - Selecciona el **Grupo de recursos** a utilizar (crea uno nuevo si es necesario).
+    - Ingresa el **Nombre del Espacio de Trabajo**. Debe ser un valor único.
+    - Selecciona la **Región** que deseas utilizar.
+    - Selecciona la **Cuenta de almacenamiento** a utilizar (crea una nueva si es necesario).
+    - Selecciona el **Key vault** a utilizar (crea uno nuevo si es necesario).
+    - Selecciona los **Application insights** a utilizar (crea uno nuevo si es necesario).
+    - Selecciona el **Registro de contenedores** a utilizar (crea uno nuevo si es necesario).
 
     ![Fill azure machine learning.](../../../../translated_images/01-03-fill-AZML.a3f644231a76859c7d92134b7dea1dd0d4df1c11cc615351c95be5a2c7056b03.es.png)
 
@@ -67,37 +67,37 @@ Aquí tienes una descripción general de este ejemplo E2E.
 
 ### Solicitar cuotas de GPU en la Suscripción de Azure
 
-En este tutorial, aprenderás a ajustar y desplegar un modelo Phi-3, utilizando GPUs. Para el ajuste fino, usarás la GPU *Standard_NC24ads_A100_v4*, que requiere una solicitud de cuota. Para el despliegue, usarás la GPU *Standard_NC6s_v3*, que también requiere una solicitud de cuota.
+En este tutorial, aprenderás a ajustar y desplegar un modelo Phi-3, utilizando GPUs. Para el ajuste fino, utilizarás la GPU *Standard_NC24ads_A100_v4*, que requiere una solicitud de cuota. Para el despliegue, utilizarás la GPU *Standard_NC6s_v3*, que también requiere una solicitud de cuota.
 
 > [!NOTE]
 >
-> Solo las suscripciones de Pago por Uso (el tipo de suscripción estándar) son elegibles para la asignación de GPU; las suscripciones de beneficio no están actualmente soportadas.
+> Solo las suscripciones de Pago por Uso (el tipo de suscripción estándar) son elegibles para la asignación de GPU; las suscripciones de beneficio no son compatibles actualmente.
 >
 
 1. Visita [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
 
 1. Realiza las siguientes tareas para solicitar la cuota de la familia *Standard NCADSA100v4*:
 
-    - Selecciona **Cuota** desde la pestaña del lado izquierdo.
-    - Selecciona la **Familia de máquinas virtuales** a usar. Por ejemplo, selecciona **Standard NCADSA100v4 Family Cluster Dedicated vCPUs**, que incluye la GPU *Standard_NC24ads_A100_v4*.
+    - Selecciona **Cuota** desde la pestaña lateral izquierda.
+    - Selecciona la **Familia de máquinas virtuales** a utilizar. Por ejemplo, selecciona **Standard NCADSA100v4 Family Cluster Dedicated vCPUs**, que incluye la GPU *Standard_NC24ads_A100_v4*.
     - Selecciona **Solicitar cuota** desde el menú de navegación.
 
         ![Request quota.](../../../../translated_images/02-02-request-quota.55f797113d95ad20ca91943eed637488d0aa51d61f3bbe7f080ec466b2ae0666.es.png)
 
-    - Dentro de la página de Solicitud de cuota, ingresa el **Nuevo límite de núcleos** que deseas usar. Por ejemplo, 24.
+    - Dentro de la página de Solicitud de cuota, ingresa el **Nuevo límite de núcleos** que deseas utilizar. Por ejemplo, 24.
     - Dentro de la página de Solicitud de cuota, selecciona **Enviar** para solicitar la cuota de GPU.
 
 1. Realiza las siguientes tareas para solicitar la cuota de la familia *Standard NCSv3*:
 
-    - Selecciona **Cuota** desde la pestaña del lado izquierdo.
-    - Selecciona la **Familia de máquinas virtuales** a usar. Por ejemplo, selecciona **Standard NCSv3 Family Cluster Dedicated vCPUs**, que incluye la GPU *Standard_NC6s_v3*.
+    - Selecciona **Cuota** desde la pestaña lateral izquierda.
+    - Selecciona la **Familia de máquinas virtuales** a utilizar. Por ejemplo, selecciona **Standard NCSv3 Family Cluster Dedicated vCPUs**, que incluye la GPU *Standard_NC6s_v3*.
     - Selecciona **Solicitar cuota** desde el menú de navegación.
-    - Dentro de la página de Solicitud de cuota, ingresa el **Nuevo límite de núcleos** que deseas usar. Por ejemplo, 24.
+    - Dentro de la página de Solicitud de cuota, ingresa el **Nuevo límite de núcleos** que deseas utilizar. Por ejemplo, 24.
     - Dentro de la página de Solicitud de cuota, selecciona **Enviar** para solicitar la cuota de GPU.
 
 ### Agregar asignación de roles
 
-Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administrada Asignada por el Usuario (UAI) y asignarle los permisos apropiados. Esta UAI se utilizará para la autenticación durante el despliegue.
+Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administrada Asignada por el Usuario (UAI) y asignarle los permisos adecuados. Esta UAI se utilizará para la autenticación durante el despliegue.
 
 #### Crear Identidad Administrada Asignada por el Usuario (UAI)
 
@@ -112,8 +112,8 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
 1. Realiza las siguientes tareas:
 
     - Selecciona tu **Suscripción** de Azure.
-    - Selecciona el **Grupo de recursos** a usar (crea uno nuevo si es necesario).
-    - Selecciona la **Región** que deseas usar.
+    - Selecciona el **Grupo de recursos** a utilizar (crea uno nuevo si es necesario).
+    - Selecciona la **Región** que deseas utilizar.
     - Ingresa el **Nombre**. Debe ser un valor único.
 
     ![Select create.](../../../../translated_images/03-03-fill-managed-identities-1.688009e629c1e6952853b94022d3fe97c659c34e29908db17218a5cab6d6add1.es.png)
@@ -122,19 +122,19 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
 
 1. Selecciona **+ Crear**.
 
-#### Agregar asignación de rol de Contribuidor a la Identidad Administrada
+#### Agregar asignación de rol de Colaborador a la Identidad Administrada
 
 1. Navega al recurso de Identidad Administrada que creaste.
 
-1. Selecciona **Asignaciones de roles de Azure** desde la pestaña del lado izquierdo.
+1. Selecciona **Asignaciones de roles de Azure** desde la pestaña lateral izquierda.
 
 1. Selecciona **+Agregar asignación de rol** desde el menú de navegación.
 
 1. Dentro de la página de Agregar asignación de rol, realiza las siguientes tareas:
     - Selecciona el **Alcance** a **Grupo de recursos**.
     - Selecciona tu **Suscripción** de Azure.
-    - Selecciona el **Grupo de recursos** a usar.
-    - Selecciona el **Rol** a **Contribuidor**.
+    - Selecciona el **Grupo de recursos** a utilizar.
+    - Selecciona el **Rol** a **Colaborador**.
 
     ![Fill contributor role.](../../../../translated_images/03-04-fill-contributor-role.8bc54b3ac8f64842c82b3379f3c3e9f8d778abf28c00e5b7b471935a86d3ae64.es.png)
 
@@ -146,12 +146,12 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
 
     ![Type storage accounts.](../../../../translated_images/03-05-type-storage-accounts.236987db35ba863124c6de8dd16533fe35b96ee4e2dcb9d67e6b279a285f0e6d.es.png)
 
-1. Selecciona la cuenta de almacenamiento asociada con el workspace de Azure Machine Learning que creaste. Por ejemplo, *finetunephistorage*.
+1. Selecciona la cuenta de almacenamiento asociada con el espacio de trabajo de Azure Machine Learning que creaste. Por ejemplo, *finetunephistorage*.
 
 1. Realiza las siguientes tareas para navegar a la página de Agregar asignación de rol:
 
     - Navega a la cuenta de almacenamiento de Azure que creaste.
-    - Selecciona **Control de acceso (IAM)** desde la pestaña del lado izquierdo.
+    - Selecciona **Control de acceso (IAM)** desde la pestaña lateral izquierda.
     - Selecciona **+ Agregar** desde el menú de navegación.
     - Selecciona **Agregar asignación de rol** desde el menú de navegación.
 
@@ -164,7 +164,7 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
     - Dentro de la página de Miembros, selecciona **Asignar acceso a** **Identidad administrada**.
     - Dentro de la página de Miembros, selecciona **+ Seleccionar miembros**.
     - Dentro de la página de Seleccionar identidades administradas, selecciona tu **Suscripción** de Azure.
-    - Dentro de la página de Seleccionar identidades administradas, selecciona la **Identidad administrada** a **Identidad Administrada**.
+    - Dentro de la página de Seleccionar identidades administradas, selecciona la **Identidad administrada** a **Managed Identity**.
     - Dentro de la página de Seleccionar identidades administradas, selecciona la Identidad Administrada que creaste. Por ejemplo, *finetunephi-managedidentity*.
     - Dentro de la página de Seleccionar identidades administradas, selecciona **Seleccionar**.
 
@@ -178,11 +178,11 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
 
     ![Type container registries.](../../../../translated_images/03-09-type-container-registries.b5519f1fbf49bff0c0d4c95deecd2ef0c61b4870119886c3661014435e2b7095.es.png)
 
-1. Selecciona el registro de contenedor asociado con el workspace de Azure Machine Learning. Por ejemplo, *finetunephicontainerregistry*
+1. Selecciona el registro de contenedores asociado con el espacio de trabajo de Azure Machine Learning. Por ejemplo, *finetunephicontainerregistry*
 
 1. Realiza las siguientes tareas para navegar a la página de Agregar asignación de rol:
 
-    - Selecciona **Control de acceso (IAM)** desde la pestaña del lado izquierdo.
+    - Selecciona **Control de acceso (IAM)** desde la pestaña lateral izquierda.
     - Selecciona **+ Agregar** desde el menú de navegación.
     - Selecciona **Agregar asignación de rol** desde el menú de navegación.
 
@@ -193,7 +193,7 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
     - Dentro de la página de Miembros, selecciona **Asignar acceso a** **Identidad administrada**.
     - Dentro de la página de Miembros, selecciona **+ Seleccionar miembros**.
     - Dentro de la página de Seleccionar identidades administradas, selecciona tu **Suscripción** de Azure.
-    - Dentro de la página de Seleccionar identidades administradas, selecciona la **Identidad administrada** a **Identidad Administrada**.
+    - Dentro de la página de Seleccionar identidades administradas, selecciona la **Identidad administrada** a **Managed Identity**.
     - Dentro de la página de Seleccionar identidades administradas, selecciona la Identidad Administrada que creaste. Por ejemplo, *finetunephi-managedidentity*.
     - Dentro de la página de Seleccionar identidades administradas, selecciona **Seleccionar**.
     - Selecciona **Revisar + asignar**.
@@ -202,12 +202,12 @@ Para ajustar y desplegar tus modelos, primero debes crear una Identidad Administ
 
 Para descargar los conjuntos de datos necesarios para el ajuste fino, configurarás un entorno local.
 
-En este ejercicio, harás lo siguiente:
+En este ejercicio, tú:
 
-- Crear una carpeta para trabajar dentro de ella.
-- Crear un entorno virtual.
-- Instalar los paquetes necesarios.
-- Crear un archivo *download_dataset.py* para descargar el conjunto de datos.
+- Crearás una carpeta para trabajar dentro de ella.
+- Crearás un entorno virtual.
+- Instalarás los paquetes necesarios.
+- Crearás un archivo *download_dataset.py* para descargar el conjunto de datos.
 
 #### Crear una carpeta para trabajar dentro de ella
 
@@ -238,7 +238,7 @@ En este ejercicio, harás lo siguiente:
     ```
 
 > [!NOTE]
-> Si funcionó, deberías ver *(.venv)* antes del prompt de comandos.
+> Si funcionó, deberías ver *(.venv)* antes del símbolo del sistema.
 
 #### Instalar los paquetes necesarios
 
@@ -261,11 +261,11 @@ En este ejercicio, harás lo siguiente:
 
 1. Abre **Visual Studio Code**.
 
-1. Selecciona **Archivo** en la barra de menú.
+1. Selecciona **Archivo** desde la barra de menú.
 
 1. Selecciona **Abrir carpeta**.
 
-1. Selecciona la carpeta *finetune-phi* que creaste, que está ubicada en *C:\Users\tuNombreDeUsuario\finetune-phi*.
+1. Selecciona la carpeta *finetune-phi* que creaste, que se encuentra en *C:\Users\tuNombreDeUsuario\finetune-phi*.
 
     ![Select the folder that you created.](../../../../translated_images/04-01-open-project-folder.f5e2b4ce1cb596eae857303b12909dc0174fd99129d6944c41079f24ee17eed2.es.png)
 
@@ -275,12 +275,12 @@ En este ejercicio, harás lo siguiente:
 
 ### Preparar conjunto de datos para el ajuste fino
 
-En este ejercicio, ejecutarás el archivo *download_dataset.py* para descargar los conjuntos de datos *ultrachat_200k* a tu entorno local. Luego usarás estos conjuntos de datos para ajustar el modelo Phi-3 en Azure Machine Learning.
+En este ejercicio, ejecutarás el archivo *download_dataset.py* para descargar los conjuntos de datos *ultrachat_200k* a tu entorno local. Luego utilizarás estos conjuntos de datos para ajustar el modelo Phi-3 en Azure Machine Learning.
 
-En este ejercicio, harás lo siguiente:
+En este ejercicio, tú:
 
-- Agregar código al archivo *download_dataset.py* para descargar los conjuntos de datos.
-- Ejecutar el archivo *download_dataset.py* para descargar los conjuntos de datos a tu entorno local.
+- Agregarás código al archivo *download_dataset.py* para descargar los conjuntos de datos.
+- Ejecutarás el archivo *download_dataset.py* para descargar los conjuntos de datos a tu entorno local.
 
 #### Descargar tu conjunto de datos usando *download_dataset.py*
 
@@ -360,7 +360,7 @@ En este ejercicio, harás lo siguiente:
 >
 > #### Nota sobre el tamaño del conjunto de datos y el tiempo de ajuste fino
 >
-> En este tutorial, solo usas el 1% del conjunto de datos (`split='train[:1%]'`). Esto reduce significativamente la cantidad de datos, acelerando tanto el proceso de carga como el de ajuste fino. Puedes ajustar el porcentaje para encontrar el equilibrio adecuado entre el tiempo de entrenamiento y el rendimiento del modelo. Usar un subconjunto más pequeño del conjunto de datos reduce el tiempo requerido para el ajuste fino, haciendo el proceso más manejable para un tutorial.
+> En este tutorial, solo utilizas el 1% del conjunto de datos (`split='train[:1%]'`). Esto reduce significativamente la cantidad de datos, acelerando tanto los procesos de carga como de ajuste fino. Puedes ajustar el porcentaje para encontrar el equilibrio adecuado entre el tiempo de entrenamiento y el rendimiento del modelo. Usar un subconjunto más pequeño del conjunto de datos reduce el tiempo necesario para el ajuste fino, haciendo que el proceso sea más manejable para un tutorial.
 
 ## Escenario 2: Ajustar el modelo Phi-3 y Desplegar en Azure Machine Learning Studio
 
@@ -368,10 +368,10 @@ En este ejercicio, harás lo siguiente:
 
 En este ejercicio, ajustarás el modelo Phi-3 en Azure Machine Learning Studio.
 
-En este ejercicio, harás lo siguiente:
+En este ejercicio, tú:
 
-- Crear un clúster de computación para el ajuste fino.
-- Ajustar el modelo Phi-3 en Azure Machine Learning Studio.
+- Crearás un clúster de computación para el ajuste fino.
+- Ajustarás el modelo Phi-3 en Azure Machine Learning Studio.
 
 #### Crear un clúster de computación para el ajuste fino
 1. Visita [Azure ML Studio](https://ml.azure.com/home?wt.mc_id=studentamb_279723).
@@ -382,15 +382,15 @@ En este ejercicio, harás lo siguiente:
 
 1. Selecciona **+ New**.
 
-    ![Selecciona compute.](../../../../translated_images/06-01-select-compute.69422609cf19921fb16f550b2566e00870f63ba0caf66b0d26b34e6b0ed21a68.es.png)
+    ![Seleccionar compute.](../../../../translated_images/06-01-select-compute.69422609cf19921fb16f550b2566e00870f63ba0caf66b0d26b34e6b0ed21a68.es.png)
 
 1. Realiza las siguientes tareas:
 
-    - Selecciona la **Región** que deseas usar.
-    - Selecciona el **Nivel de la máquina virtual** a **Dedicated**.
-    - Selecciona el **Tipo de máquina virtual** a **GPU**.
-    - Filtra el **Tamaño de la máquina virtual** a **Select from all options**.
-    - Selecciona el **Tamaño de la máquina virtual** a **Standard_NC24ads_A100_v4**.
+    - Selecciona la **Region** que deseas usar.
+    - Selecciona el **Virtual machine tier** a **Dedicated**.
+    - Selecciona el **Virtual machine type** a **GPU**.
+    - Selecciona el filtro de **Virtual machine size** a **Select from all options**.
+    - Selecciona el **Virtual machine size** a **Standard_NC24ads_A100_v4**.
 
     ![Crear clúster.](../../../../translated_images/06-02-create-cluster.ad68bcb0914b62972408da8f925632977c54248ff99d2c45761f7e3d33f40fe1.es.png)
 
@@ -398,10 +398,10 @@ En este ejercicio, harás lo siguiente:
 
 1. Realiza las siguientes tareas:
 
-    - Introduce el **Nombre del compute**. Debe ser un valor único.
-    - Selecciona el **Número mínimo de nodos** a **0**.
-    - Selecciona el **Número máximo de nodos** a **1**.
-    - Selecciona los **Segundos inactivos antes de reducir escala** a **120**.
+    - Introduce el **Compute name**. Debe ser un valor único.
+    - Selecciona el **Minimum number of nodes** a **0**.
+    - Selecciona el **Maximum number of nodes** a **1**.
+    - Selecciona los **Idle seconds before scale down** a **120**.
 
     ![Crear clúster.](../../../../translated_images/06-03-create-cluster.f36399780462ff69f62b9bdf22180d6824b00cdc913fe2a639dde3e4b9eaa43e.es.png)
 
@@ -424,16 +424,16 @@ En este ejercicio, harás lo siguiente:
 
 1. Selecciona **Fine-tune** desde el menú de navegación.
 
-    ![Selecciona fine tune.](../../../../translated_images/06-06-select-fine-tune.2c678a7f33294c16ae3ad30ce5d4a78600013dc3a0227e8d341a1962f3aff84d.es.png)
+    ![Seleccionar ajuste fino.](../../../../translated_images/06-06-select-fine-tune.2c678a7f33294c16ae3ad30ce5d4a78600013dc3a0227e8d341a1962f3aff84d.es.png)
 
 1. Realiza las siguientes tareas:
 
     - Selecciona **Select task type** a **Chat completion**.
-    - Selecciona **+ Select data** para cargar los **Datos de entrenamiento**.
-    - Selecciona el tipo de carga de datos de validación a **Provide different validation data**.
-    - Selecciona **+ Select data** para cargar los **Datos de validación**.
+    - Selecciona **+ Select data** para subir **Traning data**.
+    - Selecciona el tipo de subida de datos de validación a **Provide different validation data**.
+    - Selecciona **+ Select data** para subir **Validation data**.
 
-    ![Rellena la página de ajuste fino.](../../../../translated_images/06-07-fill-finetuning.c76431cc247b6398fb9d33da62841adf87d5eebaa92cd79e80bd7bcbed49f1d3.es.png)
+    ![Rellenar página de ajuste fino.](../../../../translated_images/06-07-fill-finetuning.c76431cc247b6398fb9d33da62841adf87d5eebaa92cd79e80bd7bcbed49f1d3.es.png)
 
     > [!TIP]
     >
@@ -441,13 +441,13 @@ En este ejercicio, harás lo siguiente:
 
 1. Selecciona **Finish**.
 
-1. En este ejercicio, ajustaste con éxito el modelo Phi-3 usando Azure Machine Learning. Ten en cuenta que el proceso de ajuste fino puede llevar un tiempo considerable. Después de ejecutar el trabajo de ajuste fino, debes esperar a que se complete. Puedes monitorear el estado del trabajo de ajuste fino navegando a la pestaña Jobs en el lado izquierdo de tu espacio de trabajo de Azure Machine Learning. En la próxima serie, desplegarás el modelo ajustado y lo integrarás con Prompt flow.
+1. En este ejercicio, ajustaste con éxito el modelo Phi-3 usando Azure Machine Learning. Ten en cuenta que el proceso de ajuste fino puede tomar una cantidad considerable de tiempo. Después de ejecutar el trabajo de ajuste fino, necesitas esperar a que se complete. Puedes monitorear el estado del trabajo de ajuste fino navegando a la pestaña Jobs en el lado izquierdo de tu espacio de trabajo de Azure Machine Learning. En la próxima serie, desplegarás el modelo ajustado e integrarlo con Prompt flow.
 
     ![Ver trabajo de ajuste fino.](../../../../translated_images/06-08-output.9f9cf6f9e9e83533b793a5ff3066b09475e299999fead6f98dfb102f48db0061.es.png)
 
 ### Desplegar el modelo Phi-3 ajustado
 
-Para integrar el modelo Phi-3 ajustado con Prompt flow, necesitas desplegar el modelo para hacerlo accesible para inferencia en tiempo real. Este proceso implica registrar el modelo, crear un endpoint en línea y desplegar el modelo.
+Para integrar el modelo Phi-3 ajustado con Prompt flow, necesitas desplegar el modelo para hacerlo accesible para inferencia en tiempo real. Este proceso involucra registrar el modelo, crear un endpoint en línea y desplegar el modelo.
 
 En este ejercicio, harás lo siguiente:
 
@@ -471,7 +471,7 @@ En este ejercicio, harás lo siguiente:
 
 1. Selecciona el trabajo que creaste.
 
-    ![Selecciona trabajo.](../../../../translated_images/07-02-select-job.712abf18cdae5256776907df3ed30df53d297ff8d475fb64d5c03e92304db6ef.es.png)
+    ![Seleccionar trabajo.](../../../../translated_images/07-02-select-job.712abf18cdae5256776907df3ed30df53d297ff8d475fb64d5c03e92304db6ef.es.png)
 
 1. Selecciona **Next**.
 
@@ -479,13 +479,13 @@ En este ejercicio, harás lo siguiente:
 
 1. Asegúrate de que **Job output** esté seleccionado; debería estar seleccionado automáticamente.
 
-    ![Selecciona salida.](../../../../translated_images/07-03-select-output.45098161b7ddfda4b8d4d62676da0488a32a16e838ff03f37bfd71b9886da798.es.png)
+    ![Seleccionar salida.](../../../../translated_images/07-03-select-output.45098161b7ddfda4b8d4d62676da0488a32a16e838ff03f37bfd71b9886da798.es.png)
 
 1. Selecciona **Next**.
 
 1. Selecciona **Register**.
 
-    ![Selecciona registrar.](../../../../translated_images/07-04-register.3403ed7976f07fbfc27210550cf2f793d9cf778032ea276ecb287bd9df88f188.es.png)
+    ![Seleccionar registro.](../../../../translated_images/07-04-register.3403ed7976f07fbfc27210550cf2f793d9cf778032ea276ecb287bd9df88f188.es.png)
 
 1. Puedes ver tu modelo registrado navegando al menú **Models** desde la pestaña lateral izquierda.
 
@@ -505,19 +505,19 @@ En este ejercicio, harás lo siguiente:
 
 1. selecciona el modelo registrado que creaste.
 
-    ![Selecciona modelo registrado.](../../../../translated_images/07-07-select-registered-model.5190ae13400cc09a6410f891a62e6b2ccc2c2bd7f419b0df4ea964731e72407f.es.png)
+    ![Seleccionar modelo registrado.](../../../../translated_images/07-07-select-registered-model.5190ae13400cc09a6410f891a62e6b2ccc2c2bd7f419b0df4ea964731e72407f.es.png)
 
 1. Selecciona **Select**.
 
 1. Realiza las siguientes tareas:
 
     - Selecciona **Virtual machine** a *Standard_NC6s_v3*.
-    - Selecciona la **Cantidad de instancias** que deseas usar. Por ejemplo, *1*.
+    - Selecciona la **Instance count** que deseas usar. Por ejemplo, *1*.
     - Selecciona el **Endpoint** a **New** para crear un endpoint.
-    - Introduce el **Nombre del endpoint**. Debe ser un valor único.
-    - Introduce el **Nombre del despliegue**. Debe ser un valor único.
+    - Introduce el **Endpoint name**. Debe ser un valor único.
+    - Introduce el **Deployment name**. Debe ser un valor único.
 
-    ![Rellena la configuración del despliegue.](../../../../translated_images/07-08-deployment-setting.5449edf53b27f5457cc68d2285d355a7d364b01423a51e5af63e7c52374a3a79.es.png)
+    ![Rellenar configuración de despliegue.](../../../../translated_images/07-08-deployment-setting.5449edf53b27f5457cc68d2285d355a7d364b01423a51e5af63e7c52374a3a79.es.png)
 
 1. Selecciona **Deploy**.
 
@@ -533,38 +533,38 @@ En este ejercicio, harás lo siguiente:
 
 1. Selecciona el endpoint que creaste.
 
-    ![Selecciona endpoints](../../../../translated_images/07-09-check-deployment.8e4465a7585b3c22db5fc9d5757269a919b5104fdeb5f736fa573ca9b3e16abe.es.png)
+    ![Seleccionar endpoints](../../../../translated_images/07-09-check-deployment.8e4465a7585b3c22db5fc9d5757269a919b5104fdeb5f736fa573ca9b3e16abe.es.png)
 
 1. En esta página, puedes gestionar los endpoints durante el proceso de despliegue.
 
 > [!NOTE]
-> Una vez que el despliegue esté completo, asegúrate de que **Live traffic** esté configurado al **100%**. Si no lo está, selecciona **Update traffic** para ajustar la configuración del tráfico. Ten en cuenta que no puedes probar el modelo si el tráfico está configurado en 0%.
+> Una vez que el despliegue esté completo, asegúrate de que **Live traffic** esté configurado en **100%**. Si no es así, selecciona **Update traffic** para ajustar la configuración de tráfico. Ten en cuenta que no puedes probar el modelo si el tráfico está configurado en 0%.
 >
 > ![Configurar tráfico.](../../../../translated_images/07-10-set-traffic.1d1b24b39c7ec80451c99fe05298fac636f0cd449e7be282736f6c06a1a70875.es.png)
 >
 
-## Escenario 3: Integrar con Prompt flow y chatear con tu modelo personalizado en Azure AI Studio
+## Escenario 3: Integrar con Prompt flow y chatear con tu modelo personalizado en Azure AI Foundry
 
-### Integrar el modelo personalizado Phi-3 con Prompt flow
+### Integrar el modelo Phi-3 personalizado con Prompt flow
 
-Después de desplegar con éxito tu modelo ajustado, ahora puedes integrarlo con Prompt Flow para usar tu modelo en aplicaciones en tiempo real, habilitando una variedad de tareas interactivas con tu modelo personalizado Phi-3.
+Después de desplegar con éxito tu modelo ajustado, ahora puedes integrarlo con Prompt Flow para usar tu modelo en aplicaciones en tiempo real, permitiendo una variedad de tareas interactivas con tu modelo Phi-3 personalizado.
 
 En este ejercicio, harás lo siguiente:
 
-- Crear Azure AI Studio Hub.
-- Crear Azure AI Studio Project.
+- Crear Azure AI Foundry Hub.
+- Crear Azure AI Foundry Project.
 - Crear Prompt flow.
-- Agregar una conexión personalizada para el modelo Phi-3 ajustado.
-- Configurar Prompt flow para chatear con tu modelo personalizado Phi-3.
+- Añadir una conexión personalizada para el modelo Phi-3 ajustado.
+- Configurar Prompt flow para chatear con tu modelo Phi-3 personalizado.
 
 > [!NOTE]
 > También puedes integrar con Promptflow usando Azure ML Studio. El mismo proceso de integración se puede aplicar a Azure ML Studio.
 
-#### Crear Azure AI Studio Hub
+#### Crear Azure AI Foundry Hub
 
-Necesitas crear un Hub antes de crear el Project. Un Hub actúa como un Grupo de Recursos, permitiéndote organizar y gestionar múltiples Projects dentro de Azure AI Studio.
+Necesitas crear un Hub antes de crear el Proyecto. Un Hub actúa como un Grupo de Recursos, permitiéndote organizar y gestionar múltiples Proyectos dentro de Azure AI Foundry.
 
-1. Visita [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
+1. Visita [Azure AI Foundry](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 
 1. Selecciona **All hubs** desde la pestaña lateral izquierda.
 
@@ -574,36 +574,36 @@ Necesitas crear un Hub antes de crear el Project. Un Hub actúa como un Grupo de
 
 1. Realiza las siguientes tareas:
 
-    - Introduce el **Nombre del hub**. Debe ser un valor único.
+    - Introduce el **Hub name**. Debe ser un valor único.
     - Selecciona tu **Subscription** de Azure.
-    - Selecciona el **Resource group** que deseas usar (crea uno nuevo si es necesario).
-    - Selecciona la **Ubicación** que deseas usar.
-    - Selecciona los **Servicios de Azure AI** que deseas usar (crea uno nuevo si es necesario).
+    - Selecciona el **Resource group** a usar (crea uno nuevo si es necesario).
+    - Selecciona la **Location** que deseas usar.
+    - Selecciona el **Connect Azure AI Services** a usar (crea uno nuevo si es necesario).
     - Selecciona **Connect Azure AI Search** a **Skip connecting**.
 
-    ![Rellena el hub.](../../../../translated_images/08-02-fill-hub.fc194526614a5811e7b57e699911be39babdc95aa425b6c4a72f064948865ce3.es.png)
+    ![Rellenar hub.](../../../../translated_images/08-02-fill-hub.fc194526614a5811e7b57e699911be39babdc95aa425b6c4a72f064948865ce3.es.png)
 
 1. Selecciona **Next**.
 
-#### Crear Azure AI Studio Project
+#### Crear Azure AI Foundry Project
 
 1. En el Hub que creaste, selecciona **All projects** desde la pestaña lateral izquierda.
 
 1. Selecciona **+ New project** desde el menú de navegación.
 
-    ![Selecciona nuevo proyecto.](../../../../translated_images/08-04-select-new-project.dc11f26658c3c3f9d0fcf3232a954abfc115de5eb74da21d5be229c9c1be2875.es.png)
+    ![Seleccionar nuevo proyecto.](../../../../translated_images/08-04-select-new-project.dc11f26658c3c3f9d0fcf3232a954abfc115de5eb74da21d5be229c9c1be2875.es.png)
 
-1. Introduce el **Nombre del proyecto**. Debe ser un valor único.
+1. Introduce el **Project name**. Debe ser un valor único.
 
     ![Crear proyecto.](../../../../translated_images/08-05-create-project.61caaa28c1b9b696bf29de6b002bbb2040dbaeb764adab161dcb3472fe789aea.es.png)
 
 1. Selecciona **Create a project**.
 
-#### Agregar una conexión personalizada para el modelo Phi-3 ajustado
+#### Añadir una conexión personalizada para el modelo Phi-3 ajustado
 
-Para integrar tu modelo personalizado Phi-3 con Prompt flow, necesitas guardar el endpoint y la clave del modelo en una conexión personalizada. Esta configuración asegura el acceso a tu modelo personalizado Phi-3 en Prompt flow.
+Para integrar tu modelo Phi-3 personalizado con Prompt flow, necesitas guardar el endpoint y la clave del modelo en una conexión personalizada. Esta configuración asegura el acceso a tu modelo Phi-3 personalizado en Prompt flow.
 
-#### Configurar la clave API y la URI del endpoint del modelo Phi-3 ajustado
+#### Configurar la clave API y el URI del endpoint del modelo Phi-3 ajustado
 
 1. Visita [Azure ML Studio](https://ml.azure.com/home?WT.mc_id=aiml-137032-kinfeylo).
 
@@ -611,70 +611,70 @@ Para integrar tu modelo personalizado Phi-3 con Prompt flow, necesitas guardar e
 
 1. Selecciona **Endpoints** desde la pestaña lateral izquierda.
 
-    ![Selecciona endpoints.](../../../../translated_images/08-06-select-endpoints.75d3bdd7f0b17da0367370d1293f7e7f7b2a65fb7e17390997be0460e8f0b82b.es.png)
+    ![Seleccionar endpoints.](../../../../translated_images/08-06-select-endpoints.75d3bdd7f0b17da0367370d1293f7e7f7b2a65fb7e17390997be0460e8f0b82b.es.png)
 
 1. Selecciona el endpoint que creaste.
 
-    ![Selecciona endpoints.](../../../../translated_images/08-07-select-endpoint-created.851b32efc6058e5863aa62ae8d576a6c20792e24f1862dc6857b9f24a2949f96.es.png)
+    ![Seleccionar endpoints.](../../../../translated_images/08-07-select-endpoint-created.851b32efc6058e5863aa62ae8d576a6c20792e24f1862dc6857b9f24a2949f96.es.png)
 
 1. Selecciona **Consume** desde el menú de navegación.
 
 1. Copia tu **REST endpoint** y **Primary key**.
-![Copiar clave API y URI del endpoint.](../../../../translated_images/08-08-copy-endpoint-key.947512a4c95b5dd9fc5a606bad4244bf9b136929c1fab06570c463311ef29df1.es.png)
+![Copia la clave de API y el URI del endpoint.](../../../../translated_images/08-08-copy-endpoint-key.947512a4c95b5dd9fc5a606bad4244bf9b136929c1fab06570c463311ef29df1.es.png)
 
 #### Agregar la Conexión Personalizada
 
-1. Visita [Azure AI Studio](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
+1. Visita [Azure AI Foundry](https://ai.azure.com/?WT.mc_id=aiml-137032-kinfeylo).
 
-1. Navega al proyecto de Azure AI Studio que creaste.
+1. Navega al proyecto de Azure AI Foundry que creaste.
 
-1. En el proyecto que creaste, selecciona **Settings** en la pestaña del lado izquierdo.
+1. En el proyecto que creaste, selecciona **Settings** en la pestaña lateral izquierda.
 
 1. Selecciona **+ New connection**.
 
-    ![Seleccionar nueva conexión.](../../../../translated_images/08-09-select-new-connection.b5e93c85028739875916f34a1821b0b086f0e993b8d7d7388c100e3a38b70bbd.es.png)
+    ![Selecciona nueva conexión.](../../../../translated_images/08-09-select-new-connection.b5e93c85028739875916f34a1821b0b086f0e993b8d7d7388c100e3a38b70bbd.es.png)
 
 1. Selecciona **Custom keys** en el menú de navegación.
 
-    ![Seleccionar claves personalizadas.](../../../../translated_images/08-10-select-custom-keys.077f17a1a49b8f76e446453b6a68c09c2aa08291818d98edcf39e3013c5b45ac.es.png)
+    ![Selecciona claves personalizadas.](../../../../translated_images/08-10-select-custom-keys.077f17a1a49b8f76e446453b6a68c09c2aa08291818d98edcf39e3013c5b45ac.es.png)
 
 1. Realiza las siguientes tareas:
 
     - Selecciona **+ Add key value pairs**.
     - Para el nombre de la clave, ingresa **endpoint** y pega el endpoint que copiaste de Azure ML Studio en el campo de valor.
-    - Selecciona **+ Add key value pairs** nuevamente.
+    - Selecciona **+ Add key value pairs** de nuevo.
     - Para el nombre de la clave, ingresa **key** y pega la clave que copiaste de Azure ML Studio en el campo de valor.
-    - Después de agregar las claves, selecciona **is secret** para evitar que la clave sea expuesta.
+    - Después de agregar las claves, selecciona **is secret** para evitar que la clave se exponga.
 
     ![Agregar conexión.](../../../../translated_images/08-11-add-connection.01279deb77ede4d195b17ecabae70979976834892e9dbb3354f504bb6edaa6e1.es.png)
 
 1. Selecciona **Add connection**.
 
-#### Crear Prompt flow
+#### Crear un Prompt flow
 
-Has agregado una conexión personalizada en Azure AI Studio. Ahora, vamos a crear un Prompt flow usando los siguientes pasos. Luego, conectarás este Prompt flow a la conexión personalizada para que puedas usar el modelo ajustado dentro del Prompt flow.
+Has agregado una conexión personalizada en Azure AI Foundry. Ahora, vamos a crear un Prompt flow usando los siguientes pasos. Luego, conectarás este Prompt flow a la conexión personalizada para que puedas usar el modelo ajustado dentro del Prompt flow.
 
-1. Navega al proyecto de Azure AI Studio que creaste.
+1. Navega al proyecto de Azure AI Foundry que creaste.
 
-1. Selecciona **Prompt flow** en la pestaña del lado izquierdo.
+1. Selecciona **Prompt flow** en la pestaña lateral izquierda.
 
 1. Selecciona **+ Create** en el menú de navegación.
 
-    ![Seleccionar Promptflow.](../../../../translated_images/08-12-select-promptflow.5e0527f1e5102c604e0e8a34f2321e28f8c815ec2908ae7038f012a088ff2bbc.es.png)
+    ![Selecciona Promptflow.](../../../../translated_images/08-12-select-promptflow.5e0527f1e5102c604e0e8a34f2321e28f8c815ec2908ae7038f012a088ff2bbc.es.png)
 
 1. Selecciona **Chat flow** en el menú de navegación.
 
-    ![Seleccionar chat flow.](../../../../translated_images/08-13-select-flow-type.e3fb41375041faa4d058304c319329d5f45f87139143b384f056bb500076ca73.es.png)
+    ![Selecciona chat flow.](../../../../translated_images/08-13-select-flow-type.e3fb41375041faa4d058304c319329d5f45f87139143b384f056bb500076ca73.es.png)
 
-1. Ingresa **Folder name** a usar.
+1. Ingresa **Folder name** a utilizar.
 
-    ![Ingresar nombre.](../../../../translated_images/08-14-enter-name.90db481f18468cfd78b281825cb5484ab7236cfa29d59d287b7b0f423516e6ea.es.png)
+    ![Ingresa nombre.](../../../../translated_images/08-14-enter-name.90db481f18468cfd78b281825cb5484ab7236cfa29d59d287b7b0f423516e6ea.es.png)
 
 1. Selecciona **Create**.
 
 #### Configurar Prompt flow para chatear con tu modelo personalizado Phi-3
 
-Necesitas integrar el modelo ajustado Phi-3 en un Prompt flow. Sin embargo, el Prompt flow existente no está diseñado para este propósito. Por lo tanto, debes rediseñar el Prompt flow para permitir la integración del modelo personalizado.
+Necesitas integrar el modelo ajustado Phi-3 en un Prompt flow. Sin embargo, el Prompt flow existente no está diseñado para este propósito. Por lo tanto, debes rediseñar el Prompt flow para habilitar la integración del modelo personalizado.
 
 1. En el Prompt flow, realiza las siguientes tareas para reconstruir el flujo existente:
 
@@ -705,7 +705,7 @@ Necesitas integrar el modelo ajustado Phi-3 en un Prompt flow. Sin embargo, el P
 
     - Selecciona **Save**.
 
-    ![Seleccionar modo de archivo bruto.](../../../../translated_images/08-15-select-raw-file-mode.28d80142df9d540c66c37d17825cec921bb1f7b54e386223bb4ad38df10e5e2d.es.png)
+    ![Selecciona modo de archivo bruto.](../../../../translated_images/08-15-select-raw-file-mode.28d80142df9d540c66c37d17825cec921bb1f7b54e386223bb4ad38df10e5e2d.es.png)
 
 1. Agrega el siguiente código al archivo *integrate_with_promptflow.py* para usar el modelo personalizado Phi-3 en Prompt flow.
 
@@ -770,16 +770,16 @@ Necesitas integrar el modelo ajustado Phi-3 en un Prompt flow. Sin embargo, el P
 
     ```
 
-    ![Pegar código de prompt flow.](../../../../translated_images/08-16-paste-promptflow-code.c27a93ed6134adbe7ce618ffad7300923f3c02defedef0b5598eab5a6ee2afc2.es.png)
+    ![Pega el código del prompt flow.](../../../../translated_images/08-16-paste-promptflow-code.c27a93ed6134adbe7ce618ffad7300923f3c02defedef0b5598eab5a6ee2afc2.es.png)
 
 > [!NOTE]
-> Para obtener información más detallada sobre el uso de Prompt flow en Azure AI Studio, puedes consultar [Prompt flow en Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow).
+> Para obtener más información detallada sobre el uso de Prompt flow en Azure AI Foundry, puedes consultar [Prompt flow en Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow).
 
 1. Selecciona **Chat input**, **Chat output** para habilitar el chat con tu modelo.
 
-    ![Entrada y salida.](../../../../translated_images/08-17-select-input-output.d188ea79fc21d29e615b6cc50d638214a2dcbc3b3ccb16009aa67698227d2765.es.png)
+    ![Entrada Salida.](../../../../translated_images/08-17-select-input-output.d188ea79fc21d29e615b6cc50d638214a2dcbc3b3ccb16009aa67698227d2765.es.png)
 
-1. Ahora estás listo para chatear con tu modelo personalizado Phi-3. En el próximo ejercicio, aprenderás cómo iniciar Prompt flow y usarlo para chatear con tu modelo ajustado Phi-3.
+1. Ahora estás listo para chatear con tu modelo personalizado Phi-3. En el siguiente ejercicio, aprenderás cómo iniciar Prompt flow y usarlo para chatear con tu modelo ajustado Phi-3.
 
 > [!NOTE]
 >
@@ -788,9 +788,9 @@ Necesitas integrar el modelo ajustado Phi-3 en un Prompt flow. Sin embargo, el P
 > ![Ejemplo de flujo.](../../../../translated_images/08-18-graph-example.48c427864370ac7dd02e500bc3a0ff49785d4480e489b4dfe25e529da99f193f.es.png)
 >
 
-### Chatear con tu modelo personalizado Phi-3
+### Chatea con tu modelo personalizado Phi-3
 
-Ahora que has ajustado e integrado tu modelo personalizado Phi-3 con Prompt flow, estás listo para comenzar a interactuar con él. Este ejercicio te guiará a través del proceso de configuración e inicio de un chat con tu modelo usando Prompt flow. Siguiendo estos pasos, podrás aprovechar al máximo las capacidades de tu modelo ajustado Phi-3 para diversas tareas y conversaciones.
+Ahora que has ajustado e integrado tu modelo personalizado Phi-3 con Prompt flow, estás listo para comenzar a interactuar con él. Este ejercicio te guiará a través del proceso de configuración e iniciación de un chat con tu modelo usando Prompt flow. Siguiendo estos pasos, podrás utilizar plenamente las capacidades de tu modelo ajustado Phi-3 para diversas tareas y conversaciones.
 
 - Chatea con tu modelo personalizado Phi-3 usando Prompt flow.
 
@@ -808,15 +808,15 @@ Ahora que has ajustado e integrado tu modelo personalizado Phi-3 con Prompt flow
 
     ![Conexión.](../../../../translated_images/09-03-select-connection.de0137da33c86e581425cef4a25957d86140d1605968f6f7c98207b8e715cca8.es.png)
 
-#### Chatear con tu modelo personalizado
+#### Chatea con tu modelo personalizado
 
 1. Selecciona **Chat**.
 
-    ![Seleccionar chat.](../../../../translated_images/09-04-select-chat.87b90a2f41e38714f40dedde608d349bfaca00a75f08166816dddb92de711e32.es.png)
+    ![Selecciona chat.](../../../../translated_images/09-04-select-chat.87b90a2f41e38714f40dedde608d349bfaca00a75f08166816dddb92de711e32.es.png)
 
 1. Aquí tienes un ejemplo de los resultados: Ahora puedes chatear con tu modelo personalizado Phi-3. Se recomienda hacer preguntas basadas en los datos utilizados para el ajuste fino.
 
-    ![Chatear con prompt flow.](../../../../translated_images/09-05-chat-with-promptflow.46c9fdf0e6de0e15e9618f654830e52bd8ead4aec0de57bb960206321d2bd0bd.es.png)
+    ![Chatea con prompt flow.](../../../../translated_images/09-05-chat-with-promptflow.46c9fdf0e6de0e15e9618f654830e52bd8ead4aec0de57bb960206321d2bd0bd.es.png)
 
 **Descargo de responsabilidad**:
-Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción humana profesional. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

@@ -1,226 +1,227 @@
-# 使用 Azure AI Studio 微調 Phi-3
+# 使用 Azure AI Foundry 微调 Phi-3
 
-讓我們來探索如何使用 Azure AI Studio 微調 Microsoft 的 Phi-3 Mini 語言模型。微調可以讓你將 Phi-3 Mini 適應特定任務，使其更加強大和具備上下文感知能力。
+让我们来探讨如何使用 Azure AI Foundry 微调微软的 Phi-3 Mini 语言模型。微调可以让你将 Phi-3 Mini 适应特定任务，使其更加强大和具有上下文感知能力。
 
-## 考量因素
+## 考虑因素
 
-- **能力:** 哪些模型可以微調？基礎模型可以被微調成什麼樣子？
-- **成本:** 微調的定價模式是什麼？
-- **可定制性:** 我可以多大程度上修改基礎模型？有哪些方式？
-- **便利性:** 微調實際上是怎麼進行的？我需要編寫自定義代碼嗎？我需要自備計算資源嗎？
-- **安全性:** 微調模型已知有安全風險——是否有任何防護措施來防止意外傷害？
+- **能力:** 哪些模型可以进行微调？基础模型可以被微调来做什么？
+- **成本:** 微调的定价模式是什么？
+- **可定制性:** 我可以在多大程度上修改基础模型？以何种方式？
+- **便利性:** 微调的过程是怎样的？我需要编写自定义代码吗？我需要自带计算资源吗？
+- **安全性:** 微调后的模型已知存在安全风险——是否有任何保护措施来防止意外伤害？
 
 ![AIStudio Models](../../../../translated_images/AIStudioModels.948704ffabcc5f0d97a19b55c3c60c3e5a2a4c382878cc3e22e9e832b89f1dc8.tw.png)
 
-## 微調準備
+## 微调准备
 
-### 先決條件
+### 先决条件
 
 > [!NOTE]
-> 對於 Phi-3 家族模型，按需付費模型微調服務僅在 **East US 2** 區域創建的集線器中可用。
+> 对于 Phi-3 系列模型，按需付费的微调服务仅在 **East US 2** 区域创建的 hubs 中可用。
 
-- 一個 Azure 訂閱。如果你還沒有 Azure 訂閱，請創建一個 [付費 Azure 帳戶](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 開始使用。
+- 一个 Azure 订阅。如果你还没有 Azure 订阅，请创建一个 [付费 Azure 账户](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 开始使用。
 
-- 一個 [AI Studio 項目](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo)。
-- Azure 基於角色的訪問控制 (Azure RBAC) 用於授予在 Azure AI Studio 中執行操作的訪問權限。要執行本文中的步驟，你的用戶帳戶必須被分配到資源組的 __Azure AI 開發者角色__。
+- 一个 [AI Foundry 项目](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo)。
+- Azure 基于角色的访问控制 (Azure RBAC) 用于授予在 Azure AI Foundry 中的操作访问权限。要执行本文中的步骤，你的用户账户必须被分配到资源组上的 __Azure AI Developer 角色__。
 
-### 訂閱提供者註冊
+### 订阅提供商注册
 
-驗證訂閱是否已註冊到 `Microsoft.Network` 資源提供者。
+确认订阅已注册到 `Microsoft.Network` 资源提供商。
 
-1. 登錄 [Azure 入口網站](https://portal.azure.com)。
-1. 從左側菜單中選擇 **訂閱**。
-1. 選擇你要使用的訂閱。
-1. 從左側菜單中選擇 **AI 項目設置** > **資源提供者**。
-1. 確認 **Microsoft.Network** 在資源提供者列表中。否則，添加它。
+1. 登录 [Azure 门户](https://portal.azure.com)。
+1. 从左侧菜单中选择 **订阅**。
+1. 选择你想要使用的订阅。
+1. 从左侧菜单中选择 **AI 项目设置** > **资源提供商**。
+1. 确认 **Microsoft.Network** 在资源提供商列表中。否则，请添加它。
 
-### 數據準備
+### 数据准备
 
-準備你的訓練和驗證數據來微調你的模型。你的訓練數據和驗證數據集包括你希望模型如何執行的輸入和輸出示例。
+准备你的训练和验证数据来微调你的模型。你的训练数据和验证数据集包括输入和输出示例，展示你希望模型如何表现。
 
-確保所有訓練示例都遵循推理的預期格式。為了有效地微調模型，確保數據集均衡且多樣化。
+确保所有训练示例都符合推理的预期格式。为了有效地微调模型，确保数据集的平衡和多样性。
 
-這包括保持數據平衡，涵蓋各種場景，並定期改進訓練數據以符合現實世界的期望，最終導致更準確和平衡的模型回應。
+这包括保持数据平衡，涵盖各种场景，并定期精炼训练数据以符合现实世界的期望，从而最终带来更准确和平衡的模型响应。
 
-不同的模型類型需要不同格式的訓練數據。
+不同类型的模型需要不同格式的训练数据。
 
-### 聊天完成
+### 对话完成
 
-你使用的訓練和驗證數據 **必須** 格式化為 JSON Lines (JSONL) 文檔。對於 `Phi-3-mini-128k-instruct`，微調數據集必須格式化為聊天完成 API 使用的對話格式。
+你使用的训练和验证数据**必须**格式化为 JSON Lines (JSONL) 文档。对于 `Phi-3-mini-128k-instruct`，微调数据集必须采用对话格式，这与 Chat completions API 使用的格式一致。
 
 ### 示例文件格式
 
 ```json
-    {"messages": [{"role": "system", "content": "你是一名 Xbox 客戶支持代理，主要目標是幫助用戶解決他們在使用 Xbox 設備時遇到的問題。你友好且簡潔。你只提供事實性的答案，不提供與 Xbox 無關的答案。"}, {"role": "user", "content": "Xbox 比 PlayStation 好嗎？"}, {"role": "assistant", "content": "抱歉，我不能提供個人意見。我的主要工作是幫助你解決與 Xbox 設備相關的任何問題。你有任何與 Xbox 相關的問題需要解決嗎？"}]}
-    {"messages": [{"role": "system", "content": "你是一名 Xbox 客戶支持代理，主要目標是幫助用戶解決他們在使用 Xbox 設備時遇到的問題。你友好且簡潔。你只提供事實性的答案，不提供與 Xbox 無關的答案。"}, {"role": "user", "content": "我可以在我的 Xbox 上玩 PC 遊戲嗎？"}, {"role": "assistant", "content": "雖然 Xbox 主機不原生支持 PC 遊戲，但它們可以玩許多 Xbox 遊戲，其中很多也可在 PC 上玩。我可以幫助你找到與你的 Xbox 設備兼容的遊戲嗎？"}]}
-    {"messages": [{"role": "system", "content": "你是一名 Xbox 客戶支持代理，主要目標是幫助用戶解決他們在使用 Xbox 設備時遇到的問題。你友好且簡潔。你只提供事實性的答案，不提供與 Xbox 無關的答案。"}, {"role": "user", "content": "我的 Xbox 無法連接到 Wi-Fi。"}, {"role": "assistant", "content": "沒問題，我們來看看你的 Xbox 的網絡設置。當你嘗試連接到 Wi-Fi 時，發生了什麼情況？"}]}
+    {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "Is Xbox better than PlayStation?"}, {"role": "assistant", "content": "I apologize, but I cannot provide personal opinions. My primary job is to assist you with any issues related to your Xbox device. Do you have any Xbox-related issues that need addressing?"}]}
+    {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "Can I play PC games on my Xbox?"}, {"role": "assistant", "content": "While Xbox consoles don't natively support PC games, they can play an array of Xbox games, many of which are also available on PC. Can I assist you with finding games compatible with your Xbox device?"}]}
+    {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "I'm having trouble connecting my Xbox to the Wi-Fi."}, {"role": "assistant", "content": "No worries, let's go through the network settings on your Xbox. Can you please tell me what happens when you try to connect it to the Wi-Fi?"}]}
 ```
 
-支持的文件類型是 JSON Lines。文件上傳到默認數據存儲並在你的項目中可用。
+支持的文件类型是 JSON Lines。文件上传到默认数据存储，并在你的项目中可用。
 
-## 使用 Azure AI Studio 微調 Phi-3
+## 使用 Azure AI Foundry 微调 Phi-3
 
-Azure AI Studio 允許你通過微調過程將大型語言模型定制到你的個人數據集。微調提供了顯著的價值，能夠針對特定任務和應用進行定制和優化。它可以提高性能、成本效益、減少延遲和定制輸出。
+Azure AI Foundry 允许你通过微调过程将大型语言模型定制到你的个人数据集上。微调通过定制和优化特定任务和应用程序提供了显著的价值。这带来了性能提升、成本效益、延迟减少和定制输出。
 
-![Finetune AI Studio](../../../../translated_images/AIStudiofinetune.eb835aae4408d2bc82e7e27db44ad50657aff9a2599657f9fa8fc4f3fe335bb0.tw.png)
+![Finetune AI Foundry](../../../../translated_images/AIStudiofinetune.eb835aae4408d2bc82e7e27db44ad50657aff9a2599657f9fa8fc4f3fe335bb0.tw.png)
 
-### 創建新項目
+### 创建新项目
 
-1. 登錄 [Azure AI Studio](https://ai.azure.com)。
+1. 登录 [Azure AI Foundry](https://ai.azure.com)。
 
-1. 選擇 **+新項目** 在 Azure AI Studio 中創建新項目。
+1. 选择 **+New project** 在 Azure AI Foundry 中创建新项目。
 
     ![FineTuneSelect](../../../../translated_images/select-new-project.c850d427f2b9b83d2502d53a1d5bae59435444dfbc9035197ec58347382692fd.tw.png)
 
-1. 執行以下任務：
+1. 执行以下任务：
 
-    - 項目 **集線器名稱**。必須是唯一值。
-    - 選擇要使用的 **集線器**（如有需要，創建新的）。
+    - 项目 **Hub 名称**。必须是唯一值。
+    - 选择要使用的 **Hub**（如有需要可创建新的）。
 
     ![FineTuneSelect](../../../../translated_images/create-project.89640f1eac1eddfb4c48db9d2e2bbaac3bb33eed4138bf147a544246b3dc3a52.tw.png)
 
-1. 執行以下任務以創建新集線器：
+1. 执行以下任务以创建新 hub：
 
-    - 輸入 **集線器名稱**。必須是唯一值。
-    - 選擇你的 Azure **訂閱**。
-    - 選擇要使用的 **資源組**（如有需要，創建新的）。
-    - 選擇你想使用的 **位置**。
-    - 選擇要使用的 **連接 Azure AI 服務**（如有需要，創建新的）。
-    - 選擇 **連接 Azure AI 搜索** 以 **跳過連接**。
+    - 输入 **Hub 名称**。必须是唯一值。
+    - 选择你的 Azure **订阅**。
+    - 选择要使用的 **资源组**（如有需要可创建新的）。
+    - 选择你想使用的 **位置**。
+    - 选择要使用的 **连接 Azure AI 服务**（如有需要可创建新的）。
+    - 选择 **连接 Azure AI 搜索** 到 **跳过连接**。
 
     ![FineTuneSelect](../../../../translated_images/create-hub.5b8bf256b5c7bc3bc169647296c825111ae139200b88618d7baf691f0608e2ba.tw.png)
 
-1. 選擇 **下一步**。
-1. 選擇 **創建項目**。
+1. 选择 **Next**。
+1. 选择 **创建项目**。
 
-### 數據準備
+### 数据准备
 
-在微調之前，收集或創建與你的任務相關的數據集，例如聊天指令、問答對或任何其他相關文本數據。清理並預處理這些數據，去除噪音、處理缺失值並對文本進行標記。
+在微调之前，收集或创建与你的任务相关的数据集，如聊天指令、问答对或其他相关文本数据。通过去除噪音、处理缺失值和对文本进行标记化来清理和预处理这些数据。
 
-### 在 Azure AI Studio 中微調 Phi-3 模型
+### 在 Azure AI Foundry 中微调 Phi-3 模型
 
 > [!NOTE]
-> 目前在 East US 2 的項目中支持微調 Phi-3 模型。
+> 目前在 East US 2 区域的项目中支持对 Phi-3 模型进行微调。
 
-1. 從左側選項卡中選擇 **模型目錄**。
+1. 从左侧选项卡中选择 **模型目录**。
 
-1. 在 **搜索欄** 中輸入 *phi-3* 並選擇你想使用的 phi-3 模型。
+1. 在 **搜索栏** 中输入 *phi-3* 并选择你想使用的 phi-3 模型。
 
     ![FineTuneSelect](../../../../translated_images/select-model.e9b57f9842ccea4a637c45dd6d5814c6ef763afa851cbe1afed7d79fb1ede22e.tw.png)
 
-1. 選擇 **微調**。
+1. 选择 **微调**。
 
     ![FineTuneSelect](../../../../translated_images/select-finetune.b48a195649081369e6eb6561bc6010e10dd5a9a4082407c649aceeff5930875d.tw.png)
 
-1. 輸入 **微調後的模型名稱**。
+1. 输入 **微调后的模型名称**。
 
     ![FineTuneSelect](../../../../translated_images/finetune1.f33839563146d1bbda2bd1617dc1124ee2146e8d48433072390515f9205fb646.tw.png)
 
-1. 選擇 **下一步**。
+1. 选择 **Next**。
 
-1. 執行以下任務：
+1. 执行以下任务：
 
-    - 將 **任務類型** 選擇為 **聊天完成**。
-    - 選擇你想使用的 **訓練數據**。你可以通過 Azure AI Studio 的數據上傳或從本地環境上傳。
+    - 选择 **任务类型** 为 **对话完成**。
+    - 选择你想使用的 **训练数据**。你可以通过 Azure AI Foundry 的数据上传或从你的本地环境上传。
 
     ![FineTuneSelect](../../../../translated_images/finetune2.3040335823f94cd228bd4f371f22b4f6d121a85e521c21af57b14cdaca6359ae.tw.png)
 
-1. 選擇 **下一步**。
+1. 选择 **Next**。
 
-1. 上傳你想使用的 **驗證數據**，或者你可以選擇 **自動拆分訓練數據**。
+1. 上传你想使用的 **验证数据**。或者你可以选择 **自动分割训练数据**。
 
     ![FineTuneSelect](../../../../translated_images/finetune3.375f14bed9f838ee3f244170c1fb913e031cc890f882a4837165e7acc543e49c.tw.png)
 
-1. 選擇 **下一步**。
+1. 选择 **Next**。
 
-1. 執行以下任務：
+1. 执行以下任务：
 
-    - 選擇你想使用的 **批次大小乘數**。
-    - 選擇你想使用的 **學習率**。
-    - 選擇你想使用的 **訓練輪數**。
+    - 选择你想使用的 **批次大小倍数**。
+    - 选择你想使用的 **学习率**。
+    - 选择你想使用的 **训练轮数**。
 
     ![FineTuneSelect](../../../../translated_images/finetune4.592b4e54fc7a59fb8f52a8fe32756a1b5995c2f009bbfe1b986230b7f3ab6ada.tw.png)
 
-1. 選擇 **提交** 開始微調過程。
+1. 选择 **Submit** 开始微调过程。
 
     ![FineTuneSelect](../../../../translated_images/select-submit.6ce88323efdda5a5cbaf175bedf1ee924b38691742cfb06c4f343785270f4f1b.tw.png)
 
-1. 一旦你的模型微調完成，狀態將顯示為 **已完成**，如下圖所示。現在你可以部署模型，並在你的應用程序中使用它，或者在遊樂場或提示流中使用它。更多信息，請參見 [如何使用 Azure AI Studio 部署 Phi-3 小型語言模型家族](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python)。
+1. 一旦你的模型微调完成，状态将显示为 **已完成**，如图所示。现在你可以部署模型，并在你的应用程序中使用它，在 playground 中或在 prompt flow 中使用。有关更多信息，请参阅 [如何使用 Azure AI Foundry 部署 Phi-3 系列的小型语言模型](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python)。
 
     ![FineTuneSelect](../../../../translated_images/completed.e6cf0cbe6648359e43bfd5959e9d0ff212eb2ea9e74e50b7793729a273a5f464.tw.png)
 
 > [!NOTE]
-> 有關微調 Phi-3 的更多詳細信息，請訪問 [在 Azure AI Studio 中微調 Phi-3 模型](https://learn.microsoft.com/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini)。
+> 有关微调 Phi-3 的更多详细信息，请访问 [在 Azure AI Foundry 中微调 Phi-3 模型](https://learn.microsoft.com/azure/ai-studio/how-to/fine-tune-phi-3?tabs=phi-3-mini)。
 
-## 清理你的微調模型
+## 清理你的微调模型
 
-你可以從 [Azure AI Studio](https://ai.azure.com) 的微調模型列表或從模型詳細信息頁面中刪除微調模型。從微調頁面中選擇要刪除的微調模型，然後選擇刪除按鈕以刪除微調模型。
+你可以从 [Azure AI Foundry](https://ai.azure.com) 中的微调模型列表或从模型详细信息页面删除微调模型。从微调页面选择要删除的微调模型，然后选择删除按钮删除微调模型。
 
 > [!NOTE]
-> 如果自定義模型有現有部署，你無法刪除它。你必須先刪除模型部署，然後才能刪除自定義模型。
+> 如果自定义模型已有现有部署，你不能删除它。在删除自定义模型之前，你必须先删除模型部署。
 
-## 成本和配額
+## 成本和配额
 
-### 作為服務微調的 Phi-3 模型的成本和配額考量
+### 作为服务微调的 Phi-3 模型的成本和配额考虑
 
-Phi 模型作為服務微調由 Microsoft 提供，並集成到 Azure AI Studio 中使用。你可以在[部署](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python)或微調模型時在部署向導的定價和條款選項卡下找到定價。
+Phi 模型作为服务微调由 Microsoft 提供，并集成到 Azure AI Foundry 中使用。你可以在 [部署](https://learn.microsoft.com/azure/ai-studio/how-to/deploy-models-phi-3?tabs=phi-3-5&pivots=programming-language-python) 或微调模型时，在部署向导的定价和条款选项卡下找到定价。
 
-## 內容過濾
+## 内容过滤
 
-作為服務部署的按需付費模型受 Azure AI 內容安全保護。當部署到實時端點時，你可以選擇退出此功能。啟用 Azure AI 內容安全時，提示和完成都會通過一組分類模型來檢測和防止有害內容的輸出。內容過濾系統檢測並對輸入提示和輸出完成中的特定類別的潛在有害內容採取行動。了解更多關於 [Azure AI 內容安全](https://learn.microsoft.com/azure/ai-studio/concepts/content-filtering)。
+按需付费部署为服务的模型受到 Azure AI 内容安全保护。当部署到实时端点时，你可以选择退出此功能。启用 Azure AI 内容安全时，提示和完成都通过一个分类模型组合，旨在检测和防止有害内容的输出。内容过滤系统检测并对输入提示和输出完成中的特定类别的潜在有害内容采取行动。了解更多关于 [Azure AI 内容安全](https://learn.microsoft.com/azure/ai-studio/concepts/content-filtering)。
 
-**微調配置**
+**微调配置**
 
-超參數：定義超參數，如學習率、批次大小和訓練輪數。
+超参数：定义学习率、批次大小和训练轮数等超参数。
 
-**損失函數**
+**损失函数**
 
-為你的任務選擇合適的損失函數（例如，交叉熵）。
+为你的任务选择适当的损失函数（例如，交叉熵）。
 
-**優化器**
+**优化器**
 
-選擇一個優化器（例如，Adam）來在訓練期間進行梯度更新。
+选择一个优化器（例如，Adam）用于训练期间的梯度更新。
 
-**微調過程**
+**微调过程**
 
-- 加載預訓練模型：加載 Phi-3 Mini 檢查點。
-- 添加自定義層：添加任務特定的層（例如，聊天指令的分類頭）。
+- 加载预训练模型：加载 Phi-3 Mini 检查点。
+- 添加自定义层：添加任务特定的层（例如，用于聊天指令的分类头）。
 
-**訓練模型**
-使用你準備的數據集微調模型。監控訓練進度並根據需要調整超參數。
+**训练模型**
+使用你准备的数据集微调模型。监控训练进度并根据需要调整超参数。
 
-**評估和驗證**
+**评估和验证**
 
-驗證集：將你的數據分為訓練集和驗證集。
+验证集：将数据分为训练集和验证集。
 
-**評估性能**
+**评估性能**
 
-使用準確性、F1 分數或困惑度等指標來評估模型性能。
+使用准确率、F1 分数或困惑度等指标评估模型性能。
 
-## 保存微調模型
+## 保存微调模型
 
-**檢查點**
-保存微調模型檢查點以供將來使用。
+**检查点**
+保存微调模型检查点以供将来使用。
 
 ## 部署
 
-- 作為 Web 服務部署：將你的微調模型作為 Web 服務部署在 Azure AI Studio 中。
-- 測試端點：向部署的端點發送測試查詢以驗證其功能。
+- 部署为 Web 服务：将你的微调模型部署为 Azure AI Foundry 中的 Web 服务。
+- 测试端点：向已部署的端点发送测试查询以验证其功能。
 
-## 迭代和改進
+## 迭代和改进
 
-迭代：如果性能不滿意，通過調整超參數、添加更多數據或進行更多輪次的微調來迭代。
+迭代：如果性能不满意，通过调整超参数、添加更多数据或微调更多轮次进行迭代。
 
-## 監控和改進
+## 监控和优化
 
-持續監控模型的行為並根據需要進行改進。
+持续监控模型的行为并根据需要进行优化。
 
-## 定制和擴展
+## 定制和扩展
 
-自定義任務：Phi-3 Mini 可以微調用於聊天指令之外的各種任務。探索其他使用案例！
-實驗：嘗試不同的架構、層組合和技術以提高性能。
+自定义任务：Phi-3 Mini 可以微调用于聊天指令之外的各种任务。探索其他用例！
+实验：尝试不同的架构、层组合和技术以提升性能。
 
 > [!NOTE]
-> 微調是一個迭代過程。實驗、學習並調整你的模型以達到最佳結果！
+> 微调是一个迭代过程。实验、学习并调整你的模型，以实现特定任务的最佳结果！
 
-免責聲明：此翻譯由AI模型從原文翻譯而來，可能不完美。請檢查輸出並進行任何必要的修改。
+**免責聲明**:
+本文件已使用機器翻譯服務進行翻譯。儘管我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的原始文件為權威來源。對於關鍵信息，建議進行專業人工翻譯。我們對使用此翻譯所產生的任何誤解或誤釋不承擔責任。

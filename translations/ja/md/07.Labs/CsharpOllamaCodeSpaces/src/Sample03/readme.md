@@ -1,23 +1,23 @@
-# Phi-3、SemanticKernel、およびTextMemoryを使用した完全なローカルRAGシナリオ
+# Phi-3、SemanticKernel、TextMemoryを使用した完全ローカルRAGシナリオ
 
 ## はじめに
 
-Phi-3、SemanticKernel、およびTextMemoryを使用した完全なローカルRAGシナリオのリポジトリへようこそ。このプロジェクトは、開発者や企業のためのAI能力を再定義する画期的な小型言語モデル（SLM）であるPhi-3の力を示しています。
+Phi-3、SemanticKernel、TextMemoryを使用した完全ローカルRAGシナリオのリポジトリへようこそ。このプロジェクトは、開発者や企業向けにAIの能力を再定義する画期的な小型言語モデル（SLM）であるPhi-3の力を示しています。
 
-## シナリオの概要
+## シナリオ概要
 
-このデモシナリオは、「Brunoのお気に入りのスーパーヒーローは誰か？」という質問に2つの異なるアプローチで答えることを目的としています。
+このデモシナリオは、「ブルーノの好きなスーパーヒーローは誰？」という質問に対して、以下の2つの異なるアプローチで回答するように設計されています。
 
 1. Phi-3モデルに直接質問する。
-2. ファンの事実をロードしたセマンティックメモリオブジェクトを追加してから質問する。
+2. ファンファクトが読み込まれたセマンティックメモリオブジェクトを追加してから質問する。
 
-## 完全なシナリオの重要性
+## 完全シナリオの重要性
 
-Phi-3は、小型言語モデルにおける大きな飛躍を象徴しており、性能と効率のユニークな組み合わせを提供します。Phi-3は独立して完全なシナリオを処理することができ、開発プロセスを簡素化し、統合の複雑さを軽減します。
+Phi-3は、小型言語モデルにおける大きな飛躍を示しており、性能と効率のユニークな組み合わせを提供します。Phi-3は、完全なシナリオを独立して処理する能力があり、開発プロセスを簡素化し、統合の複雑さを軽減します。
 
 ## コードの説明
 
-このコンソールアプリケーションは、Ollamaにホストされたローカルモデルと検索のためのセマンティックメモリの使用を示しています。プログラムは、依存性注入、設定、およびセマンティックカーネルとメモリ機能のためにいくつかの外部ライブラリを使用しています。
+このコンソールアプリケーションは、Ollamaにホストされたローカルモデルと検索用のセマンティックメモリを使用する方法を示しています。プログラムは、依存性注入、設定、セマンティックカーネルおよびメモリ機能のためにいくつかの外部ライブラリを使用しています。
 
 ## テスト方法
 
@@ -33,13 +33,13 @@ Phi-3は、小型言語モデルにおける大きな飛躍を象徴しており
     dotnet run
     ```
 
-1. プロジェクト `Sample03` は、以下の質問に答えます。
+1. プロジェクト `Sample03` で、次の質問に答えます：
 
     ```csharp
     var question = "What is Bruno's favourite super hero?"
     ```
 
-1. まず、Phi-3モデルに直接質問します。その後、プログラムは以下の情報をText Memoryにロードし、再度質問します。
+1. まず、Phi-3モデルに直接質問します。次に、プログラムは以下の情報をText Memoryに読み込み、再度質問します。
 
     ```csharp
 
@@ -62,7 +62,7 @@ Phi-3は、小型言語モデルにおける大きな飛躍を象徴しており
             text: "Bruno don't like the super hero movie: Eternals");    
     ```
 
-1. テキストメモリが準備できたら、カーネルにプラグインとしてロードします。
+1. テキストメモリが準備できたら、それをプラグインとしてカーネルにロードします。
 
     ```csharp
     TextMemoryPlugin memoryPlugin = new(memory);
@@ -71,11 +71,11 @@ Phi-3は、小型言語モデルにおける大きな飛躍を象徴しており
     kernel.ImportPluginFromObject(memoryPlugin);    
     ```
 
-1. こちらはCodespaceで実行されているデモコンソールアプリケーションです。
+1. こちらはCodespaceで実行中のデモコンソールアプリケーションです：
 
-    ![Demo console application running in a Codespace](../../../../../../../md/07.Labs/CsharpOllamaCodeSpaces/src/Sample03/img/10RAGPhi3.gif)
+    ![Codespaceで実行中のデモコンソールアプリケーション](../../../../../../../md/07.Labs/CsharpOllamaCodeSpaces/src/Sample03/img/10RAGPhi3.gif)
 
-## 参考資料
+## 参考文献
 
 - [Phi-3 Microsoft Blog](https://aka.ms/phi3blog-april)
 - [Phi-3 Technical Report](https://aka.ms/phi3-tech-report)
@@ -84,3 +84,5 @@ Phi-3は、小型言語モデルにおける大きな飛躍を象徴しており
 - [Semantic Kernel main repository](https://github.com/microsoft/semantic-kernel)
 - [Smart Components - Local Embeddings](https://github.com/dotnet-smartcomponents/smartcomponents/blob/main/docs/local-embeddings.md)
 
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期すよう努めておりますが、自動翻訳には誤りや不正確さが含まれる場合があります。権威ある情報源としては、原文の言語の文書を参照してください。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤認については、一切の責任を負いかねます。

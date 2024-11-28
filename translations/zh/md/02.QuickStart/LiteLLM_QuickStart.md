@@ -1,8 +1,8 @@
-使用 [LiteLLM](https://docs.litellm.ai/) 集成 Phi-3 模型是一个很好的选择，特别是如果你希望将其集成到各种应用程序中。LiteLLM 作为中间件，将 API 调用转换为兼容不同模型的请求，包括 Phi-3。
+使用 [LiteLLM](https://docs.litellm.ai/) 配合 Phi-3 模型是一个不错的选择，特别是如果你想将其整合到各种应用程序中。LiteLLM 充当中间件，将 API 调用转换为兼容不同模型（包括 Phi-3）的请求。
 
-Phi-3 是由微软开发的小型语言模型（SLM），设计上既高效又能在资源受限的机器上运行。它可以在支持 AVX 的 CPU 和仅有 4 GB 内存的情况下运行，非常适合在无需 GPU 的情况下进行本地推理。
+Phi-3 是微软开发的小型语言模型（SLM），旨在高效运行于资源受限的机器上。它可以在支持 AVX 的 CPU 和仅 4 GB RAM 的情况下运行，非常适合在不需要 GPU 的本地推理。
 
-以下是使用 LiteLLM 和 Phi-3 的一些步骤：
+以下是使用 LiteLLM 配合 Phi-3 的一些步骤：
 
 1. **安装 LiteLLM**：你可以使用 pip 安装 LiteLLM：
    ```bash
@@ -26,9 +26,10 @@ Phi-3 是由微软开发的小型语言模型（SLM），设计上既高效又�
    print(response)
    ```
 
-4. **集成**：你可以将 LiteLLM 集成到各种平台，如 Nextcloud Assistant，这样你就可以使用 Phi-3 进行文本生成和其他任务。
+4. **集成**：你可以将 LiteLLM 集成到各种平台，如 Nextcloud Assistant，允许你使用 Phi-3 进行文本生成和其他任务。
 
-**LLMLite 的完整代码示例**
+**LLMLite 完整代码示例**
 [LLMLite 示例代码笔记本](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/phi-3/litellm.ipynb)
 
-免责声明：本翻译由AI模型从原文翻译而来，可能并不完美。请审阅输出并进行任何必要的修改。
+**免责声明**：
+本文档使用基于机器的人工智能翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原始语言的文档视为权威来源。对于关键信息，建议使用专业人工翻译。我们不对因使用此翻译而产生的任何误解或误释承担责任。
