@@ -1,14 +1,14 @@
 # **使用 Apple MLX 框架進行 Phi-3 微調**
 
-我們可以通過 Apple MLX 框架命令行完成與 Lora 結合的微調。（如果你想了解更多關於 MLX 框架的操作，請閱讀 [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)）
+我們可以通過 Apple MLX 框架的命令行完成結合 Lora 的微調。（如果你想了解更多有關 MLX 框架的操作，請閱讀 [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
 
-## **1. 數據準備**
+## **1. 資料準備**
 
-默認情況下，MLX 框架要求使用 jsonl 格式的訓練、測試和評估數據，並結合 Lora 完成微調任務。
+預設情況下，MLX 框架需要 train、test 和 eval 的 jsonl 格式，並結合 Lora 來完成微調工作。
 
 ### ***注意:***
 
-1. jsonl 數據格式：
+1. jsonl 資料格式：
 
 ```json
 
@@ -19,15 +19,15 @@
 
 ```
 
-2. 我們的示例使用了 [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)，但數據量相對不足，因此微調結果不一定是最好的。建議學習者根據自己的場景使用更好的數據來完成。
+2. 我們的範例使用 [TruthfulQA's data](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)，但資料量相對不足，因此微調結果不一定是最好的。建議學習者根據自己的情境使用更好的資料來完成。
 
-3. 數據格式結合 Phi-3 模板
+3. 資料格式結合 Phi-3 模板
 
-請從這個 [link](../../../../code/04.Finetuning/mlx) 下載數據，請包括 ***data*** 文件夾中的所有 .jsonl 文件
+請從這個 [link](../../../../code/04.Finetuning/mlx) 下載資料，請將所有 .jsonl 包含在 ***data*** 資料夾中。
 
 ## **2. 在終端中進行微調**
 
-請在終端中運行這個命令
+請在終端中運行此命令
 
 ```bash
 
@@ -109,7 +109,7 @@ lora_parameters:
 
 ```
 
-請在終端中運行這個命令
+請在終端中運行此命令
 
 ```bash
 
@@ -127,7 +127,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-並運行原始模型進行比較
+並運行原始模型來比較結果
 
 ```bash
 
@@ -145,7 +145,7 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. 使用 ollama 運行量化的微調模型**
+## **5. 使用 ollama 運行量化微調模型**
 
 使用前，請配置你的 llama.cpp 環境
 
@@ -165,9 +165,9 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 1. 現在支持 fp32、fp16 和 INT 8 的量化轉換
 
-2. 合併後的模型缺少 tokenizer.model，請從 https://huggingface.co/microsoft/Phi-3-mini-4k-instruct 下載
+2. 合併的模型缺少 tokenizer.model，請從 https://huggingface.co/microsoft/Phi-3-mini-4k-instruct 下載
 
-設置 Ollma 模型文件（如果未安裝 ollama，請閱讀 [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)）
+設置 Ollma 模型文件（如果未安裝 ollama，請閱讀 [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)
 
 ```txt
 
@@ -186,7 +186,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-恭喜！你已經掌握了使用 MLX 框架進行微調的技巧
+恭喜！掌握了使用 MLX 框架進行微調
 
-**免責聲明**：
-本文件是使用機器翻譯服務翻譯的。雖然我們努力確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的原始文件為權威來源。對於關鍵信息，建議尋求專業的人類翻譯。我們對因使用此翻譯而引起的任何誤解或誤讀不承擔責任。
+**免責聲明**: 
+本文檔使用基於機器的AI翻譯服務進行翻譯。儘管我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的原始文檔為權威來源。對於關鍵信息，建議尋求專業的人類翻譯。我們不對因使用此翻譯而產生的任何誤解或誤讀負責。

@@ -1,4 +1,4 @@
-## Bienvenido a los laboratorios de Phi-3 usando C#.
+## Bienvenido a los laboratorios Phi-3 usando C#. 
 
 Hay una selección de laboratorios que muestran cómo integrar las poderosas versiones de los modelos Phi-3 en un entorno .NET.
 
@@ -7,7 +7,7 @@ Antes de ejecutar el ejemplo, asegúrate de tener lo siguiente instalado:
 
 **.NET 8:** Asegúrate de tener la [última versión de .NET](https://dotnet.microsoft.com/download/dotnet/8.0?WT.mc_id=aiml-137032-kinfeylo) instalada en tu máquina.
 
-**(Opcional) Visual Studio o Visual Studio Code:** Necesitarás un IDE o editor de código capaz de ejecutar proyectos .NET. Se recomiendan [Visual Studio](https://visualstudio.microsoft.com/) o [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo).
+**(Opcional) Visual Studio o Visual Studio Code:** Necesitarás un IDE o editor de código capaz de ejecutar proyectos .NET. Se recomienda [Visual Studio](https://visualstudio.microsoft.com/) o [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo).
 
 **Usando git** clona localmente una de las versiones disponibles de Phi-3 desde [Hugging Face](https://huggingface.co).
 
@@ -30,31 +30,31 @@ git clone https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx
 ```
 git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 ```
-**Importante:** Las demostraciones actuales están diseñadas para usar las versiones ONNX del modelo. Los pasos anteriores clonan los siguientes modelos.
+**Importante:** Las demos actuales están diseñadas para usar las versiones ONNX del modelo. Los pasos anteriores clonan los siguientes modelos. 
 
 ![OnnxDownload](../../../../../translated_images/DownloadOnnx.237f4b37d4d8d66d3f4a4a7219d6004bd6f84bc72cce50251ffc034cb28f6fb8.es.png)
 
-## Sobre los Laboratorios
+## Acerca de los Laboratorios
 
-La solución principal tiene varios laboratorios de ejemplo que demuestran las capacidades de los modelos Phi-3 usando C#.
+La solución principal tiene varios laboratorios de muestra que demuestran las capacidades de los modelos Phi-3 usando C#.
 
 | Proyecto | Descripción | Ubicación |
 | ------------ | ----------- | -------- |
-| LabsPhi301    | Este es un proyecto de ejemplo que usa un modelo phi3 local para hacer una pregunta. El proyecto carga un modelo local ONNX Phi-3 usando las bibliotecas `Microsoft.ML.OnnxRuntime`. | .\src\LabsPhi301\ |
-| LabsPhi302    | Este es un proyecto de ejemplo que implementa un chat de consola usando Semantic Kernel. | .\src\LabsPhi302\ |
-| LabsPhi303 | Este es un proyecto de ejemplo que usa un modelo de visión phi3 local para analizar imágenes. El proyecto carga un modelo local ONNX Phi-3 Vision usando las bibliotecas `Microsoft.ML.OnnxRuntime`. | .\src\LabsPhi303\ |
-| LabsPhi304 | Este es un proyecto de ejemplo que usa un modelo de visión phi3 local para analizar imágenes. El proyecto carga un modelo local ONNX Phi-3 Vision usando las bibliotecas `Microsoft.ML.OnnxRuntime`. El proyecto también presenta un menú con diferentes opciones para interactuar con el usuario. | .\src\LabsPhi304\ |
-| LabsPhi305 | Este es un proyecto de ejemplo que usa el modelo Phi-3 alojado en ollama para responder una pregunta.  |**próximamente**|
-| LabsPhi306 | Este es un proyecto de ejemplo que implementa un chat de consola usando Semantic Kernel. |**próximamente**|
-| LabsPhi307  | Este es un proyecto de ejemplo que implementa un RAG usando incrustaciones locales y Semantic Kernel. |**próximamente**|
+| LabsPhi301    | Este es un proyecto de muestra que usa un modelo phi3 local para hacer una pregunta. El proyecto carga un modelo ONNX Phi-3 local usando `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi301\ |
+| LabsPhi302    | This is a sample project that implement a Console chat using Semantic Kernel. | .\src\LabsPhi302\ |
+| LabsPhi303 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi303\ |
+| LabsPhi304 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. The project also presents a menu with different options to interacti with the user. | .\src\LabsPhi304\ |
+| LabsPhi305 | This is a sample project that uses a the Phi-3 hosted in ollama model to answer a question.  |**coming soon**|
+| LabsPhi306 | This is a sample project that implement a Console chat using Semantic Kernel. |**coming soon**|
+| LabsPhi307  | This is a sample project that implement a RAG using local embeddings and Semantic Kernel. |**coming soon**|
 
 
-## Cómo Ejecutar los Proyectos
+## How to Run the Projects
 
-Para ejecutar los proyectos, sigue estos pasos:
-1. Clona el repositorio en tu máquina local.
+To run the projects, follow these steps:
+1. Clone the repository to your local machine.
 
-1. Abre una terminal y navega al proyecto deseado. Por ejemplo, vamos a ejecutar `LabsPhi301`.
+1. Open a terminal and navigate to the desired project. In example, let's run `LabsPhi301`.
     ```bash
     cd .\src\LabsPhi301\
     ```
@@ -64,19 +64,19 @@ Para ejecutar los proyectos, sigue estos pasos:
     dotnet run
     ```
 
-1. El proyecto de ejemplo pedirá una entrada del usuario y responderá usando el modelo local.
+1.  El proyecto de muestra pide una entrada del usuario y responde usando el modo local. 
 
-    La demostración en ejecución es similar a esta:
+    La demo en ejecución es similar a esta:
 
     ![Chat running demo](../../../../../imgs/07/00/SampleConsole.gif)
 
-    ***Nota:** ¡hay un error tipográfico en la primera pregunta, pero Phi-3 es lo suficientemente inteligente como para compartir la respuesta correcta!*
+    ***Nota:** ¡hay un error tipográfico en la primera pregunta, Phi-3 es lo suficientemente inteligente como para compartir la respuesta correcta!*
 
-1. El proyecto `LabsPhi304` pedirá al usuario seleccionar diferentes opciones y luego procesará la solicitud. Por ejemplo, analizando una imagen local.
+1.  El proyecto `LabsPhi304` pide al usuario seleccionar diferentes opciones, y luego procesa la solicitud. Por ejemplo, analizando una imagen local.
 
-    La demostración en ejecución es similar a esta:
+    La demo en ejecución es similar a esta:
 
     ![Image Analysis running demo](../../../../../imgs/07/00/SampleVisionConsole.gif)
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de inteligencia artificial y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**: 
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

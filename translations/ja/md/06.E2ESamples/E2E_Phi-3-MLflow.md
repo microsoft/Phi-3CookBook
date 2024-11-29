@@ -1,50 +1,49 @@
 # MLflow
 
-[MLflow](https://mlflow.org/) は、機械学習のライフサイクル全体を管理するために設計されたオープンソースプラットフォームです。
+[MLflow](https://mlflow.org/) は、機械学習ライフサイクル全体を管理するために設計されたオープンソースプラットフォームです。
 
 ![MLFlow](../../../../translated_images/MlFlowmlops.9c163870a3150e994d8e662d65cdb1158e5e87df857f4c7793eb04367e4748dd.ja.png)
 
-MLFlowは、実験、再現性、デプロイメント、中央モデルレジストリを含むMLライフサイクルを管理するために使用されます。現在、MLFlowは以下の4つのコンポーネントを提供しています。
+MLFlowは、実験、再現性、デプロイメント、中央モデルレジストリなどのMLライフサイクルを管理するために使用され、現在4つのコンポーネントを提供しています。
 
-- **MLflow Tracking:** 実験、コード、データ設定、結果を記録およびクエリします。
-- **MLflow Projects:** データサイエンスコードを任意のプラットフォームで再現可能な形式でパッケージ化します。
-- **Mlflow Models:** 様々なサービング環境に機械学習モデルをデプロイします。
-- **Model Registry:** モデルを中央リポジトリに保存、注釈、管理します。
+- **MLflow Tracking:** 実験、コード、データ設定、結果を記録およびクエリ。
+- **MLflow Projects:** データサイエンスコードを任意のプラットフォームで実行できる形式でパッケージ化。
+- **Mlflow Models:** 多様なサービング環境に機械学習モデルをデプロイ。
+- **Model Registry:** モデルを中央リポジトリに保存、注釈付け、および管理。
 
-これには、実験の追跡、再現可能な実行へのコードのパッケージ化、モデルの共有およびデプロイの機能が含まれます。MLFlowはDatabricksに統合されており、様々なMLライブラリをサポートしているため、ライブラリに依存しません。REST APIとCLIを提供しているため、任意の機械学習ライブラリおよびプログラミング言語で使用できます。
+実験の追跡、再現可能な実行へのコードのパッケージ化、モデルの共有とデプロイの機能を含んでいます。MLFlowはDatabricksに統合されており、様々なMLライブラリをサポートしているため、ライブラリに依存しません。REST APIとCLIを提供しているため、任意のプログラミング言語で使用できます。
 
 ![MLFlow](../../../../translated_images/MLflow2.4b79a06c76e338ff4deea61f7c0ffd0d9ae2ddff2e20a4c43f2c1098c13bb54b.ja.png)
 
-MLFlowの主な機能は以下の通りです：
+MLFlowの主な機能には次のものがあります：
 
-- **実験追跡:** パラメータと結果を記録および比較します。
-- **モデル管理:** モデルを様々なサービングおよび推論プラットフォームにデプロイします。
-- **モデルレジストリ:** MLflowモデルのライフサイクルを共同で管理し、バージョン管理および注釈を行います。
-- **プロジェクト:** 共有または本番使用のためにMLコードをパッケージ化します。
+- **Experiment Tracking:** パラメータと結果の記録および比較。
+- **Model Management:** 様々なサービングおよび推論プラットフォームへのモデルのデプロイ。
+- **Model Registry:** バージョン管理や注釈を含むMLflowモデルのライフサイクルを協力して管理。
+- **Projects:** 共有または本番使用のためにMLコードをパッケージ化。
+MLFlowは、データの準備、モデルの登録と管理、実行のためのモデルのパッケージ化、サービスのデプロイ、モデルの監視を含むMLOpsループもサポートしています。特にクラウドやエッジ環境でプロトタイプから本番ワークフローに移行するプロセスを簡素化することを目指しています。
 
-MLFlowは、データの準備、モデルの登録と管理、実行のためのモデルのパッケージ化、サービスのデプロイ、モデルの監視を含むMLOpsループもサポートしています。特にクラウドやエッジ環境で、プロトタイプから本番ワークフローへの移行プロセスを簡素化することを目的としています。
+## E2Eシナリオ - ラッパーの構築とPhi-3をMLFlowモデルとして使用
 
-## E2Eシナリオ - ラッパーを構築し、Phi-3をMLFlowモデルとして使用する
-
-このE2Eサンプルでは、Phi-3小型言語モデル（SLM）をラッパーで囲み、それをローカルまたはクラウド（例えばAzure Machine Learningワークスペース）でMLFlowモデルとして実行する2つの異なるアプローチを示します。
+このE2Eサンプルでは、Phi-3小型言語モデル（SLM）をラップする2つの異なるアプローチを示し、それをローカルまたはクラウド、例えばAzure Machine LearningワークスペースでMLFlowモデルとして実行します。
 
 ![MLFlow](../../../../translated_images/MlFlow1.03f2450731cbbebec395ae9820571ba0ac8fd5e37462c26b7cf6bc00ca4d899a.ja.png)
 
 | プロジェクト | 説明 | 場所 |
 | ------------ | ----------- | -------- |
-| Transformer Pipeline | Transformer Pipelineは、HuggingFaceモデルをMLFlowの実験的なトランスフォーマーフレーバーで使用する場合に、ラッパーを構築する最も簡単なオプションです。 | [**TransformerPipeline.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
-| Custom Python Wrapper | 記述時点では、トランスフォーマーパイプラインはONNX形式のHuggingFaceモデルのためのMLFlowラッパー生成をサポートしていませんでした。このような場合には、MLFlowモードのためのカスタムPythonラッパーを構築できます。 | [**CustomPythonWrapper.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
+| Transformer Pipeline | Transformer Pipelineは、HuggingFaceモデルをMLFlowの実験的なトランスフォーマーフレーバーで使用する場合、ラッパーを構築する最も簡単なオプションです。 | [**TransformerPipeline.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
+| Custom Python Wrapper | 記述時点では、トランスフォーマーパイプラインは、実験的なoptimum Pythonパッケージを使用しても、ONNX形式のHuggingFaceモデルのためのMLFlowラッパー生成をサポートしていませんでした。このような場合には、MLFlowモード用のカスタムPythonラッパーを構築できます。 | [**CustomPythonWrapper.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
 
 ## プロジェクト: Transformer Pipeline
 
-1. MLFlowとHuggingFaceの関連Pythonパッケージが必要です：
+1. MLFlowとHuggingFaceから関連するPythonパッケージが必要です：
 
     ``` Python
     import mlflow
     import transformers
     ```
 
-2. 次に、HuggingFaceレジストリ内のターゲットPhi-3モデルを参照してトランスフォーマーパイプラインを開始します。_Phi-3-mini-4k-instruct_のモデルカードからわかるように、そのタスクは「テキスト生成」タイプです：
+2. 次に、HuggingFaceレジストリのターゲットPhi-3モデルを参照してトランスフォーマーパイプラインを開始します。_Phi-3-mini-4k-instruct_のモデルカードからわかるように、そのタスクは「テキスト生成」タイプです：
 
     ``` Python
     pipeline = transformers.pipeline(
@@ -53,7 +52,7 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
     )
     ```
 
-3. Phi-3モデルのトランスフォーマーパイプラインをMLFlow形式で保存し、ターゲットアーティファクトパス、特定のモデル設定、推論APIタイプなどの追加詳細を提供します：
+3. Phi-3モデルのトランスフォーマーパイプラインをMLFlow形式で保存し、ターゲットアーティファクトパス、特定のモデル設定、および推論APIタイプなどの詳細を提供できます：
 
     ``` Python
     model_info = mlflow.transformers.log_model(
@@ -64,9 +63,9 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
     )
     ```
 
-## プロジェクト: カスタムPythonラッパー
+## プロジェクト: Custom Python Wrapper
 
-1. ここでは、ONNXモデルの推論とトークンのエンコード/デコードのためにMicrosoftの[ONNX Runtime generate() API](https://github.com/microsoft/onnxruntime-genai)を利用します。以下の例ではCPUをターゲットにした_onnxruntime_genai_パッケージを選択します：
+1. ここでは、Microsoftの[ONNX Runtime generate() API](https://github.com/microsoft/onnxruntime-genai)を使用して、ONNXモデルの推論とトークンのエンコード/デコードを行います。以下の例では、ターゲットコンピュートとしてCPUを対象にした_onnxruntime_genai_パッケージを選択します：
 
     ``` Python
     import mlflow
@@ -74,38 +73,38 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
     import onnxruntime_genai as og
     ```
 
-1. 私たちのカスタムクラスは2つのメソッドを実装します：Phi-3 Mini 4K Instructの**ONNXモデル**、**生成パラメータ**、**トークナイザー**を初期化する_load_context()_と、提供されたプロンプトに対して出力トークンを生成する_predict()_です：
+1. 私たちのカスタムクラスは、Phi-3 Mini 4K Instructの**ONNXモデル**、**生成パラメータ**、**トークナイザー**を初期化するための_load_context()_メソッドと、提供されたプロンプトの出力トークンを生成するための_predict()_メソッドの2つのメソッドを実装します：
 
     ``` Python
     class Phi3Model(mlflow.pyfunc.PythonModel):
         def load_context(self, context):
-            # アーティファクトからモデルを取得
+            # Retrieving model from the artifacts
             model_path = context.artifacts["phi3-mini-onnx"]
             model_options = {
                  "max_length": 300,
                  "temperature": 0.2,         
             }
         
-            # モデルの定義
+            # Defining the model
             self.phi3_model = og.Model(model_path)
             self.params = og.GeneratorParams(self.phi3_model)
             self.params.set_search_options(**model_options)
             
-            # トークナイザーの定義
+            # Defining the tokenizer
             self.tokenizer = og.Tokenizer(self.phi3_model)
     
         def predict(self, context, model_input):
-            # 入力からプロンプトを取得
+            # Retrieving prompt from the input
             prompt = model_input["prompt"][0]
             self.params.input_ids = self.tokenizer.encode(prompt)
     
-            # モデルの応答を生成
+            # Generating the model's response
             response = self.phi3_model.generate(self.params)
     
             return self.tokenizer.decode(response[0][len(self.params.input_ids):])
     ```
 
-1. _mlflow.pyfunc.log_model()_ 関数を使用して、Phi-3モデルのためのカスタムPythonラッパー（ピクル形式）を生成し、元のONNXモデルおよび必要な依存関係を含めます：
+1. 次に_mlflow.pyfunc.log_model()_関数を使用して、Phi-3モデルのカスタムPythonラッパー（ピクル形式）を生成し、元のONNXモデルと必要な依存関係を含めることができます：
 
     ``` Python
     model_info = mlflow.pyfunc.log_model(
@@ -122,7 +121,7 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
 
 ## 生成されたMLFlowモデルのシグネチャ
 
-1. 上記のTransformer Pipelineプロジェクトのステップ3で、MLFlowモデルのタスクを「_llm/v1/chat_」に設定しました。この指示により、以下のようにOpenAIのChat APIと互換性のあるモデルのAPIラッパーが生成されます：
+1. 上記のTransformer Pipelineプロジェクトのステップ3では、MLFlowモデルのタスクを「_llm/v1/chat_」に設定しました。この指示により、以下に示すようにOpenAIのChat APIと互換性のあるモデルのAPIラッパーが生成されます：
 
     ``` Python
     {inputs: 
@@ -136,20 +135,20 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
 1. その結果、以下の形式でプロンプトを送信できます：
 
     ``` Python
-    messages = [{"role": "user", "content": "スペインの首都はどこですか？"}]
+    messages = [{"role": "user", "content": "What is the capital of Spain?"}]
     ```
 
-1. その後、OpenAI API互換の後処理を使用して、例えば_response[0][‘choices’][0][‘message’][‘content’]_などで出力を美しく整え、以下のようにします：
+1. 次に、OpenAI API互換の後処理を使用して、例えば_response[0][‘choices’][0][‘message’][‘content’]_のように出力を整形して次のようにします：
 
     ``` JSON
-    質問: スペインの首都はどこですか？
+    Question: What is the capital of Spain?
     
-    答え: スペインの首都はマドリードです。スペインで最大の都市であり、政治、経済、文化の中心地です。マドリードはイベリア半島の中央に位置し、王宮、プラド美術館、プラザ・マヨールなどの豊かな歴史、芸術、建築で知られています。
+    Answer: The capital of Spain is Madrid. It is the largest city in Spain and serves as the political, economic, and cultural center of the country. Madrid is located in the center of the Iberian Peninsula and is known for its rich history, art, and architecture, including the Royal Palace, the Prado Museum, and the Plaza Mayor.
     
-    使用量: {'prompt_tokens': 11, 'completion_tokens': 73, 'total_tokens': 84}
+    Usage: {'prompt_tokens': 11, 'completion_tokens': 73, 'total_tokens': 84}
     ```
 
-1. 上記のカスタムPythonラッパープロジェクトのステップ3では、MLFlowパッケージに入力例からモデルのシグネチャを生成させます。私たちのMLFlowラッパーのシグネチャは次のようになります：
+1. 上記のCustom Python Wrapperプロジェクトのステップ3では、与えられた入力例からモデルのシグネチャを生成するようにMLFlowパッケージに指示します。私たちのMLFlowラッパーのシグネチャは次のようになります：
 
     ``` Python
     {inputs: 
@@ -160,21 +159,23 @@ MLFlowは、データの準備、モデルの登録と管理、実行のため�
       None}
     ```
 
-1. したがって、プロンプトには次のように「prompt」辞書キーを含める必要があります：
+1. したがって、プロンプトには「prompt」辞書キーを含める必要があります。例えば次のように：
 
     ``` Python
-    {"prompt": "<|system|>あなたはスタンドアップコメディアンです。<|end|><|user|>原子に関するジョークを教えてください<|end|><|assistant|>",}
+    {"prompt": "<|system|>You are a stand-up comedian.<|end|><|user|>Tell me a joke about atom<|end|><|assistant|>",}
     ```
 
 1. モデルの出力は文字列形式で提供されます：
 
     ``` JSON
-    よし、原子に関するジョークを一つどうぞ！
+    Alright, here's a little atom-related joke for you!
     
-    なぜ電子はプロトンと鬼ごっこをしないのか？
+    Why don't electrons ever play hide and seek with protons?
     
-    だって、いつも電子を「共有」しているから見つけるのが難しいんだよ！
+    Because good luck finding them when they're always "sharing" their electrons!
     
-    これは全部冗談で、原子レベルのユーモアを楽しんでいるだけだからね！
+    Remember, this is all in good fun, and we're just having a little atomic-level humor!
     ```
 
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確さが含まれる場合があることをご了承ください。元の言語の文書を権威ある情報源と見なすべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤った解釈について、当社は責任を負いません。

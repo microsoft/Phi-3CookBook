@@ -1,15 +1,15 @@
 # **Usa Microsoft Olive para diseñar tus proyectos**
 
-Si una empresa quiere tener su propio modelo vertical de industria, necesita comenzar con datos, ajuste fino y despliegue. En el contenido anterior, presentamos Microsoft Olive, y ahora completamos una introducción más detallada basada en el trabajo de E2E.
+Si una empresa quiere tener su propio modelo vertical de la industria, necesita comenzar con datos, ajuste fino y despliegue. En el contenido anterior, presentamos el contenido de Microsoft Olive, y ahora completamos una introducción más detallada basada en el trabajo de E2E.
 
 ## **Arquitectura**
 
-Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para estructurar nuestros proyectos, incluyendo datos, modelos, formatos ajustados y inferencias. Por ejemplo:
+Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para estructurar nuestros proyectos, incluyendo datos, modelos, formatos ajustados y inferencias. Por ejemplo,
 
 
 ```txt
 
-｜-- Tu Proyecto Phi-3-mini E2E
+｜-- Your Phi-3-mini E2E Proj
     ｜-- datasets
     ｜-- fine-tuning
     ｜-- inferences
@@ -22,13 +22,13 @@ Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para es
 
 - **datasets**
 
-    Los datos pueden almacenarse en csv, json y otros formatos. En este ejemplo, son datos json exportados. [dataset](./E2E_Datasets.md) 
+    Los datos pueden almacenarse en csv, json y otros formatos. En este ejemplo, son los datos exportados en json. [dataset](./E2E_Datasets.md) 
 
-    ***Nota*** Podemos ignorar las configuraciones relevantes aquí porque los datos ya han sido subidos a Azure ML (si es local, podemos subir los datos aquí)
+    ***Nota*** Podemos ignorar la configuración relevante aquí porque los datos ya se han subido a Azure ML (si es local, podemos subir los datos aquí)
 
 - **fine-tuning**
     
-    Especifica algoritmos de ajuste fino QLoRA y LoRA, y parámetros relacionados
+    Especifica los algoritmos de ajuste fino QLoRA y LoRA, y los parámetros relacionados
 
 - **inferences**
 
@@ -36,16 +36,16 @@ Podemos referirnos a los proyectos generados por AI Toolkit para VS Code para es
 
 - **model-cache**
 
-    Modelos descargados vía Hugging face CLI, aquí está el modelo Phi-3-Mini (Usando Azure ML podemos ignorar este contenido, si quieres operar localmente, por favor ejecuta el siguiente script para obtener el modelo phi-3)
+    Modelos descargados a través de Hugging face CLI, aquí está el modelo Phi-3-Mini (Usando Azure ML podemos ignorar este contenido, si deseas operar localmente por favor ejecuta el siguiente script para obtener el modelo phi-3)
 
 
 ```bash
 
 huggingface-cli login
 
-# ingresa tu clave desde el Portal de Hugging Face
+# input your key from Hugging Face Portal
 
-huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Tu ubicación de Phi-3-mini
+huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3-mini location
 
 ```
 
@@ -55,7 +55,7 @@ El modelo guardado después de la operación incluye el modelo de Adaptador ajus
 
 - **setup**
 
-Entorno de instalación requerido, por favor ejecuta esto para configurar tu entorno Olive
+Entorno de instalación requerido, por favor ejecuta esto para configurar tu Olive Env
 
 
 ```bash
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 ## **Configuración de Microsoft Olive**
 
-Si quieres saber sobre la configuración de Microsoft Olive, por favor visita [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
+Si deseas conocer la configuración de Microsoft Olive, por favor visita [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)
 
 ***Nota*** Para mantenerte actualizado, instala Microsoft Olive usando
 
@@ -77,21 +77,21 @@ pip install git+https://github.com/microsoft/Olive
 
 ```
 
-## **Ejecutar Microsoft Olive en Azure ML**
+## **Ejecutando Microsoft Olive en Azure ML**
 
 **LoRA**
 
-Este ejemplo usa computación en la nube, datasets en la nube, añade olive.config en la carpeta de ajuste fino
+Este ejemplo usa computación en la nube, conjuntos de datos en la nube, agrega olive.config en la carpeta de ajuste fino
 
 
 ```json
 
 {
     "azureml_client": {
-        "subscription_id": "Tu ID de Suscripción de Azure",
-        "resource_group": "Tu Grupo de Recursos de Azure",
-        "workspace_name": "Tu Espacio de Trabajo de Azure ML",
-        "keyvault_name":  "Tus Valijas de Claves de Azure"
+        "subscription_id": "Your Azure Subscription ID",
+        "resource_group": "Your Azure Resource Group",
+        "workspace_name": "Your Azure ML Worksapce",
+        "keyvault_name":  "Your Azure Key Valuts"
     },
     "input_model":{
         "type": "PyTorchModel",
@@ -118,7 +118,7 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                     }
                 ],
                 "hf_token": true,
-                "aml_compute": "Tu Clúster de Computación de Azure ML",
+                "aml_compute": "Your Azure ML Compute Cluster",
                 "aml_docker_config": {
                     "base_image": "mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04",
                     "conda_file_path": "conda.yaml"
@@ -136,7 +136,7 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                         ]
                     }
                 ],
-                "aml_compute": "Tu Computación de Azure ML",
+                "aml_compute": "Your Azure ML Compute",
                 "aml_docker_config": {
                     "base_image": "mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04",
                     "conda_file_path": "conda.yaml"
@@ -155,12 +155,12 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                         "type": "azureml_datastore",
                         "config": {
                             "azureml_client": {
-                                "subscription_id": "Tu ID de Suscripción de Azure",
-                                "resource_group": "Tu Grupo de Recursos de Azure",
-                                "workspace_name": "Nombre de tu Espacio de Trabajo de Azure ML"
+                                "subscription_id": "Your Azure Subscrition ID",
+                                "resource_group": "Your Azure Resource Group",
+                                "workspace_name": "Your Azure ML Workspaces name"
                             },
                             "datastore_name": "workspaceblobstore",
-                            "relative_path": "Ubicación de tu train_data.json en Azure ML"
+                            "relative_path": "Your train_data.json Azure ML Location"
                         }
                     },
                     "split": "train"
@@ -249,10 +249,10 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
 
 {
     "azureml_client": {
-        "subscription_id": "Tu ID de Suscripción de Azure",
-        "resource_group": "Tu Grupo de Recursos de Azure",
-        "workspace_name": "Tu Espacio de Trabajo de Azure ML",
-        "keyvault_name":  "Tus Valijas de Claves de Azure"
+        "subscription_id": "Your Azure Subscription ID",
+        "resource_group": "Your Azure Resource Group",
+        "workspace_name": "Your Azure ML Worksapce",
+        "keyvault_name":  "Your Azure Key Valuts"
     },
     "input_model":{
         "type": "PyTorchModel",
@@ -279,7 +279,7 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                     }
                 ],
                 "hf_token": true,
-                "aml_compute": "Tu Clúster de Computación de Azure ML",
+                "aml_compute": "Your Azure ML Compute Cluster",
                 "aml_docker_config": {
                     "base_image": "mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04",
                     "conda_file_path": "conda.yaml"
@@ -297,7 +297,7 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                         ]
                     }
                 ],
-                "aml_compute": "Tu Computación de Azure ML",
+                "aml_compute": "Your Azure ML Compute",
                 "aml_docker_config": {
                     "base_image": "mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04",
                     "conda_file_path": "conda.yaml"
@@ -316,12 +316,12 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
                         "type": "azureml_datastore",
                         "config": {
                             "azureml_client": {
-                                "subscription_id": "Tu ID de Suscripción de Azure",
-                                "resource_group": "Tu Grupo de Recursos de Azure",
-                                "workspace_name": "Nombre de tu Espacio de Trabajo de Azure ML"
+                                "subscription_id": "Your Azure Subscrition ID",
+                                "resource_group": "Your Azure Resource Group",
+                                "workspace_name": "Your Azure ML Workspaces name"
                             },
                             "datastore_name": "workspaceblobstore",
-                            "relative_path": "Ubicación de tu train_data.json en Azure ML"
+                            "relative_path": "Your train_data.json Azure ML Location"
                         }
                     },
                     "split": "train"
@@ -393,13 +393,11 @@ Este ejemplo usa computación en la nube, datasets en la nube, añade olive.conf
 
 ***Aviso*** 
 
-- Si usas QLoRA, la conversión de cuantificación de ONNXRuntime-genai no está soportada por el momento.
+- Si usas QLoRA, la conversión de cuantización de ONNXRuntime-genai no es compatible por el momento.
 
+- Cabe señalar aquí que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente los pasos anteriores. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente necesitas configurar los motores relevantes.
 
-- Es importante señalar que puedes configurar los pasos anteriores según tus propias necesidades. No es necesario configurar completamente los pasos anteriores. Dependiendo de tus necesidades, puedes usar directamente los pasos del algoritmo sin ajuste fino. Finalmente, necesitas configurar los motores relevantes.
-
-### **Ejecutar Microsoft Olive**
-
+### **Ejecutando Microsoft Olive**
 
 Después de terminar con Microsoft Olive, necesitas ejecutar este comando en la terminal 
 
@@ -416,13 +414,13 @@ olive run --config olive-config.json
 
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.es.png)
 
-
-2. Proveemos tanto LoRA como QLoRA aquí, y puedes configurarlos según tus necesidades.
+2. Proporcionamos tanto LoRA como QLoRA aquí, y puedes configurarlos según tus necesidades.
 
 3. El entorno de ejecución recomendado es WSL / Ubuntu 22.04+.
 
-4. ¿Por qué elegir ORT? Porque ORT puede desplegarse en dispositivos edge, la inferencia se implementa en el entorno ORT.
+4. ¿Por qué elegir ORT? Porque ORT puede desplegarse en dispositivos de borde, la inferencia se implementa en el entorno ORT.
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.es.png)
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

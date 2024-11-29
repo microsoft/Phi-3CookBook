@@ -9,9 +9,9 @@
 
 DirectML es una API de bajo nivel que permite el aprendizaje automático acelerado por hardware. Está construida sobre DirectX 12 para utilizar la aceleración de GPU y es independiente del proveedor, lo que significa que no requiere cambios en el código para funcionar con diferentes proveedores de GPU. Se utiliza principalmente para cargas de trabajo de entrenamiento e inferencia de modelos en GPUs.
 
-En cuanto al soporte de hardware, DirectML está diseñado para trabajar con una amplia gama de GPUs, incluidas las GPUs integradas y discretas de AMD, las GPUs integradas de Intel y las GPUs discretas de NVIDIA. Es parte de la Plataforma de IA de Windows y es compatible con Windows 10 y 11, lo que permite el entrenamiento e inferencia de modelos en cualquier dispositivo con Windows.
+En cuanto al soporte de hardware, DirectML está diseñado para funcionar con una amplia gama de GPUs, incluidas GPUs integradas y discretas de AMD, GPUs integradas de Intel y GPUs discretas de NVIDIA. Es parte de la Plataforma de IA de Windows y es compatible con Windows 10 y 11, lo que permite el entrenamiento e inferencia de modelos en cualquier dispositivo con Windows.
 
-Ha habido actualizaciones y oportunidades relacionadas con DirectML, como el soporte de hasta 150 operadores ONNX y su uso tanto por el runtime de ONNX como por WinML. Está respaldado por importantes Proveedores de Hardware Integrado (IHVs), cada uno implementando varios metacomandos.
+Ha habido actualizaciones y oportunidades relacionadas con DirectML, como el soporte de hasta 150 operadores ONNX y su uso tanto por el tiempo de ejecución de ONNX como por WinML. Está respaldado por importantes Proveedores de Hardware Integrado (IHVs), cada uno implementando varios metacomandos.
 
 ## CUDA
 
@@ -21,23 +21,23 @@ El soporte de hardware para CUDA es específico de las GPUs de Nvidia, ya que es
 
 ## ONNX
 
-ONNX (Open Neural Network Exchange) es un formato abierto diseñado para representar modelos de aprendizaje automático. Proporciona una definición de un modelo de gráfico de computación extensible, así como definiciones de operadores integrados y tipos de datos estándar. ONNX permite a los desarrolladores mover modelos entre diferentes marcos de ML, habilitando la interoperabilidad y facilitando la creación y el despliegue de aplicaciones de IA.
+ONNX (Open Neural Network Exchange) es un formato abierto diseñado para representar modelos de aprendizaje automático. Proporciona una definición de un modelo de gráfico de computación extensible, así como definiciones de operadores integrados y tipos de datos estándar. ONNX permite a los desarrolladores mover modelos entre diferentes marcos de ML, permitiendo la interoperabilidad y facilitando la creación y despliegue de aplicaciones de IA.
 
-Phi3 mini puede funcionar con ONNX Runtime en CPU y GPU en diferentes dispositivos, incluidos plataformas de servidor, escritorios con Windows, Linux y Mac, y CPUs móviles.
+Phi3 mini puede funcionar con ONNX Runtime en CPU y GPU a través de dispositivos, incluidas plataformas de servidores, escritorios Windows, Linux y Mac, y CPUs móviles.
 Las configuraciones optimizadas que hemos añadido son
 
-- Modelos ONNX para int4 DML: Cuantizados a int4 a través de AWQ
+- Modelos ONNX para int4 DML: Cuantizados a int4 vía AWQ
 - Modelo ONNX para fp16 CUDA
-- Modelo ONNX para int4 CUDA: Cuantizados a int4 a través de RTN
-- Modelo ONNX para int4 CPU y Móvil: Cuantizados a int4 a través de RTN
+- Modelo ONNX para int4 CUDA: Cuantizados a int4 vía RTN
+- Modelo ONNX para int4 CPU y Móvil: Cuantizados a int4 vía RTN
 
 ## Llama.cpp
 
-Llama.cpp es una biblioteca de software de código abierto escrita en C++. Realiza inferencia en varios Modelos de Lenguaje Grande (LLMs), incluyendo Llama. Desarrollada junto con la biblioteca ggml (una biblioteca de tensores de propósito general), llama.cpp tiene como objetivo proporcionar una inferencia más rápida y un menor uso de memoria en comparación con la implementación original en Python. Soporta optimización de hardware, cuantización y ofrece una API simple y ejemplos. Si estás interesado en una inferencia eficiente de LLM, llama.cpp vale la pena explorar ya que Phi3 puede ejecutar Llama.cpp.
+Llama.cpp es una biblioteca de software de código abierto escrita en C++. Realiza inferencias en varios Modelos de Lenguaje Grande (LLMs), incluyendo Llama. Desarrollada junto con la biblioteca ggml (una biblioteca de tensores de propósito general), llama.cpp tiene como objetivo proporcionar inferencias más rápidas y un menor uso de memoria en comparación con la implementación original en Python. Soporta optimización de hardware, cuantización y ofrece una API simple y ejemplos. Si estás interesado en la inferencia eficiente de LLM, llama.cpp vale la pena explorar ya que Phi3 puede ejecutar Llama.cpp.
 
 ## GGUF
 
-GGUF (Generic Graph Update Format) es un formato utilizado para representar y actualizar modelos de aprendizaje automático. Es particularmente útil para modelos de lenguaje más pequeños (SLMs) que pueden funcionar eficazmente en CPUs con cuantización de 4-8 bits. GGUF es beneficioso para la creación rápida de prototipos y la ejecución de modelos en dispositivos de borde o en trabajos por lotes como las canalizaciones de CI/CD.
+GGUF (Generic Graph Update Format) es un formato utilizado para representar y actualizar modelos de aprendizaje automático. Es particularmente útil para modelos de lenguaje más pequeños (SLMs) que pueden funcionar eficazmente en CPUs con cuantización de 4-8 bits. GGUF es beneficioso para la creación rápida de prototipos y la ejecución de modelos en dispositivos de borde o en trabajos por lotes como pipelines de CI/CD.
 
-        Descargo de responsabilidad: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. 
-        Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automatizada por inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

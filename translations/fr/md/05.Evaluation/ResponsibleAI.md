@@ -1,8 +1,8 @@
 # **Introduction à l'IA Responsable**
 
-[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai?WT.mc_id=aiml-138114-kinfeylo) est une initiative qui vise à aider les développeurs et les organisations à créer des systèmes d'IA transparents, fiables et responsables. L'initiative fournit des conseils et des ressources pour développer des solutions d'IA responsables alignées sur des principes éthiques, tels que la confidentialité, l'équité et la transparence. Nous explorerons également certains des défis et des meilleures pratiques associés à la création de systèmes d'IA responsables.
+[Microsoft Responsible AI](https://www.microsoft.com/ai/responsible-ai?WT.mc_id=aiml-138114-kinfeylo) est une initiative qui vise à aider les développeurs et les organisations à construire des systèmes d'IA transparents, dignes de confiance et responsables. L'initiative fournit des conseils et des ressources pour développer des solutions d'IA responsables qui s'alignent sur des principes éthiques, tels que la confidentialité, l'équité et la transparence. Nous explorerons également certains des défis et des meilleures pratiques associés à la construction de systèmes d'IA responsables.
 
-## Vue d'ensemble de Microsoft Responsible AI 
+## Aperçu de Microsoft Responsible AI 
 
 ![RAIPrinciples](../../../../translated_images/RAIPrinciples.341872e84ab61d746359087157c13d5a0a5549e5187b42e45efca277ac550e12.fr.png)
 
@@ -24,15 +24,15 @@ Les systèmes d'IA doivent être conçus pour bénéficier à tout le monde. Mic
 
 **Fiabilité et sécurité**
 
-Assurer la fiabilité et la sécurité des systèmes d'IA est crucial. Microsoft se concentre sur la construction de modèles robustes qui fonctionnent de manière cohérente et évitent les résultats nuisibles.
+ Assurer la fiabilité et la sécurité des systèmes d'IA est crucial. Microsoft se concentre sur la construction de modèles robustes qui fonctionnent de manière cohérente et évitent les résultats nuisibles.
 
 **Équité dans l'IA** 
 
-Microsoft Responsible AI reconnaît que les systèmes d'IA peuvent perpétuer des biais s'ils sont entraînés sur des données ou des algorithmes biaisés. L'initiative fournit des conseils pour développer des systèmes d'IA équitables qui ne discriminent pas en fonction de facteurs tels que la race, le genre ou l'âge.
+Microsoft Responsible AI reconnaît que les systèmes d'IA peuvent perpétuer des biais s'ils sont formés sur des données ou des algorithmes biaisés. L'initiative fournit des conseils pour développer des systèmes d'IA équitables qui ne discriminent pas en fonction de facteurs tels que la race, le genre ou l'âge.
 
 **Confidentialité et sécurité** 
 
-Microsoft Responsible AI souligne l'importance de protéger la confidentialité des utilisateurs et la sécurité des données dans les systèmes d'IA. Cela inclut la mise en œuvre d'un chiffrement fort des données et des contrôles d'accès, ainsi que l'audit régulier des systèmes d'IA pour détecter les vulnérabilités.
+Microsoft Responsible AI met l'accent sur l'importance de protéger la confidentialité des utilisateurs et la sécurité des données dans les systèmes d'IA. Cela inclut la mise en œuvre d'un chiffrement fort des données et des contrôles d'accès, ainsi que l'audit régulier des systèmes d'IA pour détecter les vulnérabilités.
 
 **Responsabilité et responsabilité** 
 
@@ -44,51 +44,51 @@ Microsoft Responsible AI promeut la responsabilité et la responsabilité dans l
 
 Pour éviter les biais dans les systèmes d'IA, il est important d'utiliser des ensembles de données diversifiés qui représentent une gamme de perspectives et d'expériences.
 
-**Utiliser des techniques d'IA explicable** 
+**Utiliser des techniques d'IA explicables** 
 
-Les techniques d'IA explicable peuvent aider les utilisateurs à comprendre comment les modèles d'IA prennent des décisions, ce qui peut augmenter la confiance dans le système.
+Les techniques d'IA explicables peuvent aider les utilisateurs à comprendre comment les modèles d'IA prennent des décisions, ce qui peut augmenter la confiance dans le système.
 
 **Auditer régulièrement les systèmes d'IA pour détecter les vulnérabilités** 
 
-Les audits réguliers des systèmes d'IA peuvent aider à identifier les risques et les vulnérabilités potentiels qui doivent être traités.
+Les audits réguliers des systèmes d'IA peuvent aider à identifier les risques potentiels et les vulnérabilités qui doivent être traités.
 
 **Mettre en œuvre un chiffrement fort des données et des contrôles d'accès** 
 
 Le chiffrement des données et les contrôles d'accès peuvent aider à protéger la confidentialité et la sécurité des utilisateurs dans les systèmes d'IA.
 
-**Suivre des principes éthiques dans le développement de l'IA** 
+**Suivre les principes éthiques dans le développement de l'IA** 
 
-Suivre des principes éthiques, tels que l'équité, la transparence et la responsabilité, peut aider à construire la confiance dans les systèmes d'IA et garantir qu'ils sont développés de manière responsable.
+Suivre des principes éthiques, tels que l'équité, la transparence et la responsabilité, peut aider à instaurer la confiance dans les systèmes d'IA et garantir qu'ils sont développés de manière responsable.
 
-## Utiliser AI Studio pour une IA Responsable 
+## Utilisation de AI Foundry pour l'IA Responsable 
 
-[Azure AI Studio](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) est une plateforme puissante qui permet aux développeurs et aux organisations de créer rapidement des applications intelligentes, de pointe, prêtes pour le marché et responsables. Voici quelques fonctionnalités clés et capacités d'Azure AI Studio :
+[Azure AI Foundry](https://ai.azure.com?WT.mc_id=aiml-138114-kinfeylo) est une plateforme puissante qui permet aux développeurs et aux organisations de créer rapidement des applications intelligentes, à la pointe de la technologie, prêtes pour le marché et responsables. Voici quelques-unes des principales fonctionnalités et capacités d'Azure AI Foundry :
 
-**APIs et modèles prêts à l'emploi** 
+**API et modèles prêts à l'emploi** 
 
-Azure AI Studio fournit des APIs et des modèles pré-construits et personnalisables. Ceux-ci couvrent une large gamme de tâches d'IA, y compris l'IA générative, le traitement du langage naturel pour les conversations, la recherche, la surveillance, la traduction, la parole, la vision et la prise de décision.
+Azure AI Foundry fournit des API et des modèles préconstruits et personnalisables. Ceux-ci couvrent un large éventail de tâches d'IA, y compris l'IA générative, le traitement du langage naturel pour les conversations, la recherche, la surveillance, la traduction, la parole, la vision et la prise de décision.
 
-**Prompt Flow** 
+**Flux de prompts** 
 
-Le flux de prompts dans Azure AI Studio vous permet de créer des expériences d'IA conversationnelle. Il vous permet de concevoir et de gérer des flux conversationnels, facilitant ainsi la création de chatbots, d'assistants virtuels et d'autres applications interactives.
+Le flux de prompts dans Azure AI Foundry vous permet de créer des expériences d'IA conversationnelle. Il vous permet de concevoir et de gérer des flux conversationnels, facilitant ainsi la création de chatbots, d'assistants virtuels et d'autres applications interactives.
 
-**Generation Augmentée par Récupération (RAG)** 
+**Génération augmentée par la récupération (RAG)** 
 
-RAG est une technique qui combine des approches basées sur la récupération et la génération. Elle améliore la qualité des réponses générées en s'appuyant à la fois sur des connaissances préexistantes (récupération) et sur la génération créative (génération).
+RAG est une technique qui combine des approches basées sur la récupération et la génération. Elle améliore la qualité des réponses générées en tirant parti à la fois des connaissances préexistantes (récupération) et de la génération créative (génération).
 
 **Évaluation et surveillance des métriques pour l'IA générative** 
 
-Azure AI Studio fournit des outils pour évaluer et surveiller les modèles d'IA générative. Vous pouvez évaluer leur performance, leur équité et d'autres métriques importantes pour garantir un déploiement responsable. De plus, si vous avez créé un tableau de bord, vous pouvez utiliser l'interface utilisateur sans code dans Azure Machine Learning Studio pour personnaliser et générer un tableau de bord d'IA Responsable et une fiche d'évaluation associée basée sur les bibliothèques Python du [Repsonsible AI Toolbox](https://responsibleaitoolbox.ai/?WT.mc_id=aiml-138114-kinfeylo). Cette fiche d'évaluation vous aide à partager des informations clés liées à l'équité, à l'importance des caractéristiques et à d'autres considérations de déploiement responsable avec des parties prenantes techniques et non techniques.
+Azure AI Foundry fournit des outils pour évaluer et surveiller les modèles d'IA générative. Vous pouvez évaluer leur performance, leur équité et d'autres métriques importantes pour garantir un déploiement responsable. De plus, si vous avez créé un tableau de bord, vous pouvez utiliser l'interface utilisateur sans code dans Azure Machine Learning Studio pour personnaliser et générer un tableau de bord d'IA Responsable et une fiche de score associée à partir des bibliothèques Python du [Responsible AI Toolbox](https://responsibleaitoolbox.ai/?WT.mc_id=aiml-138114-kinfeylo). Cette fiche de score vous aide à partager des informations clés liées à l'équité, à l'importance des caractéristiques et à d'autres considérations de déploiement responsable avec des parties prenantes techniques et non techniques.
 
-Pour utiliser AI Studio avec une IA responsable, vous pouvez suivre ces meilleures pratiques :
+Pour utiliser AI Foundry avec une IA responsable, vous pouvez suivre ces meilleures pratiques :
 
 **Définir le problème et les objectifs de votre système d'IA**
 
 Avant de commencer le processus de développement, il est important de définir clairement le problème ou l'objectif que votre système d'IA vise à résoudre. Cela vous aidera à identifier les données, les algorithmes et les ressources nécessaires pour construire un modèle efficace.
 
-**Collecter et prétraiter les données pertinentes** 
+**Rassembler et prétraiter les données pertinentes** 
 
-La qualité et la quantité des données utilisées pour entraîner un système d'IA peuvent avoir un impact significatif sur ses performances. Par conséquent, il est important de collecter des données pertinentes, de les nettoyer, de les prétraiter et de s'assurer qu'elles sont représentatives de la population ou du problème que vous essayez de résoudre.
+La qualité et la quantité des données utilisées pour entraîner un système d'IA peuvent avoir un impact significatif sur ses performances. Il est donc important de rassembler des données pertinentes, de les nettoyer, de les prétraiter et de s'assurer qu'elles sont représentatives de la population ou du problème que vous essayez de résoudre.
 
 **Choisir une évaluation appropriée** 
 
@@ -100,12 +100,13 @@ Une fois que vous avez construit un modèle d'IA, il est important d'évaluer se
 
 **Assurer la transparence et l'explicabilité** 
 
-Les systèmes d'IA doivent être transparents et explicables afin que les utilisateurs puissent comprendre comment ils fonctionnent et comment les décisions sont prises. Cela est particulièrement important pour les applications ayant des impacts significatifs sur la vie humaine, telles que les soins de santé, les finances et les systèmes juridiques.
+Les systèmes d'IA doivent être transparents et explicables afin que les utilisateurs puissent comprendre leur fonctionnement et la manière dont les décisions sont prises. Cela est particulièrement important pour les applications ayant des impacts significatifs sur la vie humaine, telles que les systèmes de santé, financiers et juridiques.
 
 **Surveiller et mettre à jour le modèle** 
 
-Les systèmes d'IA doivent être continuellement surveillés et mis à jour pour garantir qu'ils restent précis et efficaces au fil du temps. Cela nécessite une maintenance continue, des tests et une ré-formation du modèle.
+Les systèmes d'IA doivent être continuellement surveillés et mis à jour pour s'assurer qu'ils restent précis et efficaces au fil du temps. Cela nécessite une maintenance continue, des tests et une réentraînement du modèle.
 
-En conclusion, Microsoft Responsible AI est une initiative qui vise à aider les développeurs et les organisations à créer des systèmes d'IA transparents, fiables et responsables. N'oubliez pas que la mise en œuvre d'une IA responsable est cruciale, et Azure AI Studio vise à la rendre pratique pour les organisations. En suivant des principes éthiques et des meilleures pratiques, nous pouvons garantir que les systèmes d'IA sont développés et déployés de manière responsable, au bénéfice de l'ensemble de la société.
+En conclusion, Microsoft Responsible AI est une initiative qui vise à aider les développeurs et les organisations à construire des systèmes d'IA transparents, dignes de confiance et responsables. N'oubliez pas que la mise en œuvre de l'IA responsable est cruciale, et Azure AI Foundry vise à la rendre pratique pour les organisations. En suivant des principes éthiques et des meilleures pratiques, nous pouvons nous assurer que les systèmes d'IA sont développés et déployés de manière responsable pour le bénéfice de la société dans son ensemble.
 
-Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit en utilisant des services de traduction automatisée par intelligence artificielle. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

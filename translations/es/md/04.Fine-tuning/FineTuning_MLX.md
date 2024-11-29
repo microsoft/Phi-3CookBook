@@ -1,16 +1,16 @@
-# **Ajuste fino de Phi-3 con el Framework Apple MLX**
+# **Ajuste fino de Phi-3 con el Marco Apple MLX**
 
-Podemos completar el ajuste fino combinado con Lora a través de la línea de comandos del framework Apple MLX. (Si quieres saber más sobre el funcionamiento del Framework MLX, por favor lee [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
+Podemos completar el ajuste fino combinado con Lora a través de la línea de comandos del marco Apple MLX. (Si deseas saber más sobre el funcionamiento del Marco MLX, por favor lee [Inferencia Phi-3 con el Marco Apple MLX](../03.Inference/MLX_Inference.md)
 
 
 ## **1. Preparación de datos**
 
-Por defecto, el Framework MLX requiere el formato jsonl para entrenamiento, prueba y evaluación, y se combina con Lora para completar los trabajos de ajuste fino.
+Por defecto, el Marco MLX requiere el formato jsonl para train, test y eval, y se combina con Lora para completar las tareas de ajuste fino.
 
 
 ### ***Nota:***
 
-1. Formato de datos jsonl:
+1. Formato de datos jsonl ：
 
 
 ```json
@@ -22,9 +22,9 @@ Por defecto, el Framework MLX requiere el formato jsonl para entrenamiento, prue
 
 ```
 
-2. Nuestro ejemplo usa [los datos de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), pero la cantidad de datos es relativamente insuficiente, por lo que los resultados del ajuste fino no son necesariamente los mejores. Se recomienda que los usuarios utilicen mejores datos basados en sus propios escenarios para completar.
+2. Nuestro ejemplo utiliza los [datos de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), pero la cantidad de datos es relativamente insuficiente, por lo que los resultados del ajuste fino no son necesariamente los mejores. Se recomienda que los usuarios utilicen mejores datos basados en sus propios escenarios para completar.
 
-3. El formato de datos se combina con la plantilla Phi-3
+3. El formato de los datos se combina con la plantilla Phi-3
 
 Por favor, descarga los datos desde este [enlace](../../../../code/04.Finetuning/mlx), incluye todos los .jsonl en la carpeta ***data***
 
@@ -43,7 +43,7 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ## ***Nota:***
 
-1. Este es un ajuste fino LoRA, el framework MLX no ha publicado QLoRA
+1. Este es un ajuste fino de LoRA, el marco MLX no ha publicado QLoRA
 
 2. Puedes configurar config.yaml para cambiar algunos argumentos, como
 
@@ -137,7 +137,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-y ejecutar el modelo original para comparar resultados
+y ejecutar el modelo original para comparar el resultado
 
 
 ```bash
@@ -181,7 +181,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. El modelo fusionado carece de tokenizer.model, por favor descárgalo desde https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-configura el archivo de modelo de Ollma (Si no tienes instalado ollama, por favor lee [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
+configura el archivo del modelo Ollama (si no has instalado ollama, por favor lee [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
 
 
 ```txt
@@ -202,7 +202,7 @@ ejecuta el comando en el terminal
 
 ```
 
-¡Felicidades! Domina el ajuste fino con el Framework MLX
+¡Felicidades! Domina el ajuste fino con el Marco MLX
 
-        **Descargo de responsabilidad**:
-        Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No nos hacemos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

@@ -1,6 +1,6 @@
 # **Inferencia Phi-3 en iOS**
 
-Phi-3-mini es una nueva serie de modelos de Microsoft que permite el despliegue de Modelos de Lenguaje Grande (LLMs) en dispositivos edge y dispositivos IoT. Phi-3-mini está disponible para despliegues en iOS, Android y dispositivos Edge, permitiendo que la IA generativa se despliegue en entornos BYOD. El siguiente ejemplo demuestra cómo desplegar Phi-3-mini en iOS.
+Phi-3-mini es una nueva serie de modelos de Microsoft que permite el despliegue de Modelos de Lenguaje Grande (LLMs) en dispositivos edge y dispositivos IoT. Phi-3-mini está disponible para implementaciones en iOS, Android y dispositivos edge, permitiendo que la IA generativa se despliegue en entornos BYOD. El siguiente ejemplo demuestra cómo desplegar Phi-3-mini en iOS.
 
 ## **1. Preparación**
 
@@ -13,7 +13,7 @@ Phi-3-mini es una nueva serie de modelos de Microsoft que permite el despliegue 
 
 ### Kernel Semántico e Inferencia
 
-Kernel Semántico es un marco de aplicaciones que te permite crear aplicaciones compatibles con Azure OpenAI Service, modelos de OpenAI e incluso modelos locales. Acceder a servicios locales a través del Kernel Semántico permite una fácil integración con tu servidor de modelos Phi-3-mini autoalojado.
+Kernel Semántico es un marco de aplicación que te permite crear aplicaciones compatibles con Azure OpenAI Service, modelos de OpenAI e incluso modelos locales. Acceder a servicios locales a través de Kernel Semántico permite una fácil integración con tu servidor de modelos Phi-3-mini autoalojado.
 
 ### Llamando a Modelos Cuantizados con Ollama o LlamaEdge
 
@@ -21,7 +21,7 @@ Muchos usuarios prefieren usar modelos cuantizados para ejecutar modelos localme
 
 #### **Ollama**
 
-Puedes ejecutar `ollama run phi3` directamente o configurarlo offline. Crea un archivo de modelo con la ruta a tu archivo `gguf`. Código de ejemplo para ejecutar el modelo cuantizado Phi-3-mini:
+Puedes ejecutar `ollama run phi3` directamente o configurarlo offline. Crea un Modelfile con la ruta a tu archivo `gguf`. Código de ejemplo para ejecutar el modelo cuantizado Phi-3-mini:
 
 ```gguf
 FROM {Add your gguf file path}
@@ -32,7 +32,7 @@ PARAMETER num_ctx 4096
 
 #### **LlamaEdge**
 
-Si deseas usar `gguf` tanto en la nube como en dispositivos edge simultáneamente, LlamaEdge es una gran opción.
+Si deseas usar `gguf` en dispositivos en la nube y edge simultáneamente, LlamaEdge es una gran opción.
 
 ## **2. Compilando ONNX Runtime para iOS**
 
@@ -50,7 +50,7 @@ cd ../
 
 ### **Aviso**
 
-- **a.** Antes de compilar, asegúrate de que Xcode esté configurado correctamente y configúralo como el directorio de desarrollador activo en la terminal:
+- **a.** Antes de compilar, asegúrate de que Xcode esté correctamente configurado y configúralo como el directorio de desarrollador activo en la terminal:
 
     ```bash
     sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
@@ -58,11 +58,11 @@ cd ../
 
 - **b.** ONNX Runtime necesita ser compilado para diferentes plataformas. Para iOS, puedes compilar para `arm64` or `x86_64`.
 
-- **c.** Se recomienda usar el último SDK de iOS para la compilación. Sin embargo, también puedes usar una versión anterior si necesitas compatibilidad con SDKs previos.
+- **c.** Se recomienda usar el último SDK de iOS para la compilación. Sin embargo, también puedes usar una versión anterior si necesitas compatibilidad con SDKs anteriores.
 
 ## **3. Compilando IA Generativa con ONNX Runtime para iOS**
 
-> **Nota:** Dado que la IA Generativa con ONNX Runtime está en vista previa, ten en cuenta los posibles cambios.
+> **Nota:** Debido a que la IA Generativa con ONNX Runtime está en vista previa, ten en cuenta los posibles cambios.
 
 ```bash
 
@@ -90,15 +90,15 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ```
 
-## **4. Crear una aplicación en Xcode**
+## **4. Crear una aplicación App en Xcode**
 
-Elegí Objective-C como el método de desarrollo de la App, porque usando IA Generativa con la API de C++ de ONNX Runtime, Objective-C es mejor compatible. Por supuesto, también puedes completar las llamadas relacionadas a través de Swift bridging.
+Elegí Objective-C como el método de desarrollo de la App, porque usando IA Generativa con la API C++ de ONNX Runtime, Objective-C es mejor compatible. Por supuesto, también puedes completar llamadas relacionadas a través de Swift bridging.
 
 ![xcode](../../../../translated_images/xcode.2817f1d089dc7d09ba6a41361db7052567d63f714062e2e4325b0e0895ccb4c4.es.png)
 
-## **5. Copiar el modelo INT4 cuantizado de ONNX al proyecto de la aplicación**
+## **5. Copiar el modelo INT4 cuantizado de ONNX al proyecto de la aplicación App**
 
-Necesitamos importar el modelo de cuantización INT4 en formato ONNX, el cual debe descargarse primero.
+Necesitamos importar el modelo de cuantización INT4 en formato ONNX, que debe descargarse primero.
 
 ![hf](../../../../translated_images/hf.dd843c3e95f3b462a3d5f06dbbb17c1f1a33b87688c1cda4d990084ef71a4eed.es.png)
 
@@ -110,9 +110,9 @@ Después de descargarlo, necesitas agregarlo al directorio de Recursos del proye
 
 > **Aviso:**
 
-- **a.** Agrega los archivos de cabecera C++ correspondientes al proyecto.
+- **a.** Agrega los archivos de encabezado C++ correspondientes al proyecto.
 
-  ![Header File](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.es.png)
+  ![Archivo de Encabezado](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.es.png)
 
 - **b.** Incluye `onnxruntime-genai` dynamic library in Xcode.
 
@@ -153,9 +153,9 @@ Después de descargarlo, necesitas agregarlo al directorio de Recursos del proye
 
 Una vez que la configuración esté completa, puedes ejecutar la aplicación para ver los resultados de la inferencia del modelo Phi-3-mini.
 
-![Running Result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.es.jpg)
+![Resultado de Ejecución](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.es.jpg)
 
 Para más código de ejemplo e instrucciones detalladas, visita el [repositorio de Ejemplos de Phi-3 Mini](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios).
 
-        **Descargo de responsabilidad**:
-        Este documento ha sido traducido utilizando servicios de traducción automatizada por IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
+        **Descargo de responsabilidad**: 
+        Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

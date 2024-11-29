@@ -1,11 +1,10 @@
-# **Microsoft Olive로 프로젝트 설계하기**
+# **Microsoft Olive을 사용하여 프로젝트 설계하기**
 
-기업이 자체 산업 수직 모델을 만들고자 한다면 데이터, 미세 조정, 배포부터 시작해야 합니다. 이전 내용에서는 Microsoft Olive에 대해 소개했으며, 이제 E2E 작업을 기반으로 더 자세한 설명을 완료하겠습니다.
+기업이 자체 산업 수직 모델을 갖고자 한다면, 데이터, 미세 조정, 배포부터 시작해야 합니다. 이전 콘텐츠에서는 Microsoft Olive에 대해 소개했으며, 이제 E2E 작업을 기반으로 더 자세한 소개를 완성하겠습니다.
 
 ## **아키텍처**
 
-프로젝트를 구조화하기 위해 VS Code의 AI Toolkit으로 생성된 프로젝트를 참조할 수 있습니다. 여기에는 데이터, 모델, 미세 조정 형식, 추론 등이 포함됩니다. 예를 들어:
-
+VS Code용 AI Toolkit에서 생성된 프로젝트를 참조하여 데이터, 모델, 미세 조정 형식 및 추론을 포함한 프로젝트를 구조화할 수 있습니다. 예를 들어,
 
 ```txt
 
@@ -22,28 +21,28 @@
 
 - **datasets**
 
-    데이터는 csv, json 등의 형식으로 저장될 수 있습니다. 이 예에서는 내보낸 json 데이터를 사용합니다. [dataset](./E2E_Datasets.md) 
+    데이터는 csv, json 등의 형식으로 저장될 수 있습니다. 이 예제에서는 내보낸 json 데이터를 사용합니다. [dataset](./E2E_Datasets.md) 
 
-    ***Note*** 데이터가 이미 Azure ML에 업로드된 경우 여기에서 관련 설정을 무시할 수 있습니다. (로컬인 경우 데이터를 여기에서 업로드할 수 있습니다)
+    ***Note*** 데이터는 이미 Azure ML에 업로드되었기 때문에 여기서 관련 설정을 무시할 수 있습니다 (로컬일 경우 여기서 데이터를 업로드할 수 있습니다).
 
 - **fine-tuning**
     
-    QLoRA와 LoRA 알고리즘 및 관련 매개변수를 지정합니다.
+    QLoRA 및 LoRA 알고리즘과 관련 매개변수를 지정합니다.
 
 - **inferences**
 
-    추론은 미세 조정 후의 모델입니다. 이는 미세 조정된 Adapter 레이어에 대한 참조, 미세 조정 후 Adapter와 통합된 모델에 대한 참조, 또는 양자화된 ONNX Runtime 모델일 수 있습니다.
+    추론은 미세 조정 후의 모델입니다. 미세 조정된 Adapter 레이어를 참조하거나, 미세 조정 후 Adapter와 통합된 모델을 참조하거나, 양자화된 ONNX Runtime 모델일 수 있습니다.
 
 - **model-cache**
 
-    Hugging face CLI를 통해 다운로드한 모델입니다. 여기서는 Phi-3-Mini 모델입니다. (Azure ML을 사용하는 경우 이 내용을 무시할 수 있습니다. 로컬에서 작업하려면 다음 스크립트를 실행하여 phi-3 모델을 얻으세요)
+    Hugging face CLI를 통해 다운로드된 모델로, 여기서는 Phi-3-Mini 모델입니다 (Azure ML을 사용하면 이 내용을 무시할 수 있으며, 로컬에서 작업하려면 다음 스크립트를 실행하여 phi-3 모델을 얻으십시오).
 
 
 ```bash
 
 huggingface-cli login
 
-# Hugging Face Portal에서 키를 입력하세요
+# input your key from Hugging Face Portal
 
 huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3-mini location
 
@@ -51,11 +50,11 @@ huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3
 
 - **gen-model**
 
-    작업 후 저장된 모델로, 미세 조정된 Adapter 모델, 통합된 미세 조정 Adapter 모델, ONNX Runtime에서 실행되는 양자화된 모델이 포함됩니다.
+작업 후 저장된 모델에는 미세 조정된 Adapter 모델, 통합된 미세 조정 Adapter 모델, ONNX Runtime에서 실행되는 양자화 모델이 포함됩니다.
 
 - **setup**
 
-    필요한 설치 환경을 설정합니다. Olive Env를 설정하려면 이를 실행하세요.
+필요한 설치 환경을 설정하기 위해 이 명령어를 실행하여 Olive Env를 설정하십시오.
 
 
 ```bash
@@ -64,11 +63,11 @@ pip install -r requirements.txt
 
 ```
 
-## **Microsoft Olive 설정**
+## **Microsoft Olive 구성**
 
-Microsoft Olive의 설정에 대해 알고 싶다면 [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)를 방문하세요.
+Microsoft Olive의 구성에 대해 알고 싶다면 [Fine Tuning with Microsoft Olive](../04.Fine-tuning/FineTuning_MicrosoftOlive.md)를 방문하십시오.
 
-***Note*** 최신 상태를 유지하려면 Microsoft Olive를 다음을 사용하여 설치하세요.
+***Note*** 최신 상태를 유지하려면 다음 명령어를 사용하여 Microsoft Olive를 설치하십시오.
 
 
 ```bash
@@ -81,7 +80,7 @@ pip install git+https://github.com/microsoft/Olive
 
 **LoRA**
 
-이 예제는 클라우드 컴퓨팅과 클라우드 데이터를 사용하며, fine-tuning 폴더에 olive.config를 추가합니다.
+이 샘플은 클라우드 컴퓨팅과 클라우드 데이터셋을 사용하며, fine-tuning 폴더에 olive.config를 추가합니다.
 
 
 ```json
@@ -393,15 +392,14 @@ pip install git+https://github.com/microsoft/Olive
 
 ***Notice*** 
 
-- QLoRA를 사용하는 경우, ONNXRuntime-genai의 양자화 변환은 현재 지원되지 않습니다.
+- QLoRA를 사용할 경우, ONNXRuntime-genai의 양자화 변환은 현재 지원되지 않습니다.
 
-
-- 여기서 언급된 단계는 필요에 따라 설정할 수 있습니다. 반드시 위의 모든 단계를 완전히 구성할 필요는 없습니다. 필요에 따라 알고리즘 단계를 직접 사용할 수 있으며, 마지막으로 관련 엔진을 설정해야 합니다.
+- 여기서는 자신의 필요에 따라 위의 단계를 설정할 수 있음을 명확히 합니다. 위의 단계를 완전히 구성할 필요는 없습니다. 필요에 따라 알고리즘의 단계를 직접 사용할 수 있으며, 최종적으로 관련 엔진을 구성해야 합니다.
 
 ### **Microsoft Olive 실행하기**
 
 
-Microsoft Olive 설정을 완료한 후, 터미널에서 다음 명령을 실행하세요.
+Microsoft Olive를 완료한 후 터미널에서 다음 명령어를 실행해야 합니다.
 
 
 ```bash
@@ -412,17 +410,18 @@ olive run --config olive-config.json
 
 ***Notice*** 
 
-1. Microsoft Olive가 실행될 때 각 단계는 캐시에 저장될 수 있습니다. 관련 단계의 결과를 보려면 fine-tuning 디렉토리를 확인하세요.
+1. Microsoft Olive가 실행되면 각 단계는 캐시에 저장될 수 있습니다. 미세 조정 디렉터리를 확인하여 관련 단계의 결과를 볼 수 있습니다.
 
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.ko.png)
 
 
-2. 여기서는 LoRA와 QLoRA를 모두 제공하며, 필요에 따라 설정할 수 있습니다.
+2. 여기서는 LoRA와 QLoRA 모두를 제공하며, 필요에 따라 설정할 수 있습니다.
 
 3. 권장 실행 환경은 WSL / Ubuntu 22.04+입니다.
 
-4. 왜 ORT를 선택하나요? ORT는 엣지 디바이스에 배포될 수 있으며, 추론은 ORT 환경에서 구현됩니다.
+4. 왜 ORT를 선택해야 하나요? ORT는 엣지 디바이스에 배포될 수 있기 때문이며, 추론은 ORT 환경에서 구현됩니다.
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.ko.png)
 
-면책 조항: 이 번역은 AI 모델에 의해 원본에서 번역된 것이며 완벽하지 않을 수 있습니다. 출력물을 검토하고 필요한 수정 사항을 반영해 주시기 바랍니다.
+**면책 조항**:
+이 문서는 기계 기반 AI 번역 서비스를 사용하여 번역되었습니다. 정확성을 위해 노력하지만, 자동 번역에는 오류나 부정확성이 있을 수 있음을 유의하시기 바랍니다. 원본 문서는 원어로 작성된 문서를 권위 있는 출처로 간주해야 합니다. 중요한 정보에 대해서는 전문적인 인간 번역을 권장합니다. 이 번역을 사용함으로써 발생하는 오해나 잘못된 해석에 대해 우리는 책임을 지지 않습니다.

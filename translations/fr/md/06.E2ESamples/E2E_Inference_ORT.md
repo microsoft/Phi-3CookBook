@@ -1,12 +1,12 @@
 # **Inférer vos modèles de fine-tuning**
 
-Après le fine-tuning, vous pouvez accéder au nouveau modèle via une référence, implémentée ici avec ONNX Runtime GenAI.
+Après le fine-tuning, vous pouvez accéder au nouveau modèle via une référence, qui est implémentée ici en utilisant ONNX Runtime GenAI.
 
-## **Installer le SDK ORT GenAI**
+## **Installer ORT GenAI SDK**
 
-**Remarques** - Veuillez d'abord installer CUDA 12.1, si vous ne savez pas comment faire, veuillez lire ce guide [https://developer.nvidia.com/cuda-12-1-0-download-archive](https://developer.nvidia.com/cuda-12-1-0-download-archive)
+**Notes** - Veuillez d'abord installer CUDA 12.1, si vous ne savez pas comment faire, veuillez lire ce guide [https://developer.nvidia.com/cuda-12-1-0-download-archive](https://developer.nvidia.com/cuda-12-1-0-download-archive)
 
-Après avoir terminé l'installation de CUDA, veuillez installer le SDK onnxruntime genai avec cuda
+Une fois CUDA installé, veuillez installer onnxruntime genai sdk avec cuda
 
 ```bash
 
@@ -14,9 +14,10 @@ pip install numpy
 
 pip install onnxruntime-genai-cuda --pre --index-url=https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/
 
+
 ```
 
-## **Inférer le modèle**
+## **Inférer le Modèle**
 
 ```python
 
@@ -45,10 +46,12 @@ while not generator.is_done():
                 new_token = generator.get_next_tokens()[0]
                 print(tokenizer_stream.decode(new_token), end='', flush=True)
 
+
 ```
 
-### **Tester votre résultat**
+### **Tester Votre Résultat**
 
 ![result](../../../../translated_images/result.b9b025fc2577ad5e3fd97341dd6c1e858a83c3291a4ed5ad4dc4fbd80a575b67.fr.png)
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit en utilisant des services de traduction automatique basés sur l'intelligence artificielle. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

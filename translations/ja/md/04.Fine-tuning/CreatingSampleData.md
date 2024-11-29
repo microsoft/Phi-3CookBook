@@ -1,12 +1,12 @@
-# Hugging Faceからデータセットと関連画像をダウンロードして画像データセットを生成
+# Hugging Faceからデータセットと関連画像をダウンロードして画像データセットを生成する
 
 ### 概要
 
-このスクリプトは、必要な画像をダウンロードし、ダウンロードに失敗した行をフィルタリングし、データセットをCSVファイルとして保存することで、機械学習用のデータセットを準備します。
+このスクリプトは、必要な画像をダウンロードし、画像のダウンロードに失敗した行をフィルタリングし、データセットをCSVファイルとして保存することで、機械学習用のデータセットを準備します。
 
 ### 前提条件
 
-このスクリプトを実行する前に、以下のライブラリがインストールされていることを確認してください: `Pandas`, `Datasets`, `requests`, `PIL`, および `io`。また、Hugging Faceからのデータセット名を2行目の `'Insert_Your_Dataset'` に置き換える必要があります。
+このスクリプトを実行する前に、以下のライブラリがインストールされていることを確認してください: `Pandas`, `Datasets`, `requests`, `PIL`, `io`。また、2行目の`'Insert_Your_Dataset'`をHugging Faceからのデータセット名に置き換える必要があります。
 
 必要なライブラリ:
 
@@ -24,40 +24,40 @@ from io import BytesIO
 
 スクリプトは以下の手順を実行します:
 
-1. `load_dataset()` 関数を使用してHugging Faceからデータセットをダウンロード。
-2. `to_pandas()` メソッドを使用してHugging FaceデータセットをPandas DataFrameに変換し、操作しやすくする。
-3. データセットと画像を保存するディレクトリを作成。
-4. DataFrameの各行を繰り返し処理し、カスタム `download_image()` 関数を使用して画像をダウンロードし、ダウンロードに失敗した行をフィルタリングして新しいDataFrame `filtered_rows` に追加。
-5. フィルタリングされた行で新しいDataFrameを作成し、CSVファイルとしてディスクに保存。
-6. データセットと画像が保存された場所を示すメッセージを表示。
+1. Hugging Faceからデータセットを`load_dataset()` function.
+2. Converts the Hugging Face dataset to a Pandas DataFrame for easier manipulation using the `to_pandas()` method.
+3. Creates directories to save the dataset and images.
+4. Filters out rows where image download fails by iterating through each row in the DataFrame, downloading the image using the custom `download_image()` function, and appending the filtered row to a new DataFrame called `filtered_rows`.
+5. Creates a new DataFrame with the filtered rows and saves it to disk as a CSV file.
+6. Prints a message indicating where the dataset and images have been saved.
 
-### カスタム関数
+### Custom Function
 
-`download_image()` 関数は、URLから画像をダウンロードし、Pillow Image Library (PIL) と `io` モジュールを使用してローカルに保存します。画像が正常にダウンロードされた場合はTrueを返し、そうでない場合はFalseを返します。この関数は、リクエストが失敗した場合にエラーメッセージを含む例外を発生させます。
+The `download_image()`関数は、URLから画像をダウンロードし、Pillow Image Library (PIL)と`io`モジュールを使用してローカルに保存します。画像が正常にダウンロードされた場合はTrueを返し、そうでない場合はFalseを返します。リクエストが失敗した場合はエラーメッセージを含む例外を発生させます。
 
-### 仕組み
+### どのように動作するか
 
-`download_image` 関数は2つのパラメータを取ります: `image_url` はダウンロードする画像のURLで、`save_path` はダウンロードした画像を保存するパスです。
+download_image関数は2つのパラメータを取ります: image_urlはダウンロードする画像のURLで、save_pathはダウンロードした画像を保存するパスです。
 
-関数の動作は次の通りです:
+関数の動作は以下の通りです:
 
-まず、`requests.get` メソッドを使用して `image_url` にGETリクエストを行います。これにより、URLから画像データが取得されます。
+最初に、requests.getメソッドを使用してimage_urlにGETリクエストを送信します。これにより、URLから画像データが取得されます。
 
-`response.raise_for_status()` 行は、リクエストが成功したかどうかをチェックします。レスポンスステータスコードがエラーを示す場合（例：404 - Not Found）、例外が発生します。これにより、リクエストが成功した場合のみ画像のダウンロードを続行します。
+response.raise_for_status()行は、リクエストが成功したかどうかを確認します。レスポンスのステータスコードがエラーを示す場合（例: 404 - Not Found）、例外を発生させます。これにより、リクエストが成功した場合のみ画像のダウンロードを進めることが保証されます。
 
-次に、画像データがPIL（Python Imaging Library）モジュールの `Image.open` メソッドに渡されます。このメソッドは画像データからImageオブジェクトを作成します。
+次に、画像データをPIL (Python Imaging Library) モジュールのImage.openメソッドに渡します。このメソッドは、画像データからImageオブジェクトを作成します。
 
-`image.save(save_path)` 行は、指定された `save_path` に画像を保存します。`save_path` には希望するファイル名と拡張子が含まれている必要があります。
+image.save(save_path)行は、画像を指定されたsave_pathに保存します。save_pathには、希望するファイル名と拡張子を含める必要があります。
 
-最後に、関数は画像が正常にダウンロードおよび保存されたことを示すためにTrueを返します。プロセス中に例外が発生した場合、例外をキャッチし、失敗を示すエラーメッセージを表示し、Falseを返します。
+最後に、関数は画像が正常にダウンロードおよび保存されたことを示すためにTrueを返します。プロセス中に例外が発生した場合は、例外をキャッチして失敗を示すエラーメッセージを表示し、Falseを返します。
 
-この関数は、URLから画像をダウンロードしてローカルに保存するのに便利です。ダウンロードプロセス中の潜在的なエラーを処理し、ダウンロードが成功したかどうかに関するフィードバックを提供します。
+この関数は、URLから画像をダウンロードしてローカルに保存するのに役立ちます。ダウンロードプロセス中の潜在的なエラーを処理し、ダウンロードが成功したかどうかのフィードバックを提供します。
 
-HTTPリクエストを行うために `requests` ライブラリが使用され、画像を操作するために `PIL` ライブラリが使用され、バイトのストリームとして画像データを処理するために `BytesIO` クラスが使用されている点に注意してください。
+requestsライブラリはHTTPリクエストを行うために使用され、PILライブラリは画像を操作するために使用され、BytesIOクラスは画像データをバイトストリームとして扱うために使用されます。
 
 ### 結論
 
-このスクリプトは、必要な画像をダウンロードし、ダウンロードに失敗した行をフィルタリングし、データセットをCSVファイルとして保存することで、機械学習用のデータセットを準備する便利な方法を提供します。
+このスクリプトは、必要な画像をダウンロードし、画像のダウンロードに失敗した行をフィルタリングし、データセットをCSVファイルとして保存することで、機械学習用のデータセットを準備する便利な方法を提供します。
 
 ### サンプルスクリプト
 
@@ -122,6 +122,7 @@ print(f"Dataset and images saved to {dataset_dir}")
 [新しいデータセット生成スクリプト](../../../../code/04.Finetuning/generate_dataset.py)
 
 ### サンプルデータセット
-[サンプルデータセット例（LORAを使用したファインチューニング例から）](../../../../code/04.Finetuning/olive-ort-example/dataset/dataset-classification.json)
+[LORAを使ったファインチューニングのサンプルデータセット例](../../../../code/04.Finetuning/olive-ort-example/dataset/dataset-classification.json)
 
-免責事項: この翻訳はAIモデルによって原文から翻訳されたものであり、完璧ではない可能性があります。出力を確認し、必要な修正を行ってください。
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期していますが、自動翻訳にはエラーや不正確さが含まれる場合があることをご承知おきください。元の言語での原文を権威ある情報源とみなすべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用によって生じる誤解や誤認について、当社は一切の責任を負いません。

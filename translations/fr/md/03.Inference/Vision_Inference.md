@@ -1,10 +1,10 @@
-# **Inférence Phi-3-Vision en Local**
+# **Inference Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permet à Phi-3 non seulement de comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre divers problèmes visuels, tels que l'OCR, l'analyse de tableaux, la reconnaissance d'objets, la description d'images, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup de formation de données. Voici les techniques et scénarios d'application liés cités par Phi-3-vision-128k-instruct.
+Phi-3-vision-128k-instruct permet à Phi-3 non seulement de comprendre le langage, mais aussi de voir le monde visuellement. Grâce à Phi-3-vision-128k-instruct, nous pouvons résoudre différents problèmes visuels, tels que l'OCR, l'analyse de tableau, la reconnaissance d'objets, la description d'image, etc. Nous pouvons facilement accomplir des tâches qui nécessitaient auparavant beaucoup de formation de données. Voici les techniques et scénarios d'application liés cités par Phi-3-vision-128k-instruct.
 
 ## **0. Préparation**
 
-Veuillez vous assurer que les bibliothèques Python suivantes sont installées avant utilisation (Python 3.10+ est recommandé)
+Veuillez vous assurer que les bibliothèques Python suivantes ont été installées avant utilisation (Python 3.10+ est recommandé)
 
 ```bash
 pip install transformers -U
@@ -141,4 +141,4 @@ The first image shows a group of soccer players from the Arsenal Football Club p
 ```
 
 **Avertissement** :
-Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.
+Ce document a été traduit en utilisant des services de traduction automatique basés sur l'intelligence artificielle. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

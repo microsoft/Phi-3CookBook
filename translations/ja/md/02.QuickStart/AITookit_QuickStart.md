@@ -1,138 +1,138 @@
-# AI Toolkit for VScode (Windows)
+# VScode用AIツールキット (Windows)
 
-[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) は、Azure AI Studio Catalog や Hugging Face などのカタログから最先端の AI 開発ツールとモデルを集めて、生成 AI アプリの開発を簡素化します。Azure ML や Hugging Face が提供する AI モデルカタログを閲覧し、ローカルにダウンロードして微調整、テスト、アプリケーションでの使用が可能です。
+[AI Toolkit for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) は、Azure AI Foundry CatalogやHugging Faceなどの最新のAI開発ツールとモデルを統合することで、生成的AIアプリ開発を簡素化します。Azure MLやHugging Faceが提供するAIモデルカタログを閲覧し、ローカルにダウンロード、微調整、テスト、アプリケーションでの使用が可能です。
 
-AI Toolkit Preview はローカルで実行されます。選択したモデルに依存しますが、いくつかのタスクは Windows と Linux のみサポートされています。
+AI Toolkit Previewはローカルで実行されます。選択したモデルに依存しますが、一部のタスクはWindowsとLinuxのみサポートされています。
 
-ローカルでの推論や微調整には、選択したモデルに応じて NVIDIA CUDA GPU などの GPU が必要な場合があります。
+ローカルでの推論や微調整には、選択したモデルによってはNVIDIA CUDA GPUのようなGPUが必要になる場合があります。
 
-リモートで実行する場合、クラウドリソースに GPU が必要です。環境を確認してください。Windows + WSL でローカル実行する場合、WSL Ubuntu ディストリビューション 18.4 以上がインストールされ、デフォルトに設定されている必要があります。
+クラウドリソースをリモートで実行する場合、GPUを持つ必要があります。環境を確認してください。Windows + WSLでローカル実行する場合、WSL Ubuntuディストリビューション18.4以上がインストールされ、デフォルトに設定されている必要があります。
 
 ## はじめに
 
-[Windows Subsystem for Linux のインストール方法についてはこちら](https://learn.microsoft.com/windows/wsl/install?WT.mc_id=aiml-137032-kinfeylo)
+[Windows Subsystem for Linuxのインストール方法についてはこちらをご覧ください](https://learn.microsoft.com/windows/wsl/install?WT.mc_id=aiml-137032-kinfeylo)
 
-および [デフォルトディストリビューションの変更](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)。
+および[デフォルトディストリビューションの変更](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)についてはこちらをご覧ください。
 
-[AI Tooklit GitHub リポジトリ](https://github.com/microsoft/vscode-ai-toolkit/)
+[AI Tooklit GitHub Repo](https://github.com/microsoft/vscode-ai-toolkit/)
 
 - Windows または Linux。
-- **MacOS のサポートは近日公開予定**
-- Windows と Linux の両方で微調整を行うには、Nvidia GPU が必要です。さらに、**Windows** では Ubuntu ディストリビューション 18.4 以上の Linux サブシステムが必要です。[Windows Subsystem for Linux のインストール方法についてはこちら](https://learn.microsoft.com/windows/wsl/install) および [デフォルトディストリビューションの変更](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)。
+- **MacOSサポートは近日公開予定**
+- WindowsおよびLinuxでの微調整にはNvidia GPUが必要です。さらに、**Windows**ではUbuntuディストリビューション18.4以上のLinux用サブシステムが必要です。 [Windows Subsystem for Linuxのインストール方法についてはこちらをご覧ください](https://learn.microsoft.com/windows/wsl/install) および [デフォルトディストリビューションの変更](https://learn.microsoft.com/windows/wsl/install#change-the-default-linux-distribution-installed)についてはこちらをご覧ください。
 
-### AI Toolkit のインストール
+### AI Toolkitのインストール
 
-AI Toolkit は [Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions) として提供されているため、まず [VS Code](https://code.visualstudio.com/docs/setup/windows?WT.mc_id=aiml-137032-kinfeylo) をインストールし、[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) から AI Toolkit をダウンロードする必要があります。
-[AI Toolkit は Visual Studio Marketplace で利用可能](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) であり、他の VS Code 拡張機能と同様にインストールできます。
+AI Toolkitは[Visual Studio Code Extension](https://code.visualstudio.com/docs/setup/additional-components#_vs-code-extensions)として提供されているため、まず[VS Code](https://code.visualstudio.com/docs/setup/windows?WT.mc_id=aiml-137032-kinfeylo)をインストールし、[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)からAI Toolkitをダウンロードする必要があります。
+[AI ToolkitはVisual Studio Marketplaceで利用可能です](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio) ので、他のVS Code拡張機能と同様にインストールできます。
 
-VS Code 拡張機能のインストールに慣れていない場合は、以下の手順に従ってください。
+VS Code拡張機能のインストールに不慣れな場合は、以下の手順に従ってください：
 
 ### サインイン
 
-1. VS Code のアクティビティバーで **Extensions** を選択します。
-1. 拡張機能の検索バーに「AI Toolkit」と入力します。
-1. 「AI Toolkit for Visual Studio code」を選択します。
-1. **Install** を選択します。
+1. VS Codeのアクティビティバーで**拡張機能**を選択します。
+2. 拡張機能検索バーに「AI Toolkit」と入力します。
+3. 「AI Toolkit for Visual Studio code」を選択します。
+4. **インストール**を選択します。
 
-これで、拡張機能の使用準備が整いました！
+これで、拡張機能を使用する準備が整いました！
 
-GitHub にサインインするように求められるので、「許可」をクリックして続行してください。GitHub のサインインページにリダイレクトされます。
+GitHubにサインインするように求められるので、「許可」をクリックして続行してください。GitHubのサインインページにリダイレクトされます。
 
-サインインしてプロセスステップに従ってください。完了すると、VS Code にリダイレクトされます。
+サインインして手順に従ってください。成功すると、VS Codeにリダイレクトされます。
 
-拡張機能がインストールされると、アクティビティバーに AI Toolkit アイコンが表示されます。
+拡張機能がインストールされると、アクティビティバーにAI Toolkitのアイコンが表示されます。
 
 利用可能なアクションを見てみましょう！
 
 ### 利用可能なアクション
 
-AI Toolkit のメインサイドバーは次のように整理されています：
+AI Toolkitの主要なサイドバーは次のように整理されています：
 
 - **Models**
 - **Resources**
 - **Playground**
 - **Fine-tuning**
 
-これらは Resources セクションで利用可能です。開始するには **Model Catalog** を選択します。
+Resourcesセクションで利用可能です。開始するには**Model Catalog**を選択してください。
 
 ### カタログからモデルをダウンロード
 
-VS Code サイドバーから AI Toolkit を起動すると、次のオプションから選択できます：
+VS CodeのサイドバーからAI Toolkitを起動すると、次のオプションから選択できます：
 
 ![AI toolkit model catalog](../../../../translated_images/AItoolkitmodel_catalog.49200354ddc7aceecdcab2080769d898b1fd50424ef9f7014aafeb790028c49d.ja.png)
 
-- **Model Catalog** からサポートされているモデルを見つけてローカルにダウンロード
-- **Model Playground** でモデル推論をテスト
-- **Model Fine-tuning** でローカルまたはリモートでモデルを微調整
-- コマンドパレットを通じてクラウドに微調整されたモデルをデプロイ
+- **Model Catalog**からサポートされているモデルを見つけてローカルにダウンロード
+- **Model Playground**でモデル推論をテスト
+- **Model Fine-tuning**でローカルまたはリモートでモデルを微調整
+- コマンドパレットを介してクラウドに微調整されたモデルをデプロイ
 
 > [!NOTE]
 >
-> **GPU と CPU**
+> **GPU Vs CPU**
 >
-> モデルカードには、モデルサイズ、プラットフォーム、アクセラレータタイプ（CPU、GPU）が表示されます。**GPU を搭載した Windows デバイス**での最適なパフォーマンスを得るために、Windows のみをターゲットにしたモデルバージョンを選択してください。
+> モデルカードには、モデルのサイズ、プラットフォーム、およびアクセラレータタイプ（CPU、GPU）が表示されます。**少なくとも1つのGPUを持つWindowsデバイス**での最適なパフォーマンスのために、Windows専用のモデルバージョンを選択してください。
 >
-> これにより、DirectML アクセラレータ用に最適化されたモデルを使用できます。
+> これにより、DirectMLアクセラレータに最適化されたモデルが確保されます。
 >
-> モデル名の形式は次のとおりです：
+> モデル名は次の形式です：
 >
 > - `{model_name}-{accelerator}-{quantization}-{format}`.
 >
-> Windows デバイスに GPU があるかどうかを確認するには、**タスクマネージャー**を開き、**パフォーマンス**タブを選択します。GPU がある場合は、「GPU 0」や「GPU 1」などの名前で表示されます。
+> WindowsデバイスにGPUがあるかどうかを確認するには、**タスクマネージャー**を開き、**パフォーマンスタブ**を選択します。GPUがある場合は、「GPU 0」や「GPU 1」といった名前で表示されます。
 
 ### プレイグラウンドでモデルを実行
 
-すべてのパラメータが設定されたら、**Generate Project** をクリックします。
+すべてのパラメータが設定されたら、**Generate Project**をクリックします。
 
-モデルがダウンロードされたら、カタログのモデルカードで **Load in Playground** を選択します：
+モデルがダウンロードされたら、カタログのモデルカードで**Load in Playground**を選択します：
 
 - モデルのダウンロードを開始
 - すべての前提条件と依存関係をインストール
-- VS Code ワークスペースを作成
+- VS Codeワークスペースを作成
 
 ![Load model in playground](../../../../translated_images/AItoolkitload_model_into_playground.f78799b4838c6521be6a296729279525958dec6cfb9a26c64752e397dfe19ef2.ja.png)
 
-モデルがダウンロードされたら、AI Toolkit からプロジェクトを起動できます。
+モデルがダウンロードされると、AI Toolkitからプロジェクトを起動できます。
 
-> ***Note*** リモートで推論や微調整を行うプレビューフィーチャーを試したい場合は、[このガイド](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md) に従ってください。
+> ***Note*** リモートで推論や微調整を行うプレビュー機能を試したい場合は、[このガイド](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/remote-overall.md)に従ってください。
 
-### Windows に最適化されたモデル
+### Windows最適化モデル
 
-モデルの応答がストリーミングされて戻ってくるのを確認できます：
+モデルの応答がストリーミングされてくるのが見えるはずです：
 
-AI Toolkit は、Windows に最適化された公開されている AI モデルのコレクションを提供します。これらのモデルは Hugging Face や GitHub などの異なる場所に保存されていますが、すべてのモデルを一つの場所でブラウズして、Windows アプリケーションで使用するためにダウンロードできます。
+AI Toolkitは、Windows用に最適化された公開AIモデルのコレクションを提供します。モデルはHugging Face、GitHubなどのさまざまな場所に保存されていますが、すべてのモデルを1か所で閲覧し、ダウンロードしてWindowsアプリケーションで使用できます。
 
 ![Generation stream](../../../../imgs/04/04/AItoolkitgeneration-gif.gif)
 
 ### モデルの選択
 
-**GPU** が **Windows** デバイスにないが、
+*Windows*デバイスに**GPU**がないが
 
-- Phi-3-mini-4k-**directml**-int4-awq-block-128-onnx モデル
+- Phi-3-mini-4k-**directml**-int4-awq-block-128-onnxモデル
 
-を選択した場合、モデルの応答は *非常に遅く* なります。
+を選択した場合、モデルの応答は*非常に遅く*なります。
 
-代わりに、CPU に最適化されたバージョンをダウンロードしてください：
+代わりにCPU最適化バージョンをダウンロードする必要があります：
 
-- Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx。
+- Phi-3-mini-4k-**cpu**-int4-rtn-block-32-acc-level-4-onnx.
 
-また、次のように変更することも可能です：
+また、次のことも変更できます：
 
-**コンテキスト指示:** モデルがリクエストの大きな絵を理解するのを助けます。これは背景情報、求めるものの例やデモ、またはタスクの目的を説明するものです。
+**コンテキスト指示:** モデルにリクエストの大局的な背景を理解させるために役立ちます。これには、背景情報、欲しいものの例やデモ、タスクの目的の説明が含まれます。
 
 **推論パラメータ:**
 
-- *最大応答長*: モデルが返す最大トークン数。
-- *温度*: モデル温度は、言語モデルの出力のランダム性を制御するパラメータです。温度が高いとモデルはリスクを取り、さまざまな単語を生成します。一方、温度が低いとモデルは安全策を取り、より集中した予測可能な応答を生成します。
-- *トップ P*: 核サンプリングとも呼ばれ、次の単語を予測する際に言語モデルが考慮する可能性のある単語やフレーズの数を制御する設定。
-- *頻度ペナルティ*: このパラメータは、モデルが出力で単語やフレーズを繰り返す頻度に影響します。値が高い（1.0 に近い）ほど、モデルは単語やフレーズの繰り返しを避けるようになります。
-- *存在ペナルティ*: このパラメータは、生成されたテキストの多様性と具体性を促進するために使用されます。値が高い（1.0 に近い）ほど、モデルは新しいトークンを多く含むようになります。値が低いと、モデルは一般的なフレーズやクリシェを生成しやすくなります。
+- *最大応答長*: モデルが返すトークンの最大数。
+- *温度*: モデル温度は、言語モデルの出力のランダム性を制御するパラメータです。温度が高いほど、モデルはリスクを取り、多様な単語を生成します。一方、温度が低いほど、モデルは安全策を取り、より集中した予測可能な応答を生成します。
+- *Top P*: 核サンプリングとも呼ばれ、言語モデルが次の単語を予測する際に考慮する可能性のある単語やフレーズの数を制御する設定です。
+- *頻度ペナルティ*: モデルが出力で単語やフレーズを繰り返す頻度に影響を与えるパラメータです。値が高い（1.0に近い）ほど、モデルが単語やフレーズを繰り返さないように促します。
+- *存在ペナルティ*: 生成的AIモデルで使用され、生成されるテキストの多様性と特異性を促進します。値が高い（1.0に近い）ほど、モデルが新しい多様なトークンを含めるように促します。値が低いと、モデルが一般的またはクリシェ的なフレーズを生成する可能性が高くなります。
 
-### アプリケーションで REST API を使用する
+### アプリケーションでREST APIを使用する
 
-AI Toolkit には [OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create) を使用するローカル REST API Web サーバー **ポート 5272** が付属しています。
+AI Toolkitには、[OpenAI chat completions format](https://platform.openai.com/docs/api-reference/chat/create)を使用するローカルREST APIウェブサーバーが**ポート5272**で付属しています。
 
-これにより、クラウド AI モデルサービスに依存せずにローカルでアプリケーションをテストできます。たとえば、次の JSON ファイルはリクエストの本文を構成する方法を示しています：
+これにより、クラウドAIモデルサービスに依存せずにローカルでアプリケーションをテストできます。たとえば、次のJSONファイルはリクエストのボディを構成する方法を示しています：
 
 ```json
 {
@@ -151,13 +151,13 @@ AI Toolkit には [OpenAI chat completions format](https://platform.openai.com/d
 }
 ```
 
-REST API を [Postman](https://www.postman.com/) や CURL (Client URL) ユーティリティを使用してテストできます：
+[Postman](https://www.postman.com/)やCURL（クライアントURL）ユーティリティを使用してREST APIをテストできます：
 
 ```bash
 curl -vX POST http://127.0.0.1:5272/v1/chat/completions -H 'Content-Type: application/json' -d @body.json
 ```
 
-### Python 用 OpenAI クライアントライブラリの使用
+### Python用OpenAIクライアントライブラリの使用
 
 ```python
 from openai import OpenAI
@@ -180,15 +180,15 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 ```
 
-### .NET 用 Azure OpenAI クライアントライブラリの使用
+### .NET用Azure OpenAIクライアントライブラリの使用
 
-NuGet を使用してプロジェクトに [Azure OpenAI クライアントライブラリ for .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/) を追加します：
+NuGetを使用してプロジェクトに[Azure OpenAIクライアントライブラリfor .NET](https://www.nuget.org/packages/Azure.AI.OpenAI/)を追加します：
 
 ```bash
 dotnet add {project_name} package Azure.AI.OpenAI --version 1.0.0-beta.17
 ```
 
-プロジェクトに **OverridePolicy.cs** という名前の C# ファイルを追加し、次のコードを貼り付けます：
+プロジェクトに**OverridePolicy.cs**という名前のC#ファイルを追加し、次のコードを貼り付けます：
 
 ```csharp
 // OverridePolicy.cs
@@ -207,7 +207,7 @@ internal partial class OverrideRequestUriPolicy(Uri overrideUri)
 }
 ```
 
-次に、**Program.cs** ファイルに次のコードを貼り付けます：
+次に、**Program.cs**ファイルに次のコードを貼り付けます：
 
 ```csharp
 // Program.cs
@@ -240,17 +240,17 @@ await foreach (StreamingChatCompletionsUpdate chatChunk in streamingChatResponse
 }
 ```
 
-## AI Toolkit での微調整
+## AI Toolkitでの微調整
 
-- モデルディスカバリーとプレイグラウンドから始めましょう。
+- モデルの発見とプレイグラウンドから始めましょう。
 - ローカルコンピューティングリソースを使用したモデルの微調整と推論。
-- Azure リソースを使用したリモート微調整と推論。
+- Azureリソースを使用したリモート微調整と推論
 
-[AI Toolkit での微調整](../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
+[AI Toolkitでの微調整](../04.Fine-tuning/Finetuning_VSCodeaitoolkit.md)
 
-## AI Toolkit Q&A リソース
+## AI Toolkit Q&Aリソース
 
-最も一般的な問題と解決策については、[Q&A ページ](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md) を参照してください。
+最も一般的な問題と解決策については、[Q&Aページ](https://github.com/microsoft/vscode-ai-toolkit/blob/main/archive/QA.md)をご覧ください。
 
 **免責事項**:
-この文書は機械翻訳AIサービスを使用して翻訳されています。正確性を期すために努めておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。原文が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤解釈については、一切の責任を負いかねます。
+この文書は、機械ベースのAI翻訳サービスを使用して翻訳されています。正確さを期すために努力していますが、自動翻訳には誤りや不正確さが含まれる場合があります。元の言語で書かれた原文が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用に起因する誤解や誤解について、当社は一切の責任を負いません。

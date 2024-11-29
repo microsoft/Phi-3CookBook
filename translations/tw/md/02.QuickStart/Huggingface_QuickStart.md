@@ -1,12 +1,12 @@
-# **在 Hugging Face 上使用 Phi-3**
+# **在 Hugging Face 使用 Phi-3**
 
-[Hugging Face](https://huggingface.co/) 是一個非常受歡迎的 AI 社群，擁有豐富的數據和開源模型資源。不同的廠商會通過 Hugging Face 發佈開源的 LLM 和 SLM，比如 Microsoft、Meta、Mistral、Apple、Google 等。
+[Hugging Face](https://huggingface.co/) 是一个非常受欢迎的 AI 社区，拥有丰富的数据和开源模型资源。不同的厂商会通过 Hugging Face 发布开源的 LLM 和 SLM，比如微软、Meta、Mistral、苹果、谷歌等。
 
 ![Phi3](../../../../translated_images/Hg_Phi3.dc94956455e775c886b69f7430a05b7a42aab729a81fa4083c906812edb475f8.tw.png)
 
-Microsoft Phi-3 已經在 Hugging Face 上發佈。開發者可以根據場景和業務需求下載相應的 Phi-3 模型。除了在 Hugging Face 部署 Phi-3 Pytorch 模型外，我們還發佈了量化模型，使用 GGUF 和 ONNX 格式，給最終用戶更多選擇。
+微软的 Phi-3 已经在 Hugging Face 上发布。开发者可以根据场景和业务下载相应的 Phi-3 模型。除了在 Hugging Face 部署 Phi-3 的 Pytorch 模型外，我们还发布了量化模型，使用 GGUF 和 ONNX 格式，为终端用户提供选择。
 
-## **1. 從 Hugging Face 下載 Phi-3**
+## **1. 从 Hugging Face 下载 Phi-3**
 
 ```bash
 
@@ -18,9 +18,9 @@ git clone https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
 ## **2. 了解 Phi-3 的 Prompt 模板**
 
-在訓練 Phi-3 時有特定的數據模板，所以在使用 Phi-3 時，發送 Prompt 需要通過模板設置。在微調時，數據也需要根據模板進行擴展。
+在训练 Phi-3 时，有一个特定的数据模板，所以在使用 Phi-3 时，发送 Prompt 需要通过模板设置。在微调过程中，数据也需要根据模板进行扩展。
 
-模板有三個角色，包括 system、user 和 assistant。
+模板有三个角色，包括 system、user 和 assistant。
 
 ```txt
 
@@ -44,17 +44,17 @@ Help me generate a bubble algorithm<|end|>
 
 ```
 
-## **3. 使用 Python 進行 Phi-3 推理**
+## **3. 使用 Python 进行 Phi-3 推理**
 
-使用 Phi-3 進行推理是指根據輸入數據使用 Phi-3 模型生成預測或輸出。Phi-3 模型是一系列小型語言模型（SLM），包括 Phi-3-Mini、Phi-3-Small 和 Phi-3-Medium，每個模型設計用於不同的應用場景並具有不同的參數大小。這些模型經過高質量數據訓練，並針對聊天能力、對齊、魯棒性和安全性進行了微調。它們可以使用 ONNX 和 TensorFlow Lite 部署在邊緣和雲平台上，並按照 Microsoft 的負責任 AI 原則開發。
+使用 Phi-3 进行推理是指根据输入数据使用 Phi-3 模型生成预测或输出的过程。Phi-3 模型是一系列小型语言模型（SLM），包括 Phi-3-Mini、Phi-3-Small 和 Phi-3-Medium 等变体，每个变体针对不同的应用场景设计，具有不同的参数规模。这些模型经过高质量数据训练，并针对聊天能力、对齐、鲁棒性和安全性进行了微调。它们可以使用 ONNX 和 TensorFlow Lite 部署在边缘和云平台上，并且按照微软的负责任 AI 原则开发。
 
-例如，Phi-3-Mini 是一個輕量級的、最先進的開源模型，擁有 38 億參數，適合使用聊天格式的提示，支持最多 128K tokens 的上下文長度。它是同重量級中首個支持如此長上下文的模型。
+例如，Phi-3-Mini 是一个轻量级、最先进的开源模型，拥有 38 亿个参数，适用于使用聊天格式的 Prompt，并支持最长 128K 个 token 的上下文长度。它是同类重量级模型中第一个支持如此长上下文的模型。
 
-Phi-3 模型可在 Azure AI MaaS、HuggingFace、NVIDIA、Ollama、ONNX 等平台上獲取，可用於各種應用，包括實時交互、自主系統和需要低延遲的應用。
+Phi-3 模型可在 Azure AI MaaS、HuggingFace、NVIDIA、Ollama、ONNX 等平台上使用，并可用于各种应用，包括实时交互、自主系统和需要低延迟的应用。
 
-有很多種方式可以引用 Phi-3。您可以使用不同的編程語言來引用該模型。
+有很多方法可以引用 Phi-3。你可以使用不同的编程语言来引用模型。
 
-這是一個 Python 的示例。
+以下是一个 Python 示例。
 
 ```python
 
@@ -96,13 +96,13 @@ print(output[0]['generated_text'])
 ```
 
 > [!NOTE]
-> 您可以看看這個結果是否與您想像中的一致
+> 你可以看看这个结果是否与你心中的结果一致
 
-## **4. 使用 C# 進行 Phi-3 推理**
+## **4. 使用 C# 进行 Phi-3 推理**
 
-這是一個 .NET Console 應用程序中的示例。
+以下是一个 .NET 控制台应用程序的示例。
 
-C# 專案需要添加以下包：
+C# 项目必须添加以下包：
 
 ```bash
 dotnet add package Microsoft.ML.OnnxRuntime --version 1.18.0
@@ -110,28 +110,28 @@ dotnet add package Microsoft.ML.OnnxRuntimeGenAI --version 0.3.0-rc2
 dotnet add package Microsoft.ML.OnnxRuntimeGenAI.Cuda --version 0.3.0-rc2
 ```
 
-這是 C# 代碼。
+以下是 C# 代码。
 
 ```csharp
 using System;
 using Microsoft.ML.OnnxRuntimeGenAI;
 
 
-// ONNX 模型文件的文件夾位置
+// folder location of the ONNX model file
 var modelPath = @"..\models\Phi-3-mini-4k-instruct-onnx";
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
 
-// 聊天開始
+// chat start
 Console.WriteLine(@"Ask your question. Type an empty string to Exit.");
 
 
-// 聊天循環
+// chat loop
 while (true)
 {
-    // 獲取用戶問題
+    // Get user question
     Console.WriteLine();
     Console.Write(@"Q: ");
     var userQ = Console.ReadLine();    
@@ -140,7 +140,7 @@ while (true)
         break;
     }
 
-    // 顯示 phi3 的回應
+    // show phi3 response
     Console.Write("Phi3: ");
     var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{userQ}<|end|><|assistant|>";
     var tokens = tokenizer.Encode(fullPrompt);
@@ -164,15 +164,17 @@ while (true)
 }
 ```
 
-運行示例類似於這個：
+运行演示类似于这个：
 
 ![Chat running demo](../../../../imgs/02/csharp/20SampleConsole.gif)
 
-***注意:** 第一個問題有個拼寫錯誤，但 Phi-3 還是很棒地給出了正確答案！*
+***注意：**第一个问题中有一个拼写错误，Phi-3 足够智能，可以分享正确答案！*
 
-## **5. 在 Hugging Face 聊天中使用 Phi-3**
+## **5. 在 Hugging Face Chat 中使用 Phi-3**
 
-Hugging Face 聊天提供了相關體驗。進入 [這裡試試 Phi-3 聊天](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct) 在瀏覽器中體驗。
+Hugging Face chat 提供相关体验。进入 [这里尝试 Phi-3 chat](https://huggingface.co/chat/models/microsoft/Phi-3-mini-4k-instruct) 在你的浏览器中体验。
 
 ![Hg_Chat](../../../../translated_images/Hg_Chat.6ca1ac61a91bc770f0fb8043586eaf117397de78a5f3c77dac81a6f115c5347c.tw.png)
 
+**免責聲明**:
+本文件是使用機器翻譯服務翻譯的。我們努力確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的文件為權威來源。對於關鍵信息，建議進行專業人工翻譯。對於因使用此翻譯而引起的任何誤解或誤讀，我們不承擔責任。

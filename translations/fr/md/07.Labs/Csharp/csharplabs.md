@@ -1,15 +1,15 @@
 ## Bienvenue aux laboratoires Phi-3 utilisant C#.
 
-Il existe une sélection de laboratoires qui montrent comment intégrer les différentes versions puissantes des modèles Phi-3 dans un environnement .NET.
+Il y a une sélection de laboratoires qui montrent comment intégrer les puissantes versions différentes des modèles Phi-3 dans un environnement .NET.
 
 ## Prérequis
-Avant d'exécuter l'exemple, assurez-vous d'avoir installé les éléments suivants :
+Avant de lancer l'exemple, assurez-vous d'avoir installé les éléments suivants :
 
 **.NET 8 :** Assurez-vous d'avoir la [dernière version de .NET](https://dotnet.microsoft.com/download/dotnet/8.0?WT.mc_id=aiml-137032-kinfeylo) installée sur votre machine.
 
-**(Optionnel) Visual Studio ou Visual Studio Code :** Vous aurez besoin d'un IDE ou d'un éditeur de code capable d'exécuter des projets .NET. [Visual Studio](https://visualstudio.microsoft.com/) ou [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo) sont recommandés.
+**(Optionnel) Visual Studio ou Visual Studio Code :** Vous aurez besoin d'un IDE ou éditeur de code capable d'exécuter des projets .NET. [Visual Studio](https://visualstudio.microsoft.com/) ou [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo) sont recommandés.
 
-**Utilisation de git** clonez localement l'une des versions disponibles de Phi-3 depuis [Hugging Face](https://huggingface.co).
+**Utiliser git** pour cloner localement l'une des versions disponibles de Phi-3 depuis [Hugging Face](https://huggingface.co).
 
 **Téléchargez le modèle phi3-mini-4k-instruct-onnx** sur votre machine locale :
 
@@ -36,24 +36,25 @@ git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 
 ## À propos des laboratoires
 
-La solution principale comprend plusieurs laboratoires d'exemples qui démontrent les capacités des modèles Phi-3 en utilisant C#.
+La solution principale comporte plusieurs laboratoires d'exemple qui démontrent les capacités des modèles Phi-3 en utilisant C#.
 
 | Projet | Description | Emplacement |
 | ------------ | ----------- | -------- |
-| LabsPhi301    | Il s'agit d'un projet exemple qui utilise un modèle phi3 local pour poser une question. Le projet charge un modèle ONNX Phi-3 local en utilisant les bibliothèques `Microsoft.ML.OnnxRuntime`. | .\src\LabsPhi301\ |
-| LabsPhi302    | Il s'agit d'un projet exemple qui implémente un chat Console utilisant Semantic Kernel. | .\src\LabsPhi302\ |
-| LabsPhi303 | Il s'agit d'un projet exemple qui utilise un modèle de vision phi3 local pour analyser des images. Le projet charge un modèle ONNX Phi-3 Vision local en utilisant les bibliothèques `Microsoft.ML.OnnxRuntime`. | .\src\LabsPhi303\ |
-| LabsPhi304 | Il s'agit d'un projet exemple qui utilise un modèle de vision phi3 local pour analyser des images. Le projet charge un modèle ONNX Phi-3 Vision local en utilisant les bibliothèques `Microsoft.ML.OnnxRuntime`. Le projet présente également un menu avec différentes options pour interagir avec l'utilisateur. | .\src\LabsPhi304\ |
-| LabsPhi305 | Il s'agit d'un projet exemple qui utilise le modèle Phi-3 hébergé dans ollama pour répondre à une question.  |**à venir**|
-| LabsPhi306 | Il s'agit d'un projet exemple qui implémente un chat Console utilisant Semantic Kernel. |**à venir**|
-| LabsPhi307  | Il s'agit d'un projet exemple qui implémente un RAG utilisant des embeddings locaux et Semantic Kernel. |**à venir**|
+| LabsPhi301    | Il s'agit d'un projet d'exemple qui utilise un modèle phi3 local pour poser une question. Le projet charge un modèle ONNX Phi-3 local en utilisant le `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi301\ |
+| LabsPhi302    | This is a sample project that implement a Console chat using Semantic Kernel. | .\src\LabsPhi302\ |
+| LabsPhi303 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi303\ |
+| LabsPhi304 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. The project also presents a menu with different options to interacti with the user. | .\src\LabsPhi304\ |
+| LabsPhi305 | This is a sample project that uses a the Phi-3 hosted in ollama model to answer a question.  |**coming soon**|
+| LabsPhi306 | This is a sample project that implement a Console chat using Semantic Kernel. |**coming soon**|
+| LabsPhi307  | This is a sample project that implement a RAG using local embeddings and Semantic Kernel. |**coming soon**|
 
-## Comment exécuter les projets
 
-Pour exécuter les projets, suivez ces étapes :
-1. Clonez le dépôt sur votre machine locale.
+## How to Run the Projects
 
-1. Ouvrez un terminal et naviguez vers le projet souhaité. Par exemple, exécutons `LabsPhi301`.
+To run the projects, follow these steps:
+1. Clone the repository to your local machine.
+
+1. Open a terminal and navigate to the desired project. In example, let's run `LabsPhi301`.
     ```bash
     cd .\src\LabsPhi301\
     ```
@@ -63,13 +64,13 @@ Pour exécuter les projets, suivez ces étapes :
     dotnet run
     ```
 
-1.  Le projet exemple demande une entrée utilisateur et répond en utilisant le mode local.
+1.  Le projet d'exemple demande une entrée utilisateur et répond en utilisant le mode local.
 
     La démo en cours d'exécution est similaire à celle-ci :
 
     ![Chat running demo](../../../../../imgs/07/00/SampleConsole.gif)
 
-    ***Note :** il y a une faute de frappe dans la première question, Phi-3 est assez intelligent pour partager la bonne réponse !*
+    ***Note :** il y a une faute de frappe dans la première question, Phi-3 est suffisamment cool pour partager la bonne réponse !*
 
 1.  Le projet `LabsPhi304` demande à l'utilisateur de sélectionner différentes options, puis traite la demande. Par exemple, analyser une image locale.
 
@@ -77,5 +78,5 @@ Pour exécuter les projets, suivez ces étapes :
 
     ![Image Analysis running demo](../../../../../imgs/07/00/SampleVisionConsole.gif)
 
-Avertissement : La traduction a été réalisée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez vérifier le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit en utilisant des services de traduction automatisée par IA. Bien que nous nous efforcions d'être précis, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

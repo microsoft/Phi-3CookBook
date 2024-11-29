@@ -1,17 +1,17 @@
 # **Inferencia Phi-3 en Nvidia Jetson**
 
-Nvidia Jetson es una serie de placas de computación embebida de Nvidia. Los modelos Jetson TK1, TX1 y TX2 llevan un procesador Tegra (o SoC) de Nvidia que integra una unidad central de procesamiento (CPU) con arquitectura ARM. Jetson es un sistema de bajo consumo y está diseñado para acelerar aplicaciones de aprendizaje automático. Nvidia Jetson es utilizado por desarrolladores profesionales para crear productos de IA innovadores en todas las industrias, y por estudiantes y entusiastas para aprender sobre IA y realizar proyectos increíbles. SLM se despliega en dispositivos de borde como Jetson, lo que permitirá una mejor implementación de escenarios de aplicaciones industriales de IA generativa.
+Nvidia Jetson es una serie de placas de computación integradas de Nvidia. Los modelos Jetson TK1, TX1 y TX2 llevan un procesador Tegra (o SoC) de Nvidia que integra una unidad central de procesamiento (CPU) con arquitectura ARM. Jetson es un sistema de bajo consumo y está diseñado para acelerar aplicaciones de aprendizaje automático. Nvidia Jetson es utilizado por desarrolladores profesionales para crear productos innovadores de IA en todas las industrias, y por estudiantes y entusiastas para aprender sobre IA de manera práctica y realizar proyectos sorprendentes. SLM se despliega en dispositivos de borde como Jetson, lo que permitirá una mejor implementación de escenarios de aplicaciones industriales de IA generativa.
 
 ## Despliegue en NVIDIA Jetson:
-Los desarrolladores que trabajan en robótica autónoma y dispositivos embebidos pueden aprovechar Phi-3 Mini. El tamaño relativamente pequeño de Phi-3 lo hace ideal para el despliegue en el borde. Los parámetros han sido meticulosamente ajustados durante el entrenamiento, asegurando alta precisión en las respuestas.
+Los desarrolladores que trabajan en robótica autónoma y dispositivos integrados pueden aprovechar Phi-3 Mini. El tamaño relativamente pequeño de Phi-3 lo hace ideal para el despliegue en el borde. Los parámetros han sido meticulosamente ajustados durante el entrenamiento, asegurando alta precisión en las respuestas.
 
 ### Optimización con TensorRT-LLM:
-La [biblioteca TensorRT-LLM de NVIDIA](https://github.com/NVIDIA/TensorRT-LLM?WT.mc_id=aiml-138114-kinfeylo) optimiza la inferencia de modelos de lenguaje grande. Soporta la ventana de contexto largo de Phi-3 Mini, mejorando tanto el rendimiento como la latencia. Las optimizaciones incluyen técnicas como LongRoPE, FP8 y procesamiento por lotes en vuelo.
+La [biblioteca TensorRT-LLM de NVIDIA](https://github.com/NVIDIA/TensorRT-LLM?WT.mc_id=aiml-138114-kinfeylo) optimiza la inferencia de grandes modelos de lenguaje. Soporta la ventana de contexto largo de Phi-3 Mini, mejorando tanto el rendimiento como la latencia. Las optimizaciones incluyen técnicas como LongRoPE, FP8 y batching en vuelo.
 
 ### Disponibilidad y Despliegue:
-Los desarrolladores pueden explorar Phi-3 Mini con la ventana de contexto de 128K en [NVIDIA's AI](https://www.nvidia.com/en-us/ai-data-science/generative-ai/). Está empaquetado como un NVIDIA NIM, un microservicio con una API estándar que puede desplegarse en cualquier lugar. Además, las [implementaciones de TensorRT-LLM en GitHub](https://github.com/NVIDIA/TensorRT-LLM).
+Los desarrolladores pueden explorar Phi-3 Mini con la ventana de contexto de 128K en [NVIDIA's AI](https://www.nvidia.com/en-us/ai-data-science/generative-ai/). Está empaquetado como un NVIDIA NIM, un microservicio con una API estándar que se puede desplegar en cualquier lugar. Además, las [implementaciones de TensorRT-LLM en GitHub](https://github.com/NVIDIA/TensorRT-LLM).
 
-## **1. Preparación**
+ ## **1. Preparación**
 
 a. Jetson Orin NX / Jetson NX
 
@@ -21,15 +21,15 @@ c. Cuda 11.8
    
 d. Python 3.8+
 
-## **2. Ejecutando Phi-3 en Jetson**
+ ## **2. Ejecutando Phi-3 en Jetson**
 
-Podemos elegir [Ollama](https://ollama.com) o [LlamaEdge](https://llamaedge.com)
+ Podemos elegir [Ollama](https://ollama.com) o [LlamaEdge](https://llamaedge.com)
 
-Si deseas usar gguf en la nube y en dispositivos de borde al mismo tiempo, LlamaEdge puede entenderse como WasmEdge (WasmEdge es un entorno de ejecución WebAssembly ligero, de alto rendimiento y escalable, adecuado para aplicaciones nativas en la nube, de borde y descentralizadas. Soporta aplicaciones sin servidor, funciones embebidas, microservicios, contratos inteligentes y dispositivos IoT). Puedes desplegar el modelo cuantitativo de gguf en dispositivos de borde y en la nube a través de LlamaEdge.
+ Si deseas usar gguf en la nube y en dispositivos de borde al mismo tiempo, LlamaEdge se puede entender como WasmEdge (WasmEdge es un runtime de WebAssembly ligero, de alto rendimiento y escalable, adecuado para aplicaciones nativas en la nube, de borde y descentralizadas. Soporta aplicaciones sin servidor, funciones integradas, microservicios, contratos inteligentes y dispositivos IoT. Puedes desplegar el modelo cuantitativo de gguf en dispositivos de borde y en la nube a través de LlamaEdge.
 
 ![llamaedge](../../../../translated_images/llamaedge.d1314f30755868575f55e27125fdd9838b6962e3bce66c9bd21eaffebfcf57b9.es.jpg)
 
-Aquí están los pasos a seguir
+Aquí están los pasos para usarlo
 
 1. Instalar y descargar las bibliotecas y archivos relacionados
 
@@ -45,7 +45,7 @@ tar xzf chatbot-ui.tar.gz
 
 ```
 
-**Nota**: llama-api-server.wasm y chatbot-ui deben estar en el mismo directorio
+**Nota**: llama-api-server.wasm y chatbot-ui necesitan estar en el mismo directorio
 
 2. Ejecutar los scripts en la terminal
 
@@ -61,7 +61,7 @@ Aquí está el resultado de la ejecución
 
 ***Código de ejemplo*** [Phi-3 mini WASM Notebook Sample](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/wasm)
 
-En resumen, Phi-3 Mini representa un avance significativo en el modelado de lenguaje, combinando eficiencia, conciencia de contexto y la capacidad de optimización de NVIDIA. Ya sea que estés construyendo robots o aplicaciones de borde, Phi-3 Mini es una herramienta poderosa a tener en cuenta.
+En resumen, Phi-3 Mini representa un avance significativo en la modelación de lenguaje, combinando eficiencia, conciencia de contexto y la destreza de optimización de NVIDIA. Ya sea que estés construyendo robots o aplicaciones de borde, Phi-3 Mini es una herramienta poderosa que debes conocer.
 
-Aviso legal: La traducción fue realizada a partir de su original por un modelo de IA y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automáticos basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

@@ -1,41 +1,43 @@
 # 提到的關鍵技術包括
 
-1. [DirectML](https://learn.microsoft.com/windows/ai/directml/dml?WT.mc_id=aiml-138114-kinfeylo) - 一個基於DirectX 12構建的硬體加速機器學習的低階API。
-2. [CUDA](https://blogs.nvidia.com/blog/what-is-cuda-2/) - 由Nvidia開發的平行計算平台和應用程式介面（API）模型，允許在圖形處理單元（GPU）上進行通用處理。
-3. [ONNX](https://onnx.ai/) (開放神經網絡交換格式) - 一個設計用來表示機器學習模型的開放格式，提供不同機器學習框架之間的互操作性。
-4. [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) (通用圖形更新格式) - 用於表示和更新機器學習模型的格式，特別適用於能在CPU上有效運行的小型語言模型，支持4-8位量化。
+1. [DirectML](https://learn.microsoft.com/windows/ai/directml/dml?WT.mc_id=aiml-138114-kinfeylo) - 一個基於 DirectX 12 架構的低階 API，用於硬體加速的機器學習。
+2. [CUDA](https://blogs.nvidia.com/blog/what-is-cuda-2/) - 由 Nvidia 開發的平行運算平台和應用程式介面（API）模型，使圖形處理單元（GPU）能夠進行通用運算。
+3. [ONNX](https://onnx.ai/) (Open Neural Network Exchange) - 一個開放格式，旨在表示機器學習模型，提供不同 ML 框架之間的互操作性。
+4. [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) (Generic Graph Update Format) - 用於表示和更新機器學習模型的格式，特別適用於能在 CPU 上有效運行的小型語言模型，支援 4-8 位元量化。
 
 ## DirectML
 
-DirectML是一個使硬體加速機器學習成為可能的低階API。它基於DirectX 12構建，以利用GPU加速並且不依賴特定廠商，這意味著它不需要對代碼進行更改就能在不同的GPU廠商之間運行。它主要用於在GPU上進行模型訓練和推理工作。
+DirectML 是一個低階 API，能夠實現硬體加速的機器學習。它基於 DirectX 12 構建，以利用 GPU 加速，且不依賴於特定廠商，意味著不需要修改代碼即可在不同的 GPU 廠商之間運行。它主要用於 GPU 上的模型訓練和推理工作負載。
 
-在硬體支持方面，DirectML設計用於與各種GPU協同工作，包括AMD的集成和獨立GPU、Intel的集成GPU和NVIDIA的獨立GPU。它是Windows AI平台的一部分，並在Windows 10和11上受到支持，允許在任何Windows設備上進行模型訓練和推理。
+在硬體支援方面，DirectML 設計為支援廣泛的 GPU，包括 AMD 的集成和獨立 GPU、Intel 的集成 GPU 和 NVIDIA 的獨立 GPU。它是 Windows AI 平台的一部分，支援 Windows 10 和 11，允許在任何 Windows 設備上進行模型訓練和推理。
 
-關於DirectML的更新和機會包括支持多達150個ONNX操作符，並被ONNX runtime和WinML使用。它得到了主要的集成硬體供應商（IHVs）的支持，每個供應商實現了各種元命令。
+有關 DirectML 的更新和機會，包括支援多達 150 個 ONNX 操作符，並被 ONNX runtime 和 WinML 使用。它得到了主要集成硬體廠商（IHVs）的支持，每個廠商都實現了各種元命令。
 
 ## CUDA
 
-CUDA，全稱為計算統一設備架構，是由Nvidia創建的平行計算平台和應用程式介面（API）模型。它允許軟體開發者使用支持CUDA的圖形處理單元（GPU）進行通用目的處理——這種方法稱為GPGPU（圖形處理單元上的通用計算）。CUDA是Nvidia GPU加速的一個關鍵推動力，廣泛應用於各種領域，包括機器學習、科學計算和視頻處理。
+CUDA，全名為 Compute Unified Device Architecture，是由 Nvidia 創建的平行運算平台和應用程式介面（API）模型。它允許軟體開發人員使用 CUDA 支援的圖形處理單元（GPU）進行通用運算——這種方法稱為 GPGPU（圖形處理單元上的通用運算）。CUDA 是 Nvidia GPU 加速的重要支持技術，廣泛應用於機器學習、科學計算和視頻處理等領域。
 
-CUDA的硬體支持特定於Nvidia的GPU，因為它是由Nvidia開發的專有技術。每種架構支持特定版本的CUDA工具包，該工具包提供了開發者用於構建和運行CUDA應用程式所需的庫和工具。
+CUDA 的硬體支援特定於 Nvidia 的 GPU，因為它是 Nvidia 開發的專有技術。每個架構支援特定版本的 CUDA 工具包，該工具包提供了必要的庫和工具，供開發人員構建和運行 CUDA 應用程式。
 
 ## ONNX
 
-ONNX（開放神經網絡交換格式）是一個設計用來表示機器學習模型的開放格式。它提供了一個可擴展的計算圖模型的定義，以及內置操作符和標準數據類型的定義。ONNX允許開發者在不同的機器學習框架之間移動模型，實現互操作性，使創建和部署AI應用程式變得更加容易。
+ONNX（Open Neural Network Exchange）是一個開放格式，旨在表示機器學習模型。它提供了一個可擴展的計算圖模型定義，以及內建操作符和標準數據類型的定義。ONNX 允許開發人員在不同的 ML 框架之間移動模型，實現互操作性，並使創建和部署 AI 應用程式變得更加容易。
 
-Phi3 mini可以在包括伺服器平台、Windows、Linux和Mac桌面以及移動CPU在內的各種設備上使用ONNX Runtime在CPU和GPU上運行。我們添加的優化配置包括：
+Phi3 mini 可以在包括伺服器平台、Windows、Linux 和 Mac 桌面以及移動 CPU 在內的設備上，使用 ONNX Runtime 在 CPU 和 GPU 上運行。
+我們添加的優化配置包括：
 
-- 用於int4 DML的ONNX模型：通過AWQ量化為int4
-- 用於fp16 CUDA的ONNX模型
-- 用於int4 CUDA的ONNX模型：通過RTN量化為int4
-- 用於int4 CPU和移動設備的ONNX模型：通過RTN量化為int4
+- 用於 int4 DML 的 ONNX 模型：通過 AWQ 量化為 int4
+- 用於 fp16 CUDA 的 ONNX 模型
+- 用於 int4 CUDA 的 ONNX 模型：通過 RTN 量化為 int4
+- 用於 int4 CPU 和移動設備的 ONNX 模型：通過 RTN 量化為 int4
 
 ## Llama.cpp
 
-Llama.cpp是一個用C++編寫的開源軟體庫。它在各種大型語言模型（LLMs）上執行推理，包括Llama。與ggml庫（通用張量庫）共同開發，llama.cpp旨在比原始Python實現提供更快的推理和更低的內存使用。它支持硬體優化、量化，並提供簡單的API和示例。如果你對高效的LLM推理感興趣，llama.cpp值得一試，因為Phi3可以運行Llama.cpp。
+Llama.cpp 是一個用 C++ 編寫的開源軟體庫。它對各種大型語言模型（LLMs）進行推理，包括 Llama。與 ggml 庫（通用張量庫）一起開發，llama.cpp 旨在提供比原始 Python 實現更快的推理速度和更低的內存使用。它支援硬體優化、量化，並提供簡單的 API 和範例。如果你對高效的 LLM 推理感興趣，llama.cpp 值得探索，因為 Phi3 可以運行 Llama.cpp。
 
 ## GGUF
 
-GGUF（通用圖形更新格式）是一種用於表示和更新機器學習模型的格式。它特別適用於能在CPU上以4-8位量化有效運行的小型語言模型（SLMs）。GGUF對於快速原型設計以及在邊緣設備或CI/CD管道中的批量作業非常有益。
+GGUF（Generic Graph Update Format）是一種用於表示和更新機器學習模型的格式。它對於能在 CPU 上有效運行的較小型語言模型（SLMs）特別有用，支援 4-8 位元量化。GGUF 有助於快速原型設計，並在邊緣設備或 CI/CD 管道等批處理作業中運行模型。
 
-免責聲明：此翻譯由 AI 模型從原文翻譯而來，可能不夠完美。請檢查輸出並進行必要的修正。
+**免責聲明**：
+本文檔是使用基於機器的AI翻譯服務進行翻譯的。儘管我們努力追求準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的原始文件作為權威來源。對於關鍵信息，建議使用專業的人力翻譯。我們不對因使用此翻譯而引起的任何誤解或誤讀承擔責任。

@@ -1,11 +1,11 @@
-# **Affiner Phi-3 avec le Framework Apple MLX**
+# **Affinage de Phi-3 avec le Framework Apple MLX**
 
-Nous pouvons réaliser l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Pour en savoir plus sur le fonctionnement du framework MLX, veuillez lire [Inférence Phi-3 avec le Framework Apple MLX](../03.Inference/MLX_Inference.md))
+Nous pouvons compléter l'affinage combiné avec Lora via la ligne de commande du framework Apple MLX. (Si vous souhaitez en savoir plus sur le fonctionnement du Framework MLX, veuillez lire [Inference Phi-3 avec le Framework Apple MLX](../03.Inference/MLX_Inference.md)
 
 
 ## **1. Préparation des données**
 
-Par défaut, le framework MLX nécessite le format jsonl pour les ensembles d'entraînement, de test et d'évaluation, et il est combiné avec Lora pour compléter les tâches d'affinage.
+Par défaut, le Framework MLX nécessite le format jsonl pour l'entraînement, le test et l'évaluation, et est combiné avec Lora pour compléter les travaux d'affinage.
 
 
 ### ***Remarque :***
@@ -22,7 +22,7 @@ Par défaut, le framework MLX nécessite le format jsonl pour les ensembles d'en
 
 ```
 
-2. Notre exemple utilise les [données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats de l'affinage ne sont pas forcément les meilleurs. Il est recommandé aux apprenants d'utiliser de meilleures données en fonction de leurs propres scénarios.
+2. Notre exemple utilise les [données de TruthfulQA](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv), mais la quantité de données est relativement insuffisante, donc les résultats de l'affinage ne sont pas nécessairement les meilleurs. Il est recommandé que les apprenants utilisent de meilleures données en fonction de leurs propres scénarios pour compléter.
 
 3. Le format des données est combiné avec le modèle Phi-3
 
@@ -43,7 +43,7 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ## ***Remarque :***
 
-1. Ceci est un affinage LoRA, le framework MLX n'a pas publié QLoRA
+1. Il s'agit d'un affinage LoRA, le framework MLX n'a pas publié QLoRA
 
 2. Vous pouvez configurer config.yaml pour changer certains arguments, tels que
 
@@ -128,7 +128,7 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ## **3. Exécuter l'adaptateur d'affinage pour tester**
 
-Vous pouvez exécuter l'adaptateur d'affinage dans le terminal, comme ceci
+Vous pouvez exécuter l'adaptateur d'affinage dans le terminal, comme ceci 
 
 
 ```bash
@@ -137,7 +137,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-et exécuter le modèle original pour comparer les résultats
+et exécuter le modèle original pour comparer les résultats 
 
 
 ```bash
@@ -158,7 +158,7 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. Exécuter des modèles d'affinage quantifiés avec ollama**
+## **5. Exécution des modèles d'affinage quantifiés en utilisant ollama**
 
 Avant utilisation, veuillez configurer votre environnement llama.cpp
 
@@ -177,11 +177,11 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 ***Remarque :*** 
 
-1. Prend désormais en charge la conversion de quantification de fp32, fp16 et INT 8
+1. Supporte maintenant la conversion de quantification de fp32, fp16 et INT 8
 
 2. Le modèle fusionné manque tokenizer.model, veuillez le télécharger depuis https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Configurer le fichier du modèle Ollma (Si ollama n'est pas installé, veuillez lire [Démarrage rapide d'Ollama](../02.QuickStart/Ollama_QuickStart.md))
+Configurer le fichier de modèle Ollma (Si vous n'avez pas installé ollama, veuillez lire [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)
 
 
 ```txt
@@ -202,7 +202,7 @@ exécuter la commande dans le terminal
 
 ```
 
-Félicitations ! Vous maîtrisez l'affinage avec le framework MLX
+Félicitations ! Vous maîtrisez l'affinage avec le Framework MLX
 
-**Avertissement**:
-Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.
+**Avertissement** :
+Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

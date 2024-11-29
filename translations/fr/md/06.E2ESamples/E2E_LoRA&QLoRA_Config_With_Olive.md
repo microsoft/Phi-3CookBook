@@ -1,14 +1,14 @@
 # **Utilisez Microsoft Olive pour architecturer vos projets**
 
-Si une entreprise souhaite avoir son propre modèle vertical d'industrie, elle doit commencer par les données, l'ajustement fin et le déploiement. Dans le contenu précédent, nous avons introduit Microsoft Olive, et nous complétons maintenant une introduction plus détaillée basée sur le travail de E2E.
+Si une entreprise souhaite avoir son propre modèle vertical industriel, elle doit commencer par les données, le réglage fin et le déploiement. Dans le contenu précédent, nous avons introduit le contenu de Microsoft Olive, et nous complétons maintenant une introduction plus détaillée basée sur le travail de E2E.
 
 ## **Architecture**
 
-Nous pouvons nous référer aux projets générés par AI Toolkit pour VS Code pour structurer nos projets, y compris les données, les modèles, les formats ajustés et les inférences, comme suit :
+Nous pouvons nous référer aux projets générés par AI Toolkit pour VS Code pour structurer nos projets, y compris les données, les modèles, les formats affinés et les inférences, comme par exemple :
 
 ```txt
 
-｜-- Votre projet Phi-3-mini E2E
+｜-- Your Phi-3-mini E2E Proj
     ｜-- datasets
     ｜-- fine-tuning
     ｜-- inferences
@@ -21,36 +21,36 @@ Nous pouvons nous référer aux projets générés par AI Toolkit pour VS Code p
 
 - **datasets**
 
-    Les données peuvent être stockées en csv, json et autres formats. Dans cet exemple, il s'agit des données json exportées. [dataset](./E2E_Datasets.md) 
+    Les données peuvent être stockées dans des fichiers csv, json et autres. Dans cet exemple, il s'agit des données json exportées. [dataset](./E2E_Datasets.md) 
 
-    ***Note*** Nous pouvons ignorer les paramètres pertinents ici car les données ont déjà été téléchargées sur Azure ML (si elles sont locales, nous pouvons les télécharger ici)
+    ***Note*** Nous pouvons ignorer les paramètres pertinents ici car les données ont déjà été téléchargées sur Azure ML (si elles sont locales, nous pouvons télécharger les données ici)
 
 - **fine-tuning**
     
-    Spécifiez les algorithmes de réglage fin QLoRA et LoRA, ainsi que les paramètres associés
+    Spécifiez les algorithmes de réglage fin QLoRA et LoRA, et les paramètres associés.
 
 - **inferences**
 
-    L'inférence est le modèle après ajustement fin. Il peut s'agir d'une référence à la couche d'adaptateur ajustée, d'une référence au modèle intégré avec l'adaptateur après ajustement fin, ou d'un modèle quantifié ONNX Runtime.
+    L'inférence est le modèle après réglage fin. Il peut s'agir d'une référence à la couche d'adaptateur affinée, d'une référence au modèle intégré avec l'adaptateur après réglage fin, ou il peut s'agir d'un modèle quantifié ONNX Runtime.
 
 - **model-cache**
 
-    Modèles téléchargés via Hugging face CLI, ici le modèle Phi-3-Mini (en utilisant Azure ML nous pouvons ignorer ce contenu, si vous souhaitez opérer localement, veuillez exécuter le script suivant pour obtenir le modèle phi-3)
+    Modèles téléchargés via Hugging face CLI, ici c'est le modèle Phi-3-Mini (en utilisant Azure ML, nous pouvons ignorer ce contenu, si vous souhaitez opérer localement, veuillez exécuter le script suivant pour obtenir le modèle phi-3)
 
 
 ```bash
 
 huggingface-cli login
 
-# entrez votre clé depuis le portail Hugging Face
+# input your key from Hugging Face Portal
 
-huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Votre emplacement Phi-3-mini
+huggingface-cli download microsoft/Phi-3-mini-4k-instruct --local-dir Your Phi-3-mini location
 
 ```
 
 - **gen-model**
 
-Le modèle sauvegardé après l'opération inclut le modèle d'adaptateur ajusté, le modèle intégré ajusté et le modèle quantitatif exécuté par ONNX Runtime.
+Le modèle enregistré après l'opération comprend le modèle d'adaptateur affiné, le modèle d'adaptateur affiné intégré et le modèle quantitatif exécuté par ONNX Runtime.
 
 - **setup**
 
@@ -80,7 +80,7 @@ pip install git+https://github.com/microsoft/Olive
 
 **LoRA**
 
-Cet exemple utilise des calculs en cloud, des ensembles de données en cloud, ajoutez olive.config dans le dossier fine-tuning
+Cet exemple utilise le calcul en cloud, les ensembles de données en cloud, ajoutez olive.config dans le dossier de réglage fin
 
 
 ```json
@@ -390,17 +390,15 @@ Cet exemple utilise des calculs en cloud, des ensembles de données en cloud, aj
 
 ```
 
-***Notice*** 
+***Remarque*** 
 
-- Si vous utilisez QLoRA, la conversion de quantification de ONNXRuntime-genai n'est pas encore supportée.
+- Si vous utilisez QLoRA, la conversion de quantification d'ONNXRuntime-genai n'est pas encore supportée.
 
-
-- Il convient de noter ici que vous pouvez configurer les étapes ci-dessus selon vos propres besoins. Il n'est pas nécessaire de configurer complètement les étapes ci-dessus. Selon vos besoins, vous pouvez directement utiliser les étapes de l'algorithme sans ajustement fin. Enfin, vous devez configurer les moteurs pertinents.
+- Il convient de souligner ici que vous pouvez configurer les étapes ci-dessus selon vos propres besoins. Il n'est pas nécessaire de configurer complètement les étapes ci-dessus. Selon vos besoins, vous pouvez directement utiliser les étapes de l'algorithme sans réglage fin. Enfin, vous devez configurer les moteurs pertinents.
 
 ### **Exécution de Microsoft Olive**
 
-
-Une fois que vous avez terminé avec Microsoft Olive, vous devez exécuter cette commande dans le terminal 
+Après avoir terminé Microsoft Olive, vous devez exécuter cette commande dans le terminal 
 
 
 ```bash
@@ -409,12 +407,11 @@ olive run --config olive-config.json
 
 ```
 
-***Notice*** 
+***Remarque*** 
 
-1. Lorsque Microsoft Olive est exécuté, chaque étape peut être placée dans le cache. Nous pouvons consulter les résultats des étapes pertinentes en consultant le répertoire de réglage fin.
+1. Lorsque Microsoft Olive est exécuté, chaque étape peut être placée dans le cache. Nous pouvons consulter les résultats des étapes pertinentes en visualisant le répertoire de réglage fin.
 
 ![cache](../../../../translated_images/cache.5825e42e87faaf2768d7b0f0700c7c00e739e476dc9a3664ff6d6150ce99fd99.fr.png)
-
 
 2. Nous fournissons ici à la fois LoRA et QLoRA, et vous pouvez les configurer selon vos besoins.
 
@@ -424,5 +421,5 @@ olive run --config olive-config.json
 
 ![ort](../../../../translated_images/ort.2dd0c087c067359fd24334969f997d7ed1e73fb8a78a9336fe1972afef826682.fr.png)
 
-Avertissement : La traduction a été réalisée à partir de son original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+**Avertissement** :
+Ce document a été traduit à l'aide de services de traduction automatisés basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

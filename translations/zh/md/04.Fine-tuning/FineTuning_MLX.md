@@ -1,6 +1,6 @@
-# **使用 Apple MLX 框架进行 Phi-3 微调**
+# **使用 Apple MLX 框架微调 Phi-3**
 
-我们可以通过 Apple MLX 框架的命令行完成结合 Lora 的微调。（如果你想了解更多关于 MLX 框架的操作，请阅读 [使用 Apple MLX 框架进行 Phi-3 推理](../03.Inference/MLX_Inference.md)
+我们可以通过 Apple MLX 框架命令行完成结合 Lora 的微调。(如果你想了解更多关于 MLX 框架的操作，请阅读 [使用 Apple MLX 框架进行推理 Phi-3](../03.Inference/MLX_Inference.md))
 
 ## **1. 数据准备**
 
@@ -19,15 +19,15 @@
 
 ```
 
-2. 我们的示例使用了 [TruthfulQA 的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)，但数据量相对不足，所以微调结果不一定是最好的。建议学习者根据自己的场景使用更好的数据来完成。
+2. 我们的示例使用了 [TruthfulQA 的数据](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)，但数据量相对不足，因此微调结果不一定是最好的。建议学习者根据自己的场景使用更好的数据来完成。
 
 3. 数据格式结合 Phi-3 模板
 
-请从这个 [链接](../../../../code/04.Finetuning/mlx) 下载数据，请将所有 .jsonl 文件包含在 ***data*** 文件夹中。
+请从这个 [链接](../../../../code/04.Finetuning/mlx) 下载数据，请将所有 .jsonl 文件放入 ***data*** 文件夹中
 
-## **2. 在终端进行微调**
+## **2. 在终端中进行微调**
 
-请在终端运行此命令：
+请在终端中运行以下命令：
 
 ```bash
 
@@ -37,9 +37,9 @@ python -m mlx_lm.lora --model microsoft/Phi-3-mini-4k-instruct --train --data ./
 
 ## ***注意:***
 
-1. 这是 LoRA 微调，MLX 框架尚未发布 QLoRA。
+1. 这是 LoRA 微调，MLX 框架尚未发布 QLoRA
 
-2. 你可以设置 config.yaml 来更改一些参数，例如：
+2. 你可以通过设置 config.yaml 来更改一些参数，例如：
 
 ```yaml
 
@@ -109,7 +109,7 @@ lora_parameters:
 
 ```
 
-请在终端运行此命令：
+请在终端中运行以下命令：
 
 ```bash
 
@@ -119,7 +119,7 @@ python -m  mlx_lm.lora --config lora_config.yaml
 
 ## **3. 运行微调适配器进行测试**
 
-你可以在终端运行微调适配器，如下所示：
+你可以在终端中运行微调适配器，如下所示：
 
 ```bash
 
@@ -127,7 +127,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --adapter-pat
 
 ```
 
-并运行原始模型以进行结果对比：
+然后运行原始模型来比较结果：
 
 ```bash
 
@@ -135,7 +135,7 @@ python -m mlx_lm.generate --model microsoft/Phi-3-mini-4k-instruct --max-token 2
 
 ```
 
-你可以尝试比较微调后的结果与原始模型的结果。
+你可以尝试比较微调后的结果和原始模型的结果
 
 ## **4. 合并适配器生成新模型**
 
@@ -145,9 +145,9 @@ python -m mlx_lm.fuse --model microsoft/Phi-3-mini-4k-instruct
 
 ```
 
-## **5. 使用 ollama 运行量化微调模型**
+## **5. 使用 ollama 运行量化后的微调模型**
 
-使用前，请配置你的 llama.cpp 环境：
+使用前，请配置你的 llama.cpp 环境
 
 ```bash
 
@@ -163,11 +163,11 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 ***注意:***
 
-1. 现在支持 fp32、fp16 和 INT 8 的量化转换。
+1. 现在支持 fp32、fp16 和 INT 8 的量化转换
 
-2. 合并后的模型缺少 tokenizer.model，请从 https://huggingface.co/microsoft/Phi-3-mini-4k-instruct 下载。
+2. 合并后的模型缺少 tokenizer.model，请从 https://huggingface.co/microsoft/Phi-3-mini-4k-instruct 下载
 
-设置 Ollma 模型文件（如果未安装 ollama，请阅读 [Ollama 快速入门](../02.QuickStart/Ollama_QuickStart.md)）
+设置 Ollma 模型文件（如果没有安装 ollama，请阅读 [Ollama 快速入门](../02.QuickStart/Ollama_QuickStart.md)）
 
 ```txt
 
@@ -176,7 +176,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-在终端运行命令：
+在终端中运行命令：
 
 ```bash
 
@@ -186,7 +186,7 @@ PARAMETER stop "<|end|>"
 
 ```
 
-恭喜你！掌握了使用 MLX 框架进行微调的技巧。
+恭喜！掌握了使用 MLX 框架进行微调的技巧
 
-**免责声明**：
-本文件是使用机器翻译服务翻译的。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应以原文档的母语版本为权威来源。对于重要信息，建议使用专业的人类翻译服务。对于因使用本翻译而产生的任何误解或误读，我们不承担任何责任。
+**免责声明**:
+本文档是使用机器翻译服务翻译的。虽然我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原文档的母语版本视为权威来源。对于关键信息，建议使用专业人工翻译。我们不对因使用此翻译而引起的任何误解或误读负责。

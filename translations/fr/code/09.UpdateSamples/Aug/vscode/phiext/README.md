@@ -1,6 +1,6 @@
 # phiext README
 
-Ceci est le README pour votre extension "phiext". Après avoir rédigé une brève description, nous vous recommandons d'inclure les sections suivantes.
+Ceci est le README de votre extension "phiext". Après avoir rédigé une brève description, nous vous recommandons d'inclure les sections suivantes.
 
 ## Fonctionnalités
 
@@ -10,26 +10,26 @@ Par exemple, s'il y a un sous-dossier d'images dans l'espace de travail de votre
 
 \!\[fonctionnalité X\]\(images/feature-x.png\)
 
-> Conseil : De nombreuses extensions populaires utilisent des animations. C'est un excellent moyen de montrer votre extension ! Nous recommandons des animations courtes et ciblées qui sont faciles à suivre.
+> Astuce : De nombreuses extensions populaires utilisent des animations. C'est un excellent moyen de mettre en valeur votre extension ! Nous recommandons des animations courtes et ciblées, faciles à suivre.
 
-## Prérequis
+## Exigences
 
-Si vous avez des prérequis ou des dépendances, ajoutez une section les décrivant ainsi que la manière de les installer et de les configurer.
+Si vous avez des exigences ou des dépendances, ajoutez une section décrivant celles-ci et comment les installer et les configurer.
 
 ## Paramètres de l'extension
 
-Incluez cette section si votre extension ajoute des paramètres à VS Code via le point d'extension `contributes.configuration`.
+Incluez si votre extension ajoute des paramètres VS Code via le point d'extension `contributes.configuration`.
 
 Par exemple :
 
-Cette extension ajoute les paramètres suivants :
+Cette extension contribue aux paramètres suivants :
 
 * `myExtension.enable` : Activer/désactiver cette extension.
-* `myExtension.thing` : Définir à `blah` pour faire quelque chose.
+* `myExtension.thing` : Définir sur `blah` pour faire quelque chose.
 
 ## Problèmes connus
 
-Mentionner les problèmes connus peut aider à limiter les utilisateurs ouvrant des tickets en double pour votre extension.
+Mentionner les problèmes connus peut aider à limiter les utilisateurs à ouvrir des problèmes en double contre votre extension.
 
 ## Notes de version
 
@@ -49,19 +49,19 @@ Ajout des fonctionnalités X, Y, et Z.
 
 ---
 
-## Suivre les lignes directrices des extensions
+## Suivre les directives d'extension
 
-Assurez-vous d'avoir lu les lignes directrices des extensions et de suivre les meilleures pratiques pour créer votre extension.
+Assurez-vous d'avoir lu les directives d'extension et de suivre les meilleures pratiques pour créer votre extension.
 
-* [Lignes directrices des extensions](https://code.visualstudio.com/api/references/extension-guidelines)
+* [Directives d'extension](https://code.visualstudio.com/api/references/extension-guidelines)
 
 ## Travailler avec Markdown
 
-Vous pouvez rédiger votre README en utilisant Visual Studio Code. Voici quelques raccourcis clavier utiles pour l'éditeur :
+Vous pouvez rédiger votre README en utilisant Visual Studio Code. Voici quelques raccourcis clavier utiles de l'éditeur :
 
 * Diviser l'éditeur (`Cmd+\` sur macOS ou `Ctrl+\` sur Windows et Linux).
 * Basculer l'aperçu (`Shift+Cmd+V` sur macOS ou `Shift+Ctrl+V` sur Windows et Linux).
-* Appuyer sur `Ctrl+Espace` (Windows, Linux, macOS) pour voir une liste de snippets Markdown.
+* Appuyez sur `Ctrl+Space` (Windows, Linux, macOS) pour voir une liste de snippets Markdown.
 
 ## Pour plus d'informations
 
@@ -70,5 +70,5 @@ Vous pouvez rédiger votre README en utilisant Visual Studio Code. Voici quelque
 
 **Amusez-vous bien !**
 
-Avertissement : La traduction a été effectuée à partir de l'original par un modèle d'IA et peut ne pas être parfaite. 
-Veuillez examiner le résultat et apporter les corrections nécessaires.
+        **Avertissement**:
+        Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

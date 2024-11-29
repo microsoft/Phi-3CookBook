@@ -1,48 +1,54 @@
-# Usando el CLIPVisionModel para procesar imágenes y generar embeddings de imágenes con Phi-3-vision
+# Uso del modelo CLIPVision para procesar imágenes y generar incrustaciones de imágenes con Phi-3-vision
 
-El siguiente ejemplo en Python proporciona la funcionalidad necesaria para procesar imágenes y generar embeddings de imágenes utilizando el CLIPVisionModel.
+El siguiente ejemplo en python proporciona la funcionalidad necesaria para procesar imágenes y generar incrustaciones de imágenes usando el modelo CLIPVision.
 
 ## ¿Qué es CLIP?
-CLIP, que significa Pre-entrenamiento de Imagen-Lenguaje Contrastivo, es un modelo desarrollado por OpenAI que aprende eficientemente conceptos visuales a partir de supervisión en lenguaje natural. Es un modelo multimodal que combina la comprensión de imágenes y texto en un solo marco. CLIP se entrena con una variedad de imágenes obtenidas de internet y el texto asociado a ellas, aprendiendo a predecir qué imágenes estaban emparejadas con qué textos, vinculando efectivamente las dos modalidades.
+CLIP, que significa Pre-entrenamiento Contrastivo de Lenguaje-Imagen, es un modelo desarrollado por OpenAI que aprende eficientemente conceptos visuales a partir de supervisión de lenguaje natural. Es un modelo multimodal que combina la comprensión de imágenes y texto en un solo marco. CLIP está entrenado en una variedad de imágenes obtenidas de internet y el texto encontrado con ellas, aprendiendo a predecir qué imágenes estaban emparejadas con qué textos, vinculando efectivamente las dos modalidades.
 
-El modelo funciona tomando una imagen y un fragmento de texto como entrada y luego prediciendo la probabilidad de que el texto sea una descripción precisa de la imagen. Este enfoque permite a CLIP manejar una amplia gama de tareas visuales, como reconocimiento de objetos, clasificación e incluso generar descripciones para imágenes que nunca ha visto antes.
+El modelo funciona tomando una imagen y un fragmento de texto como entrada y luego prediciendo la probabilidad de que el texto sea una descripción precisa de la imagen. Este enfoque permite que CLIP maneje una amplia gama de tareas visuales, como el reconocimiento de objetos, la clasificación e incluso la generación de descripciones para imágenes que nunca ha visto antes.
 
-Una de las principales ventajas de CLIP es su capacidad para realizar aprendizaje de “zero-shot”, donde el modelo puede manejar correctamente tareas para las que no fue entrenado explícitamente, simplemente leyendo la descripción de la tarea. Esto es posible gracias a la gran cantidad de datos diversos con los que ha sido entrenado, lo que le ayuda a generalizar bien a nuevas tareas.
+Una de las principales ventajas de CLIP es su capacidad para realizar aprendizaje "zero-shot", donde el modelo puede manejar correctamente tareas para las que no fue entrenado explícitamente, simplemente leyendo la descripción de la tarea. Esto es posible debido a la gran cantidad de datos diversos en los que ha sido entrenado, lo que le ayuda a generalizar bien a nuevas tareas.
 
 ## Phi-3-vision
-Phi-3-vision es un modelo multimodal de 4.2 mil millones de parámetros con capacidades de lenguaje y visión, capaz de razonar sobre imágenes del mundo real y documentos digitales, extraer y razonar sobre texto de imágenes, y generar insights y respuestas relacionadas con gráficos o diagramas.
+Phi-3-vision es un modelo multimodal de 4.2B parámetros con capacidades de lenguaje y visión, capaz de razonar sobre imágenes del mundo real y documentos digitales, extrayendo y razonando sobre texto de imágenes, y generando ideas y respuestas relacionadas con gráficos o diagramas.
+
+**Propósito del Ejemplo:** Este ejemplo demuestra cómo generar incrustaciones de imágenes usando CLIP y cómo puede aplicarse a tareas relacionadas con el modelo Phi-3. Sirve como referencia para comparar el rendimiento y las características de diferentes técnicas de incrustación (CLIP vs. Phi-3).
+**Desafío de Integración:** Integrar otro codificador de visión como CLIP directamente en Phi-3 es realmente complejo. Esta complejidad surge debido a diferencias arquitectónicas y la necesidad de una integración sin problemas sin perder contexto o rendimiento. La integración aún no ha sido completamente evaluada o implementada, por lo que se incluye.
+**Enfoque de Comparación:** El código tiene como objetivo proporcionar una comparación paralela en lugar de una solución integrada. Permite a los usuarios ver cómo funcionan las incrustaciones de CLIP junto con las incrustaciones de Phi-3, proporcionando información sobre los posibles beneficios o desventajas.
+**Aclaración:** Este Ejemplo del Phi-3CookBook: Muestra cómo usar las incrustaciones de CLIP como una herramienta comparativa en lugar de una integración directa en Phi-3.
+**Trabajo de Integración:** La integración completa de las incrustaciones de CLIP en Phi-3 sigue siendo un desafío y no se ha explorado completamente, pero está ahí para que los clientes experimenten.
 
 ## Código de Ejemplo
-Este código define una clase llamada Phi3ImageEmbedding que representa un modelo de embeddings de imágenes. El propósito de esta clase es procesar imágenes y generar embeddings que se puedan usar para tareas posteriores como clasificación o recuperación de imágenes.
+Este código define una clase llamada Phi3ImageEmbedding que representa un modelo de incrustación de imágenes. El propósito de esta clase es procesar imágenes y generar incrustaciones que pueden ser usadas para tareas posteriores como la clasificación o recuperación de imágenes.
 
-El método __init__ inicializa el modelo configurando varios componentes como el dropout de embeddings, el procesador de imágenes, los parámetros de transformación HD y la proyección de imágenes. Toma un objeto config como entrada, que contiene parámetros de configuración para el modelo. El parámetro wte es una entrada opcional que representa embeddings de tokens de palabras.
+El método __init__ inicializa el modelo configurando varios componentes como la eliminación de incrustaciones, el procesador de imágenes, los parámetros de transformación HD y la proyección de imágenes. Toma un objeto de configuración como entrada, que contiene parámetros de configuración para el modelo. El parámetro wte es una entrada opcional que representa incrustaciones de tokens de palabras.
 
-El método get_img_features toma un tensor de entrada img_embeds que representa embeddings de imágenes y devuelve un tensor que representa las características de imagen extraídas. Utiliza el img_processor para procesar los embeddings de imagen y extraer las características deseadas basándose en los parámetros layer_idx y type_feature.
+El método get_img_features toma un tensor de entrada img_embeds que representa las incrustaciones de imágenes y devuelve un tensor que representa las características de imagen extraídas. Utiliza el img_processor para procesar las incrustaciones de imágenes y extraer las características deseadas basadas en los parámetros layer_idx y type_feature.
 
 ## Explicación del Código
-Vamos a revisar el código paso a paso:
+Vamos a recorrer el código paso a paso:
 
-El código importa las bibliotecas y módulos necesarios, incluyendo math, torch, torch.nn y varios componentes de la biblioteca transformers.
+El código importa las bibliotecas y módulos necesarios, incluyendo math, torch, torch.nn, y varios componentes de la biblioteca transformers.
 
-El código define un objeto de configuración llamado CLIP_VIT_LARGE_PATCH14_336_CONFIG que contiene varios hiperparámetros para el modelo de embeddings de imágenes.
+El código define un objeto de configuración llamado CLIP_VIT_LARGE_PATCH14_336_CONFIG que contiene varios hiperparámetros para el modelo de incrustación de imágenes.
 
-Se define la clase Phi3ImageEmbedding, que es una subclase de torch.nn.Module. Esta clase representa el modelo de embeddings de imágenes y contiene métodos para la propagación hacia adelante y la configuración de características de imagen.
+Se define la clase Phi3ImageEmbedding, que es una subclase de torch.nn.Module. Esta clase representa el modelo de incrustación de imágenes y contiene métodos para la propagación hacia adelante y la configuración de características de imagen.
 
-El método __init__ inicializa el objeto Phi3ImageEmbedding. Toma un objeto config como entrada, que es una instancia de la clase PretrainedConfig. También toma un argumento opcional wte.
+El método __init__ inicializa el objeto Phi3ImageEmbedding. Toma un objeto de configuración como entrada, que es una instancia de la clase PretrainedConfig. También toma un argumento opcional wte.
 
-El método __init__ inicializa varios atributos del objeto Phi3ImageEmbedding basándose en el objeto config proporcionado. Configura el tamaño oculto, la tasa de dropout, el procesador de imágenes, la proyección de imágenes y otros parámetros.
+El método __init__ inicializa varios atributos del objeto Phi3ImageEmbedding basado en el objeto de configuración proporcionado. Configura el tamaño oculto, la tasa de eliminación, el procesador de imágenes, la proyección de imágenes y otros parámetros.
 
-El método set_img_features configura las características de imagen para el modelo. Toma un tensor de características de imagen como entrada y lo asigna al atributo img_features del objeto.
+El método set_img_features establece las características de imagen para el modelo. Toma un tensor de características de imagen como entrada y lo asigna al atributo img_features del objeto.
 
-El método set_img_sizes configura los tamaños de imagen para el modelo. Toma un tensor de tamaños de imagen como entrada y lo asigna al atributo img_sizes del objeto.
+El método set_img_sizes establece los tamaños de imagen para el modelo. Toma un tensor de tamaños de imagen como entrada y lo asigna al atributo img_sizes del objeto.
 
-El método get_img_features extrae características de imagen de los embeddings de imagen de entrada. Toma un tensor de embeddings de imagen como entrada y devuelve las características de imagen extraídas.
+El método get_img_features extrae características de imagen de las incrustaciones de imagen de entrada. Toma un tensor de incrustaciones de imagen como entrada y devuelve las características de imagen extraídas.
 
-El método forward realiza la propagación hacia adelante a través del modelo. Toma IDs de entrada, valores de píxeles y tamaños de imagen como entrada y devuelve los estados ocultos del modelo. Primero verifica si las características y tamaños de imagen ya están configurados, y si no, usa la entrada proporcionada para configurarlos. Luego, procesa los IDs de entrada y extrae características de imagen basándose en el procesador de imágenes configurado. Finalmente, aplica la proyección de imágenes a las características extraídas y devuelve los estados ocultos.
+El método forward realiza la propagación hacia adelante a través del modelo. Toma IDs de entrada, valores de píxeles y tamaños de imagen como entrada y devuelve los estados ocultos del modelo. Primero verifica si las características de imagen y los tamaños ya están establecidos, y si no, utiliza la entrada proporcionada para configurarlos. Luego, procesa los IDs de entrada y extrae características de imagen basadas en el procesador de imágenes configurado. Finalmente, aplica la proyección de imágenes a las características extraídas y devuelve los estados ocultos.
 
-En general, este código define una clase que representa un modelo de embeddings de imágenes y proporciona métodos para configurar características de imagen y realizar la propagación hacia adelante.
+En general, este código define una clase que representa un modelo de incrustación de imágenes y proporciona métodos para configurar características de imagen y realizar la propagación hacia adelante.
 
-[Muestra de Código](../../../../code/06.E2E/phi3imageembedding.py)
+[Ejemplo de Código](../../../../code/06.E2E/phi3imageembedding.py)
 ```
 import math
 import torch
@@ -313,5 +319,90 @@ class Phi3ImageEmbedding(nn.Module):
                 return hidden_states
 ```
 
-**Descargo de responsabilidad**: 
-Este documento ha sido traducido utilizando servicios de traducción basados en inteligencia artificial. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción humana profesional. No nos hacemos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
+## Construyendo tu Pipeline
+
+Trabajando con código que genera incrustaciones, como el ejemplo anterior, normalmente lo integras en tu pipeline dependiendo de tu caso de uso específico.
+
+1. Cargando Modelos Pre-entrenados: Si estás cargando modelos pre-entrenados de Hugging Face, estos modelos son en efecto binarios. Puedes usarlos directamente para generar incrustaciones sin entrenamiento adicional. Esto es útil para tareas como extracción de características o búsqueda semántica donde necesitas incrustaciones listas para usar.
+
+2. Pipeline de Ajuste Fino: Si necesitas adaptar el modelo a una tarea o conjunto de datos específico, integrarías el código en un pipeline de ajuste fino. Esto implica:
+   - Cargar el Modelo Pre-entrenado: Comienza con un modelo pre-entrenado de Hugging Face.
+   - Preparar tu Conjunto de Datos: Asegúrate de que tu conjunto de datos esté en el formato correcto para el entrenamiento.
+   - Ajuste Fino: Usa bibliotecas como `transformers` and `datasets` de Hugging Face para ajustar el modelo en tu conjunto de datos. Este paso ajusta los pesos del modelo para adaptarse mejor a tu tarea específica.
+
+Por ejemplo, en el contexto del Phi-3 Cookbook y CLIPVision, podrías:
+- Generar Incrustaciones: Usar el modelo CLIP pre-entrenado para generar incrustaciones para imágenes.
+- Ajuste Fino: Si las incrustaciones necesitan ser más específicas para tu aplicación, ajusta finamente el modelo CLIP en un conjunto de datos relevante para tu caso de uso.
+
+Aquí hay un ejemplo simplificado de cómo podrías integrar esto en el código:
+
+```python
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained model and processor
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings
+with torch.no_grad():
+    embeddings = model.get_image_features(**inputs)
+ 
+# Fine-tuning (if needed)
+# Define your fine-tuning logic here
+```
+
+Este enfoque te permite aprovechar modelos pre-entrenados poderosos y adaptarlos a tus necesidades específicas.
+
+## Integrando la Familia de Modelos Phi
+
+Integrar el modelo Phi-3 con el ejemplo de código proporcionado que involucra CLIP puede ser un desafío, especialmente cuando se consideran diferentes codificadores de visión.
+
+Aquí hay una breve descripción de cómo podrías abordar esto:
+
+### Puntos Clave
+**Procesamiento de Datos:** Asegúrate de que las imágenes se procesen de una manera que se ajuste a los requisitos de entrada del modelo Phi-3.
+**Generación de Incrustaciones:** Reemplaza la generación de incrustaciones de CLIP con el método correspondiente de tu modelo Phi-3.
+**Ajuste Fino:** Si necesitas ajustar finamente el modelo Phi-3, asegúrate de que la lógica esté incluida después de generar las incrustaciones.
+
+## Pasos para Integrar el Modelo Phi-3
+**Cargar el Modelo Phi-3:** Suponiendo que tienes una clase Phi3Model para el modelo Phi-3 estándar o ajustado finamente.
+**Modificar la Preparación de Datos:** Ajusta la preparación de datos para adaptarse a los requisitos de entrada del modelo Phi-3.
+**Integrar Incrustaciones de Phi-3:** Reemplaza la parte donde se generan las incrustaciones de CLIP con la generación de incrustaciones del modelo Phi-3.
+
+```
+from transformers import CLIPProcessor, CLIPModel
+import torch
+ 
+# Load pre-trained CLIP model and processor
+clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+ 
+# Load Phi-3 model (vanilla or fine-tuned)
+# Assuming you have a load_phi3_model function to load your Phi-3 model
+phi3_model = load_phi3_model(fine_tuned=True)
+ 
+# Prepare your data
+images = [...]  # List of images
+inputs = clip_processor(images=images, return_tensors="pt")
+ 
+# Generate embeddings using CLIP (for comparison)
+with torch.no_grad():
+    clip_embeddings = clip_model.get_image_features(**inputs)
+ 
+# Generate embeddings using Phi-3
+# Adjust this part according to how your Phi-3 model processes inputs
+phi3_inputs = process_for_phi3_model(images)
+with torch.no_grad():
+    phi3_embeddings = phi3_model.get_image_features(phi3_inputs)
+ 
+# Fine-tuning or further processing (if needed)
+# Define your fine-tuning logic here
+``
+
+        **Descargo de responsabilidad**: 
+        Este documento ha sido traducido utilizando servicios de traducción automatizada por IA. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

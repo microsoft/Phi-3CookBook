@@ -1,27 +1,27 @@
-# **在 iOS 上推理 Phi-3**
+# **Inference Phi-3 在 iOS**
 
-Phi-3-mini 是 Microsoft 推出的新系列模型，能夠在邊緣設備和物聯網設備上部署大型語言模型 (LLMs)。Phi-3-mini 可用於 iOS、Android 和邊緣設備的部署，允許在 BYOD 環境中部署生成式 AI。以下範例展示如何在 iOS 上部署 Phi-3-mini。
+Phi-3-mini 是 Microsoft 推出的一系列新模型，能够在边缘设备和物联网设备上部署大型语言模型 (LLMs)。Phi-3-mini 可用于 iOS、Android 和边缘设备的部署，使生成式 AI 能够在自带设备 (BYOD) 环境中部署。以下示例展示了如何在 iOS 上部署 Phi-3-mini。
 
-## **1. 準備工作**
+## **1. 准备工作**
 
 - **a.** macOS 14+
 - **b.** Xcode 15+
 - **c.** iOS SDK 17.x (iPhone 14 A16 或更高版本)
-- **d.** 安裝 Python 3.10+ (推薦使用 Conda)
-- **e.** 安裝 Python 庫: `python-flatbuffers`
-- **f.** 安裝 CMake
+- **d.** 安装 Python 3.10+（推荐使用 Conda）
+- **e.** 安装 Python 库: `python-flatbuffers`
+- **f.** 安装 CMake
 
 ### Semantic Kernel 和推理
 
-Semantic Kernel 是一個應用框架，允許您創建與 Azure OpenAI Service、OpenAI 模型甚至本地模型兼容的應用。通過 Semantic Kernel 訪問本地服務，可以輕鬆整合自托管的 Phi-3-mini 模型服務器。
+Semantic Kernel 是一个应用框架，允许你创建与 Azure OpenAI 服务、OpenAI 模型甚至本地模型兼容的应用程序。通过 Semantic Kernel 访问本地服务，可以轻松集成自托管的 Phi-3-mini 模型服务器。
 
-### 使用 Ollama 或 LlamaEdge 調用量化模型
+### 使用 Ollama 或 LlamaEdge 调用量化模型
 
-許多用戶喜歡使用量化模型來本地運行模型。[Ollama](https://ollama.com) 和 [LlamaEdge](https://llamaedge.com) 允許用戶調用不同的量化模型：
+许多用户更喜欢使用量化模型在本地运行模型。[Ollama](https://ollama.com) 和 [LlamaEdge](https://llamaedge.com) 允许用户调用不同的量化模型：
 
 #### **Ollama**
 
-您可以直接運行 `ollama run phi3` 或離線配置。創建一個 Modelfile，並將路徑指向您的 `gguf` 文件。運行 Phi-3-mini 量化模型的示例代碼：
+你可以直接运行 `ollama run phi3` 或者离线配置它。创建一个 Modelfile，并提供 `gguf` 文件的路径。运行 Phi-3-mini 量化模型的示例代码：
 
 ```gguf
 FROM {Add your gguf file path}
@@ -32,9 +32,9 @@ PARAMETER num_ctx 4096
 
 #### **LlamaEdge**
 
-如果您希望在雲端和邊緣設備同時使用 `gguf`，LlamaEdge 是一個很好的選擇。
+如果你想在云和边缘设备上同时使用 `gguf`，LlamaEdge 是一个很好的选择。
 
-## **2. 為 iOS 編譯 ONNX Runtime**
+## **2. 为 iOS 编译 ONNX Runtime**
 
 ```bash
 
@@ -48,21 +48,21 @@ cd ../
 
 ```
 
-### **注意事項**
+### **注意事项**
 
-- **a.** 在編譯之前，請確保 Xcode 已正確配置，並在終端中設置為活動開發者目錄：
+- **a.** 在编译之前，确保 Xcode 已正确配置，并在终端中将其设置为活动开发者目录：
 
     ```bash
     sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
     ```
 
-- **b.** ONNX Runtime 需要為不同平台編譯。對於 iOS，您可以編譯 `arm64` 或 `x86_64`。
+- **b.** ONNX Runtime 需要为不同的平台编译。对于 iOS，可以编译 `arm64` or `x86_64`。
 
-- **c.** 建議使用最新的 iOS SDK 進行編譯。不過，如果您需要與以前的 SDK 兼容，也可以使用較舊版本。
+- **c.** 建议使用最新的 iOS SDK 进行编译。不过，如果需要兼容以前的 SDK，也可以使用较旧的版本。
 
-## **3. 使用 ONNX Runtime 編譯生成式 AI 以適應 iOS**
+## **3. 使用 ONNX Runtime 为 iOS 编译生成式 AI**
 
-> **Note:** 因為使用 ONNX Runtime 的生成式 AI 還在預覽階段，請注意可能的變更。
+> **注意:** 由于使用 ONNX Runtime 的生成式 AI 处于预览阶段，请注意可能的更改。
 
 ```bash
 
@@ -90,19 +90,19 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ```
 
-## **4. 在 Xcode 中創建一個 App 應用**
+## **4. 在 Xcode 中创建一个 App 应用**
 
-我選擇使用 Objective-C 作為 App 的開發方式，因為使用 ONNX Runtime C++ API 的生成式 AI 時，Objective-C 兼容性更好。當然，您也可以通過 Swift 橋接完成相關調用。
+我选择了 Objective-C 作为 App 开发方式，因为使用 ONNX Runtime 的生成式 AI C++ API，Objective-C 更加兼容。当然，你也可以通过 Swift 桥接完成相关调用。
 
 ![xcode](../../../../translated_images/xcode.2817f1d089dc7d09ba6a41361db7052567d63f714062e2e4325b0e0895ccb4c4.tw.png)
 
-## **5. 將 ONNX 量化的 INT4 模型複製到 App 應用項目中**
+## **5. 将 ONNX 量化 INT4 模型复制到 App 应用项目中**
 
-我們需要導入 ONNX 格式的 INT4 量化模型，這需要先下載
+我们需要导入 ONNX 格式的 INT4 量化模型，需要先下载它。
 
 ![hf](../../../../translated_images/hf.dd843c3e95f3b462a3d5f06dbbb17c1f1a33b87688c1cda4d990084ef71a4eed.tw.png)
 
-下載後，您需要將其添加到 Xcode 中項目的 Resources 目錄中。
+下载后，需要将其添加到 Xcode 项目的 Resources 目录中。
 
 ![model](../../../../translated_images/model.2b8e95a590e70374b2294b16f8ae18c9110239a550e64dc034d6bc16d37e0106.tw.png)
 
@@ -110,17 +110,17 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 > **注意:**
 
-- **a.** 將相應的 C++ 頭文件添加到項目中。
+- **a.** 将相应的 C++ 头文件添加到项目中。
 
   ![Header File](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.tw.png)
 
-- **b.** 在 Xcode 中包含 `onnxruntime-genai` 動態庫。
+- **b.** 包含 `onnxruntime-genai` dynamic library in Xcode.
 
   ![Library](../../../../translated_images/lib.9388329df08543518d094d14c8ca0c8e6f0ce264ee68630a8c5c3d783355b6d1.tw.png)
 
-- **c.** 使用 C 範例代碼進行測試。您還可以添加更多功能，如 ChatUI。
+- **c.** Use the C Samples code for testing. You can also add additional features like ChatUI for more functionality.
 
-- **d.** 由於您需要在項目中使用 C++，請將 `ViewController.m` 重命名為 `ViewController.mm` 以啟用 Objective-C++ 支持。
+- **d.** Since you need to use C++ in your project, rename `ViewController.m` to `ViewController.mm` 以启用 Objective-C++ 支持。
 
 ```objc
 
@@ -149,12 +149,13 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ```
 
-## **7. 運行應用**
+## **7. 运行应用程序**
 
-完成設置後，您可以運行應用以查看 Phi-3-mini 模型推理的結果。
+设置完成后，你可以运行应用程序，查看 Phi-3-mini 模型推理的结果。
 
 ![Running Result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.tw.jpg)
 
-有關更多範例代碼和詳細說明，請訪問 [Phi-3 Mini Samples repository](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios)。
+有关更多示例代码和详细说明，请访问 [Phi-3 Mini Samples repository](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios)。
 
-免責聲明：此翻譯由AI模型從原文翻譯而來，可能不完美。請審核輸出並進行必要的修正。
+**免責聲明**：
+本文件使用基於機器的AI翻譯服務進行翻譯。我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原語言的原始文件為權威來源。對於關鍵信息，建議進行專業的人力翻譯。我們對使用此翻譯引起的任何誤解或誤讀不承擔責任。

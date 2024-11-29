@@ -1,25 +1,25 @@
 [OpenVino Chat Sample](../../../../code/06.E2E/E2E_OpenVino_Chat_Phi3-instruct.ipynb)
 
-このコードは、モデルをOpenVINO形式にエクスポートし、それを読み込んで指定されたプロンプトに対する応答を生成します。
+このコードはモデルをOpenVINOフォーマットにエクスポートし、それを読み込み、与えられたプロンプトに対する応答を生成します。
 
 1. **モデルのエクスポート**:
    ```bash
    optimum-cli export openvino --model "microsoft/Phi-3-mini-4k-instruct" --task text-generation-with-past --weight-format int4 --group-size 128 --ratio 0.6 --sym --trust-remote-code ./model/phi3-instruct/int4
    ```
-   - このコマンドは、`optimum-cli`ツールを使用してモデルを効率的な推論のために最適化されたOpenVINO形式にエクスポートします。
-   - エクスポートされるモデルは `"microsoft/Phi-3-mini-4k-instruct"` で、過去のコンテキストに基づいてテキストを生成するタスクに設定されています。
-   - モデルの重みは4ビット整数（`int4`）に量子化され、モデルサイズの縮小と処理速度の向上が図られます。
-   - `group-size`、`ratio`、`sym` などの他のパラメータは量子化プロセスを微調整するために使用されます。
-   - エクスポートされたモデルは `./model/phi3-instruct/int4` ディレクトリに保存されます。
+   - このコマンドは `optimum-cli` tool to export a model to the OpenVINO format, which is optimized for efficient inference.
+   - The model being exported is `"microsoft/Phi-3-mini-4k-instruct"`, and it's set up for the task of generating text based on past context.
+   - The weights of the model are quantized to 4-bit integers (`int4`), which helps reduce the model size and speed up processing.
+   - Other parameters like `group-size`, `ratio`, and `sym` are used to fine-tune the quantization process.
+   - The exported model is saved in the directory `./model/phi3-instruct/int4` を使用します。
 
 2. **必要なライブラリのインポート**:
    ```python
    from transformers import AutoConfig, AutoTokenizer
    from optimum.intel.openvino import OVModelForCausalLM
    ```
-   - これらの行は、モデルを読み込み使用するために必要な `transformers` ライブラリと `optimum.intel.openvino` モジュールからクラスをインポートします。
+   - これらの行は、モデルを読み込み、使用するために必要な `transformers` library and the `optimum.intel.openvino` モジュールからクラスをインポートします。
 
-3. **モデルディレクトリと設定の準備**:
+3. **モデルディレクトリと設定のセットアップ**:
    ```python
    model_dir = './model/phi3-instruct/int4'
    ov_config = {
@@ -28,8 +28,8 @@
        "CACHE_DIR": ""
    }
    ```
-   - `model_dir` はモデルファイルが保存されている場所を指定します。
-   - `ov_config` はOpenVINOモデルを低遅延優先、1つの推論ストリーム使用、キャッシュディレクトリ不使用に設定する辞書です。
+   - `model_dir` specifies where the model files are stored.
+   - `ov_config` は、低レイテンシを優先し、1つの推論ストリームを使用し、キャッシュディレクトリを使用しないようにOpenVINOモデルを設定する辞書です。
 
 4. **モデルの読み込み**:
    ```python
@@ -41,21 +41,21 @@
        trust_remote_code=True,
    )
    ```
-   - この行は、指定されたディレクトリから設定を使用してモデルを読み込みます。また、必要に応じてリモートコードの実行を許可します。
+   - この行は、指定されたディレクトリから設定を使用してモデルを読み込みます。必要に応じてリモートコードの実行も許可します。
 
 5. **トークナイザーの読み込み**:
    ```python
    tok = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
    ```
-   - この行は、モデルが理解できるトークンにテキストを変換するトークナイザーを読み込みます。
+   - この行は、テキストをモデルが理解できるトークンに変換する役割を持つトークナイザーを読み込みます。
 
-6. **トークナイザーの引数設定**:
+6. **トークナイザーの引数の設定**:
    ```python
    tokenizer_kwargs = {
        "add_special_tokens": False
    }
    ```
-   - この辞書は、トークン化された出力に特別なトークンを追加しないことを指定します。
+   - この辞書は、特別なトークンをトークナイズされた出力に追加しないように指定します。
 
 7. **プロンプトの定義**:
    ```python
@@ -63,7 +63,7 @@
    ```
    - この文字列は、ユーザーがAIアシスタントに自己紹介を求める会話プロンプトを設定します。
 
-8. **プロンプトのトークン化**:
+8. **プロンプトのトークナイズ**:
    ```python
    input_tokens = tok(prompt, return_tensors="pt", **tokenizer_kwargs)
    ```
@@ -73,7 +73,7 @@
    ```python
    answer = ov_model.generate(**input_tokens, max_new_tokens=1024)
    ```
-   - この行は、入力トークンに基づいてモデルが応答を生成し、最大1024の新しいトークンを生成します。
+   - この行は、入力トークンに基づいて最大1024個の新しいトークンを生成するためにモデルを使用します。
 
 10. **応答のデコード**:
     ```python
@@ -81,3 +81,5 @@
     ```
     - この行は、生成されたトークンを人間が読める文字列に変換し、特別なトークンをスキップして最初の結果を取得します。
 
+**免責事項**:
+この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期しておりますが、自動翻訳には誤りや不正確さが含まれる可能性があります。元の言語の文書を権威ある情報源と見なしてください。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤認について、当社は一切の責任を負いません。

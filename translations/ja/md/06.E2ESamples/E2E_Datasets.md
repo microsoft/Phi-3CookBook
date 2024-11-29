@@ -1,8 +1,8 @@
 # **業界データの準備**
 
-Phi-3-miniを[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)に組み込みたいと考えています。最初のステップは、TruthfulQAのデータをインポートすることです。
+Phi-3-miniを[TruthfulQAのデータ](https://github.com/sylinrl/TruthfulQA/blob/main/TruthfulQA.csv)に注入したいと考えています。最初のステップはTruthfulQAのデータをインポートすることです。
 
-### **1. データをcsv形式で読み込み、json形式で保存する**
+### **1. データをcsvにロードしてjsonに保存**
 
 ```python
 
@@ -32,13 +32,13 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 ```
 
-### **2. データをAzure MLデータストアにアップロードする**
+### **2. データをAzure MLデータストアにアップロード**
 
 ![amldata](../../../../translated_images/azureml_data.0f744f2ec5ea3cac9cbaa3cf7051235bb5b575de80e40a97619ae6f86d696c8f.ja.png)
 
 ### **おめでとうございます！**
 
-データの読み込みが成功しました。次に、Microsoft Oliveを通じてデータと関連するアルゴリズムを設定する必要があります。[E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
+データが正常にロードされました。次に、データと関連するアルゴリズムをMicrosoft Oliveを通じて設定する必要があります。[E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
 
-**免責事項**:
-この文書は機械ベースのAI翻訳サービスを使用して翻訳されています。正確性を期していますが、自動翻訳には誤りや不正確さが含まれる場合があります。元の言語の文書が権威ある情報源と見なされるべきです。重要な情報については、専門の人間による翻訳をお勧めします。この翻訳の使用によって生じる誤解や誤訳について、当社は一切の責任を負いません。
+**免責事項**：
+この文書は機械翻訳サービスを使用して翻訳されています。正確さを期しておりますが、自動翻訳には誤りや不正確さが含まれる場合があります。原文の言語で記載された文書が公式な情報源と見なされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用により生じた誤解や誤訳について、当社は一切の責任を負いません。

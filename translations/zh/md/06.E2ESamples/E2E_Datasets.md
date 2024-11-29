@@ -29,6 +29,7 @@ with open('./output/TruthfulQA.json', 'r') as file:
         print(str(i))
         i+=1
 
+
 ```
 
 ### **2. 将数据上传到 Azure ML 数据存储**
@@ -39,4 +40,5 @@ with open('./output/TruthfulQA.json', 'r') as file:
 
 您的数据已成功加载。接下来，您需要通过 Microsoft Olive 配置您的数据和相关算法 [E2E_LoRA&QLoRA_Config_With_Olive.md](./E2E_LoRA&QLoRA_Config_With_Olive.md)
 
-免责声明：此翻译由AI模型从原文翻译而来，可能并不完美。请审阅输出内容并进行必要的修改。
+**免责声明**:
+本文档已使用基于机器的AI翻译服务进行翻译。尽管我们努力确保准确性，但请注意，自动翻译可能包含错误或不准确之处。应将原始文档的母语版本视为权威来源。对于关键信息，建议进行专业的人类翻译。对于因使用本翻译而引起的任何误解或误读，我们概不负责。

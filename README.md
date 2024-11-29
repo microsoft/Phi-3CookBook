@@ -21,7 +21,7 @@ Follow these steps:
 1. **Fork the Repository**: Click on the "Fork" button at the top-right corner of this page.
 2. **Clone the Repository**:   `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](./imgs/00/Phi3getstarted.png)
 
 ## Table of Contents
 
@@ -179,12 +179,12 @@ You can also find the model on the [Hugging Face](https://huggingface.co/microso
 
 | Language             | Code | Link to Translated README                               | Last Updated |
 |----------------------|------|---------------------------------------------------------|--------------|
-| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-10-04   |
-| Chinese (Traditional)| tw   | [Chinese Translation](./translations/tw/README.md)      | 2024-10-04   |
-| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-10-04   |
-| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-10-04   |
-| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-10-04   |
-| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-10-04   |
+| Chinese (Simplified) | zh   | [Chinese Translation](./translations/zh/README.md)      | 2024-11-29   |
+| Chinese (Traditional)| tw   | [Chinese Translation](./translations/tw/README.md)      | 2024-11-29   |
+| French               | fr   | [French Translation](./translations/fr/README.md)       | 2024-11-29   |
+| Japanese             | ja   | [Japanese Translation](./translations/ja/README.md)     | 2024-11-29   |
+| Korean               | ko   | [Korean Translation](./translations/ko/README.md)       | 2024-11-29   |
+| Spanish              | es   | [Spanish Translation](./translations/es/README.md)      | 2024-11-29   |
 
 ## Trademarks
 

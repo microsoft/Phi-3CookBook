@@ -1,6 +1,6 @@
-# **Inférence Phi-3 sur iOS**
+# **Inference Phi-3 sur iOS**
 
-Phi-3-mini est une nouvelle série de modèles de Microsoft qui permet le déploiement de Large Language Models (LLMs) sur des appareils edge et des dispositifs IoT. Phi-3-mini est disponible pour des déploiements sur iOS, Android et appareils edge, permettant ainsi de déployer l'IA générative dans des environnements BYOD. L'exemple suivant montre comment déployer Phi-3-mini sur iOS.
+Phi-3-mini est une nouvelle série de modèles de Microsoft qui permet le déploiement de modèles de langage de grande taille (LLM) sur des appareils périphériques et des dispositifs IoT. Phi-3-mini est disponible pour les déploiements sur iOS, Android et appareils Edge, permettant ainsi le déploiement de l'IA générative dans des environnements BYOD. L'exemple suivant montre comment déployer Phi-3-mini sur iOS.
 
 ## **1. Préparation**
 
@@ -11,13 +11,13 @@ Phi-3-mini est une nouvelle série de modèles de Microsoft qui permet le déplo
 - **e.** Installer la bibliothèque Python : `python-flatbuffers`
 - **f.** Installer CMake
 
-### Semantic Kernel et Inférence
+### Semantic Kernel et Inference
 
-Semantic Kernel est un framework d'application qui permet de créer des applications compatibles avec Azure OpenAI Service, les modèles OpenAI et même des modèles locaux. Accéder aux services locaux via Semantic Kernel permet une intégration facile avec votre serveur de modèle Phi-3-mini auto-hébergé.
+Semantic Kernel est un framework d'application qui vous permet de créer des applications compatibles avec Azure OpenAI Service, les modèles OpenAI, et même les modèles locaux. Accéder aux services locaux via Semantic Kernel permet une intégration facile avec votre serveur de modèle Phi-3-mini auto-hébergé.
 
-### Appeler des Modèles Quantifiés avec Ollama ou LlamaEdge
+### Appeler des modèles quantifiés avec Ollama ou LlamaEdge
 
-Beaucoup d'utilisateurs préfèrent utiliser des modèles quantifiés pour exécuter des modèles localement. [Ollama](https://ollama.com) et [LlamaEdge](https://llamaedge.com) permettent aux utilisateurs d'appeler différents modèles quantifiés :
+De nombreux utilisateurs préfèrent utiliser des modèles quantifiés pour exécuter des modèles localement. [Ollama](https://ollama.com) et [LlamaEdge](https://llamaedge.com) permettent aux utilisateurs d'appeler différents modèles quantifiés :
 
 #### **Ollama**
 
@@ -50,7 +50,7 @@ cd ../
 
 ### **Remarque**
 
-- **a.** Avant de compiler, assurez-vous que Xcode est correctement configuré et définissez-le comme le répertoire de développeur actif dans le terminal :
+- **a.** Avant de compiler, assurez-vous que Xcode est correctement configuré et définissez-le comme répertoire développeur actif dans le terminal :
 
     ```bash
     sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
@@ -60,9 +60,9 @@ cd ../
 
 - **c.** Il est recommandé d'utiliser le dernier SDK iOS pour la compilation. Cependant, vous pouvez également utiliser une version plus ancienne si vous avez besoin de compatibilité avec des SDK précédents.
 
-## **3. Compiler l'IA Générative avec ONNX Runtime pour iOS**
+## **3. Compiler l'IA générative avec ONNX Runtime pour iOS**
 
-> **Note :** Comme l'IA Générative avec ONNX Runtime est en aperçu, veuillez être conscient des changements potentiels.
+> **Note :** Étant donné que l'IA générative avec ONNX Runtime est en aperçu, veuillez être conscient des changements potentiels.
 
 ```bash
 
@@ -92,13 +92,13 @@ python3 build.py --parallel --build_dir ./build_ios --ios --ios_sysroot iphoneos
 
 ## **4. Créer une application App dans Xcode**
 
-J'ai choisi Objective-C comme méthode de développement de l'application, car l'utilisation de l'IA Générative avec l'API C++ d'ONNX Runtime est mieux compatible avec Objective-C. Bien sûr, vous pouvez également effectuer les appels associés via un pont Swift.
+J'ai choisi Objective-C comme méthode de développement de l'application, car en utilisant l'IA générative avec l'API C++ d'ONNX Runtime, Objective-C est mieux compatible. Bien sûr, vous pouvez également effectuer des appels connexes via le pont Swift.
 
 ![xcode](../../../../translated_images/xcode.2817f1d089dc7d09ba6a41361db7052567d63f714062e2e4325b0e0895ccb4c4.fr.png)
 
-## **5. Copier le modèle quantifié INT4 ONNX dans le projet de l'application**
+## **5. Copier le modèle quantifié INT4 ONNX dans le projet d'application App**
 
-Nous devons importer le modèle de quantification INT4 au format ONNX, qui doit d'abord être téléchargé.
+Nous devons importer le modèle de quantification INT4 au format ONNX, qu'il faut d'abord télécharger
 
 ![hf](../../../../translated_images/hf.dd843c3e95f3b462a3d5f06dbbb17c1f1a33b87688c1cda4d990084ef71a4eed.fr.png)
 
@@ -106,15 +106,15 @@ Après le téléchargement, vous devez l'ajouter au répertoire Resources du pro
 
 ![model](../../../../translated_images/model.2b8e95a590e70374b2294b16f8ae18c9110239a550e64dc034d6bc16d37e0106.fr.png)
 
-## **6. Ajouter l'API C++ dans ViewControllers**
+## **6. Ajouter l'API C++ dans les ViewControllers**
 
 > **Remarque :**
 
-- **a.** Ajoutez les fichiers d'en-tête C++ correspondants au projet.
+- **a.** Ajouter les fichiers d'en-tête C++ correspondants au projet.
 
   ![Header File](../../../../translated_images/head.7eeb79e1de8f375590e7a5c54fcc8278d265fee3135ebce9c8e241e08d823f7c.fr.png)
 
-- **b.** Incluez `onnxruntime-genai` dynamic library in Xcode.
+- **b.** Inclure `onnxruntime-genai` dynamic library in Xcode.
 
   ![Library](../../../../translated_images/lib.9388329df08543518d094d14c8ca0c8e6f0ce264ee68630a8c5c3d783355b6d1.fr.png)
 
@@ -155,7 +155,7 @@ Une fois la configuration terminée, vous pouvez exécuter l'application pour vo
 
 ![Running Result](../../../../translated_images/result.a2debbd16a6697a8cbd23dadff703358ea87eee7d68f0643b83707a578ca73e8.fr.jpg)
 
-Pour plus de code d'exemple et d'instructions détaillées, visitez le [dépôt des exemples Phi-3 Mini](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios).
+Pour plus d'exemples de code et d'instructions détaillées, visitez le [référentiel Phi-3 Mini Samples](https://github.com/Azure-Samples/Phi-3MiniSamples/tree/main/ios).
 
 **Avertissement** :
-Ce document a été traduit en utilisant des services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations cruciales, il est recommandé de faire appel à une traduction humaine professionnelle. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.
+Ce document a été traduit à l'aide de services de traduction automatique basés sur l'IA. Bien que nous nous efforcions d'assurer l'exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d'origine doit être considéré comme la source faisant autorité. Pour des informations critiques, une traduction humaine professionnelle est recommandée. Nous ne sommes pas responsables des malentendus ou des interprétations erronées résultant de l'utilisation de cette traduction.

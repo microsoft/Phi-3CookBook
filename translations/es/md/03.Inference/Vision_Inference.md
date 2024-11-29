@@ -1,6 +1,6 @@
 # **Inferencia Phi-3-Vision en Local**
 
-Phi-3-vision-128k-instruct permite que Phi-3 no solo entienda el lenguaje, sino que también vea el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, describir imágenes, etc. Podemos completar fácilmente tareas que antes requerían mucho entrenamiento de datos. A continuación se presentan técnicas relacionadas y escenarios de aplicación citados por Phi-3-vision-128k-instruct.
+Phi-3-vision-128k-instruct permite que Phi-3 no solo entienda el lenguaje, sino que también vea el mundo visualmente. A través de Phi-3-vision-128k-instruct, podemos resolver diferentes problemas visuales, como OCR, análisis de tablas, reconocimiento de objetos, describir la imagen, etc. Podemos completar fácilmente tareas que antes requerían mucho entrenamiento de datos. Las siguientes son técnicas y escenarios de aplicación relacionados citados por Phi-3-vision-128k-instruct.
 
 ## **0. Preparación**
 
@@ -18,7 +18,7 @@ Se recomienda usar ***CUDA 11.6+*** e instalar flatten
 pip install flash-attn --no-build-isolation
 ```
 
-Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que crees primero el siguiente contenido.
+Crea un nuevo Notebook. Para completar los ejemplos, se recomienda que primero crees el siguiente contenido.
 
 ```python
 from PIL import Image
@@ -42,7 +42,7 @@ prompt_suffix = "<|end|>\n"
 
 ## **1. Analizar la imagen con Phi-3-Vision**
 
-Queremos que la IA pueda analizar el contenido de nuestras imágenes y dar descripciones relevantes
+Queremos que la IA sea capaz de analizar el contenido de nuestras imágenes y dar descripciones relevantes.
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
@@ -65,7 +65,7 @@ response = processor.batch_decode(generate_ids,
                                   clean_up_tokenization_spaces=False)[0]
 ```
 
-Podemos obtener las respuestas relevantes ejecutando el siguiente script en el Notebook
+Podemos obtener las respuestas relevantes ejecutando el siguiente script en el Notebook.
 
 ```txt
 Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
@@ -73,7 +73,7 @@ Certainly! Nvidia Corporation is a global leader in advanced computing and artif
 
 ## **2. OCR con Phi-3-Vision**
 
-Además de analizar la imagen, también podemos extraer información de la imagen. Este es el proceso de OCR que antes necesitábamos escribir código complejo para completar.
+Además de analizar la imagen, también podemos extraer información de la imagen. Este es el proceso de OCR que solíamos necesitar escribir código complejo para completar.
 
 ```python
 prompt = f"{user_prompt}<|image_1|>\nHelp me get the title and author information of this book?{prompt_suffix}{assistant_prompt}"
@@ -140,5 +140,5 @@ El resultado es
 The first image shows a group of soccer players from the Arsenal Football Club posing for a team photo with their trophies, while the second image shows a group of soccer players from the Arsenal Football Club celebrating a victory with a large crowd of fans in the background. The difference between the two images is the context in which the photos were taken, with the first image focusing on the team and their trophies, and the second image capturing a moment of celebration and victory.
 ```
 
-**Descargo de responsabilidad**:
-Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.
+        **Descargo de responsabilidad**:
+        Este documento ha sido traducido utilizando servicios de traducción automática basados en inteligencia artificial. Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción humana profesional. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.

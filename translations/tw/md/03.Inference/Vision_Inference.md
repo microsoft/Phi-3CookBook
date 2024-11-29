@@ -1,31 +1,26 @@
-# **本地推理 Phi-3-Vision**
+# **在本地运行 Phi-3-Vision 推理**
 
-Phi-3-vision-128k-instruct 讓 Phi-3 不僅能理解語言，還能視覺化地看世界。通過 Phi-3-vision-128k-instruct，我們可以解決不同的視覺問題，比如 OCR、表格分析、物體識別、圖片描述等。我們可以輕鬆完成以前需要大量數據訓練的任務。以下是 Phi-3-vision-128k-instruct 引用的相關技術和應用場景。
+Phi-3-vision-128k-instruct 让 Phi-3 不仅能理解语言，还能视觉化地看世界。通过 Phi-3-vision-128k-instruct，我们可以解决不同的视觉问题，比如 OCR、表格分析、物体识别、图片描述等。我们可以轻松完成以前需要大量数据训练的任务。以下是 Phi-3-vision-128k-instruct 引用的相关技术和应用场景。
 
-## **0. 準備工作**
+## **0. 准备工作**
 
-請確保在使用前已安裝以下 Python 庫（建議使用 Python 3.10+）
+在使用前，请确保已安装以下 Python 库（推荐使用 Python 3.10+）
 
 ```bash
-
 pip install transformers -U
 pip install datasets -U
 pip install torch -U
-
 ```
 
-建議使用 ***CUDA 11.6+*** 並安裝 flatten
+推荐使用 ***CUDA 11.6+*** 并安装 flatten
 
 ```bash
-
 pip install flash-attn --no-build-isolation
-
 ```
 
-創建一個新的 Notebook。為了完成示例，建議您首先創建以下內容。
+创建一个新的 Notebook。为了完成示例，建议你首先创建以下内容。
 
 ```python
-
 from PIL import Image
 import requests
 import torch
@@ -43,15 +38,13 @@ model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, t
 user_prompt = '<|user|>\n'
 assistant_prompt = '<|assistant|>\n'
 prompt_suffix = "<|end|>\n"
-
 ```
 
-## **1. 使用 Phi-3-Vision 分析圖像**
+## **1. 使用 Phi-3-Vision 分析图像**
 
-我們希望 AI 能夠分析我們圖片的內容並給出相關描述。
+我们希望 AI 能够分析我们图片的内容并给出相关描述
 
 ```python
-
 prompt = f"{user_prompt}<|image_1|>\nCould you please introduce this stock to me?{prompt_suffix}{assistant_prompt}"
 
 
@@ -70,23 +63,19 @@ generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 response = processor.batch_decode(generate_ids, 
                                   skip_special_tokens=True, 
                                   clean_up_tokenization_spaces=False)[0]
-
 ```
 
-我們可以通過在 Notebook 中執行以下腳本來獲得相關答案。
+我们可以通过在 Notebook 中执行以下脚本来获取相关答案
 
 ```txt
-
 Certainly! Nvidia Corporation is a global leader in advanced computing and artificial intelligence (AI). The company designs and develops graphics processing units (GPUs), which are specialized hardware accelerators used to process and render images and video. Nvidia's GPUs are widely used in professional visualization, data centers, and gaming. The company also provides software and services to enhance the capabilities of its GPUs. Nvidia's innovative technologies have applications in various industries, including automotive, healthcare, and entertainment. The company's stock is publicly traded and can be found on major stock exchanges.
-
 ```
 
-## **2. 使用 Phi-3-Vision 進行 OCR**
+## **2. 使用 Phi-3-Vision 进行 OCR**
 
-除了分析圖像，我們還可以從圖像中提取信息。這是我們以前需要編寫複雜代碼才能完成的 OCR 過程。
+除了分析图像，我们还可以从图像中提取信息。这是我们以前需要编写复杂代码才能完成的 OCR 过程。
 
 ```python
-
 prompt = f"{user_prompt}<|image_1|>\nHelp me get the title and author information of this book?{prompt_suffix}{assistant_prompt}"
 
 url = "https://marketplace.canva.com/EAFPHUaBrFc/1/0/1003w/canva-black-and-white-modern-alone-story-book-cover-QHBKwQnsgzs.jpg"
@@ -106,23 +95,19 @@ response = processor.batch_decode(generate_ids,
                                   skip_special_tokens=False, 
                                   clean_up_tokenization_spaces=False)[0]
 
-
 ```
 
-結果是
+结果是
 
 ```txt
-
 The title of the book is "ALONE" and the author is Morgan Maxwell.
-
 ```
 
-## **3. 多圖像比較**
+## **3. 多图比较**
 
-Phi-3 Vision 支持多圖像比較。我們可以使用這個模型來找出圖像之間的差異。
+Phi-3 Vision 支持多图比较。我们可以使用这个模型来找出图像之间的差异。
 
 ```python
-
 prompt = f"{user_prompt}<|image_1|>\n<|image_2|>\n What is difference in this two images?{prompt_suffix}{assistant_prompt}"
 
 print(f">>> Prompt\n{prompt}")
@@ -147,18 +132,13 @@ generate_ids = model.generate(**inputs,
 generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 
 response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-
-
-
 ```
 
-結果是
+结果是
 
 ```txt
-
 The first image shows a group of soccer players from the Arsenal Football Club posing for a team photo with their trophies, while the second image shows a group of soccer players from the Arsenal Football Club celebrating a victory with a large crowd of fans in the background. The difference between the two images is the context in which the photos were taken, with the first image focusing on the team and their trophies, and the second image capturing a moment of celebration and victory.
-
 ```
 
 **免責聲明**：
-本文檔是使用機器翻譯服務進行翻譯的。儘管我們努力確保準確性，但請注意，自動翻譯可能包含錯誤或不準確之處。應以原始語言的文件為權威來源。對於關鍵信息，建議尋求專業人工翻譯。我們對使用此翻譯而引起的任何誤解或誤釋不承擔任何責任。
+本文件使用機器翻譯服務進行翻譯。儘管我們努力保證準確性，請注意自動翻譯可能包含錯誤或不準確之處。應以原文文件作為權威來源。對於關鍵信息，建議尋求專業人工翻譯。我們不對因使用此翻譯而引起的任何誤解或誤讀負責。

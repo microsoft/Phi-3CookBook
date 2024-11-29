@@ -1,6 +1,6 @@
 # Inferencia multiplataforma con Rust
 
-Este tutorial nos guiará a través del proceso de realizar inferencias usando Rust y el [framework Candle ML](https://github.com/huggingface/candle) de HuggingFace. Usar Rust para inferencia ofrece varias ventajas, especialmente en comparación con otros lenguajes de programación. Rust es conocido por su alto rendimiento, comparable al de C y C++. Esto lo convierte en una excelente opción para tareas de inferencia, que pueden ser computacionalmente intensivas. En particular, esto se debe a las abstracciones de costo cero y a la gestión eficiente de memoria, sin la sobrecarga de recolección de basura. Las capacidades multiplataforma de Rust permiten desarrollar código que se ejecute en varios sistemas operativos, incluyendo Windows, macOS y Linux, así como en sistemas operativos móviles, sin cambios significativos en la base de código.
+Este tutorial nos guiará a través del proceso de realizar inferencia utilizando Rust y el [marco de trabajo Candle ML](https://github.com/huggingface/candle) de HuggingFace. Usar Rust para la inferencia ofrece varias ventajas, especialmente en comparación con otros lenguajes de programación. Rust es conocido por su alto rendimiento, comparable al de C y C++. Esto lo convierte en una excelente opción para tareas de inferencia, que pueden ser intensivas en computación. En particular, esto se debe a las abstracciones sin costo y la gestión eficiente de la memoria, que no tiene sobrecarga de recolección de basura. Las capacidades multiplataforma de Rust permiten el desarrollo de código que se ejecuta en varios sistemas operativos, incluyendo Windows, macOS y Linux, así como en sistemas operativos móviles, sin cambios significativos en la base de código.
 
 El requisito previo para seguir este tutorial es [instalar Rust](https://www.rust-lang.org/tools/install), que incluye el compilador de Rust y Cargo, el gestor de paquetes de Rust.
 
@@ -12,9 +12,9 @@ Para crear un nuevo proyecto en Rust, ejecuta el siguiente comando en la termina
 cargo new phi-console-app
 ```
 
-Esto genera una estructura inicial del proyecto con un archivo `Cargo.toml` y un directorio `src` que contiene un archivo `main.rs`.
+Esto genera una estructura de proyecto inicial con un archivo `Cargo.toml` file and a `src` directory containing a `main.rs` file.
 
-A continuación, agregaremos nuestras dependencias - concretamente los crates `candle`, `hf-hub` y `tokenizers` - al archivo `Cargo.toml`:
+Next, we will add our dependencies - namely the `candle`, `hf-hub` and `tokenizers` crates - to the `Cargo.toml`:
 
 ```toml
 [package]
@@ -32,7 +32,7 @@ tokenizers = "0.15.2"
 
 ## Paso 2: Configurar Parámetros Básicos
 
-Dentro del archivo main.rs, configuraremos los parámetros iniciales para nuestra inferencia. Todos estarán codificados de forma fija para simplificar, pero podemos modificarlos según sea necesario.
+Dentro del archivo main.rs, configuraremos los parámetros iniciales para nuestra inferencia. Todos estarán codificados para simplicidad, pero podemos modificarlos según sea necesario.
 
 ```rust
 let temperature: f64 = 1.0;
@@ -49,13 +49,13 @@ let device = Device::Cpu;
 - **temperature**: Controla la aleatoriedad del proceso de muestreo.
 - **sample_len**: Especifica la longitud máxima del texto generado.
 - **top_p**: Se utiliza para el muestreo de núcleo para limitar el número de tokens considerados en cada paso.
-- **repeat_last_n**: Controla el número de tokens considerados para aplicar una penalización y prevenir secuencias repetitivas.
-- **repeat_penalty**: El valor de la penalización para desalentar tokens repetidos.
+- **repeat_last_n**: Controla el número de tokens considerados para aplicar una penalización y evitar secuencias repetitivas.
+- **repeat_penalty**: El valor de la penalización para desalentar los tokens repetidos.
 - **seed**: Una semilla aleatoria (podríamos usar un valor constante para una mejor reproducibilidad).
-- **prompt**: El texto inicial para comenzar la generación. Observa que pedimos al modelo que genere un haiku sobre el hockey sobre hielo, y que lo envolvemos con tokens especiales para indicar las partes del usuario y el asistente de la conversación. El modelo completará el prompt con un haiku.
-- **device**: Usamos la CPU para el cálculo en este ejemplo. Candle soporta la ejecución en GPU con CUDA y Metal también.
+- **prompt**: El texto inicial para comenzar la generación. Observa que le pedimos al modelo que genere un haiku sobre hockey sobre hielo, y que lo envolvemos con tokens especiales para indicar las partes del usuario y el asistente de la conversación. El modelo completará el prompt con un haiku.
+- **device**: Usamos la CPU para el cálculo en este ejemplo. Candle también soporta la ejecución en GPU con CUDA y Metal.
 
-## Paso 3: Descargar/Preparar el Modelo y el Tokenizador
+## Paso 3: Descargar/Preparar Modelo y Tokenizador
 
 ```rust
 let api = hf_hub::api::sync::Api::new()?;
@@ -73,9 +73,9 @@ let tokenizer_path = api
 let tokenizer = Tokenizer::from_file(tokenizer_path).map_err(|e| e.to_string())?;
 ```
 
-Usamos la API `hf_hub` para descargar los archivos del modelo y del tokenizador desde el hub de modelos de Hugging Face. El archivo `gguf` contiene los pesos del modelo cuantizado, mientras que el archivo `tokenizer.json` se utiliza para tokenizar nuestro texto de entrada. Una vez descargado, el modelo se almacena en caché, por lo que la primera ejecución será lenta (ya que descarga los 2.4GB del modelo) pero las ejecuciones posteriores serán más rápidas.
+Utilizamos el archivo `hf_hub` API to download the model and tokenizer files from the Hugging Face model hub. The `gguf` file contains the quantized model weights, while the `tokenizer.json` para tokenizar nuestro texto de entrada. Una vez descargado, el modelo se almacena en caché, por lo que la primera ejecución será lenta (ya que descarga los 2.4GB del modelo), pero las ejecuciones posteriores serán más rápidas.
 
-## Paso 4: Cargar el Modelo
+## Paso 4: Cargar Modelo
 
 ```rust
 let mut file = std::fs::File::open(&model_path)?;
@@ -111,9 +111,9 @@ for (pos, &token) in tokens.iter().enumerate() {
 }
 ```
 
-En este paso, tokenizamos el prompt de entrada y lo preparamos para la inferencia convirtiéndolo en una secuencia de IDs de tokens. También inicializamos el `LogitsProcessor` para manejar el proceso de muestreo (distribución de probabilidad sobre el vocabulario) basado en los valores dados de `temperature` y `top_p`. Cada token se convierte en un tensor y se pasa por el modelo para obtener los logits.
+En este paso, tokenizamos el prompt de entrada y lo preparamos para la inferencia convirtiéndolo en una secuencia de IDs de tokens. También inicializamos los valores de `LogitsProcessor` to handle the sampling process (probability distribution over the vocabulary) based on the given `temperature` and `top_p`. Cada token se convierte en un tensor y se pasa por el modelo para obtener los logits.
 
-El bucle procesa cada token en el prompt, actualizando el procesador de logits y preparando la generación del próximo token.
+El bucle procesa cada token en el prompt, actualizando el procesador de logits y preparándose para la generación del siguiente token.
 
 ## Paso 6: Inferencia
 
@@ -151,8 +151,8 @@ for index in 0..to_sample {
 }
 ```
 
-En el bucle de inferencia, generamos tokens uno por uno hasta alcanzar la longitud de muestra deseada o encontrar el token de fin de secuencia. El próximo token se convierte en un tensor y se pasa por el modelo, mientras que los logits se procesan para aplicar penalizaciones y muestreo. Luego se muestrea el próximo token, se decodifica y se añade a la secuencia.
-Para evitar texto repetitivo, se aplica una penalización a los tokens repetidos basada en los parámetros `repeat_last_n` y `repeat_penalty`.
+En el bucle de inferencia, generamos tokens uno por uno hasta alcanzar la longitud de muestra deseada o encontrar el token de fin de secuencia. El siguiente token se convierte en un tensor y se pasa por el modelo, mientras que los logits se procesan para aplicar penalizaciones y muestreo. Luego, se muestrea el siguiente token, se decodifica y se añade a la secuencia.
+Para evitar texto repetitivo, se aplica una penalización a los tokens repetidos basada en los parámetros `repeat_last_n` and `repeat_penalty`.
 
 Finalmente, el texto generado se imprime a medida que se decodifica, asegurando una salida en tiempo real.
 
@@ -167,24 +167,24 @@ cargo run --release
 Esto debería imprimir un haiku sobre hockey sobre hielo generado por el modelo Phi-3. Algo como:
 
 ```
-El puck se desliza,
-Patines en hielo bailan—paz hallada 
-en la fría batalla.
+Puck glides swiftly,  
+Blades on ice dance and clash—peace found 
+in the cold battle.
 ```
 
 o
 
 ```
-Puck brillante desliza,
-En el escenario silencioso del hielo prospera—
-Susurro de palos ahora vivo.
+Glistening puck glides in,
+On ice rink's silent stage it thrives—
+Swish of sticks now alive.
 ```
 
 ## Conclusión
 
-Siguiendo estos pasos, podemos realizar generación de texto usando el modelo Phi-3 con Rust y Candle en menos de 100 líneas de código. El código maneja la carga del modelo, la tokenización y la inferencia, aprovechando tensores y el procesamiento de logits para generar texto coherente basado en el prompt de entrada.
+Siguiendo estos pasos, podemos realizar generación de texto utilizando el modelo Phi-3 con Rust y Candle en menos de 100 líneas de código. El código maneja la carga del modelo, la tokenización y la inferencia, aprovechando tensores y el procesamiento de logits para generar texto coherente basado en el prompt de entrada.
 
-Esta aplicación de consola puede ejecutarse en Windows, Linux y Mac OS. Debido a la portabilidad de Rust, el código también puede adaptarse a una biblioteca que se ejecute dentro de aplicaciones móviles (después de todo, no podemos ejecutar aplicaciones de consola allí).
+Esta aplicación de consola puede ejecutarse en Windows, Linux y Mac OS. Debido a la portabilidad de Rust, el código también puede adaptarse a una biblioteca que se ejecutaría dentro de aplicaciones móviles (después de todo, no podemos ejecutar aplicaciones de consola allí).
 
 ## Apéndice: código completo
 
@@ -199,7 +199,7 @@ use tokenizers::Tokenizer;
 use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    // 1. configurar parámetros básicos
+    // 1. configure basic parameters
     let temperature: f64 = 1.0;
     let sample_len: usize = 100;
     let top_p: Option<f64> = None;
@@ -209,10 +209,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     let seed: u64 = rng.gen();
     let prompt = "<|user|>\nWrite a haiku about ice hockey<|end|>\n<|assistant|>";
 
-    // vamos a usar solo la CPU
+    // we will be running on CPU only
     let device = Device::Cpu;
 
-    // 2. descargar/preparar modelo y tokenizador
+    // 2. download/prepare model and tokenizer
     let api = hf_hub::api::sync::Api::new()?;
     let model_path = api
         .repo(hf_hub::Repo::with_revision(
@@ -227,12 +227,12 @@ fn main() -> Result<(), Box<dyn Error>> {
         .get("tokenizer.json")?;
     let tokenizer = Tokenizer::from_file(tokenizer_path).map_err(|e| e.to_string())?;
 
-    // 3. cargar modelo
+    // 3. load model
     let mut file = std::fs::File::open(&model_path)?;
     let model_content = gguf_file::Content::read(&mut file)?;
     let mut model = Phi3::from_gguf(false, model_content, &mut file, &device)?;
 
-    // 4. procesar prompt y preparar para la inferencia
+    // 4. process prompt and prepare for inference
     let tokens = tokenizer.encode(prompt, true).map_err(|e| e.to_string())?;
     let tokens = tokens.get_ids();
     let to_sample = sample_len.saturating_sub(1);
@@ -249,14 +249,14 @@ fn main() -> Result<(), Box<dyn Error>> {
         let logits = model.forward(&input, pos)?;
         let logits = logits.squeeze(0)?;
 
-        // Muestrear el siguiente token solo para el último token en el prompt
+        // Sample next token only for the last token in the prompt
         if pos == tokens.len() - 1 {
             next_token = logits_processor.sample(&logits)?;
             all_tokens.push(next_token);
         }
     }
 
-    // 5. inferencia
+    // 5. inference
     for index in 0..to_sample {
         let input = Tensor::new(&[next_token], &device)?.unsqueeze(0)?;
         let logits = model.forward(&input, tokens.len() + index)?;
@@ -275,10 +275,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         next_token = logits_processor.sample(&logits)?;
         all_tokens.push(next_token);
 
-        // decodificar la secuencia actual de tokens
+        // decode the current sequence of tokens
         let decoded_text = tokenizer.decode(&all_tokens, true).map_err(|e| e.to_string())?;
 
-        // solo imprimir la nueva parte del texto decodificado
+        // only print the new part of the decoded text
         if decoded_text.len() > prev_text_len {
             let new_text = &decoded_text[prev_text_len..];
             print!("{new_text}");
@@ -311,5 +311,5 @@ rustflags = [
 
 > Puedes visitar el repositorio oficial de [ejemplos de Candle](https://github.com/huggingface/candle/blob/main/candle-examples/examples/quantized-phi/main.rs) para más ejemplos sobre cómo usar el modelo Phi-3 con Rust y Candle, incluyendo enfoques alternativos para la inferencia.
 
-Aviso legal: La traducción fue realizada a partir del original por un modelo de IA y puede no ser perfecta. 
-Por favor, revise el resultado y haga las correcciones necesarias.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando servicios de traducción automática basados en IA. Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o imprecisiones. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de ningún malentendido o interpretación errónea que surja del uso de esta traducción.
