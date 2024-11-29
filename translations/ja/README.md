@@ -21,7 +21,7 @@ Phiは、Microsoftが開発したオープンAIモデルのファミリーです
 1. **リポジトリをフォークする**: このページの右上にある「Fork」ボタンをクリックします。
 2. **リポジトリをクローンする**: `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](../../translated_images/Phi3getstarted.c1007f2db4d0afcbdc1bc61fd0caefa8b173a8ba93c4c19814d984c5bd2df3c4.ja.png)
 
 ## 目次
 

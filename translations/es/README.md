@@ -21,7 +21,7 @@ Sigue estos pasos:
 1. **Haz un Fork del Repositorio**: Haz clic en el botón "Fork" en la esquina superior derecha de esta página.
 2. **Clona el Repositorio**:   `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](../../translated_images/Phi3getstarted.c1007f2db4d0afcbdc1bc61fd0caefa8b173a8ba93c4c19814d984c5bd2df3c4.es.png)
 
 ## Tabla de Contenidos
 

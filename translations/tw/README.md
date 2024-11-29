@@ -21,7 +21,7 @@ Phi 是微軟開發的一系列開源 AI 模型。Phi 模型是目前最強大�
 1. **Fork 這個倉庫**：點擊這個頁面右上角的 "Fork" 按鈕。
 2. **Clone 這個倉庫**：  `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](../../translated_images/Phi3getstarted.c1007f2db4d0afcbdc1bc61fd0caefa8b173a8ba93c4c19814d984c5bd2df3c4.tw.png)
 
 ## 目錄
 

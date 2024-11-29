@@ -20,7 +20,7 @@ Phi 是微软开发的一系列开放AI模型。Phi模型是现有最强大且�
 1. **Fork此仓库**：点击本页面右上角的“Fork”按钮。
 2. **克隆此仓库**：   `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](../../translated_images/Phi3getstarted.c1007f2db4d0afcbdc1bc61fd0caefa8b173a8ba93c4c19814d984c5bd2df3c4.zh.png)
 
 ## 目录
 

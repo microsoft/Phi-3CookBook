@@ -20,7 +20,7 @@ Phi는 Microsoft가 개발한 오픈 AI 모델 패밀리입니다. Phi 모델은
 1. **저장소 포크하기**: 이 페이지의 오른쪽 상단에 있는 "Fork" 버튼을 클릭하세요.
 2. **저장소 클론하기**: `git clone https://github.com/microsoft/Phi-3CookBook.git`
 
-![Phi3Family](/imgs/00/Phi3getstarted.png)
+![Phi3Family](../../translated_images/Phi3getstarted.c1007f2db4d0afcbdc1bc61fd0caefa8b173a8ba93c4c19814d984c5bd2df3c4.ko.png)
 
 ## 목차
 
