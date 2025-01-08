@@ -1,4 +1,4 @@
-# Phi-3 Cookbook: Hands-On Examples with Microsoft's Phi-3 Models
+# Phi Cookbook: Hands-On Examples with Microsoft's Phi Models
 
 [![Open and use the samples in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/phi-3cookbook)
 [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/phi-3cookbook)
@@ -149,23 +149,23 @@ Follow these steps:
     - [Using Microsoft Phi-3.5 tflite to create Android app](./md/08.Update/Phi35/050.UsingPhi35TFLiteCreateAndroidApp.md)(✅)
 
 
-## Using Phi-3 Models
+## Using Phi Models
 
-### Phi-3 on Azure AI Studio
+### Phi on Azure AI Studio
 
 You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [Azure AI Foundry Azure AI Model Catalog](https://aka.ms/phi3-azure-ai) you can learn more at Getting Started with [Azure AI Studio](/md/02.QuickStart/AzureAIStudio_QuickStart.md)
 
 **Playground**
 Each model has a dedicated playground to test the model [Azure AI Playground](https://aka.ms/try-phi3).
 
-### Phi-3 on GitHub Models
+### Phi on GitHub Models
 
 You can learn how to use Microsoft Phi-3 and how to build E2E solutions in your different hardware devices. To experience Phi-3 for yourself, start by playing with the model and customizing Phi-3 for your scenarios using the [GitHub Model Catalog](https://github.com/marketplace/models?WT.mc_id=aiml-137032-kinfeylo) you can learn more at Getting Started with [GitHub Model Catalog](/md/02.QuickStart/GitHubModel_QuickStart.md)
 
 **Playground**
 Each model has a dedicated [playground to test the model](/md/02.QuickStart/GitHubModel_QuickStart.md).
 
-### Phi-3 on Hugging Face
+### Phi on Hugging Face
 
 You can also find the model on the [Hugging Face](https://huggingface.co/microsoft)
 

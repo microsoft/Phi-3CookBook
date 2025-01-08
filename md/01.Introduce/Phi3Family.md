@@ -1,10 +1,10 @@
-# Microsoft's Phi-3 family
+# Microsoft's Phi family
 
-The Phi-3 models are the most capable and cost-effective Small Language Models(SLMs) available, outperforming models of the same size and the next size up across a variety of language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices for composing and building generative AI applications.
+The Phi models are the most capable and cost-effective Small Language Models(SLMs) available, outperforming models of the same size and the next size up across a variety of language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices for composing and building generative AI applications.
 
-The Phi-3 Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. Each model is instruction-tuned and developed in accordance with Microsoft's Responsible AI, safety and security standards to ensure it's ready to use off-the-shelf. Phi-3-mini outperforms models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.
+The Phi Family includes mini, small, medium and vision versions, trained based on different parameter amounts to serve various application scenarios. Each model is instruction-tuned and developed in accordance with Microsoft's Responsible AI, safety and security standards to ensure it's ready to use off-the-shelf. Phi-3-mini outperforms models twice its size, and Phi-3-small and Phi-3-medium outperform much larger models, including GPT-3.5T.
 
-## Example of Phi-3 Tasks
+## Example of Phi Tasks
 
 | | |
 |-|-|
@@ -75,6 +75,7 @@ Phi-3-vision is the first multimodal model in the Phi-3 family, bringing togethe
 ![phi3modelvision](../../imgs/01/phi3visionbenchmark.png)
 
 ## Phi-3.5-vision
+
 [Phi-3.5 Vision](https://ai.azure.com/explore/models/Phi-3.5-vision-instruct/version/1/registry/azureml) is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
 Phi-3.5 Vision has 4.2B parameters and contains image encoder, connector, projector, and Phi-3 Mini language model.
@@ -112,11 +113,31 @@ The MoE model is designed to accelerate research on language and multimodal mode
 >
 > Phi-3 models do not perform as well on factual knowledge benchmarks (such as TriviaQA) as the smaller model size results in less capacity to retain facts.
 
+## Phi-4 
+
+[Phi-4 model](https://ai.azure.com/explore/models/Phi-4/version/1/registry/azureml) and [HuggingFace](https://huggingface.co/microsoft/phi-4) is designed to accelerate research on language models, for use as a building block for generative AI powered features. It provides uses for general purpose AI systems and applications (primarily in English) which require:
+
+1. Memory/compute constrained environments.
+2. Latency bound scenarios.
+3. Reasoning and logic.
+
+Phi-4 is a state-of-the-art open model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning.
+
+Phi-4 underwent a rigorous enhancement and alignment process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+For more information, reference the [Phi-4 Technical Report](https://www.microsoft.com/en-us/research/uploads/prod/2024/12/P4TechReport.pdf)
+
+At the high-level overview of the model quality on representative benchmarks. For the table below, higher numbers indicate better performance:
+
+![phi4_model](../../imgs/01/phi4benchmark.png)
+
+* These scores are lower than those reported by Meta, perhaps because simple-evals has a strict formatting requirement that Llama models have particular trouble following. We use the simple-evals framework because it is reproducible, but Meta reports 77 for MATH and 88 for HumanEval on Llama-3.3-70B.
+
 ## Phi silica
 
 We are introducing Phi Silica which is built from the Phi series of models and is designed specifically for the NPUs in Copilot+ PCs. Windows is the first platform to have a state-of-the-art small language model (SLM) custom built for the NPU and shipping inbox. Phi Silica API along with OCR, Studio Effects, Live Captions, and Recall User Activity APIs will be available in Windows Copilot Library in June. More APIs like Vector Embedding, RAG API, and Text Summarization will be coming later.
 
-## **Find all Phi-3 models** 
+## **Find all Phi models** 
 
 - [Azure AI](https://ai.azure.com/explore/models?selectedCollection=phi)
 - [Hugging Face](https://huggingface.co/collections/microsoft/phi-3-6626e15e9585a200d2d761e3) 
