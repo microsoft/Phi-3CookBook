@@ -110,7 +110,7 @@ lora_parameters:
   # These will be applied for the last lora_layers
   keys: ["o_proj","qkv_proj"]
   rank: 64
-  alpha: 64
+  scale: 1
   dropout: 0.1
 
 
