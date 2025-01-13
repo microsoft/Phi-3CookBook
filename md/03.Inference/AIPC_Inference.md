@@ -46,42 +46,38 @@ Install the Python Library with pip
 Using Intel NPU acceleration, this library does not affect the traditional encoding process. You only need to use this library to quantize the original Phi-3 model, such as FP16，INT8，INT4，such as 
 
 ```python
-
 from transformers import AutoTokenizer, pipeline,TextStreamer
-import intel_npu_acceleration_library as npu_lib
+from intel_npu_acceleration_library import NPUModelForCausalLM, int4
+from intel_npu_acceleration_library.compiler import CompilerConfig
 import warnings
 
 model_id = "microsoft/Phi-3-mini-4k-instruct"
 
-model = npu_lib.NPUModelForCausalLM.from_pretrained(
-                                    model_id,
-                                    torch_dtype="auto",
-                                    dtype=npu_lib.int4,
-                                    trust_remote_code=True
-                                )
+compiler_conf = CompilerConfig(dtype=int4)
+model = NPUModelForCausalLM.from_pretrained(
+    model_id, use_cache=True, config=compiler_conf, attn_implementation="sdpa"
+).eval()
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 text_streamer = TextStreamer(tokenizer, skip_prompt=True)
-
 ```
+
 After the quantification is successful, continue execution to call the NPU to run the Phi-3 model.
 
-
 ```python
-
 generation_args = {
-            "max_new_tokens": 1024,
-            "return_full_text": False,
-            "temperature": 0.3,
-            "do_sample": False,
-            "streamer": text_streamer,
-        }
+   "max_new_tokens": 1024,
+   "return_full_text": False,
+   "temperature": 0.3,
+   "do_sample": False,
+   "streamer": text_streamer,
+}
 
 pipe = pipeline(
-            "text-generation",
-            model=model,
-            tokenizer=tokenizer,
+   "text-generation",
+   model=model,
+   tokenizer=tokenizer,
 )
 
 query = "<|system|>You are a helpful AI assistant.<|end|><|user|>Can you introduce yourself?<|end|><|assistant|>"
@@ -89,8 +85,6 @@ query = "<|system|>You are a helpful AI assistant.<|end|><|user|>Can you introdu
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     pipe(query, **generation_args)
-
-
 ```
 
 When executing code, we can view the running status of the NPU through Task Manager
