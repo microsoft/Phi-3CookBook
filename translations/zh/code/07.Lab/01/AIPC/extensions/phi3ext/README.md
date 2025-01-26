@@ -65,7 +65,7 @@
 
 ## For more information
 
-* [Visual Studio Code 的 Markdown 支持](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
+* [Visual Studio Code 的 Markdown 支持](https://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Markdown 语法参考](https://help.github.com/articles/markdown-basics/)
 
 **享受吧！**

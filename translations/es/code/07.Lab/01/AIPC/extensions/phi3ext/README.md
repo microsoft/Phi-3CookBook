@@ -65,7 +65,7 @@ Puedes usar Visual Studio Code para redactar tu README. Aquí tienes algunos ata
 
 ## For more information
 
-* [Soporte de Markdown en Visual Studio Code](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
+* [Soporte de Markdown en Visual Studio Code](https://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Referencia de sintaxis Markdown](https://help.github.com/articles/markdown-basics/)
 
 **¡Disfruta!**

@@ -65,7 +65,7 @@
 
 ## 更多信息
 
-* [Visual Studio Code 的 Markdown 支持](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code 的 Markdown 支持](https://code.visualstudio.com/docs/languages/markdown)
 * [Markdown 語法參考](https://help.github.com/articles/markdown-basics/)
 
 **享受吧！**

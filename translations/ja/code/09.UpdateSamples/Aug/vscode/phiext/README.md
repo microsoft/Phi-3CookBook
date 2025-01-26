@@ -65,7 +65,7 @@ Visual Studio Codeを使用してREADMEを作成できます。以下は便利�
 
 ## 詳細情報
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code's Markdown Support](https://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **お楽しみください！**

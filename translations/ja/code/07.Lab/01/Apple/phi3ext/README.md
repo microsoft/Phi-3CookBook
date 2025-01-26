@@ -65,7 +65,7 @@ Visual Studio Code を使用して README を作成できます。以下に便�
 
 ## For more information
 
-* [Visual Studio Code の Markdown サポート](http://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
+* [Visual Studio Code の Markdown サポート](https://code.visualstudio.com/docs/languages/markdown?WT.mc_id=aiml-137032-kinfeylo)
 * [Markdown の基本](https://help.github.com/articles/markdown-basics/)
 
 **楽しんでください！**
