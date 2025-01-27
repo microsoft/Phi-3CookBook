@@ -65,7 +65,7 @@ Visual Studio Code를 사용하여 README를 작성할 수 있습니다. 유용�
 
 ## 추가 정보
 
-* [Visual Studio Code의 Markdown 지원](http://code.visualstudio.com/docs/languages/markdown)
+* [Visual Studio Code의 Markdown 지원](https://code.visualstudio.com/docs/languages/markdown)
 * [Markdown 구문 참조](https://help.github.com/articles/markdown-basics/)
 
 **즐기세요!**
