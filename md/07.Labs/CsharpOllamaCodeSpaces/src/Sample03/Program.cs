@@ -37,7 +37,7 @@ var modelIdEmbeddings = "all-minilm";
 var question = "What is Bruno's favourite super hero?";
 
 Console.WriteLine($"This program will answer the following question: {question}");
-Console.WriteLine("1st approach will be to ask the question directly to the Phi-3 model.");
+Console.WriteLine($"1st approach will be to ask the question directly to the {modelIdChat} model.");
 Console.WriteLine("2nd approach will be to add facts to a semantic memory and ask the question again");
 Console.WriteLine("");
 
@@ -55,7 +55,7 @@ await foreach (var result in response)
 Console.WriteLine("");
 Console.WriteLine("==============");
 Console.WriteLine("");
-Console.WriteLine($"Phi-3 response (using semantic memory).");
+Console.WriteLine($"{modelIdChat} response (using semantic memory).");
 
 var configOllamaKernelMemory = new OllamaConfig
 {
