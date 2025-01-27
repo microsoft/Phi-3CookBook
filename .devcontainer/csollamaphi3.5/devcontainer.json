@@ -1,49 +1,49 @@
 {
-    "name": "Ollama with Phi-3.5 for C#",
-    "image": "mcr.microsoft.com/devcontainers/dotnet:9.0",
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/devcontainers/features/dotnet:2": {
-            "version": "none",
-            "dotnetRuntimeVersions": "8.0",
-            "aspNetCoreRuntimeVersions": "8.0"
-        },
-        "ghcr.io/prulloac/devcontainer-features/ollama:1": {
-            "pull": "phi3"
-        },
-        "sshd": "latest"
+  "name": "Ollama with Phi-3.5 for C#",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:9.0",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "none",
+      "dotnetRuntimeVersions": "8.0",
+      "aspNetCoreRuntimeVersions": "8.0"
     },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-vscode.vscode-node-azure-pack",
-                "github.vscode-github-actions",
-                "ms-dotnettools.csdevkit",
-				"ms-dotnettools.vscode-dotnet-runtime",
-                "github.copilot",
-                "ms-azuretools.vscode-docker"
-            ]
-        }
+    "ghcr.io/prulloac/devcontainer-features/ollama:1": {
+      "pull": "phi3"
     },
-    "forwardPorts": [
-        32000,
-        32001
-    ],
-    "postCreateCommand": "sudo dotnet workload update",
-    "postStartCommand": "ollama pull phi3.5",
-    "remoteUser": "vscode",
-    "hostRequirements": {
-        "memory": "8gb",
-        "cpus": 4
-    },
-    "portsAttributes": {
-        "32001": {
-            "label": "Back End"
-        },
-        "32000": {
-            "label": "Front End"
-        }
+    "sshd": "latest"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-node-azure-pack",
+        "github.vscode-github-actions",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "github.copilot",
+        "ms-azuretools.vscode-docker"
+      ]
     }
+  },
+  "forwardPorts": [
+    32000,
+    32001
+  ],
+  "postCreateCommand": "sudo dotnet workload update",
+  "postStartCommand": "ollama pull phi3.5 & ollama pull all-minilm",
+  "remoteUser": "vscode",
+  "hostRequirements": {
+    "memory": "8gb",
+    "cpus": 4
+  },
+  "portsAttributes": {
+    "32001": {
+      "label": "Back End"
+    },
+    "32000": {
+      "label": "Front End"
+    }
+  }
 }

@@ -9,9 +9,15 @@
   </PropertyGroup>
 
 	<ItemGroup>
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.19.0" />
-		<PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.19.0-alpha" />
+		<PackageReference Include="Microsoft.KernelMemory.Abstractions" Version="0.96.250120.1" />
+		<PackageReference Include="Microsoft.KernelMemory.AI.Ollama" Version="0.96.250120.1" />
+		<PackageReference Include="Microsoft.KernelMemory.Core" Version="0.96.250120.1" />
+		<PackageReference Include="Microsoft.KernelMemory.SemanticKernelPlugin" Version="0.96.250120.1" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.34.0" />
+		<PackageReference Include="Microsoft.SemanticKernel.Connectors.Ollama" Version="1.34.0-alpha" />
+		<PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.34.0-alpha" />
 		<PackageReference Include="SmartComponents.LocalEmbeddings.SemanticKernel" Version="0.1.0-preview10148" />
+		<PackageReference Include="System.Linq.Async" Version="6.0.1" />
 	</ItemGroup>
 
 </Project>
