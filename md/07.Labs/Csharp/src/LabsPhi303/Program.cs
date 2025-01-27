@@ -25,11 +25,14 @@
 using Microsoft.ML.OnnxRuntimeGenAI;
 
 // path for model and images
-var modelPath = @"d:\phi3\models\Phi-3-vision-128k-instruct-onnx-cpu\cpu-int4-rtn-block-32-acc-level-4";
+// Phi-3
+// var modelPath = @"d:\phi3\models\Phi-3-vision-128k-instruct-onnx-cpu\cpu-int4-rtn-block-32-acc-level-4";
+// Phi-3.5
+var modelPath = @"d:\phi3\models\Phi-3.5-vision-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32-acc-level-4\";
 
 var foggyDayImagePath = Path.Combine(Directory.GetCurrentDirectory(), "imgs", "foggyday.png");
 var petsMusicImagePath = Path.Combine(Directory.GetCurrentDirectory(), "imgs", "petsmusic.png");
-var img = Images.Load(petsMusicImagePath);
+var img = Images.Load([petsMusicImagePath]);
 
 // define prompts
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
@@ -37,7 +40,9 @@ string userPrompt = "Describe the image, and return the string 'STOP' at the end
 var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|><|image_1|>{userPrompt}<|end|><|assistant|>";
 
 // load model and create processor
-using Model model = new Model(modelPath);
+var configModel = new Config(modelPath);
+
+using Model model = new Model(config: configModel);
 using MultiModalProcessor processor = new MultiModalProcessor(model);
 using var tokenizerStream = processor.CreateStream();
 

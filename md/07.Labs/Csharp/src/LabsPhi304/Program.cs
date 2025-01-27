@@ -28,7 +28,10 @@ using Spectre.Console;
 using System.Text;
 
 // path for model and images
-var modelPath = @"d:\phi3\models\Phi-3-vision-128k-instruct-onnx-cpu\cpu-int4-rtn-block-32-acc-level-4";
+// Phi-3
+// var modelPath = @"d:\phi3\models\Phi-3-vision-128k-instruct-onnx-cpu\cpu-int4-rtn-block-32-acc-level-4";
+// Phi-3.5
+var modelPath = @"d:\phi3\models\Phi-3.5-vision-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32-acc-level-4\";
 
 // write title
 SpectreConsoleOutput.DisplayTitle($".NET - Phi3v");
@@ -110,7 +113,7 @@ void AnalizeImage(string imagePath)
     AnsiConsole.Status()
     .Start("Analyzing image ...", ctx =>
     {
-         var img = Images.Load(imagePath);
+         var img = Images.Load([imagePath]);
         string userPrompt = "Describe the image, and return the string 'STOP' at the end.";
         var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|><|image_1|>{userPrompt}<|end|><|assistant|>";
 
