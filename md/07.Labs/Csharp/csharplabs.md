@@ -14,23 +14,42 @@ Before running the sample, ensure you have the following installed:
 **Download the phi3-mini-4k-instruct-onnx model** to your local machine:
 
 ### navigate to the folder to store the models
+
 ```bash
 cd c:\phi3\models
 ```
+
 ### add support for lfs
+
 ```bash
 git lfs install 
 ```
+
 ### clone and download mini 4K instruct model
+
+Choose between Phi-3 or Phi-3.5, or download both.
+
 ```bash
+# Phi-3
 git clone https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx
+
+# Phi-3.5
+# git clone https://huggingface.co/microsoft/Phi-3.5-mini-instruct-onnx
 ```
 
 ### clone and download vision 128K model
-```
+
+Choose between Phi-3 or Phi-3.5, or download both.
+
+```bash
+# Phi-3
 git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
+
+# Phi-3.5
+# git clone https://huggingface.co/microsoft/Phi-3.5-vision-instruct-onnx
 ```
-**Important:** The current demos are designed to use the ONNX versions of the model. The previous steps clone the following models. 
+
+**Important:** The current demos are designed to use the ONNX versions of the model. The previous steps clone the following models.
 
 ![OnnxDownload](../../../imgs/07/00/DownloadOnnx.png)
 
