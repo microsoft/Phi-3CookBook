@@ -1,6 +1,8 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
+//    - Sample console application to use a local model hosted in ollama and semantic memory for search
+//
 //    The MIT License (MIT)
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,97 +23,73 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052, SKEXP0070
+
+using Microsoft.KernelMemory;
+using Microsoft.KernelMemory.AI.Ollama;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
-using System.Text;
+var ollamaEndpoint = "http://localhost:11434";
+var modelIdChat = "phi3.5";
+var modelIdEmbeddings = "all-minilm";
 
-// Define endpoints for telemetry and Phi-3
-var otlpEndPoint = "http://localhost:4317";
-var phi3EndPoint = "http://localhost:11434";
+// questions
+var questionEnglish = "What is Bruno's favourite super hero?";
+var questionSpanish = "Cual es el SuperHeroe favorito de Bruno?";
+var questionFrench = "Quel est le super-héros préféré de Bruno?";
+var question = questionEnglish;
 
-// Create kernel with a custom http address
-var builder = Kernel.CreateBuilder();
-builder.AddOpenAIChatCompletion(
-    modelId: "phi3.5",
-    endpoint: new Uri(phi3EndPoint),
-    apiKey: "apikey");
-ConfigureOpenTelemetry(builder, otlpEndPoint);
-var kernel = builder.Build();
+// intro
+SpectreConsoleOutput.DisplayTitle(modelIdChat);
+SpectreConsoleOutput.DisplayTitleH2($"This program will answer the following question:");
+SpectreConsoleOutput.DisplayTitleH2(question);
+SpectreConsoleOutput.DisplayTitleH3("1st approach will be to ask the question directly to the Phi-3 model.");
+SpectreConsoleOutput.DisplayTitleH3("2nd approach will be to add facts to a semantic memory and ask the question again");
+Console.WriteLine("");
 
-var chat = kernel.GetRequiredService<IChatCompletionService>();
-var history = new ChatHistory();
-history.AddSystemMessage("You are a useful chatbot. If you don't know an answer, say 'I don't know!'. Always reply in a funny ways. Use emojis if possible.");
+SpectreConsoleOutput.DisplayTitleH2($"{modelIdChat} response (no memory).");
 
-while (true)
+// Create a kernel with Azure OpenAI chat completion
+var builder = Kernel.CreateBuilder().AddOllamaChatCompletion(
+    modelId: modelIdChat,
+    endpoint: new Uri(ollamaEndpoint));
+
+Kernel kernel = builder.Build();
+var response = kernel.InvokePromptStreamingAsync(question);
+await foreach (var result in response)
 {
-    Console.Write("Q: ");
-    var userQ = Console.ReadLine();
-    if (string.IsNullOrEmpty(userQ))
-    {
-        break;
-    }
-    history.AddUserMessage(userQ);
-    kernel.Services.GetRequiredService<ILogger<Program>>().LogInformation($"User Question: {userQ}");
-
-    Console.Write($"Phi-3: ");
-    StringBuilder sb = new();
-    var result = chat.GetStreamingChatMessageContentsAsync(history);
-    await foreach (var item in result)
-    {
-        sb.Append(item);
-        Console.Write(item);
-    }
-    Console.WriteLine("");
-    history.AddAssistantMessage(sb.ToString());
-
-    // logging message
-    kernel.Services.GetRequiredService<ILogger<Program>>().LogInformation($"Phi-3 Response: {sb.ToString()}");
+    SpectreConsoleOutput.WriteGreen(result.ToString());
 }
 
-static IKernelBuilder ConfigureOpenTelemetry(IKernelBuilder builder, string otlpEndPoint)
+// separator
+Console.WriteLine("");
+SpectreConsoleOutput.DisplaySeparator();
+Console.WriteLine("Press Enter to continue");
+Console.ReadLine();
+SpectreConsoleOutput.DisplayTitleH2($"{modelIdChat} response (using semantic memory).");
+
+var configOllamaKernelMemory = new OllamaConfig
 {
-    builder.Services.AddLogging(logging =>
-    {
-        //logging.AddSimpleConsole(options => options.TimestampFormat = "hh:mm:ss ");
-        logging.SetMinimumLevel(LogLevel.Debug);
+    Endpoint = ollamaEndpoint,
+    TextModel = new OllamaModelConfig(modelIdChat),
+    EmbeddingModel = new OllamaModelConfig(modelIdEmbeddings, 2048)
+};
 
-        //logging.AddConsole();
-        logging.Configure(options =>
-        {
-            options.ActivityTrackingOptions = ActivityTrackingOptions.SpanId;
-        });
-    });
+var memory = new KernelMemoryBuilder()
+    .WithOllamaTextGeneration(configOllamaKernelMemory)
+    .WithOllamaTextEmbeddingGeneration(configOllamaKernelMemory)
+    .Build();
 
-    builder.Services.AddOpenTelemetry()
-        .ConfigureResource(c => c.AddService("Sample04"))
-        .WithMetrics(metrics =>
-        {
-            metrics.AddHttpClientInstrumentation()
-                   .AddRuntimeInstrumentation();
-        })
-        .WithTracing(tracing =>
-        {
-            tracing.AddHttpClientInstrumentation();
-        });
+await memory.ImportTextAsync("Gisela's favourite super hero is Batman");
+await memory.ImportTextAsync("The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3");
+await memory.ImportTextAsync("Bruno's favourite super hero is Invincible");
+await memory.ImportTextAsync("The last super hero movie watched by Bruno was Deadpool and Wolverine");
+await memory.ImportTextAsync("Bruno don't like the super hero movie: Eternals");
 
-
-    var useOtlpExporter = !string.IsNullOrWhiteSpace(otlpEndPoint);
-    if (useOtlpExporter)
-    {
-        builder.Services.AddOpenTelemetry().UseOtlpExporter();
-    }
-
-    return builder;
+var answer = memory.AskStreamingAsync(question);
+await foreach (var result in answer)
+{
+    SpectreConsoleOutput.WriteGreen(result.ToString());
 }
+
+Console.WriteLine($"");

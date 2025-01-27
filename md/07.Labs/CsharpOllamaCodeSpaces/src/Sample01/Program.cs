@@ -21,20 +21,19 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
+#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052, SKEXP0070
+
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 
-// Create kernel with a custom http address
-var builder = Kernel.CreateBuilder();
-builder.AddOpenAIChatCompletion(
-    modelId: "phi3.5",
-    endpoint: new Uri("http://localhost:11434"),
-    apiKey: "apikey");
-var kernel = builder.Build();
+var ollamaEndpoint = "http://localhost:11434";
+var modelIdChat = "phi3.5";
 
-// 14 - define prompt execution settings
+// Create kernel with a custom http address
+var kernel = Kernel.CreateBuilder()
+    .AddOllamaChatCompletion(modelId: modelIdChat, endpoint: new Uri(ollamaEndpoint))
+    .Build();
+
 var settings = new OpenAIPromptExecutionSettings
 {
     MaxTokens = 100,

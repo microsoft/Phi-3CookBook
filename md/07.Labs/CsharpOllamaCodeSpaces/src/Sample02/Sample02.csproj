@@ -1,15 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <UserSecretsId>506e8050-acbd-476d-ab7d-bbebc8238bfa</UserSecretsId>
   </PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.SemanticKernel" Version="1.17.2" />
-	</ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.34.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.Ollama" Version="1.34.0-alpha" />
+  </ItemGroup>
 </Project>

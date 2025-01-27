@@ -21,26 +21,28 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052
+#pragma warning disable SKEXP0001, SKEXP0003, SKEXP0010, SKEXP0011, SKEXP0050, SKEXP0052, SKEXP0070
+
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
+using System.Text;
+
+var ollamaEndpoint = "http://localhost:11434";
+var modelIdChat = "phi3.5";
 
 // Create kernel with a custom http address
-var builder = Kernel.CreateBuilder();
-builder.AddOpenAIChatCompletion(
-    modelId: "phi3.5",
-    endpoint: new Uri("http://localhost:11434"),
-    apiKey: "apikey");
-var kernel = builder.Build();
+var kernel = Kernel.CreateBuilder()
+    .AddOllamaChatCompletion(modelId: modelIdChat, endpoint: new Uri(ollamaEndpoint))
+    .Build();
+
 
 var chat = kernel.GetRequiredService<IChatCompletionService>();
 var history = new ChatHistory();
-history.AddSystemMessage("You are a useful chatbot. If you don't know an answer, say 'I don't know!'. Always reply in a funny ways. Use emojis if possible.");
+history.AddSystemMessage("You always respond in 1 sentence in a funny way. Use emojis if possible.");
 
 while (true)
 {
-    Console.Write("Q:");
+    Console.Write("Q: ");
     var userQ = Console.ReadLine();
     if (string.IsNullOrEmpty(userQ))
     {
@@ -48,7 +50,14 @@ while (true)
     }
     history.AddUserMessage(userQ);
 
-    var result = await chat.GetChatMessageContentsAsync(history);
-    Console.WriteLine(result[^1].Content);
-    history.Add(result[^1]);
+    Console.Write($"{modelIdChat}: ");    
+    var response = chat.GetStreamingChatMessageContentsAsync(history);
+    var assistantResponse = new StringBuilder();
+    await foreach (var message in response)
+    {
+        Console.Write(message.ToString());
+        assistantResponse.Append(message.ToString());
+    }
+    history.AddAssistantMessage(assistantResponse.ToString());
+    Console.WriteLine();
 }
