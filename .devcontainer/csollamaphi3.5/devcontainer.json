@@ -5,13 +5,8 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/dotnet:2": {
-      "version": "none",
-      "dotnetRuntimeVersions": "8.0",
-      "aspNetCoreRuntimeVersions": "8.0"
-    },
     "ghcr.io/prulloac/devcontainer-features/ollama:1": {
-      "pull": "phi3"
+      "pull": "phi3.5"
     },
     "sshd": "latest"
   },
@@ -32,7 +27,7 @@
     32001
   ],
   "postCreateCommand": "sudo dotnet workload update",
-  "postStartCommand": "ollama pull phi3.5 & ollama pull all-minilm",
+  "postStartCommand": "ollama pull all-minilm",
   "remoteUser": "vscode",
   "hostRequirements": {
     "memory": "8gb",
