@@ -31,6 +31,7 @@ var modelPath = @"d:\phi3\models\Phi-3.5-mini-instruct-onnx\cpu_and_mobile\cpu-i
 
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
+using OgaHandle ogaHandle = new();
 
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
 
@@ -44,7 +45,7 @@ while (true)
     // Get user question
     Console.WriteLine();
     Console.Write(@"Q: ");
-    var userQ = Console.ReadLine();    
+    var userQ = Console.ReadLine();
     if (string.IsNullOrEmpty(userQ))
     {
         break;
@@ -70,5 +71,13 @@ while (true)
         var output = tokenizer.Decode(newToken);
         Console.Write(output);
     }
+
+    // cleanup 
+    generator.Dispose();
+    generatorParams.Dispose();
+    tokenizer.Dispose();
+    model.Dispose();
+    ogaHandle.Dispose();
+
     Console.WriteLine();
 }

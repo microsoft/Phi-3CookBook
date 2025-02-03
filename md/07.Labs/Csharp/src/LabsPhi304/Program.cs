@@ -37,10 +37,11 @@ var modelPath = @"d:\phi3\models\Phi-3.5-vision-instruct-onnx\cpu_and_mobile\cpu
 SpectreConsoleOutput.DisplayTitle($".NET - Phi3v");
 
 // load model and create processor
-using Model model = new Model(modelPath);
-using MultiModalProcessor processor = new MultiModalProcessor(model);
+using Model model = new(modelPath);
+using MultiModalProcessor processor = new(model);
 using var tokenizerStream = processor.CreateStream();
-var tokenizer = new Tokenizer(model);
+using var tokenizer = new Tokenizer(model);
+using OgaHandle ogaHandle = new();
 
 // define prompts
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
@@ -69,7 +70,22 @@ switch (scenario)
         AnswerQuestion();
         break;
 }
+
+DisposeAll();
 SpectreConsoleOutput.DisplayTitleH3("Done !");
+
+/// 
+/// Dispose all resources
+/// Fixes errors when exiting the application and the resources are not disposed
+/// 
+void DisposeAll()
+{
+    model?.Dispose();
+    tokenizer?.Dispose();
+    tokenizerStream?.Dispose();
+    processor?.Dispose();
+    ogaHandle?.Dispose();
+}
 
 void AnswerQuestion()
 {
@@ -80,12 +96,12 @@ void AnswerQuestion()
     var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{question}<|end|><|assistant|>";
     var tokens = tokenizer.Encode(fullPrompt);
 
-    var generatorParams = new GeneratorParams(model);
+    using var generatorParams = new GeneratorParams(model);
     generatorParams.SetSearchOption("max_length", 2048);
     generatorParams.SetSearchOption("past_present_share_buffer", false);
     generatorParams.SetInputSequences(tokens);
 
-    var generator = new Generator(model, generatorParams);
+    using var generator = new Generator(model, generatorParams);
     while (!generator.IsDone())
     {
         generator.ComputeLogits();
@@ -95,6 +111,8 @@ void AnswerQuestion()
         var output = tokenizer.Decode(newToken);
         Console.Write(output);
     }
+    generator.Dispose();
+    generatorParams.Dispose();
     Console.WriteLine();
 }
 
@@ -113,7 +131,7 @@ void AnalizeImage(string imagePath)
     AnsiConsole.Status()
     .Start("Analyzing image ...", ctx =>
     {
-         var img = Images.Load([imagePath]);
+        var img = Images.Load([imagePath]);
         string userPrompt = "Describe the image, and return the string 'STOP' at the end.";
         var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|><|image_1|>{userPrompt}<|end|><|assistant|>";
 
@@ -126,7 +144,7 @@ void AnalizeImage(string imagePath)
         ctx.SpinnerStyle(Style.Parse("green"));
 
 
-        var inputTensors = processor.ProcessImages(fullPrompt, img);
+        using var inputTensors = processor.ProcessImages(fullPrompt, img);
         using GeneratorParams generatorParams = new GeneratorParams(model);
         generatorParams.SetSearchOption("max_length", 3072);
         generatorParams.SetInputs(inputTensors);
@@ -153,7 +171,11 @@ void AnalizeImage(string imagePath)
             AnsiConsole.Markup($"[bold][blue]>> Token:[/][/] {tokenString}");
             phiResponse.Append(tokenString);
         }
+        generator.Dispose();
+        generatorParams.Dispose();
+        inputTensors.Dispose();
     });
+
 
     // display the response
     SpectreConsoleOutput.DisplaySubtitle("Phi-3 Response", phiResponse.ToString());
