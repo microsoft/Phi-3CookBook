@@ -642,7 +642,51 @@ This Python script is defining and configuring a machine learning pipeline using
     workspace_ml_client.jobs.stream(pipeline_job.name)
     ```
 
-## 6. Register the fine tuned model with the workspace
+## 6. Picking the best model
+
+![Note] The model saved in the `mlflow_model_folder` created by the Common Model Converter is not necessarily the best model found during training, but rather the last checkpoint. The `load_best_model_at_end` parameter is not supported by the pipeline component, which means that the best model is not automatically loaded and saved at the end of training.
+
+To extract the best model from the pipeline, you can follow these steps:
+
+1. **Increase `save_total_limit`**: This parameter allows you to save multiple checkpoints during training. By increasing this limit, you can ensure that more checkpoints are saved, including the best one.
+
+2. **Manually Identify the Best Model**: After training, you can manually identify the best model checkpoint based on the evaluation metrics. This involves reviewing the saved checkpoints and selecting the one with the best performance.
+
+3. **Load and Save the Best Model**: Once you have identified the best checkpoint, you can load it and save it as the final model. This can be done using the MLflow API or other model management tools.
+
+Here is an example of how you can manually identify and save the best model:
+
+```python
+import mlflow
+from mlflow.tracking import MlflowClient
+
+# Set the experiment name
+experiment_name = "chat_completion_Phi-3-mini-4k-instruct"
+mlflow.set_experiment(experiment_name)
+
+# Get the experiment ID
+experiment_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
+
+# Initialize the MLflow client
+client = MlflowClient()
+
+# Get the list of runs for the experiment
+runs = client.search_runs(experiment_id)
+
+# Identify the best run based on the evaluation metric (e.g., validation loss)
+best_run = min(runs, key=lambda run: run.data.metrics["val_loss"])
+
+# Load the best model
+best_model_uri = f"runs:/{best_run.info.run_id}/model"
+best_model = mlflow.pyfunc.load_model(best_model_uri)
+
+# Save the best model to a new location
+mlflow.pyfunc.save_model(best_model, "best_model")
+```
+
+This script will help you identify the best model checkpoint based on the validation loss and save it as the final model. You can adjust the evaluation metric as needed.
+
+## 7. Register the fine tuned model with the workspace
 
 We will register the model from the output of the fine tuning job. This will track lineage between the fine tuned model and the fine tuning job. The fine tuning job, further, tracks lineage to the foundation model, data and training code.
 
@@ -706,7 +750,8 @@ We will register the model from the output of the fine tuning job. This will tra
     print("registered model: \n", registered_model)
     ```
 
-## 7. Deploy the fine tuned model to an online endpoint
+
+## 8. Deploy the fine tuned model to an online endpoint
 
 Online endpoints give a durable REST API that can be used to integrate with applications that need to use the model.
 
@@ -827,7 +872,7 @@ Online endpoints give a durable REST API that can be used to integrate with appl
     workspace_ml_client.begin_create_or_update(endpoint).result()
     ```
 
-## 8. Test the endpoint with sample data
+## 9. Test the endpoint with sample data
 
 We will fetch some sample data from the test dataset and submit to online endpoint for inference. We will then show the display the scored labels alongside the ground truth labels
 
@@ -943,7 +988,7 @@ We will fetch some sample data from the test dataset and submit to online endpoi
     print("raw response: \n", response, "\n")
     ```
 
-## 9. Delete the online endpoint
+## 10. Delete the online endpoint
 
 1. Don't forget to delete the online endpoint, else you will leave the billing meter running for the compute used by the endpoint. This line of Python code is deleting an online endpoint in Azure Machine Learning. Here's a breakdown of what it does:
 
