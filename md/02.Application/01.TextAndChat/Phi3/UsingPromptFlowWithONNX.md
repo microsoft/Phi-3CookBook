@@ -30,7 +30,7 @@ Read this guideline to set ONNX Runtime GenAI for Windows GPU  [click here](./OR
 
 ![pfsetup](../../../../imgs/02/pfonnx/pfsetup.png)
 
-3. Download [Sample Code](../../../code/09.UpdateSamples/Aug/pf/onnx_inference_pf/) and use VS Code to open this sample
+3. Download [Sample Code](../../../../code/09.UpdateSamples/Aug/pf/onnx_inference_pf/) and use VS Code to open this sample
 
 ![pfsample](../../../../imgs/02/pfonnx/pfsample.png)
 

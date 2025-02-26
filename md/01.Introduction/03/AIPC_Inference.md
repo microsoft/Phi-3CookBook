@@ -91,7 +91,7 @@ When executing code, we can view the running status of the NPU through Task Mana
 
 ![NPU](../../../imgs/01/03/AIPC/aipc_NPU.png)
 
-***Samples*** : [AIPC_NPU_DEMO.ipynb](../../../code/01/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
+***Samples*** : [AIPC_NPU_DEMO.ipynb](../../../code/03.Inference/AIPC/AIPC_NPU_DEMO.ipynb)
 
 ## **2. Use DirectML + ONNX Runtime to run Phi-3 Model**
 
@@ -182,7 +182,7 @@ This is running result
 
 ![DML](../../../imgs/01/03/AIPC/aipc_DML.png)
 
-***Samples*** : [AIPC_DirectML_DEMO.ipynb](../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
+***Samples*** : [AIPC_DirectML_DEMO.ipynb](../../../code/03.Inference/AIPC/AIPC_DirectML_DEMO.ipynb)
 
 ## **3. Use Intel OpenVino to run Phi-3 Model**
 

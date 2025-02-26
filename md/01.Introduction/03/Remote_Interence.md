@@ -2,7 +2,7 @@
 
 After the adapters are trained in the remote environment, use a simple Gradio application to interact with the model.
 
-![Fine-tune complete](../../imgs/03/RemoteServer/log-finetuning-res.png)
+![Fine-tune complete](../../../imgs/03/RemoteServer/log-finetuning-res.png)
 
 ### Provision Azure Resources
 You need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette. During this setup, you will be asked to select your Azure Subscription and resource group.  

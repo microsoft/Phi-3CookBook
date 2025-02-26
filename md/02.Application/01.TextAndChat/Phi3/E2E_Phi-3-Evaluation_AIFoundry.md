@@ -165,11 +165,11 @@ You need to create a Hub before creating the Project. A Hub acts like a Resource
 
 1. Select **+ New project** from the navigation menu.
 
-    ![Select new project.](../../imgs/03/Evaluation-AIFoundry/select-new-project.png)
+    ![Select new project.](../../../../imgs/03/Evaluation-AIFoundry/select-new-project.png)
 
 1. Enter **Project name**. It must be a unique value.
 
-    ![Create project.](../../imgs/03/Evaluation-AIFoundry/create-project.png)
+    ![Create project.](../../../../imgs/03/Evaluation-AIFoundry/create-project.png)
 
 1. Select **Create a project**.
 
@@ -369,7 +369,7 @@ You need to integrate the fine-tuned Phi-3 / Phi-3.5 model into a Prompt flow. H
 
 1. Select **Validate and parse input** to renew parameters.
 
-    ![Validate input.](../../imgs/03/Evaluation-AIFoundry/validate-input.png)
+    ![Validate input.](../../../../imgs/03/Evaluation-AIFoundry/validate-input.png)
 
 1. Select the **Value** of the **connection** to the custom connection you created. For example, *connection*.
 
@@ -395,7 +395,7 @@ To evaluate the Phi-3 / Phi-3.5 model in Azure AI Foundry, you need to deploy an
 
 1. Navigate to the Azure AI Foundry project that you created.
 
-    ![Select Project.](../../imgs/03/Evaluation-AIFoundry/select-project-created.png)
+    ![Select Project.](../../../../imgs/03/Evaluation-AIFoundry/select-project-created.png)
 
 1. In the Project that you created, select **Deployments** from the left side tab.
 

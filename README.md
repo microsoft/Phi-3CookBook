@@ -39,6 +39,7 @@ Follow these steps to get started using these resource :
   - [Using Guidance-ai and Phi](./md/01.Introduction/01/01.Guidance.md)
   - [GitHub Marketplace Models](https://github.com/marketplace/models)
   - [Azure AI Model Catalog](https://ai.azure.com)
+
 - Inference Phi in different environment
     -  [Hugging face](./md/01.Introduction/02/01.HF.md)
     -  [GitHub Models](./md/01.Introduction/02/02.GitHubModel.md)
@@ -46,6 +47,7 @@ Follow these steps to get started using these resource :
     -  [Ollama](./md/01.Introduction/02/04.Ollama.md)
     -  [AI Toolkit VSCode (AITK)](./md/01.Introduction/02/05.AITK.md)
     -  [NVIDIA NIM](./md/01.Introduction/02/06.NVIDIA.md)
+
 - Inference Phi Family
     - [Inference Phi in iOS](./md/01.Introduction/03/iOS_Inference.md)
     - [Inference Phi in Android](./md/01.Introduction/03/Android_Inference.md)
@@ -62,10 +64,12 @@ Follow these steps to get started using these resource :
     - [Quantizing Phi-3.5 / 4 using Generative AI extensions for onnxruntime](./md/01.Introduction/04/UsingORTGenAIQuantifyingPhi.md)
     - [Quantizing Phi-3.5 / 4  using Intel OpenVINO](./md/01.Introduction/04/UsingIntelOpenVINOQuantifyingPhi.md)
     - [Quantizing Phi-3.5 / 4  using Apple MLX Framework](./md/01.Introduction/04/UsingAppleMLXQuantifyingPhi.md)
+
 -  Evaluation Phi
     - [Response AI](./md/01.Introduction/05/ResponsibleAI.md)
     - [Azure AI Foundry for Evaluation](./md/01.Introduction/05/AIFoundry.md)
     - [Using Promptflow for Evaluation](./md/01.Introduction/05/Promptflow.md) 
+
 - Phi application development samples
   - Text & Chat Applications
     - Phi-4 Samples 🆕
@@ -85,15 +89,18 @@ Follow these steps to get started using these resource :
       - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/02.Application/01.TextAndChat/Phi3/WebGPUWithPhi35Readme.md)
       - [Using Windows GPU to create Prompt flow solution with Phi-3.5-Instruct ONNX](./md/02.Application/01.TextAndChat/Phi3/UsingPromptFlowWithONNX.md)
       - [Using Microsoft Phi-3.5 tflite to create Android app](./md/02.Application/01.TextAndChat/Phi3/UsingPhi35TFLiteCreateAndroidApp.md)
+
   - Azure AI Inference SDK Code Based Samples 
     - Phi-4 Samples 🆕
       - [📓] [Generate project code using Phi-4-multimodal](./md/02.Application/02.Code/Phi4/GenProjectCode/README.md)
     - Phi-3 / 3.5 Samples
       - [Build your own Visual Studio Code GitHub Copilot Chat with Microsoft Phi-3 Family](./md/02.Application/02.Code/Phi3/VSCodeExt/README.md)
       - [Create your own Visual Studio Code Chat Copilot Agent with Phi-3.5 by GitHub Models](/md/02.Application/02.Code/Phi3/CreateVSCodeChatAgentWithGitHubModels.md)
+
   - Advanced Reasoning Samples
     - Phi-4 Samples 🆕
       - [📓] [Phi-4-mini Reasoning Samples](./md/02.Application/03.AdvancedReasoning/Phi4/AdvancedResoningPhi4mini/README.md)
+
   - Vision Samples
     - Phi-4 Samples 🆕
       - [📓] [Use Phi-4-multimodal to read images and generate code](./md/02.Application/04.Vision/Phi4/CreateFrontend/README.md) 
@@ -106,11 +113,13 @@ Follow these steps to get started using these resource :
       - [Phi-3 Vision Nvidia NIM](./md/02.Application/04.Vision/Phi3/E2E_Nvidia_NIM_Vision.md)
       - [Phi-3 Vision OpenVino](./md/02.Application/04.Vision/Phi3/E2E_OpenVino_Phi3Vision.md)
       - [📓][Phi-3.5 Vision multi-frame or multi-image sample](./md/02.Application/04.Vision/Phi3/phi3-vision-demo.ipynb)
+
   - Audio Samples
     - Phi-4 Samples 🆕
       - [📓] [Extracting audio transcripts using Phi-4-multimodal](./md/02.Application/05.Audio/Phi4/Transciption/README.md)
       - [📓] [Phi-4-multimodal Audio Sample](./md/02.Application/05.Audio/Phi4/Siri/demo.ipynb)
       - [📓] [Phi-4-multimodal Speech Translation Sample](./md/02.Application/05.Audio/Phi4/Translate/demo.ipynb)
+
   - MOE Samples
     - Phi-3 / 3.5 Samples
       - [📓] [Phi-3.5 Mixture of Experts Models (MoEs) Social Media Sample](./md/02.Application/06.MoE/Phi3/phi3_moe_demo.ipynb)
@@ -121,6 +130,7 @@ Follow these steps to get started using these resource :
   - Multimodal Mixing Samples
     - Phi-4 Samples 🆕
       -  [📓] [Using Phi-4-multimodal as a Technology journalist](./md/02.Application/08.Multimodel/Phi4/TechJournalist/phi_4_mm_audio_text_publish_news.ipynb)
+
 - Fine-tuning Phi Samples
   - [Fine-tuning Scenarios](./md/03.FineTuning/FineTuning_Scenarios.md)
   - [Fine-tuning vs RAG](./md/03.FineTuning/FineTuning_vs_RAG.md)
@@ -138,9 +148,11 @@ Follow these steps to get started using these resource :
   - [Fine-tuning Phi-3-vision (official support)](./md/03.FineTuning/FineTuning_Vision.md)
   - [Fine-Tuning Phi-3 with Kaito AKS , Azure Containers(official Support)](./md/03.FineTuning/FineTuning_Kaito.md)
   - [Fine-Tuning Phi-3 and 3.5 Vision](https://github.com/2U1/Phi3-Vision-Finetune)
+
 - Hands on Lab
   - [Exploring cutting-edge models: LLMs, SLMs, local development and more](https://github.com/microsoft/aitour-exploring-cutting-edge-models)
   - [Unlocking NLP Potential: Fine-Tuning with Microsoft Olive](https://github.com/azure/Ignite_FineTuning_workshop)
+
 - Academic Research Papers and Publications
   - [Textbooks Are All You Need II: phi-1.5 technical report](https://arxiv.org/abs/2309.05463)
   - [Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone](https://arxiv.org/abs/2404.14219)

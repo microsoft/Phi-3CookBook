@@ -1,6 +1,6 @@
 # **Fine-tuning Phi-3 with Apple MLX Framework**
 
-We can complete Fine-tuning combined with Lora through the Apple MLX framework command line. (If you want to know more about the operation of MLX Framework, please read [Inference Phi-3 with Apple MLX Framework](../03.Inference/MLX_Inference.md)
+We can complete Fine-tuning combined with Lora through the Apple MLX framework command line. (If you want to know more about the operation of MLX Framework, please read [Inference Phi-3 with Apple MLX Framework](../03.FineTuning/03.Inference/MLX_Inference.md)
 
 
 ## **1. Data preparation**
@@ -26,7 +26,7 @@ By default, MLX Framework requires the jsonl format of train, test, and eval, an
 
 3. The data format is combined with the Phi-3 template
 
-Please download data from this [link](../../code/04.Finetuning/mlx/) , please inculde all .jsonl in ***data*** folder
+Please download data from this [link](../../code/04.Finetuning/mlx/), please include all .jsonl in ***data*** folder
 
 
 ## **2. Fine-tuning in your terminal**

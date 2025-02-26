@@ -374,7 +374,7 @@ export function deactivate() {}
 ![agentimage](../../../../imgs/02/phi35vscode/agentimage.png)
 
 
-You can download sample code :[click](../../../code/09.UpdateSamples/Aug/vscode/)
+You can download sample code :[click](../../../../code/09.UpdateSamples/Aug/vscode/)
 
 ## **Resources**
 

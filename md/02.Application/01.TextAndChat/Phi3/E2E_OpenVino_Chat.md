@@ -1,4 +1,4 @@
-[OpenVino Chat Sample](../../code/06.E2E/E2E_OpenVino_Chat_Phi3-instruct.ipynb)
+[OpenVino Chat Sample](../../../../code/06.E2E/E2E_OpenVino_Chat_Phi3-instruct.ipynb)
 
 This code exports a model to the OpenVINO format, loads it, and uses it to generate a response to a given prompt. 
 

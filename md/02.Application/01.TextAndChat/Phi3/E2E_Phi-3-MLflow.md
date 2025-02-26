@@ -32,8 +32,8 @@ In this E2E sample we will demonstrate two different approaches to building a wr
 
 | Project | Description | Location |
 | ------------ | ----------- | -------- |
-| Transformer Pipeline | Transformer PIpeline is the easiest option to build a wrapper if you want to use a HuggingFace model with MLFlow’s experimental transformers flavour. | [**TransformerPipeline.ipynb**](../../code/06.E2E/E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
-| Custom Python Wrapper | At the time of writing, the transformer pipeline did not support MLFlow wrapper generation for HuggingFace models in ONNX format, even with the experimental optimum Python package. For the cases like this, you can build your custom Python wrapper for MLFlow mode | [**CustomPythonWrapper.ipynb**](../../code/06.E2E/E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
+| Transformer Pipeline | Transformer PIpeline is the easiest option to build a wrapper if you want to use a HuggingFace model with MLFlow’s experimental transformers flavour. | [**TransformerPipeline.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_TransformerPipeline.ipynb) |
+| Custom Python Wrapper | At the time of writing, the transformer pipeline did not support MLFlow wrapper generation for HuggingFace models in ONNX format, even with the experimental optimum Python package. For the cases like this, you can build your custom Python wrapper for MLFlow mode | [**CustomPythonWrapper.ipynb**](../../../../code/06.E2E/E2E_Phi-3-MLflow_CustomPythonWrapper.ipynb) |
 
 ## Project: Transformer Pipeline
 
