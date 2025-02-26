@@ -19,7 +19,6 @@ Fine-tune the model using hosted fine-tuning, without the need to create and man
 
 Serverless fine-tuning is available for Phi-3-mini and Phi-3-medium models, enabling developers to quickly and easily customize the models for cloud and edge scenarios without having to arrange for compute. We have also announced that, Phi-3-small, is now available through our Models-as-a-Service offering so developers can quickly and easily get started with AI development without having to manage underlying infrastructure.
 
-[Fine Tuning Sample](https://github.com/microsoft/Phi-3CookBook/blob/main/md/04.Fine-tuning/FineTuning_AIFoundry.md)
 ## Model as a Platform 
 
 Users manage their own compute in order to Fine-tune their models.
