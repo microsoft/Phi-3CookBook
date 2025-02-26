@@ -1,0 +1,7 @@
+olive-ai>=0.6.0
+accelerate==0.31.0
+peft==0.11.1
+datasets==2.19.2
+bitsandbytes==0.43.1
+--extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/
+onnxruntime-genai-cuda
