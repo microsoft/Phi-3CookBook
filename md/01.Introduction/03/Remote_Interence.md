@@ -6,7 +6,7 @@ After the adapters are trained in the remote environment, use a simple Gradio ap
 
 ### Provision Azure Resources
 You need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette. During this setup, you will be asked to select your Azure Subscription and resource group.  
-![Provision Inference Resource](../../imgs/03/RemoteServer/command-provision-inference.png)
+![Provision Inference Resource](../../../imgs/03/RemoteServer/command-provision-inference.png)
    
 By default, the subscription and the resource group for inference should match those used for fine-tuning. The inference will use the same Azure Container App Environment and access the model and model adapter stored in Azure Files, which were generated during the fine-tuning step. 
 
