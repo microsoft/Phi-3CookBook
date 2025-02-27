@@ -27,7 +27,6 @@ using Microsoft.ML.OnnxRuntimeGenAI;
 // Phi4
 var modelPath = @"d:\phi\models\Phi-4-mini-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32-acc-level-4\";
 
-
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 
@@ -35,7 +34,6 @@ var systemPrompt = "You are an AI assistant that helps people find information. 
 
 // chat start
 Console.WriteLine(@"Ask your question. Type an empty string to Exit.");
-
 
 // chat loop
 while (true)
@@ -46,10 +44,11 @@ while (true)
     var userQ = Console.ReadLine();
     if (string.IsNullOrEmpty(userQ))
     {
+        Console.WriteLine("Bye!");
         break;
     }
 
-    // show phi3 response
+    // show phi response
     Console.Write("Phi4: ");
     var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{userQ}<|end|><|assistant|>";
     var tokens = tokenizer.Encode(fullPrompt);
@@ -57,12 +56,12 @@ while (true)
     var generatorParams = new GeneratorParams(model);
     generatorParams.SetSearchOption("max_length", 2048);
     generatorParams.SetSearchOption("past_present_share_buffer", false);
-    generatorParams.SetInputSequences(tokens);
 
     var generator = new Generator(model, generatorParams);
+    generator.AppendTokens(tokens[0].ToArray());
     while (!generator.IsDone())
     {
-        generator.ComputeLogits();
+        //generator.ComputeLogits();
         generator.GenerateNextToken();
         var outputTokens = generator.GetSequence(0);
         var newToken = outputTokens.Slice(outputTokens.Length - 1, 1);
