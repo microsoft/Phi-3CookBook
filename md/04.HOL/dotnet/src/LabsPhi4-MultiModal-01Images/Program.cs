@@ -25,49 +25,48 @@
 using Microsoft.ML.OnnxRuntimeGenAI;
 
 // Phi4
-var modelPath = @"d:\phi\models\Phi-4-mini-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32-acc-level-4\";
+var modelPath = @"d:\phi\models\Phi-4-multimodal-instruct-onnx\gpu\gpu-int4-rtn-block-32\";
+
+var foggyDayImagePath = Path.Combine(Directory.GetCurrentDirectory(), "imgs", "foggyday.png");
+var img = Images.Load([foggyDayImagePath]);
+
 
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
+string userPrompt = "Describe the image, and return the string 'STOP' at the end.";
+var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|><|image_1|>{userPrompt}<|end|><|assistant|>";
 
 // initialize model
 var model = new Model(modelPath);
 var tokenizer = new Tokenizer(model);
 
-// chat start
-Console.WriteLine(@"Ask your question. Type an empty string to Exit.");
 
-// chat loop
-while (true)
+using MultiModalProcessor processor = new MultiModalProcessor(model);
+using var tokenizerStream = processor.CreateStream();
+
+// create the input tensor with the prompt and image
+Console.WriteLine($"Full Prompt: \n{fullPrompt}\n");
+Console.WriteLine("Start processing image and prompt ...");
+var inputTensors = processor.ProcessImages(fullPrompt, img);
+using GeneratorParams generatorParams = new GeneratorParams(model);
+generatorParams.SetSearchOption("max_length", 3072);
+generatorParams.SetInputs(inputTensors);
+
+// generate response
+Console.WriteLine("Generating response ...");
+Console.WriteLine("");
+using var generator = new Generator(model, generatorParams);
+while (!generator.IsDone())
 {
-    // Get user question
-    Console.WriteLine();
-    Console.Write(@"Q: ");
-    var userQ = Console.ReadLine();
-    if (string.IsNullOrEmpty(userQ))
-    {
-        Console.WriteLine("Bye!");
-        break;
-    }
-
-    // show phi response
-    Console.Write("Phi4: ");
-    var fullPrompt = $"<|system|>{systemPrompt}<|end|><|user|>{userQ}<|end|><|assistant|>";
-    var tokens = tokenizer.Encode(fullPrompt);
-
-    var generatorParams = new GeneratorParams(model);
-    var sequences = tokenizer.Encode(fullPrompt);
-
-    generatorParams.SetSearchOption("max_length", 2048);
-    generatorParams.SetSearchOption("past_present_share_buffer", false);
-    using var tokenizerStream = tokenizer.CreateStream();
-    var generator = new Generator(model, generatorParams);
-
-    generator.AppendTokens(tokens[0].ToArray());
-    while (!generator.IsDone())
-    {
-        generator.GenerateNextToken();
-        var output = tokenizerStream.Decode(generator.GetSequence(0)[^1]);
-        Console.Write(output);
-    }
-    Console.WriteLine();
+    //generator.ComputeLogits();
+    generator.GenerateNextToken();
+    var seq = generator.GetSequence(0)[^1];
+    Console.Write(tokenizerStream.Decode(seq));
 }
+
+tokenizerStream.Dispose();
+processor.Dispose();
+tokenizer.Dispose();
+model.Dispose();
+
+Console.WriteLine("");
+Console.WriteLine("Done!");
