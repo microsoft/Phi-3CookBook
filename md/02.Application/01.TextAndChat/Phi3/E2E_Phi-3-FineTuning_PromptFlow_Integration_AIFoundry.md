@@ -425,7 +425,7 @@ In this exercise, you will:
 
 1. Select **Fine-tune** from the navigation menu.
 
-    ![Select fine tune.](../../../../imgs/03/FineTuning-PromptFlow-AIFoundry/06-06-select-fine-tune.png)
+    ![Select fine tune.](../../../../imgs/02/FineTuning-PromptFlow-AIFoundry/06-06-select-fine-tune.png)
 
 1. Perform the following tasks:
 
