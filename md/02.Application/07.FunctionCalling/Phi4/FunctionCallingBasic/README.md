@@ -2,7 +2,7 @@
 
 Function calling first appeared in the Phi Family family, and now you can use it through Phi-4-mini.
 
-This example simulates some Premier League results. I hope Phi-4-mini can provide relevant game information in real time. The sample code is as follows
+This example demonstrates the simulation of Premier League results. The goal is for Phi-4-mini to deliver real-time game information. Below is the sample code:
 
 
 
