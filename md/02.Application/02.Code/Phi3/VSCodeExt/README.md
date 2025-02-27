@@ -8,7 +8,7 @@ Have you used the workspace agent in GitHub Copilot Chat? Do you want to build y
 
 Phi-3 is a family series, including phi-3-mini, phi-3-small, and phi-3-medium based on different training parameters for text generation, dialogue completion, and code generation. There is also phi-3-vision based on Vision. It is suitable for enterprises or different teams to create offline generative AI solutions.
 
-Recommended to read this link [https://github.com/microsoft/Phi-3CookBook/blob/main/md/01.Introduce/Phi3Family.md](https://github.com/microsoft/Phi-3CookBook/blob/main/md/01.Introduce/Phi3Family.md)
+Recommended to read this link [https://github.com/microsoft/PhiCookBook/blob/main/md/01.Introduction/01/01.PhiFamily.md](https://github.com/microsoft/PhiCookBook/blob/main/md/01.Introduction/01/01.PhiFamily.md)
 
 ### **Microsoft GitHub Copilot Chat**
 
