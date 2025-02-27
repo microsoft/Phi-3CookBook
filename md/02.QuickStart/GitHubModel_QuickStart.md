@@ -2,7 +2,7 @@
 
 Welcome to [GitHub Models](https://github.com/marketplace/models)! We've got everything fired up and ready for you to explore AI Models hosted on Azure AI.
 
-![GitHubModel](../../imgs/02/GitHub/GitHub_ModelCatalog.png)
+![GitHubModel](../../imgs/01/02/02/GitHub_ModelCatalog.png)
 
 For more information about the Models available on GitHub Models, check out the [GitHub Model Marketplace](https://github.com/marketplace/models)
 
@@ -10,7 +10,7 @@ For more information about the Models available on GitHub Models, check out the 
 
 Each model has a dedicated playground and sample code 
 
-![Phi-3Model_Github](../../imgs/02/GitHub/GitHub_ModelPlay.png)
+![Phi-3Model_Github](../../imgs/01/02/02/GitHub_ModelPlay.png/)
 
 ### Phi-3 Models in GitHub Model Catalog
 
@@ -36,7 +36,7 @@ There are a few basic examples that are ready for you to run. You can find them 
 
 There is also a dedicated Codespaces Environment for running the samples and models. 
 
-![Getting Started](../../imgs/02/GitHub/GitHub_ModelGetStarted.png)
+![Getting Started](../../imgs/01/02/02/GitHub_ModelGetStarted.png)
 
 
 ## Sample Code 
@@ -419,7 +419,7 @@ curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
 
 ## FREE Usage and Rate limits for GitHub Models
 
-![Model Catalog](../../imgs/02/GitHub/GitHub_Model.png)
+![Model Catalog](../../imgs/01/02/02/GitHub_Model.png)
 
 The [rate limits for the playground and free API usage](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits) are intended to help you experiment with models and prototype your AI application. For use beyond those limits, and to bring your application to scale, you must provision resources from an Azure account, and authenticate from there instead of your GitHub personal access token. You don't need to change anything else in your code. Use this link to discover how to go beyond the free tier limits in Azure AI.
 
