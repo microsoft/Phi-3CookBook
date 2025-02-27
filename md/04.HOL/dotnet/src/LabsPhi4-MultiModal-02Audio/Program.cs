@@ -37,8 +37,19 @@ generate a comprehensive text transcription of the spoken content in the audio, 
 <|assistant|>";
 
 // initialize model
-var model = new Model(modelPath);
+
+// initialize model
+Config config = new Config(modelPath);
+config.ClearProviders();
+#if DEBUG_CUDA
+config.SetProviderOption("cuda", "enable_cuda_graph", "0");
+#endif
+
+var model = new Model(config);
 var tokenizer = new Tokenizer(model);
+
+//var model = new Model(modelPath);
+//var tokenizer = new Tokenizer(model);
 
 using MultiModalProcessor processor = new MultiModalProcessor(model);
 using var tokenizerStream = processor.CreateStream();
@@ -63,7 +74,7 @@ while (!generator.IsDone())
     Console.Write(tokenizerStream.Decode(seq));
 }
 
-audioFiles.Dispose();  
+audioFiles.Dispose();
 tokenizerStream.Dispose();
 processor.Dispose();
 tokenizer.Dispose();
