@@ -22,8 +22,9 @@ Phi is currently the most powerful and cost-effective small language model (SLM)
 You can deploy Phi to the cloud or to edge devices, and you can easily build generative AI applications with limited computing power.
 
 Follow these steps to get started using these resource :
-1. **Fork the Repository**: Click on the "Fork" button at the top-right corner of this page.
+1. **Fork the Repository**: Click [![GitHub forks](https://img.shields.io/github/forks/microsoft/phicookbook.svg?style=social&label=Fork)](https://GitHub.com/microsoft/phicookbook/network/?WT.mc_id=aiml-137032-kinfeylo)
 2. **Clone the Repository**:   `git clone https://github.com/microsoft/PhiCookBook.git`
+3. [**Join The Microsoft AI Discord Community and meet experts and fellow developers**](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-137032-kinfeylo)
 
 ![cover](./imgs/cover.png)
 
