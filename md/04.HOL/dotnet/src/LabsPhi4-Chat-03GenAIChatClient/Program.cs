@@ -31,20 +31,7 @@ var modelPath = @"d:\phi\models\Phi-4-mini-instruct-onnx\cpu_and_mobile\cpu-int4
 
 var systemPrompt = "You are an AI assistant that helps people find information. Answer questions using a direct style. Do not share more information that the requested by the users.";
 
-OnnxRuntimeGenAIChatClientOptions config = new()
-{
-    StopSequences = ["<|system|>", "<|user|>", "<|assistant|>", "<|end|>"],
-    PromptFormatter = static (messages, options) =>
-    {
-        StringBuilder prompt = new();
-
-        foreach (var message in messages)
-            foreach (var content in message.Contents.OfType<TextContent>())
-                prompt.Append("<|").Append(message.Role.Value).Append("|>\n").Append(content.Text).Append("<|end|>\n");
-
-        return prompt.Append("<|assistant|>\n").ToString();
-    },
-};
+var config = OnnxRuntimeGenAIChatClientOptionsGenerator.GetDefault();
 
 using var client = new OnnxRuntimeGenAIChatClient(config, modelPath);
 
