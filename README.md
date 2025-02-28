@@ -69,7 +69,10 @@ Follow these steps to get started using these resource :
 -  Evaluation Phi
     - [Response AI](./md/01.Introduction/05/ResponsibleAI.md)
     - [Azure AI Foundry for Evaluation](./md/01.Introduction/05/AIFoundry.md)
-    - [Using Promptflow for Evaluation](./md/01.Introduction/05/Promptflow.md) 
+    - [Using Promptflow for Evaluation](./md/01.Introduction/05/Promptflow.md)
+ 
+- RAG with Azure AI Search
+    - [How to use Phi-4-mini and Phi-4-multimodal(RAG) with Azure AI Search](https://github.com/microsoft/PhiCookBook/blob/main/code/06.E2E/E2E_Phi-4-RAG-Azure-AI-Search.ipynb)
 
 - Phi application development samples
   - Text & Chat Applications
