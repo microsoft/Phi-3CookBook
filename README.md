@@ -98,7 +98,6 @@ Follow these steps to get started using these resource :
       - [Q&A .NET Example using local ONNX Phi-3 model using the Microsoft.ML.OnnxRuntime](./md/04.HOL/dotnet/src/LabsPhi301/)
       - [Console chat .NET app with Semantic Kernel and Phi-3](./md/04.HOL/dotnet/src/LabsPhi302/)
       
-
   - Azure AI Inference SDK Code Based Samples 
     - Phi-4 Samples 🆕
       - [📓] [Generate project code using Phi-4-multimodal](./md/02.Application/02.Code/Phi4/GenProjectCode/README.md)
@@ -109,7 +108,10 @@ Follow these steps to get started using these resource :
   - Advanced Reasoning Samples
     - Phi-4 Samples 🆕
       - [📓] [Phi-4-mini Reasoning Samples](./md/02.Application/03.AdvancedReasoning/Phi4/AdvancedResoningPhi4mini/README.md)
-
+  
+  - Demos
+      - [Phi-4-mini demos hosted on Hugging Face Spaces](https://huggingface.co/spaces/microsoft/phi-4-mini?WT.mc_id=aiml-137032-kinfeylo)
+      - [Phi-4-multimodal demos hosted on Hugginge Face Spaces](https://huggingface.co/spaces/microsoft/phi-4-multimodal?WT.mc_id=aiml-137032-kinfeylo)
   - Vision Samples
     - Phi-4 Samples 🆕
       - [📓] [Use Phi-4-multimodal to read images and generate code](./md/02.Application/04.Vision/Phi4/CreateFrontend/README.md) 
