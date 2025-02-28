@@ -6,11 +6,11 @@ There is a selection of labs that showcases how to integrate the powerful differ
 
 Before running the sample, ensure you have the following installed:
 
-**.NET 9:** Make sure you have the [latest version of .NET](https://dotnet.microsoft.com/download/dotnet/) installed on your machine.
+**.NET 9:** Make sure you have the [latest version of .NET](https://dotnet.microsoft.com/download/dotnet?WT.mc_id=aiml-137032-kinfeylo) installed on your machine.
 
-**(Optional) Visual Studio or Visual Studio Code:** You will need an IDE or code editor capable of running .NET projects. [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) are recommended.
+**(Optional) Visual Studio or Visual Studio Code:** You will need an IDE or code editor capable of running .NET projects. [Visual Studio](https://visualstudio.microsoft.com?WT.mc_id=aiml-137032-kinfeylo) or [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=aiml-137032-kinfeylo) are recommended.
 
-**Using git** clone locally one of the available Phi-3, Phi3.5 or Phi-4 versions from [Hugging Face](https://huggingface.co).
+**Using git** clone locally one of the available Phi-3, Phi3.5 or Phi-4 versions from [Hugging Face](https://huggingface.co?WT.mc_id=aiml-137032-kinfeylo).
 
 **Download Phi-4 Onnx models** to your local machine:
 
@@ -52,14 +52,14 @@ The main solution have several sample Labs that demonstrates the capabilities of
 
 | Project | Description | Location |
 | ------------ | ----------- | -------- |
-| LabsPhi301    | This is a sample project that uses a local phi3 model to ask a question. The project load a local ONNX Phi-3 model using the `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi301\ |
-| LabsPhi302    | This is a sample project that implement a Console chat using Semantic Kernel. | .\src\LabsPhi302\ |
-| LabsPhi303 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. | .\src\LabsPhi303\ |
-| LabsPhi304 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. The project also presents a menu with different options to interacti with the user. | .\src\LabsPhi304\ |
-| LabsPhi4-Chat-01OnnxRuntime | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-Chat-01OnnxRuntime\ |
-| LabsPhi4-Chat-02SK | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Semantic Kernel` libraries. | \src\LabsPhi4-Chat-02SK\ |
-| LabsPhi4-MultiModal-01Images | This is a sample project that uses a local Phi-4 model to analyze images showing the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-MultiModal-01Images\ |
-| LabsPhi4-MultiModal-02Audio | This is a sample project that uses a local Phi-4 model to analyze an audio file, generate the transcript of the file and show the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-MultiModal-02Audio\ |
+| LabsPhi301 | This is a sample project that uses a local phi3 model to ask a question. The project load a local ONNX Phi-3 model using the `Microsoft.ML.OnnxRuntime` libraries. | [LabsPhi301](./src/LabsPhi301/) |
+| LabsPhi302    | This is a sample project that implement a Console chat using Semantic Kernel. | [LabsPhi302](./src/LabsPhi302/) |
+| LabsPhi303 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. | [LabPhi303](./src/LabsPhi303/) |
+| LabsPhi304 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. The project also presents a menu with different options to interacti with the user. | [LabPhi304](./src/LabsPhi304/) |
+| LabsPhi4-Chat-01OnnxRuntime | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Microsoft.ML.OnnxRuntime` libraries. | [LabPhi4-Chat](./src/LabsPhi4-Chat-01OnnxRuntime/) |
+| LabsPhi4-Chat-02SK | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Semantic Kernel` libraries. | [LabPhi-4-SK](./src/LabsPhi4-Chat-02SK/) |
+| LabsPhi4-MultiModal-01Images | This is a sample project that uses a local Phi-4 model to analyze images showing the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | [Phi-4multimodal-vision](./src/LabsPhi4-MultiModal-01Images/) |
+| LabsPhi4-MultiModal-02Audio | This is a sample project that uses a local Phi-4 model to analyze an audio file, generate the transcript of the file and show the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. |[LabPhi4-MM-Audio](./src/LabsPhi4-MultiModal-02Audio/) |
 
 
 ## How to Run the Projects
