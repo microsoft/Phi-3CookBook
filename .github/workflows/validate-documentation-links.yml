@@ -28,7 +28,7 @@ jobs:
         with:
           command: check_broken_paths
           directory: ./
-          guide-url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/CONTRIBUTING.md'
+          guide-url: 'https://github.com/microsoft/PhiCookBook/blob/main/CONTRIBUTING.md'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   check-urls-locale:
@@ -43,7 +43,7 @@ jobs:
         with:
           command: check_urls_locale
           directory: ./
-          guide-url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/CONTRIBUTING.md'
+          guide-url: 'https://github.com/microsoft/PhiCookBook/blob/main/CONTRIBUTING.md'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   check-broken-urls:
@@ -58,5 +58,5 @@ jobs:
         with:
           command: check_broken_urls
           directory: ./
-          guide-url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/CONTRIBUTING.md'
+          guide-url: 'https://github.com/microsoft/PhiCookBook/blob/main/CONTRIBUTING.md'
           github-token: ${{ secrets.GITHUB_TOKEN }}
