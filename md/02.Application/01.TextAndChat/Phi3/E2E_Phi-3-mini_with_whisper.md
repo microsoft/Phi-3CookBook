@@ -77,7 +77,7 @@ Installing Cuda GPU drivers
 
 1. Perform the following tasks to create a Hugging Face token.
 
-    - Navigate to the [Hugging Face Token Settings page](https://huggingface.co/settings/tokens).
+    - Navigate to the [Hugging Face Token Settings page](https://huggingface.co/settings/tokens?WT.mc_id=aiml-137032-kinfeylo).
     - Select **New token**.
     - Enter project **Name** you want to use.
     - Select **Type** to **Write**.

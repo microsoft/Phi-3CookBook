@@ -78,6 +78,8 @@ Follow these steps to get started using these resource :
   - Text & Chat Applications
     - Phi-4 Samples 🆕
       - [📓] [Chat With Phi-4-mini ONNX Model](./md/02.Application/01.TextAndChat/Phi4/ChatWithPhi4ONNX/README.md)
+      - [Chat with Phi-4 local ONNX Model .NET](./md/04.HOL/dotnet/src/LabsPhi4-Chat-01OnnxRuntime/)
+      - [Chat .NET Console App with Phi-4 ONNX using Sementic Kernel](./md/04.HOL/dotnet/src/LabsPhi4-Chat-02SK/)
     - Phi-3 / 3.5 Samples
       - [Local Chatbot in the browser using Phi3, ONNX Runtime Web and WebGPU](https://github.com/microsoft/onnxruntime-inference-examples/tree/main/js/chat)
       - [OpenVino Chat](./md/02.Application/01.TextAndChat/Phi3/E2E_OpenVino_Chat.md)
@@ -93,6 +95,9 @@ Follow these steps to get started using these resource :
       - [Phi-3.5-Instruct WebGPU RAG Chatbot](./md/02.Application/01.TextAndChat/Phi3/WebGPUWithPhi35Readme.md)
       - [Using Windows GPU to create Prompt flow solution with Phi-3.5-Instruct ONNX](./md/02.Application/01.TextAndChat/Phi3/UsingPromptFlowWithONNX.md)
       - [Using Microsoft Phi-3.5 tflite to create Android app](./md/02.Application/01.TextAndChat/Phi3/UsingPhi35TFLiteCreateAndroidApp.md)
+      - [Q&A .NET Example using local ONNX Phi-3 model using the Microsoft.ML.OnnxRuntime](./md/04.HOL/dotnet/src/LabsPhi301/)
+      - [Console chat .NET app with Semantic Kernel and Phi-3](./md/04.HOL/dotnet/src/LabsPhi302/)
+      
 
   - Azure AI Inference SDK Code Based Samples 
     - Phi-4 Samples 🆕
@@ -117,12 +122,15 @@ Follow these steps to get started using these resource :
       - [Phi-3 Vision Nvidia NIM](./md/02.Application/04.Vision/Phi3/E2E_Nvidia_NIM_Vision.md)
       - [Phi-3 Vision OpenVino](./md/02.Application/04.Vision/Phi3/E2E_OpenVino_Phi3Vision.md)
       - [📓][Phi-3.5 Vision multi-frame or multi-image sample](./md/02.Application/04.Vision/Phi3/phi3-vision-demo.ipynb)
+      - [Phi-3 Vision Local ONNX Model using the Microsoft.ML.OnnxRuntime .NET](./md/04.HOL/dotnet/src/LabsPhi303/)
+      - [Menu based Phi-3 Vision Local ONNX Model using the Microsoft.ML.OnnxRuntime .NET](./md/04.HOL/dotnet/src/LabsPhi304/)
 
   - Audio Samples
     - Phi-4 Samples 🆕
       - [📓] [Extracting audio transcripts using Phi-4-multimodal](./md/02.Application/05.Audio/Phi4/Transciption/README.md)
       - [📓] [Phi-4-multimodal Audio Sample](./md/02.Application/05.Audio/Phi4/Siri/demo.ipynb)
       - [📓] [Phi-4-multimodal Speech Translation Sample](./md/02.Application/05.Audio/Phi4/Translate/demo.ipynb)
+      - [.NET console application using Phi-4-multimodal Audio to analyze an audio file and generate transcript](./md/04.HOL/dotnet/src/LabsPhi4-MultiModal-02Audio/)
 
   - MOE Samples
     - Phi-3 / 3.5 Samples
@@ -134,6 +142,7 @@ Follow these steps to get started using these resource :
   - Multimodal Mixing Samples
     - Phi-4 Samples 🆕
       -  [📓] [Using Phi-4-multimodal as a Technology journalist](./md/02.Application/08.Multimodel/Phi4/TechJournalist/phi_4_mm_audio_text_publish_news.ipynb)
+      - [.NET console application using Phi-4-multimodal to analyze images](./md/04.HOL/dotnet/src/LabsPhi4-MultiModal-01Images/)
 
 - Fine-tuning Phi Samples
   - [Fine-tuning Scenarios](./md/03.FineTuning/FineTuning_Scenarios.md)
