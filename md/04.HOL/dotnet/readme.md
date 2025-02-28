@@ -12,7 +12,7 @@ Before running the sample, ensure you have the following installed:
 
 **Using git** clone locally one of the available Phi-3, Phi3.5 or Phi-4 versions from [Hugging Face](https://huggingface.co).
 
-**Download Phi-4 onnx models** to your local machine:
+**Download Phi-4 Onnx models** to your local machine:
 
 ### navigate to the folder to store the models
 
@@ -34,17 +34,13 @@ git clone https://huggingface.co/microsoft/Phi-4-mini-instruct-onnx
 git clone https://huggingface.co/microsoft/Phi-4-multimodal-instruct-onnx
 ```
 
-**Download the phi3-mini-4k-instruct-onnx model** to your local machine:
+**Download the Phi-3 Onnx models** to your local machine:
 
-### clone and download mini 4K instruct model
+### clone and download Phi-3 mini 4K instruct model and Phi-3 vision 128K model
 
 ```bash
 git clone https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx
-```
 
-### clone and download vision 128K model
-
-```bash
 git clone https://huggingface.co/microsoft/Phi-3-vision-128k-instruct-onnx-cpu
 ```
 
@@ -62,6 +58,7 @@ The main solution have several sample Labs that demonstrates the capabilities of
 | LabsPhi304 | This is a sample project that uses a local phi3 vision model to analyze images.. The project load a local ONNX Phi-3 Vision model using the `Microsoft.ML.OnnxRuntime` libraries. The project also presents a menu with different options to interacti with the user. | .\src\LabsPhi304\ |
 | LabsPhi4-Chat-01OnnxRuntime | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-Chat-01OnnxRuntime\ |
 | LabsPhi4-Chat-02SK | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Semantic Kernel` libraries. | \src\LabsPhi4-Chat-02SK\ |
+| LabsPhi4-MultiModal-01Images | This is a sample project that uses a local Phi-4 model to analyze images showing the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-MultiModal-01Images\ |
 
 ## How to Run the Projects
 

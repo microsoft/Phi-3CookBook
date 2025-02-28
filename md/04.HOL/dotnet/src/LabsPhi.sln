@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-Chat-01OnnxRuntime
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-Chat-02SK", "LabsPhi4-Chat-02SK\LabsPhi4-Chat-02SK.csproj", "{66045465-B4A8-D929-3D15-926FD376FE2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-MultiModal-01Images", "LabsPhi4-MultiModal-01Images\LabsPhi4-MultiModal-01Images.csproj", "{97AB7A04-3E81-BA32-0591-E6041F3A7F15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{66045465-B4A8-D929-3D15-926FD376FE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66045465-B4A8-D929-3D15-926FD376FE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66045465-B4A8-D929-3D15-926FD376FE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97AB7A04-3E81-BA32-0591-E6041F3A7F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97AB7A04-3E81-BA32-0591-E6041F3A7F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97AB7A04-3E81-BA32-0591-E6041F3A7F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97AB7A04-3E81-BA32-0591-E6041F3A7F15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{4EB2FBF6-75D3-4B10-B5B5-675469C24780} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C6986362-DDF7-6EF2-75EE-B042B4F4B4D2} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
 		{66045465-B4A8-D929-3D15-926FD376FE2E} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
+		{97AB7A04-3E81-BA32-0591-E6041F3A7F15} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAA25EC1-C5F2-40DC-8080-4DAF13311AEE}
