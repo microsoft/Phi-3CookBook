@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-MultiModal-01Image
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-MultiModal-02Audio", "LabsPhi4-MultiModal-02Audio\LabsPhi4-MultiModal-02Audio.csproj", "{7A19FB9A-AA95-4276-9A65-74CA7FD74B56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabsPhi4-Chat-03GenAIChatClient", "LabsPhi4-Chat-03GenAIChatClient\LabsPhi4-Chat-03GenAIChatClient.csproj", "{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Cuda|Any CPU = Debug_Cuda|Any CPU
@@ -78,6 +80,12 @@ Global
 		{7A19FB9A-AA95-4276-9A65-74CA7FD74B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A19FB9A-AA95-4276-9A65-74CA7FD74B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A19FB9A-AA95-4276-9A65-74CA7FD74B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Debug_Cuda|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Debug_Cuda|Any CPU.Build.0 = Debug|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +99,7 @@ Global
 		{66045465-B4A8-D929-3D15-926FD376FE2E} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
 		{97AB7A04-3E81-BA32-0591-E6041F3A7F15} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
 		{7A19FB9A-AA95-4276-9A65-74CA7FD74B56} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
+		{1BF4E4C4-6A7E-497D-9AB0-5819D2EEA857} = {9DF367B9-E0EA-4ABB-A144-5E13A9508A69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAA25EC1-C5F2-40DC-8080-4DAF13311AEE}
