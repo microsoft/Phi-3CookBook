@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>LabsPhi4_MultiModal_02Audio</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Configurations>Debug;Release;Debug_Cuda;Debug_DirectML</Configurations>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.7.0-rc1" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Release' " />
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Cuda" Version="0.7.0-rc1" Condition=" '$(Configuration)' == 'Debug_Cuda' OR '$(Configuration)' == 'Release_Cuda' " />
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.DirectML" Version="0.7.0-rc1" Condition=" '$(Configuration)' == 'Debug_DirectML' OR '$(Configuration)' == 'Release_DirectML' " />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="audio\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="audio\audio_weather_alaw.wav">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>

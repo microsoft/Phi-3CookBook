@@ -59,6 +59,8 @@ The main solution have several sample Labs that demonstrates the capabilities of
 | LabsPhi4-Chat-01OnnxRuntime | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-Chat-01OnnxRuntime\ |
 | LabsPhi4-Chat-02SK | This is a sample project that uses a local Phi-4 model to work in a chat in the console. The project load a local ONNX Phi-4 model using the `Semantic Kernel` libraries. | \src\LabsPhi4-Chat-02SK\ |
 | LabsPhi4-MultiModal-01Images | This is a sample project that uses a local Phi-4 model to analyze images showing the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-MultiModal-01Images\ |
+| LabsPhi4-MultiModal-02Audio | This is a sample project that uses a local Phi-4 model to analyze an audio file, generate the transcript of the file and show the result in the console. The project load a local Phi-4-`multimodal-instruct-onnx` model using the `Microsoft.ML.OnnxRuntime` libraries. | \src\LabsPhi4-MultiModal-02Audio\ |
+
 
 ## How to Run the Projects
 
