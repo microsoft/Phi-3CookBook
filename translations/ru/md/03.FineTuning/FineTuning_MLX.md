@@ -182,7 +182,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. В объединенной модели отсутствует tokenizer.model, скачайте его по ссылке: https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-Установите файл модели Ollama (если Ollama не установлен, прочитайте [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)).
+Установите файл модели Ollama (если Ollama не установлен, прочитайте [Ollama QuickStart](https://ollama.com/)).
 
 
 ```txt
