@@ -181,7 +181,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. Az egyesített modellből hiányzik a tokenizer.model, kérjük, töltsd le innen: https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Állítsd be az Ollama Modell fájlt (Ha nincs telepítve az ollama, olvasd el ezt: [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md))
+Állítsd be az Ollama Modell fájlt (Ha nincs telepítve az ollama, olvasd el ezt: [Ollama QuickStart](https://ollama.com/))
 
 
 ```txt

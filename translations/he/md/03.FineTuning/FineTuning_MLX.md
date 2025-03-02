@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. במודל הממוזג חסר tokenizer.model, יש להוריד אותו מהקישור https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-הגדירו את קובץ המודל של Ollama (אם לא התקנתם את ollama, אנא קראו [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)).
+הגדירו את קובץ המודל של Ollama (אם לא התקנתם את ollama, אנא קראו [Ollama QuickStart](https://ollama.com/)).
 
 ```txt
 

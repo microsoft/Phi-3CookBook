@@ -182,7 +182,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. Het samengevoegde model mist tokenizer.model, download deze van https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-Stel het Ollama modelbestand in (Als Ollama niet is geïnstalleerd, lees dan [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)):
+Stel het Ollama modelbestand in (Als Ollama niet is geïnstalleerd, lees dan [Ollama QuickStart](https://ollama.com/)):
 
 
 ```txt

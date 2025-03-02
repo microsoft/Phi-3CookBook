@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. Yhdistetyltä mallilta puuttuu tokenizer.model, lataa se osoitteesta https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-Määritä Ollama-mallitiedosto (jos ollamaa ei ole asennettu, lue [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)):
+Määritä Ollama-mallitiedosto (jos ollamaa ei ole asennettu, lue [Ollama QuickStart](https://ollama.com/)):
 
 ```txt
 

@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. Modeli iliyounganishwa inakosa tokenizer.model, tafadhali ipakue kutoka https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-Weka faili ya Ollama Model (Ikiwa hujafunga ollama, tafadhali soma [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)):
+Weka faili ya Ollama Model (Ikiwa hujafunga ollama, tafadhali soma [Ollama QuickStart](https://ollama.com/)):
 
 ```txt
 

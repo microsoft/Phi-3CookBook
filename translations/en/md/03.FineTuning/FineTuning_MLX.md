@@ -167,7 +167,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. The merged model does not include `tokenizer.model`. Please download it from: https://huggingface.co/microsoft/Phi-3-mini-4k-instruct.
 
-Set the Ollama model file (If Ollama is not installed, refer to [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)):
+Set the Ollama model file (If Ollama is not installed, refer to [Ollama QuickStart](https://ollama.com/)):
 
 ```txt
 

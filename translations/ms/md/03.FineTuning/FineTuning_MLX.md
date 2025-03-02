@@ -181,7 +181,7 @@ python convert.py 'Your meger model path'  --outfile phi-3-mini-ft.gguf --outtyp
 
 2. Model yang digabungkan kekurangan tokenizer.model, sila muat turun dari https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 
-Tetapkan fail Model Ollama (Jika belum memasang ollama, sila baca [Ollama QuickStart](../02.QuickStart/Ollama_QuickStart.md)
+Tetapkan fail Model Ollama (Jika belum memasang ollama, sila baca [Ollama QuickStart](https://ollama.com/)
 
 
 ```txt
