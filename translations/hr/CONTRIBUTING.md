@@ -38,15 +38,15 @@ Kada podnosite pull request (PR) u Phi-3 CookBook repozitorij, koristite sljede�
 Ako ste vješti u nekom neengleskom jeziku, možete pomoći prevesti sadržaj. Slijedite ove korake kako biste osigurali da su vaši prijevodi ispravno integrirani, koristeći sljedeće smjernice:
 
 - **Kreirajte mapu za prijevod**: Navigirajte do odgovarajućeg direktorija i kreirajte mapu za prijevod jezika na kojem doprinosite. Na primjer:
-  - Za uvodni odjeljak: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Za odjeljak za brzi početak: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Za uvodni odjeljak: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Za odjeljak za brzi početak: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Nastavite ovaj obrazac za ostale odjeljke (03.Inference, 04.Finetuning itd.)
 
 - **Ažurirajte relativne putanje**: Prilikom prevođenja, prilagodite strukturu mapa dodavanjem `../../` na početak relativnih putanja unutar markdown datoteka kako bi veze ispravno funkcionirale. Na primjer, promijenite na sljedeći način:
   - Promijenite `(../../imgs/01/phi3aisafety.png)` u `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizirajte svoje prijevode**: Svaka prevedena datoteka treba biti smještena u odgovarajuću mapu prijevoda za taj odjeljak. Na primjer, ako prevodite uvodni odjeljak na španjolski, trebali biste kreirati sljedeće:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Podnesite cjelovit PR**: Osigurajte da su sve prevedene datoteke za određeni odjeljak uključene u jedan PR. Ne prihvaćamo djelomične prijevode za odjeljak. Kada podnosite PR za prijevod, provjerite da mapa prijevoda uključuje prijevode za sve datoteke iz izvornog direktorija.
 
@@ -54,7 +54,7 @@ Ako ste vješti u nekom neengleskom jeziku, možete pomoći prevesti sadržaj. S
 
 Kako biste osigurali dosljednost u svim dokumentima, koristite sljedeće smjernice:
 
-- **Formatiranje URL-ova**: Omotajte sve URL-ove u uglate zagrade praćene zagradama, bez dodatnih razmaka oko njih. Na primjer: `[example](https://example.com)`.
+- **Formatiranje URL-ova**: Omotajte sve URL-ove u uglate zagrade praćene zagradama, bez dodatnih razmaka oko njih. Na primjer: `[example](https://www.microsoft.com)`.
 
 - **Relativne veze**: Koristite `./` za relativne veze koje upućuju na datoteke ili mape u trenutnom direktoriju i `../` za one u nadređenom direktoriju. Na primjer: `[example](../../path/to/file)` ili `[example](../../../path/to/file)`.
 

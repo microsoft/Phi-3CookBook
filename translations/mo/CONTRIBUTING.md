@@ -37,15 +37,15 @@ Lè w ap soumèt yon pull request (PR) nan depo Phi-3 CookBook la, tanpri swiv g
 Si ou metrize yon lang ki pa angle, ou ka ede tradui kontni an. Swiv etap sa yo pou asire kontribisyon tradiksyon ou yo byen entegre:
 
 - **Kreye yon katab tradiksyon**: Ale nan katab seksyon ki apwopriye a epi kreye yon katab tradiksyon pou lang ou ap kontribye a. Pa egzanp:
-  - Pou seksyon entwodiksyon: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Pou seksyon kòmanse rapid: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Pou seksyon entwodiksyon: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Pou seksyon kòmanse rapid: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Kontinye modèl sa a pou lòt seksyon yo (03.Inference, 04.Finetuning, elatriye)
 
 - **Mete ajou chemen relatif yo**: Lè w ap tradui, ajiste estrikti katab la pa ajoute `../../` nan kòmansman chemen relatif yo nan dosye markdown yo pou asire lyen yo travay kòrèkteman. Pa egzanp, chanje jan sa a:
   - Chanje `(../../imgs/01/phi3aisafety.png)` pou `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Òganize tradiksyon ou yo**: Chak dosye tradui yo ta dwe mete nan katab tradiksyon seksyon ki koresponn lan. Pa egzanp, si w ap tradui seksyon entwodiksyon an nan lang panyòl, ou ta kreye jan sa a:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Soumèt yon PR konplè**: Asire w ke tout dosye tradui pou yon seksyon enkli nan yon sèl PR. Nou pa aksepte tradiksyon pasyèl pou yon seksyon. Lè w ap soumèt yon PR tradiksyon, asire w ke katab tradiksyon an gen tradiksyon pou tout dosye nan katab orijinal la.
 
@@ -53,7 +53,7 @@ Si ou metrize yon lang ki pa angle, ou ka ede tradui kontni an. Swiv etap sa yo 
 
 Pou asire konsistans atravè tout dokiman yo, tanpri itilize gid sa yo:
 
-- **Fòmat URL**: Mete tout URL yo nan parantèz kare ki swiv pa parantèz won, san okenn espas anplis alantou oswa andedan yo. Pa egzanp: `[example](https://example.com)`.
+- **Fòmat URL**: Mete tout URL yo nan parantèz kare ki swiv pa parantèz won, san okenn espas anplis alantou oswa andedan yo. Pa egzanp: `[example](https://www.microsoft.com)`.
 
 - **Lyen relatif**: Sèvi ak `./` pou lyen relatif ki montre dosye oswa katab nan repèrtwar aktyèl la, epi `../` pou sa yo ki nan yon repèrtwar paran. Pa egzanp: `[example](../../path/to/file)` oswa `[example](../../../path/to/file)`.
 

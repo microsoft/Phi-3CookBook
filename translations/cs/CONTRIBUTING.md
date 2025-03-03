@@ -37,15 +37,15 @@ Při odesílání pull requestu (PR) do repozitáře Phi-3 CookBook postupujte p
 Pokud ovládáte jiný než anglický jazyk, můžete pomoci přeložit obsah. Postupujte podle těchto kroků, aby vaše překladatelské příspěvky byly správně integrovány:
 
 - **Vytvořte složku pro překlady**: Přejděte do odpovídající sekce a vytvořte složku pro překlady do jazyka, do kterého přispíváte. Například:
-  - Pro sekci úvod: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Pro sekci rychlý start: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Pro sekci úvod: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Pro sekci rychlý start: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Pokračujte v tomto vzoru pro další sekce (03.Inference, 04.Finetuning atd.)
 
 - **Aktualizujte relativní cesty**: Při překládání upravte strukturu složek přidáním `../../` na začátek relativních cest v markdown souborech, aby odkazy fungovaly správně. Například změňte následující:
   - Změňte `(../../imgs/01/phi3aisafety.png)` na `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizace překladů**: Každý přeložený soubor by měl být umístěn do odpovídající složky sekce překladu. Například pokud překládáte úvodní sekci do španělštiny, vytvořte následující:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Odešlete kompletní PR**: Ujistěte se, že všechny přeložené soubory pro jednu sekci jsou zahrnuty v jednom PR. Nepřijímáme částečné překlady sekce. Při odesílání PR s překladem se ujistěte, že složka s překladem obsahuje překlady všech souborů v původní složce.
 
@@ -53,7 +53,7 @@ Pokud ovládáte jiný než anglický jazyk, můžete pomoci přeložit obsah. P
 
 Pro zajištění konzistence ve všech dokumentech používejte následující pokyny:
 
-- **Formátování URL**: Zabalte všechny URL do hranatých závorek následovaných závorkami, bez mezer kolem nebo uvnitř. Například: `[example](https://example.com)`.
+- **Formátování URL**: Zabalte všechny URL do hranatých závorek následovaných závorkami, bez mezer kolem nebo uvnitř. Například: `[example](https://www.microsoft.com)`.
 
 - **Relativní odkazy**: Používejte `./` pro relativní odkazy, které ukazují na soubory nebo složky v aktuálním adresáři, a `../` pro odkazy ve složce nadřazené. Například: `[example](../../path/to/file)` nebo `[example](../../../path/to/file)`.
 

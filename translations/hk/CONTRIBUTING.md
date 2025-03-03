@@ -37,15 +37,15 @@
 如果你熟悉一種非英文語言，可以幫助翻譯內容。請按照以下步驟確保你嘅翻譯貢獻被正確整合，並遵循以下指引：
 
 - **創建翻譯文件夾**：導航到對應嘅章節文件夾，並為你要翻譯嘅語言創建一個翻譯文件夾。例如：
-  - 對於介紹章節：`Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - 對於快速開始章節：`Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - 對於介紹章節：`PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - 對於快速開始章節：`PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - 其他章節（例如 03.Inference、04.Finetuning 等）同樣操作。
 
 - **更新相對路徑**：翻譯時，通過喺 Markdown 文件中嘅相對路徑前加上 `../../` 來調整文件結構以確保鏈接正確。例如，改為以下：
   - 將 `(../../imgs/01/phi3aisafety.png)` 改為 `(../../../../imgs/01/phi3aisafety.png)`
 
 - **整理翻譯文件**：每個翻譯文件應該放喺相應章節嘅翻譯文件夾中。例如，如果你翻譯介紹章節為西班牙語，你應該創建以下結構：
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **提交完整 PR**：確保每個章節嘅所有翻譯文件都包含喺一個 PR 中。我哋唔接受章節嘅部分翻譯。提交翻譯 PR 時，請確保翻譯文件夾包含原始文件夾中所有文件嘅翻譯。
 
@@ -53,7 +53,7 @@
 
 為咗確保所有文件格式一致，請遵循以下指引：
 
-- **URL 格式化**：用方括號包住所有 URL，然後用括號括住，並且唔好喺內外加額外空格。例如：`[example](https://example.com)`。
+- **URL 格式化**：用方括號包住所有 URL，然後用括號括住，並且唔好喺內外加額外空格。例如：`[example](https://www.microsoft.com)`。
 
 - **相對鏈接**：對指向當前目錄中文件或文件夾嘅相對鏈接使用 `./`，對父目錄使用 `../`。例如：`[example](../../path/to/file)` 或 `[example](../../../path/to/file)`。
 

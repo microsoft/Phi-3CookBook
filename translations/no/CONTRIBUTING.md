@@ -37,15 +37,15 @@ Når du sender inn en pull request (PR) til Phi-3 CookBook-repositoriet, vennlig
 Hvis du behersker et annet språk enn engelsk, kan du bidra med oversettelser. Følg disse trinnene for å sikre at oversettelsesbidragene dine blir korrekt integrert, og bruk følgende retningslinjer:
 
 - **Opprett oversettelsesmappe**: Naviger til riktig seksjonsmappe og opprett en oversettelsesmappe for språket du bidrar til. For eksempel:
-  - For introduksjonsseksjonen: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - For hurtigstartseksjonen: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - For introduksjonsseksjonen: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - For hurtigstartseksjonen: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Fortsett dette mønsteret for andre seksjoner (03.Inference, 04.Finetuning, osv.)
 
 - **Oppdater relative stier**: Når du oversetter, juster mappestrukturen ved å legge til `../../` i begynnelsen av relative stier i markdown-filene for å sikre at lenkene fungerer korrekt. For eksempel, endre som følger:
   - Endre `(../../imgs/01/phi3aisafety.png)` til `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organiser oversettelsene dine**: Hver oversatte fil skal plasseres i den tilsvarende seksjonens oversettelsesmappe. For eksempel, hvis du oversetter introduksjonsseksjonen til spansk, bør du opprette som følger:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Send inn en komplett PR**: Sørg for at alle oversatte filer for en seksjon er inkludert i én PR. Vi aksepterer ikke delvise oversettelser for en seksjon. Når du sender inn en oversettelses-PR, sørg for at oversettelsesmappen inkluderer oversettelser for alle filer i den originale mappen.
 
@@ -53,7 +53,7 @@ Hvis du behersker et annet språk enn engelsk, kan du bidra med oversettelser. F
 
 For å sikre konsistens på tvers av alle dokumenter, vennligst bruk følgende retningslinjer:
 
-- **URL-formattering**: Pakk alle URL-er inn i hakeparenteser etterfulgt av parenteser, uten ekstra mellomrom rundt eller inni dem. For eksempel: `[example](https://example.com)`.
+- **URL-formattering**: Pakk alle URL-er inn i hakeparenteser etterfulgt av parenteser, uten ekstra mellomrom rundt eller inni dem. For eksempel: `[example](https://www.microsoft.com)`.
 
 - **Relative lenker**: Bruk `./` for relative lenker som peker til filer eller mapper i den nåværende katalogen, og `../` for de i en foreldremappe. For eksempel: `[example](../../path/to/file)` eller `[example](../../../path/to/file)`.
 

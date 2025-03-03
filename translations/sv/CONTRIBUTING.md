@@ -37,15 +37,15 @@ När du skickar in en pull request (PR) till Phi-3 CookBook-repot, använd följ
 Om du är kunnig i ett icke-engelskt språk kan du hjälpa till att översätta innehållet. Följ dessa steg för att säkerställa att dina översättningsbidrag integreras korrekt, använd följande riktlinjer:
 
 - **Skapa en översättningsmapp**: Navigera till rätt sektionsmapp och skapa en översättningsmapp för språket du bidrar till. Till exempel:
-  - För introduktionssektionen: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - För snabbstartsektionen: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - För introduktionssektionen: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - För snabbstartsektionen: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Fortsätt detta mönster för andra sektioner (03.Inference, 04.Finetuning, etc.)
 
 - **Uppdatera relativa sökvägar**: När du översätter, justera mappstrukturen genom att lägga till `../../` i början av relativa sökvägar i markdown-filerna för att säkerställa att länkar fungerar korrekt. Till exempel, ändra enligt följande:
   - Ändra `(../../imgs/01/phi3aisafety.png)` till `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organisera dina översättningar**: Varje översatt fil ska placeras i motsvarande sektions översättningsmapp. Till exempel, om du översätter introduktionssektionen till spanska, skulle du skapa enligt följande:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Skicka in en komplett PR**: Se till att alla översatta filer för en sektion ingår i en PR. Vi accepterar inte partiella översättningar för en sektion. När du skickar in en översättnings-PR, se till att översättningsmappen innehåller översättningar för alla filer i originalmappen.
 
@@ -53,7 +53,7 @@ Om du är kunnig i ett icke-engelskt språk kan du hjälpa till att översätta 
 
 För att säkerställa konsekvens i alla dokument, använd följande riktlinjer:
 
-- **URL-formattering**: Omslut alla URL:er med hakparenteser följt av parenteser, utan extra mellanslag runt eller inuti dem. Till exempel: `[example](https://example.com)`.
+- **URL-formattering**: Omslut alla URL:er med hakparenteser följt av parenteser, utan extra mellanslag runt eller inuti dem. Till exempel: `[example](https://www.microsoft.com)`.
 
 - **Relativa länkar**: Använd `./` för relativa länkar som pekar på filer eller mappar i aktuell katalog, och `../` för de i en överordnad katalog. Till exempel: `[example](../../path/to/file)` eller `[example](../../../path/to/file)`.
 

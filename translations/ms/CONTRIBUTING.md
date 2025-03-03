@@ -38,15 +38,15 @@ Apabila menghantar permintaan tarik (PR) ke repositori Phi-3 CookBook, sila guna
 Jika anda mahir dalam bahasa selain bahasa Inggeris, anda boleh membantu menterjemah kandungan. Ikuti langkah-langkah ini untuk memastikan sumbangan terjemahan anda diintegrasikan dengan betul, sila gunakan garis panduan berikut:
 
 - **Cipta folder terjemahan**: Navigasi ke folder bahagian yang sesuai dan buat folder terjemahan untuk bahasa yang anda sumbangkan. Sebagai contoh:
-  - Untuk bahagian pengenalan: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Untuk bahagian permulaan cepat: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Untuk bahagian pengenalan: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Untuk bahagian permulaan cepat: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Teruskan corak ini untuk bahagian lain (03.Inference, 04.Finetuning, dsb.)
 
 - **Kemas kini laluan relatif**: Semasa menterjemah, sesuaikan struktur folder dengan menambah `../../` pada permulaan laluan relatif dalam fail markdown untuk memastikan pautan berfungsi dengan betul. Sebagai contoh, ubah seperti berikut:
   - Ubah `(../../imgs/01/phi3aisafety.png)` kepada `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Susun terjemahan anda**: Setiap fail yang diterjemahkan hendaklah diletakkan dalam folder terjemahan bahagian yang sepadan. Sebagai contoh, jika anda menterjemah bahagian pengenalan ke dalam bahasa Sepanyol, anda akan mencipta seperti berikut:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Hantar PR lengkap**: Pastikan semua fail yang diterjemahkan untuk satu bahagian disertakan dalam satu PR. Kami tidak menerima terjemahan separa untuk satu bahagian. Apabila menghantar PR terjemahan, pastikan folder terjemahan termasuk terjemahan untuk semua fail dalam folder asal.
 
@@ -54,7 +54,7 @@ Jika anda mahir dalam bahasa selain bahasa Inggeris, anda boleh membantu menterj
 
 Untuk memastikan konsistensi di seluruh dokumen, sila gunakan garis panduan berikut:
 
-- **Pemformatan URL**: Bungkus semua URL dalam kurungan empat segi diikuti dengan kurungan bulat, tanpa ruang tambahan di sekeliling atau di dalamnya. Sebagai contoh: `[example](https://example.com)`.
+- **Pemformatan URL**: Bungkus semua URL dalam kurungan empat segi diikuti dengan kurungan bulat, tanpa ruang tambahan di sekeliling atau di dalamnya. Sebagai contoh: `[example](https://www.microsoft.com)`.
 
 - **Pautan relatif**: Gunakan `./` untuk pautan relatif yang menunjuk kepada fail atau folder dalam direktori semasa, dan `../` untuk pautan dalam direktori induk. Sebagai contoh: `[example](../../path/to/file)` atau `[example](../../../path/to/file)`.
 

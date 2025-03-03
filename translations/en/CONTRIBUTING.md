@@ -37,15 +37,15 @@ When submitting a pull request (PR) to the Phi-3 CookBook repository, please fol
 If you are fluent in a non-English language, you can assist by translating the content. To ensure your translation is properly integrated, follow these steps:
 
 - **Create translation folder**: Navigate to the relevant section folder and create a translation folder for the language you’re contributing to. For example:
-  - For the introduction section: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - For the quick start section: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - For the introduction section: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - For the quick start section: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Follow this pattern for other sections (03.Inference, 04.Finetuning, etc.).
 
 - **Update relative paths**: While translating, adjust the folder structure by adding `../../` to the beginning of relative paths in markdown files to ensure links work correctly. For example, update as follows:
   - Change `(../../imgs/01/phi3aisafety.png)` to `(../../../../imgs/01/phi3aisafety.png)`.
 
 - **Organize your translations**: Place each translated file in the corresponding section's translation folder. For instance, if you’re translating the introduction section into Spanish, create the following structure:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Submit a complete PR**: Include translations for all files in a section within a single PR. Partial translations for a section will not be accepted. When submitting a translation PR, ensure the translation folder contains all files from the original folder.
 
@@ -53,7 +53,7 @@ If you are fluent in a non-English language, you can assist by translating the c
 
 To maintain consistency across all documents, adhere to these guidelines:
 
-- **URL formatting**: Wrap all URLs in square brackets followed by parentheses, without extra spaces. For example: `[example](https://example.com)`.
+- **URL formatting**: Wrap all URLs in square brackets followed by parentheses, without extra spaces. For example: `[example](https://www.microsoft.com)`.
 
 - **Relative links**: Use `./` for links pointing to files or folders in the current directory, and `../` for those in a parent directory. For example: `[example](../../path/to/file)` or `[example](../../../path/to/file)`.
 

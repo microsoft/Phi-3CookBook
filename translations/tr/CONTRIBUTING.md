@@ -37,15 +37,15 @@ Phi-3 CookBook deposuna bir pull request (PR) gönderirken lütfen şu yönergel
 Eğer İngilizce dışındaki bir dilde yetkinseniz, içeriği çevirmeye yardımcı olabilirsiniz. Çeviri katkılarınızın doğru bir şekilde entegre edilmesini sağlamak için şu adımları izleyin:
 
 - **Çeviri klasörü oluşturun**: Uygun bölüm klasörüne gidin ve katkıda bulunduğunuz dil için bir çeviri klasörü oluşturun. Örneğin:
-  - Giriş bölümü için: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Hızlı başlangıç bölümü için: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Giriş bölümü için: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Hızlı başlangıç bölümü için: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Diğer bölümler için bu deseni sürdürün (03.Inference, 04.Finetuning, vb.)
 
 - **Göreceli yolları güncelleyin**: Çeviri yaparken, markdown dosyalarındaki göreceli yolların başına `../../` ekleyerek klasör yapısını ayarlayın. Örneğin, aşağıdaki gibi değiştirin:
   - `(../../imgs/01/phi3aisafety.png)`'i `(../../../../imgs/01/phi3aisafety.png)` olarak değiştirin.
 
 - **Çevirilerinizi düzenleyin**: Her çevrilmiş dosya, ilgili bölümün çeviri klasörüne yerleştirilmelidir. Örneğin, giriş bölümünü İspanyolcaya çeviriyorsanız, aşağıdaki gibi bir yapı oluşturun:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Tam bir PR gönderin**: Bir bölüm için tüm çevrilmiş dosyaların bir PR'de dahil edildiğinden emin olun. Bir bölüm için kısmi çeviriler kabul edilmez. Bir çeviri PR'ı gönderirken, çeviri klasörünün orijinal klasördeki tüm dosyaların çevirilerini içerdiğinden emin olun.
 
@@ -53,7 +53,7 @@ Eğer İngilizce dışındaki bir dilde yetkinseniz, içeriği çevirmeye yardı
 
 Tüm belgelerde tutarlılığı sağlamak için lütfen şu yönergeleri kullanın:
 
-- **URL formatı**: Tüm URL'leri köşeli parantez içine alın ve ardından parantez içinde yazın, etrafında veya içinde ekstra boşluk bırakmayın. Örneğin: `[example](https://example.com)`.
+- **URL formatı**: Tüm URL'leri köşeli parantez içine alın ve ardından parantez içinde yazın, etrafında veya içinde ekstra boşluk bırakmayın. Örneğin: `[example](https://www.microsoft.com)`.
 
 - **Göreceli bağlantılar**: Mevcut dizindeki dosyalara veya klasörlere işaret eden bağlantılar için `./`, üst dizindeki dosyalara veya klasörlere işaret eden bağlantılar için `../` kullanın. Örneğin: `[example](../../path/to/file)` veya `[example](../../../path/to/file)`.
 

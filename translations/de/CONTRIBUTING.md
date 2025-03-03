@@ -37,15 +37,15 @@ Wenn Sie eine Pull-Anfrage (PR) an das Phi-3 CookBook-Repository einreichen, ver
 Wenn Sie eine nicht-englische Sprache beherrschen, können Sie helfen, den Inhalt zu übersetzen. Befolgen Sie diese Schritte, um sicherzustellen, dass Ihre Übersetzungsbeiträge korrekt integriert werden. Verwenden Sie die folgenden Richtlinien:
 
 - **Übersetzungsordner erstellen**: Navigieren Sie zum entsprechenden Abschnittsordner und erstellen Sie einen Übersetzungsordner für die Sprache, zu der Sie beitragen. Zum Beispiel:
-  - Für den Einführungsabschnitt: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Für den Schnellstartabschnitt: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Für den Einführungsabschnitt: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Für den Schnellstartabschnitt: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Setzen Sie dieses Muster für andere Abschnitte (03.Inference, 04.Finetuning usw.) fort.
 
 - **Relative Pfade aktualisieren**: Passen Sie beim Übersetzen die Ordnerstruktur an, indem Sie `../../` am Anfang der relativen Pfade innerhalb der Markdown-Dateien hinzufügen, um sicherzustellen, dass Links korrekt funktionieren. Zum Beispiel:
   - Ändern Sie `(../../imgs/01/phi3aisafety.png)` zu `(../../../../imgs/01/phi3aisafety.png)`.
 
 - **Organisieren Sie Ihre Übersetzungen**: Jede übersetzte Datei sollte im entsprechenden Übersetzungsordner des Abschnitts abgelegt werden. Wenn Sie beispielsweise den Einführungsabschnitt ins Spanische übersetzen, würden Sie folgendes erstellen:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`.
+  - `PhiCookBook/md/01.Introduce/translations/es/`.
 
 - **Vollständige PR einreichen**: Stellen Sie sicher, dass alle übersetzten Dateien eines Abschnitts in einer PR enthalten sind. Wir akzeptieren keine Teilübersetzungen für einen Abschnitt. Wenn Sie eine Übersetzungs-PR einreichen, stellen Sie sicher, dass der Übersetzungsordner Übersetzungen für alle Dateien im Originalordner enthält.
 
@@ -53,7 +53,7 @@ Wenn Sie eine nicht-englische Sprache beherrschen, können Sie helfen, den Inhal
 
 Um Konsistenz über alle Dokumente hinweg zu gewährleisten, verwenden Sie bitte die folgenden Richtlinien:
 
-- **URL-Formatierung**: Setzen Sie alle URLs in eckige Klammern, gefolgt von Klammern, ohne zusätzliche Leerzeichen davor oder dazwischen. Zum Beispiel: `[example](https://example.com)`.
+- **URL-Formatierung**: Setzen Sie alle URLs in eckige Klammern, gefolgt von Klammern, ohne zusätzliche Leerzeichen davor oder dazwischen. Zum Beispiel: `[example](https://www.microsoft.com)`.
 
 - **Relative Links**: Verwenden Sie `./` für relative Links, die auf Dateien oder Ordner im aktuellen Verzeichnis zeigen, und `../` für solche in einem übergeordneten Verzeichnis. Zum Beispiel: `[example](../../path/to/file)` oder `[example](../../../path/to/file)`.
 

@@ -38,15 +38,15 @@ Al enviar un pull request (PR) al repositorio Phi-3 CookBook, sigue estas direct
 Si dominas un idioma que no sea inglés, puedes ayudar a traducir el contenido. Sigue estos pasos para garantizar que tus contribuciones de traducción se integren correctamente:
 
 - **Crea una carpeta de traducción**: Navega a la carpeta de la sección correspondiente y crea una carpeta de traducción para el idioma al que estás contribuyendo. Por ejemplo:
-  - Para la sección de introducción: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Para la sección de inicio rápido: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Para la sección de introducción: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Para la sección de inicio rápido: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Continúa este patrón para otras secciones (03.Inference, 04.Finetuning, etc.)
 
 - **Actualiza las rutas relativas**: Al traducir, ajusta la estructura de carpetas añadiendo `../../` al inicio de las rutas relativas dentro de los archivos markdown para asegurarte de que los enlaces funcionen correctamente. Por ejemplo, cambia lo siguiente:
   - Cambia `(../../imgs/01/phi3aisafety.png)` a `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organiza tus traducciones**: Cada archivo traducido debe colocarse en la carpeta de traducción correspondiente a la sección. Por ejemplo, si estás traduciendo la sección de introducción al español, deberías crear lo siguiente:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Envía un PR completo**: Asegúrate de que todos los archivos traducidos de una sección estén incluidos en un solo PR. No aceptamos traducciones parciales de una sección. Al enviar un PR de traducción, asegúrate de que la carpeta de traducción incluya traducciones de todos los archivos en la carpeta original.
 
@@ -54,7 +54,7 @@ Si dominas un idioma que no sea inglés, puedes ayudar a traducir el contenido. 
 
 Para garantizar la consistencia en todos los documentos, utiliza las siguientes directrices:
 
-- **Formato de URLs**: Envuelve todas las URLs entre corchetes cuadrados seguidos de paréntesis, sin espacios adicionales dentro o alrededor. Por ejemplo: `[example](https://example.com)`.
+- **Formato de URLs**: Envuelve todas las URLs entre corchetes cuadrados seguidos de paréntesis, sin espacios adicionales dentro o alrededor. Por ejemplo: `[example](https://www.microsoft.com)`.
 
 - **Enlaces relativos**: Usa `./` para enlaces relativos que apunten a archivos o carpetas en el directorio actual, y `../` para aquellos en un directorio superior. Por ejemplo: `[example](../../path/to/file)` o `[example](../../../path/to/file)`.
 

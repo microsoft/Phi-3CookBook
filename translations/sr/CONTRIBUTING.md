@@ -38,15 +38,15 @@ Kada podnosite zahtev za povlačenje (PR) u Phi-3 CookBook repozitorijum, molimo
 Ako ste stručni za neki jezik osim engleskog, možete pomoći u prevođenju sadržaja. Da biste osigurali pravilnu integraciju vaših prevoda, molimo vas da sledite sledeće smernice:
 
 - **Kreirajte folder za prevod**: Idite do odgovarajuće sekcije i kreirajte folder za prevod jezika na koji doprinosite. Na primer:
-  - Za uvodnu sekciju: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Za sekciju brzog početka: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Za uvodnu sekciju: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Za sekciju brzog početka: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Nastavite ovaj obrazac za ostale sekcije (03.Inference, 04.Finetuning, itd.)
 
 - **Ažurirajte relativne putanje**: Prilikom prevođenja, prilagodite strukturu foldera dodavanjem `../../` na početak relativnih putanja unutar markdown fajlova kako bi linkovi pravilno funkcionisali. Na primer, promenite na sledeći način:
   - Promenite `(../../imgs/01/phi3aisafety.png)` u `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizujte svoje prevode**: Svaki prevedeni fajl treba da bude smešten u odgovarajući folder za prevod sekcije. Na primer, ako prevodite uvodnu sekciju na španski, kreiraćete na sledeći način:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Podnesite kompletan PR**: Uverite se da svi prevedeni fajlovi za jednu sekciju budu uključeni u jedan PR. Ne prihvatamo delimične prevode za sekciju. Kada podnosite PR za prevod, uverite se da folder za prevod uključuje prevode za sve fajlove iz originalnog foldera.
 
@@ -54,7 +54,7 @@ Ako ste stručni za neki jezik osim engleskog, možete pomoći u prevođenju sad
 
 Kako bismo osigurali doslednost u svim dokumentima, molimo vas da sledite sledeće smernice:
 
-- **Formatiranje URL-ova**: Obavijte sve URL-ove u uglaste zagrade praćene zagradama, bez dodatnih razmaka oko ili unutar njih. Na primer: `[example](https://example.com)`.
+- **Formatiranje URL-ova**: Obavijte sve URL-ove u uglaste zagrade praćene zagradama, bez dodatnih razmaka oko ili unutar njih. Na primer: `[example](https://www.microsoft.com)`.
 
 - **Relativni linkovi**: Koristite `./` za relativne linkove koji upućuju na fajlove ili foldere u trenutnom direktorijumu i `../` za one u nadređenom direktorijumu. Na primer: `[example](../../path/to/file)` ili `[example](../../../path/to/file)`.
 

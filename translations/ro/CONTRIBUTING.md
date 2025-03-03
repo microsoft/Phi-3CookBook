@@ -37,15 +37,15 @@ Când trimiteți un pull request (PR) către depozitul Phi-3 CookBook, vă rugă
 Dacă sunteți competent într-o limbă non-engleză, puteți ajuta la traducerea conținutului. Urmați acești pași pentru a vă asigura că contribuțiile dumneavoastră de traducere sunt integrate corect, utilizând următoarele ghiduri:
 
 - **Creați un folder de traducere**: Navigați la folderul secțiunii corespunzătoare și creați un folder de traducere pentru limba la care contribuiți. De exemplu:
-  - Pentru secțiunea de introducere: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Pentru secțiunea de început rapid: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Pentru secțiunea de introducere: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Pentru secțiunea de început rapid: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Continuați acest model pentru alte secțiuni (03.Inference, 04.Finetuning, etc.)
 
 - **Actualizați căile relative**: Când traduceți, ajustați structura folderului adăugând `../../` la începutul căilor relative din fișierele markdown pentru a vă asigura că linkurile funcționează corect. De exemplu, schimbați astfel:
   - Schimbați `(../../imgs/01/phi3aisafety.png)` în `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizați traducerile**: Fiecare fișier tradus trebuie plasat în folderul de traducere corespunzător secțiunii. De exemplu, dacă traduceți secțiunea de introducere în spaniolă, ar trebui să creați astfel:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Trimiteți un PR complet**: Asigurați-vă că toate fișierele traduse pentru o secțiune sunt incluse într-un singur PR. Nu acceptăm traduceri parțiale pentru o secțiune. Când trimiteți un PR de traducere, asigurați-vă că folderul de traducere include traduceri pentru toate fișierele din folderul original.
 
@@ -53,7 +53,7 @@ Dacă sunteți competent într-o limbă non-engleză, puteți ajuta la traducere
 
 Pentru a asigura consistența în toate documentele, vă rugăm să utilizați următoarele ghiduri:
 
-- **Formatul URL-urilor**: Înconjurați toate URL-urile cu paranteze pătrate urmate de paranteze rotunde, fără spații suplimentare în jur sau în interior. De exemplu: `[example](https://example.com)`.
+- **Formatul URL-urilor**: Înconjurați toate URL-urile cu paranteze pătrate urmate de paranteze rotunde, fără spații suplimentare în jur sau în interior. De exemplu: `[example](https://www.microsoft.com)`.
 
 - **Linkuri relative**: Utilizați `./` pentru linkurile relative care indică fișiere sau foldere din directorul curent și `../` pentru cele dintr-un director părinte. De exemplu: `[example](../../path/to/file)` sau `[example](../../../path/to/file)`.
 

@@ -37,15 +37,15 @@ Phi-3 CookBook リポジトリにプルリクエスト（PR）を送信する際
 英語以外の言語に精通している場合は、コンテンツの翻訳を手伝うことができます。翻訳を正しく統合するために、以下の手順に従ってください：
 
 - **翻訳フォルダの作成**: 適切なセクションフォルダに移動し、翻訳する言語用の翻訳フォルダを作成してください。例えば：
-  - 導入セクションの場合：`Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - クイックスタートセクションの場合：`Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - 導入セクションの場合：`PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - クイックスタートセクションの場合：`PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - 他のセクション（03.Inference、04.Finetuningなど）についても同様のパターンを続けてください。
 
 - **相対パスの更新**: 翻訳する際は、Markdownファイル内の相対パスのフォルダ構造を調整し、リンクが正しく動作するよう `../../` を相対パスの先頭に追加してください。例えば、以下のように変更します：
   - `(../../imgs/01/phi3aisafety.png)` を `(../../../../imgs/01/phi3aisafety.png)` に変更
 
 - **翻訳を整理する**: 翻訳した各ファイルは、対応するセクションの翻訳フォルダに配置してください。例えば、導入セクションをスペイン語に翻訳する場合、以下のように作成します：
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **完全なPRを送信**: セクションのすべての翻訳ファイルが含まれていることを確認したうえでPRを送信してください。セクションの部分的な翻訳は受け付けていません。
 
@@ -53,7 +53,7 @@ Phi-3 CookBook リポジトリにプルリクエスト（PR）を送信する際
 
 すべてのドキュメントで一貫性を保つため、以下のガイドラインに従ってください：
 
-- **URLのフォーマット**: すべてのURLを角括弧で囲み、その後に括弧を付けてください。間に余分なスペースを入れないでください。例：`[example](https://example.com)`。
+- **URLのフォーマット**: すべてのURLを角括弧で囲み、その後に括弧を付けてください。間に余分なスペースを入れないでください。例：`[example](https://www.microsoft.com)`。
 
 - **相対リンク**: 現在のディレクトリ内のファイルやフォルダを指す相対リンクには `./` を使用し、親ディレクトリを指す場合には `../` を使用してください。例：`[example](../../path/to/file)` または `[example](../../../path/to/file)`。
 

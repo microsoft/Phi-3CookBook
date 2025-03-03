@@ -37,15 +37,15 @@ Pri odosielaní pull requestu (PR) do repozitára Phi-3 CookBook dodržujte nasl
 Ak ovládate iný než anglický jazyk, môžete pomôcť s prekladom obsahu. Na zabezpečenie správnej integrácie vašich príspevkov postupujte podľa týchto pokynov:
 
 - **Vytvorte priečinok pre preklad**: Prejdite do príslušnej sekcie a vytvorte priečinok pre jazyk, do ktorého prispievate. Napríklad:
-  - Pre sekciu úvod: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Pre sekciu rýchly začiatok: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Pre sekciu úvod: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Pre sekciu rýchly začiatok: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Pokračujte v tomto vzore pre ďalšie sekcie (03.Inference, 04.Finetuning atď.).
 
 - **Aktualizujte relatívne cesty**: Pri preklade upravte štruktúru priečinkov pridaním `../../` na začiatok relatívnych ciest v markdown súboroch, aby odkazy fungovali správne. Napríklad, zmeňte nasledovne:
   - Z `(../../imgs/01/phi3aisafety.png)` na `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizujte svoje preklady**: Každý preložený súbor by mal byť umiestnený v zodpovedajúcom priečinku sekcie. Napríklad, ak prekladáte sekciu úvod do španielčiny, vytvorte priečinok nasledovne:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Odošlite kompletný PR**: Uistite sa, že všetky preložené súbory pre danú sekciu sú zahrnuté v jednom PR. Neprekladáme čiastočné príspevky pre sekciu. Pri odosielaní PR s prekladom sa uistite, že priečinok s prekladmi obsahuje preklady všetkých súborov z pôvodného priečinka.
 
@@ -53,7 +53,7 @@ Ak ovládate iný než anglický jazyk, môžete pomôcť s prekladom obsahu. Na
 
 Na zabezpečenie konzistencie vo všetkých dokumentoch používajte nasledujúce pokyny:
 
-- **Formátovanie URL**: Všetky URL obalte do hranatých zátvoriek nasledovaných okrúhlymi zátvorkami, bez akýchkoľvek medzier okolo alebo vo vnútri. Napríklad: `[example](https://example.com)`.
+- **Formátovanie URL**: Všetky URL obalte do hranatých zátvoriek nasledovaných okrúhlymi zátvorkami, bez akýchkoľvek medzier okolo alebo vo vnútri. Napríklad: `[example](https://www.microsoft.com)`.
 
 - **Relatívne odkazy**: Používajte `./` pre relatívne odkazy smerujúce na súbory alebo priečinky v aktuálnom adresári a `../` pre odkazy na nadradený adresár. Napríklad: `[example](../../path/to/file)` alebo `[example](../../../path/to/file)`.
 

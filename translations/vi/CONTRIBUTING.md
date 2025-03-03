@@ -38,15 +38,15 @@ Khi gửi một yêu cầu kéo (PR) tới kho lưu trữ Phi-3 CookBook, vui l�
 Nếu bạn thông thạo một ngôn ngữ không phải tiếng Anh, bạn có thể giúp dịch nội dung. Hãy làm theo các bước sau để đảm bảo đóng góp dịch thuật của bạn được tích hợp đúng cách, vui lòng tuân thủ các hướng dẫn sau:
 
 - **Tạo thư mục dịch thuật**: Điều hướng đến thư mục phần tương ứng và tạo một thư mục dịch thuật cho ngôn ngữ bạn đóng góp. Ví dụ:
-  - Đối với phần giới thiệu: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Đối với phần bắt đầu nhanh: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Đối với phần giới thiệu: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Đối với phần bắt đầu nhanh: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Tiếp tục mẫu này cho các phần khác (03.Inference, 04.Finetuning, v.v.)
 
 - **Cập nhật đường dẫn tương đối**: Khi dịch, điều chỉnh cấu trúc thư mục bằng cách thêm `../../` vào đầu các đường dẫn tương đối trong các tệp markdown để đảm bảo liên kết hoạt động đúng. Ví dụ, thay đổi như sau:
   - Thay `(../../imgs/01/phi3aisafety.png)` bằng `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Tổ chức bản dịch của bạn**: Mỗi tệp dịch nên được đặt trong thư mục dịch thuật tương ứng của phần đó. Ví dụ, nếu bạn đang dịch phần giới thiệu sang tiếng Tây Ban Nha, bạn sẽ tạo như sau:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Gửi một PR đầy đủ**: Đảm bảo rằng tất cả các tệp dịch cho một phần được bao gồm trong một PR. Chúng tôi không chấp nhận các bản dịch không đầy đủ cho một phần. Khi gửi một PR dịch thuật, hãy đảm bảo rằng thư mục dịch thuật bao gồm bản dịch cho tất cả các tệp trong thư mục gốc.
 
@@ -54,7 +54,7 @@ Nếu bạn thông thạo một ngôn ngữ không phải tiếng Anh, bạn có
 
 Để đảm bảo tính nhất quán trên tất cả các tài liệu, vui lòng sử dụng các hướng dẫn sau:
 
-- **Định dạng URL**: Đặt tất cả các URL trong dấu ngoặc vuông theo sau là dấu ngoặc đơn, không có khoảng trắng thừa xung quanh hoặc bên trong. Ví dụ: `[example](https://example.com)`.
+- **Định dạng URL**: Đặt tất cả các URL trong dấu ngoặc vuông theo sau là dấu ngoặc đơn, không có khoảng trắng thừa xung quanh hoặc bên trong. Ví dụ: `[example](https://www.microsoft.com)`.
 
 - **Liên kết tương đối**: Sử dụng `./` cho các liên kết tương đối trỏ đến tệp hoặc thư mục trong thư mục hiện tại và `../` cho các liên kết trong thư mục cha. Ví dụ: `[example](../../path/to/file)` hoặc `[example](../../../path/to/file)`.
 

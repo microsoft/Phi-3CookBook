@@ -38,15 +38,15 @@ Saat mengirimkan pull request (PR) ke repositori Phi-3 CookBook, harap ikuti pan
 Jika Anda fasih dalam bahasa non-Inggris, Anda dapat membantu menerjemahkan konten. Ikuti langkah-langkah berikut untuk memastikan kontribusi terjemahan Anda terintegrasi dengan benar, gunakan panduan berikut:
 
 - **Buat folder terjemahan**: Arahkan ke folder bagian yang sesuai dan buat folder terjemahan untuk bahasa yang Anda kontribusikan. Contoh:
-  - Untuk bagian pengenalan: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Untuk bagian panduan cepat: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Untuk bagian pengenalan: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Untuk bagian panduan cepat: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Lanjutkan pola ini untuk bagian lainnya (03.Inference, 04.Finetuning, dll.)
 
 - **Perbarui jalur relatif**: Saat menerjemahkan, sesuaikan struktur folder dengan menambahkan `../../` ke awal jalur relatif dalam file markdown untuk memastikan tautan berfungsi dengan benar. Contoh:
   - Ubah `(../../imgs/01/phi3aisafety.png)` menjadi `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organisasikan terjemahan Anda**: Setiap file yang diterjemahkan harus ditempatkan di folder terjemahan bagian yang sesuai. Contoh, jika Anda menerjemahkan bagian pengenalan ke dalam bahasa Spanyol, Anda akan membuat sebagai berikut:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Kirimkan PR lengkap**: Pastikan semua file yang diterjemahkan untuk sebuah bagian disertakan dalam satu PR. Kami tidak menerima terjemahan parsial untuk sebuah bagian. Saat mengirimkan PR terjemahan, pastikan folder terjemahan mencakup terjemahan untuk semua file di folder asli.
 
@@ -54,7 +54,7 @@ Jika Anda fasih dalam bahasa non-Inggris, Anda dapat membantu menerjemahkan kont
 
 Untuk memastikan konsistensi di semua dokumen, gunakan panduan berikut:
 
-- **Format URL**: Bungkus semua URL dalam tanda kurung siku diikuti dengan tanda kurung, tanpa spasi tambahan di sekitar atau di dalamnya. Contoh: `[example](https://example.com)`.
+- **Format URL**: Bungkus semua URL dalam tanda kurung siku diikuti dengan tanda kurung, tanpa spasi tambahan di sekitar atau di dalamnya. Contoh: `[example](https://www.microsoft.com)`.
 
 - **Tautan relatif**: Gunakan `./` untuk tautan relatif yang menunjuk ke file atau folder di direktori saat ini, dan `../` untuk yang ada di direktori induk. Contoh: `[example](../../path/to/file)` atau `[example](../../../path/to/file)`.
 

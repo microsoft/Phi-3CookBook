@@ -37,15 +37,15 @@ Podczas przesyłania pull requesta (PR) do repozytorium Phi-3 CookBook, należy 
 Jeśli biegle posługujesz się językiem innym niż angielski, możesz pomóc w tłumaczeniu treści. Aby Twoje wkłady tłumaczeniowe zostały poprawnie zintegrowane, postępuj zgodnie z poniższymi krokami:
 
 - **Utwórz folder tłumaczenia**: Przejdź do odpowiedniej sekcji folderu i utwórz folder tłumaczenia dla języka, do którego wnosisz wkład. Na przykład:
-  - Dla sekcji wstępu: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Dla sekcji szybkiego startu: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Dla sekcji wstępu: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Dla sekcji szybkiego startu: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Kontynuuj ten wzór dla innych sekcji (03.Inference, 04.Finetuning itd.)
 
 - **Zaktualizuj ścieżki względne**: Podczas tłumaczenia dostosuj strukturę folderów, dodając `../../` na początku ścieżek względnych w plikach markdown, aby upewnić się, że linki działają poprawnie. Na przykład zmień następująco:
   - Zmień `(../../imgs/01/phi3aisafety.png)` na `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizuj swoje tłumaczenia**: Każdy przetłumaczony plik powinien być umieszczony w odpowiednim folderze tłumaczeń sekcji. Na przykład, jeśli tłumaczysz sekcję wstępu na hiszpański, utwórz następująco:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Przesyłaj kompletny PR**: Upewnij się, że wszystkie przetłumaczone pliki dla sekcji są uwzględnione w jednym PR. Nie akceptujemy częściowych tłumaczeń dla sekcji. Podczas przesyłania PR z tłumaczeniem upewnij się, że folder tłumaczenia zawiera tłumaczenia wszystkich plików z oryginalnego folderu.
 
@@ -53,7 +53,7 @@ Jeśli biegle posługujesz się językiem innym niż angielski, możesz pomóc w
 
 Aby zapewnić spójność we wszystkich dokumentach, stosuj się do następujących wytycznych:
 
-- **Formatowanie URL**: Owiń wszystkie URL w nawiasy kwadratowe, a następnie w nawiasy okrągłe, bez dodatkowych spacji wokół lub wewnątrz nich. Na przykład: `[example](https://example.com)`.
+- **Formatowanie URL**: Owiń wszystkie URL w nawiasy kwadratowe, a następnie w nawiasy okrągłe, bez dodatkowych spacji wokół lub wewnątrz nich. Na przykład: `[example](https://www.microsoft.com)`.
 
 - **Linki względne**: Używaj `./` dla linków względnych wskazujących na pliki lub foldery w bieżącym katalogu oraz `../` dla tych w katalogu nadrzędnym. Na przykład: `[example](../../path/to/file)` lub `[example](../../../path/to/file)`.
 

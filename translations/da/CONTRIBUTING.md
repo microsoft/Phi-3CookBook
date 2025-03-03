@@ -37,15 +37,15 @@ Når du indsender en pull request (PR) til Phi-3 CookBook-repositoriet, skal du 
 Hvis du er flydende i et ikke-engelsk sprog, kan du hjælpe med at oversætte indholdet. Følg disse trin for at sikre, at dine oversættelsesbidrag bliver korrekt integreret. Brug følgende retningslinjer:
 
 - **Opret oversættelsesmappe**: Naviger til den relevante sektionsmappe og opret en oversættelsesmappe for det sprog, du bidrager til. For eksempel:
-  - For introduktionssektionen: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - For quick start-sektionen: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - For introduktionssektionen: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - For quick start-sektionen: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Fortsæt dette mønster for andre sektioner (03.Inference, 04.Finetuning osv.)
 
 - **Opdater relative stier**: Når du oversætter, skal du justere mappe-strukturen ved at tilføje `../../` til begyndelsen af relative stier i markdown-filerne for at sikre, at links fungerer korrekt. For eksempel, ændr som følger:
   - Ændr `(../../imgs/01/phi3aisafety.png)` til `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organiser dine oversættelser**: Hver oversat fil skal placeres i den tilsvarende sektions oversættelsesmappe. For eksempel, hvis du oversætter introduktionssektionen til spansk, skal du oprette følgende:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Indsend en komplet PR**: Sørg for, at alle oversatte filer for en sektion er inkluderet i én PR. Vi accepterer ikke delvise oversættelser for en sektion. Når du indsender en oversættelses-PR, skal du sikre, at oversættelsesmappen indeholder oversættelser for alle filer i den originale mappe.
 
@@ -53,7 +53,7 @@ Hvis du er flydende i et ikke-engelsk sprog, kan du hjælpe med at oversætte in
 
 For at sikre konsistens på tværs af alle dokumenter, skal du bruge følgende retningslinjer:
 
-- **URL-formattering**: Indram alle URL'er i firkantede parenteser efterfulgt af parenteser, uden ekstra mellemrum omkring eller inden i dem. For eksempel: `[example](https://example.com)`.
+- **URL-formattering**: Indram alle URL'er i firkantede parenteser efterfulgt af parenteser, uden ekstra mellemrum omkring eller inden i dem. For eksempel: `[example](https://www.microsoft.com)`.
 
 - **Relative links**: Brug `./` til relative links, der peger på filer eller mapper i den aktuelle mappe, og `../` til dem i en overordnet mappe. For eksempel: `[example](../../path/to/file)` eller `[example](../../../path/to/file)`.
 

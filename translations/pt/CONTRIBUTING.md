@@ -38,15 +38,15 @@ Ao enviar um pull request (PR) para o repositório Phi-3 CookBook, siga as diret
 Se você é fluente em um idioma que não seja o inglês, pode ajudar traduzindo o conteúdo. Siga estas etapas para garantir que suas contribuições de tradução sejam integradas corretamente, utilizando as diretrizes abaixo:
 
 - **Crie uma pasta de tradução**: Navegue até a seção apropriada e crie uma pasta de tradução para o idioma que você está contribuindo. Por exemplo:
-  - Para a seção de introdução: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Para a seção de início rápido: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Para a seção de introdução: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Para a seção de início rápido: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Continue este padrão para outras seções (03.Inference, 04.Finetuning, etc.)
 
 - **Atualize os caminhos relativos**: Ao traduzir, ajuste a estrutura da pasta adicionando `../../` ao início dos caminhos relativos dentro dos arquivos markdown para garantir que os links funcionem corretamente. Por exemplo, altere da seguinte forma:
   - Mude `(../../imgs/01/phi3aisafety.png)` para `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organize suas traduções**: Cada arquivo traduzido deve ser colocado na pasta de tradução correspondente à seção. Por exemplo, se você estiver traduzindo a seção de introdução para o espanhol, deve criar o seguinte:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Envie um PR completo**: Certifique-se de que todos os arquivos traduzidos para uma seção sejam incluídos em um único PR. Não aceitamos traduções parciais para uma seção. Ao enviar um PR de tradução, certifique-se de que a pasta de tradução inclua traduções para todos os arquivos da pasta original.
 
@@ -54,7 +54,7 @@ Se você é fluente em um idioma que não seja o inglês, pode ajudar traduzindo
 
 Para garantir consistência em todos os documentos, siga as diretrizes abaixo:
 
-- **Formatação de URLs**: Coloque todas as URLs entre colchetes seguidos por parênteses, sem espaços extras ao redor ou dentro deles. Por exemplo: `[example](https://example.com)`.
+- **Formatação de URLs**: Coloque todas as URLs entre colchetes seguidos por parênteses, sem espaços extras ao redor ou dentro deles. Por exemplo: `[example](https://www.microsoft.com)`.
 
 - **Links relativos**: Use `./` para links relativos apontando para arquivos ou pastas no diretório atual, e `../` para aqueles em um diretório pai. Por exemplo: `[example](../../path/to/file)` ou `[example](../../../path/to/file)`.
 

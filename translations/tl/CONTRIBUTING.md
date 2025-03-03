@@ -37,15 +37,15 @@ Kapag nagsusumite ng pull request (PR) sa Phi-3 CookBook repository, gamitin ang
 Kung ikaw ay bihasa sa isang wikang hindi Ingles, maaari kang tumulong sa pagsasalin ng nilalaman. Sundin ang mga hakbang na ito upang matiyak na maayos na maisasama ang iyong mga kontribusyon sa pagsasalin, gamitin ang sumusunod na mga alituntunin:
 
 - **Lumikha ng translation folder**: Mag-navigate sa naaangkop na seksyon ng folder at lumikha ng translation folder para sa wikang iyong isinasalin. Halimbawa:
-  - Para sa seksyong pambungad: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Para sa seksyong mabilisang pagsisimula: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Para sa seksyong pambungad: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Para sa seksyong mabilisang pagsisimula: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Ipagpatuloy ang pattern na ito para sa iba pang seksyon (03.Inference, 04.Finetuning, atbp.)
 
 - **I-update ang mga relative path**: Kapag nagsasalin, ayusin ang istruktura ng folder sa pamamagitan ng pagdaragdag ng `../../` sa simula ng mga relative path sa loob ng markdown files upang matiyak na gumagana nang tama ang mga link. Halimbawa, baguhin tulad ng sumusunod:
   - Baguhin ang `(../../imgs/01/phi3aisafety.png)` sa `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Ayusin ang iyong mga pagsasalin**: Ang bawat naisalin na file ay dapat ilagay sa kaukulang translation folder ng seksyon. Halimbawa, kung isinasalin mo ang pambungad na seksyon sa Espanyol, gagawin mo ito tulad ng sumusunod:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Mag-submit ng kumpletong PR**: Siguraduhing ang lahat ng naisalin na file para sa isang seksyon ay kasama sa isang PR. Hindi namin tinatanggap ang mga bahagyang pagsasalin para sa isang seksyon. Kapag nagsusumite ng translation PR, tiyaking ang translation folder ay naglalaman ng mga salin para sa lahat ng file sa orihinal na folder.
 
@@ -53,7 +53,7 @@ Kung ikaw ay bihasa sa isang wikang hindi Ingles, maaari kang tumulong sa pagsas
 
 Upang matiyak ang pagkakapare-pareho sa lahat ng dokumento, mangyaring gamitin ang sumusunod na mga alituntunin:
 
-- **Pag-format ng URL**: Balutin ang lahat ng URL sa mga bracket na sinusundan ng mga parentheses, nang walang anumang dagdag na espasyo sa paligid o sa loob nito. Halimbawa: `[example](https://example.com)`.
+- **Pag-format ng URL**: Balutin ang lahat ng URL sa mga bracket na sinusundan ng mga parentheses, nang walang anumang dagdag na espasyo sa paligid o sa loob nito. Halimbawa: `[example](https://www.microsoft.com)`.
 
 - **Mga relative link**: Gamitin ang `./` para sa mga relative link na tumuturo sa mga file o folder sa kasalukuyang direktoryo, at `../` para sa mga nasa parent directory. Halimbawa: `[example](../../path/to/file)` o `[example](../../../path/to/file)`.
 

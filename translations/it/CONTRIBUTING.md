@@ -38,15 +38,15 @@ Quando invii una pull request (PR) al repository Phi-3 CookBook, segui queste li
 Se sei competente in una lingua diversa dall'inglese, puoi contribuire traducendo il contenuto. Per assicurarti che i tuoi contributi di traduzione siano integrati correttamente, segui queste linee guida:
 
 - **Crea una cartella di traduzione**: Vai alla sezione appropriata e crea una cartella di traduzione per la lingua a cui stai contribuendo. Ad esempio:
-  - Per la sezione di introduzione: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Per la sezione di avvio rapido: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Per la sezione di introduzione: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Per la sezione di avvio rapido: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Continua questo schema per altre sezioni (03.Inference, 04.Finetuning, ecc.).
 
 - **Aggiorna i percorsi relativi**: Durante la traduzione, modifica la struttura della cartella aggiungendo `../../` all'inizio dei percorsi relativi nei file markdown per garantire che i collegamenti funzionino correttamente. Ad esempio, cambia come segue:
   - Cambia `(../../imgs/01/phi3aisafety.png)` in `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizza le tue traduzioni**: Ogni file tradotto deve essere collocato nella cartella di traduzione della sezione corrispondente. Ad esempio, se stai traducendo la sezione di introduzione in spagnolo, devi creare quanto segue:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Invia una PR completa**: Assicurati che tutti i file tradotti per una sezione siano inclusi in una singola PR. Non accettiamo traduzioni parziali per una sezione. Quando invii una PR di traduzione, assicurati che la cartella di traduzione includa le traduzioni di tutti i file presenti nella cartella originale.
 
@@ -54,7 +54,7 @@ Se sei competente in una lingua diversa dall'inglese, puoi contribuire traducend
 
 Per garantire coerenza tra tutti i documenti, segui queste linee guida:
 
-- **Formattazione degli URL**: Racchiudi tutti gli URL tra parentesi quadre seguite da parentesi tonde, senza spazi aggiuntivi intorno o all'interno. Ad esempio: `[example](https://example.com)`.
+- **Formattazione degli URL**: Racchiudi tutti gli URL tra parentesi quadre seguite da parentesi tonde, senza spazi aggiuntivi intorno o all'interno. Ad esempio: `[example](https://www.microsoft.com)`.
 
 - **Collegamenti relativi**: Usa `./` per i collegamenti relativi a file o cartelle nella directory corrente, e `../` per quelli in una directory padre. Ad esempio: `[example](../../path/to/file)` o `[example](../../../path/to/file)`.
 

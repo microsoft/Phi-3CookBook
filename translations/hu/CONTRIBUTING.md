@@ -37,15 +37,15 @@ Amikor pull requestet (PR-t) nyújtasz be a Phi-3 CookBook repóhoz, kövesd az 
 Ha jártas vagy egy nem angol nyelvben, segíthetsz a tartalom fordításában. Az alábbi lépéseket követve biztosíthatod, hogy a fordításaid megfelelően integrálódjanak:
 
 - **Fordítási mappa létrehozása**: Navigálj a megfelelő szekció mappájába, és hozz létre egy fordítási mappát a nyelvhez, amelyhez hozzájárulsz. Például:
-  - Bevezető szekció esetén: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Gyorsindítás szekció esetén: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Bevezető szekció esetén: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Gyorsindítás szekció esetén: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Folytasd ezt a mintát a többi szekcióra (03.Inference, 04.Finetuning, stb.).
 
 - **Relatív útvonalak frissítése**: Fordítás közben állítsd be a mappaszerkezetet úgy, hogy hozzáadd a `../../` előtagot a relatív útvonalak elejére a markdown fájlokban, hogy a linkek megfelelően működjenek. Például, változtasd meg az alábbiak szerint:
   - `(../../imgs/01/phi3aisafety.png)` változtatása `(../../../../imgs/01/phi3aisafety.png)`-re.
 
 - **Fordítások rendszerezése**: Minden lefordított fájlt helyezz el a megfelelő szekció fordítási mappájába. Például, ha a bevezető szekciót fordítod spanyolra, hozz létre egy ilyen mappát:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Teljes PR benyújtása**: Győződj meg róla, hogy egy szekció összes lefordított fájlja benne van egy PR-ben. Nem fogadunk el részleges fordításokat egy szekcióhoz. Fordítási PR benyújtásakor győződj meg róla, hogy a fordítási mappa tartalmazza az eredeti mappa összes fájljának fordítását.
 
@@ -53,7 +53,7 @@ Ha jártas vagy egy nem angol nyelvben, segíthetsz a tartalom fordításában. 
 
 A következetesség biztosítása érdekében az összes dokumentumban, kérjük, kövesd az alábbi irányelveket:
 
-- **URL-formázás**: Az összes URL-t zárójelbe tedd szögletes zárójelben, amit zárójelek követnek, extra szóközök nélkül körülöttük vagy bennük. Például: `[example](https://example.com)`.
+- **URL-formázás**: Az összes URL-t zárójelbe tedd szögletes zárójelben, amit zárójelek követnek, extra szóközök nélkül körülöttük vagy bennük. Például: `[example](https://www.microsoft.com)`.
 
 - **Relatív linkek**: Használj `./`-t a jelenlegi könyvtárban lévő fájlokra vagy mappákra mutató relatív linkekhez, és `../`-t a szülő könyvtárban lévőkre. Például: `[example](../../path/to/file)` vagy `[example](../../../path/to/file)`.
 

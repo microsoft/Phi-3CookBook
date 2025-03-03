@@ -38,15 +38,15 @@ Kun lähetät pull requestin (PR) Phi-3 CookBook -repositorioon, noudata seuraav
 Jos olet taitava jossain muussa kuin englannin kielessä, voit auttaa kääntämään sisältöä. Seuraa näitä ohjeita varmistaaksesi, että käännöksesi integroidaan oikein:
 
 - **Luo käännöskansio**: Siirry oikeaan osion kansioon ja luo käännöskansio kielelle, johon osallistut. Esimerkiksi:
-  - Johdanto-osio: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Nopea aloitus -osio: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Johdanto-osio: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Nopea aloitus -osio: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Jatka tätä kaavaa muille osioille (03.Inference, 04.Finetuning jne.)
 
 - **Päivitä suhteelliset polut**: Kääntäessäsi säädä kansiorakenne lisäämällä `../../` suhteellisten polkujen alkuun markdown-tiedostoissa varmistaaksesi, että linkit toimivat oikein. Esimerkiksi:
   - Muuta `(../../imgs/01/phi3aisafety.png)` muotoon `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Järjestä käännöksesi**: Jokainen käännetty tiedosto tulisi sijoittaa vastaavan osion käännöskansioon. Esimerkiksi, jos käännät johdanto-osion espanjaksi, loisit seuraavasti:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Lähetä täydellinen PR**: Varmista, että kaikki osion käännetyt tiedostot sisältyvät yhteen PR:ään. Emme hyväksy osittaisia käännöksiä yhdelle osiolle. Kun lähetät käännös-PR:n, varmista, että käännöskansio sisältää käännökset kaikille alkuperäisen kansion tiedostoille.
 
@@ -54,7 +54,7 @@ Jos olet taitava jossain muussa kuin englannin kielessä, voit auttaa kääntäm
 
 Yhdenmukaisuuden varmistamiseksi kaikissa dokumenteissa, käytä seuraavia ohjeita:
 
-- **URL-muotoilu**: Ympäröi kaikki URL-osoitteet hakasulkeilla, joita seuraavat sulut, ilman ylimääräisiä välilyöntejä niiden ympärillä tai sisällä. Esimerkiksi: `[example](https://example.com)`.
+- **URL-muotoilu**: Ympäröi kaikki URL-osoitteet hakasulkeilla, joita seuraavat sulut, ilman ylimääräisiä välilyöntejä niiden ympärillä tai sisällä. Esimerkiksi: `[example](https://www.microsoft.com)`.
 
 - **Suhteelliset linkit**: Käytä `./` suhteellisille linkeille, jotka osoittavat tiedostoihin tai kansioihin nykyisessä hakemistossa, ja `../` niille, jotka ovat ylemmässä hakemistossa. Esimerkiksi: `[example](../../path/to/file)` tai `[example](../../../path/to/file)`.
 

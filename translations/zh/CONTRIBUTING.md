@@ -38,15 +38,15 @@
 如果您精通某种非英语语言，您可以帮助翻译内容。请按照以下步骤确保您的翻译贡献被正确集成：
 
 - **创建翻译文件夹**：导航到适当的章节文件夹，并为您要贡献的语言创建一个翻译文件夹。例如：
-  - 对于介绍章节：`Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - 对于快速入门章节：`Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - 对于介绍章节：`PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - 对于快速入门章节：`PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - 其他章节（如 03.Inference、04.Finetuning 等）以此类推。
 
 - **更新相对路径**：翻译时，通过在 Markdown 文件中的相对路径前添加 `../../` 来调整文件夹结构，以确保链接正常工作。例如，进行如下更改：
   - 将 `(../../imgs/01/phi3aisafety.png)` 更改为 `(../../../../imgs/01/phi3aisafety.png)`
 
 - **组织翻译内容**：每个翻译文件应放置在相应章节的翻译文件夹中。例如，如果您将介绍章节翻译为西班牙语，您应创建如下内容：
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **提交完整的 PR**：确保某个章节的所有翻译文件都包含在一个 PR 中。我们不接受章节的部分翻译。提交翻译 PR 时，请确保翻译文件夹中包含原始文件夹中所有文件的翻译内容。
 
@@ -54,7 +54,7 @@
 
 为确保所有文档的一致性，请遵循以下指南：
 
-- **URL 格式**：将所有 URL 包裹在方括号后跟括号中，中间不留空格。例如：`[example](https://example.com)`。
+- **URL 格式**：将所有 URL 包裹在方括号后跟括号中，中间不留空格。例如：`[example](https://www.microsoft.com)`。
 
 - **相对链接**：对指向当前目录中文件或文件夹的相对链接使用 `./`，对指向父目录的链接使用 `../`。例如：`[example](../../path/to/file)` 或 `[example](../../../path/to/file)`。
 

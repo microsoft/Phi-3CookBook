@@ -37,15 +37,15 @@ Bij het indienen van een pull request (PR) naar de Phi-3 CookBook-repository, ge
 Als je vaardig bent in een niet-Engelse taal, kun je helpen met het vertalen van de inhoud. Volg deze stappen om ervoor te zorgen dat je vertaalbijdragen correct worden geïntegreerd. Gebruik de volgende richtlijnen:
 
 - **Maak een vertaalmap aan**: Navigeer naar de juiste sectiemap en maak een vertaalmap aan voor de taal waaraan je bijdraagt. Bijvoorbeeld:
-  - Voor de introductiesectie: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Voor de quick start-sectie: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Voor de introductiesectie: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Voor de quick start-sectie: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Ga door met dit patroon voor andere secties (03.Inference, 04.Finetuning, enz.).
 
 - **Pas relatieve paden aan**: Pas bij het vertalen de mapstructuur aan door `../../` toe te voegen aan het begin van relatieve paden binnen de markdown-bestanden, zodat links correct werken. Bijvoorbeeld, wijzig als volgt:
   - Wijzig `(../../imgs/01/phi3aisafety.png)` in `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organiseer je vertalingen**: Elk vertaald bestand moet worden geplaatst in de corresponderende sectiemap voor vertalingen. Bijvoorbeeld, als je de introductiesectie in het Spaans vertaalt, maak je de volgende structuur:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Dien een volledige PR in**: Zorg ervoor dat alle vertaalde bestanden voor een sectie in één PR worden opgenomen. We accepteren geen gedeeltelijke vertalingen voor een sectie. Zorg er bij het indienen van een vertaal-PR voor dat de vertaalmap vertalingen bevat voor alle bestanden in de originele map.
 
@@ -53,7 +53,7 @@ Als je vaardig bent in een niet-Engelse taal, kun je helpen met het vertalen van
 
 Om consistentie in alle documenten te waarborgen, gebruik de volgende richtlijnen:
 
-- **URL-opmaak**: Plaats alle URLs tussen vierkante haken gevolgd door haakjes, zonder extra spaties eromheen of erin. Bijvoorbeeld: `[example](https://example.com)`.
+- **URL-opmaak**: Plaats alle URLs tussen vierkante haken gevolgd door haakjes, zonder extra spaties eromheen of erin. Bijvoorbeeld: `[example](https://www.microsoft.com)`.
 
 - **Relatieve links**: Gebruik `./` voor relatieve links die verwijzen naar bestanden of mappen in de huidige directory, en `../` voor die in een bovenliggende directory. Bijvoorbeeld: `[example](../../path/to/file)` of `[example](../../../path/to/file)`.
 

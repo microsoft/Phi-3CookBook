@@ -37,15 +37,15 @@ Pri oddaji zahteve za združitev (PR) v repozitorij Phi-3 CookBook upoštevajte 
 Če ste vešči v neangleškem jeziku, lahko pomagate pri prevajanju vsebine. Za zagotovitev pravilne integracije vaših prevodov sledite tem korakom in smernicam:
 
 - **Ustvarite mapo za prevode**: Pojdite v ustrezno mapo oddelka in ustvarite mapo za prevode za jezik, v katerega prispevate. Na primer:
-  - Za uvodni oddelek: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Za oddelek hitrega začetka: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Za uvodni oddelek: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Za oddelek hitrega začetka: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Nadaljujte s tem vzorcem za druge oddelke (03.Inference, 04.Finetuning itd.)
 
 - **Posodobite relativne poti**: Pri prevajanju prilagodite strukturo mape z dodajanjem `../../` na začetek relativnih poti znotraj markdown datotek, da zagotovite pravilno delovanje povezav. Na primer, spremenite na naslednji način:
   - Spremenite `(../../imgs/01/phi3aisafety.png)` v `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Organizirajte svoje prevode**: Vsaka prevedena datoteka mora biti nameščena v ustrezni mapi za prevode oddelka. Na primer, če prevajate uvodni oddelek v španščino, ustvarite naslednje:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Oddajte celovit PR**: Poskrbite, da bodo vse prevedene datoteke za določen oddelek vključene v en PR. Ne sprejemamo delnih prevodov za oddelek. Pri oddaji prevoda v PR poskrbite, da mapa za prevode vključuje prevode vseh datotek v izvirni mapi.
 
@@ -53,7 +53,7 @@ Pri oddaji zahteve za združitev (PR) v repozitorij Phi-3 CookBook upoštevajte 
 
 Za zagotavljanje doslednosti med vsemi dokumenti uporabite naslednje smernice:
 
-- **Formatiranje URL-jev**: Vse URL-je zavijte v oglate oklepaje, ki jim sledijo okrogli oklepaji, brez dodatnih presledkov okoli ali znotraj njih. Na primer: `[example](https://example.com)`.
+- **Formatiranje URL-jev**: Vse URL-je zavijte v oglate oklepaje, ki jim sledijo okrogli oklepaji, brez dodatnih presledkov okoli ali znotraj njih. Na primer: `[example](https://www.microsoft.com)`.
 
 - **Relativne povezave**: Uporabite `./` za relativne povezave, ki kažejo na datoteke ali mape v trenutni mapi, in `../` za tiste v nadrejeni mapi. Na primer: `[example](../../path/to/file)` ali `[example](../../../path/to/file)`.
 

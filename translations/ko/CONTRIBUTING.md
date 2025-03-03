@@ -38,15 +38,15 @@ Phi-3 CookBook 저장소에 풀 리퀘스트(PR)를 제출할 때는 다음 가�
 영어 외의 언어에 능숙하다면 콘텐츠 번역에 도움을 줄 수 있습니다. 번역 기여를 적절히 통합하려면 다음 단계를 따르세요:
 
 - **번역 폴더 생성**: 적절한 섹션 폴더로 이동하여 기여하려는 언어에 대한 번역 폴더를 생성하세요. 예를 들어:
-  - 소개 섹션: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - 빠른 시작 섹션: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - 소개 섹션: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - 빠른 시작 섹션: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - 다른 섹션(03.Inference, 04.Finetuning 등)도 이 패턴을 따르세요.
 
 - **상대 경로 업데이트**: 번역 작업 중에는 마크다운 파일 내 상대 경로의 폴더 구조에 `../../`를 추가하여 링크가 올바르게 작동하도록 조정하세요. 예를 들어, 다음과 같이 변경하세요:
   - `(../../imgs/01/phi3aisafety.png)`를 `(../../../../imgs/01/phi3aisafety.png)`로 변경
 
 - **번역 파일 정리**: 번역된 각 파일은 해당 섹션의 번역 폴더에 배치되어야 합니다. 예를 들어, 소개 섹션을 스페인어로 번역하는 경우 다음과 같이 생성하세요:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **완전한 PR 제출**: 섹션의 모든 번역 파일이 포함된 PR을 제출하세요. 섹션에 대한 부분 번역은 수락하지 않습니다. 번역 PR을 제출할 때는 번역 폴더에 원본 폴더의 모든 파일 번역이 포함되어 있는지 확인하세요.
 
@@ -54,7 +54,7 @@ Phi-3 CookBook 저장소에 풀 리퀘스트(PR)를 제출할 때는 다음 가�
 
 모든 문서에서 일관성을 유지하려면 다음 가이드라인을 따르세요:
 
-- **URL 형식**: 모든 URL은 대괄호로 감싼 후 괄호로 묶어 여분의 공백 없이 작성하세요. 예: `[example](https://example.com)`.
+- **URL 형식**: 모든 URL은 대괄호로 감싼 후 괄호로 묶어 여분의 공백 없이 작성하세요. 예: `[example](https://www.microsoft.com)`.
 
 - **상대 링크**: 현재 디렉터리의 파일이나 폴더를 가리키는 상대 링크에는 `./`를 사용하고, 상위 디렉터리의 경우 `../`를 사용하세요. 예: `[example](../../path/to/file)` 또는 `[example](../../../path/to/file)`.
 

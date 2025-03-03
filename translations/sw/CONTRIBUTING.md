@@ -38,15 +38,15 @@ Unapowasilisha ombi la kuvuta (PR) kwenye hazina ya Phi-3 CookBook, tafadhali fu
 Ikiwa unafahamu lugha isiyo ya Kiingereza, unaweza kusaidia kutafsiri maudhui. Fuata hatua hizi kuhakikisha michango yako ya tafsiri imeunganishwa ipasavyo, tafadhali tumia miongozo ifuatayo:
 
 - **Unda folda ya tafsiri**: Nenda kwenye folda ya sehemu husika na uunde folda ya tafsiri kwa lugha unayochangia. Kwa mfano:
-  - Kwa sehemu ya utangulizi: `Phi-3CookBook/md/01.Introduce/translations/<language_code>/`
-  - Kwa sehemu ya kuanza haraka: `Phi-3CookBook/md/02.QuickStart/translations/<language_code>/`
+  - Kwa sehemu ya utangulizi: `PhiCookBook/md/01.Introduce/translations/<language_code>/`
+  - Kwa sehemu ya kuanza haraka: `PhiCookBook/md/02.QuickStart/translations/<language_code>/`
   - Endelea na muundo huu kwa sehemu nyingine (03.Inference, 04.Finetuning, nk.)
 
 - **Sasisha njia za jamaa**: Unapofanya tafsiri, rekebisha muundo wa folda kwa kuongeza `../../` mwanzoni mwa njia za jamaa ndani ya faili za markdown ili kuhakikisha viungo vinafanya kazi ipasavyo. Kwa mfano, badilisha kama ifuatavyo:
   - Badilisha `(../../imgs/01/phi3aisafety.png)` kuwa `(../../../../imgs/01/phi3aisafety.png)`
 
 - **Panga tafsiri zako**: Kila faili iliyotafsiriwa inapaswa kuwekwa katika folda ya tafsiri ya sehemu husika. Kwa mfano, ikiwa unatafsiri sehemu ya utangulizi kwa Kihispania, ungeunda kama ifuatavyo:
-  - `Phi-3CookBook/md/01.Introduce/translations/es/`
+  - `PhiCookBook/md/01.Introduce/translations/es/`
 
 - **Wasilisha PR kamili**: Hakikisha faili zote zilizotafsiriwa kwa sehemu moja zimejumuishwa katika PR moja. Hatukubali tafsiri za sehemu kwa sehemu. Unapowasilisha PR ya tafsiri, hakikisha kwamba folda ya tafsiri inajumuisha tafsiri za faili zote katika folda ya asili.
 
@@ -54,7 +54,7 @@ Ikiwa unafahamu lugha isiyo ya Kiingereza, unaweza kusaidia kutafsiri maudhui. F
 
 Ili kuhakikisha uthabiti katika nyaraka zote, tafadhali tumia miongozo ifuatayo:
 
-- **Muundo wa URL**: Weka URL zote kwenye mabano ya mraba ikifuatiwa na mabano ya kawaida, bila nafasi za ziada ndani au nje. Kwa mfano: `[example](https://example.com)`.
+- **Muundo wa URL**: Weka URL zote kwenye mabano ya mraba ikifuatiwa na mabano ya kawaida, bila nafasi za ziada ndani au nje. Kwa mfano: `[example](https://www.microsoft.com)`.
 
 - **Viungo vya jamaa**: Tumia `./` kwa viungo vya jamaa vinavyoelekeza kwenye faili au folda katika saraka ya sasa, na `../` kwa zile zilizo kwenye saraka ya mzazi. Kwa mfano: `[example](../../path/to/file)` au `[example](../../../path/to/file)`.
 
