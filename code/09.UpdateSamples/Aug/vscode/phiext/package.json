@@ -12,37 +12,37 @@
   ],
   "activationEvents": [],
   "enabledApiProposals": [
-      "chatVariableResolver"
+    "chatVariableResolver"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "chatParticipants": [
-        {
-            "id": "chat.phicoding",
-            "name": "phicoding",
-            "description": "Hey! I am Microsoft Phi-3.5, She can help me with coding problems, such as generation code with your natural language, or even generation code about chart from images. Just ask me anything!",
-            "isSticky": true,
-            "commands": [
-                {
-                    "name": "help",
-                    "description": "Introduce myself to you"
-                },
-                {
-                    "name": "gen",
-                    "description": "Generate code for you with Microsoft Phi-3.5-mini-instruct"
-                },
-                {
-                    "name": "image",
-                    "description": "Generate code for chart from image(png or jpg) with Microsoft Phi-3.5-vision-instruct, please add image url like this : https://ajaytech.co/wp-content/uploads/2019/09/index.png"
-                }
-            ]
-        }
+      {
+        "id": "chat.phicoding",
+        "name": "phicoding",
+        "description": "Hey! I am Microsoft Phi-3.5, She can help me with coding problems, such as generation code with your natural language, or even generation code about chart from images. Just ask me anything!",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "help",
+            "description": "Introduce myself to you"
+          },
+          {
+            "name": "gen",
+            "description": "Generate code for you with Microsoft Phi-3.5-mini-instruct"
+          },
+          {
+            "name": "image",
+            "description": "Generate code for chart from image(png or jpg) with Microsoft Phi-3.5-vision-instruct, please add image url like this : https://ajaytech.co/wp-content/uploads/2019/09/index.png"
+          }
+        ]
+      }
     ],
     "commands": [
-        {
-            "command": "phicoding.namesInEditor",
-            "title": "Use Microsoft Phi 3.5 in Editor"
-        }
+      {
+        "command": "phicoding.namesInEditor",
+        "title": "Use Microsoft Phi 3.5 in Editor"
+      }
     ],
     "configuration": {
       "type": "object",
@@ -87,24 +87,25 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.93.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "eslint": "^9.9.1",
-    "typescript": "^5.5.4",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.9.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.6.11",
-    "node-fetch": "^3.3.2",
     "@azure-rest/ai-inference": "latest",
     "@azure/core-auth": "latest",
-    "@azure/core-sse": "latest"
+    "@azure/core-sse": "latest",
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^3.3.2",
+    "phiext": "file:"
   }
 }
