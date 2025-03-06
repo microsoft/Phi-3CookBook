@@ -1,5 +1,5 @@
 olive-ai==0.7.1
-transformers==4.44.2
+transformers==4.48.0
 autoawq==0.2.6
 optimum==1.23.1
 peft==0.13.2
