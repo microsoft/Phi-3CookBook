@@ -426,6 +426,8 @@ The UI consists of three main components that work together to create a basic ch
 
 We are now ready to build and run the application.
 
+> **Important!** MLX does not support the simulator. You must run the app on a physical device with an Apple Silicon chip. See [here](https://swiftpackageindex.com/ml-explore/mlx-swift/main/documentation/mlx/running-on-ios#Developing-for-iOS) for more information.
+
 When the app launches, tap the "Load model" button to download and initialize the Phi-3 (or, depending on your configuration, Phi-4) model. This process may take some time depending on your internet connection, as it involves downloading the model from Hugging Face. Our implementation includes only a spinner to indicate loading, but you can see the actual progress in the Xcode console.
 
 Once loaded, you can interact with the model by typing questions in the text field and tapping the send button.
